@@ -152,7 +152,6 @@ footer {
 .subtitle {
 	font-weight: 600;
     opacity: .5;
-    padding: 0;
 }
 
 .clear {
@@ -183,6 +182,14 @@ footer {
 
 .flow section:nth-child(odd) {
 	margin-right: 15px;
+}
+
+#school {
+	display: inline-block;
+	position: absolute;
+    margin-left: 347px;
+	margin-top: -83px;
+    padding: 0;
 }
 
 #more {
