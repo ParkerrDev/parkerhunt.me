@@ -1,7 +1,11 @@
 # parkerhunt.me
 My personal website. Built on Rust.
 
-![image](https://github.com/ParkerrDev/parkerhunt.me/assets/114211845/d14ad843-d943-4b8c-bfcf-a3ddd07fb1b8)
+<p align="center">
+  <a href="https://parkerhunt.me alt="Link to my website!" target="_blank">
+    <img src="./Screenshot.png" width="50%"/>
+  </a>
+</p>
 
 ## About
 Built using [Zola](https://www.getzola.org/) a static site engine, which allows me to create basic static pages using HTML and SCSS, while organizing and streamling the proccess of creating blog posts as markdown (.MD) files.
