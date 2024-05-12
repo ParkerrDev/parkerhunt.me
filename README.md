@@ -1,2 +1,2 @@
 # parkerhunt.me
-My personal website. Written in Rust.
+My personal website. Built on Rust.
