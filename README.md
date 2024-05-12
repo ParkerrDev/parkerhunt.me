@@ -12,5 +12,4 @@ You can view the site in action [here](https://parkerhunt.me).
 - Be rust based. - Zola is rust based, so it works out. (Although no Rust code is actually neccesary for the site, because Zola handles everything.)
 - Static Site Generation - I wanted static site generation, so that I dont need to worry about managing a database, and only need to create .MD files for managing blog posts. This allows allows the site to be extremely fast, lightweight and performant with little overhead.
 - Markdown Blog Posts - Zola was a no brainer for this.
-
-![Uploading image.png…]()
+- RSS Feed. (I intend to implement this, but have yet to look into it.)
