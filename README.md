@@ -2,7 +2,7 @@
 My personal website. Built on Rust.
 
 <p align="center">
-  <a href="https://parkerhunt.me alt="Link to my website!" target="_blank">
+  <a href="https://parkerhunt.me" alt="Link to my website!" target="_blank">
     <img src="./Screenshot.png" width="50%"/>
   </a>
 </p>
