@@ -1,6 +1,6 @@
 +++
-title = "List of blog posts"
+title = "Blog posts"
 sort_by = "date"
-template = "blog.html"
+template = "blogs.html"
 page_template = "blog-page.html"
 +++
