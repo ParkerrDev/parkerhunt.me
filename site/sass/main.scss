@@ -4,7 +4,7 @@
 	position: relative;
 	margin: 0;
 	padding: 0;
-	font-family: system-ui, 'SF Pro Text', 'SF UI Text', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF UI Text',  Arial, sans-serif;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
@@ -53,7 +53,8 @@ body.letterhead hr {
 
 a {
     text-decoration: none;
-	color: rgb(0, 136, 255);
+	// color: rgb(0, 136, 255);
+	color: rgb(0, 113, 255);
 	border-radius: 10px;
 	padding: 10px 15px;
 	margin: -10px -15px;
@@ -62,7 +63,8 @@ a {
 
 a:hover {
 	color: #fff;
-	background: rgb(0, 136, 255);
+	// background: rgb(0, 136, 255);
+	background: rgb(0, 113, 255);
 }
 
 a.back {
@@ -73,7 +75,8 @@ a.back {
 	font-weight: 600;
 	padding: 0px 17px 0px 15px;
 	border-radius: 21px;
-	color: #08f;
+	// color: rgb(0, 136, 255);
+	color: rgb(0, 113, 255);
 	  /*#f6f6f6;*/
 	background: rgba(0, 0, 0, 0);
 	opacity: .64;
@@ -82,7 +85,8 @@ a.back {
 }
 
 a.back:hover {
-	background: #08f;
+	// background: #08f;
+	background: rgb(0, 113, 255);
 	color: white;
 	opacity: 1;
 }
