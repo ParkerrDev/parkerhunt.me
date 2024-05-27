@@ -65,6 +65,8 @@ a {
 a:hover {
     color: #fff;
     background: rgb(0, 113, 255);
+    padding: 10px 20px 10px 20px;
+    transition: all 0.2s;
 }
 
 a.back {
@@ -73,7 +75,7 @@ a.back {
     left: -15px;
     line-height: 42px;
     font-weight: 600;
-    padding: 0px 17px 0px 15px;
+    padding: 0px 15px 0px 15px;
     border-radius: 21px;
     color: rgb(0, 113, 255);
     background: rgba(0, 0, 0, 0);
@@ -119,8 +121,8 @@ header p {
 
 section, nav, footer {
     display: block;
-    margin: 48px 0 0;
-    padding: 0 20px;
+    margin: 10px 0 0;
+    padding: 0 30px;
 }
 
 section ul li a, nav ul li a, footer ul li a {
@@ -166,42 +168,16 @@ img {
 
 .header-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  /* Stack children vertically */
 }
 
 .title-and-image {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center;  /* Align items vertically in the center */
 }
 
-.header-container h1 {
-    margin: 0;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.card {
-    background: white;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px 2px;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-#more ul li {
-    display: block;
-    margin-bottom: 10px;
-}
-
-#more ul li a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.title-and-image > div {
+    flex: 1;  /* Allow the text to take as much space as possible */
 }
 
 #memoji {
@@ -211,26 +187,58 @@ img {
     border-width: 1px;
     border-style: solid;
     border-radius: 50%;
-    display: inline-block;
-    vertical-align: bottom;
-    margin-left: 450px;
-    position: absolute;
+    margin-left: 20px;
+    width: 125px;  /* Adjust width as needed */
+    height: 125px;  /* Adjust height as needed */
     overflow: hidden;
-    background-repeat: no-repeat;
-    box-sizing: border-box;
-    unicode-bidi: isolate;
-    width: 125px;
-    height: 125px;
 }
 
 #memoji img {
-    width: 100%;
-    height: auto;
+    width: 100%;  /* Ensure the image fills the picture element */
+    height: auto;  /* Maintain aspect ratio */
 }
 
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1 1 calc(50% - 20px);  /* Grow and shrink as needed */
+}
+
+#more ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#more ul li {
+    flex: 1;
+    text-align: center;
+}
+
+#apps ul {
+    display: flex;
+    justify-content: space-around;
+}
+#apps ul li {
+    flex: 1;
+    padding-left: 20px;
+    // text-align: center;
+}
+
+/* Responsive adjustments */
 @media screen and (max-width: 1023px) {
-    a.back {
-        left: 0;
+    .card {
+        flex: 1 1 100%;
     }
 }
 
@@ -239,7 +247,13 @@ img {
         margin: 120px auto;
     }
 
-    .grid-container {
-        grid-template-columns: 1fr;
+    .title-and-image {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #memoji {
+        margin: 20px 0 0;
     }
 }
