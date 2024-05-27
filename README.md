@@ -1,5 +1,5 @@
 # parkerhunt.me
-My personal website. Built on Rust.
+My personal website.
 
 <p align="center">
   <a href="https://parkerhunt.me" alt="Link to my website!" target="_blank">
