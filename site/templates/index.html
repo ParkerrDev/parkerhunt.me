@@ -1,50 +1,142 @@
 {% extends "base.html" %}
 {% block content %}
-<body>
-	<header>
-		<div class="title-and-image">
-			<h1>Andrew Parker Hunt</h1> 
-			<picture id="memoji"><img decoding="async" loading="lazy" alt="Hi it's me!" src="/images/memoji.PNG"></picture>
-		</div>
-		<p>Software developer in Clovis, California</p>
-	</header>
-	<hr>
+<header>
+    <div class="title-and-image">
+        <h1>Andrew Parker Hunt</h1> 
+        <picture id="memoji">
+            <img decoding="async" loading="lazy" alt="Hi it's me!" src="/images/memoji.PNG" onclick="handleClick()">
+        </picture>
+    </div>
+    <p id="description">Software developer in Clovis, California</p>
+</header>
+<hr>
 
-	<nav>
-		<ul>
-			<li><a href="/about">About</a></li>
-			<li><a href="/blog">Blog</a></li>
-			<li><a href="/resume">Resume</a></li>
-		</ul>
-	</nav>
+<nav>
+    <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/resume">Resume</a></li>
+    </ul>
+</nav>
 	
-	<section id="currently">
-		<h3>Job</h3>
-		<p>Unemployed</p>
-	</section>
+<section id="currently">
+    <h3>Job</h3>
+    <p>Unemployed</p>
+</section>
 
-	<section id="school">
-		<h3>School</h3>
-		<p>Buchanan High School</p>
-	</section>
+<section id="school">
+    <h3>School</h3>
+    <p>Buchanan High School</p>
+</section>
 	
-	<div class="flow">
-		<section id="apps">
-			<h3>Projects</h3>
-			<ul>
-				<li><a href="https://github.com/frc1671/QRScanner">FRC QRScanner</a></li>
-			</ul>
-		</section>
+<div class="flow">
+    <section id="apps">
+        <h3>Projects</h3>
+        <ul>
+            <li><a href="https://github.com/frc1671/QRScanner">FRC QRScanner</a></li>
+        </ul>
+    </section>
 		
-		<section id="more">
-			<h3>Links</h3>
-			<ul>
-				<li><a href="https://github.com/ParkerrDev"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li>
-				<li><a href="https://x.com/AndrewParkrr"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></path></svg></a></li>
-				<li><a href="https://venmo.com/u/andrewparkrr"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg></a></li>
-			</ul>
-		</section>
-	</div>
-</body>
-</html>
+    <section id="more">
+        <h3>Links</h3>
+        <ul>
+            <li><a href="https://github.com/ParkerrDev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg></a></li>
+            <li><a href="https://x.com/AndrewParkrr">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                </svg></a></li>
+            <li><a href="https://venmo.com/u/andrewparkrr">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg></a></li>
+        </ul>
+    </section>
+</div>
+
+<script>
+let clickCount = 0;
+
+function handleClick() {
+    clickCount += 1;
+    const img = document.getElementById('memoji').querySelector('img');
+    const default_images = ['/images/memoji.PNG', '/images/freshman-photo.jpg', '/images/😷.jpg'];
+    
+	if (clickCount < 16)  {
+    	img.src = default_images[clickCount % default_images.length];
+	}
+
+    if (clickCount >= 16 && clickCount < 1000) {
+        document.getElementById('description').textContent = clickCount;
+
+        const contrastIncrease = 0.5 * (clickCount - 10);
+        const brightnessIncrease = 0.5 * (clickCount - 10);
+        const saturateIncrease = 0.5 * (clickCount - 10);
+
+        img.style.filter = 
+            `contrast(${100 + contrastIncrease}%) brightness(${100 + brightnessIncrease}%) saturate(${100 + saturateIncrease}%)`;
+    }
+
+    switch (clickCount) {
+        case 16:
+            img.src = '/images/🤔.png';
+            break;
+        case 40:
+            window.open("https://www.youtube.com/watch?v=uGvS0s0l2K4", '_blank');
+            break;
+        case 33:
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank');
+            break;
+        case 69:
+            window.open("https://www.youtube.com/watch?v=-NuX79Ud8zI", '_blank');
+            document.getElementById('description').textContent = '69';
+            break;
+        case 200:
+            img.src = '/images/👹.png';
+            break;
+        case 300:
+            img.src = '/images/🤔.png';
+            break;
+        case 404:
+            img.src = '/images/child.png';
+            break;
+        case 420:
+            window.open("https://www.youtube.com/watch?v=e88KUtpM9s8", '_blank');
+            break;
+        case 421:
+            document.getElementById('description').textContent = `${clickCount} dude stop you're going to break your fingers...`;
+            break;
+        case 450:
+            document.getElementById('description').textContent = `${clickCount} whatever bro...`;
+            break;
+        case 550:
+            document.getElementById('description').textContent = clickCount;
+            break;
+        case (888-222):
+            document.getElementById('description').textContent = 'I\'m not going to display this number...';
+            break;
+        case 800:
+            img.style.filter = `contrast(100%) brightness(100%) saturate(100%)`;
+            img.src = '/images/🍪.png';
+            document.getElementById('description').textContent = `${clickCount} at this point you're better off playing cookie clicker...`;
+            break;
+        case 1000:
+            img.src = '/images/chad.png';
+            document.getElementById('description').textContent = `${clickCount} absolute chad...`;
+
+            const contrastIncrease = 0.5 * (clickCount - 1000);
+            const brightnessIncrease = 0.5 * (clickCount - 1000);
+            const saturateIncrease = 0.5 * (clickCount - 1000);
+
+            img.style.filter = `contrast(${100 + contrastIncrease}%) brightness(${100 + brightnessIncrease}%) saturate(${100 + saturateIncrease}%)`;
+            break;
+    }
+}
+</script>
 {% endblock %}
