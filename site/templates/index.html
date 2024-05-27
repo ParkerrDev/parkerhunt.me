@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
+
+<!-- Preload images for faster display -->
+<div style="display: none;">
+    <img decoding="async" loading="faster" src="/images/memoji.PNG">
+    <img decoding="async" loading="faster" src="/images/freshman-photo.jpg">
+    <img decoding="async" loading="faster" src="/images/😷.jpg">
+    <img decoding="async" loading="faster" src="/images/🤔.png">
+    <img decoding="async" loading="faster" src="/images/👹.png">
+    <img decoding="async" loading="faster" src="/images/child.png">
+    <img decoding="async" loading="faster" src="/images/🍪.png">
+    <img decoding="async" loading="faster" src="/images/chad.png">
+</div>
+
 <header>
     <div class="title-and-image">
         <h1>Andrew Parker Hunt</h1> 
@@ -18,26 +31,27 @@
         <li><a href="/resume">Resume</a></li>
     </ul>
 </nav>
-	
-<section id="currently">
-    <h3>Job</h3>
-    <p>Unemployed</p>
-</section>
 
-<section id="school">
-    <h3>School</h3>
-    <p>Buchanan High School</p>
-</section>
-	
-<div class="flow">
-    <section id="apps">
+<!-- Use CSS Grid for layout -->
+<div class="grid-container">
+    <section id="currently" class="card">
+        <h3>Job</h3>
+        <p>Unemployed</p>
+    </section>
+
+    <section id="school" class="card">
+        <h3>School</h3>
+        <p>Buchanan High School</p>
+    </section>
+
+    <section id="apps" class="card">
         <h3>Projects</h3>
         <ul>
             <li><a href="https://github.com/frc1671/QRScanner">FRC QRScanner</a></li>
         </ul>
     </section>
-		
-    <section id="more">
+
+    <section id="more" class="card">
         <h3>Links</h3>
         <ul>
             <li><a href="https://github.com/ParkerrDev">
@@ -60,83 +74,98 @@
     </section>
 </div>
 
+
 <script>
-let clickCount = 0;
-
-function handleClick() {
-    clickCount += 1;
-    const img = document.getElementById('memoji').querySelector('img');
-    const default_images = ['/images/memoji.PNG', '/images/freshman-photo.jpg', '/images/😷.jpg'];
-    
-	if (clickCount < 16)  {
-    	img.src = default_images[clickCount % default_images.length];
+	let clickCount = 0;
+	const defaultImages = [
+		'/images/😷.jpg',
+		'/images/freshman-photo.jpg',
+		'/images/memoji.PNG'
+	];
+	const specialImages = {
+		16: '/images/🤔.png',
+		200: '/images/👹.png',
+		300: '/images/🤔.png',
+		404: '/images/child.png',
+		800: '/images/🍪.png',
+		1000: '/images/chad.png'
+	};
+	
+	function handleClick() {
+		clickCount += 1;
+		const img = document.getElementById('memoji').querySelector('img');
+		
+		if (clickCount < 16)  {
+			img.src = defaultImages[clickCount % defaultImages.length];
+		} else if (clickCount >= 16 && clickCount < 1000) {
+			document.getElementById('description').textContent = clickCount;
+	
+			const contrastIncrease = 0.5 * (clickCount - 10);
+			const brightnessIncrease = 0.5 * (clickCount - 10);
+			const saturateIncrease = 0.5 * (clickCount - 10);
+	
+			img.style.filter = `contrast(${100 + contrastIncrease}%) brightness(${100 + brightnessIncrease}%) saturate(${100 + saturateIncrease}%)`;
+		}
+		
+		if (specialImages[clickCount]) {
+			img.src = specialImages[clickCount];
+		}
+	
+		switch (clickCount) {
+			case 40:
+				window.open("https://www.youtube.com/watch?v=uGvS0s0l2K4", '_blank');
+				break;
+			case 33:
+				window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank');
+				break;
+			case 69:
+				window.open("https://www.youtube.com/watch?v=-NuX79Ud8zI", '_blank');
+				document.getElementById('description').textContent = '69';
+				break;
+			case 420:
+				window.open("https://www.youtube.com/watch?v=o92aWy_YKQE", '_blank');
+				break;
+			case 421:
+				document.getElementById('description').textContent = `${clickCount} dude stop you're going to break your fingers...`;
+				break;
+			case 450:
+				document.getElementById('description').textContent = `${clickCount} whatever bro...`;
+				break;
+			case 550:
+				document.getElementById('description').textContent = clickCount;
+				break;
+			case 666:
+				document.getElementById('description').textContent = 'I\'m not going to display this number...';
+				break;
+			case 800:
+				img.style.filter = `contrast(100%) brightness(100%) saturate(100%)`;
+				img.src = specialImages[800];
+				document.getElementById('description').textContent = `${clickCount} at this point you're better off playing cookie clicker...`;
+				break;
+			case 911:
+				document.getElementById('description').textContent = `9/11 never forget 🫡`;
+				window.open("https://www.youtube.com/watch?v=St7ny38gLp4", '_blank');
+				break;
+			case 1000:
+				img.src = specialImages[1000];
+				document.getElementById('description').textContent = `${clickCount} absolute chad...`;
+	
+				const contrastIncrease = 0.5 * (clickCount - 1000);
+				const brightnessIncrease = 0.5 * (clickCount - 1000);
+				const saturateIncrease = 0.5 * (clickCount - 1000);
+	
+				img.style.filter = `contrast(${100 + contrastIncrease}%) brightness(${100 + brightnessIncrease}%) saturate(${100 + saturateIncrease}%)`;
+				break;
+		}
 	}
-
-    if (clickCount >= 16 && clickCount < 1000) {
-        document.getElementById('description').textContent = clickCount;
-
-        const contrastIncrease = 0.5 * (clickCount - 10);
-        const brightnessIncrease = 0.5 * (clickCount - 10);
-        const saturateIncrease = 0.5 * (clickCount - 10);
-
-        img.style.filter = 
-            `contrast(${100 + contrastIncrease}%) brightness(${100 + brightnessIncrease}%) saturate(${100 + saturateIncrease}%)`;
-    }
-
-    switch (clickCount) {
-        case 16:
-            img.src = '/images/🤔.png';
-            break;
-        case 40:
-            window.open("https://www.youtube.com/watch?v=uGvS0s0l2K4", '_blank');
-            break;
-        case 33:
-            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank');
-            break;
-        case 69:
-            window.open("https://www.youtube.com/watch?v=-NuX79Ud8zI", '_blank');
-            document.getElementById('description').textContent = '69';
-            break;
-        case 200:
-            img.src = '/images/👹.png';
-            break;
-        case 300:
-            img.src = '/images/🤔.png';
-            break;
-        case 404:
-            img.src = '/images/child.png';
-            break;
-        case 420:
-            window.open("https://www.youtube.com/watch?v=e88KUtpM9s8", '_blank');
-            break;
-        case 421:
-            document.getElementById('description').textContent = `${clickCount} dude stop you're going to break your fingers...`;
-            break;
-        case 450:
-            document.getElementById('description').textContent = `${clickCount} whatever bro...`;
-            break;
-        case 550:
-            document.getElementById('description').textContent = clickCount;
-            break;
-        case (888-222):
-            document.getElementById('description').textContent = 'I\'m not going to display this number...';
-            break;
-        case 800:
-            img.style.filter = `contrast(100%) brightness(100%) saturate(100%)`;
-            img.src = '/images/🍪.png';
-            document.getElementById('description').textContent = `${clickCount} at this point you're better off playing cookie clicker...`;
-            break;
-        case 1000:
-            img.src = '/images/chad.png';
-            document.getElementById('description').textContent = `${clickCount} absolute chad...`;
-
-            const contrastIncrease = 0.5 * (clickCount - 1000);
-            const brightnessIncrease = 0.5 * (clickCount - 1000);
-            const saturateIncrease = 0.5 * (clickCount - 1000);
-
-            img.style.filter = `contrast(${100 + contrastIncrease}%) brightness(${100 + brightnessIncrease}%) saturate(${100 + saturateIncrease}%)`;
-            break;
-    }
-}
+	
+	window.onload = function() {
+		const img = document.getElementById('memoji').querySelector('img');
+		img.style.width = '100%';
+		img.style.height = '100%';
+		img.style.objectFit = 'cover';
+		img.style.transition = 'filter 0.3s ease, width 0.3s ease, height 0.3s ease';
+	}
 </script>
+
 {% endblock %}
