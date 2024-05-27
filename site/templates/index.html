@@ -3,16 +3,20 @@
 
 <!-- Preload images for faster display -->
 <div style="display: none;">
-    <img decoding="async" loading="faster" src="/images/memoji.PNG">
-    <img decoding="async" loading="faster" src="/images/freshman-photo.jpg">
-    <img decoding="async" loading="faster" src="/images/😷.jpg">
-    <img decoding="async" loading="faster" src="/images/🤔.png">
-    <img decoding="async" loading="faster" src="/images/👹.png">
-    <img decoding="async" loading="faster" src="/images/child.png">
-    <img decoding="async" loading="faster" src="/images/🍪.png">
-    <img decoding="async" loading="faster" src="/images/chad.png">
-</div>
+    <img decoding="async" loading="eager" src="/images/memoji.PNG">
+    <img decoding="async" loading="eager" src="/images/🙂.jpg">
+    <img decoding="async" loading="eager" src="/images/😷.jpg">
+    <img decoding="async" loading="lazy" src="/images/🤔.jpg">
 
+	
+    <!-- Dont need to be preloaded but leaving here just in case
+		
+	<img decoding="async" loading="lazy" src="/images/😮.png">
+	<img decoding="async" loading="lazy" src="/images/🤡.png">
+    <img decoding="async" loading="lazy" src="/images/👶.png">
+    <img decoding="async" loading="lazy" src="/images/🍪.png">
+    <img decoding="async" loading="lazy" src="/images/🧔.png"> -->
+</div>
 <header class="header-container">
     <div class="title-and-image">
         <div>
@@ -79,17 +83,17 @@
 <script>
 	let clickCount = 0;
 	const defaultImages = [
+		'/images/memoji.PNG',
 		'/images/😷.jpg',
-		'/images/freshman-photo.jpg',
-		'/images/memoji.PNG'
+		'/images/🙂.jpg',
 	];
 	const specialImages = {
-		16: '/images/🤔.png',
-		200: '/images/👹.png',
-		300: '/images/🤔.png',
-		404: '/images/child.png',
-		800: '/images/🍪.png',
-		1000: '/images/chad.png'
+		16: '/images/🤔.jpg',
+		200: '/images/😮.jpg',
+		300: '/images/🤡.jpg',
+		404: '/images/👶.jpg',
+		800: '/images/🍪.jpg',
+		1000: '/images/🧔.jpg'
 	};
 	
 	function handleClick() {
@@ -120,8 +124,7 @@
 				window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank');
 				break;
 			case 69:
-				window.open("https://www.youtube.com/watch?v=-NuX79Ud8zI", '_blank');
-				document.getElementById('description').textContent = '69';
+				window.open("https://www.youtube.com/watch?v=SiAk2Q4a0lA", '_blank');
 				break;
 			case 420:
 				window.open("https://www.youtube.com/watch?v=o92aWy_YKQE", '_blank');
@@ -149,7 +152,7 @@
 				break;
 			case 1000:
 				img.src = specialImages[1000];
-				document.getElementById('description').textContent = `${clickCount} absolute chad...`;
+				document.getElementById('description').textContent = `${clickCount} absolute 🧔...`;
 	
 				const contrastIncrease = 0.5 * (clickCount - 1000);
 				const brightnessIncrease = 0.5 * (clickCount - 1000);
