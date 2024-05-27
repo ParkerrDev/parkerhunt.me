@@ -3,7 +3,7 @@ My personal website.
 
 <p align="center">
   <a href="https://parkerhunt.me" alt="Link to my website!" target="_blank">
-    <img src="./Screenshot.png" width="50%"/>
+    <img src="./Screenshot.png" width="50%" width="75%"/>
   </a>
 </p>
 
