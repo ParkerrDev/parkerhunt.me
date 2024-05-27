@@ -13,14 +13,16 @@
     <img decoding="async" loading="faster" src="/images/chad.png">
 </div>
 
-<header>
+<header class="header-container">
     <div class="title-and-image">
-        <h1>Andrew Parker Hunt</h1> 
+        <div>
+            <h1>Andrew Parker Hunt</h1> 
+            <p id="description">Software developer in Clovis, California</p>
+        </div>
         <picture id="memoji">
             <img decoding="async" loading="lazy" alt="Hi it's me!" src="/images/memoji.PNG" onclick="handleClick()">
         </picture>
     </div>
-    <p id="description">Software developer in Clovis, California</p>
 </header>
 <hr>
 
@@ -32,8 +34,8 @@
     </ul>
 </nav>
 
-<!-- Use CSS Grid for layout -->
-<div class="grid-container">
+<!-- Use Flexbox for layout -->
+<div class="card-container">
     <section id="currently" class="card">
         <h3>Job</h3>
         <p>Unemployed</p>
@@ -73,7 +75,6 @@
         </ul>
     </section>
 </div>
-
 
 <script>
 	let clickCount = 0;
