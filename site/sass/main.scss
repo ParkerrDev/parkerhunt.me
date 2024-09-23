@@ -163,11 +163,27 @@ footer {
     justify-content: center;
     border-top: 1px solid rgb(115, 115, 115);
     padding: 1em;
+    
+    margin-left: auto;
+    margin-right: auto;
+  
+    @media screen and (max-width: 480px) {
+      width: 95%; 
+    }
 }
 
 img { 
     image-rendering: crisp-edges;
 }
+
+hr {
+    margin-left: auto;
+    margin-right: auto;
+  
+    @media screen and (max-width: 480px) {
+      width: 95%; 
+    }
+  }
 
 .subtitle {
     font-weight: 600;
@@ -264,7 +280,8 @@ img {
 
 @media screen and (max-width: 520px) {
     body {
-        margin: 120px auto;
+        margin: 50px auto;
+        padding-top: 0px;
     }
 
     .title-and-image {
