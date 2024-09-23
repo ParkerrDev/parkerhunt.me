@@ -1,12 +1,10 @@
-{% extends "base.html" %}
+{% extends "alt-base.html" %}
 {% block content %}
 
-<header>
-  <h1 class="title">{{ page.title }}</h1>
-  <p class="subtitle"><strong>{{ page.date }}</strong></p>
-</header>
-
 <body>
-    <p>Hello World. This site is still under development. So this section has not been written yet.</p>
+<h1 class="title">Andrew Parker Hunt</h1>
+<p class="subtitle"><strong>Last Updated {{ page.date }}</strong></p>
+{{ page.content | safe }}
 </body>
+
 {% endblock content %}
