@@ -3,9 +3,10 @@
 
 <!-- Preload images for faster display -->
 <div style="display: none;">
-    <img decoding="async" loading="eager" src="/images/memoji.PNG">
+    <img decoding="async" loading="eager" src="/images/memoji.png">
+    <img decoding="async" loading="eager" src="/images/bitmoji-3d.png">
     <img decoding="async" loading="eager" src="/images/🙂.jpg">
-    <img decoding="async" loading="eager" src="/images/😷.jpg">
+    <!-- <img decoding="async" loading="eager" src="/images/😷.jpg"> -->
     <img decoding="async" loading="lazy" src="/images/🤔.jpg">
 
 	
@@ -24,7 +25,7 @@
             <p id="description">Software developer in Clovis, California</p>
         </div>
         <picture id="memoji">
-            <img decoding="async" loading="lazy" alt="Hi it's me!" src="/images/memoji.PNG" onclick="handleClick()">
+            <img decoding="async" loading="lazy" alt="Hi it's me!" src="/images/memoji.png" onclick="handleClick()">
         </picture>
     </div>
 </header>
@@ -40,7 +41,7 @@
 
 <!-- Use Flexbox for layout -->
 <div class="card-container">
-    <section id="currently" class="card">
+    <section id="job" class="card">
         <h3>Job</h3>
         <p>Unemployed</p>
     </section>
@@ -50,14 +51,16 @@
         <p>Floyd B. Buchanan High School</p>
     </section>
 
-    <section id="apps" class="card">
+    <section id="projects" class="card">
         <h3>Projects</h3>
         <ul>
-            <li><a href="https://github.com/frc1671/QRScanner">FRC QRScanner</a></li>
+            <!-- <li><a href="https://github.com/frc1671/QRScanner">FRC QRScanner</a></li> -->
+            <li><a href="https://cart.parkerhunt.me" target="_blank">cart-profile</a></li>
+            <li><a href="https://github.com/ParkerrDev/GPTplusplus" target="_blank">GPT++</a></li>
         </ul>
     </section>
 
-    <section id="more" class="card">
+    <section id="links" class="card">
         <h3>Links</h3>
         <ul>
             <li><a href="https://github.com/ParkerrDev">
@@ -81,95 +84,94 @@
 </div>
 
 <script>
-	let clickCount = 0;
-	const defaultImages = [
-		'/images/memoji.PNG',
-		'/images/😷.jpg',
-		'/images/🙂.jpg',
-	];
-	const specialImages = {
-		16: '/images/🤔.jpg',
-		200: '/images/😮.jpg',
-		300: '/images/🤡.jpg',
-		404: '/images/👶.jpg',
-		800: '/images/🍪.jpg',
-		1000: '/images/🧔.jpg'
-	};
-	
-	function handleClick() {
-		clickCount += 1;
-		const img = document.getElementById('memoji').querySelector('img');
-		
-		if (clickCount < 16)  {
-			img.src = defaultImages[clickCount % defaultImages.length];
-		} else if (clickCount >= 16 && clickCount < 1000) {
-			document.getElementById('description').textContent = clickCount;
-	
-			const contrastIncrease = 0.5 * (clickCount - 10);
-			const brightnessIncrease = 0.5 * (clickCount - 10);
-			const saturateIncrease = 0.5 * (clickCount - 10);
-	
-			img.style.filter = `contrast(${100 + contrastIncrease}%) brightness(${100 + brightnessIncrease}%) saturate(${100 + saturateIncrease}%)`;
-		}
-		
-		if (specialImages[clickCount]) {
-			img.src = specialImages[clickCount];
-		}
-	
-		switch (clickCount) {
-			case 40:
-				window.open("https://www.youtube.com/watch?v=uGvS0s0l2K4", '_blank');
-				break;
-			case 33:
-				window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank');
-				break;
-			case 69:
-				window.open("https://www.youtube.com/watch?v=SiAk2Q4a0lA", '_blank');
-				break;
-			case 420:
-				window.open("https://www.youtube.com/watch?v=o92aWy_YKQE", '_blank');
-				break;
-			case 421:
-				document.getElementById('description').textContent = `${clickCount} dude stop you're going to break your fingers...`;
-				break;
-			case 450:
-				document.getElementById('description').textContent = `${clickCount} whatever bro...`;
-				break;
-			case 550:
-				document.getElementById('description').textContent = clickCount;
-				break;
-			case 666:
-				document.getElementById('description').textContent = 'I\'m not going to display this number...';
-				break;
-			case 800:
-				img.style.filter = `contrast(100%) brightness(100%) saturate(100%)`;
-				img.src = specialImages[800];
-				document.getElementById('description').textContent = `${clickCount} at this point you're better off playing cookie clicker...`;
-				break;
-			case 911:
-				document.getElementById('description').textContent = `9/11 never forget 🫡`;
-				window.open("https://www.youtube.com/watch?v=St7ny38gLp4", '_blank');
-				break;
-			case 1000:
-				img.src = specialImages[1000];
-				document.getElementById('description').textContent = `${clickCount} absolute 🧔...`;
-	
-				const contrastIncrease = 0.5 * (clickCount - 1000);
-				const brightnessIncrease = 0.5 * (clickCount - 1000);
-				const saturateIncrease = 0.5 * (clickCount - 1000);
-	
-				img.style.filter = `contrast(${100 + contrastIncrease}%) brightness(${100 + brightnessIncrease}%) saturate(${100 + saturateIncrease}%)`;
-				break;
-		}
-	}
-	
-	window.onload = function() {
-		const img = document.getElementById('memoji').querySelector('img');
-		img.style.width = '100%';
-		img.style.height = '100%';
-		img.style.objectFit = 'cover';
-		img.style.transition = 'filter 0.3s ease, width 0.3s ease, height 0.3s ease';
-	}
+    let clickCount = 0;
+    const defaultImages = [
+        '/images/memoji.png',
+        '/images/bitmoji-3d.png',
+        '/images/🙂.jpg',
+        // '/images/😷.jpg',
+    ];
+    const specialImages = {
+        16: '/images/🤔.jpg',
+        200: '/images/😮.jpg',
+        300: '/images/🤡.jpg',
+        404: '/images/👶.jpg',
+        800: '/images/🍪.jpg',
+        1000: '/images/🧔.jpg'
+    };
+
+    function handleClick() {
+        clickCount += 1;
+        const img = document.getElementById('memoji').querySelector('img');
+        
+        // Reset styles
+        img.style.filter = '';
+        
+        if (clickCount < 16)  {
+            img.src = defaultImages[clickCount % defaultImages.length];
+        } else if (clickCount >= 16 && clickCount < 1000) {
+            document.getElementById('description').textContent = clickCount;
+
+            const contrastIncrease = 0.5 * (clickCount - 16);
+            const brightnessIncrease = 0.5 * (clickCount - 16);
+            const saturateIncrease = 0.5 * (clickCount - 16);
+
+            img.style.filter = `contrast(${100 + contrastIncrease}%) brightness(${100 + brightnessIncrease}%) saturate(${100 + saturateIncrease}%)`;
+        }
+        
+        if (specialImages[clickCount]) {
+            img.src = specialImages[clickCount];
+        }
+
+        switch (clickCount) {
+            case 20:
+                window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank');
+                break;
+            case 40:
+                window.open("https://www.youtube.com/watch?v=uGvS0s0l2K4", '_blank');
+                break;
+            case 69:
+                window.open("https://www.youtube.com/watch?v=SiAk2Q4a0lA", '_blank');
+                break;
+            case 420:
+                window.open("https://www.youtube.com/watch?v=o92aWy_YKQE", '_blank');
+                break;
+            case 421:
+                document.getElementById('description').textContent = `${clickCount} dude stop you're going to break your fingers...`;
+                break;
+            case 450:
+                document.getElementById('description').textContent = `${clickCount} whatever bro...`;
+                break;
+            case 550:
+                document.getElementById('description').textContent = clickCount;
+                break;
+            case 666:
+                document.getElementById('description').textContent = 'I\'m not going to display this number...';
+                break;
+            case 800:
+                img.src = specialImages[800];
+                img.style.filter = `contrast(${(0.5 * (clickCount - 800))}%) brightness(${(0.5 * (clickCount - 800))}%) saturate(${(0.5 * (clickCount - 800))}%)`;
+                document.getElementById('description').textContent = `${clickCount} at this point you're better off playing cookie clicker...`;
+                break;
+            case 911:
+                document.getElementById('description').textContent = `9/11 never forget 🫡`;
+                window.open("https://www.youtube.com/watch?v=St7ny38gLp4", '_blank');
+                break;
+            case 1000:
+                img.src = specialImages[1000];
+                document.getElementById('description').textContent = `${clickCount} absolute chad...`;
+                img.style.filter = `contrast(${100 + (0.5 * (clickCount - 1000))}%) brightness(${100 +(0.5 * (clickCount - 1000))}%) saturate(${100 + (0.5 * (clickCount - 1000))}%)`;
+                break;
+        }
+    }
+
+    window.onload = function() {
+        const img = document.getElementById('memoji').querySelector('img');
+        img.style.width = '100%';
+        img.style.height = '100%';
+        img.style.objectFit = 'cover';
+        img.style.transition = 'filter 0.3s ease, width 0.3s ease, height 0.3s ease';
+    }
 </script>
 
 {% endblock %}
