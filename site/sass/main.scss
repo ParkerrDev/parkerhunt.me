@@ -23,7 +23,7 @@
 
 html {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     justify-content: center;
     align-items: center;
 }
@@ -313,7 +313,6 @@ hr {
 @media screen and (max-width: 32.5em) {
     body {
         margin: 3.125rem auto;
-        padding-top: 50vh;
     }
 
     html:not(#home) body {
