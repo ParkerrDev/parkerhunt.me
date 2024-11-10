@@ -1,27 +1,47 @@
 @charset "UTF-8";
 
+:root {
+    --font: "SF Pro Text", "SF UI Text", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    --background: -webkit-linear-gradient(left, #f6f6f6 0%, #fdfdfd 100%);
+    --accent: rgb(0, 113, 255);
+}
+
 * {
     position: relative;
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF UI Text', Arial, sans-serif;
+    font-family: var(--font);
     box-sizing: border-box;
     text-rendering: optimizeLegibility;
-    text-shadow: rgba(0,0,0,.01) 0 0 1px;
+    text-shadow: rgba(0, 0, 0, 0.01) 0 0 0.0625rem;
     -moz-box-sizing: border-box;
-    -moz-osx-font-smoothing: grayscale; 
+    -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+html {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+html:not(#home) {
+    display: block;
+}
+
+html:not(#home) body {
+    padding-top: 10vh;
+}
+
 body {
-    padding-top: 150px;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 28px;
-    max-width: 640px;
-    margin: 0px auto;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    max-width: 40rem;
+    margin: 0 auto;
     color: #333;
     background: #f6f6f6 linear-gradient(to bottom, #f6f6f6 0%, #fdfdfd 100%);
     background: #f6f6f6 -webkit-linear-gradient(top, #f6f6f6 0%, #fdfdfd 100%);
@@ -29,68 +49,67 @@ body {
 }
 
 body.letterhead {
-    max-width: 620px;
+    max-width: 38.75rem;
     width: 100%;
-    margin: 100px auto;
-    padding: 20px;
+    margin: 6.25rem auto;
+    padding: 1.25rem;
 }
 
-body.letterhead h3, body.letterhead p, body.letterhead ul {
-    margin-bottom: 25px;
+body.letterhead h3,
+body.letterhead p,
+body.letterhead ul {
+    margin-bottom: 1.5625rem;
 }
 
 body.letterhead h3 {
-    font-size: 24px;
-    line-height: 30px;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
 }
 
 body.letterhead ul {
-    padding-left: 17px;
+    padding-left: 1.0625rem;
 }
 
 body.letterhead hr {
     border: none;
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
-    margin: 50px 0;
-}
-
-main {
-    flex: 1; /* Allow the main content to grow and push the footer to the bottom */
+    border-top: 0.125rem solid rgba(0, 0, 0, 0.1);
+    margin: 3.125rem 0;
 }
 
 a {
     text-decoration: none;
-    color: rgb(0, 113, 255);
-    border-radius: 10px;
-    padding: 10px 15px;
-    margin: -10px -15px;
+    color: var(--accent);
+    border-radius: 0.625rem;
+    padding: 0.625rem 0.9375rem;
+    margin: -0.625rem -0.9375rem;
     transition: all 0.2s;
 }
 
 a:hover {
     color: #fff;
-    background: rgb(0, 113, 255);
-    padding: 10px 20px 10px 20px;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem 0.625rem 1.25rem;
     transition: all 0.2s;
 }
 
 a.back {
     position: absolute;
-    top: 200px;
-    // left: -15px;
-    line-height: 42px;
+    margin: 0;
+    top: 5vh;
+    left: -5vw;
+    line-height: 2.625rem;
     font-weight: 600;
-    padding: 0px 15px 0px 15px;
-    border-radius: 21px;
-    color: rgb(0, 113, 255);
+    padding: 0 0.9375rem;
+    border-radius: 1.3125rem;
+    color: var(--accent);
     background: rgba(0, 0, 0, 0);
-    opacity: .64;
+    opacity: 0.64;
     transition: all 0.24s;
     z-index: 10000;
 }
 
 a.back:hover {
-    background: rgb(0, 113, 255);
+    background: var(--accent);
     color: white;
     opacity: 1;
 }
@@ -105,10 +124,11 @@ ul {
 
 .bolded {
     font-weight: bold;
-  }
+}
 
-li, p {
-    padding: 10px 0;
+li,
+p {
+    padding: 0.625rem 0;
 }
 
 h2 {
@@ -116,78 +136,84 @@ h2 {
 }
 
 header {
-    padding: 0 20px 15px;
+    padding: 0 1.25rem 0.9375rem;
 }
 
 header h1 {
     font-weight: 600;
-    font-size: 42px;
-    line-height: 54px;
-    letter-spacing: -1px;
+    font-size: 2.625rem;
+    line-height: 3.375rem;
+    letter-spacing: -0.0625rem;
 }
 
 header p {
     font-weight: 600;
-    opacity: .5;
+    opacity: 0.5;
     padding: 0;
 }
 
-section, nav, footer {
+section,
+nav,
+footer {
     display: block;
-    margin: 10px 0 0;
-    padding: 0 30px;
+    margin: 0.625rem 0 0;
+    padding: 0 1.875rem;
 }
 
-section ul li a, nav ul li a, footer ul li a {
+section ul li a,
+nav ul li a,
+footer ul li a {
     display: inline-block;
 }
 
-section h3, nav a, footer a {
+section h3,
+nav a,
+footer a {
     font-weight: 600;
-    font-size: 21px;
+    font-size: 1.3125rem;
     display: inline-block;
 }
 
 nav {
-    margin-top: 32px;
+    margin-top: 2rem;
 }
 
 nav li {
     display: inline-block;
-    margin: 0 42px 0 0;
+    margin: 0 2.625rem 0 0;
 }
 
 footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 1px solid rgb(115, 115, 115);
+    border-top: 0.0625rem solid rgb(115, 115, 115);
     padding: 1em;
-    
+
     margin-left: auto;
     margin-right: auto;
-  
-    @media screen and (max-width: 480px) {
-      width: 95%; 
+
+    @media screen and (max-width: 30em) {
+        width: 95%;
     }
 }
 
-img { 
+img {
     image-rendering: crisp-edges;
 }
 
 hr {
     margin-left: auto;
     margin-right: auto;
-  
-    @media screen and (max-width: 480px) {
-      width: 95%; 
+
+    @media screen and (max-width: 30em) {
+        width: 95%;
     }
-  }
+}
 
 .subtitle {
     font-weight: 600;
-    opacity: .5;
+    opacity: 0.5;
 }
 
 .clear {
@@ -197,56 +223,63 @@ hr {
 
 .header-container {
     display: flex;
-    flex-direction: column;  /* Stack children vertically */
+    flex-direction: column; /* Stack children vertically */
 }
 
 .title-and-image {
     display: flex;
-    align-items: center;  /* Align items vertically in the center */
+    align-items: center; /* Align items vertically in the center */
 }
 
 .title-and-image > div {
-    flex: 1;  /* Allow the text to take as much space as possible */
+    flex: 1; /* Allow the text to take as much space as possible */
 }
 
 #memoji {
     background: white;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 2px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0.125rem 0.5rem 0.125rem;
     border-color: rgb(115, 115, 115);
-    border-width: 1px;
+    border-width: 0.0625rem;
     border-style: solid;
     border-radius: 50%;
-    margin-left: 20px;
-    width: 125px;  /* Adjust width as needed */
-    height: 125px;  /* Adjust height as needed */
+    margin-left: 1.25rem;
+    width: 7.8125rem;
+    height: 7.8125rem;
     overflow: hidden;
 }
 
 #memoji img {
-    width: 100%;  /* Ensure the image fills the picture element */
-    height: auto;  /* Maintain aspect ratio */
+    width: 100%; /* Ensure the image fills the picture element */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 0.9375rem;
     justify-content: space-between;
-    padding: 10px;
+    padding: 0.625rem;
 }
 
 .card {
     background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    flex: 1 1 calc(50% - 20px);  /* Grow and shrink as needed */
+    border-radius: 0.9375rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    padding: 1.25rem;
+    flex: 1 1 calc(50% - 1.25rem);
 }
 
 .back {
     position: absolute;
-    margin-top: -150px;
-    margin-left: -150px;
+    margin-top: -9.375rem;
+    margin-left: -9.375rem;
+}
+
+#description {
+    display: inline;
+    font-size: 1.125rem;
+    font-weight: 600;
+    opacity: 0.5;
 }
 
 #links ul {
@@ -266,22 +299,34 @@ hr {
 }
 #projects ul li {
     flex: 1;
-    padding-left: 10px;
-    // margin-left: -160px;
+    padding-left: 0.625rem;
     text-align: left;
 }
 
 /* Responsive adjustments */
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 64em) {
     .card {
         flex: 1 1 100%;
     }
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 32.5em) {
     body {
-        margin: 50px auto;
-        padding-top: 0px;
+        margin: 3.125rem auto;
+        padding-top: 50vh;
+    }
+
+    html:not(#home) body {
+        max-width: 90vw;
+    }
+
+    img {
+        max-width: 90vw;
+    }
+
+    a.back {
+        top: 0;
+        left: 0;
     }
 
     .title-and-image {
@@ -291,6 +336,6 @@ hr {
     }
 
     #memoji {
-        margin: 20px 0 0;
+        margin: 1.25rem 0 0;
     }
 }
