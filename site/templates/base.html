@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="home">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
-    <meta name="description" content="Andrew Parker Hunt is a Python and Rust programmer in Clovis, California">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml",
+        trailing_slash=false)}}">
+    <meta name="description" content="Andrew Parker Hunt is a Student in Clovis, California">
     <link rel="stylesheet" href="/main.css">
-    <link rel="icon" href="/images/memoji-circle.png"">
+    <link rel="icon" href="/images/memoji-circle.png">
     <title>Parker Hunt</title>
 </head>
+
 <body>
     <main>
         {% block content %}{% endblock %}
     </main>
+    <footer>
+        <p>Built and Hosted by Me.</p>
+    </footer>
 </body>
-<footer>
-    <p>Built and Hosted by Me.</p>
-</footer>
+
 </html>

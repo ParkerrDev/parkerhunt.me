@@ -3,29 +3,36 @@
 
 <!-- Preload images for faster display -->
 <div style="display: none;">
-    <img decoding="async" loading="eager" src="/images/memoji.png">
-    <img decoding="async" loading="eager" src="/images/bitmoji-3d.png">
-    <img decoding="async" loading="eager" src="/images/🙂.jpg">
-    <!-- <img decoding="async" loading="eager" src="/images/😷.jpg"> -->
-    <img decoding="async" loading="lazy" src="/images/🤔.jpg">
+    <!-- 123-1x, 246-2x, 369-3x, 492-4x, 615-5x -->
 
-	
-    <!-- Dont need to be preloaded but leaving here just in case
-		
-	<img decoding="async" loading="lazy" src="/images/😮.png">
-	<img decoding="async" loading="lazy" src="/images/🤡.png">
-    <img decoding="async" loading="lazy" src="/images/👶.png">
-    <img decoding="async" loading="lazy" src="/images/🍪.png">
-    <img decoding="async" loading="lazy" src="/images/🧔.png"> -->
+    <!-- bitmoji -->
+    <img decoding="async" loading="eager" src="/imgs/webp/bitmoji-123.webp"
+        srcset="/imgs/webp/bitmoji-123.webp 123w, /imgs/webp/bitmoji-246.webp 246w, /imgs/webp/bitmoji-369.webp 369w, /imgs/webp/bitmoji-492.webp 492w, /imgs/webp/bitmoji-615.webp 615w"
+        sizes="246px" alt="My snapchat bitmoji">
+
+    <!-- junior pic -->
+    <img decoding="async" loading="eager" src="/imgs/webp/junior-123.webp"
+        srcset="/imgs/webp/junior-123.webp 123w, /imgs/webp/junior-246.webp 246w, /imgs/webp/junior-369.webp 369w, /imgs/webp/junior-492.webp 492w, /imgs/webp/junior-615.webp 615w"
+        sizes="246px" alt="Me as a junior in highschool">
+
+    <!-- freshman pic -->
+    <img decoding="async" loading="eager" src="/imgs/webp/freshman-123.webp"
+        srcset="/imgs/webp/freshman-123.webp 123w, /imgs/webp/freshman-246.webp 246w, /imgs/webp/freshman-369.webp 369w, /imgs/webp/freshman-492.webp 492w, /imgs/webp/freshman-615.webp 615w"
+        sizes="246px" alt="Me as a freshman in highschool">
+
 </div>
+
+
 <header class="header-container">
     <div class="title-and-image">
         <div>
-            <h1>Andrew Parker Hunt</h1> 
-            <p id="description">Software developer in Clovis, California</p>
+            <h1>Andrew Parker Hunt</h1>
+            <h2 id="description">Student in Clovis, California, USA</h2>
         </div>
         <picture id="memoji">
-            <img decoding="async" loading="lazy" alt="Hi it's me!" src="/images/memoji.png" onclick="handleClick()">
+            <img decoding="async" loading="eager" src="/imgs/webp/memoji-123.webp"
+                srcset="/imgs/webp/memoji-123.webp 123w, /imgs/webp/memoji-246.webp 246w, /imgs/webp/memoji-369.webp 369w, /imgs/webp/memoji-492.webp 492w, /imgs/webp/memoji-615.webp 615w"
+                sizes="246px" alt="My Memoji" onclick="handleClick()">
         </picture>
     </div>
 </header>
@@ -63,64 +70,115 @@
     <section id="links" class="card">
         <h3>Links</h3>
         <ul>
-            <li><a href="https://github.com/ParkerrDev">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg></a></li>
-            <li><a href="https://x.com/AndrewParkerH">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
-                </svg></a></li>
-            <li><a href="https://venmo.com/u/AndrewParkerH">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                    <line x1="6" y1="1" x2="6" y2="4"></line>
-                    <line x1="10" y1="1" x2="10" y2="4"></line>
-                    <line x1="14" y1="1" x2="14" y2="4"></line>
-                </svg></a></li>
+            <li><a href="https://github.com/ParkerrDev" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg></a></li>
+            <li><a href="https://x.com/AndrewParkerH" aria-label="X">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                    </svg></a></li>
+            <li><a href="https://venmo.com/u/AndrewParkerH" aria-label="Venmo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                        <line x1="6" y1="1" x2="6" y2="4"></line>
+                        <line x1="10" y1="1" x2="10" y2="4"></line>
+                        <line x1="14" y1="1" x2="14" y2="4"></line>
+                    </svg></a></li>
         </ul>
     </section>
 </div>
 
+<!-- 123-1x, 246-2x, 369-3x, 492-4x, 615-5x -->
+
 <script>
     let clickCount = 0;
     const defaultImages = [
-        '/images/memoji.png',
-        '/images/bitmoji-3d.png',
-        '/images/🙂.jpg',
-        // '/images/😷.jpg',
+        {
+            src: '/imgs/webp/memoji-123.webp',
+            srcset: '/imgs/webp/memoji-123.webp 123w, /imgs/webp/memoji-246.webp 246w, /imgs/webp/memoji-369.webp 369w, /imgs/webp/memoji-492.webp 492w, /imgs/webp/memoji-615.webp 615w',
+            sizes: '246px'
+        },
+        {
+            src: '/imgs/webp/bitmoji-123.webp',
+            srcset: '/imgs/webp/bitmoji-123.webp 123w, /imgs/webp/bitmoji-246.webp 246w, /imgs/webp/bitmoji-369.webp 369w, /imgs/webp/bitmoji-492.webp 492w, /imgs/webp/bitmoji-615.webp 615w',
+            sizes: '246px'
+        },
+        {
+            src: '/imgs/webp/junior-123.webp',
+            srcset: '/imgs/webp/junior-123.webp 123w, /imgs/webp/junior-246.webp 246w, /imgs/webp/junior-369.webp 369w, /imgs/webp/junior-492.webp 492w, /imgs/webp/junior-615.webp 615w',
+            sizes: '246px'
+        },
+        {
+            src: '/imgs/webp/freshman-123.webp',
+            srcset: '/imgs/webp/freshman-123.webp 123w, /imgs/webp/freshman-246.webp 246w, /imgs/webp/freshman-369.webp 369w, /imgs/webp/freshman-492.webp 492w, /imgs/webp/freshman-615.webp 615w',
+            sizes: '246px'
+        },
     ];
     const specialImages = {
-        16: '/images/🤔.jpg',
-        200: '/images/😮.jpg',
-        300: '/images/🤡.jpg',
-        404: '/images/👶.jpg',
-        800: '/images/🍪.jpg',
-        1000: '/images/🧔.jpg'
+        16: {
+            src: '/imgs/webp/🤔.webp',
+            srcset: '/imgs/webp/🤔.webp 123w',
+            sizes: '123px'
+        },
+        200: {
+            src: '/imgs/webp/😮.webp',
+            srcset: '/imgs/webp/😮.webp 123w',
+            sizes: '123px'
+        },
+        300: {
+            src: '/imgs/webp/🤡.webp',
+            srcset: '/imgs/webp/🤡.webp 123w',
+            sizes: '123px'
+        },
+        404: {
+            src: '/imgs/webp/👶.webp',
+            srcset: '/imgs/webp/👶.webp 123w',
+            sizes: '123px'
+        },
+        800: {
+            src: '/imgs/webp/🍪.webp',
+            srcset: '/imgs/webp/🍪.webp 123w',
+            sizes: '123px'
+        },
+        1000: {
+            src: '/imgs/webp/🧔.webp',
+            srcset: '/imgs/webp/🧔.webp 123w',
+            sizes: '123px'
+        }
     };
 
     function handleClick() {
         clickCount += 1;
         const img = document.getElementById('memoji').querySelector('img');
-        
+
         // Reset styles
         img.style.filter = '';
-        
-        if (clickCount < 16)  {
-            img.src = defaultImages[clickCount % defaultImages.length];
+
+        if (clickCount < 16) {
+            let image = defaultImages[clickCount % defaultImages.length];
+            img.src = image.src;
+            img.srcset = image.srcset;
+            img.sizes = image.sizes;
         } else if (clickCount >= 16 && clickCount < 1000) {
             document.getElementById('description').textContent = clickCount;
 
-            const contrastIncrease = 0.5 * (clickCount - 16);
-            const brightnessIncrease = 0.5 * (clickCount - 16);
-            const saturateIncrease = 0.5 * (clickCount - 16);
-
-            img.style.filter = `contrast(${100 + contrastIncrease}%) brightness(${100 + brightnessIncrease}%) saturate(${100 + saturateIncrease}%)`;
+            const filterValue = 100 + 0.5 * (clickCount - 16);
+            img.style.filter = `contrast(${filterValue}%) brightness(${filterValue}%) saturate(${filterValue}%)`;
         }
-        
+
         if (specialImages[clickCount]) {
-            img.src = specialImages[clickCount];
+            let image = specialImages[clickCount];
+            img.src = image.src;
+            img.srcset = image.srcset;
+            img.sizes = image.sizes;
         }
 
         switch (clickCount) {
@@ -160,12 +218,12 @@
             case 1000:
                 img.src = specialImages[1000];
                 document.getElementById('description').textContent = `${clickCount} absolute chad...`;
-                img.style.filter = `contrast(${100 + (0.5 * (clickCount - 1000))}%) brightness(${100 +(0.5 * (clickCount - 1000))}%) saturate(${100 + (0.5 * (clickCount - 1000))}%)`;
+                img.style.filter = `contrast(${100 + (0.5 * (clickCount - 1000))}%) brightness(${100 + (0.5 * (clickCount - 1000))}%) saturate(${100 + (0.5 * (clickCount - 1000))}%)`;
                 break;
         }
     }
 
-    window.onload = function() {
+    window.onload = function () {
         const img = document.getElementById('memoji').querySelector('img');
         img.style.width = '100%';
         img.style.height = '100%';

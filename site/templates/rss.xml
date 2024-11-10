@@ -3,29 +3,29 @@
     <channel>
         <title>{{ config.title }}</title>
         <link>{{ config.base_url | escape_xml | safe }}</link>
-        <description>{{ config.description }}</description>
+        <description>{{
+        config.description }}</description>
         <generator>Zola</generator>
         <language>{{ lang }}</language>
-        <atom:link href="{{ config.base_url }}/rss.xml" rel="self" type="application/rss+xml"/>
-        <lastBuildDate>{{ last_updated | date(format="%a, %d %b %Y %H:%M:%S %z") }}</lastBuildDate>
+        <atom:link
+            href="{{ config.base_url }}/rss.xml" rel="self" type="application/rss+xml" />
+        <lastBuildDate>{{
+        last_updated | date(format="%a, %d %b %Y %H:%M:%S %z") }}</lastBuildDate>
 
         <image>
             <url>{{ config.base_url }}/static/path/to/your/icon.png</url>
             <title>{{ config.title }}</title>
             <link>{{ config.base_url }}</link>
-        </image>
-
-        {%- for page in pages %}
-        <item>
+        </image> {%- for page in pages %} <item>
             <title>{{ page.title }}</title>
             <pubDate>{{ page.date | date(format="%a, %d %b %Y %H:%M:%S %z") }}</pubDate>
             <author>
                 {%- if page.authors -%}
-                    {{ page.authors[0] }}
+                {{ page.authors[0] }}
                 {%- elif config.author -%}
-                    {{ config.author }}
+                {{ config.author }}
                 {%- else -%}
-                    Unknown
+                Unknown
                 {%- endif -%}
             </author>
             <link>{{ config.base_url }}{{ page.permalink | escape_xml | safe }}</link>
@@ -34,6 +34,5 @@
                 {% if page.summary %}{{ page.summary }}{% else %}{{ page.content }}{% endif %}
             </description>
         </item>
-        {%- endfor %}
-    </channel>
+        {%- endfor %} </channel>
 </rss>
