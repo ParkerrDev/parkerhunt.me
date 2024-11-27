@@ -5,7 +5,6 @@
   <h1 class="title">
     {{ section.title }}
   </h1>
-  <ul>
 </header>
 
 <body>
@@ -13,6 +12,5 @@
   {% for page in section.pages %}
   <li><a href="{{ page.path | safe }}">{{ page.title }}</a></li>
   {% endfor %}
-  </ul>
 </body>
 {% endblock content %}

@@ -2,8 +2,8 @@
 
 :root {
     --font: "SF Pro Text", "SF UI Text", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-    --background: -webkit-linear-gradient(left, #f6f6f6 0%, #fdfdfd 100%);
-    --accent: rgb(0, 113, 255);
+    --background: #f6f6f6 linear-gradient(to bottom, #f6f6f6 0%, #fdfdfd 100%);
+    --accent: #0071ff;
 }
 
 * {
@@ -43,8 +43,9 @@ body {
     max-width: 40rem;
     margin: 0 auto;
     color: #333;
-    background: #f6f6f6 linear-gradient(to bottom, #f6f6f6 0%, #fdfdfd 100%);
-    background: #f6f6f6 -webkit-linear-gradient(top, #f6f6f6 0%, #fdfdfd 100%);
+    // background: #f6f6f6 linear-gradient(to bottom, #f6f6f6 0%, #fdfdfd 100%);
+    // background: #f6f6f6 -webkit-linear-gradient(top, #f6f6f6 0%, #fdfdfd 100%);
+    background: var(--background);
     background-attachment: fixed;
 }
 
@@ -83,6 +84,7 @@ a {
     padding: 0.625rem 0.9375rem;
     margin: -0.625rem -0.9375rem;
     transition: all 0.2s;
+    font-weight: 600;
 }
 
 a:hover {
@@ -93,29 +95,40 @@ a:hover {
 }
 
 a.back {
-    position: absolute;
-    margin: 0;
+    position: sticky;
+    // margin: 0;
     top: 5vh;
-    left: -5vw;
+    left: -10vw;
     line-height: 2.625rem;
     font-weight: 600;
-    padding: 0 0.9375rem;
+    padding: 0.75rem;
     border-radius: 1.3125rem;
     color: var(--accent);
-    background: rgba(0, 0, 0, 0);
+    background: rgba(255, 255, 255, 0);
     opacity: 0.64;
     transition: all 0.24s;
     z-index: 10000;
 }
 
 a.back:hover {
-    background: var(--accent);
+    background-color: var(--accent);
     color: white;
     opacity: 1;
 }
 
 a.disabled {
     color: rgba(0, 0, 0, 0.33);
+}
+
+a.back.opaque {
+    opacity: 1;
+    background-color: white;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+a.back.opaque:hover {
+    color: #fff;
+    background-color: var(--accent);
 }
 
 ul {
@@ -211,6 +224,17 @@ hr {
     }
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 .subtitle {
     font-weight: 600;
     opacity: 0.5;
@@ -293,6 +317,13 @@ hr {
     text-align: center;
 }
 
+#links a:hover {
+    color: #fff;
+    background-color: var(--accent);
+    padding: 0.6rem 1rem 0.6rem 1rem;
+    transition: all 0.2s;
+}
+
 #projects ul {
     display: flex;
     justify-content: space-around;
@@ -316,6 +347,7 @@ hr {
     }
 
     html:not(#home) body {
+        margin: 0.1rem auto;
         max-width: 90vw;
     }
 
@@ -324,8 +356,9 @@ hr {
     }
 
     a.back {
-        top: 0;
-        left: 0;
+        top: 1vh;
+        left: 1vw;
+        bottom: 5vh;
     }
 
     .title-and-image {
