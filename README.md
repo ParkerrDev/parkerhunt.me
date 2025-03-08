@@ -12,6 +12,8 @@ Built using [Zola](https://www.getzola.org/) a static site engine, which allows 
 
 You can view the site in action [here](https://parkerhunt.me).
 
+The design file or Figma is [here](https://www.figma.com/design/EcCUryRuVD8yPQN8myXp7y/parkerhunt.me).
+
 ### Goal of the site
 - Be rust based. - Zola is rust based, so it works out. (Although no Rust code is actually neccesary for the site, because Zola handles everything.)
 - Static Site Generation - I wanted static site generation, so that the contnent of the site is pre-built at compile time. This eliminates the need for dynamic processing or database management. This allows allows the site to be extremely fast, lightweight and performant with little overhead.
