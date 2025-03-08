@@ -1,11 +1,9 @@
 # parkerhunt.me
 My personal website.
 
-<p align="center">
-  <a href="https://parkerhunt.me" target="_blank">
-    <img src="https://image.thum.io/get/width/1280/crop/1280/https://parkerhunt.me" alt="Screenshot of parkerhunt.me" width="75%" />
-  </a>
-</p>
+<a href="https://parkerhunt.me" target="_blank">
+  <img src="https://image.thum.io/get/width/1280/https://parkerhunt.me" alt="Screenshot of parkerhunt.me" style="width:100%; height:100%;" />
+</a>
 
 ## About
 Built using [Zola](https://www.getzola.org/) a static site engine, which allows me to create basic static pages using HTML and SCSS, while organizing and streamling the proccess of creating blog posts as markdown (.MD) files.
