@@ -16,6 +16,6 @@ The design file or Figma is [here](https://www.figma.com/design/EcCUryRuVD8yPQN8
 
 ### Goal of the site
 - Be rust based. - Zola is rust based, so it works out. (Although no Rust code is actually neccesary for the site, because Zola handles everything.)
-- Static Site Generation - I wanted static site generation, so that the contnent of the site is pre-built at compile time. This eliminates the need for dynamic processing or database management. This allows allows the site to be extremely fast, lightweight and performant with little overhead.
+- Static Site Generation - I wanted static site generation, so that the content of the site is pre-built at compile time. This eliminates the need for dynamic processing or database management. This allows allows the site to be extremely fast, lightweight and performant with little overhead.
 - Markdown Blog Posts - Zola was a no brainer for this.
 - RSS Feed. (I intend to implement this, but have yet to look into it.)
