@@ -1,13 +1,28 @@
-{% extends "alt-base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
-<header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=" rss.xml",
+    trailing_slash=false)}}">
+  <meta name="description"
+    content="Andrew Parker Hunt is a Student in Clovis, California, USA, with an interest in software development, computer science, and cybersecurity.">
+  <link rel="stylesheet" href="/main.css">
+  <link rel="icon" href="/imgs/webp/memoji-circle.webp">
+  <title>Parker Hunt | Resume</title>
+</head>
+
+<body>
+  <div class="resume-container"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;">
+    <embed src="AndrewHuntResume.pdf" type="application/pdf" width="100%" height="100%" style="border: none;" />
+  </div>
+</body>
+
+</html>
+
+<!-- <header>
   <h1 class="title">{{ page.title }}</h1>
   <p class="subtitle"><strong>{{ page.date }}</strong></p>
-</header>
-
-<div class="resume-container">
-  <embed src="AndrewHuntResume.pdf" type="application/pdf" width="100%" height="800px" />
-</div>
-
-{% endblock content %}
+</header> -->
