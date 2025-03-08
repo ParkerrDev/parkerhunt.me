@@ -2,8 +2,8 @@
 My personal website.
 
 <p align="center">
-  <a href="https://parkerhunt.me" alt="Link to my website!" target="_blank">
-    <img src="./Screenshot.png" width="75%"/>
+  <a href="https://parkerhunt.me" target="_blank">
+    <img src="https://image.thum.io/get/width/1280/crop/1280/https://parkerhunt.me" alt="Screenshot of parkerhunt.me" width="75%" />
   </a>
 </p>
 
