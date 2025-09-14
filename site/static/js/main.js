@@ -54,6 +54,26 @@ const specialImages = {
     }
 };
 
+const root = document.documentElement;
+var theme = 0; // default white
+
+function setTheme() {
+    //console.log('Theme initiated')
+    var hour = new Date().getHours();
+    //console.log(hour)
+    if (hour > 15 && theme != 1) {
+        //console.log("Theme Dark")
+        root.style.setProperty('--background', getComputedStyle(root).getPropertyValue('--dark-background').trim());
+        root.style.setProperty('--text-color', getComputedStyle(root).getPropertyValue('--dark-text-color').trim());
+        theme = 1;
+    } else if (theme != 0){
+        //console.log("Theme White")
+        root.style.setProperty('--background', getComputedStyle(root).getPropertyValue('--light-background').trim());
+        root.style.setProperty('--text-color', getComputedStyle(root).getPropertyValue('--light-text-color').trim());
+        theme = 0
+    }
+}
+
 function handleClick() {
     clickCount += 1;
     const img = document.getElementById('memoji').querySelector('img');
@@ -81,7 +101,7 @@ function handleClick() {
     }
 
     switch (clickCount) {
-        case 20:
+        case 21:
             window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank');
             break;
         case 40:
@@ -90,28 +110,13 @@ function handleClick() {
         case 69:
             window.open("https://www.youtube.com/watch?v=SiAk2Q4a0lA", '_blank');
             break;
-        case 420:
-            window.open("https://www.youtube.com/watch?v=o92aWy_YKQE", '_blank');
-            break;
-        case 421:
-            document.getElementById('description').textContent = `${clickCount} dude stop you're going to break your fingers...`;
-            break;
-        case 450:
-            document.getElementById('description').textContent = `${clickCount} whatever bro...`;
-            break;
-        case 550:
-            document.getElementById('description').textContent = clickCount;
-            break;
-        case 666:
-            document.getElementById('description').textContent = 'I\'m not going to display this number...';
-            break;
         case 800:
             img.src = specialImages[800];
             img.style.filter = `contrast(${(0.5 * (clickCount - 800))}%) brightness(${(0.5 * (clickCount - 800))}%) saturate(${(0.5 * (clickCount - 800))}%)`;
             document.getElementById('description').textContent = `${clickCount} at this point you're better off playing cookie clicker...`;
             break;
         case 911:
-            document.getElementById('description').textContent = `9/11 never forget 🫡`;
+            document.getElementById('description').textContent = `9/11 - it was an inside job`;
             window.open("https://www.youtube.com/watch?v=St7ny38gLp4", '_blank');
             break;
         case 1000:
@@ -128,4 +133,8 @@ window.onload = function () {
     img.style.height = '100%';
     img.style.objectFit = 'cover';
     img.style.transition = 'filter 0.3s ease, width 0.3s ease, height 0.3s ease';
+    setTheme();
+    setInterval(() => {
+        setTheme();
+    }, 10000);
 }
