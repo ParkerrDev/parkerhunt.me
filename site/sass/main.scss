@@ -1,8 +1,14 @@
 @charset "UTF-8";
 
 :root {
-    --font: "SF Pro Text", "SF UI Text", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-    --background: #f6f6f6 linear-gradient(to bottom, #f6f6f6 0%, #fdfdfd 100%);
+    --font: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    // --background: #f6f6f6 linear-gradient(to bottom, #f6f6f6 0%, #fdfdfd 100%);
+    --dark-background: black;
+    --light-background: linear-gradient(to bottom, #f8f8fa 0%, #fafafc 100%) fixed #f6f6f6;
+    --dark-text-color: #fafafa;
+    --light-text-color: #333;
+    --background: var(--light-background);
+    --text-color: var(--light-text-color);
     --accent: #0071ff;
 }
 
@@ -42,7 +48,8 @@ body {
     line-height: 1.75rem;
     max-width: 40rem;
     margin: 0 auto;
-    color: #333;
+    // color: #333;
+    color: var(--text-color);
     // background: #f6f6f6 linear-gradient(to bottom, #f6f6f6 0%, #fdfdfd 100%);
     // background: #f6f6f6 -webkit-linear-gradient(top, #f6f6f6 0%, #fdfdfd 100%);
     background: var(--background);
@@ -85,7 +92,7 @@ body.letterhead hr {
 
 .links a {
     padding: .5rem;
-    color: black;
+    color: var(--text-color);
 }
 
 .links a:hover {
@@ -220,7 +227,17 @@ nav {
 
 nav li {
     display: inline-block;
-    margin: 0 1rem 0 0;
+    margin: 0 1rem;
+}
+
+#blogs {
+    padding-left: 1.5rem;
+}
+
+#blogs li a {
+    display: inline-block;
+    padding: 0.625rem 0.9375rem;
+    margin: -0.625rem -0.9375rem;
 }
 
 footer {
@@ -287,6 +304,10 @@ hr {
     flex: 1; /* Allow the text to take as much space as possible */
 }
 
+.title-and-image .info {
+    padding-right: 2rem;
+}
+
 .title-and-image .info .links ul {
     display: flex;
     // gap: 1rem;
@@ -347,24 +368,6 @@ hr {
     opacity: 0.5;
 }
 
-// #links ul {
-//     display: flex;
-//     justify-content: flex-start;
-//     align-items: center;
-// }
-
-// #links ul li {
-//     flex: 1;
-//     text-align: center;
-// }
-
-// #links a:hover {
-//     color: #fff;
-//     background-color: var(--accent);
-//     padding: 0.6rem 1rem 0.6rem 1rem;
-//     transition: all 0.2s;
-// }
-
 #projects ul {
     display: flex;
     justify-content: space-around;
@@ -397,7 +400,7 @@ hr {
     }
 
     a.back {
-        top: 1vh;
+        top: 3vh; // Increase to move the button further down
         left: 1vw;
         bottom: 5vh;
     }
@@ -408,12 +411,20 @@ hr {
         text-align: center;
     }
 
+    .title-and-image .info {
+        padding-right: 0rem;
+    }
+
     .links {
         justify-content: center;
     }
 
     #navigation {
         justify-content: center;
+    }
+
+    #navigation a {
+        padding: 0rem 0rem;
     }
 
     #memoji {
