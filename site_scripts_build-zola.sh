@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Set a Zola version or override via environment: ZOLA_VERSION=0.19.2
+# Set a Zola version or override via environment: ZOLA_VERSION=0.18.0
 ZOLA_VERSION="${ZOLA_VERSION:-0.18.0}"
 
 # Cloudflare Pages build machines are x86_64 Linux.
@@ -19,3 +19,8 @@ echo "Zola version:"
 
 echo "Building site..."
 ./zola build
+
+# Move artifacts to repo-root 'public' so Cloudflare Pages default works
+echo "Preparing Cloudflare Pages output directory..."
+mkdir -p ../public
+cp -a public/. ../public/
