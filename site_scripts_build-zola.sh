@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Set a Zola version or override via environment: ZOLA_VERSION=0.19.2
-ZOLA_VERSION="${ZOLA_VERSION:-0.19.2}"
+ZOLA_VERSION="${ZOLA_VERSION:-0.18.0}"
 
 # Cloudflare Pages build machines are x86_64 Linux.
 TARBALL="zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
