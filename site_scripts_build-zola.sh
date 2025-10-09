@@ -8,6 +8,9 @@ ZOLA_VERSION="${ZOLA_VERSION:-0.19.2}"
 TARBALL="zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
 URL="https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/${TARBALL}"
 
+# Run inside the site folder so Zola finds site/config.toml
+cd site
+
 echo "Installing Zola ${ZOLA_VERSION}..."
 curl -Ls "${URL}" | tar -xz
 
