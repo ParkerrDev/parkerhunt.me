@@ -123,9 +123,13 @@ a {
 a:hover {
     color: #fff;
     background: var(--accent);
-    // padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+    //padding: 0.625rem 1.25rem 0.625rem 1.25rem;
     transition: all 0.2s;
 }
+
+//#blogs li a:hover {
+//    padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+//}
 
 a.back {
     position: sticky;
@@ -230,14 +234,23 @@ nav li {
     margin: 0 1rem;
 }
 
-#blogs {
+/* #blogs {
     padding-left: 1.5rem;
+} */
+
+#blogs li>a {
+    //display: inline-block;
+    padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+    //margin: -0.625rem -0.9375rem;
 }
 
-#blogs li a {
-    display: inline-block;
-    padding: 0.625rem 0.9375rem;
-    margin: -0.625rem -0.9375rem;
+#blogs li::before {
+  content: "•";
+  color: black;
+  display: inline-block;
+  font-size:1.5em;
+  width: 1em;
+  margin-left: -1em;
 }
 
 footer {
