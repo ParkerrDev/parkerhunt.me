@@ -112,10 +112,10 @@ function handleClick() {
             window.open("https://www.youtube.com/watch?v=SiAk2Q4a0lA", '_blank');
             break;
         case 800:
-            document.getElementById('description').textContent = `${clickCount} at this point you're better off playing cookie clicker...`;
+            document.getElementById('description').textContent = `bet you didn't read this`;
             break;
         case 911:
-            document.getElementById('description').textContent = `9/11 - it was an inside job`;
+            document.getElementById('description').textContent = `9/11 was an inside job`;
             window.open("https://www.youtube.com/watch?v=St7ny38gLp4", '_blank');
             break;
         case 1000:
