@@ -2,13 +2,19 @@
 
 :root {
     --font: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    // --background: #f6f6f6 linear-gradient(to bottom, #f6f6f6 0%, #fdfdfd 100%);
     --dark-background: black;
     --light-background: linear-gradient(to bottom, #f8f8fa 0%, #fafafc 100%) fixed #f6f6f6;
     --dark-text-color: #fafafa;
     --light-text-color: #333;
     --background: var(--light-background);
     --text-color: var(--light-text-color);
+    
+    // Apple's standard border-radius values for UI elements
+    --border-radius-small: 0.375rem;  // 6px - small buttons, chips
+    --border-radius-medium: 0.75rem;  // 12px - standard buttons
+    --border-radius-large: 1rem;      // 16px - large buttons, cards
+    --border-radius-xlarge: 1.25rem;  // 20px - large cards, panels
+    
     --accent: #0071ff;
 }
 
@@ -48,10 +54,7 @@ body {
     line-height: 1.75rem;
     max-width: 40rem;
     margin: 0 auto;
-    // color: #333;
     color: var(--text-color);
-    // background: #f6f6f6 linear-gradient(to bottom, #f6f6f6 0%, #fdfdfd 100%);
-    // background: #f6f6f6 -webkit-linear-gradient(top, #f6f6f6 0%, #fdfdfd 100%);
     background: var(--background);
     background-attachment: fixed;
 }
@@ -113,38 +116,30 @@ body.letterhead hr {
 a {
     text-decoration: none;
     color: var(--accent);
-    border-radius: 0.625rem;
-    // padding: 0.625rem 0.9375rem;
-    // margin: -0.625rem -0.9375rem;
     transition: all 0.2s;
     font-weight: 600;
+    border-radius: var(--border-radius-medium); // 12px - Apple's standard button radius
 }
 
 a:hover {
     color: #fff;
     background: var(--accent);
-    //padding: 0.625rem 1.25rem 0.625rem 1.25rem;
     transition: all 0.2s;
 }
 
-//#blogs li a:hover {
-//    padding: 0.625rem 1.25rem 0.625rem 1.25rem;
-//}
-
 a.back {
     position: sticky;
-    // margin: 0;
     top: 5vh;
     left: -10vw;
     line-height: 2.625rem;
     font-weight: 600;
     padding: 0.75rem;
-    border-radius: 1.3125rem;
     color: var(--accent);
     background: transparent;
     opacity: 0.64;
     transition: all 0.24s;
     z-index: 10000;
+    border-radius: var(--border-radius-large); // 16px - larger button
 }
 
 a.back:hover {
@@ -207,7 +202,6 @@ nav,
 footer {
     display: block;
     margin: 0.625rem 0 0;
-    // padding: 0 1.875rem;
 }
 
 section ul li a,
@@ -298,17 +292,17 @@ hr {
 
 .header-container {
     display: flex;
-    flex-direction: column; /* Stack children vertically */
+    flex-direction: column;
 }
 
 .title-and-image {
     display: flex;
-    align-items: center; /* Align items vertically in the center */
-    justify-content: space-between; // updated for header layout
+    align-items: center;
+    justify-content: space-between;
 }
 
 .title-and-image > div {
-    flex: 1; /* Allow the text to take as much space as possible */
+    flex: 1;
 }
 
 .title-and-image .info {
@@ -317,7 +311,6 @@ hr {
 
 .title-and-image .info .links ul {
     display: flex;
-    // gap: 1rem;
     list-style: none;
     padding: 0;
     margin: 0.5rem 0 0;
@@ -333,17 +326,17 @@ hr {
     border-color: rgb(115, 115, 115);
     border-width: 0.0625rem;
     border-style: solid;
-    border-radius: 50%;
     margin-left: 1.25rem;
     width: 10rem;
     height: 10rem;
     overflow: hidden;
     cursor: pointer;
+    border-radius: 50%; // Perfect circle for profile picture
 }
 
 #memoji img {
-    width: 100%; /* Ensure the image fills the picture element */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: auto;
 }
 
 .card-container {
@@ -356,10 +349,10 @@ hr {
 
 .card {
     background: white;
-    border-radius: 0.9375rem;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     padding: 1.25rem;
     flex: 1 1 calc(50% - 1.25rem);
+    border-radius: var(--border-radius-xlarge); // 20px - Apple's large card radius
 }
 
 .back {
@@ -379,6 +372,7 @@ hr {
     display: flex;
     justify-content: space-around;
 }
+
 #projects ul li {
     flex: 1;
     padding-left: 0.625rem;
@@ -407,7 +401,7 @@ hr {
     }
 
     a.back {
-        top: 3vh; // Increase to move the button further down
+        top: 3vh;
         left: 1vw;
         bottom: 5vh;
     }
