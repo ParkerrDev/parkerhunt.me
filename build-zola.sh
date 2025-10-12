@@ -22,5 +22,8 @@ echo "Building site..."
 
 # Move artifacts to repo-root 'public' so Cloudflare Pages default works
 echo "Preparing Cloudflare Pages output directory..."
+rm -rf ../public  # <-- ADD THIS LINE to clean old builds
 mkdir -p ../public
 cp -a public/. ../public/
+
+echo "Build complete! Output in ../public/"
