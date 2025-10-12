@@ -1,4 +1,6 @@
 let clickCount = 0;
+let lastImageChangeClick = 0; // Track when the image last changed
+
 const defaultImages = [
     {
         src: '/imgs/webp/memoji-123.webp',
@@ -22,7 +24,7 @@ const defaultImages = [
     },
 ];
 const specialImages = {
-    16: {
+    18: {
         src: '/imgs/webp/🤔.webp',
         srcset: '/imgs/webp/🤔.webp 123w',
         sizes: '123px'
@@ -37,7 +39,7 @@ const specialImages = {
         srcset: '/imgs/webp/🤡.webp 123w',
         sizes: '123px'
     },
-    404: {
+    405: {
         src: '/imgs/webp/👶.webp',
         srcset: '/imgs/webp/👶.webp 123w',
         sizes: '123px'
@@ -58,28 +60,47 @@ function handleClick() {
     clickCount += 1;
     const img = document.getElementById('memoji').querySelector('img');
 
-    // Reset styles
+    // Reset styles by default
     img.style.filter = '';
 
-    if (clickCount < 16) {
-        let image = defaultImages[clickCount % defaultImages.length];
-        img.src = image.src;
-        img.srcset = image.srcset;
-        img.sizes = image.sizes;
-    } else if (clickCount >= 16 && clickCount < 1000) {
-        document.getElementById('description').textContent = clickCount;
+    // Check if this is a special image
+    const isSpecialImage = specialImages[clickCount];
 
-        const filterValue = 100 + 0.5 * (clickCount - 16);
-        img.style.filter = `contrast(${filterValue}%) brightness(${filterValue}%) saturate(${filterValue}%)`;
-    }
-
-    if (specialImages[clickCount]) {
+    if (isSpecialImage) {
+        // Show special image and reset filter
         let image = specialImages[clickCount];
         img.src = image.src;
         img.srcset = image.srcset;
         img.sizes = image.sizes;
+        lastImageChangeClick = clickCount; // Reset the burn effect counter
+    } else if (clickCount < 16) {
+        // Handle default images (clicks 0-15)
+        let image = defaultImages[clickCount % defaultImages.length];
+        img.src = image.src;
+        img.srcset = image.srcset;
+        img.sizes = image.sizes;
+        if (clickCount % defaultImages.length === 0) {
+            lastImageChangeClick = clickCount; // Reset when cycling through default images
+        }
     }
 
+    // Apply deep burn effect only when NOT on a special image AND in the right range
+    if (!isSpecialImage && clickCount >= 16 && clickCount < 1000) {
+        document.getElementById('description').textContent = clickCount;
+        // Calculate from the last image change instead of from click 16
+        const clicksSinceLastChange = clickCount - lastImageChangeClick;
+        const filterValue = 100 + 0.5 * clicksSinceLastChange;
+        img.style.filter = `contrast(${filterValue}%) brightness(${filterValue}%) saturate(${filterValue}%)`;
+    }
+
+    // Apply deep burn effect for post-1000 clicks (not on special image)
+    if (!isSpecialImage && clickCount > 1000) {
+        const clicksSinceLastChange = clickCount - lastImageChangeClick;
+        const filterValue = 100 + 0.5 * clicksSinceLastChange;
+        img.style.filter = `contrast(${filterValue}%) brightness(${filterValue}%) saturate(${filterValue}%)`;
+    }
+
+    // Handle special click events
     switch (clickCount) {
         case 21:
             window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank');
@@ -91,8 +112,6 @@ function handleClick() {
             window.open("https://www.youtube.com/watch?v=SiAk2Q4a0lA", '_blank');
             break;
         case 800:
-            img.src = specialImages[800];
-            img.style.filter = `contrast(${(0.5 * (clickCount - 800))}%) brightness(${(0.5 * (clickCount - 800))}%) saturate(${(0.5 * (clickCount - 800))}%)`;
             document.getElementById('description').textContent = `${clickCount} at this point you're better off playing cookie clicker...`;
             break;
         case 911:
@@ -100,9 +119,7 @@ function handleClick() {
             window.open("https://www.youtube.com/watch?v=St7ny38gLp4", '_blank');
             break;
         case 1000:
-            img.src = specialImages[1000];
             document.getElementById('description').textContent = `${clickCount} absolute chad...`;
-            img.style.filter = `contrast(${100 + (0.5 * (clickCount - 1000))}%) brightness(${100 + (0.5 * (clickCount - 1000))}%) saturate(${100 + (0.5 * (clickCount - 1000))}%)`;
             break;
     }
 }
@@ -113,4 +130,4 @@ window.onload = function () {
     img.style.height = '100%';
     img.style.objectFit = 'cover';
     img.style.transition = 'filter 0.3s ease, width 0.3s ease, height 0.3s ease';
- }
+}
