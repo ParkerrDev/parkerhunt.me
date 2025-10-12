@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="/main.css">
     <link rel="icon" href="/imgs/webp/memoji-circle.webp">
     <!-- <script async src="/js/theme.js"></script> -->
-        <title>Parker Hunt</title>
-</head>
+    <title>{% if page.title %}{{ page.title }} | {% elif section.title %}{{ section.title }} | {% endif %}Parker Hunt</title>
+     </head>
 
 <body>
     <main>
