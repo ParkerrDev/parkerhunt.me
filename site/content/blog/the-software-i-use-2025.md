@@ -12,6 +12,7 @@ This is my first blog of my yearly series that will cover the software that I us
 
 NixOS. So. How do I put this. Theres a lot right with it, but I don't know, I mean, do you think the piece is working?
 It is a love hate relationship that I have with NixOS. It has many problems fundementally, but also it is fundementally a better operating system. I am still undecided on it. I really love it, but I also really really hate it. I also use Windows when I have to, or when NixOS is giving me trouble. Windows 11 is much nicer compared to 10. So I hate Windows less these days but I'd still much rather prefer to use Linux, even if just for its FOSS spirit. If your wondering, I would use MacOS if I had a Macbook, but I am poor. :(
+ (Update - I am still poor but I have a MacBook now and hate winows even more, NixOS still gives me trouble but I like it more now.)
 
 If your interested in how I configure NixOS you can check out my [dotfiles](https://github.com/ParkerrDev/dotfiles). 
 
