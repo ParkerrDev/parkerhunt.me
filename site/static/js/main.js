@@ -2,26 +2,27 @@ let clickCount = 0;
 let lastImageChangeClick = 0; // Track when the image last changed
 
 const defaultImages = [
+
     {
-        src: '/imgs/webp/memoji-123.webp',
-        srcset: '/imgs/webp/memoji-123.webp 123w, /imgs/webp/memoji-246.webp 246w, /imgs/webp/memoji-369.webp 369w, /imgs/webp/memoji-492.webp 492w, /imgs/webp/memoji-615.webp 615w',
+        src: '/imgs/webp/senior-123.webp',
+        srcset: '/imgs/webp/senior-123.webp 123w, /imgs/webp/senior-246.webp 246w, /imgs/webp/senior-369.webp 369w, /imgs/webp/senior-492.webp 492w, /imgs/webp/senior-615.webp 615w',
         sizes: '246px'
     },
-    {
-        src: '/imgs/webp/bitmoji-123.webp',
-        srcset: '/imgs/webp/bitmoji-123.webp 123w, /imgs/webp/bitmoji-246.webp 246w, /imgs/webp/bitmoji-369.webp 369w, /imgs/webp/bitmoji-492.webp 492w, /imgs/webp/bitmoji-615.webp 615w',
-        sizes: '246px'
-    },
-    {
-        src: '/imgs/webp/junior-123.webp',
-        srcset: '/imgs/webp/junior-123.webp 123w, /imgs/webp/junior-246.webp 246w, /imgs/webp/junior-369.webp 369w, /imgs/webp/junior-492.webp 492w, /imgs/webp/junior-615.webp 615w',
-        sizes: '246px'
-    },
-    {
-        src: '/imgs/webp/freshman-123.webp',
-        srcset: '/imgs/webp/freshman-123.webp 123w, /imgs/webp/freshman-246.webp 246w, /imgs/webp/freshman-369.webp 369w, /imgs/webp/freshman-492.webp 492w, /imgs/webp/freshman-615.webp 615w',
-        sizes: '246px'
-    },
+    // {
+    //     src: '/imgs/webp/bitmoji-123.webp',
+    //     srcset: '/imgs/webp/bitmoji-123.webp 123w, /imgs/webp/bitmoji-246.webp 246w, /imgs/webp/bitmoji-369.webp 369w, /imgs/webp/bitmoji-492.webp 492w, /imgs/webp/bitmoji-615.webp 615w',
+    //     sizes: '246px'
+    // },
+    // {
+    //     src: '/imgs/webp/junior-123.webp',
+    //     srcset: '/imgs/webp/junior-123.webp 123w, /imgs/webp/junior-246.webp 246w, /imgs/webp/junior-369.webp 369w, /imgs/webp/junior-492.webp 492w, /imgs/webp/junior-615.webp 615w',
+    //     sizes: '246px'
+    // },
+    // {
+    //     src: '/imgs/webp/freshman-123.webp',
+    //     srcset: '/imgs/webp/freshman-123.webp 123w, /imgs/webp/freshman-246.webp 246w, /imgs/webp/freshman-369.webp 369w, /imgs/webp/freshman-492.webp 492w, /imgs/webp/freshman-615.webp 615w',
+    //     sizes: '246px'
+    // },
 ];
 const specialImages = {
     18: {
