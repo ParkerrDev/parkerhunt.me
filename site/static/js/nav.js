@@ -1,9 +1,27 @@
-window.onscroll = function () { scrollFunction() };
+const backLink = document.getElementById("back");
 
-function scrollFunction() {
-    if (document.documentElement.scrollTop > 15) {
-        document.getElementById("back").classList.add("opaque");
+if (backLink) {
+    const fallbackPath = "/";
+
+    // Keep a usable fallback when there is no browser history entry.
+    if (document.referrer) {
+        backLink.href = document.referrer;
     } else {
-        document.getElementById("back").classList.remove("opaque");
+        backLink.href = fallbackPath;
     }
+
+    backLink.addEventListener("click", function (event) {
+        if (window.history.length > 1) {
+            event.preventDefault();
+            window.history.back();
+        }
+    });
+
+    window.addEventListener("scroll", function () {
+        if (document.documentElement.scrollTop > 15) {
+            backLink.classList.add("opaque");
+        } else {
+            backLink.classList.remove("opaque");
+        }
+    });
 }

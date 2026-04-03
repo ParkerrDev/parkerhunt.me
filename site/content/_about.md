@@ -21,5 +21,5 @@ I have hiked to the summit of Yosimite Valley's El Capitan when I was 8 years ol
 I have hiked to the summit of Yosimite Valley's Half-dome when I was 6 years old, at an elevation of 8,946 ft.
 <a href="https://en.wikipedia.org/wiki/Half_Dome" target="_blank" title="Wikipedia"><img width=600 src="https://imgs.search.brave.com/7NFcdcM85oTvJM5ytIRdSAVIzUGw2Y-WbPqcamyMWSY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9kL2Q2L0hh/bGZfRG9tZV9mcm9t/X0dsYWNpZXJfUG9p/bnQlMkNfWW9zZW1p/dGVfTlBfLV9EaWxp/ZmYuanBnLzUxMnB4/LUhhbGZfRG9tZV9m/cm9tX0dsYWNpZXJf/UG9pbnQlMkNfWW9z/ZW1pdGVfTlBfLV9E/aWxpZmYuanBn" alt="Half Dome"></a>
 
-I am a daily driver of Linux and do not use Windows or MacOS at all. <u>Only when my work requires it.</u>
+I am a daily driver of Linux and MacOS, I do not use Windows at all. <u>Only when my work requires it.</u>
 <img width=600 src="/imgs/webp/💻.webp" alt="My laptop">
