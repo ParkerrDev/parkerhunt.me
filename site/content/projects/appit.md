@@ -1,14 +1,14 @@
 +++
-title = "AppIt! - Turn any website into an app"
-description = "A browser and app launcher that transforms websites into focused, native-feeling iOS applications with userscript customization support."
+title = "AppIt!"
+description = "An iOS browser and app launcher that transforms websites into focused, native-feeling iOS applications with userscript customization support."
 date = 2026-03-29
 +++
 
 ## Overview
 
-AppIt! reimagines how you interact with the web on iOS. Instead of the traditional tab-based browser experience, AppIt organizes websites as individual "applings"—focused, persistent destinations that feel more like native apps than browser tabs.
+AppIt! reimagines how you interact with the web on iOS. Instead of the traditional tab-based browser experience, AppIt organizes websites as individual "applings" which are focused, persistent destinations that feel more like native apps than browser tabs. You can think of applings like browser tabs but for your home screen.
 
-## The Problem
+## The Problem / Why
 
 The modern web is powerful, but traditional browsers bury websites under endless tab management:
 - Tabs pile up and important sites get lost
@@ -16,7 +16,9 @@ The modern web is powerful, but traditional browsers bury websites under endless
 - Daily tools and services lack the polished experience of native apps
 - Power workflows require constant context switching
 
-## The Solution
+and most apps are actually just websites anyway...
+
+## The Solution / How
 
 AppIt shifts from tabs to persistent destinations. Each website you care about gets its own focused space:
 
@@ -72,7 +74,7 @@ AppIt transforms the relationship between users and web applications:
 - Empowers power users with customization without coding
 - Bridges the gap between web apps and native experiences
 
-The platform rethinks browser UX by acknowledging that not all websites are equal—some deserve to be treated as core tools rather than ephemeral tabs.
+The platform rethinks browser UX by acknowledging that not all websites are equal-some deserve to be treated as core tools rather than temporary tabs.
 
 ## Status
 
