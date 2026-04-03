@@ -1,0 +1,17 @@
+{% extends "alt-base.html" %}
+
+{% block content %}
+<article class="project-detail">
+  <h1 class="title">{{ page.title }}</h1>
+
+  {% if page.description %}
+  <p class="subtitle">{{ page.description }}</p>
+  {% endif %}
+
+  {% if page.date %}
+  <p class="subtitle"><strong>{{ page.date }}</strong></p>
+  {% endif %}
+
+  {{ page.content | safe }}
+</article>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends "alt-base.html" %}
+{% block content %}
+
+<header>
+  <h1 class="title">{{ section.title }}</h1>
+  {% if section.description %}
+  <p class="subtitle">{{ section.description }}</p>
+  {% endif %}
+</header>
+
+<section class="projects-page" aria-label="Project cards">
+  <div class="projects-grid">
+    {% for page in section.pages %}
+    <article class="project-drop-in" style="--anim-idx: {{ loop.index }};">
+      <a class="project-card" href="{{ page.path | safe }}" aria-label="Open project: {{ page.title }}">
+        <div class="project-card-body">
+          <h2 class="project-card-title">{{ page.title }}</h2>
+          {% if page.date %}
+          <p class="project-card-date">{{ page.date }}</p>
+          {% endif %}
+          {% if page.description %}
+          <p class="project-card-description">{{ page.description }}</p>
+          {% endif %}
+        </div>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock content %}
