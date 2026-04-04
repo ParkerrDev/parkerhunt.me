@@ -2,6 +2,9 @@
 title = "AppIt!"
 description = "An iOS browser and app launcher that transforms websites into focused, native-feeling iOS applications with userscript customization support."
 date = 2026-03-29
+[extra]
+card_image = "/imgs/project-cards/appit.svg"
+website_url = "https://appitapp.app"
 +++
 
 ## Overview

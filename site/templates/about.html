@@ -1,9 +1,13 @@
 {% extends "alt-base.html" %}
 {% block content %}
 
-<h1 class="title">Andrew Parker Hunt</h1>
-<p class="subtitle"><strong>Last Updated {{ page.date }}</strong></p>
+<div class="about-page">
+  <header>
+    <h1 class="title">Andrew Parker Hunt</h1>
+    <p class="subtitle"><strong>Last Updated {{ page.date }}</strong></p>
+  </header>
 
-{{ page.content | safe }}
+  {{ page.content | safe }}
+</div>
 
 {% endblock content %}
