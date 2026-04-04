@@ -8,7 +8,9 @@
   <p class="subtitle">{{ page.description }}</p>
   {% endif %}
 
-  {% if page.date %}
+  {% if page.updated %}
+  <p class="subtitle"><strong>Updated {{ page.updated }}</strong></p>
+  {% elif page.date %}
   <p class="subtitle"><strong>{{ page.date }}</strong></p>
   {% endif %}
 

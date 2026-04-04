@@ -2,6 +2,7 @@
 title = "parkerhunt.me"
 description = "A fast, static personal site built with Zola, featuring blog posts, projects, and resume. Designed in Figma and deployed with custom SCSS styling."
 date = 2026-03-04
+updated = 2026-04-04
 [extra]
 card_image = "/imgs/project-cards/parkerhunt.svg"
 website_url = "https://parkerhunt.me"

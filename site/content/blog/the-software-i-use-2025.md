@@ -1,6 +1,7 @@
 +++
 title = "The software I use - 2025"
 date = 2025-08-02
+updated = 2026-04-04
 +++
 
 Today is Febuary 8th 2025, I will probably continue to update this particular blog post over the next few days.
