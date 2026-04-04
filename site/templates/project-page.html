@@ -12,6 +12,10 @@
   <p class="subtitle"><strong>{{ page.date }}</strong></p>
   {% endif %}
 
+  {% if page.extra.website_url %}
+  <p class="project-link"><a href="{{ page.extra.website_url }}" target="_blank" rel="noopener noreferrer">{{ page.extra.website_url }}</a></p>
+  {% endif %}
+
   {{ page.content | safe }}
 </article>
 {% endblock content %}
