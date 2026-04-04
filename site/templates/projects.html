@@ -1,27 +1,25 @@
 {% extends "alt-base.html" %}
 {% block content %}
 
-<header>
-  <h1 class="title">{{ section.title }}</h1>
-  {% if section.description %}
-  <p class="subtitle">{{ section.description }}</p>
-  {% endif %}
-</header>
-
 <section class="projects-page" aria-label="Project cards">
+  <header>
+    <h1 class="title">{{ section.title }}</h1>
+    {% if section.description %}
+    <p class="subtitle">{{ section.description }}</p>
+    {% endif %}
+  </header>
+
   <div class="projects-grid">
     {% for page in section.pages %}
     <article class="project-drop-in" style="--anim-idx: {{ loop.index }};">
-      <a class="project-card" href="{{ page.path | safe }}" aria-label="Open project: {{ page.title }}">
-        <div class="project-card-body">
-          <h2 class="project-card-title">{{ page.title }}</h2>
-          {% if page.date %}
-          <p class="project-card-date">{{ page.date }}</p>
-          {% endif %}
-          {% if page.description %}
-          <p class="project-card-description">{{ page.description }}</p>
-          {% endif %}
-        </div>
+      {% set card_image = page.extra.card_image | default(value="/imgs/project-cards/default.svg") %}
+      {% set website_url = page.extra.website_url | default(value="") %}
+      <a class="project-card" href="{% if website_url %}{{ website_url }}{% else %}{{ page.path | safe }}{% endif %}" {% if website_url %}target="_blank" rel="noopener noreferrer"{% endif %} aria-label="{{ page.title }}">
+        <img class="project-card-image" src="{{ card_image }}" alt="{{ page.title }}" loading="lazy" decoding="async">
+      </a>
+      <a class="project-read-bar" href="{{ page.path | safe }}">
+        <span class="project-read-label">Read About</span>
+        <span class="project-read-date">{{ page.date | date(format="%b %d, %Y") }}</span>
       </a>
     </article>
     {% endfor %}

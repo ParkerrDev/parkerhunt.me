@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450" role="img" aria-labelledby="title desc">
+  <title id="title">AppIt Project Card</title>
+  <desc id="desc">AppIt project image</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="55%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="450" fill="url(#bg)"/>
+  <text x="80" y="185" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="88" font-weight="800" fill="#1e3a8a">AppIt!</text>
+  <text x="80" y="255" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="38" font-weight="600" fill="#1d4ed8">Turn any website into an app</text>
+  <text x="80" y="315" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="30" font-weight="500" fill="#334155">Browser + app launcher</text>
+</svg>
