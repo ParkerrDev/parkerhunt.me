@@ -19,7 +19,7 @@
       </a>
       <a class="project-read-bar" href="{{ page.path | safe }}">
         <span class="project-read-label">Read About</span>
-        <span class="project-read-date">{{ page.date | date(format="%b %d, %Y") }}</span>
+        <span class="project-read-date">{% if page.updated %}{{ page.updated | date(format="%b %d, %Y") }}{% else %}{{ page.date | date(format="%b %d, %Y") }}{% endif %}</span>
       </a>
     </article>
     {% endfor %}
