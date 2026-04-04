@@ -17,6 +17,8 @@ curl -Ls "${URL}" | tar -xz
 echo "Zola version:"
 ./zola --version
 
+rm -rf ../public
+
 echo "Building site..."
 ./zola build
 
