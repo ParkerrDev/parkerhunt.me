@@ -292,13 +292,24 @@ nav li {
     margin: 0 1rem;
 }
 
+#blogs {
+    padding-left: 1.25rem;
+}
+
 #blogs li > a {
         padding: 0.75rem 1.25rem;
+        background: transparent;
+}
+
+#blogs li > a:hover {
+        background: transparent;
+        color: var(--accent);
+        text-decoration: underline;
 }
 
 #blogs li {
     display: list-item;
-    margin-left: 1.5rem;
+    margin-left: 0;
 }
 
 #blogs li:before {
@@ -306,7 +317,7 @@ nav li {
   color: black;
   display: inline;
   font-size: 1.5em;
-  margin-left: -1.25rem;
+  margin-left: 0;
   margin-right: 0.5rem;
 }
 
