@@ -1,0 +1,225 @@
+// Generated from the original single-file main.scss by relocating rules
+// verbatim. Order within a file is the original order; see main.scss for why the
+// import order matters.
+
+// The /projects grid, its cards, and a single project page.
+
+.projects-page {
+    width: calc(100vw - 8rem);
+    max-width: 90rem;
+    margin: 1.25rem calc(50% - 50vw + 4rem);
+
+    header {
+        padding: 0 0 0.9375rem;
+    }
+}
+
+body:has(.projects-page) > a.back {
+    left: 0;
+    margin-left: calc(50% - 50vw + 4rem - 0.75rem);
+}
+
+.projects-grid {
+    display: grid;
+    grid-auto-flow: row dense;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: center;
+    gap: 1.125rem;
+    padding: 0;
+}
+
+.project-drop-in {
+    opacity: 0;
+    animation: project-drop-in 0.48s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    animation-delay: calc(var(--anim-idx, 1) * 60ms);
+}
+
+.project-card {
+    display: block;
+    aspect-ratio: 445.33 / 167.19;
+    padding: 0;
+    border: 0.0625rem solid rgba(17, 24, 39, 0.16);
+    border-bottom: none;
+    border-radius: var(--border-radius-xlarge) var(--border-radius-xlarge) 0 0;
+    background: #fff;
+    box-shadow: 0 0.375rem 0.875rem rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+    transition: box-shadow 0.24s ease, border-color 0.24s ease, filter 0.24s ease;
+}
+
+.project-card:hover {
+    border-color: rgba(17, 24, 39, 0.3);
+    box-shadow: 0 0.75rem 1.5rem rgba(15, 23, 42, 0.15);
+    filter: saturate(1.03);
+}
+
+.project-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.26s ease;
+}
+
+.project-card:hover .project-card-image {
+    transform: scale(1.02);
+}
+
+.project-read-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border: 0.0625rem solid rgba(17, 24, 39, 0.16);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius-xlarge) var(--border-radius-xlarge);
+    background: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.project-read-bar:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+.project-read-label {
+    opacity: 0.7;
+}
+
+.project-read-bar:hover .project-read-label {
+    opacity: 1;
+}
+
+.project-read-date {
+    opacity: 0.45;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.project-read-bar:hover .project-read-date {
+    opacity: 0.85;
+}
+
+@keyframes project-drop-in {
+    from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-detail {
+    padding: 0 1.25rem 1.25rem;
+}
+
+.project-detail h1 {
+    margin-bottom: 0.5rem;
+}
+
+.project-detail .subtitle {
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.project-detail .project-meta {
+    margin-bottom: 0.75rem;
+}
+
+/* Markdown content styling */
+.project-detail h2 {
+    margin-top: 1.25rem;
+    margin-bottom: 0.625rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-color);
+}
+
+.project-detail h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-color);
+}
+
+.project-detail h4 {
+    margin-top: 0.875rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-color);
+}
+
+.project-detail p {
+    margin-bottom: 0.875rem;
+    line-height: 1.75;
+    color: var(--text-color);
+}
+
+.project-detail strong {
+    font-weight: 600;
+}
+
+.project-detail em {
+    font-style: italic;
+}
+
+.project-detail ul,
+.project-detail ol {
+    margin-bottom: 0.875rem;
+    padding-left: 1.5rem;
+}
+
+.project-detail li {
+    margin-bottom: 0.375rem;
+    line-height: 1.75;
+    color: var(--text-color);
+}
+
+.project-detail code {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+    padding: 0.15rem 0.4rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 0.25rem;
+    color: #d73a49;
+}
+
+.project-detail pre {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 0.875rem;
+    overflow-x: auto;
+    line-height: 1.5;
+}
+
+.project-detail pre code {
+    background-color: transparent;
+    padding: 0;
+    color: var(--text-color);
+}
+
+.project-detail a {
+    color: var(--accent);
+    text-decoration: none;
+    background: transparent;
+    transition: color 0.2s;
+}
+
+.project-detail a:hover {
+    color: #0055cc;
+    text-decoration: underline;
+    background: transparent;
+}

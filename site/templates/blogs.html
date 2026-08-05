@@ -1,18 +1,14 @@
-{% extends "alt-base.html" %}
+{% extends "base.html" %}
 {% block content %}
 
 <header>
-  <h1 class="title">
-    {{ section.title }}
-  </h1>
+  <h1 class="title">{{ section.title }}</h1>
 </header>
 
-<body>
-  <!-- If you are using pagination, section.pages will be empty. You need to use the paginator object -->
-  <ul id="blogs"> 
-    {% for page in section.pages %}
-    <li><a href="{{ page.path | safe }}">{{ page.title }}</a></li>
-    {% endfor %}
-  </ul>
-</body>
+<ul id="blogs">
+  {% for page in section.pages %}
+  <li><a href="{{ page.path | safe }}">{{ page.title }}</a></li>
+  {% endfor %}
+</ul>
+
 {% endblock content %}

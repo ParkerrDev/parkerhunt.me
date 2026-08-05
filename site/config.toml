@@ -1,16 +1,29 @@
 # The URL the site will be built for
 base_url = "https://parkerhunt.me"
+title = "Parker Hunt"
+description = "Andrew Parker Hunt — student in Clovis, California, with an interest in software development, computer science, and cybersecurity."
+author = "Andrew Parker Hunt"
 
-# Whether to automatically compile all Sass files in the sass directory
+# Compile sass/main.scss (and its partials) to /main.css
 compile_sass = true
 
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
+# Zola's search index is an 84 KB payload (index + elasticlunr) that nothing on
+# this site loads. Turn it back on the same day a search box appears.
+build_search_index = false
+
+# Strip comments and inter-tag whitespace from the generated HTML.
+minify_html = true
+
+# Every page's <head> links /rss.xml. Without these two keys Zola does not emit
+# it, and that link 404s.
+generate_feeds = true
+feed_filenames = ["rss.xml"]
+
+taxonomies = []
 
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-# highlight_code = true
+# Adds loading="lazy" decoding="async" to images in markdown content. Syntax
+# highlighting stays off — nothing here posts code, and it would add a payload.
+lazy_async_image = true
 
 [extra]
-# Put all your custom variables here

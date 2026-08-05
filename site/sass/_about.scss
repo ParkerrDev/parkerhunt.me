@@ -1,0 +1,69 @@
+// Generated from the original single-file main.scss by relocating rules
+// verbatim. Order within a file is the original order; see main.scss for why the
+// import order matters.
+
+// The /about page.
+
+/* About page */
+.about-page {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.about-page > p,
+.about-row {
+    margin-left: 2rem;
+}
+
+.about-page > p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.about-row {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 0;
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.35rem);
+    line-height: 1.75;
+}
+
+.about-text p {
+    padding: 0;
+}
+
+.about-img {
+    flex: 1;
+    max-width: 50%;
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-xlarge);
+    object-fit: cover;
+    display: block;
+}
+
+.about-img a {
+    display: block;
+    border-radius: var(--border-radius-xlarge);
+    background: transparent;
+    padding: 0;
+}
+
+.about-img a:hover {
+    background: transparent;
+    color: inherit;
+}
+
+body:has(.about-page) {
+    max-width: 64rem;
+}

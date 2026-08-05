@@ -1,81 +1,78 @@
-# Blog: written in Obsidian, pre-rendered by Zola
+# Blog: `site/content/blog/` is an Obsidian vault
 
-Blog posts are authored in Obsidian and live in the **private**
-[`ParkerrDev/notes`](https://github.com/ParkerrDev/notes) repo (the vault) under
-`Blog/`. They are **not** committed to this repo. At build time Cloudflare clones
-the notes repo, converts the posts to Zola content, and Zola **pre-renders** them
-as static HTML — so the blog gets the same SEO as the rest of the site.
+Posts live in this repo, in the folder Zola renders them from. Open
+`site/content/blog/` as a vault in Obsidian and the file you are editing **is**
+the file Zola builds. There is no converter, no second repo, and no token.
 
 ```
-Obsidian Blog/*.md ──git sync──▶ ParkerrDev/notes (private)
-        │                               │
-        │ (push)                        │ webhook ──▶ Cloudflare deploy hook
-        ▼                               ▼
-  notes repo ──────────────▶ Cloudflare Pages build:
-                               build-zola.sh:
-                                 1. git clone notes  (NOTES_TOKEN)
-                                 2. node scripts/build-blog.mjs  → site/content/blog/*
-                                 3. zola build  → pre-rendered HTML
+Obsidian ──edits──▶ site/content/blog/my-post.md ──git push──▶ Cloudflare ──▶ zola build
 ```
 
-Write a post in Obsidian → **Git: Commit-and-sync** → the webhook triggers a
-Cloudflare rebuild → the new post is live in ~a minute. **Nothing is ever
-committed to this repo to publish.**
+Write a post → commit and push this repo → live in about a minute.
 
-## Files
+## Why it works this way
 
-| Path | Role |
-|------|------|
-| `scripts/build-blog.mjs` | Converts vault `Blog/*.md` → Zola `content/blog/*` and copies post images into `static/img/blog/<slug>/` |
-| `build-zola.sh` | Clones the notes repo, runs the converter, then `zola build` |
+It used to live in the private `notes` vault and get converted at build time. That
+bought Obsidian-native syntax (`![[embeds]]`, YAML frontmatter) at the cost of a
+140-line converter, a second repo, a read-only PAT, a webhook, and two markdown
+dialects that could disagree. Writing Zola's frontmatter directly costs a `+++`
+instead of a `---` and buys the deletion of all of it.
 
-Generated paths (`site/content/blog/`, `site/static/img/blog/`, `_notes/`) are
-git-ignored — they only exist during a build.
+It also decouples the two vaults for a more important reason: the `notes` repo is
+now **encrypted at rest**, which is only possible because no build needs to read
+it in plaintext any more.
 
-## Required setup (one-time)
-
-**1. Read-only token → Cloudflare build variable.** Create a GitHub
-**fine-grained PAT** scoped to **only** `ParkerrDev/notes` with **Contents:
-Read-only**. In the Cloudflare Pages project → **Settings → Environment variables
-→ Production** (and Preview), add:
-
-| Variable | Value |
-|----------|-------|
-| `NOTES_TOKEN` | the PAT |
-
-**2. Deploy hook.** Cloudflare Pages project → **Settings → Builds & deployments
-→ Deploy hooks** → create one (branch: `master`). Copy the URL.
-
-**3. Webhook on the notes repo.** `ParkerrDev/notes` → **Settings → Webhooks →
-Add webhook**: Payload URL = the deploy-hook URL, Content type =
-`application/json`, event = **Just the push event**.
-
-That's it — pushes to `notes` now rebuild the site automatically.
-
-Optional build-var overrides (defaults shown): `NOTES_REPO=ParkerrDev/notes`,
-`NOTES_BRANCH=main`.
-
-## Post format (vault `Blog/` folder)
+## Post format
 
 ```markdown
----
-title: My post title
-date: 2026-06-14
-updated: 2026-06-15   # optional
-slug: my-post         # optional; defaults to a slug of the filename
-draft: false          # optional; true = skipped
----
++++
+title = "My post title"
+date = 2026-07-29
+updated = 2026-07-30   # optional; renders an "Updated …" line
+draft = true           # optional; excluded from the build entirely
++++
 
-Body in standard Markdown. Obsidian `![[image.png]]` embeds are copied into the
-build and rewritten automatically.
+Body in standard Markdown.
 ```
 
-Files whose name starts with `_` are ignored (handy for templates).
+TOML, so strings are quoted and dates are bare. The filename is the URL:
+`my-post.md` → `/blog/my-post/`. Rename the file to change the URL.
 
-## Local build
+**`draft = true` is the safety catch.** A draft is not rendered, not linked, and
+not in the feed — but the markdown is still committed to a **public** repo, so it
+is readable by anyone who looks. Draft means unpublished, not private.
+
+## Images
+
+Make the post a folder and put images beside it:
+
+```
+site/content/blog/my-post/
+  index.md
+  diagram.png
+```
+
+`![Diagram](diagram.png)` then resolves in both Obsidian's preview and Zola's
+output, and the URL stays `/blog/my-post/`. The tracked
+`.obsidian/app.json` sets `useMarkdownLinks` and `attachmentFolderPath: "./"` so
+Obsidian writes exactly that form instead of `![[wikilinks]]`, which Zola cannot
+render. Don't change those two settings — they are what keeps the one file
+readable by both tools.
+
+## Obsidian setup
+
+Open Obsidian → **Open folder as vault** → `site/content/blog`. Two settings
+travel with the repo (`.obsidian/app.json`, `appearance.json`); everything else
+under `.obsidian/` is git-ignored per-device state.
+
+Publishing is a normal commit in this repo. The Obsidian Git plugin is
+deliberately **not** configured here — the vault is a subdirectory of a repo whose
+other files are templates and build scripts, and a note-taking plugin should not
+be the thing that commits them. `git commit && git push`, or your editor.
+
+## Local preview
 
 ```bash
-# Convert posts from a local clone/working copy of the vault, then build:
-node scripts/build-blog.mjs /path/to/Obsidian-Vault site
-NOTES_TOKEN=<pat> ./build-zola.sh   # full build exactly as Cloudflare runs it
+cd site && zola serve      # live reload at http://127.0.0.1:1111
+zola build --drafts        # include drafts to check one before publishing
 ```

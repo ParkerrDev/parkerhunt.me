@@ -1,0 +1,129 @@
+// Generated from the original single-file main.scss by relocating rules
+// verbatim. Order within a file is the original order; see main.scss for why the
+// import order matters.
+
+// Imported LAST. These override base rules at equal specificity, so the
+// cascade depends on them coming after everything else.
+
+/* Responsive adjustments */
+@media screen and (max-width: 64em) {
+    .card {
+        flex: 1 1 100%;
+    }
+
+    .projects-page {
+        width: calc(100vw - 6rem);
+        margin: 1rem calc(50% - 50vw + 3rem);
+    }
+
+    body:has(.projects-page) > a.back {
+        margin-left: calc(50% - 50vw + 3rem - 0.75rem);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 32.5em) {
+    body {
+        margin: 3.125rem auto;
+    }
+
+    html:not(#home) body {
+        margin: 0.1rem auto;
+        max-width: 90vw;
+    }
+
+    img {
+        max-width: 90vw;
+    }
+
+    a.back {
+        top: 5.5vh;
+        left: 1vw;
+        bottom: 5vh;
+    }
+
+    .title-and-image {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .title-and-image .info {
+        padding-right: 0rem;
+    }
+
+    .links {
+        justify-content: center;
+    }
+
+    #navigation {
+        justify-content: center;
+    }
+
+    #navigation a {
+        padding: 0.75rem 0.5rem;
+    }
+
+    nav li {
+        margin: 0 0.125rem;
+    }
+
+    #memoji {
+        margin: 1.25rem 0 0;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        gap: 0.875rem;
+        padding: 0;
+    }
+
+    .project-card {
+        aspect-ratio: 445.33 / 167.19;
+    }
+
+    .projects-page {
+        width: calc(100vw - 3rem);
+        margin-left: calc(50% - 50vw + 1.5rem);
+        margin-right: calc(50% - 50vw + 1.5rem);
+        margin-top: 0.625rem;
+    }
+
+    body:has(.projects-page) > a.back {
+        left: 1vw;
+        margin-left: calc(50% - 50vw + 1.5rem - 0.75rem);
+    }
+
+    .project-detail {
+        padding: 0 0.625rem 0.875rem;
+    }
+
+    .about-page > p,
+    .about-row {
+        margin-left: 0.75rem;
+    }
+
+    .about-page h1.title {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+
+    .about-row {
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+
+    .about-img {
+        max-width: 100%;
+    }
+}

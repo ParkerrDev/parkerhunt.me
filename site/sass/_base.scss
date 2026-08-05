@@ -1,0 +1,124 @@
+// Generated from the original single-file main.scss by relocating rules
+// verbatim. Order within a file is the original order; see main.scss for why the
+// import order matters.
+
+// Element defaults and typography. Anything here is overridden by the
+// page-specific modules on specificity, not on order.
+
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    text-shadow: rgba(0, 0, 0, 0.01) 0 0 0.0625rem;
+    -moz-box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+html:not(#home) {
+    display: block;
+}
+
+html:not(#home) body {
+    padding-top: 10vh;
+}
+
+body {
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    max-width: 40rem;
+    margin: 0 auto;
+    color: var(--text-color);
+    background: var(--background);
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent);
+    transition: all 0.2s;
+    font-weight: 600;
+    border-radius: var(--border-radius-medium); // 12px - Apple's standard button radius
+}
+
+a:hover {
+    color: #fff;
+    background: var(--accent);
+    transition: all 0.2s;
+}
+
+ul {
+    list-style: none;
+}
+
+.bolded {
+    font-weight: bold;
+}
+
+li,
+p {
+    padding: 0.625rem 0;
+}
+
+h2 {
+    font-weight: 400;
+}
+
+header {
+    padding: 0 1.25rem 0.9375rem;
+}
+
+header h1 {
+    font-weight: 600;
+    font-size: 2.625rem;
+    line-height: 3.375rem;
+    letter-spacing: -0.0625rem;
+}
+
+header p {
+    font-weight: 600;
+    opacity: 0.5;
+    padding: 0;
+}
+
+img {
+    image-rendering: crisp-edges;
+}
+
+hr {
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (max-width: 30em) {
+        width: 95%;
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.subtitle {
+    font-weight: 600;
+    opacity: 0.5;
+}
