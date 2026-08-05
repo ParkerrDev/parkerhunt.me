@@ -1,0 +1,77 @@
+// Generated from the original single-file main.scss by relocating rules
+// verbatim. Order within a file is the original order; see main.scss for why the
+// import order matters.
+
+// The home page: name block, social links, memoji.
+
+.links {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: -0.25rem;
+}
+
+.links a {
+    padding: .5rem;
+    color: var(--text-color);
+}
+
+.links a:hover {
+    color: var(--accent);
+    background: transparent;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-and-image {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-and-image > div {
+    flex: 1;
+}
+
+.title-and-image .info {
+    padding-right: 2rem;
+}
+
+.title-and-image .info .links ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+}
+
+.title-and-image .info .links li {
+    display: inline-block;
+}
+
+#memoji {
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0.125rem 0.5rem 0.125rem;
+    border-color: rgb(115, 115, 115);
+    border-width: 0.0625rem;
+    border-style: solid;
+    margin-left: 1.25rem;
+    width: 10rem;
+    height: 10rem;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 50%; // Perfect circle for profile picture
+}
+
+#memoji img {
+    width: 100%;
+    height: auto;
+}
+
+#description {
+    display: inline;
+    font-size: 1.125rem;
+    font-weight: 600;
+    opacity: 0.5;
+}

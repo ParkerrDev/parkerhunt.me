@@ -1,0 +1,47 @@
+// Generated from the original single-file main.scss by relocating rules
+// verbatim. Order within a file is the original order; see main.scss for why the
+// import order matters.
+
+// The /blog index list and a single post.
+
+#blogs {
+    padding-left: 1.25rem;
+}
+
+#blogs li > a {
+        padding: 0.75rem 1.25rem;
+        background: transparent;
+}
+
+#blogs li > a:hover {
+        background: transparent;
+        color: var(--accent);
+        text-decoration: underline;
+}
+
+#blogs li {
+    display: list-item;
+    margin-left: 0;
+}
+
+#blogs li:before {
+  content: "•";
+  color: black;
+  display: inline;
+  font-size: 1.5em;
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+.blog-detail a {
+    color: var(--accent);
+    text-decoration: none;
+    background: transparent;
+    transition: color 0.2s;
+}
+
+.blog-detail a:hover {
+    color: #0055cc;
+    text-decoration: underline;
+    background: transparent;
+}

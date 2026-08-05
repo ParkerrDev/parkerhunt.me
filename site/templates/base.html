@@ -1,25 +1,52 @@
-<!DOCTYPE html>
-<html lang="en" id="home">
+{# The one page skeleton. Every template extends this.
+
+   Blocks, in the order they appear:
+     html_attrs  extra attributes on <html>. The home page sets id="home";
+                 main.scss styles every *other* page through `html:not(#home)`,
+                 so that id is load-bearing, not decoration.
+     head_extra  per-page <head> additions.
+     title       the full <title>. Override only to break the "X | Parker Hunt" pattern.
+     chrome      body furniture before <main>. Defaults to the floating back
+                 link; the home page overrides it to nothing.
+                 It must stay a DIRECT child of <body> — main.scss positions it
+                 per-page via `body:has(.projects-page) > a.back`.
+     content     the page.
+     footer      overridable so the full-bleed résumé page can drop it.
+#}<!DOCTYPE html>
+<html lang="en"{% block html_attrs %}{% endblock %}>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml",
-        trailing_slash=false)}}">
-    <meta name="description" content="Andrew Parker Hunt is a Student in Clovis, California, USA, with an interest in software development, computer science, and cybersecurity.">
+    <meta name="description" content="{% block description %}Andrew Parker Hunt is a Student in Clovis, California, USA, with an interest in software development, computer science, and cybersecurity.{% endblock %}">
     <link rel="stylesheet" href="/main.css">
     <link rel="icon" href="/imgs/webp/memoji-circle.webp">
-    <!-- <script async src="/js/theme.js"></script> -->
-    <title>{% if page.title %}{{ page.title }} | {% elif section.title %}{{ section.title }} | {% endif %}Parker Hunt</title>
-     </head>
+    {%- if config.generate_feeds %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=config.feed_filenames[0], trailing_slash=false) }}">
+    {%- endif %}
+    <title>{% block title %}{% if page.title %}{{ page.title }} | {% elif section.title %}{{ section.title }} | {% endif %}Parker Hunt{% endblock %}</title>
+    {%- block head_extra %}{% endblock %}
+</head>
 
 <body>
-     <main>
-        {% block content %}{% endblock %}
+    {%- block chrome %}
+    <a href="/" id="back" class="back"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+            <path fill-rule="evenodd"
+                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+        </svg> back</a>
+    <script async src="/js/nav.js"></script>
+    {%- endblock %}
+
+    <main id="main-content" tabindex="-1">
+        {%- block content %}{% endblock %}
     </main>
+
+    {%- block footer %}
     <footer>
         <p>Designed, and Built, by Me</p>
     </footer>
+    {%- endblock %}
 </body>
 
 </html>
