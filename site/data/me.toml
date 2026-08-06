@@ -77,6 +77,19 @@ doing = [
   "Mandarin, most days",
 ]
 
+# NOT RENDERED ANY MORE. The Coffee orders, Orders, the vice, Settled, Assorted
+# and The house sections were removed from the home page on 2026-08-06. Their
+# data is left here rather than deleted, for the same reason feeds.toml keeps
+# its [li] block: putting a section back should be a template change, not a
+# retyping job. The keys below feed nothing today —
+#
+#   [coffee] [[coffee_shop]] [[restaurant]] [vice] [[takes]] facts tidbits [[rooms]]
+#
+# — and so do site/data/brands.json and site/static/imgs/brands/, which existed
+# only for the logos on those cards. scripts/fetch-brands.mjs and the `banner`
+# macro in templates/macros.html are likewise dormant, not broken.
+
+
 # ----------------------------------------------------------------- coffee --
 # The habit. The orders live in [[coffee_shop]] below, because they belong to a
 # shop and one shop can have several.
