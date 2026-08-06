@@ -1,8 +1,8 @@
 {
   "fetched": "2026-08-06",
   "source": "https://www.wikidata.org (CC0); photographs from Wikimedia Commons",
-  "count": 30,
-  "with_photo": 22,
+  "count": 31,
+  "with_photo": 23,
   "places": [
     {
       "name": "Grand Canyon",
@@ -169,6 +169,20 @@
         "source": "https://commons.wikimedia.org/wiki/File:Riverton_WY.jpg",
         "credit_required": true,
         "bytes": 21190
+      }
+    },
+    {
+      "name": "Deadwood",
+      "where": "South Dakota",
+      "key": "deadwood-south-dakota",
+      "qid": "Q262483",
+      "photo": {
+        "src": "/imgs/been/deadwood-south-dakota.webp",
+        "licence": "CC BY-SA 3.0",
+        "author": "The original uploader was Gorilla Jones at English Wikipedia.",
+        "source": "https://commons.wikimedia.org/wiki/File:Deadwood_today.jpg",
+        "credit_required": true,
+        "bytes": 28258
       }
     },
     {
