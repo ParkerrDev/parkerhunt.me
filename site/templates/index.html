@@ -88,7 +88,7 @@
                 <a class="pill" href="https://www.linkedin.com/in/andrewparkerh/" target="_blank" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">{{ ico::linkedin() }}</a>
                 <a class="pill" href="{{ steam.profile.url }}" target="_blank" rel="me noopener" aria-label="Steam" title="Steam">{{ ico::steam() }}</a>
                 <a class="pill" href="{{ chess.url }}" target="_blank" rel="me noopener" aria-label="Chess.com" title="Chess.com">{{ ico::chesscom() }}</a>
-                <a class="pill" href="{{ nexus.url }}" target="_blank" rel="me noopener" aria-label="Nexus Mods" title="Nexus Mods">{{ ico::nexus() }}</a>
+                <a class="pill" href="{{ nexus.url }}" target="_blank" rel="me noopener" aria-label="Nexus Mods" title="Nexus Mods">{{ ico::brand(icons=ico2.icons, slug="nexusmods") }}</a>
             </div>
         </div>
     </div>
@@ -370,18 +370,18 @@
         <div class="wrap">
             <div class="head">
                 <h2>Mods</h2>
-                <p>{{ nexus.count }} published on Nexus Mods, {{ nexus.totals.downloads | num_format }} downloads between them.</p>
+                <p>{{ nexus.count }} published on Nexus Mods, for Subnautica and Below Zero.</p>
                 <a class="more" href="{{ nexus.url }}" target="_blank" rel="noopener">On Nexus Mods →</a>
             </div>
-            {# Nexus Mods. Mods for Subnautica and Below Zero, which is a
-               pleasing coincidence given what is at the top of the played
-               list further down the page. #}
-                        <div>
-                <div class="feed nx">
-                    {{ isle::nexus(n=nexus, mods=nexus.mods) }}
-                </div>
-                <p class="feed-foot"><a href="{{ nexus.url }}" target="_blank" rel="noopener">{{ nexus.count }} mods</a> · {{ nexus.totals.downloads | num_format }} downloads · {{ nexus.totals.endorsements | num_format }} endorsements</p>
+            {# .panel, not .feed: five rows do not need an inner scrollbar, and
+               the hero at the top of the island is the wrong thing to be able
+               to scroll away from. #}
+            <div class="panel nx">
+                {{ isle::nexus(n=nexus, mods=nexus.mods, icons=ico2.icons) }}
             </div>
+            {% if nexus.profile %}
+            <p class="feed-foot">Joined {{ nexus.profile.joined | date(format="%B %Y") }} · {{ nexus.profile.views | num_format }} profile views · {{ nexus.profile.endorsements_given }} endorsements given to other authors. Snapshotted {{ nexus.fetched }} from Nexus Mods' public API. <a href="{{ nexus.mods_url }}" target="_blank" rel="noopener">All {{ nexus.count }} mods →</a></p>
+            {% endif %}
         </div>
     </section>
     {% endif %}
