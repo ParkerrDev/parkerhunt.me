@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% import "macros.html" as ico %}
+{% import "islands.html" as isle %}
+
+{% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{% endblock %}
+
+{# /chess/ — the full Chess.com record.
+
+   Everything on this page comes from api.chess.com/pub, which is public, needs
+   no key and is fetched at build time by scripts/fetch-chess.mjs. The island is
+   Chess.com's own charcoal-and-green (see .cc in templates/_style.css) because
+   a chessboard rendered in the site's own light grey would just look wrong. #}
+
+{% block content %}
+{% set c = load_data(path="data/chess.json") %}
+
+<header class="hero">
+    <div class="wrap">
+        <a class="back" href="/">{{ ico::back() }} Home</a>
+        <h1>{{ page.title }}</h1>
+        <p class="hero-lede">{{ page.description }}</p>
+        <ul class="facts" style="margin-top:1.25rem">
+            <li>{{ c.record.total }} rated games</li>
+            <li>{{ c.record.win }}W · {{ c.record.draw }}D · {{ c.record.loss }}L</li>
+            {% if c.tactics %}<li>tactics peak {{ c.tactics.best }}</li>{% endif %}
+            <li>joined {{ c.joined | date(format="%B %Y") }}</li>
+        </ul>
+        <div class="links">
+            <a class="pill pill--primary" href="{{ c.url }}" target="_blank" rel="noopener">{{ ico::chesscom() }} Play me</a>
+        </div>
+    </div>
+</header>
+
+<main id="main">
+    <section>
+        <div class="wrap">
+            {% if page.content %}<div class="prose" style="margin-bottom:1.75rem">{{ page.content | safe }}</div>{% endif %}
+            <div class="panel cc">
+                {{ isle::chess_head(c=c) }}
+                {{ isle::chess_modes(modes=c.modes) }}
+            </div>
+            <p class="feed-foot">Snapshot taken {{ c.fetched }}. Refreshed on every deploy.</p>
+        </div>
+    </section>
+
+    {# ---------------------------------------------------------- overall -- #}
+    <section>
+        <div class="wrap">
+            <div class="head"><h2>The whole record</h2><p>Every rated game across every time control.</p></div>
+            <div class="tiles">
+                <div class="tile">
+                    <span class="tile-k">Win rate</span>
+                    <span class="tile-v">{{ (c.record.win / c.record.total * 100) | round }}%</span>
+                    <span class="tile-s">{{ c.record.win }} of {{ c.record.total }}</span>
+                </div>
+                <div class="tile">
+                    <span class="tile-k">Best rating</span>
+                    <span class="tile-v">{{ c.modes | map(attribute="best") | sort | last }}</span>
+                    <span class="tile-s">across all time controls</span>
+                </div>
+                {% if c.tactics %}
+                <div class="tile">
+                    <span class="tile-k">Tactics</span>
+                    <span class="tile-v">{{ c.tactics.best }}</span>
+                    <span class="tile-s">peak{% if c.tactics.worst %} · low {{ c.tactics.worst }}{% endif %}</span>
+                </div>
+                {% endif %}
+                <div class="tile">
+                    <span class="tile-k">Draws</span>
+                    <span class="tile-v">{{ c.record.draw }}</span>
+                    <span class="tile-s">{{ (c.record.draw / c.record.total * 100) | round }}% of games</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# ------------------------------------------------------------ games -- #}
+    {% if c.games | length > 0 %}
+    <section>
+        <div class="wrap">
+            <div class="head">
+                <h2>Recent games</h2>
+                <p>The last {{ c.games | length }}, newest first. Every row links to the board on Chess.com.</p>
+            </div>
+            <div class="panel cc">
+                {{ isle::chess_games(games=c.games) }}
+            </div>
+            {# Worth stating because the derivation is not obvious: Chess.com
+               only records HOW a game ended on the losing side. The winner's
+               result is just "win", so "checkmate" or "timeout" always has to
+               be read off the other player. #}
+            <p class="feed-foot">The opening is taken from each game's PGN. How a game ended is read off the losing side — Chess.com records the manner of defeat there and nowhere else.</p>
+        </div>
+    </section>
+    {% endif %}
+</main>
+{% endblock %}

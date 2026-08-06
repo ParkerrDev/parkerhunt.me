@@ -1,0 +1,191 @@
+{# The brand islands, as macros, because every one of them renders in two
+   places: a teaser on the home page and the full thing on its own page. One
+   definition means the home page and /games/ can never drift apart.
+
+   These are markup only — all four palettes live in templates/_style.css under
+   "2. ISLANDS", scoped to .stm / .duol / .cc / .nx so no brand colour can leak
+   into the shell.
+
+   Every macro takes its data as an argument. Tera macros cannot see globals, so
+   nothing here can reach for `me` or `config` — which is the point: they are
+   pure functions of a JSON snapshot. #}
+{% import "macros.html" as ico %}
+
+{# --- Steam: a row of the library ----------------------------------------- #}
+{# `top` is the highest playtime in the set, so the bars are scaled against the
+   most-played game rather than against a round number. #}
+{% macro steam_played(games, top) %}
+{% for g in games %}
+<a class="sgame" href="{{ g.url }}" target="_blank" rel="noopener">
+    <div class="s-art"><img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async"></div>
+    <div class="s-main">
+        <div class="s-name">{{ g.name }}</div>
+        <div class="s-sub">
+            <span class="s-hours">{{ g.hours }} hours</span>
+            {%- if g.ach_total %}<span>{{ g.ach_done }}/{{ g.ach_total }} achievements</span>{% endif -%}
+        </div>
+        <div class="s-bar"><i style="width:{{ (g.minutes / top * 100) | round }}%"></i></div>
+    </div>
+</a>
+{% endfor %}
+{% endmacro steam_played %}
+
+{# --- Steam: a row of the wishlist ---------------------------------------- #}
+{% macro steam_wish(games) %}
+{% for g in games %}
+<a class="sgame" href="{{ g.url }}" target="_blank" rel="noopener">
+    <div class="s-art"><img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async"></div>
+    <div class="s-main">
+        <div class="s-name">{{ g.name }}</div>
+        <div class="s-sub">
+            {%- if g.review %}<span class="s-rev s-rev--{{ g.review.tone }}">{{ g.review.label }}</span><span>{{ g.review.pct }}% of {{ g.review.count | num_format }}</span>{% endif -%}
+            {%- if not g.review and g.released %}<span>{{ g.released }}</span>{% endif -%}
+        </div>
+    </div>
+    {% if g.price.now %}
+    <div class="s-price{% if g.price.free %} s-free{% endif %}">
+        {%- if g.price.off %}<span class="s-off">-{{ g.price.off }}%</span>{% endif -%}
+        <span class="s-cost">
+            {%- if g.price.was %}<span class="s-was">{{ g.price.was }}</span>{% endif -%}
+            <span class="s-now">{{ g.price.now }}</span>
+        </span>
+    </div>
+    {% endif %}
+</a>
+{% endfor %}
+{% endmacro steam_wish %}
+
+{# --- Steam: the profile bar and the four counters ------------------------ #}
+{% macro steam_head(steam, label) %}
+<div class="s-head">
+    {{ ico::steam() }} <b>{{ steam.profile.name }}</b>
+    <span class="s-h-sub">{{ label }}</span>
+</div>
+{% endmacro steam_head %}
+
+{% macro steam_stats(steam) %}
+<div class="s-stats">
+    <div class="s-stat"><b>{{ steam.totals.owned }}</b><span>Games</span></div>
+    <div class="s-stat"><b>{{ steam.totals.hours | num_format }}</b><span>Hours</span></div>
+    <div class="s-stat"><b>{{ steam.totals.wishlisted }}</b><span>Wishlisted</span></div>
+    <div class="s-stat"><b>{{ steam.totals.on_sale }}</b><span>On sale now</span></div>
+</div>
+{% endmacro steam_stats %}
+
+{# --- Duolingo ------------------------------------------------------------ #}
+{# A lapsed streak renders as a grey zero rather than being hidden. Zero is the
+   honest number, it is what Duolingo itself shows, and hiding it would be the
+   one dishonest thing on a page built out of real snapshots. #}
+{% macro duolingo(d) %}
+<div class="duol">
+    <div class="d-head">
+        <div class="d-av"><img src="/imgs/webp/avatar-288.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div>
+        <div class="d-who">
+            <div class="d-name">{{ d.name }}</div>
+            <div class="d-user">{{ d.username }} · joined {{ d.joined | date(format="%B %Y") }}</div>
+        </div>
+        <span class="d-mark">{{ ico::duolingo() }} Duolingo</span>
+    </div>
+
+    <div class="d-stats">
+        <div class="d-stat">{{ ico::flame(lit=d.streak > 0) }}<div><b>{{ d.streak }}</b><span>Day streak</span></div></div>
+        <div class="d-stat d-stat--xp">{{ ico::bolt() }}<div><b>{{ d.total_xp | num_format }}</b><span>Total XP</span></div></div>
+        <div class="d-stat d-stat--course">{{ ico::duolingo() }}<div><b>{{ d.courses | length }}</b><span>Courses</span></div></div>
+        {# The main course carries its own flag rather than a generic trophy —
+           the flag is the only icon here that actually says which language. #}
+        {% set main = d.courses | first %}
+        <div class="d-stat">
+            <span class="d-flag">{% if main.flag == "cn" %}{{ ico::flag_cn() }}{% elif main.flag == "es" %}{{ ico::flag_es() }}{% endif %}</span>
+            <div><b>{{ main.label }}</b><span>Main course</span></div>
+        </div>
+    </div>
+
+    <ul class="d-courses">
+        {% for c in d.courses %}
+        <li class="d-course">
+            <span class="d-flag">
+                {%- if c.flag == "cn" %}{{ ico::flag_cn() }}{% elif c.flag == "es" %}{{ ico::flag_es() }}{% endif -%}
+            </span>
+            <div class="d-c-main">
+                <div class="d-c-top">
+                    <span>{{ c.label }}{% if c.native %} <span class="d-c-xp">{{ c.native }}</span>{% endif %}{% if c.current %} <span class="d-current">Current</span>{% endif %}</span>
+                    <span class="d-c-xp">{{ c.xp | num_format }} XP</span>
+                </div>
+                <div class="d-c-bar"><i style="width:{{ c.share }}%"></i></div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a class="d-cta" href="{{ d.url }}" target="_blank" rel="noopener">View profile</a>
+</div>
+{% endmacro duolingo %}
+
+{# --- Chess.com ----------------------------------------------------------- #}
+{% macro chess_head(c) %}
+<div class="cc-board"></div>
+<div class="cc-head">
+    <div class="cc-av"><img src="/imgs/webp/avatar-288.webp" width="44" height="44" alt="" loading="lazy" decoding="async"></div>
+    <div class="cc-who">
+        <div class="cc-user">{{ ico::chesscom() }} {{ c.username }}</div>
+        <div class="cc-sub">Joined {{ c.joined | date(format="%B %Y") }} · {{ c.record.total }} rated games</div>
+    </div>
+    {% if c.league %}<div class="cc-league">League<b>{{ c.league }}</b></div>{% endif %}
+</div>
+{% endmacro chess_head %}
+
+{% macro chess_modes(modes) %}
+<div class="cc-modes">
+    {% for m in modes %}
+    <div class="cc-mode">
+        <div class="cc-m-top"><b>{{ m.label }}</b> {{ m.tempo }}</div>
+        <div class="cc-rating">{{ m.rating }}</div>
+        <div class="cc-best">{% if m.best %}Peak {{ m.best }} · {% endif %}{{ m.total }} game{{ m.total | pluralize }}</div>
+        <div class="cc-wdl">
+            <i class="cc-w" style="width:{{ m.win_pct }}%"></i>
+            <i class="cc-d" style="width:{{ m.draw_pct }}%"></i>
+            <i class="cc-l" style="width:{{ m.loss_pct }}%"></i>
+        </div>
+        <div class="cc-legend">{{ m.win }}W · {{ m.draw }}D · {{ m.loss }}L</div>
+    </div>
+    {% endfor %}
+</div>
+{% endmacro chess_modes %}
+
+{# The result badge letter comes from the outcome, and the outcome is derived in
+   scripts/fetch-chess.mjs — Chess.com records how a game ended on the losing
+   side only, so it cannot be read off one player's record. #}
+{% macro chess_games(games) %}
+<div class="cc-games">
+    {% for g in games %}
+    <a class="cc-game" href="{{ g.url }}" target="_blank" rel="noopener">
+        <span class="cc-res cc-res--{{ g.outcome }}">{{ g.outcome | truncate(length=1, end="") | upper }}</span>
+        <span class="cc-g-main">
+            <span class="cc-opp"><i class="cc-side cc-side--{{ g.colour }}"></i>{{ g.opponent }} <span class="cc-when">{{ g.opponent_rating }}</span></span>
+            <span class="cc-open">{% if g.opening %}{{ g.opening }}{% else %}{{ g.class | title }}{% endif %}{% if g.moves %} · {{ g.moves }} moves{% endif %} · {{ g.how | replace(from="checkmated", to="checkmate") | replace(from="timevsinsufficient", to="timeout") | replace(from="insufficient", to="insufficient material") }}</span>
+        </span>
+        <span class="cc-when">{{ g.when | date(format="%d %b") }}</span>
+    </a>
+    {% endfor %}
+</div>
+{% endmacro chess_games %}
+
+{# --- Nexus Mods ---------------------------------------------------------- #}
+{% macro nexus(n, mods) %}
+<div class="nx-head">
+    {{ ico::nexus() }} <b>{{ n.author }}</b>
+    <span class="nx-h-sub">{{ n.totals.downloads | num_format }} downloads</span>
+</div>
+{% for m in mods %}
+<a class="nx-mod" href="{{ m.url }}" target="_blank" rel="noopener">
+    <div class="nx-name">{{ m.short }}</div>
+    <div class="nx-game">{{ m.game }}{% if m.category %} · {{ m.category }}{% endif %}</div>
+    {% if m.summary %}<p class="nx-sum">{{ m.summary }}</p>{% endif %}
+    <div class="nx-meta">
+        <span>{{ ico::dl() }}{{ m.downloads | num_format }}</span>
+        <span>{{ ico::heart() }}{{ m.endorsements | num_format }}</span>
+        {% if m.updated %}<span>Updated {{ m.updated }}</span>{% endif %}
+    </div>
+</a>
+{% endfor %}
+{% endmacro nexus %}

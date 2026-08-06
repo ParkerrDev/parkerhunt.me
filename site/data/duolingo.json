@@ -1,0 +1,32 @@
+{
+  "username": "parkerhunt.me",
+  "name": "Parker",
+  "url": "https://www.duolingo.com/profile/parkerhunt.me",
+  "fetched": "2026-08-06",
+  "joined": "2021-01-12",
+  "total_xp": 6403,
+  "streak": 0,
+  "has_plus": false,
+  "courses": [
+    {
+      "code": "zh",
+      "title": "Chinese (Simplified)",
+      "label": "Chinese",
+      "native": "中文",
+      "flag": "cn",
+      "xp": 5498,
+      "current": true,
+      "share": 86
+    },
+    {
+      "code": "es",
+      "title": "Spanish",
+      "label": "Spanish",
+      "native": "Español",
+      "flag": "es",
+      "xp": 905,
+      "current": false,
+      "share": 14
+    }
+  ]
+}

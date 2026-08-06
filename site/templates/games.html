@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% import "macros.html" as ico %}
+{% import "islands.html" as isle %}
+
+{% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{% endblock %}
+
+{# /games/ — the whole library, the whole wishlist, and everything ever played.
+   The library and wishlist panels are Steam's own visual language (see the .stm
+   block in templates/_style.css); the favourites and the played list are the
+   site's, because a personal ranking is not a store listing.
+
+   About 100 capsule images render on this page. Every one is a local 268px WebP
+   written by scripts/fetch-steam-art.mjs, lazy-loaded, with its box reserved by
+   aspect-ratio — so the page costs about 8 KB of HTML up front and pulls art in
+   as you scroll. Nothing here resolves a Steam hostname. #}
+
+{% block content %}
+{% set steam = load_data(path="data/steam.json") %}
+{% set games = load_data(path="data/games.toml") %}
+{% set top = steam.library | first | get(key="minutes") %}
+
+<header class="hero">
+    <div class="wrap">
+        <a class="back" href="/">{{ ico::back() }} Home</a>
+        <h1>{{ page.title }}</h1>
+        <p class="hero-lede">{{ page.description }}</p>
+        <ul class="facts" style="margin-top:1.25rem">
+            <li>{{ games.played | length }} played, ever</li>
+            <li>{{ steam.totals.owned }} owned on Steam</li>
+            <li>{{ steam.totals.hours | num_format }} hours logged</li>
+            <li>{{ steam.totals.wishlisted }} wishlisted</li>
+            <li>{{ steam.totals.on_sale }} of them on sale</li>
+        </ul>
+    </div>
+</header>
+
+<main id="main">
+    {% if page.content %}
+    <section>
+        <div class="wrap"><div class="prose">{{ page.content | safe }}</div></div>
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------- favourites -- #}
+    {% if games.favourite | length > 0 %}
+    <section id="favourites">
+        <div class="wrap">
+            <div class="head"><h2>Favourites</h2><p>In order. Two of the four are the same series, which tells you something.</p></div>
+            <div class="gcards">
+                {% for f in games.favourite %}
+                {% set g = steam.by_appid[f.appid] %}
+                <a class="gcard" href="{{ g.url }}" target="_blank" rel="noopener">
+                    <div class="gcard-art">
+                        <img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async">
+                        <span class="gcard-n">{{ loop.index }}</span>
+                    </div>
+                    <div class="gcard-body">
+                        <span class="gcard-t">{{ g.name }}</span>
+                        {% if f.note %}<p class="gcard-d">{{ f.note }}</p>{% endif %}
+                        <span class="gcard-m">{{ g.released }}{% if g.genres | length > 0 %} · {{ g.genres | join(sep=", ") }}{% endif %}</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ---------------------------------------------------------- library -- #}
+    {# The library is sorted by playtime descending, so everything with zero
+       hours is at the tail — which is exactly the free Valve bundle nobody
+       launches. Slicing at totals.played splits the list without needing a
+       second array or a filter Tera would get wrong. #}
+    <section id="library">
+        <div class="wrap">
+            <div class="head">
+                <h2>Library</h2>
+                <p>{{ steam.totals.played }} of {{ steam.totals.owned }} actually launched, {{ steam.totals.hours | num_format }} hours between them.</p>
+                <a class="more" href="{{ steam.profile.url }}" target="_blank" rel="noopener">On Steam →</a>
+            </div>
+            <div class="panel stm">
+                {{ isle::steam_head(steam=steam, label="Member since " ~ steam.profile.member_since) }}
+                {{ isle::steam_stats(steam=steam) }}
+                {{ isle::steam_played(games=steam.library | slice(end=steam.totals.played), top=top) }}
+                {% set unplayed = steam.library | slice(start=steam.totals.played) %}
+                {% if unplayed | length > 0 %}
+                <p class="s-note">
+                    <b>{{ unplayed | length }} never launched:</b>
+                    {% for g in unplayed %}{{ g.name }}{% if not loop.last %} · {% endif %}{% endfor %}
+                </p>
+                {% endif %}
+            </div>
+            <p class="feed-foot">The profile is private, so playtime and achievements are pinned in <code>site/data/steam-seed.json</code>. Everything else on this page — names, art, release dates, prices, review scores — is fetched from Steam's public store API on every deploy.</p>
+        </div>
+    </section>
+
+    {# --------------------------------------------------------- wishlist -- #}
+    {% if steam.wishlist | length > 0 %}
+    <section id="wishlist">
+        <div class="wrap">
+            <div class="head">
+                <h2>Wishlist</h2>
+                <p>{{ steam.totals.wishlisted }} games, in my own priority order. {{ steam.totals.on_sale }} are discounted as of {{ steam.fetched }}.</p>
+            </div>
+            {# .panel, not .feed: the library above it is unscrolled, and one
+               scroll pane next to one plain list reads as a bug. A long page is
+               the honest shape for a 59-item list. #}
+            <div class="panel stm">
+                {{ isle::steam_head(steam=steam, label=steam.totals.on_sale ~ " on sale") }}
+                {{ isle::steam_wish(games=steam.wishlist) }}
+            </div>
+            <p class="feed-foot">Prices in USD, and as fresh as the last deploy. Review scores are Steam's own buckets across all languages and purchase types.</p>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ----------------------------------------------------- played, ever -- #}
+    {% if games.played | length > 0 %}
+    <section id="played">
+        <div class="wrap">
+            <div class="head">
+                <h2>Everything, ever</h2>
+                <p>All {{ games.played | length }} of them, in the order I remembered them. A filled dot means it is on Steam and the title links there.</p>
+            </div>
+            <ul class="gamelist">
+                {% for p in games.played %}
+                {% if p.appid %}
+                {% set g = steam.by_appid[p.appid] %}
+                <li><i></i><a href="{{ g.url }}" target="_blank" rel="noopener">{{ g.name }}</a>{% if p.where %} <span class="where">{{ p.where }}</span>{% endif %}</li>
+                {% else %}
+                <li><i class="off"></i>{{ p.title }}{% if p.where %} <span class="where">{{ p.where }}</span>{% endif %}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+    {% endif %}
+</main>
+{% endblock %}

@@ -1,0 +1,3989 @@
+{
+  "profile": {
+    "name": "SauccyDev",
+    "url": "https://steamcommunity.com/id/parkerhunt",
+    "steamid": "76561199054315811",
+    "member_since": "2020-05-03",
+    "snapshot_taken": "2026-08-05"
+  },
+  "fetched": "2026-08-06",
+  "totals": {
+    "owned": 44,
+    "played": 30,
+    "hours": 1207,
+    "wishlisted": 59,
+    "on_sale": 15
+  },
+  "library": [
+    {
+      "appid": 264710,
+      "name": "Subnautica",
+      "url": "https://store.steampowered.com/app/264710/",
+      "art": "/imgs/steam/264710.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/header.jpg?t=1777456112",
+      "released": "Jan 23, 2018",
+      "genres": [
+        "Adventure",
+        "Indie"
+      ],
+      "minutes": 21818,
+      "hours": 363.6,
+      "ach_done": 7,
+      "ach_total": 17,
+      "ach_pct": 41
+    },
+    {
+      "appid": 377160,
+      "name": "Fallout 4",
+      "url": "https://store.steampowered.com/app/377160/",
+      "art": "/imgs/steam/377160.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/377160/header.jpg?t=1764687456",
+      "released": "Nov 9, 2015",
+      "genres": [
+        "RPG"
+      ],
+      "minutes": 20311,
+      "hours": 338.5,
+      "ach_done": 35,
+      "ach_total": 84,
+      "ach_pct": 42
+    },
+    {
+      "appid": 1326470,
+      "name": "Sons Of The Forest",
+      "url": "https://store.steampowered.com/app/1326470/",
+      "art": "/imgs/steam/1326470.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1326470/header.jpg?t=1708624856",
+      "released": "Feb 22, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "minutes": 8017,
+      "hours": 133.6,
+      "ach_done": 21,
+      "ach_total": 32,
+      "ach_pct": 66
+    },
+    {
+      "appid": 17390,
+      "name": "SPORE™",
+      "url": "https://store.steampowered.com/app/17390/",
+      "art": "/imgs/steam/17390.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17390/header.jpg?t=1777486064",
+      "released": "Dec 19, 2008",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Casual"
+      ],
+      "minutes": 4248,
+      "hours": 70.8,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 489830,
+      "name": "The Elder Scrolls V: Skyrim Special Edition",
+      "url": "https://store.steampowered.com/app/489830/",
+      "art": "/imgs/steam/489830.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/489830/header.jpg?t=1753715778",
+      "released": "Oct 27, 2016",
+      "genres": [
+        "RPG"
+      ],
+      "minutes": 3994,
+      "hours": 66.6,
+      "ach_done": 11,
+      "ach_total": 75,
+      "ach_pct": 15
+    },
+    {
+      "appid": 22380,
+      "name": "Fallout: New Vegas",
+      "url": "https://store.steampowered.com/app/22380/",
+      "art": "/imgs/steam/22380.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22380/header.jpg?t=1765992876",
+      "released": "Oct 19, 2010",
+      "genres": [
+        "Action",
+        "RPG"
+      ],
+      "minutes": 3932,
+      "hours": 65.5,
+      "ach_done": 2,
+      "ach_total": 75,
+      "ach_pct": 3
+    },
+    {
+      "appid": 105600,
+      "name": "Terraria",
+      "url": "https://store.steampowered.com/app/105600/",
+      "art": "/imgs/steam/105600.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg?t=1769844435",
+      "released": "May 16, 2011",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "minutes": 3103,
+      "hours": 51.7,
+      "ach_done": 32,
+      "ach_total": 137,
+      "ach_pct": 23
+    },
+    {
+      "appid": 613100,
+      "name": "House Flipper",
+      "url": "https://store.steampowered.com/app/613100/",
+      "art": "/imgs/steam/613100.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613100/6cee40fe293f0bab47534e78bcda64487902efc1/header.jpg?t=1785186280",
+      "released": "May 17, 2018",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Casual"
+      ],
+      "minutes": 1230,
+      "hours": 20.5,
+      "ach_done": 5,
+      "ach_total": 96,
+      "ach_pct": 5
+    },
+    {
+      "appid": 620,
+      "name": "Portal 2",
+      "url": "https://store.steampowered.com/app/620/",
+      "art": "/imgs/steam/620.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/header.jpg?t=1745363004",
+      "released": "Apr 18, 2011",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "minutes": 1010,
+      "hours": 16.8,
+      "ach_done": 16,
+      "ach_total": 51,
+      "ach_pct": 31
+    },
+    {
+      "appid": 1174180,
+      "name": "Red Dead Redemption 2",
+      "url": "https://store.steampowered.com/app/1174180/",
+      "art": "/imgs/steam/1174180.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg?t=1759502961",
+      "released": "Dec 5, 2019",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "minutes": 999,
+      "hours": 16.7,
+      "ach_done": 2,
+      "ach_total": 51,
+      "ach_pct": 4
+    },
+    {
+      "appid": 26000,
+      "name": "The Maw",
+      "url": "https://store.steampowered.com/app/26000/",
+      "art": "/imgs/steam/26000.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/26000/header.jpg?t=1776350668",
+      "released": "Mar 9, 2009",
+      "genres": [
+        "Action",
+        "Indie"
+      ],
+      "minutes": 437,
+      "hours": 7.3,
+      "ach_done": 9,
+      "ach_total": 15,
+      "ach_pct": 60
+    },
+    {
+      "appid": 427730,
+      "name": "Who's Your Daddy?!",
+      "url": "https://store.steampowered.com/app/427730/",
+      "art": "/imgs/steam/427730.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427730/header.jpg?t=1773896104",
+      "released": "May 13, 2016",
+      "genres": [
+        "Action",
+        "Casual",
+        "Indie"
+      ],
+      "minutes": 373,
+      "hours": 6.2,
+      "ach_done": 8,
+      "ach_total": 44,
+      "ach_pct": 18
+    },
+    {
+      "appid": 35000,
+      "name": "Mini Ninjas",
+      "url": "https://store.steampowered.com/app/35000/",
+      "art": "/imgs/steam/35000.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/35000/header.jpg?t=1779278491",
+      "released": "Sep 8, 2009",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "minutes": 371,
+      "hours": 6.2,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 220,
+      "name": "Half-Life 2",
+      "url": "https://store.steampowered.com/app/220/",
+      "art": "/imgs/steam/220.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/header.jpg?t=1745368545",
+      "released": "Nov 16, 2004",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 368,
+      "hours": 6.1,
+      "ach_done": 3,
+      "ach_total": 69,
+      "ach_pct": 4
+    },
+    {
+      "appid": 2012840,
+      "name": "Portal with RTX",
+      "url": "https://store.steampowered.com/app/2012840/",
+      "art": "/imgs/steam/2012840.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2012840/header.jpg?t=1747634461",
+      "released": "Dec 8, 2022",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 351,
+      "hours": 5.9,
+      "ach_done": 5,
+      "ach_total": 15,
+      "ach_pct": 33
+    },
+    {
+      "appid": 22300,
+      "name": "Fallout 3",
+      "url": "https://store.steampowered.com/app/22300/",
+      "art": "/imgs/steam/22300.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22300/header.jpg?t=1732208474",
+      "released": "Oct 28, 2008",
+      "genres": [
+        "RPG"
+      ],
+      "minutes": 298,
+      "hours": 5,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 242760,
+      "name": "The Forest",
+      "url": "https://store.steampowered.com/app/242760/",
+      "art": "/imgs/steam/242760.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/242760/header.jpg?t=1699381053",
+      "released": "Apr 30, 2018",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "minutes": 288,
+      "hours": 4.8,
+      "ach_done": 2,
+      "ach_total": 45,
+      "ach_pct": 4
+    },
+    {
+      "appid": 70,
+      "name": "Half-Life",
+      "url": "https://store.steampowered.com/app/70/",
+      "art": "/imgs/steam/70.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70/header.jpg?t=1745368462",
+      "released": "Nov 19, 1998",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 269,
+      "hours": 4.5,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 275850,
+      "name": "No Man's Sky",
+      "url": "https://store.steampowered.com/app/275850/",
+      "art": "/imgs/steam/275850.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/5f39cba0164881a53f6aee01f72180f7c619c011/header.jpg?t=1779908213",
+      "released": "Aug 12, 2016",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "minutes": 229,
+      "hours": 3.8,
+      "ach_done": 0,
+      "ach_total": 27,
+      "ach_pct": 0
+    },
+    {
+      "appid": 2310,
+      "name": "Quake",
+      "url": "https://store.steampowered.com/app/2310/",
+      "art": "/imgs/steam/2310.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2310/header.jpg?t=1691683243",
+      "released": "Aug 3, 2007",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 161,
+      "hours": 2.7,
+      "ach_done": 2,
+      "ach_total": 35,
+      "ach_pct": 6
+    },
+    {
+      "appid": 280,
+      "name": "Half-Life: Source",
+      "url": "https://store.steampowered.com/app/280/",
+      "art": "/imgs/steam/280.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/280/header.jpg?t=1721932678",
+      "released": "Jun 1, 2004",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 140,
+      "hours": 2.3,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 871720,
+      "name": "Ultimate Custom Night",
+      "url": "https://store.steampowered.com/app/871720/",
+      "art": "/imgs/steam/871720.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/871720/header.jpg?t=1568143255",
+      "released": "Jun 27, 2018",
+      "genres": [
+        "Action",
+        "Free To Play",
+        "Indie"
+      ],
+      "minutes": 128,
+      "hours": 2.1,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 1281930,
+      "name": "tModLoader",
+      "url": "https://store.steampowered.com/app/1281930/",
+      "art": "/imgs/steam/1281930.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281930/header.jpg?t=1785952759",
+      "released": "May 16, 2020",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "minutes": 107,
+      "hours": 1.8,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 1089130,
+      "name": "Quake II RTX",
+      "url": "https://store.steampowered.com/app/1089130/",
+      "art": "/imgs/steam/1089130.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1089130/header.jpg?t=1667234977",
+      "released": "Jun 6, 2019",
+      "genres": [
+        "Action",
+        "Free To Play"
+      ],
+      "minutes": 104,
+      "hours": 1.7,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 730,
+      "name": "Counter-Strike 2",
+      "url": "https://store.steampowered.com/app/730/",
+      "art": "/imgs/steam/730.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/162664aa5da85f418105350c5d67ca565f6c3713/header.jpg?t=1784564069",
+      "released": "Aug 21, 2012",
+      "genres": [
+        "Action",
+        "Free To Play"
+      ],
+      "minutes": 52,
+      "hours": 0.9,
+      "ach_done": 1,
+      "ach_total": 1,
+      "ach_pct": 100
+    },
+    {
+      "appid": 1922560,
+      "name": "Plants vs. Zombies™ Garden Warfare 2: Deluxe Edition",
+      "url": "https://store.steampowered.com/app/1922560/",
+      "art": "/imgs/steam/1922560.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1922560/header.jpg?t=1772707471",
+      "released": "May 16, 2022",
+      "genres": [
+        "Action",
+        "Casual",
+        "Strategy"
+      ],
+      "minutes": 29,
+      "hours": 0.5,
+      "ach_done": 0,
+      "ach_total": 63,
+      "ach_pct": 0
+    },
+    {
+      "appid": 550,
+      "name": "Left 4 Dead 2",
+      "url": "https://store.steampowered.com/app/550/",
+      "art": "/imgs/steam/550.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/header.jpg?t=1772742214",
+      "released": "Nov 16, 2009",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 11,
+      "hours": 0.2,
+      "ach_done": 1,
+      "ach_total": 101,
+      "ach_pct": 1
+    },
+    {
+      "appid": 1233690,
+      "name": "Hypergalactic Psychic Table Tennis 3000",
+      "url": "https://store.steampowered.com/app/1233690/",
+      "art": "/imgs/steam/1233690.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1233690/header.jpg?t=1733346059",
+      "released": "Mar 3, 2020",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Casual"
+      ],
+      "minutes": 11,
+      "hours": 0.2,
+      "ach_done": 0,
+      "ach_total": 23,
+      "ach_pct": 0
+    },
+    {
+      "appid": 320,
+      "name": "Half-Life 2: Deathmatch",
+      "url": "https://store.steampowered.com/app/320/",
+      "art": "/imgs/steam/320.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/320/header.jpg?t=1749481506",
+      "released": "Nov 1, 2004",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 4,
+      "hours": 0.1,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 1328670,
+      "name": "Mass Effect™ Legendary Edition",
+      "url": "https://store.steampowered.com/app/1328670/",
+      "art": "/imgs/steam/1328670.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1328670/header.jpg?t=1777395134",
+      "released": "May 14, 2021",
+      "genres": [
+        "Action",
+        "RPG"
+      ],
+      "minutes": 3,
+      "hours": 0.1,
+      "ach_done": 0,
+      "ach_total": 127,
+      "ach_pct": 0
+    },
+    {
+      "appid": 10,
+      "name": "Counter-Strike",
+      "url": "https://store.steampowered.com/app/10/",
+      "art": "/imgs/steam/10.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10/header.jpg?t=1745368572",
+      "released": "Nov 1, 2000",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 20,
+      "name": "Team Fortress Classic",
+      "url": "https://store.steampowered.com/app/20/",
+      "art": "/imgs/steam/20.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20/header.jpg?t=1745368565",
+      "released": "Apr 1, 1999",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 30,
+      "name": "Day of Defeat",
+      "url": "https://store.steampowered.com/app/30/",
+      "art": "/imgs/steam/30.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/30/header.jpg?t=1745368580",
+      "released": "May 1, 2003",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 40,
+      "name": "Deathmatch Classic",
+      "url": "https://store.steampowered.com/app/40/",
+      "art": "/imgs/steam/40.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40/header.jpg?t=1745368570",
+      "released": "Jun 1, 2001",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 50,
+      "name": "Half-Life: Opposing Force",
+      "url": "https://store.steampowered.com/app/50/",
+      "art": "/imgs/steam/50.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/50/header.jpg?t=1745368539",
+      "released": "Nov 1, 1999",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 60,
+      "name": "Ricochet",
+      "url": "https://store.steampowered.com/app/60/",
+      "art": "/imgs/steam/60.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/60/header.jpg?t=1745368568",
+      "released": "Nov 1, 2000",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 80,
+      "name": "Counter-Strike: Condition Zero",
+      "url": "https://store.steampowered.com/app/80/",
+      "art": "/imgs/steam/80.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80/header.jpg?t=1745368574",
+      "released": "Mar 1, 2004",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 100,
+      "name": "Counter-Strike: Condition Zero",
+      "url": "https://store.steampowered.com/app/100/",
+      "art": "/imgs/steam/100.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80/header.jpg?t=1745368574",
+      "released": "Mar 1, 2004",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 130,
+      "name": "Half-Life: Blue Shift",
+      "url": "https://store.steampowered.com/app/130/",
+      "art": "/imgs/steam/130.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/130/header.jpg?t=1745368541",
+      "released": "Jun 1, 2001",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 240,
+      "name": "Counter-Strike: Source",
+      "url": "https://store.steampowered.com/app/240/",
+      "art": "/imgs/steam/240.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240/header.jpg?t=1745368575",
+      "released": "Nov 1, 2004",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 300,
+      "name": "Day of Defeat: Source",
+      "url": "https://store.steampowered.com/app/300/",
+      "art": "/imgs/steam/300.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/300/header.jpg?t=1763407002",
+      "released": "Jul 12, 2010",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 360,
+      "name": "Half-Life Deathmatch: Source",
+      "url": "https://store.steampowered.com/app/360/",
+      "art": "/imgs/steam/360.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/360/header.jpg?t=1745368549",
+      "released": "May 1, 2006",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 400,
+      "name": "Portal",
+      "url": "https://store.steampowered.com/app/400/",
+      "art": "/imgs/steam/400.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/header.jpg?t=1745368554",
+      "released": "Oct 10, 2007",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    },
+    {
+      "appid": 500,
+      "name": "Left 4 Dead",
+      "url": "https://store.steampowered.com/app/500/",
+      "art": "/imgs/steam/500.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/500/header.jpg?t=1745368560",
+      "released": "Nov 17, 2008",
+      "genres": [
+        "Action"
+      ],
+      "minutes": 0,
+      "hours": 0,
+      "ach_done": null,
+      "ach_total": null,
+      "ach_pct": null
+    }
+  ],
+  "wishlist": [
+    {
+      "appid": 2840770,
+      "name": "Avatar: Frontiers of Pandora™",
+      "url": "https://store.steampowered.com/app/2840770/",
+      "art": "/imgs/steam/2840770.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2840770/27aa6d8f9c3f11dc93a557164d30a9ba08a7c46a/header.jpg?t=1778598692",
+      "released": "Jun 17, 2024",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$29.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 78,
+        "count": 15321
+      }
+    },
+    {
+      "appid": 839310,
+      "name": "Signal Simulator",
+      "url": "https://store.steampowered.com/app/839310/",
+      "art": "/imgs/steam/839310.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/839310/header.jpg?t=1572336684",
+      "released": "Apr 29, 2018",
+      "genres": [
+        "Indie",
+        "Simulation"
+      ],
+      "price": {
+        "free": false,
+        "now": "$14.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 79,
+        "count": 1027
+      }
+    },
+    {
+      "appid": 648800,
+      "name": "Raft",
+      "url": "https://store.steampowered.com/app/648800/",
+      "art": "/imgs/steam/648800.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/648800/header.jpg?t=1727184011",
+      "released": "Jun 20, 2022",
+      "genres": [
+        "Adventure",
+        "Indie",
+        "Simulation"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 93,
+        "count": 376550
+      }
+    },
+    {
+      "appid": 2320,
+      "name": "Quake II",
+      "url": "https://store.steampowered.com/app/2320/",
+      "art": "/imgs/steam/2320.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2320/header.jpg?t=1750784724",
+      "released": "Aug 3, 2007",
+      "genres": [
+        "Action"
+      ],
+      "price": {
+        "free": false,
+        "now": "$3.99",
+        "was": "$9.99",
+        "off": 60
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 95,
+        "count": 10261
+      }
+    },
+    {
+      "appid": 206420,
+      "name": "Saints Row IV: Re-Elected",
+      "url": "https://store.steampowered.com/app/206420/",
+      "art": "/imgs/steam/206420.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/206420/header.jpg?t=1764670979",
+      "released": "Aug 19, 2013",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 88,
+        "count": 77560
+      }
+    },
+    {
+      "appid": 220200,
+      "name": "Kerbal Space Program",
+      "url": "https://store.steampowered.com/app/220200/",
+      "art": "/imgs/steam/220200.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/header.jpg?t=1738037585",
+      "released": "Apr 27, 2015",
+      "genres": [
+        "Indie",
+        "Simulation"
+      ],
+      "price": {
+        "free": false,
+        "now": "$9.99",
+        "was": "$39.99",
+        "off": 75
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 96,
+        "count": 145372
+      }
+    },
+    {
+      "appid": 371660,
+      "name": "Far Cry® Primal",
+      "url": "https://store.steampowered.com/app/371660/",
+      "art": "/imgs/steam/371660.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/371660/header.jpg?t=1772640435",
+      "released": "Feb 29, 2016",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$29.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 86,
+        "count": 40878
+      }
+    },
+    {
+      "appid": 546560,
+      "name": "Half-Life: Alyx",
+      "url": "https://store.steampowered.com/app/546560/",
+      "art": "/imgs/steam/546560.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/546560/header.jpg?t=1762986588",
+      "released": "Mar 23, 2020",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$59.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 98,
+        "count": 104871
+      }
+    },
+    {
+      "appid": 611660,
+      "name": "Fallout 4 VR",
+      "url": "https://store.steampowered.com/app/611660/",
+      "art": "/imgs/steam/611660.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/611660/header.jpg?t=1607445202",
+      "released": "Dec 11, 2017",
+      "genres": [
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.79",
+        "was": "$59.99",
+        "off": 67
+      },
+      "review": {
+        "label": "Mixed",
+        "tone": "mix",
+        "pct": 60,
+        "count": 8741
+      }
+    },
+    {
+      "appid": 1245620,
+      "name": "ELDEN RING",
+      "url": "https://store.steampowered.com/app/1245620/",
+      "art": "/imgs/steam/1245620.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg?t=1784684281",
+      "released": "Feb 24, 2022",
+      "genres": [
+        "Action",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$59.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 93,
+        "count": 1146981
+      }
+    },
+    {
+      "appid": 1468720,
+      "name": "Ultimate Epic Battle Simulator 2",
+      "url": "https://store.steampowered.com/app/1468720/",
+      "art": "/imgs/steam/1468720.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1468720/header.jpg?t=1736286994",
+      "released": "Jul 21, 2023",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Casual"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 84,
+        "count": 7421
+      }
+    },
+    {
+      "appid": 1593500,
+      "name": "God of War",
+      "url": "https://store.steampowered.com/app/1593500/",
+      "art": "/imgs/steam/1593500.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1593500/header.jpg?t=1763059412",
+      "released": "Jan 14, 2022",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$49.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 96,
+        "count": 183214
+      }
+    },
+    {
+      "appid": 1693980,
+      "name": "Dead Space",
+      "url": "https://store.steampowered.com/app/1693980/",
+      "art": "/imgs/steam/1693980.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1693980/header.jpg?t=1777396576",
+      "released": "Jan 27, 2023",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$14.99",
+        "was": "$59.99",
+        "off": 75
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 90,
+        "count": 69569
+      }
+    },
+    {
+      "appid": 2322010,
+      "name": "God of War Ragnarök",
+      "url": "https://store.steampowered.com/app/2322010/",
+      "art": "/imgs/steam/2322010.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/header.jpg?t=1776465233",
+      "released": "Sep 19, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$59.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 89,
+        "count": 49035
+      }
+    },
+    {
+      "appid": 1551360,
+      "name": "Forza Horizon 5",
+      "url": "https://store.steampowered.com/app/1551360/",
+      "art": "/imgs/steam/1551360.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg?t=1746471508",
+      "released": "Nov 8, 2021",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Racing"
+      ],
+      "price": {
+        "free": false,
+        "now": "$59.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 89,
+        "count": 278708
+      }
+    },
+    {
+      "appid": 2677660,
+      "name": "Indiana Jones and the Great Circle",
+      "url": "https://store.steampowered.com/app/2677660/",
+      "art": "/imgs/steam/2677660.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2677660/151ae5a881f05ef630defef85d99b38146b7055c/header.jpg?t=1778168392",
+      "released": "Dec 8, 2024",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$41.99",
+        "was": "$69.99",
+        "off": 40
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 90,
+        "count": 20146
+      }
+    },
+    {
+      "appid": 1962700,
+      "name": "Subnautica 2",
+      "url": "https://store.steampowered.com/app/1962700/",
+      "art": "/imgs/steam/1962700.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1962700/header.jpg?t=1785967256",
+      "released": "May 14, 2026",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Early Access"
+      ],
+      "price": {
+        "free": false,
+        "now": "$29.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 91,
+        "count": 124546
+      }
+    },
+    {
+      "appid": 252490,
+      "name": "Rust",
+      "url": "https://store.steampowered.com/app/252490/",
+      "art": "/imgs/steam/252490.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg?t=1781536981",
+      "released": "Feb 8, 2018",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.99",
+        "was": "$39.99",
+        "off": 50
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 87,
+        "count": 1387343
+      }
+    },
+    {
+      "appid": 244850,
+      "name": "Space Engineers",
+      "url": "https://store.steampowered.com/app/244850/",
+      "art": "/imgs/steam/244850.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244850/3658a69c81af5f4014b0ffa88941285e74825b86/header.jpg?t=1785173739",
+      "released": "Feb 28, 2019",
+      "genres": [
+        "Action",
+        "Indie",
+        "Simulation"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 89,
+        "count": 134227
+      }
+    },
+    {
+      "appid": 1133870,
+      "name": "Space Engineers 2",
+      "url": "https://store.steampowered.com/app/1133870/",
+      "art": "/imgs/steam/1133870.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1133870/8add35f321dab1dfdb18257cae6b7e56eac34f19/header_alt_assets_1.jpg?t=1785307059",
+      "released": "Jan 27, 2025",
+      "genres": [
+        "Action",
+        "Indie",
+        "Simulation"
+      ],
+      "price": {
+        "free": false,
+        "now": "$29.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 75,
+        "count": 5245
+      }
+    },
+    {
+      "appid": 815370,
+      "name": "Green Hell",
+      "url": "https://store.steampowered.com/app/815370/",
+      "art": "/imgs/steam/815370.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/815370/header.jpg?t=1783077147",
+      "released": "Sep 5, 2019",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$3.74",
+        "was": "$24.99",
+        "off": 85
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 85,
+        "count": 100704
+      }
+    },
+    {
+      "appid": 1284190,
+      "name": "The Planet Crafter",
+      "url": "https://store.steampowered.com/app/1284190/",
+      "art": "/imgs/steam/1284190.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1284190/header.jpg?t=1783691047",
+      "released": "Apr 10, 2024",
+      "genres": [
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$23.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 96,
+        "count": 72606
+      }
+    },
+    {
+      "appid": 409710,
+      "name": "BioShock™ Remastered",
+      "url": "https://store.steampowered.com/app/409710/",
+      "art": "/imgs/steam/409710.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/409710/header.jpg?t=1740443728",
+      "released": "Sep 15, 2016",
+      "genres": [
+        "Action",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 83,
+        "count": 64532
+      }
+    },
+    {
+      "appid": 1713350,
+      "name": "Project Castaway",
+      "url": "https://store.steampowered.com/app/1713350/",
+      "art": "/imgs/steam/1713350.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1713350/affd71f60acaa75e8fea4d6569e6197d9d7a5ce5/header.jpg?t=1776448859",
+      "released": "Mar 17, 2026",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Casual"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Mixed",
+        "tone": "mix",
+        "pct": 66,
+        "count": 1825
+      }
+    },
+    {
+      "appid": 835960,
+      "name": "The Talos Principle 2",
+      "url": "https://store.steampowered.com/app/835960/",
+      "art": "/imgs/steam/835960.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/835960/header.jpg?t=1775138468",
+      "released": "Nov 2, 2023",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$29.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 95,
+        "count": 13302
+      }
+    },
+    {
+      "appid": 1149460,
+      "name": "ICARUS",
+      "url": "https://store.steampowered.com/app/1149460/",
+      "art": "/imgs/steam/1149460.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1149460/header.jpg?t=1784744651",
+      "released": "Dec 3, 2021",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Simulation"
+      ],
+      "price": {
+        "free": false,
+        "now": "$34.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 75,
+        "count": 66779
+      }
+    },
+    {
+      "appid": 1304930,
+      "name": "The Outlast Trials",
+      "url": "https://store.steampowered.com/app/1304930/",
+      "art": "/imgs/steam/1304930.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1304930/65fbdba4ad0f1a7ed7a362a086c87042fa40fadc/header_alt_assets_3.jpg?t=1784123708",
+      "released": "Mar 5, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$39.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 93,
+        "count": 110023
+      }
+    },
+    {
+      "appid": 1091500,
+      "name": "Cyberpunk 2077",
+      "url": "https://store.steampowered.com/app/1091500/",
+      "art": "/imgs/steam/1091500.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/e9047d8ec47ae3d94bb8b464fb0fc9e9972b4ac7/header.jpg?t=1784714077",
+      "released": "Dec 9, 2020",
+      "genres": [
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$17.99",
+        "was": "$59.99",
+        "off": 70
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 87,
+        "count": 967425
+      }
+    },
+    {
+      "appid": 292030,
+      "name": "The Witcher 3: Wild Hunt",
+      "url": "https://store.steampowered.com/app/292030/",
+      "art": "/imgs/steam/292030.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ad9240e088f953a84aee814034c50a6a92bf4516/header.jpg?t=1768303991",
+      "released": "May 18, 2015",
+      "genres": [
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$7.99",
+        "was": "$39.99",
+        "off": 80
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 97,
+        "count": 880287
+      }
+    },
+    {
+      "appid": 2215430,
+      "name": "Ghost of Tsushima DIRECTOR'S CUT",
+      "url": "https://store.steampowered.com/app/2215430/",
+      "art": "/imgs/steam/2215430.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2215430/header.jpg?t=1763409398",
+      "released": "May 16, 2024",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$59.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 94,
+        "count": 94963
+      }
+    },
+    {
+      "appid": 2668510,
+      "name": "Red Dead Redemption",
+      "url": "https://store.steampowered.com/app/2668510/",
+      "art": "/imgs/steam/2668510.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2668510/header.jpg?t=1781132266",
+      "released": "Oct 29, 2024",
+      "genres": [
+        "Action"
+      ],
+      "price": {
+        "free": false,
+        "now": "$24.99",
+        "was": "$49.99",
+        "off": 50
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 92,
+        "count": 20886
+      }
+    },
+    {
+      "appid": 1942110,
+      "name": "Bootstrap Island",
+      "url": "https://store.steampowered.com/app/1942110/",
+      "art": "/imgs/steam/1942110.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1942110/eebd6e054ab5d712e344b7ade71d0e5183474057/header.jpg?t=1782722227",
+      "released": "Mar 12, 2026",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$24.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 83,
+        "count": 1373
+      }
+    },
+    {
+      "appid": 2623190,
+      "name": "The Elder Scrolls IV: Oblivion Remastered",
+      "url": "https://store.steampowered.com/app/2623190/",
+      "art": "/imgs/steam/2623190.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/a7cee9165bb1bfc092c390c5cff215ce0e381dfc/header.jpg?t=1761681073",
+      "released": "Apr 22, 2025",
+      "genres": [
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$34.99",
+        "was": "$49.99",
+        "off": 30
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 76,
+        "count": 69519
+      }
+    },
+    {
+      "appid": 1643320,
+      "name": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
+      "url": "https://store.steampowered.com/app/1643320/",
+      "art": "/imgs/steam/1643320.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1643320/3e525c6969728ec1641c5834e660472357fcd4cf/header.jpg?t=1776173087",
+      "released": "Nov 20, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$59.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 80,
+        "count": 135397
+      }
+    },
+    {
+      "appid": 412020,
+      "name": "Metro Exodus",
+      "url": "https://store.steampowered.com/app/412020/",
+      "art": "/imgs/steam/412020.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/412020/header.jpg?t=1750772804",
+      "released": "Feb 14, 2020",
+      "genres": [
+        "Action"
+      ],
+      "price": {
+        "free": false,
+        "now": "$29.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 90,
+        "count": 134577
+      }
+    },
+    {
+      "appid": 1715130,
+      "name": "Crysis Remastered",
+      "url": "https://store.steampowered.com/app/1715130/",
+      "art": "/imgs/steam/1715130.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1715130/0c28c46e93f734d31b035e13057472b51b377936/header.jpg?t=1785838535",
+      "released": "Sep 17, 2021",
+      "genres": [
+        "Action"
+      ],
+      "price": {
+        "free": false,
+        "now": "$29.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 77,
+        "count": 17553
+      }
+    },
+    {
+      "appid": 2358720,
+      "name": "Black Myth: Wukong",
+      "url": "https://store.steampowered.com/app/2358720/",
+      "art": "/imgs/steam/2358720.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg?t=1760601605",
+      "released": "Aug 19, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$59.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 97,
+        "count": 1204278
+      }
+    },
+    {
+      "appid": 812140,
+      "name": "Assassin's Creed® Odyssey",
+      "url": "https://store.steampowered.com/app/812140/",
+      "art": "/imgs/steam/812140.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/812140/header.jpg?t=1777476997",
+      "released": "Oct 5, 2018",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$11.99",
+        "was": "$59.99",
+        "off": 80
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 89,
+        "count": 186267
+      }
+    },
+    {
+      "appid": 346110,
+      "name": "ARK: Survival Evolved",
+      "url": "https://store.steampowered.com/app/346110/",
+      "art": "/imgs/steam/346110.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/346110/header.jpg?t=1765677889",
+      "released": "Aug 27, 2017",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$14.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 83,
+        "count": 774595
+      }
+    },
+    {
+      "appid": 2399830,
+      "name": "ARK: Survival Ascended",
+      "url": "https://store.steampowered.com/app/2399830/",
+      "art": "/imgs/steam/2399830.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2399830/d934813ca531af0fce69fe36bc972f1c90d1aa19/header.jpg?t=1779293241",
+      "released": "Oct 25, 2023",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$44.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Mixed",
+        "tone": "mix",
+        "pct": 60,
+        "count": 114767
+      }
+    },
+    {
+      "appid": 1771300,
+      "name": "Kingdom Come: Deliverance II",
+      "url": "https://store.steampowered.com/app/1771300/",
+      "art": "/imgs/steam/1771300.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1771300/header.jpg?t=1777975568",
+      "released": "Feb 4, 2025",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$59.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 94,
+        "count": 191197
+      }
+    },
+    {
+      "appid": 611670,
+      "name": "The Elder Scrolls V: Skyrim VR",
+      "url": "https://store.steampowered.com/app/611670/",
+      "art": "/imgs/steam/611670.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/611670/header.jpg?t=1564002443",
+      "released": "Apr 2, 2018",
+      "genres": [
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$14.99",
+        "was": "$59.99",
+        "off": 75
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 75,
+        "count": 12291
+      }
+    },
+    {
+      "appid": 753640,
+      "name": "Outer Wilds",
+      "url": "https://store.steampowered.com/app/753640/",
+      "art": "/imgs/steam/753640.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/753640/079ae4a7ff4b5875adc5c63c4c0b84e5a3e6966b/header.jpg?t=1785424341",
+      "released": "Jun 18, 2020",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$24.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 96,
+        "count": 106127
+      }
+    },
+    {
+      "appid": 313120,
+      "name": "Stranded Deep",
+      "url": "https://store.steampowered.com/app/313120/",
+      "art": "/imgs/steam/313120.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/313120/header.jpg?t=1785441084",
+      "released": "Aug 10, 2022",
+      "genres": [
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 74,
+        "count": 47725
+      }
+    },
+    {
+      "appid": 848450,
+      "name": "Subnautica: Below Zero",
+      "url": "https://store.steampowered.com/app/848450/",
+      "art": "/imgs/steam/848450.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848450/header.jpg?t=1777456254",
+      "released": "May 13, 2021",
+      "genres": [
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$29.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 90,
+        "count": 107978
+      }
+    },
+    {
+      "appid": 3041230,
+      "name": "Windrose",
+      "url": "https://store.steampowered.com/app/3041230/",
+      "art": "/imgs/steam/3041230.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3041230/7e838d87d787735d5d29d72777c5ee55653dfb2b/header.jpg?t=1783932953",
+      "released": "Apr 14, 2026",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$29.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 87,
+        "count": 51209
+      }
+    },
+    {
+      "appid": 3929970,
+      "name": "Cave Crave VR",
+      "url": "https://store.steampowered.com/app/3929970/",
+      "art": "/imgs/steam/3929970.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3929970/921771acc112fb2dc2a92c760f1c4a97cf84b98d/header.jpg?t=1784275738",
+      "released": "Dec 12, 2025",
+      "genres": [
+        "Adventure",
+        "Simulation"
+      ],
+      "price": {
+        "free": false,
+        "now": "$14.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 85,
+        "count": 128
+      }
+    },
+    {
+      "appid": 2472940,
+      "name": "Wanderer: The Fragments of Fate",
+      "url": "https://store.steampowered.com/app/2472940/",
+      "art": "/imgs/steam/2472940.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2472940/58e2ac05fbcf561556d3a2fbcb2b4891ca09ba03/header.jpg?t=1761237725",
+      "released": "Oct 23, 2025",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$49.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Mixed",
+        "tone": "mix",
+        "pct": 65,
+        "count": 156
+      }
+    },
+    {
+      "appid": 1850570,
+      "name": "DEATH STRANDING DIRECTOR'S CUT",
+      "url": "https://store.steampowered.com/app/1850570/",
+      "art": "/imgs/steam/1850570.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1850570/header.jpg?t=1773400635",
+      "released": "Mar 30, 2022",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$39.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 92,
+        "count": 67004
+      }
+    },
+    {
+      "appid": 874260,
+      "name": "The Forgotten City",
+      "url": "https://store.steampowered.com/app/874260/",
+      "art": "/imgs/steam/874260.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/874260/header.jpg?t=1769440598",
+      "released": "Jul 28, 2021",
+      "genres": [
+        "Adventure",
+        "Indie",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$24.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 96,
+        "count": 13526
+      }
+    },
+    {
+      "appid": 1641960,
+      "name": "Forever Skies",
+      "url": "https://store.steampowered.com/app/1641960/",
+      "art": "/imgs/steam/1641960.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1641960/cc56d2d6fd373940032bba383464ffa626b00717/header_alt_assets_9.jpg?t=1785956352",
+      "released": "Apr 14, 2025",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$11.99",
+        "was": "$29.99",
+        "off": 60
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 79,
+        "count": 8760
+      }
+    },
+    {
+      "appid": 1493640,
+      "name": "Banishers: Ghosts of New Eden",
+      "url": "https://store.steampowered.com/app/1493640/",
+      "art": "/imgs/steam/1493640.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1493640/header.jpg?t=1763044792",
+      "released": "Feb 12, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$49.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 84,
+        "count": 9067
+      }
+    },
+    {
+      "appid": 324080,
+      "name": "Rising World",
+      "url": "https://store.steampowered.com/app/324080/",
+      "art": "/imgs/steam/324080.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/324080/header.jpg?t=1766427059",
+      "released": "Dec 3, 2014",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$14.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 86,
+        "count": 5958
+      }
+    },
+    {
+      "appid": 2663530,
+      "name": "POOLS",
+      "url": "https://store.steampowered.com/app/2663530/",
+      "art": "/imgs/steam/2663530.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2663530/header.jpg?t=1768842904",
+      "released": "Apr 26, 2024",
+      "genres": [
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$9.79",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 95,
+        "count": 6559
+      }
+    },
+    {
+      "appid": 1967630,
+      "name": "Survival: Fountain of Youth",
+      "url": "https://store.steampowered.com/app/1967630/",
+      "art": "/imgs/steam/1967630.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1967630/header.jpg?t=1785163134",
+      "released": "May 21, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$27.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 85,
+        "count": 4454
+      }
+    },
+    {
+      "appid": 313630,
+      "name": "The Solus Project",
+      "url": "https://store.steampowered.com/app/313630/",
+      "art": "/imgs/steam/313630.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/313630/header.jpg?t=1480876448",
+      "released": "Jun 7, 2016",
+      "genres": [
+        "Adventure",
+        "Indie",
+        "Simulation"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 80,
+        "count": 2620
+      }
+    },
+    {
+      "appid": 1631270,
+      "name": "StarRupture",
+      "url": "https://store.steampowered.com/app/1631270/",
+      "art": "/imgs/steam/1631270.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1631270/header.jpg?t=1782733764",
+      "released": "Jan 6, 2026",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 81,
+        "count": 13124
+      }
+    },
+    {
+      "appid": 403640,
+      "name": "Dishonored 2",
+      "url": "https://store.steampowered.com/app/403640/",
+      "art": "/imgs/steam/403640.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/header.jpg?t=1750785918",
+      "released": "Nov 11, 2016",
+      "genres": [
+        "Action"
+      ],
+      "price": {
+        "free": false,
+        "now": "$5.99",
+        "was": "$29.99",
+        "off": 80
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 90,
+        "count": 66453
+      }
+    },
+    {
+      "appid": 2646460,
+      "name": "Soulmask",
+      "url": "https://store.steampowered.com/app/2646460/",
+      "art": "/imgs/steam/2646460.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2646460/0871f08237fc0829756f0e6de4c8b8f0eed2181d/header.jpg?t=1784927000",
+      "released": "Apr 9, 2026",
+      "genres": [
+        "Adventure",
+        "Indie",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$29.99",
+        "was": "",
+        "off": 0
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 77,
+        "count": 22123
+      }
+    }
+  ],
+  "on_sale": [
+    {
+      "appid": 815370,
+      "name": "Green Hell",
+      "url": "https://store.steampowered.com/app/815370/",
+      "art": "/imgs/steam/815370.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/815370/header.jpg?t=1783077147",
+      "released": "Sep 5, 2019",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$3.74",
+        "was": "$24.99",
+        "off": 85
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 85,
+        "count": 100704
+      }
+    },
+    {
+      "appid": 292030,
+      "name": "The Witcher 3: Wild Hunt",
+      "url": "https://store.steampowered.com/app/292030/",
+      "art": "/imgs/steam/292030.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ad9240e088f953a84aee814034c50a6a92bf4516/header.jpg?t=1768303991",
+      "released": "May 18, 2015",
+      "genres": [
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$7.99",
+        "was": "$39.99",
+        "off": 80
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 97,
+        "count": 880287
+      }
+    },
+    {
+      "appid": 812140,
+      "name": "Assassin's Creed® Odyssey",
+      "url": "https://store.steampowered.com/app/812140/",
+      "art": "/imgs/steam/812140.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/812140/header.jpg?t=1777476997",
+      "released": "Oct 5, 2018",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$11.99",
+        "was": "$59.99",
+        "off": 80
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 89,
+        "count": 186267
+      }
+    },
+    {
+      "appid": 403640,
+      "name": "Dishonored 2",
+      "url": "https://store.steampowered.com/app/403640/",
+      "art": "/imgs/steam/403640.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/header.jpg?t=1750785918",
+      "released": "Nov 11, 2016",
+      "genres": [
+        "Action"
+      ],
+      "price": {
+        "free": false,
+        "now": "$5.99",
+        "was": "$29.99",
+        "off": 80
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 90,
+        "count": 66453
+      }
+    },
+    {
+      "appid": 220200,
+      "name": "Kerbal Space Program",
+      "url": "https://store.steampowered.com/app/220200/",
+      "art": "/imgs/steam/220200.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/header.jpg?t=1738037585",
+      "released": "Apr 27, 2015",
+      "genres": [
+        "Indie",
+        "Simulation"
+      ],
+      "price": {
+        "free": false,
+        "now": "$9.99",
+        "was": "$39.99",
+        "off": 75
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 96,
+        "count": 145372
+      }
+    },
+    {
+      "appid": 1693980,
+      "name": "Dead Space",
+      "url": "https://store.steampowered.com/app/1693980/",
+      "art": "/imgs/steam/1693980.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1693980/header.jpg?t=1777396576",
+      "released": "Jan 27, 2023",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$14.99",
+        "was": "$59.99",
+        "off": 75
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 90,
+        "count": 69569
+      }
+    },
+    {
+      "appid": 611670,
+      "name": "The Elder Scrolls V: Skyrim VR",
+      "url": "https://store.steampowered.com/app/611670/",
+      "art": "/imgs/steam/611670.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/611670/header.jpg?t=1564002443",
+      "released": "Apr 2, 2018",
+      "genres": [
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$14.99",
+        "was": "$59.99",
+        "off": 75
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 75,
+        "count": 12291
+      }
+    },
+    {
+      "appid": 1091500,
+      "name": "Cyberpunk 2077",
+      "url": "https://store.steampowered.com/app/1091500/",
+      "art": "/imgs/steam/1091500.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/e9047d8ec47ae3d94bb8b464fb0fc9e9972b4ac7/header.jpg?t=1784714077",
+      "released": "Dec 9, 2020",
+      "genres": [
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$17.99",
+        "was": "$59.99",
+        "off": 70
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 87,
+        "count": 967425
+      }
+    },
+    {
+      "appid": 611660,
+      "name": "Fallout 4 VR",
+      "url": "https://store.steampowered.com/app/611660/",
+      "art": "/imgs/steam/611660.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/611660/header.jpg?t=1607445202",
+      "released": "Dec 11, 2017",
+      "genres": [
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.79",
+        "was": "$59.99",
+        "off": 67
+      },
+      "review": {
+        "label": "Mixed",
+        "tone": "mix",
+        "pct": 60,
+        "count": 8741
+      }
+    },
+    {
+      "appid": 2320,
+      "name": "Quake II",
+      "url": "https://store.steampowered.com/app/2320/",
+      "art": "/imgs/steam/2320.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2320/header.jpg?t=1750784724",
+      "released": "Aug 3, 2007",
+      "genres": [
+        "Action"
+      ],
+      "price": {
+        "free": false,
+        "now": "$3.99",
+        "was": "$9.99",
+        "off": 60
+      },
+      "review": {
+        "label": "Overwhelmingly Positive",
+        "tone": "pos",
+        "pct": 95,
+        "count": 10261
+      }
+    },
+    {
+      "appid": 1641960,
+      "name": "Forever Skies",
+      "url": "https://store.steampowered.com/app/1641960/",
+      "art": "/imgs/steam/1641960.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1641960/cc56d2d6fd373940032bba383464ffa626b00717/header_alt_assets_9.jpg?t=1785956352",
+      "released": "Apr 14, 2025",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$11.99",
+        "was": "$29.99",
+        "off": 60
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 79,
+        "count": 8760
+      }
+    },
+    {
+      "appid": 252490,
+      "name": "Rust",
+      "url": "https://store.steampowered.com/app/252490/",
+      "art": "/imgs/steam/252490.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg?t=1781536981",
+      "released": "Feb 8, 2018",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "price": {
+        "free": false,
+        "now": "$19.99",
+        "was": "$39.99",
+        "off": 50
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 87,
+        "count": 1387343
+      }
+    },
+    {
+      "appid": 2668510,
+      "name": "Red Dead Redemption",
+      "url": "https://store.steampowered.com/app/2668510/",
+      "art": "/imgs/steam/2668510.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2668510/header.jpg?t=1781132266",
+      "released": "Oct 29, 2024",
+      "genres": [
+        "Action"
+      ],
+      "price": {
+        "free": false,
+        "now": "$24.99",
+        "was": "$49.99",
+        "off": 50
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 92,
+        "count": 20886
+      }
+    },
+    {
+      "appid": 2677660,
+      "name": "Indiana Jones and the Great Circle",
+      "url": "https://store.steampowered.com/app/2677660/",
+      "art": "/imgs/steam/2677660.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2677660/151ae5a881f05ef630defef85d99b38146b7055c/header.jpg?t=1778168392",
+      "released": "Dec 8, 2024",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "price": {
+        "free": false,
+        "now": "$41.99",
+        "was": "$69.99",
+        "off": 40
+      },
+      "review": {
+        "label": "Very Positive",
+        "tone": "pos",
+        "pct": 90,
+        "count": 20146
+      }
+    },
+    {
+      "appid": 2623190,
+      "name": "The Elder Scrolls IV: Oblivion Remastered",
+      "url": "https://store.steampowered.com/app/2623190/",
+      "art": "/imgs/steam/2623190.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/a7cee9165bb1bfc092c390c5cff215ce0e381dfc/header.jpg?t=1761681073",
+      "released": "Apr 22, 2025",
+      "genres": [
+        "RPG"
+      ],
+      "price": {
+        "free": false,
+        "now": "$34.99",
+        "was": "$49.99",
+        "off": 30
+      },
+      "review": {
+        "label": "Mostly Positive",
+        "tone": "pos",
+        "pct": 76,
+        "count": 69519
+      }
+    }
+  ],
+  "by_appid": {
+    "10": {
+      "appid": 10,
+      "name": "Counter-Strike",
+      "url": "https://store.steampowered.com/app/10/",
+      "art": "/imgs/steam/10.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10/header.jpg?t=1745368572",
+      "released": "Nov 1, 2000",
+      "genres": [
+        "Action"
+      ]
+    },
+    "20": {
+      "appid": 20,
+      "name": "Team Fortress Classic",
+      "url": "https://store.steampowered.com/app/20/",
+      "art": "/imgs/steam/20.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/20/header.jpg?t=1745368565",
+      "released": "Apr 1, 1999",
+      "genres": [
+        "Action"
+      ]
+    },
+    "30": {
+      "appid": 30,
+      "name": "Day of Defeat",
+      "url": "https://store.steampowered.com/app/30/",
+      "art": "/imgs/steam/30.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/30/header.jpg?t=1745368580",
+      "released": "May 1, 2003",
+      "genres": [
+        "Action"
+      ]
+    },
+    "40": {
+      "appid": 40,
+      "name": "Deathmatch Classic",
+      "url": "https://store.steampowered.com/app/40/",
+      "art": "/imgs/steam/40.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40/header.jpg?t=1745368570",
+      "released": "Jun 1, 2001",
+      "genres": [
+        "Action"
+      ]
+    },
+    "50": {
+      "appid": 50,
+      "name": "Half-Life: Opposing Force",
+      "url": "https://store.steampowered.com/app/50/",
+      "art": "/imgs/steam/50.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/50/header.jpg?t=1745368539",
+      "released": "Nov 1, 1999",
+      "genres": [
+        "Action"
+      ]
+    },
+    "60": {
+      "appid": 60,
+      "name": "Ricochet",
+      "url": "https://store.steampowered.com/app/60/",
+      "art": "/imgs/steam/60.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/60/header.jpg?t=1745368568",
+      "released": "Nov 1, 2000",
+      "genres": [
+        "Action"
+      ]
+    },
+    "70": {
+      "appid": 70,
+      "name": "Half-Life",
+      "url": "https://store.steampowered.com/app/70/",
+      "art": "/imgs/steam/70.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70/header.jpg?t=1745368462",
+      "released": "Nov 19, 1998",
+      "genres": [
+        "Action"
+      ]
+    },
+    "80": {
+      "appid": 80,
+      "name": "Counter-Strike: Condition Zero",
+      "url": "https://store.steampowered.com/app/80/",
+      "art": "/imgs/steam/80.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80/header.jpg?t=1745368574",
+      "released": "Mar 1, 2004",
+      "genres": [
+        "Action"
+      ]
+    },
+    "100": {
+      "appid": 100,
+      "name": "Counter-Strike: Condition Zero",
+      "url": "https://store.steampowered.com/app/100/",
+      "art": "/imgs/steam/100.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/80/header.jpg?t=1745368574",
+      "released": "Mar 1, 2004",
+      "genres": [
+        "Action"
+      ]
+    },
+    "130": {
+      "appid": 130,
+      "name": "Half-Life: Blue Shift",
+      "url": "https://store.steampowered.com/app/130/",
+      "art": "/imgs/steam/130.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/130/header.jpg?t=1745368541",
+      "released": "Jun 1, 2001",
+      "genres": [
+        "Action"
+      ]
+    },
+    "220": {
+      "appid": 220,
+      "name": "Half-Life 2",
+      "url": "https://store.steampowered.com/app/220/",
+      "art": "/imgs/steam/220.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/header.jpg?t=1745368545",
+      "released": "Nov 16, 2004",
+      "genres": [
+        "Action"
+      ]
+    },
+    "240": {
+      "appid": 240,
+      "name": "Counter-Strike: Source",
+      "url": "https://store.steampowered.com/app/240/",
+      "art": "/imgs/steam/240.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240/header.jpg?t=1745368575",
+      "released": "Nov 1, 2004",
+      "genres": [
+        "Action"
+      ]
+    },
+    "280": {
+      "appid": 280,
+      "name": "Half-Life: Source",
+      "url": "https://store.steampowered.com/app/280/",
+      "art": "/imgs/steam/280.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/280/header.jpg?t=1721932678",
+      "released": "Jun 1, 2004",
+      "genres": [
+        "Action"
+      ]
+    },
+    "300": {
+      "appid": 300,
+      "name": "Day of Defeat: Source",
+      "url": "https://store.steampowered.com/app/300/",
+      "art": "/imgs/steam/300.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/300/header.jpg?t=1763407002",
+      "released": "Jul 12, 2010",
+      "genres": [
+        "Action"
+      ]
+    },
+    "320": {
+      "appid": 320,
+      "name": "Half-Life 2: Deathmatch",
+      "url": "https://store.steampowered.com/app/320/",
+      "art": "/imgs/steam/320.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/320/header.jpg?t=1749481506",
+      "released": "Nov 1, 2004",
+      "genres": [
+        "Action"
+      ]
+    },
+    "360": {
+      "appid": 360,
+      "name": "Half-Life Deathmatch: Source",
+      "url": "https://store.steampowered.com/app/360/",
+      "art": "/imgs/steam/360.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/360/header.jpg?t=1745368549",
+      "released": "May 1, 2006",
+      "genres": [
+        "Action"
+      ]
+    },
+    "400": {
+      "appid": 400,
+      "name": "Portal",
+      "url": "https://store.steampowered.com/app/400/",
+      "art": "/imgs/steam/400.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/header.jpg?t=1745368554",
+      "released": "Oct 10, 2007",
+      "genres": [
+        "Action"
+      ]
+    },
+    "500": {
+      "appid": 500,
+      "name": "Left 4 Dead",
+      "url": "https://store.steampowered.com/app/500/",
+      "art": "/imgs/steam/500.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/500/header.jpg?t=1745368560",
+      "released": "Nov 17, 2008",
+      "genres": [
+        "Action"
+      ]
+    },
+    "550": {
+      "appid": 550,
+      "name": "Left 4 Dead 2",
+      "url": "https://store.steampowered.com/app/550/",
+      "art": "/imgs/steam/550.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/header.jpg?t=1772742214",
+      "released": "Nov 16, 2009",
+      "genres": [
+        "Action"
+      ]
+    },
+    "620": {
+      "appid": 620,
+      "name": "Portal 2",
+      "url": "https://store.steampowered.com/app/620/",
+      "art": "/imgs/steam/620.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/header.jpg?t=1745363004",
+      "released": "Apr 18, 2011",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "730": {
+      "appid": 730,
+      "name": "Counter-Strike 2",
+      "url": "https://store.steampowered.com/app/730/",
+      "art": "/imgs/steam/730.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/162664aa5da85f418105350c5d67ca565f6c3713/header.jpg?t=1784564069",
+      "released": "Aug 21, 2012",
+      "genres": [
+        "Action",
+        "Free To Play"
+      ]
+    },
+    "2310": {
+      "appid": 2310,
+      "name": "Quake",
+      "url": "https://store.steampowered.com/app/2310/",
+      "art": "/imgs/steam/2310.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2310/header.jpg?t=1691683243",
+      "released": "Aug 3, 2007",
+      "genres": [
+        "Action"
+      ]
+    },
+    "2320": {
+      "appid": 2320,
+      "name": "Quake II",
+      "url": "https://store.steampowered.com/app/2320/",
+      "art": "/imgs/steam/2320.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2320/header.jpg?t=1750784724",
+      "released": "Aug 3, 2007",
+      "genres": [
+        "Action"
+      ]
+    },
+    "3900": {
+      "appid": 3900,
+      "name": "Sid Meier's Civilization® IV",
+      "url": "https://store.steampowered.com/app/3900/",
+      "art": "/imgs/steam/3900.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3900/header.jpg?t=1724341287",
+      "released": "Oct 25, 2006",
+      "genres": [
+        "Strategy"
+      ]
+    },
+    "6910": {
+      "appid": 6910,
+      "name": "Deus Ex: Game of the Year Edition",
+      "url": "https://store.steampowered.com/app/6910/",
+      "art": "/imgs/steam/6910.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6910/a59f78bdeac034d05cd6aec0d0e68b188d242990/header.jpg?t=1779722450",
+      "released": "Mar 29, 2007",
+      "genres": [
+        "Action"
+      ]
+    },
+    "17390": {
+      "appid": 17390,
+      "name": "SPORE™",
+      "url": "https://store.steampowered.com/app/17390/",
+      "art": "/imgs/steam/17390.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17390/header.jpg?t=1777486064",
+      "released": "Dec 19, 2008",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Casual"
+      ]
+    },
+    "17470": {
+      "appid": 17470,
+      "name": "Dead Space (2008)",
+      "url": "https://store.steampowered.com/app/17470/",
+      "art": "/imgs/steam/17470.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17470/header.jpg?t=1777495169",
+      "released": "Jan 9, 2009",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "22300": {
+      "appid": 22300,
+      "name": "Fallout 3",
+      "url": "https://store.steampowered.com/app/22300/",
+      "art": "/imgs/steam/22300.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22300/header.jpg?t=1732208474",
+      "released": "Oct 28, 2008",
+      "genres": [
+        "RPG"
+      ]
+    },
+    "22330": {
+      "appid": 22330,
+      "name": "The Elder Scrolls IV: Oblivion® Game of the Year Edition (2009)",
+      "url": "https://store.steampowered.com/app/22330/",
+      "art": "/imgs/steam/22330.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22330/header.jpg?t=1745343031",
+      "released": "Jun 16, 2009",
+      "genres": [
+        "RPG"
+      ]
+    },
+    "22380": {
+      "appid": 22380,
+      "name": "Fallout: New Vegas",
+      "url": "https://store.steampowered.com/app/22380/",
+      "art": "/imgs/steam/22380.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22380/header.jpg?t=1765992876",
+      "released": "Oct 19, 2010",
+      "genres": [
+        "Action",
+        "RPG"
+      ]
+    },
+    "26000": {
+      "appid": 26000,
+      "name": "The Maw",
+      "url": "https://store.steampowered.com/app/26000/",
+      "art": "/imgs/steam/26000.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/26000/header.jpg?t=1776350668",
+      "released": "Mar 9, 2009",
+      "genres": [
+        "Action",
+        "Indie"
+      ]
+    },
+    "33230": {
+      "appid": 33230,
+      "name": "Assassin's Creed 2",
+      "url": "https://store.steampowered.com/app/33230/",
+      "art": "/imgs/steam/33230.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/33230/header.jpg?t=1682004272",
+      "released": "Mar 9, 2010",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "35000": {
+      "appid": 35000,
+      "name": "Mini Ninjas",
+      "url": "https://store.steampowered.com/app/35000/",
+      "art": "/imgs/steam/35000.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/35000/header.jpg?t=1779278491",
+      "released": "Sep 8, 2009",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "40800": {
+      "appid": 40800,
+      "name": "Super Meat Boy",
+      "url": "https://store.steampowered.com/app/40800/",
+      "art": "/imgs/steam/40800.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40800/header.jpg?t=1700669950",
+      "released": "Nov 30, 2010",
+      "genres": [
+        "Indie"
+      ]
+    },
+    "42700": {
+      "appid": 42700,
+      "name": "Call of Duty®: Black Ops",
+      "url": "https://store.steampowered.com/app/42700/",
+      "art": "/imgs/steam/42700.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/42700/header.jpg?t=1780962720",
+      "released": "Nov 9, 2010",
+      "genres": [
+        "Action"
+      ]
+    },
+    "105600": {
+      "appid": 105600,
+      "name": "Terraria",
+      "url": "https://store.steampowered.com/app/105600/",
+      "art": "/imgs/steam/105600.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg?t=1769844435",
+      "released": "May 16, 2011",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "202970": {
+      "appid": 202970,
+      "name": "Call of Duty®: Black Ops II",
+      "url": "https://store.steampowered.com/app/202970/",
+      "art": "/imgs/steam/202970.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/202970/header.jpg?t=1780962925",
+      "released": "Nov 12, 2012",
+      "genres": [
+        "Action"
+      ]
+    },
+    "206420": {
+      "appid": 206420,
+      "name": "Saints Row IV: Re-Elected",
+      "url": "https://store.steampowered.com/app/206420/",
+      "art": "/imgs/steam/206420.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/206420/header.jpg?t=1764670979",
+      "released": "Aug 19, 2013",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "220200": {
+      "appid": 220200,
+      "name": "Kerbal Space Program",
+      "url": "https://store.steampowered.com/app/220200/",
+      "art": "/imgs/steam/220200.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/header.jpg?t=1738037585",
+      "released": "Apr 27, 2015",
+      "genres": [
+        "Indie",
+        "Simulation"
+      ]
+    },
+    "242760": {
+      "appid": 242760,
+      "name": "The Forest",
+      "url": "https://store.steampowered.com/app/242760/",
+      "art": "/imgs/steam/242760.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/242760/header.jpg?t=1699381053",
+      "released": "Apr 30, 2018",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "244850": {
+      "appid": 244850,
+      "name": "Space Engineers",
+      "url": "https://store.steampowered.com/app/244850/",
+      "art": "/imgs/steam/244850.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244850/3658a69c81af5f4014b0ffa88941285e74825b86/header.jpg?t=1785173739",
+      "released": "Feb 28, 2019",
+      "genres": [
+        "Action",
+        "Indie",
+        "Simulation"
+      ]
+    },
+    "252490": {
+      "appid": 252490,
+      "name": "Rust",
+      "url": "https://store.steampowered.com/app/252490/",
+      "art": "/imgs/steam/252490.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg?t=1781536981",
+      "released": "Feb 8, 2018",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "264710": {
+      "appid": 264710,
+      "name": "Subnautica",
+      "url": "https://store.steampowered.com/app/264710/",
+      "art": "/imgs/steam/264710.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/header.jpg?t=1777456112",
+      "released": "Jan 23, 2018",
+      "genres": [
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "271590": {
+      "appid": 271590,
+      "name": "Grand Theft Auto V Legacy",
+      "url": "https://store.steampowered.com/app/271590/",
+      "art": "/imgs/steam/271590.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg?t=1765387725",
+      "released": "Apr 13, 2015",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "275850": {
+      "appid": 275850,
+      "name": "No Man's Sky",
+      "url": "https://store.steampowered.com/app/275850/",
+      "art": "/imgs/steam/275850.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/5f39cba0164881a53f6aee01f72180f7c619c011/header.jpg?t=1779908213",
+      "released": "Aug 12, 2016",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "292030": {
+      "appid": 292030,
+      "name": "The Witcher 3: Wild Hunt",
+      "url": "https://store.steampowered.com/app/292030/",
+      "art": "/imgs/steam/292030.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ad9240e088f953a84aee814034c50a6a92bf4516/header.jpg?t=1768303991",
+      "released": "May 18, 2015",
+      "genres": [
+        "RPG"
+      ]
+    },
+    "311210": {
+      "appid": 311210,
+      "name": "Call of Duty®: Black Ops III",
+      "url": "https://store.steampowered.com/app/311210/",
+      "art": "/imgs/steam/311210.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/311210/header.jpg?t=1780963650",
+      "released": "Nov 5, 2015",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "313120": {
+      "appid": 313120,
+      "name": "Stranded Deep",
+      "url": "https://store.steampowered.com/app/313120/",
+      "art": "/imgs/steam/313120.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/313120/header.jpg?t=1785441084",
+      "released": "Aug 10, 2022",
+      "genres": [
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "313630": {
+      "appid": 313630,
+      "name": "The Solus Project",
+      "url": "https://store.steampowered.com/app/313630/",
+      "art": "/imgs/steam/313630.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/313630/header.jpg?t=1480876448",
+      "released": "Jun 7, 2016",
+      "genres": [
+        "Adventure",
+        "Indie",
+        "Simulation"
+      ]
+    },
+    "319510": {
+      "appid": 319510,
+      "name": "Five Nights at Freddy's",
+      "url": "https://store.steampowered.com/app/319510/",
+      "art": "/imgs/steam/319510.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/319510/header.jpg?t=1666889251",
+      "released": "Aug 19, 2014",
+      "genres": [
+        "Indie",
+        "Simulation"
+      ]
+    },
+    "324080": {
+      "appid": 324080,
+      "name": "Rising World",
+      "url": "https://store.steampowered.com/app/324080/",
+      "art": "/imgs/steam/324080.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/324080/header.jpg?t=1766427059",
+      "released": "Dec 3, 2014",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "332800": {
+      "appid": 332800,
+      "name": "Five Nights at Freddy's 2",
+      "url": "https://store.steampowered.com/app/332800/",
+      "art": "/imgs/steam/332800.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/332800/header.jpg?t=1579635993",
+      "released": "Nov 10, 2014",
+      "genres": [
+        "Indie"
+      ]
+    },
+    "346110": {
+      "appid": 346110,
+      "name": "ARK: Survival Evolved",
+      "url": "https://store.steampowered.com/app/346110/",
+      "art": "/imgs/steam/346110.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/346110/header.jpg?t=1765677889",
+      "released": "Aug 27, 2017",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "354140": {
+      "appid": 354140,
+      "name": "Five Nights at Freddy's 3",
+      "url": "https://store.steampowered.com/app/354140/",
+      "art": "/imgs/steam/354140.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/354140/header.jpg?t=1579635991",
+      "released": "Mar 2, 2015",
+      "genres": [
+        "Action",
+        "Indie",
+        "Simulation"
+      ]
+    },
+    "371660": {
+      "appid": 371660,
+      "name": "Far Cry® Primal",
+      "url": "https://store.steampowered.com/app/371660/",
+      "art": "/imgs/steam/371660.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/371660/header.jpg?t=1772640435",
+      "released": "Feb 29, 2016",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "377160": {
+      "appid": 377160,
+      "name": "Fallout 4",
+      "url": "https://store.steampowered.com/app/377160/",
+      "art": "/imgs/steam/377160.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/377160/header.jpg?t=1764687456",
+      "released": "Nov 9, 2015",
+      "genres": [
+        "RPG"
+      ]
+    },
+    "388090": {
+      "appid": 388090,
+      "name": "Five Nights at Freddy's 4",
+      "url": "https://store.steampowered.com/app/388090/",
+      "art": "/imgs/steam/388090.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/388090/header.jpg?t=1579635988",
+      "released": "Jul 23, 2015",
+      "genres": [
+        "Action",
+        "Indie",
+        "Strategy"
+      ]
+    },
+    "403640": {
+      "appid": 403640,
+      "name": "Dishonored 2",
+      "url": "https://store.steampowered.com/app/403640/",
+      "art": "/imgs/steam/403640.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/header.jpg?t=1750785918",
+      "released": "Nov 11, 2016",
+      "genres": [
+        "Action"
+      ]
+    },
+    "409710": {
+      "appid": 409710,
+      "name": "BioShock™ Remastered",
+      "url": "https://store.steampowered.com/app/409710/",
+      "art": "/imgs/steam/409710.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/409710/header.jpg?t=1740443728",
+      "released": "Sep 15, 2016",
+      "genres": [
+        "Action",
+        "RPG"
+      ]
+    },
+    "412020": {
+      "appid": 412020,
+      "name": "Metro Exodus",
+      "url": "https://store.steampowered.com/app/412020/",
+      "art": "/imgs/steam/412020.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/412020/header.jpg?t=1750772804",
+      "released": "Feb 14, 2020",
+      "genres": [
+        "Action"
+      ]
+    },
+    "427730": {
+      "appid": 427730,
+      "name": "Who's Your Daddy?!",
+      "url": "https://store.steampowered.com/app/427730/",
+      "art": "/imgs/steam/427730.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427730/header.jpg?t=1773896104",
+      "released": "May 13, 2016",
+      "genres": [
+        "Action",
+        "Casual",
+        "Indie"
+      ]
+    },
+    "489830": {
+      "appid": 489830,
+      "name": "The Elder Scrolls V: Skyrim Special Edition",
+      "url": "https://store.steampowered.com/app/489830/",
+      "art": "/imgs/steam/489830.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/489830/header.jpg?t=1753715778",
+      "released": "Oct 27, 2016",
+      "genres": [
+        "RPG"
+      ]
+    },
+    "506610": {
+      "appid": 506610,
+      "name": "Five Nights at Freddy's: Sister Location",
+      "url": "https://store.steampowered.com/app/506610/",
+      "art": "/imgs/steam/506610.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/506610/header.jpg?t=1579635985",
+      "released": "Oct 7, 2016",
+      "genres": [
+        "Action",
+        "Indie",
+        "Simulation"
+      ]
+    },
+    "546560": {
+      "appid": 546560,
+      "name": "Half-Life: Alyx",
+      "url": "https://store.steampowered.com/app/546560/",
+      "art": "/imgs/steam/546560.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/546560/header.jpg?t=1762986588",
+      "released": "Mar 23, 2020",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "611660": {
+      "appid": 611660,
+      "name": "Fallout 4 VR",
+      "url": "https://store.steampowered.com/app/611660/",
+      "art": "/imgs/steam/611660.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/611660/header.jpg?t=1607445202",
+      "released": "Dec 11, 2017",
+      "genres": [
+        "RPG"
+      ]
+    },
+    "611670": {
+      "appid": 611670,
+      "name": "The Elder Scrolls V: Skyrim VR",
+      "url": "https://store.steampowered.com/app/611670/",
+      "art": "/imgs/steam/611670.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/611670/header.jpg?t=1564002443",
+      "released": "Apr 2, 2018",
+      "genres": [
+        "RPG"
+      ]
+    },
+    "613100": {
+      "appid": 613100,
+      "name": "House Flipper",
+      "url": "https://store.steampowered.com/app/613100/",
+      "art": "/imgs/steam/613100.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613100/6cee40fe293f0bab47534e78bcda64487902efc1/header.jpg?t=1785186280",
+      "released": "May 17, 2018",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Casual"
+      ]
+    },
+    "648800": {
+      "appid": 648800,
+      "name": "Raft",
+      "url": "https://store.steampowered.com/app/648800/",
+      "art": "/imgs/steam/648800.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/648800/header.jpg?t=1727184011",
+      "released": "Jun 20, 2022",
+      "genres": [
+        "Adventure",
+        "Indie",
+        "Simulation"
+      ]
+    },
+    "753640": {
+      "appid": 753640,
+      "name": "Outer Wilds",
+      "url": "https://store.steampowered.com/app/753640/",
+      "art": "/imgs/steam/753640.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/753640/079ae4a7ff4b5875adc5c63c4c0b84e5a3e6966b/header.jpg?t=1785424341",
+      "released": "Jun 18, 2020",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "812140": {
+      "appid": 812140,
+      "name": "Assassin's Creed® Odyssey",
+      "url": "https://store.steampowered.com/app/812140/",
+      "art": "/imgs/steam/812140.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/812140/header.jpg?t=1777476997",
+      "released": "Oct 5, 2018",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ]
+    },
+    "815370": {
+      "appid": 815370,
+      "name": "Green Hell",
+      "url": "https://store.steampowered.com/app/815370/",
+      "art": "/imgs/steam/815370.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/815370/header.jpg?t=1783077147",
+      "released": "Sep 5, 2019",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "835960": {
+      "appid": 835960,
+      "name": "The Talos Principle 2",
+      "url": "https://store.steampowered.com/app/835960/",
+      "art": "/imgs/steam/835960.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/835960/header.jpg?t=1775138468",
+      "released": "Nov 2, 2023",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "839310": {
+      "appid": 839310,
+      "name": "Signal Simulator",
+      "url": "https://store.steampowered.com/app/839310/",
+      "art": "/imgs/steam/839310.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/839310/header.jpg?t=1572336684",
+      "released": "Apr 29, 2018",
+      "genres": [
+        "Indie",
+        "Simulation"
+      ]
+    },
+    "848450": {
+      "appid": 848450,
+      "name": "Subnautica: Below Zero",
+      "url": "https://store.steampowered.com/app/848450/",
+      "art": "/imgs/steam/848450.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848450/header.jpg?t=1777456254",
+      "released": "May 13, 2021",
+      "genres": [
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "871720": {
+      "appid": 871720,
+      "name": "Ultimate Custom Night",
+      "url": "https://store.steampowered.com/app/871720/",
+      "art": "/imgs/steam/871720.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/871720/header.jpg?t=1568143255",
+      "released": "Jun 27, 2018",
+      "genres": [
+        "Action",
+        "Free To Play",
+        "Indie"
+      ]
+    },
+    "874260": {
+      "appid": 874260,
+      "name": "The Forgotten City",
+      "url": "https://store.steampowered.com/app/874260/",
+      "art": "/imgs/steam/874260.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/874260/header.jpg?t=1769440598",
+      "released": "Jul 28, 2021",
+      "genres": [
+        "Adventure",
+        "Indie",
+        "RPG"
+      ]
+    },
+    "976730": {
+      "appid": 976730,
+      "name": "Halo: The Master Chief Collection",
+      "url": "https://store.steampowered.com/app/976730/",
+      "art": "/imgs/steam/976730.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/976730/header.jpg?t=1774466074",
+      "released": "Dec 3, 2019",
+      "genres": [
+        "Action"
+      ]
+    },
+    "1089130": {
+      "appid": 1089130,
+      "name": "Quake II RTX",
+      "url": "https://store.steampowered.com/app/1089130/",
+      "art": "/imgs/steam/1089130.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1089130/header.jpg?t=1667234977",
+      "released": "Jun 6, 2019",
+      "genres": [
+        "Action",
+        "Free To Play"
+      ]
+    },
+    "1091500": {
+      "appid": 1091500,
+      "name": "Cyberpunk 2077",
+      "url": "https://store.steampowered.com/app/1091500/",
+      "art": "/imgs/steam/1091500.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/e9047d8ec47ae3d94bb8b464fb0fc9e9972b4ac7/header.jpg?t=1784714077",
+      "released": "Dec 9, 2020",
+      "genres": [
+        "RPG"
+      ]
+    },
+    "1133870": {
+      "appid": 1133870,
+      "name": "Space Engineers 2",
+      "url": "https://store.steampowered.com/app/1133870/",
+      "art": "/imgs/steam/1133870.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1133870/8add35f321dab1dfdb18257cae6b7e56eac34f19/header_alt_assets_1.jpg?t=1785307059",
+      "released": "Jan 27, 2025",
+      "genres": [
+        "Action",
+        "Indie",
+        "Simulation"
+      ]
+    },
+    "1149460": {
+      "appid": 1149460,
+      "name": "ICARUS",
+      "url": "https://store.steampowered.com/app/1149460/",
+      "art": "/imgs/steam/1149460.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1149460/header.jpg?t=1784744651",
+      "released": "Dec 3, 2021",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Simulation"
+      ]
+    },
+    "1174180": {
+      "appid": 1174180,
+      "name": "Red Dead Redemption 2",
+      "url": "https://store.steampowered.com/app/1174180/",
+      "art": "/imgs/steam/1174180.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg?t=1759502961",
+      "released": "Dec 5, 2019",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "1233690": {
+      "appid": 1233690,
+      "name": "Hypergalactic Psychic Table Tennis 3000",
+      "url": "https://store.steampowered.com/app/1233690/",
+      "art": "/imgs/steam/1233690.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1233690/header.jpg?t=1733346059",
+      "released": "Mar 3, 2020",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Casual"
+      ]
+    },
+    "1245620": {
+      "appid": 1245620,
+      "name": "ELDEN RING",
+      "url": "https://store.steampowered.com/app/1245620/",
+      "art": "/imgs/steam/1245620.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg?t=1784684281",
+      "released": "Feb 24, 2022",
+      "genres": [
+        "Action",
+        "RPG"
+      ]
+    },
+    "1281930": {
+      "appid": 1281930,
+      "name": "tModLoader",
+      "url": "https://store.steampowered.com/app/1281930/",
+      "art": "/imgs/steam/1281930.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281930/header.jpg?t=1785952759",
+      "released": "May 16, 2020",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "1284190": {
+      "appid": 1284190,
+      "name": "The Planet Crafter",
+      "url": "https://store.steampowered.com/app/1284190/",
+      "art": "/imgs/steam/1284190.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1284190/header.jpg?t=1783691047",
+      "released": "Apr 10, 2024",
+      "genres": [
+        "Adventure"
+      ]
+    },
+    "1304930": {
+      "appid": 1304930,
+      "name": "The Outlast Trials",
+      "url": "https://store.steampowered.com/app/1304930/",
+      "art": "/imgs/steam/1304930.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1304930/65fbdba4ad0f1a7ed7a362a086c87042fa40fadc/header_alt_assets_3.jpg?t=1784123708",
+      "released": "Mar 5, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "1326470": {
+      "appid": 1326470,
+      "name": "Sons Of The Forest",
+      "url": "https://store.steampowered.com/app/1326470/",
+      "art": "/imgs/steam/1326470.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1326470/header.jpg?t=1708624856",
+      "released": "Feb 22, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "1328670": {
+      "appid": 1328670,
+      "name": "Mass Effect™ Legendary Edition",
+      "url": "https://store.steampowered.com/app/1328670/",
+      "art": "/imgs/steam/1328670.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1328670/header.jpg?t=1777395134",
+      "released": "May 14, 2021",
+      "genres": [
+        "Action",
+        "RPG"
+      ]
+    },
+    "1468720": {
+      "appid": 1468720,
+      "name": "Ultimate Epic Battle Simulator 2",
+      "url": "https://store.steampowered.com/app/1468720/",
+      "art": "/imgs/steam/1468720.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1468720/header.jpg?t=1736286994",
+      "released": "Jul 21, 2023",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Casual"
+      ]
+    },
+    "1493640": {
+      "appid": 1493640,
+      "name": "Banishers: Ghosts of New Eden",
+      "url": "https://store.steampowered.com/app/1493640/",
+      "art": "/imgs/steam/1493640.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1493640/header.jpg?t=1763044792",
+      "released": "Feb 12, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ]
+    },
+    "1551360": {
+      "appid": 1551360,
+      "name": "Forza Horizon 5",
+      "url": "https://store.steampowered.com/app/1551360/",
+      "art": "/imgs/steam/1551360.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg?t=1746471508",
+      "released": "Nov 8, 2021",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Racing"
+      ]
+    },
+    "1593500": {
+      "appid": 1593500,
+      "name": "God of War",
+      "url": "https://store.steampowered.com/app/1593500/",
+      "art": "/imgs/steam/1593500.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1593500/header.jpg?t=1763059412",
+      "released": "Jan 14, 2022",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ]
+    },
+    "1631270": {
+      "appid": 1631270,
+      "name": "StarRupture",
+      "url": "https://store.steampowered.com/app/1631270/",
+      "art": "/imgs/steam/1631270.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1631270/header.jpg?t=1782733764",
+      "released": "Jan 6, 2026",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "1641960": {
+      "appid": 1641960,
+      "name": "Forever Skies",
+      "url": "https://store.steampowered.com/app/1641960/",
+      "art": "/imgs/steam/1641960.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1641960/cc56d2d6fd373940032bba383464ffa626b00717/header_alt_assets_9.jpg?t=1785956352",
+      "released": "Apr 14, 2025",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "1643320": {
+      "appid": 1643320,
+      "name": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
+      "url": "https://store.steampowered.com/app/1643320/",
+      "art": "/imgs/steam/1643320.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1643320/3e525c6969728ec1641c5834e660472357fcd4cf/header.jpg?t=1776173087",
+      "released": "Nov 20, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ]
+    },
+    "1693980": {
+      "appid": 1693980,
+      "name": "Dead Space",
+      "url": "https://store.steampowered.com/app/1693980/",
+      "art": "/imgs/steam/1693980.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1693980/header.jpg?t=1777396576",
+      "released": "Jan 27, 2023",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "1713350": {
+      "appid": 1713350,
+      "name": "Project Castaway",
+      "url": "https://store.steampowered.com/app/1713350/",
+      "art": "/imgs/steam/1713350.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1713350/affd71f60acaa75e8fea4d6569e6197d9d7a5ce5/header.jpg?t=1776448859",
+      "released": "Mar 17, 2026",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Casual"
+      ]
+    },
+    "1715130": {
+      "appid": 1715130,
+      "name": "Crysis Remastered",
+      "url": "https://store.steampowered.com/app/1715130/",
+      "art": "/imgs/steam/1715130.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1715130/0c28c46e93f734d31b035e13057472b51b377936/header.jpg?t=1785838535",
+      "released": "Sep 17, 2021",
+      "genres": [
+        "Action"
+      ]
+    },
+    "1771300": {
+      "appid": 1771300,
+      "name": "Kingdom Come: Deliverance II",
+      "url": "https://store.steampowered.com/app/1771300/",
+      "art": "/imgs/steam/1771300.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1771300/header.jpg?t=1777975568",
+      "released": "Feb 4, 2025",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ]
+    },
+    "1817070": {
+      "appid": 1817070,
+      "name": "Marvel’s Spider-Man Remastered",
+      "url": "https://store.steampowered.com/app/1817070/",
+      "art": "/imgs/steam/1817070.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1817070/header.jpg?t=1763569047",
+      "released": "Aug 12, 2022",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Casual"
+      ]
+    },
+    "1850570": {
+      "appid": 1850570,
+      "name": "DEATH STRANDING DIRECTOR'S CUT",
+      "url": "https://store.steampowered.com/app/1850570/",
+      "art": "/imgs/steam/1850570.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1850570/header.jpg?t=1773400635",
+      "released": "Mar 30, 2022",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "1922560": {
+      "appid": 1922560,
+      "name": "Plants vs. Zombies™ Garden Warfare 2: Deluxe Edition",
+      "url": "https://store.steampowered.com/app/1922560/",
+      "art": "/imgs/steam/1922560.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1922560/header.jpg?t=1772707471",
+      "released": "May 16, 2022",
+      "genres": [
+        "Action",
+        "Casual",
+        "Strategy"
+      ]
+    },
+    "1942110": {
+      "appid": 1942110,
+      "name": "Bootstrap Island",
+      "url": "https://store.steampowered.com/app/1942110/",
+      "art": "/imgs/steam/1942110.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1942110/eebd6e054ab5d712e344b7ade71d0e5183474057/header.jpg?t=1782722227",
+      "released": "Mar 12, 2026",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "1962700": {
+      "appid": 1962700,
+      "name": "Subnautica 2",
+      "url": "https://store.steampowered.com/app/1962700/",
+      "art": "/imgs/steam/1962700.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1962700/header.jpg?t=1785967256",
+      "released": "May 14, 2026",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Early Access"
+      ]
+    },
+    "1967630": {
+      "appid": 1967630,
+      "name": "Survival: Fountain of Youth",
+      "url": "https://store.steampowered.com/app/1967630/",
+      "art": "/imgs/steam/1967630.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1967630/header.jpg?t=1785163134",
+      "released": "May 21, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "2012840": {
+      "appid": 2012840,
+      "name": "Portal with RTX",
+      "url": "https://store.steampowered.com/app/2012840/",
+      "art": "/imgs/steam/2012840.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2012840/header.jpg?t=1747634461",
+      "released": "Dec 8, 2022",
+      "genres": [
+        "Action"
+      ]
+    },
+    "2215430": {
+      "appid": 2215430,
+      "name": "Ghost of Tsushima DIRECTOR'S CUT",
+      "url": "https://store.steampowered.com/app/2215430/",
+      "art": "/imgs/steam/2215430.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2215430/header.jpg?t=1763409398",
+      "released": "May 16, 2024",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "2322010": {
+      "appid": 2322010,
+      "name": "God of War Ragnarök",
+      "url": "https://store.steampowered.com/app/2322010/",
+      "art": "/imgs/steam/2322010.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/header.jpg?t=1776465233",
+      "released": "Sep 19, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ]
+    },
+    "2358720": {
+      "appid": 2358720,
+      "name": "Black Myth: Wukong",
+      "url": "https://store.steampowered.com/app/2358720/",
+      "art": "/imgs/steam/2358720.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg?t=1760601605",
+      "released": "Aug 19, 2024",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ]
+    },
+    "2399830": {
+      "appid": 2399830,
+      "name": "ARK: Survival Ascended",
+      "url": "https://store.steampowered.com/app/2399830/",
+      "art": "/imgs/steam/2399830.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2399830/d934813ca531af0fce69fe36bc972f1c90d1aa19/header.jpg?t=1779293241",
+      "released": "Oct 25, 2023",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ]
+    },
+    "2472940": {
+      "appid": 2472940,
+      "name": "Wanderer: The Fragments of Fate",
+      "url": "https://store.steampowered.com/app/2472940/",
+      "art": "/imgs/steam/2472940.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2472940/58e2ac05fbcf561556d3a2fbcb2b4891ca09ba03/header.jpg?t=1761237725",
+      "released": "Oct 23, 2025",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ]
+    },
+    "2623190": {
+      "appid": 2623190,
+      "name": "The Elder Scrolls IV: Oblivion Remastered",
+      "url": "https://store.steampowered.com/app/2623190/",
+      "art": "/imgs/steam/2623190.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/a7cee9165bb1bfc092c390c5cff215ce0e381dfc/header.jpg?t=1761681073",
+      "released": "Apr 22, 2025",
+      "genres": [
+        "RPG"
+      ]
+    },
+    "2646460": {
+      "appid": 2646460,
+      "name": "Soulmask",
+      "url": "https://store.steampowered.com/app/2646460/",
+      "art": "/imgs/steam/2646460.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2646460/0871f08237fc0829756f0e6de4c8b8f0eed2181d/header.jpg?t=1784927000",
+      "released": "Apr 9, 2026",
+      "genres": [
+        "Adventure",
+        "Indie",
+        "RPG"
+      ]
+    },
+    "2663530": {
+      "appid": 2663530,
+      "name": "POOLS",
+      "url": "https://store.steampowered.com/app/2663530/",
+      "art": "/imgs/steam/2663530.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2663530/header.jpg?t=1768842904",
+      "released": "Apr 26, 2024",
+      "genres": [
+        "Adventure"
+      ]
+    },
+    "2668510": {
+      "appid": 2668510,
+      "name": "Red Dead Redemption",
+      "url": "https://store.steampowered.com/app/2668510/",
+      "art": "/imgs/steam/2668510.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2668510/header.jpg?t=1781132266",
+      "released": "Oct 29, 2024",
+      "genres": [
+        "Action"
+      ]
+    },
+    "2677660": {
+      "appid": 2677660,
+      "name": "Indiana Jones and the Great Circle",
+      "url": "https://store.steampowered.com/app/2677660/",
+      "art": "/imgs/steam/2677660.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2677660/151ae5a881f05ef630defef85d99b38146b7055c/header.jpg?t=1778168392",
+      "released": "Dec 8, 2024",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "2840770": {
+      "appid": 2840770,
+      "name": "Avatar: Frontiers of Pandora™",
+      "url": "https://store.steampowered.com/app/2840770/",
+      "art": "/imgs/steam/2840770.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2840770/27aa6d8f9c3f11dc93a557164d30a9ba08a7c46a/header.jpg?t=1778598692",
+      "released": "Jun 17, 2024",
+      "genres": [
+        "Action",
+        "Adventure"
+      ]
+    },
+    "3041230": {
+      "appid": 3041230,
+      "name": "Windrose",
+      "url": "https://store.steampowered.com/app/3041230/",
+      "art": "/imgs/steam/3041230.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3041230/7e838d87d787735d5d29d72777c5ee55653dfb2b/header.jpg?t=1783932953",
+      "released": "Apr 14, 2026",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ]
+    },
+    "3929970": {
+      "appid": 3929970,
+      "name": "Cave Crave VR",
+      "url": "https://store.steampowered.com/app/3929970/",
+      "art": "/imgs/steam/3929970.webp",
+      "art_src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3929970/921771acc112fb2dc2a92c760f1c4a97cf84b98d/header.jpg?t=1784275738",
+      "released": "Dec 12, 2025",
+      "genres": [
+        "Adventure",
+        "Simulation"
+      ]
+    }
+  }
+}

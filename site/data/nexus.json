@@ -1,0 +1,91 @@
+{
+  "author": "hydronautica",
+  "url": "https://www.nexusmods.com/profile/hydronautica/mods",
+  "fetched": "2026-08-06",
+  "count": 5,
+  "totals": {
+    "downloads": 18541,
+    "endorsements": 229
+  },
+  "games": [
+    "Subnautica",
+    "Subnautica: Below Zero"
+  ],
+  "mods": [
+    {
+      "id": 2438,
+      "name": "Hydronautica's Stronger Base Glass",
+      "short": "Stronger Base Glass",
+      "summary": "Ever wanted to have your base covered in windows, but couldn't because of hull integrity? Well now you can... Enjoy!",
+      "version": "1.0.0",
+      "downloads": 7438,
+      "endorsements": 92,
+      "category": "Gameplay",
+      "game": "Subnautica",
+      "game_domain": "subnautica",
+      "url": "https://www.nexusmods.com/subnautica/mods/2438",
+      "created": "2025-07-15",
+      "updated": "2025-07-22"
+    },
+    {
+      "id": 2450,
+      "name": "Hydronautica's Rock Hammer",
+      "short": "Rock Hammer",
+      "summary": "Ever thought it was strange that you could smash rocks apart with your bare hands? Well no more!",
+      "version": "1.0.0",
+      "downloads": 4429,
+      "endorsements": 58,
+      "category": "Gameplay",
+      "game": "Subnautica",
+      "game_domain": "subnautica",
+      "url": "https://www.nexusmods.com/subnautica/mods/2450",
+      "created": "2025-07-21",
+      "updated": "2026-04-19"
+    },
+    {
+      "id": 2527,
+      "name": "Hydronautica's Repickupable Cuddlefish",
+      "short": "Repickupable Cuddlefish",
+      "summary": "Allows you to pick up cuddle fish even after they are removed from the alien containment unit.",
+      "version": "1.0.0",
+      "downloads": 3734,
+      "endorsements": 34,
+      "category": "Miscellaneous",
+      "game": "Subnautica",
+      "game_domain": "subnautica",
+      "url": "https://www.nexusmods.com/subnautica/mods/2527",
+      "created": "2025-08-15",
+      "updated": "2025-08-15"
+    },
+    {
+      "id": 2451,
+      "name": "Hydronautica's Realistic Survival Rates",
+      "short": "Realistic Survival Rates",
+      "summary": "Tweaks the Hunger, Thirst, and Oxygen rates to be realistic. Also allows you to tweak them.",
+      "version": "1.0.2",
+      "downloads": 1865,
+      "endorsements": 29,
+      "category": "Gameplay",
+      "game": "Subnautica",
+      "game_domain": "subnautica",
+      "url": "https://www.nexusmods.com/subnautica/mods/2451",
+      "created": "2025-07-19",
+      "updated": "2025-07-24"
+    },
+    {
+      "id": 654,
+      "name": "Hydronautica's Stronger Base Glass",
+      "short": "Stronger Base Glass",
+      "summary": "Ever wanted to have your base covered in windows, but couldn't because of hull integrity? Well now you can... Enjoy!",
+      "version": "1",
+      "downloads": 1075,
+      "endorsements": 16,
+      "category": "Miscellaneous",
+      "game": "Subnautica: Below Zero",
+      "game_domain": "subnauticabelowzero",
+      "url": "https://www.nexusmods.com/subnauticabelowzero/mods/654",
+      "created": "2026-04-19",
+      "updated": "2026-04-19"
+    }
+  ]
+}
