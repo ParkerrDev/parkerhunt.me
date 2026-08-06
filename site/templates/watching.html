@@ -12,10 +12,11 @@
 <header class="hero">
     <div class="wrap">
         <a class="back" href="/">{{ ico::back() }} Home</a>
-        <h1>{{ page.title }}</h1>
+        <h1>TV shows</h1>
         <p class="hero-lede">{{ page.description }}</p>
         <ul class="facts" style="margin-top:1.25rem">
             <li>{{ titles.count }} shows</li>
+            <li><a href="/movies/" style="color:var(--accent)">{{ titles.movie_count }} films →</a></li>
             {% if titles.posters %}<li>{{ titles.posters.count }} with posters</li>{% endif %}
             <li>{{ titles.with_logo }} with a title logo</li>
             <li>metadata from Wikidata</li>

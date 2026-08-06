@@ -82,7 +82,16 @@ const BASE = "https://image.tmdb.org/t/p/w342";
 const data = JSON.parse(readFileSync(FILE, "utf8"));
 let found = 0, missed = [];
 
-for (const s of data.shows) {
+/* Which endpoint to try FIRST matters, and getting it wrong is silent. A
+   pinned tmdb_id is only unique within its own namespace: id 557 is the film
+   Spider-Man on /movie and a cartoon called Camp Lazlo on /tv. Films ask /movie
+   first, series ask /tv first, and each falls back to the other. */
+const queue = [
+  ...data.shows.map((s) => ({ s, first: "tv" })),
+  ...(data.movies || []).map((s) => ({ s, first: "movie" })),
+];
+
+for (const { s, first } of queue) {
   /* A hand-pinned tmdb_id wins outright. Needed twice: The Chosen's IMDb id
      finds a 2009 namesake, and the classic Tom and Jerry shorts have no IMDb id
      for /find to work from at all. */
@@ -90,12 +99,17 @@ for (const s of data.shows) {
   try {
     let hit = null;
     if (s.tmdb_id) {
-      hit = await tmdb(`/tv/${s.tmdb_id}`).catch(() => null);
-      if (!hit?.poster_path) hit = await tmdb(`/movie/${s.tmdb_id}`).catch(() => null);
+      const order = first === "movie" ? ["movie", "tv"] : ["tv", "movie"];
+      for (const kind of order) {
+        hit = await tmdb(`/${kind}/${s.tmdb_id}`).catch(() => null);
+        if (hit?.poster_path) break;
+      }
     }
     if (!hit?.poster_path && s.imdb) {
       const r = await tmdb(`/find/${s.imdb}`, { external_source: "imdb_id" });
-      hit = (r.tv_results || [])[0] || (r.movie_results || [])[0] || null;
+      hit = first === "movie"
+        ? (r.movie_results || [])[0] || (r.tv_results || [])[0] || null
+        : (r.tv_results || [])[0] || (r.movie_results || [])[0] || null;
     }
     if (hit?.poster_path) {
       s.poster = {
@@ -131,6 +145,6 @@ data.posters = {
 };
 
 writeFileSync(FILE, JSON.stringify(data, null, 2) + "\n");
-console.log(`\nPosters: ${found} of ${data.shows.length} -> ${FILE}`);
+console.log(`\nPosters: ${found} of ${data.shows.length + (data.movies || []).length} -> ${FILE}`);
 if (missed.length) console.log(`No poster for: ${missed.join(", ")}`);
 console.log(`\n${ATTRIBUTION}`);
