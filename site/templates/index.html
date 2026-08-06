@@ -32,51 +32,70 @@
    scripts/build-stamps.mjs — the anchor date is stored, the elapsed years,
    months and days are recomputed on every deploy. #}
 {% set stamps = load_data(path="data/stamps.json") %}
+{# Summit photographs (Wikimedia Commons, CC BY / CC BY-SA) and book jackets,
+   both downloaded and converted to WebP by scripts/fetch-media.mjs. The
+   credit line under the photographs is not decoration — those licences
+   require attribution. #}
+{% set media = load_data(path="data/media.json") %}
 
 <header class="hero">
     <div class="wrap hero-in">
-        {# The single largest image on the page, and it is 19 KB. Sized in CSS
-           with aspect-ratio so the circle is reserved before the bytes land. #}
+        {# Centred, like the old parkerhunt.me: photo, name, one line, icons.
+           The rotating strip of facts that used to sit under the name is gone
+           and so are the fact pills — a stack of seven grey lozenges reading
+           "student", "Half Dome at 6" was a wall of text pretending to be a
+           design. Those facts are now tiles further down, where you find them
+           instead of being handed them. #}
         <div class="avatar">
             <img src="/imgs/webp/avatar-288.webp"
                  srcset="/imgs/webp/avatar-288.webp 288w, /imgs/webp/avatar-576.webp 576w"
-                 sizes="(max-width: 40rem) 7rem, 9.5rem"
+                 sizes="(max-width: 40rem) 6rem, 7.75rem"
                  width="288" height="288" alt="Andrew Parker Hunt" fetchpriority="high" decoding="async">
         </div>
 
         <div class="hero-text">
             <h1>Andrew Parker Hunt</h1>
-            <p class="hero-lede">Software, computer science and security. I build things that are fast, small and finished.</p>
+            <p class="hero-lede">Student in Clovis, California. Software, computer science and security — I build things that are fast, small and finished.</p>
 
-            {% if me.tidbits | length > 0 %}
-            {# A film strip translated by whole lines, no JS. The first item is
-               repeated at the end so the loop lands where it started. #}
-            <div class="tidbit" style="--tid-n: {{ me.tidbits | length }}" aria-label="About me">
-                <ul>
-                    {% for t in me.tidbits %}<li>{{ t }}</li>{% endfor %}
-                    <li aria-hidden="true">{{ me.tidbits | first }}</li>
-                </ul>
-            </div>
-            {% endif %}
-
+            {# Icon-only. aria-label carries the name for anyone who cannot see
+               the mark, so nothing is lost by dropping the visible word. #}
             <div class="links">
-                <a class="pill pill--primary" href="/AndrewHuntResume.pdf" target="_blank" rel="noopener">{{ ico::doc() }} Résumé</a>
-                <a class="pill" href="mailto:email@parkerhunt.me">{{ ico::mail() }} Email</a>
-                <a class="pill" href="https://github.com/ParkerrDev" target="_blank" rel="me noopener">{{ ico::github() }} GitHub</a>
-                <a class="pill" href="https://x.com/AndrewParkerH" target="_blank" rel="me noopener">{{ ico::x() }} X</a>
-                <a class="pill" href="https://www.linkedin.com/in/andrewparkerh/" target="_blank" rel="me noopener">{{ ico::linkedin() }} LinkedIn</a>
+                <a class="pill pill--primary" href="/AndrewHuntResume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF)" title="Résumé">{{ ico::doc() }}</a>
+                <a class="pill" href="mailto:email@parkerhunt.me" aria-label="Email" title="Email">{{ ico::mail() }}</a>
+                <a class="pill" href="https://github.com/ParkerrDev" target="_blank" rel="me noopener" aria-label="GitHub" title="GitHub">{{ ico::github() }}</a>
+                <a class="pill" href="https://x.com/AndrewParkerH" target="_blank" rel="me noopener" aria-label="X" title="X">{{ ico::x() }}</a>
+                <a class="pill" href="https://www.linkedin.com/in/andrewparkerh/" target="_blank" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">{{ ico::linkedin() }}</a>
+                <a class="pill" href="{{ steam.profile.url }}" target="_blank" rel="me noopener" aria-label="Steam" title="Steam">{{ ico::steam() }}</a>
+                <a class="pill" href="{{ chess.url }}" target="_blank" rel="me noopener" aria-label="Chess.com" title="Chess.com">{{ ico::chesscom() }}</a>
+                <a class="pill" href="{{ nexus.url }}" target="_blank" rel="me noopener" aria-label="Nexus Mods" title="Nexus Mods">{{ ico::nexus() }}</a>
             </div>
-
-            {% if me.facts | length > 0 %}
-            <ul class="facts" style="margin-top:1.25rem">
-                {% for f in me.facts %}<li>{{ f }}</li>{% endfor %}
-            </ul>
-            {% endif %}
         </div>
     </div>
 </header>
 
 <main id="main">
+
+    {# -------------------------------------------------------------- now -- #}
+    {# What is actually happening this month, at the top where it belongs.
+       Edit [now] in site/data/me.toml — and move `updated` when you do, because
+       a "now" that is a year old is worse than no now at all. #}
+    {% if me.now.line %}
+    <section id="now" style="padding-top:0">
+        <div class="wrap">
+            <div class="now">
+                <div>
+                    <div class="now-k"><span class="pulse"></span> Now · {{ me.now.updated ~ "-01" | date(format="%B %Y") }}</div>
+                    <p class="now-t">{{ me.now.line }}</p>
+                </div>
+                {% if me.now.doing | length > 0 %}
+                <ul class="now-list">
+                    {% for d in me.now.doing %}<li>{{ d }}</li>{% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
 
     {# ------------------------------------------------------------- work -- #}
     <section id="work">
@@ -304,6 +323,22 @@
                 <a class="more" href="/games/">Everything I have played →</a>
             </div>
 
+            {# The library, scrolling. Twenty capsules, printed twice so the
+               track can translate exactly -50% and loop with no seam. #}
+            <div class="marquee" style="--mq:70s;margin-bottom:0.875rem">
+                <div class="mq-track">
+                    {% for pass in [1, 2] %}
+                    <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
+                    {% for g in steam.library | slice(end=20) %}
+                    <a class="shot" href="{{ g.url }}" target="_blank" rel="noopener" style="width:11.5rem;aspect-ratio:460/215;flex:none">
+                        <img src="{{ g.art }}" alt="{{ g.name }}" width="268" height="125" loading="lazy" decoding="async">
+                    </a>
+                    {% endfor %}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+
             {% if games.favourite | length > 0 %}
             <p class="kicker">Favourites</p>
             <div class="gcards" style="margin-bottom:1.5rem">
@@ -384,6 +419,37 @@
     </section>
     {% endif %}
 
+    {# ---------------------------------------------------------- summits -- #}
+    {# The three facts that used to be grey pills reading "Half Dome at 6" are
+       now the mountains themselves. Photographs from Wikimedia Commons; the
+       credit under each one is required by its licence, not optional. #}
+    {% if media.peaks | length > 0 %}
+    <section id="summits">
+        <div class="wrap">
+            <div class="head">
+                <h2>Summits</h2>
+                <p>Half Dome at six, El Capitan at eight, Mt. Whitney at thirteen — that one in a thunderstorm.</p>
+            </div>
+            <div class="bento bento--lg">
+                {% for k in media.peaks %}
+                <div>
+                    <figure class="shot shot--wide">
+                        <img src="{{ k.art.sm }}" srcset="{{ k.art.sm }} 480w, {{ k.art.lg }} 960w"
+                             sizes="(max-width: 46rem) 100vw, 23rem"
+                             width="480" height="320" alt="{{ k.name }}, {{ k.where }}" loading="lazy" decoding="async">
+                        <figcaption>
+                            <span class="shot-t">{{ k.name }}</span>
+                            <span class="shot-s" style="display:block">{{ k.height }} · at {{ k.age }}</span>
+                        </figcaption>
+                    </figure>
+                    <p class="credit">{{ k.author }}, <a href="{{ k.source }}" target="_blank" rel="noopener">{{ k.licence }}</a></p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
     {# ----------------------------------------------------------- coffee -- #}
     {# Orders set as till receipts, because that is the form the content is
        already in. See .receipt in _style.css. #}
@@ -429,15 +495,14 @@
             <div class="head"><h2>Eating</h2><p>Three places and one problem.</p></div>
 
             {% if me.restaurant | length > 0 %}
-            <ul class="rows narrow" style="margin-bottom:1.5rem">
+            <div class="bento" style="margin-bottom:0.875rem">
                 {% for r in me.restaurant %}
-                <li><div class="row">
-                    <span class="row-n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
-                    <span class="row-main"><span class="row-t">{{ r.name }}</span></span>
-                    <span class="row-x">{{ r.kind }}</span>
-                </div></li>
+                <div class="tile-s2">
+                    <span class="t-k">{{ r.kind }}</span>
+                    <span class="t-t">{{ r.name }}</span>
+                </div>
                 {% endfor %}
-            </ul>
+            </div>
 
             {# Only one of them has an order worth writing down. #}
             <div class="receipts" style="margin-bottom:1.5rem">
@@ -473,17 +538,19 @@
                 <h2>Distro-hopping</h2>
                 <p>{{ me.distro | length }} of them, in order, starting at nine years old. It ends at an Arch derivative, as these things do.</p>
             </div>
-            <ol class="distros">
+            {# Coloured monograms, not logos. Reproducing eight trademarks from
+               memory would look worse and is not ours to do; the accent colour
+               plus the initial identifies each one just as fast. Colours live
+               in me.toml so any that look wrong are a one-line fix. #}
+            <ul class="bento bento--sm" style="list-style:none;margin:0;padding:0">
                 {% for d in me.distro %}
-                <li>
-                    <span class="distro{% if d.current %} distro--now{% endif %}">
-                        <span class="distro-n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
-                        <span class="distro-t">{{ d.name }}</span>
-                        {%- if d.current %}<span class="distro-now">now</span>{% endif -%}
-                    </span>
+                <li class="chip{% if d.current %} chip--now{% endif %}" style="--c:{{ d.colour }}">
+                    <span class="swatch" aria-hidden="true">{{ d.name | truncate(length=2, end="") }}</span>
+                    <span class="t-t">{{ d.name }}</span>
+                    <span class="t-k" style="text-align:center">{% if d.current %}Now{% else %}{% if loop.index < 10 %}0{% endif %}{{ loop.index }}{% endif %}</span>
                 </li>
                 {% endfor %}
-            </ol>
+            </ul>
             {% set_global has_notes = false %}
             {% for d in me.distro %}{% if d.note %}{% set_global has_notes = true %}{% endif %}{% endfor %}
             {% if has_notes %}
@@ -525,17 +592,29 @@
         <div class="wrap">
             <div class="head">
                 <h2>Things worth keeping</h2>
+                <p>{{ me.quotes | length + me.my_quotes | length }} on the wall. Hover to stop one.</p>
                 <a class="more" href="/quotes/">The whole wall →</a>
             </div>
-            <div class="quotes">
-                {% for q in me.quotes | slice(end=6) %}
-                <figure class="quote">
+        </div>
+        {# Full-bleed on purpose: a marquee that stops at the page gutter looks
+           like it is stuck, and one that runs off both edges reads as endless.
+           Two rows in opposite directions so the eye has somewhere to rest. #}
+        {% for row in [1, 2] %}
+        <div class="marquee{% if row == 2 %} mq-rev{% endif %}" style="--mq:{% if row == 1 %}72s{% else %}84s{% endif %}{% if row == 2 %};margin-top:var(--gap){% endif %}">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
+                {% for q in me.quotes | slice(start=(row - 1) * 7, end=row * 7) %}
+                <figure class="quote" style="width:22rem;flex:none;margin:0">
                     <p>{{ q.text }}</p>
                     <footer>— {{ q.who }}</footer>
                 </figure>
                 {% endfor %}
+                </span>
+                {% endfor %}
             </div>
         </div>
+        {% endfor %}
     </section>
     {% endif %}
 
@@ -543,36 +622,43 @@
     {% if me.books_read | length > 0 or me.books_mine | length > 0 %}
     <section id="shelf">
         <div class="wrap">
-            <div class="head"><h2>Shelf</h2></div>
+            <div class="head"><h2>Shelf</h2><p>Read on the left, written on the right. More of the first than the second, so far.</p></div>
             <div class="duo">
                 {% if me.books_read | length > 0 %}
                 <div>
                     <p class="kicker">Read</p>
-                    <ul class="rows">
+                    <div class="bento bento--sm">
                         {% for b in me.books_read %}
-                        <li><div class="row">
-                            <span class="row-n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
-                            <span class="row-main"><span class="row-t">{{ b.title }}</span>{% if b.author %} <span class="row-s">— {{ b.author }}</span>{% endif %}{% if b.note %}<br><span class="row-s">{{ b.note }}</span>{% endif %}</span>
-                            {% if b.year %}<span class="row-x">{{ b.year }}</span>{% endif %}
-                        </div></li>
+                        <div class="chip">
+                            {# Jacket art is the publisher's, shown at thumbnail
+                               size to identify an edition — the same thing every
+                               library catalogue does. Fetched and converted by
+                               scripts/fetch-media.mjs; nothing loads from
+                               openlibrary.org at page load. #}
+                            <span class="cover">
+                                {%- if b.cover and media.covers[b.cover] %}
+                                <img src="{{ media.covers[b.cover] }}" width="200" height="300" alt="{{ b.title }}" loading="lazy" decoding="async">
+                                {%- endif %}
+                            </span>
+                            <span class="t-t">{{ b.title }}</span>
+                            <span class="t-s">{{ b.author }}{% if b.year %} · {{ b.year }}{% endif %}</span>
+                        </div>
                         {% endfor %}
-                    </ul>
+                    </div>
                 </div>
                 {% endif %}
                 {% if me.books_mine | length > 0 %}
                 <div>
                     <p class="kicker">Written</p>
-                    <ul class="rows">
+                    <div class="bento bento--lg" style="max-width:20rem">
                         {% for b in me.books_mine %}
-                        {# A row with a url becomes a link; one without stays a
-                           plain row. Same markup either way, so the two never
-                           drift apart visually. #}
-                        <li>{% if b.url %}<a class="row" href="{{ b.url }}">{% else %}<div class="row">{% endif %}
-                            <span class="row-main"><span class="row-t">{{ b.title }}{% if b.url %} <span class="ext" aria-hidden="true">→</span>{% endif %}</span>{% if b.note %}<br><span class="row-s">{{ b.note }}</span>{% endif %}</span>
-                            {% if b.status %}<span class="row-x">{{ b.status }}</span>{% endif %}
-                        {% if b.url %}</a>{% else %}</div>{% endif %}</li>
+                        <a class="tile-s2" {% if b.url %}href="{{ b.url }}"{% endif %}>
+                            <span class="t-k">{{ b.status }}</span>
+                            <span class="t-t">{{ b.title }}{% if b.url %} <span class="ext" aria-hidden="true">→</span>{% endif %}</span>
+                            {% if b.note %}<span class="t-s">{{ b.note }}</span>{% endif %}
+                        </a>
                         {% endfor %}
-                    </ul>
+                    </div>
                 </div>
                 {% endif %}
             </div>
@@ -585,36 +671,35 @@
     <section id="watching">
         <div class="wrap">
             <div class="head"><h2>Ranked</h2><p>In order, not alphabetically. That is the whole point of a ranking.</p></div>
-            <div class="duo">
-                {% if me.films | length > 0 %}
-                <div>
-                    <p class="kicker">Films</p>
-                    <ul class="rows">
-                        {% for f in me.films %}
-                        <li><div class="row">
-                            <span class="row-n">{{ loop.index }}</span>
-                            <span class="row-main"><span class="row-t">{{ f.title }}</span>{% if f.note %}<br><span class="row-s">{{ f.note }}</span>{% endif %}</span>
-                            {% if f.year %}<span class="row-x">{{ f.year }}</span>{% endif %}
-                        </div></li>
-                        {% endfor %}
-                    </ul>
+            {% if me.shows | length > 0 %}
+            <p class="kicker">Television</p>
+            <div class="bento bento--sm" style="margin-bottom:0.875rem">
+                {% for sh in me.shows %}
+                {# A poster set in this site's own type. The real artwork belongs
+                   to the people who made the show; this is a card about it. #}
+                <div class="chip">
+                    <div class="poster" style="--pb:{{ sh.bg }};--pf:{{ sh.fg }}">
+                        <span class="poster-n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
+                        <span class="poster-t">{{ sh.title }}</span>
+                        <span class="poster-y">{{ sh.year }}</span>
+                    </div>
+                    {% if sh.note %}<span class="t-s">{{ sh.note }}</span>{% endif %}
                 </div>
-                {% endif %}
-                {% if me.shows | length > 0 %}
-                <div>
-                    <p class="kicker">Television</p>
-                    <ul class="rows">
-                        {% for s in me.shows %}
-                        <li><div class="row">
-                            <span class="row-n">{{ loop.index }}</span>
-                            <span class="row-main"><span class="row-t">{{ s.title }}</span>{% if s.note %}<br><span class="row-s">{{ s.note }}</span>{% endif %}</span>
-                            {% if s.year %}<span class="row-x">{{ s.year }}</span>{% endif %}
-                        </div></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
+                {% endfor %}
             </div>
+            {% endif %}
+            {% if me.films | length > 0 %}
+            <p class="kicker">Films</p>
+            <div class="bento">
+                {% for f in me.films %}
+                <div class="tile-s2">
+                    <span class="t-k">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}{% if f.year %} · {{ f.year }}{% endif %}</span>
+                    <span class="t-t">{{ f.title }}</span>
+                    {% if f.note %}<span class="t-s">{{ f.note }}</span>{% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
     </section>
     {% endif %}
@@ -644,15 +729,38 @@
     {% if me.bucket | length > 0 %}
     <section id="bucket">
         <div class="wrap">
-            <div class="head"><h2>Bucket list</h2><p>Struck through means done.</p></div>
-            <ul class="rows narrow">
+            <div class="head"><h2>Bucket list</h2><p>Struck through means done. Three of eight, and the easy three were the mountains.</p></div>
+            <div class="bento">
                 {% for b in me.bucket %}
-                <li><div class="row{% if b.done %} row--done{% endif %}">
-                    {{ ico::check(done=b.done) }}
-                    <span class="row-main"><span class="row-t">{{ b.text }}</span>{% if b.note %}<br><span class="row-s">{{ b.note }}</span>{% endif %}</span>
-                </div></li>
+                <div class="tile-s2{% if b.done %} row--done{% endif %}">
+                    <span class="t-k">{{ ico::check(done=b.done) }}</span>
+                    <span class="t-t">{{ b.text }}</span>
+                    {% if b.note %}<span class="t-s">{{ b.note }}</span>{% endif %}
+                </div>
                 {% endfor %}
-            </ul>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------------ facts -- #}
+    {# Everything that used to flicker past in the hero, at rest and in one
+       place. It scrolls on its own, which is the one bit of movement that
+       earns itself: there are sixteen of these and no room for sixteen. #}
+    {% if me.facts | length > 0 or me.tidbits | length > 0 %}
+    <section id="facts">
+        <div class="wrap">
+            <div class="head"><h2>Assorted</h2><p>Small true things, in no order.</p></div>
+        </div>
+        <div class="marquee" style="--mq:64s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
+                {% for f in me.facts %}<span class="tile-s2" style="width:11rem;flex:none"><span class="t-t">{{ f }}</span></span>{% endfor %}
+                {% for t in me.tidbits %}<span class="tile-s2" style="width:15rem;flex:none"><span class="t-s">{{ t }}</span></span>{% endfor %}
+                </span>
+                {% endfor %}
+            </div>
         </div>
     </section>
     {% endif %}
@@ -680,14 +788,14 @@
     <section id="web">
         <div class="wrap">
             <div class="head"><h2>Corners of the web</h2><p>Places worth keeping a bookmark for.</p></div>
-            <ul class="rows narrow">
+            <div class="bento">
                 {% for s in me.sites %}
-                <li><a class="row" href="{{ s.url }}" target="_blank" rel="noopener">
-                    <span class="row-main"><span class="row-t">{{ s.name }}</span>{% if s.note %}<br><span class="row-s">{{ s.note }}</span>{% endif %}</span>
-                    <span class="row-x">↗</span>
-                </a></li>
+                <a class="tile-s2" href="{{ s.url }}" target="_blank" rel="noopener">
+                    <span class="t-t">{{ s.name }} <span class="ext" aria-hidden="true">↗</span></span>
+                    {% if s.note %}<span class="t-s">{{ s.note }}</span>{% endif %}
+                </a>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
     </section>
     {% endif %}

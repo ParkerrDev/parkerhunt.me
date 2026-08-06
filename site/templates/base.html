@@ -18,9 +18,11 @@
 
     {# Declared for both schemes so the browser chrome matches the page instead
        of flashing a white bar above a dark document. #}
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-    <meta name="color-scheme" content="light dark">
+    {# One theme, one theme-color. color-scheme:light stops the browser
+       darkening form controls and scrollbars on a page that has no dark
+       design to match them to — see the note at the top of _style.css. #}
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Parker Hunt">
@@ -51,7 +53,12 @@
     {% block chrome %}
     <div class="bar">
         <div class="bar-in">
-            <a class="bar-home" href="/">Parker Hunt</a>
+            {# Mark first, then the full name. The mark is the same memoji the
+               favicon uses, so the tab and the page agree. #}
+            <a class="bar-home" href="/">
+                <img src="/imgs/webp/memoji-circle.webp" width="26" height="26" alt="" decoding="async">
+                <span>Andrew Parker Hunt</span>
+            </a>
             <nav class="bar-nav" aria-label="Sections">
                 <a href="/#work">Work</a>
                 <a href="/#code">Code</a>

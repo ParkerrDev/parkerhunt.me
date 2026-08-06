@@ -122,16 +122,25 @@
                 <h2>Everything, ever</h2>
                 <p>All {{ games.played | length }} of them, in the order I remembered them. A filled dot means it is on Steam and the title links there.</p>
             </div>
-            <ul class="gamelist">
+            {# Capsules rather than a bulleted list of titles. Sixty rows of text
+               told you nothing sixty pictures do not; the seven that were never
+               on Steam get a typographic tile in the same slot so the grid does
+               not develop holes. #}
+            <div class="bento bento--lg">
                 {% for p in games.played %}
                 {% if p.appid %}
                 {% set g = steam.by_appid[p.appid] %}
-                <li><i></i><a href="{{ g.url }}" target="_blank" rel="noopener">{{ g.name }}</a>{% if p.where %} <span class="where">{{ p.where }}</span>{% endif %}</li>
+                <a class="shot" href="{{ g.url }}" target="_blank" rel="noopener" style="aspect-ratio:460/215">
+                    <img src="{{ g.art }}" alt="{{ g.name }}" width="268" height="125" loading="lazy" decoding="async">
+                    <span class="shot-cap"><span class="shot-t" style="font-size:0.8125rem">{{ g.name }}</span>{% if p.where %}<span class="shot-s" style="display:block">{{ p.where }}</span>{% endif %}</span>
+                </a>
                 {% else %}
-                <li><i class="off"></i>{{ p.title }}{% if p.where %} <span class="where">{{ p.where }}</span>{% endif %}</li>
+                <div class="shot" style="aspect-ratio:460/215;background:var(--bg-soft);display:grid;place-items:center;padding:0.75rem;text-align:center">
+                    <span><span class="t-t">{{ p.title }}</span><span class="t-k" style="display:block;margin-top:0.25rem">{{ p.where }}</span></span>
+                </div>
                 {% endif %}
                 {% endfor %}
-            </ul>
+            </div>
         </div>
     </section>
     {% endif %}
