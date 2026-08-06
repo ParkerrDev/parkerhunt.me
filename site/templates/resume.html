@@ -1,25 +1,17 @@
 {% extends "base.html" %}
-
-{# Full-bleed PDF viewer: no back link, no footer, nothing but the document. #}
-{% block chrome %}{% endblock %}
+{% block title %}Résumé · Parker Hunt{% endblock %}
 {% block footer %}{% endblock %}
-
 {% block content %}
-{# /AndrewHuntResume.pdf is not committed to this repo — build-zola.sh copies it
-   out of the private resume repo on every build, so this always serves that
-   repo's current release build. See RESUME.md. #}
-<div class="resume-container">
-  {# <object> rather than <embed> so the fallback below actually renders on the
-     browsers that refuse to show a PDF inline (notably iOS Safari), instead of
-     leaving a blank white page. #}
-  <object data="/AndrewHuntResume.pdf" type="application/pdf" width="100%" height="100%">
-    <div class="resume-fallback">
-      <h1>Résumé</h1>
-      <p>Your browser can’t display this PDF inline.</p>
-      <p><a href="/AndrewHuntResume.pdf" download>Download the résumé (PDF)</a></p>
-      <p><a href="/AndrewHuntResume-ATS.pdf" download>Plain single-column version</a> — for job
-        portals and résumé parsers.</p>
+<main id="main" style="position:fixed;inset:0">
+  <object data="/AndrewHuntResume.pdf" type="application/pdf" width="100%" height="100%" style="border:0">
+    <div class="wrap" style="padding-top:4rem">
+      <h1 style="font-family:var(--serif);font-weight:500">Résumé</h1>
+      <p class="lede">Your browser can\u2019t display this PDF inline.</p>
+      <div class="tools">
+        <a class="tool" href="/AndrewHuntResume.pdf" download>Download PDF</a>
+        <a class="tool" href="/AndrewHuntResume-ATS.pdf" download>Plain version</a>
+      </div>
     </div>
   </object>
-</div>
-{% endblock content %}
+</main>
+{% endblock %}

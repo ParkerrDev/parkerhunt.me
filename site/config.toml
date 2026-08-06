@@ -5,7 +5,7 @@ description = "Andrew Parker Hunt — student in Clovis, California, with an int
 author = "Andrew Parker Hunt"
 
 # Compile sass/main.scss (and its partials) to /main.css
-compile_sass = true
+compile_sass = false
 
 # Zola's search index is an 84 KB payload (index + elasticlunr) that nothing on
 # this site loads. Turn it back on the same day a search box appears.
