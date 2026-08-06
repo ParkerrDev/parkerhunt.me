@@ -536,7 +536,9 @@
     {% if me.bucket | length > 0 %}
     <section id="bucket">
         <div class="wrap">
-            <div class="head"><h2>Bucket list</h2><p>Struck through means done. Three of eight, and the easy three were the mountains.</p></div>
+            {% set_global bucket_done = 0 %}
+            {% for b in me.bucket %}{% if b.done %}{% set_global bucket_done = bucket_done + 1 %}{% endif %}{% endfor %}
+            <div class="head"><h2>Bucket list</h2><p>Struck through means done — {{ bucket_done }} of {{ me.bucket | length }}. The easy ones were the mountains.</p></div>
             <div class="bento">
                 {% for b in me.bucket %}
                 <div class="tile-s2{% if b.done %} row--done{% endif %}">
@@ -559,7 +561,8 @@
         <div class="wrap">
             <div class="head">
                 <h2>Skied</h2>
-                <p>{{ been.skiing | length }} resorts across seven states. The Rockies mostly, and Tahoe when it snows.</p>
+                {% set ski_states = been.skiing | map(attribute="where") | unique %}
+                <p>{{ been.skiing | length }} resorts across {{ ski_states | length }} states. The Rockies mostly, and Tahoe when it snows.</p>
             </div>
         </div>
         <div class="rail">
@@ -842,7 +845,7 @@
         <div class="wrap">
             <div class="head">
                 <h2>Movies</h2>
-                <p>Every film I have ever watched — {{ titles.movie_count }} of them. Sixty at random below; the rest are one click away.</p>
+                <p>Every film I have ever watched — {{ titles.movie_count }} of them. {{ sample | length }} at random below; the rest are one click away.</p>
                 <a class="more" href="/movies/">All of them →</a>
             </div>
         </div>

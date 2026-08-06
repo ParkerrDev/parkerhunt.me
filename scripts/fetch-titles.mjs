@@ -73,6 +73,11 @@ const KINDS = [
 /* Things that share a title with a show and are NOT one. A video game or a
    manga can carry an IMDb id, so the P345 fallback below needs this guard or
    "Naruto" resolves to the manga and "The Simpsons" to the 1991 arcade game. */
+/* Used to put a title in the right list, whichever list it was written in.
+   See the reclassification step after collect(). */
+const SERIES_KINDS = ["Q5398426", "Q117467246", "Q581714", "Q63952888", "Q1366112", "Q15416", "Q11086742", "Q220898"];
+const FILM_KINDS = ["Q11424", "Q24856", "Q202866", "Q29168811", "Q24869", "Q17517379"];
+
 const NOT_A_SHOW = ["Q7889", "Q21198342", "Q8261", "Q571", "Q482994", "Q12308941", "Q101352", "Q3957", "Q494721"];
 
 let hasCwebp = true;
@@ -302,6 +307,12 @@ async function collect(rows) {
       if (yr && !row.year) row.year = yr;
       if (yr) row.year_wd = yr;
 
+      /* Which list does this actually belong in? Recorded here because the
+         entity is already fetched; acted on after both lists are collected. */
+      const p31 = (e.claims?.P31 || []).map((c) => c.mainsnak?.datavalue?.value?.id);
+      if (p31.some((id) => SERIES_KINDS.includes(id))) row._kind = "show";
+      else if (p31.some((id) => FILM_KINDS.includes(id))) row._kind = "film";
+
       const gq = claims(e, "P136").map((v) => v.id).slice(0, 3);
       const gs = [];
       for (const g of gq) {
@@ -336,8 +347,30 @@ async function collect(rows) {
   return out;
 }
 
-const shows = await collect(input.shows);
-const movies = await collect(input.movies || []);
+let shows = await collect(input.shows);
+let movies = await collect(input.movies || []);
+
+/* A TITLE ENDS UP IN THE LIST WIKIDATA SAYS IT BELONGS IN, not the one it was
+   typed into. "Mr. Peabody & Sherman" was written under films and matched the
+   2015 television series, so a film section showed a card reading "comedy
+   television series" — which is the kind of wrong that survives for months
+   because nothing errors.
+ *
+ * This does not fix a bad match; it makes one visible and puts it somewhere
+ * sensible in the meantime. Anything moved is printed, because a title landing
+ * in the other list is usually a sign the qid wants pinning. */
+const moved = [];
+const misfiled = (list, want) => list.filter((r) => r._kind && r._kind !== want);
+const stayed = (list, want) => list.filter((r) => !r._kind || r._kind === want);
+const filmsThatAreShows = misfiled(movies, "film");
+const showsThatAreFilms = misfiled(shows, "show");
+if (filmsThatAreShows.length || showsThatAreFilms.length) {
+  for (const r of filmsThatAreShows) moved.push(`${r.title} -> shows`);
+  for (const r of showsThatAreFilms) moved.push(`${r.title} -> films`);
+  shows = [...stayed(shows, "show"), ...filmsThatAreShows];
+  movies = [...stayed(movies, "film"), ...showsThatAreFilms];
+}
+for (const r of [...shows, ...movies]) delete r._kind;
 
 mkdirSync(dirname(OUT), { recursive: true });
 writeFileSync(
@@ -358,6 +391,7 @@ writeFileSync(
   ) + "\n"
 );
 
+if (moved.length) console.log(`Reclassified by Wikidata: ${moved.join("; ")}`);
 console.log(
   `Titles: ${shows.length} shows + ${movies.length} films, ${withImdb} with IMDb ids, ${withLogo} with a free logo` +
     (refused ? `, ${refused} logo(s) refused as non-free` : "") + ` -> ${OUT}`

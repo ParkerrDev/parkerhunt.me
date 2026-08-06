@@ -37,7 +37,7 @@
     <section>
         <div class="wrap">
             <div class="head"><h2>Borrowed</h2></div>
-            <div class="quotes" data-findable="Search the wall…">
+            <div class="quotes" data-findable="Search {{ qd.count }} quotes…">
                 {% for q in qd.quotes %}
                 <figure class="quote" data-find="{{ q.text }} {{ q.who }}">
                     <p>{{ q.text }}</p>

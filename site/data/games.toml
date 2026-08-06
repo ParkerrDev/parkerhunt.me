@@ -339,3 +339,28 @@ where = ""
 appid = "848450"
 title = ""
 where = ""
+
+[[played]]
+appid = ""
+title = "LEGO Dimensions"
+where = "Console"
+
+[[played]]
+appid = ""
+title = "Super Mario Bros. 3"
+where = "NES"
+
+[[played]]
+appid = ""
+title = "Super Mario World"
+where = "SNES"
+
+[[played]]
+appid = ""
+title = "Sonic Unleashed"
+where = "Console"
+
+[[played]]
+appid = ""
+title = "Mario Kart 64"
+where = "Nintendo 64"

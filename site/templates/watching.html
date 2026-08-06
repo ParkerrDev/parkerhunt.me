@@ -8,6 +8,10 @@
 
 {% block filter %}{% include "_filter.html" %}{% endblock %}
 
+{# SORTED HERE, SHUFFLED ON THE HOME PAGE, and the two are not in conflict.
+   The home page shows a sample and wants a different sample each build; this
+   is the whole catalogue with a search box over it, and a list you are meant
+   to look something up in should be in an order you can predict. #}
 {% block content %}
 {% set titles = load_data(path="data/titles.json") %}
 
@@ -29,8 +33,8 @@
 <main id="main">
     <section style="padding-top:0">
         <div class="wrap">
-            <div class="bento" data-findable="Search 36 shows…">
-                {% for w in titles.shows %}
+            <div class="bento" data-findable="Search {{ titles.count }} shows…">
+                {% for w in titles.shows | sort(attribute="title") %}
                 <div class="chip" data-find="{{ w.title }} {{ w.year }} {% if w.genres %}{{ w.genres | join(sep=" ") }}{% endif %}">
                     {{ isle::poster(w=w, size="lg") }}
                     <span class="t-t">{{ w.title }}</span>

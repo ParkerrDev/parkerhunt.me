@@ -26,7 +26,7 @@
 <main id="main">
     <section style="padding-top:0">
         <div class="wrap">
-            <div class="bento bento--sm" data-findable="Search the shelf…">
+            <div class="bento bento--sm" data-findable="Search {{ me.books_read | length }} books…">
                 {% for b in me.books_read %}
                 <div class="chip" data-find="{{ b.title }} {{ b.author }}{% if b.year %} {{ b.year }}{% endif %}">
                     <span class="cover">

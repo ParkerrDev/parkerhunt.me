@@ -31,7 +31,8 @@
       "title": "The Flash",
       "year": 2014,
       "bg": "#B3121C",
-      "fg": "#F5D547"
+      "fg": "#F5D547",
+      "qid": "Q15711398"
     },
     {
       "title": "The Walking Dead",
@@ -59,8 +60,8 @@
       "qid": "Q550555"
     },
     {
-      "title": "Kid Danger",
-      "year": 2018,
+      "title": "Henry Danger",
+      "year": 2014,
       "bg": "#123C7A",
       "fg": "#F5B301"
     },
@@ -253,6 +254,60 @@
       "year": 2011,
       "bg": "#1B2A4A",
       "fg": "#E8A33D"
+    },
+    {
+      "title": "Underdog",
+      "year": 1964,
+      "bg": "#1E3A8A",
+      "fg": "#F5C518"
+    },
+    {
+      "title": "Ninjago",
+      "year": 2011,
+      "bg": "#0B1F3B",
+      "fg": "#E0A82E"
+    },
+    {
+      "title": "Arrow",
+      "year": 2012,
+      "bg": "#0E1A12",
+      "fg": "#7ED957"
+    },
+    {
+      "title": "Family Guy",
+      "year": 1999,
+      "bg": "#1B2A4A",
+      "fg": "#E8E4D8"
+    },
+    {
+      "title": "American Dad!",
+      "year": 2005,
+      "bg": "#2A1B1B",
+      "fg": "#E4C07A"
+    },
+    {
+      "title": "King of the Hill",
+      "year": 1997,
+      "bg": "#1E2B1E",
+      "fg": "#EDD9A3"
+    },
+    {
+      "title": "Phineas and Ferb",
+      "year": 2007,
+      "bg": "#123A5C",
+      "fg": "#F2A93B"
+    },
+    {
+      "title": "Lab Rats: Bionic Island",
+      "year": 2015,
+      "bg": "#0F1B2E",
+      "fg": "#59C3E8"
+    },
+    {
+      "title": "Boruto: Naruto Next Generations",
+      "year": 2017,
+      "bg": "#14213D",
+      "fg": "#F0A202"
     }
   ],
   "movies": [
@@ -864,7 +919,8 @@
       "title": "Mr. Peabody & Sherman",
       "year": 2014,
       "bg": "#1d1f27",
-      "fg": "#c9cbd6"
+      "fg": "#c9cbd6",
+      "qid": "Q6929072"
     },
     {
       "title": "300",
@@ -1779,7 +1835,8 @@
       "title": "The Flash",
       "year": 2023,
       "bg": "#1d1f27",
-      "fg": "#c9cbd6"
+      "fg": "#c9cbd6",
+      "qid": "Q15711398"
     },
     {
       "title": "Captain Marvel",
@@ -2283,6 +2340,288 @@
     {
       "title": "Willy Wonka & the Chocolate Factory",
       "year": 1971,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Over the Hedge",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Talladega Nights: The Ballad of Ricky Bobby",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Click",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q496654"
+    },
+    {
+      "title": "Borat",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Open Season",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Charlotte's Web",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Nacho Libre",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Barnyard",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q1129308"
+    },
+    {
+      "title": "Little Man",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Hills Have Eyes",
+      "year": 1977,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Chicken Little",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Zathura: A Space Adventure",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Jumanji",
+      "year": 1995,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q222939"
+    },
+    {
+      "title": "Alvin and the Chipmunks",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Simpsons Movie",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Superbad",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Evan Almighty",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Bruce Almighty",
+      "year": 2003,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Santa Claus: The Movie",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Surf's Up",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Underdog",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Into the Wild",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "My Side of the Mountain",
+      "year": 1969,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Goonies",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Treasure Island",
+      "year": 1950,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q383854"
+    },
+    {
+      "title": "Robinson Crusoe",
+      "year": 1954,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q2322181"
+    },
+    {
+      "title": "The Men Who Stare at Goats",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Daddy Day Camp",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Daddy Day Care",
+      "year": 2003,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Lady and the Tramp",
+      "year": 1955,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Explorers",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Close Encounters of the Third Kind",
+      "year": 1977,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ready Player One",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Swiss Family Robinson",
+      "year": 1960,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Mask",
+      "year": 1994,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Naruto the Movie: Ninja Clash in the Land of Snow",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Naruto the Movie: Legend of the Stone of Gelel",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Naruto the Movie: Guardians of the Crescent Moon Kingdom",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Naruto Shippuden the Movie",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Naruto Shippuden the Movie: Bonds",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Naruto Shippuden the Movie: The Will of Fire",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Naruto Shippuden the Movie: The Lost Tower",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Naruto Shippuden the Movie: Blood Prison",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q718536"
+    },
+    {
+      "title": "Road to Ninja: Naruto the Movie",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Last: Naruto the Movie",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Boruto: Naruto the Movie",
+      "year": 2015,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
