@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% import "macros.html" as ico %}
+
+{# /novel/ — a reading page, so it is built like one rather than like the rest
+   of the site: serif, a 34rem measure, and nothing in the margins to look at.
+
+   The text in content/novel.md is reproduced EXACTLY as written, spelling and
+   all. It is someone's own prose; silently correcting an author is not a
+   maintenance task, it is an edit, and it is not this template's job.
+
+   Each chapter is a single long paragraph, which is how it was written. The
+   type is set generously to compensate — 1.75 leading and a narrow measure do
+   most of the work that paragraph breaks would otherwise do. #}
+
+{% block content %}
+<header class="hero">
+    <div class="wrap narrow">
+        <a class="back" href="/">{{ ico::back() }} Home</a>
+        <p class="kicker">A novel</p>
+        <h1>{{ page.title }}</h1>
+        <p class="hero-lede">{{ page.description }}</p>
+        <ul class="facts" style="margin-top:1.25rem">
+            <li>{{ page.toc | length }} chapters</li>
+            <li>{{ page.word_count | num_format }} words</li>
+            <li>{{ page.reading_time }} minute read</li>
+        </ul>
+
+        {# Numbered chips rather than a list of titles: every heading here is
+           "Chapter N", so the titles would say nothing the numbers do not.
+           They live in the hero rather than in their own section because
+           main > section:nth-of-type(even) alternates the background, and a
+           second section would drop the prose itself onto a grey band. One
+           section on this page means the text is on white, which is the only
+           thing that matters on a page whose whole job is being read. #}
+        {% if page.toc | length > 1 %}
+        <nav class="chapters" style="margin-top:1.25rem" aria-label="Chapters">
+            {% for h in page.toc %}<a href="#{{ h.id }}">{{ loop.index }}</a>{% endfor %}
+        </nav>
+        {% endif %}
+    </div>
+</header>
+
+<main id="main">
+    <section style="padding-top:0">
+        <div class="wrap narrow">
+            <article class="novel">{{ page.content | safe }}</article>
+            <p class="feed-foot" style="margin-top:2.5rem">Written by Andrew Parker Hunt. Reproduced here exactly as written.</p>
+        </div>
+    </section>
+</main>
+{% endblock %}

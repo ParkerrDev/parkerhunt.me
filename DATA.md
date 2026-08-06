@@ -26,9 +26,17 @@ scripts/fetch-*.mjs ──► site/data/*.json ──► templates ──► pub
 | `fetch-duolingo.mjs` | `duolingo.com/2017-06-30/users` | `site/data/duolingo.json` | none |
 | `fetch-nexus.mjs` | `api-router.nexusmods.com/graphql` | `site/data/nexus.json` | none |
 | `fetch-steam-art.mjs` | `steam.json` + Steam CDN | `site/static/imgs/steam/*.webp` | none, **local only** |
+| `build-stamps.mjs` | nothing — arithmetic | `site/data/stamps.json` | n/a |
 
 All five fetchers run from `build-zola.sh` on every Cloudflare deploy. No API
 key, no token, no cookie: every endpoint above answers unauthenticated.
+
+`build-stamps.mjs` is the odd one out: it touches no network. It exists because
+"9 years, 9 months and 17 days on X" is a lovely thing to put on a page and a
+terrible thing to hardcode — it decays daily. The anchor *date* is stored and
+the elapsed years/months/days are derived on every deploy, with real calendar
+arithmetic and pinned to America/Los_Angeles so the builder's own timezone
+cannot shift the answer by a day.
 
 ## They all fail soft, on purpose
 
