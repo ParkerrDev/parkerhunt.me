@@ -1,13 +1,19 @@
 {
   "built": "2026-08-06",
-  "map": "/imgs/us-visited-4d4c5c5f.svg",
+  "map": "/imgs/us-visited-6666954f.svg",
   "count": 16,
   "total": 51,
+  "pins": 46,
+  "pins_by_kind": {
+    "place": 30,
+    "ski": 13,
+    "peak": 3
+  },
   "credit": {
-    "file": "Blank US Map (states only).svg",
-    "author": "Heitordp",
-    "licence": "CC0",
-    "source": "https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg"
+    "file": "us-atlas states-albers-10m",
+    "author": "Mike Bostock / US Census Bureau",
+    "licence": "ISC (code), public domain (boundaries)",
+    "source": "https://github.com/topojson/us-atlas"
   },
   "visited": [
     {

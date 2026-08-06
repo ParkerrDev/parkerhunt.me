@@ -6,6 +6,7 @@
     "member_since": "2020-05-03",
     "snapshot_taken": "2026-08-05"
   },
+  "library_source": "seed",
   "fetched": "2026-08-06",
   "totals": {
     "owned": 44,
@@ -30,7 +31,8 @@
       "hours": 363.6,
       "ach_done": 7,
       "ach_total": 17,
-      "ach_pct": 41
+      "ach_pct": 41,
+      "last_played": ""
     },
     {
       "appid": 377160,
@@ -46,7 +48,8 @@
       "hours": 338.5,
       "ach_done": 35,
       "ach_total": 84,
-      "ach_pct": 42
+      "ach_pct": 42,
+      "last_played": ""
     },
     {
       "appid": 1326470,
@@ -64,7 +67,8 @@
       "hours": 133.6,
       "ach_done": 21,
       "ach_total": 32,
-      "ach_pct": 66
+      "ach_pct": 66,
+      "last_played": ""
     },
     {
       "appid": 17390,
@@ -82,7 +86,8 @@
       "hours": 70.8,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 489830,
@@ -98,7 +103,8 @@
       "hours": 66.6,
       "ach_done": 11,
       "ach_total": 75,
-      "ach_pct": 15
+      "ach_pct": 15,
+      "last_played": ""
     },
     {
       "appid": 22380,
@@ -115,7 +121,8 @@
       "hours": 65.5,
       "ach_done": 2,
       "ach_total": 75,
-      "ach_pct": 3
+      "ach_pct": 3,
+      "last_played": ""
     },
     {
       "appid": 105600,
@@ -133,7 +140,8 @@
       "hours": 51.7,
       "ach_done": 32,
       "ach_total": 137,
-      "ach_pct": 23
+      "ach_pct": 23,
+      "last_played": ""
     },
     {
       "appid": 613100,
@@ -151,7 +159,8 @@
       "hours": 20.5,
       "ach_done": 5,
       "ach_total": 96,
-      "ach_pct": 5
+      "ach_pct": 5,
+      "last_played": ""
     },
     {
       "appid": 620,
@@ -168,7 +177,8 @@
       "hours": 16.8,
       "ach_done": 16,
       "ach_total": 51,
-      "ach_pct": 31
+      "ach_pct": 31,
+      "last_played": ""
     },
     {
       "appid": 1174180,
@@ -185,7 +195,8 @@
       "hours": 16.7,
       "ach_done": 2,
       "ach_total": 51,
-      "ach_pct": 4
+      "ach_pct": 4,
+      "last_played": ""
     },
     {
       "appid": 26000,
@@ -202,7 +213,8 @@
       "hours": 7.3,
       "ach_done": 9,
       "ach_total": 15,
-      "ach_pct": 60
+      "ach_pct": 60,
+      "last_played": ""
     },
     {
       "appid": 427730,
@@ -220,7 +232,8 @@
       "hours": 6.2,
       "ach_done": 8,
       "ach_total": 44,
-      "ach_pct": 18
+      "ach_pct": 18,
+      "last_played": ""
     },
     {
       "appid": 35000,
@@ -237,7 +250,8 @@
       "hours": 6.2,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 220,
@@ -253,7 +267,8 @@
       "hours": 6.1,
       "ach_done": 3,
       "ach_total": 69,
-      "ach_pct": 4
+      "ach_pct": 4,
+      "last_played": ""
     },
     {
       "appid": 2012840,
@@ -269,7 +284,8 @@
       "hours": 5.9,
       "ach_done": 5,
       "ach_total": 15,
-      "ach_pct": 33
+      "ach_pct": 33,
+      "last_played": ""
     },
     {
       "appid": 22300,
@@ -285,7 +301,8 @@
       "hours": 5,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 242760,
@@ -303,7 +320,8 @@
       "hours": 4.8,
       "ach_done": 2,
       "ach_total": 45,
-      "ach_pct": 4
+      "ach_pct": 4,
+      "last_played": ""
     },
     {
       "appid": 70,
@@ -319,7 +337,8 @@
       "hours": 4.5,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 275850,
@@ -336,7 +355,8 @@
       "hours": 3.8,
       "ach_done": 0,
       "ach_total": 27,
-      "ach_pct": 0
+      "ach_pct": 0,
+      "last_played": ""
     },
     {
       "appid": 2310,
@@ -352,7 +372,8 @@
       "hours": 2.7,
       "ach_done": 2,
       "ach_total": 35,
-      "ach_pct": 6
+      "ach_pct": 6,
+      "last_played": ""
     },
     {
       "appid": 280,
@@ -368,7 +389,8 @@
       "hours": 2.3,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 871720,
@@ -386,7 +408,8 @@
       "hours": 2.1,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 1281930,
@@ -404,7 +427,8 @@
       "hours": 1.8,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 1089130,
@@ -421,7 +445,8 @@
       "hours": 1.7,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 730,
@@ -438,7 +463,8 @@
       "hours": 0.9,
       "ach_done": 1,
       "ach_total": 1,
-      "ach_pct": 100
+      "ach_pct": 100,
+      "last_played": ""
     },
     {
       "appid": 1922560,
@@ -456,7 +482,8 @@
       "hours": 0.5,
       "ach_done": 0,
       "ach_total": 63,
-      "ach_pct": 0
+      "ach_pct": 0,
+      "last_played": ""
     },
     {
       "appid": 550,
@@ -472,7 +499,8 @@
       "hours": 0.2,
       "ach_done": 1,
       "ach_total": 101,
-      "ach_pct": 1
+      "ach_pct": 1,
+      "last_played": ""
     },
     {
       "appid": 1233690,
@@ -490,7 +518,8 @@
       "hours": 0.2,
       "ach_done": 0,
       "ach_total": 23,
-      "ach_pct": 0
+      "ach_pct": 0,
+      "last_played": ""
     },
     {
       "appid": 320,
@@ -506,7 +535,8 @@
       "hours": 0.1,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 1328670,
@@ -523,7 +553,8 @@
       "hours": 0.1,
       "ach_done": 0,
       "ach_total": 127,
-      "ach_pct": 0
+      "ach_pct": 0,
+      "last_played": ""
     },
     {
       "appid": 10,
@@ -539,7 +570,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 20,
@@ -555,7 +587,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 30,
@@ -571,7 +604,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 40,
@@ -587,7 +621,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 50,
@@ -603,7 +638,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 60,
@@ -619,7 +655,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 80,
@@ -635,7 +672,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 100,
@@ -651,7 +689,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 130,
@@ -667,7 +706,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 240,
@@ -683,7 +723,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 300,
@@ -699,7 +740,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 360,
@@ -715,7 +757,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 400,
@@ -731,7 +774,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     },
     {
       "appid": 500,
@@ -747,7 +791,8 @@
       "hours": 0,
       "ach_done": null,
       "ach_total": null,
-      "ach_pct": null
+      "ach_pct": null,
+      "last_played": ""
     }
   ],
   "wishlist": [
@@ -821,7 +866,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 93,
-        "count": 376555
+        "count": 376558
       }
     },
     {
@@ -892,7 +937,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 96,
-        "count": 145377
+        "count": 145378
       }
     },
     {
@@ -916,7 +961,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 86,
-        "count": 40879
+        "count": 40880
       }
     },
     {
@@ -987,7 +1032,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 93,
-        "count": 1146993
+        "count": 1147000
       }
     },
     {
@@ -1037,7 +1082,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 96,
-        "count": 183221
+        "count": 183224
       }
     },
     {
@@ -1111,7 +1156,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 89,
-        "count": 278716
+        "count": 278718
       }
     },
     {
@@ -1160,7 +1205,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 91,
-        "count": 124553
+        "count": 124555
       }
     },
     {
@@ -1185,7 +1230,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 1387382
+        "count": 1387397
       }
     },
     {
@@ -1307,7 +1352,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 83,
-        "count": 64532
+        "count": 64533
       }
     },
     {
@@ -1381,7 +1426,7 @@
         "label": "Mostly Positive",
         "tone": "pos",
         "pct": 75,
-        "count": 66783
+        "count": 66785
       }
     },
     {
@@ -1406,7 +1451,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 93,
-        "count": 110032
+        "count": 110034
       }
     },
     {
@@ -1429,7 +1474,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 967511
+        "count": 967522
       }
     },
     {
@@ -1452,7 +1497,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 97,
-        "count": 880302
+        "count": 880307
       }
     },
     {
@@ -1476,7 +1521,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 94,
-        "count": 94972
+        "count": 94973
       }
     },
     {
@@ -1499,7 +1544,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 92,
-        "count": 20889
+        "count": 20890
       }
     },
     {
@@ -1572,7 +1617,7 @@
         "label": "Mostly Positive",
         "tone": "pos",
         "pct": 80,
-        "count": 135400
+        "count": 135402
       }
     },
     {
@@ -1595,7 +1640,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 90,
-        "count": 134579
+        "count": 134580
       }
     },
     {
@@ -1643,7 +1688,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 97,
-        "count": 1204285
+        "count": 1204289
       }
     },
     {
@@ -1668,7 +1713,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 89,
-        "count": 186275
+        "count": 186277
       }
     },
     {
@@ -1718,7 +1763,7 @@
         "label": "Mixed",
         "tone": "mix",
         "pct": 60,
-        "count": 114776
+        "count": 114778
       }
     },
     {
@@ -1743,7 +1788,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 94,
-        "count": 191208
+        "count": 191216
       }
     },
     {
@@ -1790,7 +1835,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 96,
-        "count": 106129
+        "count": 106132
       }
     },
     {
@@ -1838,7 +1883,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 90,
-        "count": 107979
+        "count": 107980
       }
     },
     {
@@ -1863,7 +1908,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 51212
+        "count": 51213
       }
     },
     {
@@ -2134,7 +2179,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 81,
-        "count": 13124
+        "count": 13125
       }
     },
     {
@@ -2232,7 +2277,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 97,
-        "count": 880302
+        "count": 880307
       }
     },
     {
@@ -2257,7 +2302,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 89,
-        "count": 186275
+        "count": 186277
       }
     },
     {
@@ -2304,7 +2349,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 96,
-        "count": 145377
+        "count": 145378
       }
     },
     {
@@ -2374,7 +2419,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 967511
+        "count": 967522
       }
     },
     {
@@ -2470,7 +2515,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 1387382
+        "count": 1387397
       }
     },
     {
@@ -2493,7 +2538,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 92,
-        "count": 20889
+        "count": 20890
       }
     },
     {

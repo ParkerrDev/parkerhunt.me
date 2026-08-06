@@ -68,12 +68,42 @@ async function entity(qid) {
 /* P18 is "image" — for a place that is a photograph of the place, which is
    exactly what is wanted here. (For a television series it is usually a photo
    of the cast at a convention, which is why fetch-titles.mjs asks for P154
-   instead.) */
-async function photoFor(qid) {
+   instead.) P625 is "coordinate location", which every one of these has.
+   One entity fetch, both answers. */
+async function factsFor(qid) {
   const e = await entity(qid);
-  if (!e) return null;
-  const file = e.claims?.P18?.[0]?.mainsnak?.datavalue?.value;
-  return file || null;
+  if (!e) return {};
+  const c = e.claims?.P625?.[0]?.mainsnak?.datavalue?.value;
+  return {
+    file: e.claims?.P18?.[0]?.mainsnak?.datavalue?.value || null,
+    // Six decimal places is ~11 cm. Four is ~11 m and is plenty for "I went
+    // here"; it also keeps been.json from growing a kilobyte of noise.
+    lat: c ? Math.round(c.latitude * 1e4) / 1e4 : null,
+    lon: c ? Math.round(c.longitude * 1e4) / 1e4 : null,
+  };
+}
+
+/* Wikidata has two searches and they disagree. `wbsearchentities` matches
+   labels and aliases only, so "Row River Trail" finds nothing even though the
+   item exists — it is filed under "Row River National Recreation Trail". The
+   full-text search finds it. Try the precise one first, fall back to the broad
+   one.
+
+   The two calls take DIFFERENT terms, and that is load-bearing. The label
+   search wants the name on its own — adding ", Oregon" to "Timberline Lodge"
+   makes it miss an item it would otherwise hit exactly. The full-text search
+   wants the opposite: the place plus its state, or "Sanger" comes back as a
+   German engineer. */
+async function findQid(exact, broad) {
+  const a =
+    "https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&limit=4&type=item&search=" +
+    encodeURIComponent(exact);
+  const hit = ((await getJSON(a))?.search || [])[0]?.id;
+  if (hit) return hit;
+  const b =
+    "https://www.wikidata.org/w/api.php?action=query&format=json&list=search&srlimit=3&srsearch=" +
+    encodeURIComponent(broad);
+  return ((await getJSON(b))?.query?.search || [])[0]?.title || null;
 }
 
 async function commons(file, key) {
@@ -115,7 +145,7 @@ async function commons(file, key) {
 const input = JSON.parse(readFileSync(IN, "utf8"));
 mkdirSync(DIR, { recursive: true });
 
-let withPhoto = 0, refused = 0, bytes = 0;
+let withPhoto = 0, withCoords = 0, refused = 0, bytes = 0;
 
 /* Two lists, one loop. A ski resort is a place with a photograph, so there is
    no reason for it to have its own script — only its own section. */
@@ -126,44 +156,58 @@ async function collect(rows, label) {
     const row = { ...p, key };
     delete row.q;
 
-    if (!p.no_photo) {
-      try {
-      /* `file` pins a Commons filename outright. Needed where the Wikidata
-         item carries no P18 at all — both Aspen Snowmass and Sun Valley are
-         like that — and it skips the item lookup entirely. */
-      if (p.file) {
-        const img = await commons(p.file, key);
-        if (img?.refused) refused++;
-        else if (img) { row.photo = img; withPhoto++; bytes += img.bytes; }
-        out.push(row);
-        process.stdout.write(`  ${label} ${p.name.padEnd(22)} ${(p.where || "").padEnd(20)} ${row.photo ? "photo (pinned)" : "—"}\n`);
-        await sleep(200);
-        continue;
-      }
+    /* A hand-written coordinate wins outright, for the one place whose Wikidata
+       item has none: Aspen/Snowmass (Q4807795) is filed as a "winter resort
+       complex" with no P625 at all. */
+    if (Array.isArray(p.latlon)) {
+      row.lat = p.latlon[0];
+      row.lon = p.latlon[1];
+    }
 
+    try {
+      /* `file` pins a Commons filename outright, for items carrying no P18. It
+         skips the photo lookup but NOT the item lookup any more — the item is
+         still where the coordinates come from. */
       let qid = p.qid;
-      if (!qid) {
-        const u =
-          "https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&limit=4&type=item&search=" +
-          encodeURIComponent(p.q || p.name);
-        qid = ((await getJSON(u))?.search || [])[0]?.id || null;
-      }
+      if (!qid && !p.no_lookup) qid = await findQid(p.q || p.name, `${p.q || p.name} ${p.where || ""}`.trim());
+
       if (qid) {
         row.qid = qid;
-        const file = await photoFor(qid);
-        if (file) {
-          const img = await commons(file, key);
+        const facts = await factsFor(qid);
+        if (row.lat == null && facts.lat != null) { row.lat = facts.lat; row.lon = facts.lon; }
+        if (!p.no_photo && !p.file && facts.file) {
+          const img = await commons(facts.file, key);
           if (img?.refused) refused++;
           else if (img) { row.photo = img; withPhoto++; bytes += img.bytes; }
         }
       }
-      } catch (err) {
-      console.warn(`  ${p.name}: ${err.message}`);
+
+      if (!p.no_photo && p.file) {
+        const img = await commons(p.file, key);
+        if (img?.refused) refused++;
+        else if (img) { row.photo = img; withPhoto++; bytes += img.bytes; }
       }
+    } catch (err) {
+      console.warn(`  ${p.name}: ${err.message}`);
+    }
+
+    /* A plain link, not an embed. The Maps Embed API is genuinely free and
+       genuinely unlimited, but it needs a Google Cloud project with a card on
+       file, and forty-odd iframes would put forty-odd third-party requests and
+       a tracking cookie on a page whose whole claim is that it has neither.
+       A link costs nothing and does the same job on the one click in a hundred
+       where somebody actually wants the map. */
+    if (row.lat != null) {
+      row.map = `https://www.google.com/maps/search/?api=1&query=${row.lat}%2C${row.lon}`;
+      withCoords++;
     }
 
     out.push(row);
-    process.stdout.write(`  ${label} ${p.name.padEnd(22)} ${(p.where || "").padEnd(20)} ${row.photo ? "photo" : "—"}\n`);
+    process.stdout.write(
+      `  ${label} ${p.name.padEnd(24)} ${(p.where || "").padEnd(20)} ` +
+        `${row.lat != null ? String(row.lat).padStart(8) + "," + String(row.lon).padStart(10) : "  no coords        "} ` +
+        `${row.photo ? "photo" : "—"}\n`
+    );
     await sleep(200);
   }
   return out;
@@ -178,10 +222,16 @@ writeFileSync(
   JSON.stringify(
     {
       fetched: new Date().toISOString().slice(0, 10),
-      source: "https://www.wikidata.org (CC0); photographs from Wikimedia Commons",
+      source: "https://www.wikidata.org (CC0) — P625 coordinates and P18 images; photographs from Wikimedia Commons",
       count: places.length,
       ski_count: skiing.length,
       with_photo: withPhoto,
+      with_coords: withCoords,
+      // Per list, because the template's kicker says "31 places, N of them
+      // photographed" and a combined total made that read "31 places, 38 of
+      // them photographed", which is arithmetic nobody should have to forgive.
+      places_with_photo: places.filter((p) => p.photo).length,
+      ski_with_photo: skiing.filter((p) => p.photo).length,
       places,
       skiing,
     },
@@ -191,6 +241,6 @@ writeFileSync(
 );
 
 console.log(
-  `Places: ${places.length} + ${skiing.length} resorts, ${withPhoto} with a photograph (${(bytes / 1024).toFixed(0)} KB)` +
+  `Places: ${places.length} + ${skiing.length} resorts, ${withCoords} with coordinates, ${withPhoto} with a photograph (${(bytes / 1024).toFixed(0)} KB)` +
     (refused ? `, ${refused} refused as non-free` : "") + ` -> ${OUT}`
 );

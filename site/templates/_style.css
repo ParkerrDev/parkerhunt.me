@@ -851,3 +851,31 @@ p.wrap.kicker { margin-bottom: 0.4375rem; }
   body { color: #000; background: #fff; }
   section + section { border: 0; }
 }
+
+/* Map legend and the per-card link out to Google Maps. A link, deliberately,
+   and not an embed: the Maps Embed API is free and unlimited but wants a
+   billing account on file, and forty-six iframes would put forty-six
+   third-party requests on a page whose whole claim is that it has none. */
+.map-key { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem 0.875rem; margin: 0 0 0.75rem; font-size: 0.75rem; color: var(--muted); }
+.key { width: 0.5rem; height: 0.5rem; border-radius: 50%; display: inline-block; margin-right: -0.5rem; box-shadow: 0 0 0 1.5px #fff; }
+.key--place { background: #0a4f9e; }
+.key--ski { background: #6d3bd1; }
+.key--peak { background: #0a7c4a; }
+.pinlink { color: var(--accent); }
+.pinlink:hover { text-decoration: underline; }
+
+/* The X profile card. Live on every build — the account is protected, so the
+   timeline is unreadable by anything, but the header is public. */
+.xcard { padding: 1rem 1.125rem; background: var(--bg-soft); }
+.xc-top { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.xc-av { width: 3rem; height: 3rem; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.xc-who { min-width: 0; }
+.xc-name { display: flex; align-items: center; gap: 0.375rem; font-weight: 650; }
+.xc-lock svg { width: 0.875rem; height: 0.875rem; color: var(--faint); display: block; }
+.xc-handle { font-size: 0.8125rem; color: var(--muted); }
+.xc-counts { margin-left: auto; display: flex; flex-wrap: wrap; gap: 0.875rem; font-size: 0.8125rem; color: var(--muted); }
+.xc-counts b { color: var(--fg); font-variant-numeric: tabular-nums; }
+.xc-bio { margin: 0.75rem 0 0; font-size: 0.9375rem; }
+.xc-meta { margin: 0.375rem 0 0; font-size: 0.8125rem; color: var(--muted); }
+.xc-meta a { color: var(--accent); }
+@media (max-width: 30rem) { .xc-counts { margin-left: 0; width: 100%; } }

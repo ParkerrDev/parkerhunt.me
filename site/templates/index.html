@@ -17,6 +17,12 @@
 {% set me = load_data(path="data/me.toml") %}
 {% set gh = load_data(path="data/github.json") %}
 {% set feeds = load_data(path="data/feeds.toml") %}
+{# The X PROFILE, live. Not the posts — the account is protected, so there is no
+   public timeline to read at any price; scripts/fetch-x.mjs spells out every
+   route that was tried and why each is closed. The posts below stay
+   hand-written in feeds.toml, and this card says so rather than leaving a gap
+   where a feed obviously should be. #}
+{% set xd = load_data(path="data/x.json") %}
 {# Four build-time snapshots of four real accounts. Every one of them is written
    by a script in scripts/ that fails soft, so a third party being down or slow
    never fails a deploy — it just leaves the last snapshot in place. Nothing
@@ -196,14 +202,40 @@
     {% endif %}
 
     {# ------------------------------------------------------------ posts -- #}
-    {% if feeds.x.post | length > 0 %}
+    {% if feeds.x.post | length > 0 or xd.profile %}
     <section id="posts">
         <div class="wrap">
             <div class="head">
                 <h2>Posts</h2>
                 <p>Rebuilt, not embedded — no third-party scripts, no tracking pixels, no iframes.</p>
-                <a class="more" href="{{ feeds.x.url }}" target="_blank" rel="noopener">@{{ feeds.x.handle }} →</a>
+                <a class="more" href="{{ xd.profile.url | default(value=feeds.x.url) }}" target="_blank" rel="noopener">@{{ xd.profile.handle | default(value=feeds.x.handle) }} →</a>
             </div>
+
+            {% if xd.profile %}
+            {# Live, and refreshed on every build. A protected account hides its
+               timeline, not its header: the bio, the join date and all three
+               counts are public and come straight off the profile. #}
+            <div class="panel xcard">
+                <div class="xc-top">
+                    {% if xd.profile.avatar %}<img class="xc-av" src="{{ xd.profile.avatar }}" width="160" height="160" alt="" loading="lazy" decoding="async">{% endif %}
+                    <div class="xc-who">
+                        <div class="xc-name">{{ xd.profile.name }}{% if xd.profile.protected %}<span class="xc-lock" title="Protected account">{{ ico::lock() }}</span>{% endif %}</div>
+                        <div class="xc-handle">@{{ xd.profile.handle }}</div>
+                    </div>
+                    <div class="xc-counts">
+                        <span><b>{{ xd.profile.posts | num_format }}</b> posts</span>
+                        <span><b>{{ xd.profile.following | num_format }}</b> following</span>
+                        <span><b>{{ xd.profile.followers | num_format }}</b> followers</span>
+                    </div>
+                </div>
+                {% if xd.profile.bio %}<p class="xc-bio">{{ xd.profile.bio }}</p>{% endif %}
+                <p class="xc-meta">
+                    {%- if xd.profile.location %}{{ xd.profile.location }} · {% endif -%}
+                    {%- if xd.profile.website %}<a href="{{ xd.profile.website_url }}" target="_blank" rel="noopener">{{ xd.profile.website }}</a> · {% endif -%}
+                    Joined {{ xd.profile.joined | date(format="%B %Y") }}
+                </p>
+            </div>
+            {% endif %}
         </div>
 
         {# A horizontal scroller rather than a column, and NOT a marquee: these
@@ -244,7 +276,9 @@
             {% set_global x_sample = false %}
             {% for p in feeds.x.post %}{% if p.sample %}{% set_global x_sample = true %}{% endif %}{% endfor %}
             <p class="feed-foot">
-                {% if x_sample %}<b>Placeholder content</b> — replace in <code>site/data/feeds.toml</code>. {% endif %}On X for {{ stamps.x.phrase }}.
+                {% if x_sample %}<b>Placeholder content</b> — replace in <code>site/data/feeds.toml</code>. {% endif -%}
+                {%- if xd.profile.protected %}The account is protected, so the posts here are chosen and copied by hand: a protected timeline is not readable by the API at any price tier, by the embed widget, or by anything else — and republishing it automatically would defeat the point of protecting it. The profile above is live. {% endif -%}
+                On X for {{ stamps.x.phrase }}.
             </p>
         </div>
     </section>
@@ -430,28 +464,39 @@
                 <p>{{ travel.count }} states and {{ been.count }} places worth naming. Mostly the west, and mostly by car.</p>
             </div>
             <div class="map-row">
-                {# An <img>, not inline SVG: the paths are 44 KB and this page is
-                   20. As a file it caches for a year under the /imgs/* rule in
+                {# An <img>, not inline SVG: the paths are 52 KB and this page is
+                   40. As a file it caches for a year under the /imgs/* rule in
                    _headers and costs the HTML nothing. The cost is that an
                    <img> SVG is a static picture — no per-state hover — so the
                    names are real text beside it, which a screen reader prefers
-                   to a tooltip anyway. #}
-                <img class="map" src="{{ travel.map }}" width="959" height="593"
-                     alt="Map of the United States with {{ travel.count }} states filled in: {{ travel.visited | map(attribute='name') | join(sep=', ') }}"
+                   to a tooltip anyway.
+
+                   The pins are real coordinates, not decoration: every place,
+                   resort and summit below carries a latitude and longitude
+                   pulled from Wikidata, and scripts/build-map.mjs drops them
+                   through the same Albers projection the state outlines are
+                   drawn in. See DATA.md. #}
+                <img class="map" src="{{ travel.map }}" width="975" height="610"
+                     alt="Map of the United States with {{ travel.count }} states filled in — {{ travel.visited | map(attribute='name') | join(sep=', ') }} — and {{ travel.pins }} places pinned"
                      loading="lazy" decoding="async">
                 <div>
+                    <p class="map-key">
+                        <span class="key key--place"></span>{{ travel.pins_by_kind.place }} places
+                        <span class="key key--ski"></span>{{ travel.pins_by_kind.ski }} resorts
+                        {%- if travel.pins_by_kind.peak %}<span class="key key--peak"></span>{{ travel.pins_by_kind.peak }} summits{% endif %}
+                    </p>
                     <div class="bento bento--sm">
                         {% for st in travel.visited %}
                         <div class="tile-s2"><span class="t-k">{{ st.code }}</span><span class="t-t">{{ st.name }}</span></div>
                         {% endfor %}
                     </div>
-                    <p class="credit">Base map by {{ travel.credit.author }}, <a href="{{ travel.credit.source }}" target="_blank" rel="noopener">{{ travel.credit.licence }}</a>.</p>
+                    <p class="credit">Boundaries from the <a href="{{ travel.credit.source }}" target="_blank" rel="noopener">US Census via us-atlas</a> ({{ travel.credit.licence }}); coordinates from Wikidata, CC0.</p>
                 </div>
             </div>
         </div>
 
         {% if been.count > 0 %}
-        <p class="wrap kicker" style="margin-top:1.25rem">{{ been.count }} places, {{ been.with_photo }} of them photographed</p>
+        <p class="wrap kicker" style="margin-top:1.25rem">{{ been.count }} places, {{ been.places_with_photo }} of them photographed</p>
         {# A rail rather than a grid of thirty: the tiles are the point, not the
            height of the section. Photographs are Commons, CC BY / CC BY-SA /
            public domain, credited under the rail — those licences require it. #}
@@ -464,7 +509,7 @@
                     {% endif %}
                     <figcaption>
                         <span class="shot-t">{{ pl.name }}</span>
-                        <span class="shot-s" style="display:block">{{ pl.where }}</span>
+                        <span class="shot-s" style="display:block">{{ pl.where }}{% if pl.map %} · <a class="pinlink" href="{{ pl.map }}" target="_blank" rel="noopener">Map</a>{% endif %}</span>
                     </figcaption>
                 </figure>
                 {% endfor %}
@@ -503,7 +548,7 @@
                     {% endif %}
                     <figcaption>
                         <span class="shot-t">{{ r.name }}</span>
-                        <span class="shot-s" style="display:block">{{ r.where }}</span>
+                        <span class="shot-s" style="display:block">{{ r.where }}{% if r.map %} · <a class="pinlink" href="{{ r.map }}" target="_blank" rel="noopener">Map</a>{% endif %}</span>
                     </figcaption>
                 </figure>
                 {% endfor %}
@@ -538,7 +583,7 @@
                              width="480" height="320" alt="{{ k.name }}, {{ k.where }}" loading="lazy" decoding="async">
                         <figcaption>
                             <span class="shot-t">{{ k.name }}</span>
-                            <span class="shot-s" style="display:block">{{ k.height }} · at {{ k.age }}</span>
+                            <span class="shot-s" style="display:block">{{ k.height }} · at {{ k.age }}{% if k.map %} · <a class="pinlink" href="{{ k.map }}" target="_blank" rel="noopener">Map</a>{% endif %}</span>
                         </figcaption>
                     </figure>
                     <p class="credit">{{ k.author }}, <a href="{{ k.source }}" target="_blank" rel="noopener">{{ k.licence }}</a></p>

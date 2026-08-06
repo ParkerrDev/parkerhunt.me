@@ -1,0 +1,71 @@
+# Keep the live numbers live.
+#
+# Every section of this site that shows someone else's data — GitHub, Chess.com,
+# Duolingo, Nexus Mods, Steam, the X profile — is a JSON snapshot written at
+# BUILD time by a script in scripts/ and rendered into static HTML. That design
+# is why a visitor's browser never contacts a third party, and it has exactly
+# one weakness: a snapshot is only as fresh as the last deploy. Push nothing for
+# a month and the chess rating is a month old.
+#
+# So this asks Cloudflare Pages to rebuild on a timer. Nothing is committed,
+# nothing is pushed, no client-side JavaScript appears anywhere; the build just
+# runs again and every fetch-*.mjs re-runs with it.
+#
+# WHY GITHUB ACTIONS AND NOT A CLOUDFLARE WORKER CRON
+#
+# Either works. Actions is free and unlimited for public repositories, this repo
+# is public, and the schedule lives next to the thing it rebuilds instead of in
+# a dashboard nobody will remember exists. A Worker with a Cron Trigger calling
+# the same hook is the alternative if this repo ever goes private.
+#
+# THE INTERVAL IS NOT ARBITRARY. Cloudflare Pages allows 500 builds a month on
+# the free plan. Every three hours is 248 a month, which leaves room for the
+# actual deploys that happen when the site changes. Hourly would be 744 and
+# would run the account out of builds around the 20th.
+#
+# SETUP — one secret, once:
+#   1. Cloudflare dashboard -> Workers & Pages -> parkerhunt-me -> Settings ->
+#      Builds -> Deploy hooks -> Add. Name it "scheduled refresh", branch master.
+#   2. Copy the URL it gives you.
+#   3. This repo -> Settings -> Secrets and variables -> Actions -> New secret,
+#      named CF_DEPLOY_HOOK.
+#
+# Until that secret exists this workflow runs, says so, and exits green rather
+# than failing every three hours and emailing about it.
+#
+# ONE THING TO KNOW: GitHub only runs `schedule` from the DEFAULT branch. On a
+# feature branch this file does nothing at all until it is merged to master.
+
+name: Refresh the snapshots
+
+on:
+  schedule:
+    # 00:10, 03:10, 06:10 ... UTC. The ten minutes is deliberate: everyone
+    # schedules on the hour, GitHub queues cron jobs under load, and an
+    # off-peak minute starts sooner.
+    - cron: "10 */3 * * *"
+  workflow_dispatch: # so it can be run by hand from the Actions tab
+
+# Two rebuilds at once would just be two identical builds.
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    permissions: {} # this job needs no access to the repo at all
+    steps:
+      - name: Ask Cloudflare Pages to rebuild
+        env:
+          HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "No CF_DEPLOY_HOOK secret set — nothing to do."
+            echo "See the header of .github/workflows/refresh.yml for the two-minute setup."
+            exit 0
+          fi
+          # --fail so a 4xx is a failed job and not a green tick over a silent
+          # no-op, which is the failure mode that makes scheduled jobs useless.
+          code=$(curl -sS --fail -X POST "$HOOK" -o /dev/null -w '%{http_code}')
+          echo "Deploy hook accepted: HTTP $code"

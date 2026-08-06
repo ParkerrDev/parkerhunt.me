@@ -1,15 +1,20 @@
 {
   "fetched": "2026-08-06",
-  "source": "https://www.wikidata.org (CC0); photographs from Wikimedia Commons",
+  "source": "https://www.wikidata.org (CC0) — P625 coordinates and P18 images; photographs from Wikimedia Commons",
   "count": 31,
   "ski_count": 13,
-  "with_photo": 37,
+  "with_photo": 38,
+  "with_coords": 43,
+  "places_with_photo": 25,
+  "ski_with_photo": 13,
   "places": [
     {
       "name": "Grand Canyon",
       "where": "Arizona",
       "qid": "Q118841",
       "key": "grand-canyon-arizona",
+      "lat": 36.0975,
+      "lon": -112.0953,
       "photo": {
         "src": "/imgs/been/grand-canyon-arizona.webp",
         "licence": "CC BY-SA 4.0",
@@ -17,7 +22,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Grand_Canyon_view_from_Pima_Point_2010.jpg",
         "credit_required": true,
         "bytes": 62412
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=36.0975%2C-112.0953"
     },
     {
       "name": "Meteor Crater",
@@ -25,6 +31,8 @@
       "note": "also called Barringer Crater",
       "key": "meteor-crater-arizona",
       "qid": "Q431381",
+      "lat": 35.0281,
+      "lon": -111.0233,
       "photo": {
         "src": "/imgs/been/meteor-crater-arizona.webp",
         "licence": "Public domain",
@@ -32,13 +40,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:Meteor_Crater_-_Arizona.jpg",
         "credit_required": false,
         "bytes": 35464
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=35.0281%2C-111.0233"
     },
     {
       "name": "Tombstone",
       "where": "Arizona",
       "key": "tombstone-arizona",
       "qid": "Q79873",
+      "lat": 31.7158,
+      "lon": -110.0647,
       "photo": {
         "src": "/imgs/been/tombstone-arizona.webp",
         "licence": "CC BY-SA 4.0",
@@ -46,13 +57,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:Tombstone_touristique.jpg",
         "credit_required": true,
         "bytes": 26558
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=31.7158%2C-110.0647"
     },
     {
       "name": "Snowflake",
       "where": "Arizona",
       "key": "snowflake-arizona",
       "qid": "Q1012644",
+      "lat": 34.5111,
+      "lon": -110.0831,
       "photo": {
         "src": "/imgs/been/snowflake-arizona.webp",
         "licence": "CC BY-SA 3.0",
@@ -60,13 +74,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:SnowflakeTemple.jpg",
         "credit_required": true,
         "bytes": 20724
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=34.5111%2C-110.0831"
     },
     {
       "name": "Alamo",
       "where": "Texas",
       "qid": "Q2636724",
       "key": "alamo-texas",
+      "lat": 29.4258,
+      "lon": -98.4861,
       "photo": {
         "src": "/imgs/been/alamo-texas.webp",
         "licence": "CC BY-SA 4.0",
@@ -74,13 +91,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:Alamo_Mission,_San_Antonio,_Texas,_USA.jpg",
         "credit_required": true,
         "bytes": 25998
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=29.4258%2C-98.4861"
     },
     {
       "name": "Johnson Space Center",
       "where": "Houston, Texas",
       "key": "johnson-space-center-houston-texas",
       "qid": "Q208371",
+      "lat": 29.5583,
+      "lon": -95.0889,
       "photo": {
         "src": "/imgs/been/johnson-space-center-houston-texas.webp",
         "licence": "Public domain",
@@ -88,13 +108,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:Aerial_View_of_the_Johnson_Space_Center_-_GPN-2000-001112.jpg",
         "credit_required": false,
         "bytes": 76688
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=29.5583%2C-95.0889"
     },
     {
       "name": "Kennedy Space Center",
       "where": "Florida",
       "key": "kennedy-space-center-florida",
       "qid": "Q48821",
+      "lat": 28.5247,
+      "lon": -80.6486,
       "photo": {
         "src": "/imgs/been/kennedy-space-center-florida.webp",
         "licence": "Public domain",
@@ -102,13 +125,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:Aerial_View_of_Launch_Complex_39.jpg",
         "credit_required": false,
         "bytes": 33758
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=28.5247%2C-80.6486"
     },
     {
       "name": "Ketchum",
       "where": "Idaho",
       "key": "ketchum-idaho",
       "qid": "Q1519069",
+      "lat": 43.6667,
+      "lon": -114.3667,
       "photo": {
         "src": "/imgs/been/ketchum-idaho.webp",
         "licence": "Public domain",
@@ -116,19 +142,26 @@
         "source": "https://commons.wikimedia.org/wiki/File:Bald-Mountain-Sun-Valley-Rd.jpg",
         "credit_required": false,
         "bytes": 27568
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=43.6667%2C-114.3667"
     },
     {
       "name": "Ernest Hemingway House",
       "where": "Ketchum, Idaho",
       "note": "where he spent his last years",
-      "key": "ernest-hemingway-house-ketchum-idaho"
+      "qid": "Q30641853",
+      "key": "ernest-hemingway-house-ketchum-idaho",
+      "lat": 43.6937,
+      "lon": -114.3757,
+      "map": "https://www.google.com/maps/search/?api=1&query=43.6937%2C-114.3757"
     },
     {
       "name": "Sheridan",
       "where": "Wyoming",
       "key": "sheridan-wyoming",
       "qid": "Q1017214",
+      "lat": 44.7967,
+      "lon": -106.9589,
       "photo": {
         "src": "/imgs/been/sheridan-wyoming.webp",
         "licence": "CC BY-SA 3.0",
@@ -136,13 +169,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:Sheridan.JPG",
         "credit_required": true,
         "bytes": 16868
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=44.7967%2C-106.9589"
     },
     {
       "name": "Riverton",
       "where": "Wyoming",
       "key": "riverton-wyoming",
       "qid": "Q603240",
+      "lat": 43.0278,
+      "lon": -108.395,
       "photo": {
         "src": "/imgs/been/riverton-wyoming.webp",
         "licence": "CC BY-SA 4.0",
@@ -150,13 +186,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:Riverton_WY.jpg",
         "credit_required": true,
         "bytes": 21190
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=43.0278%2C-108.395"
     },
     {
       "name": "Deadwood",
       "where": "South Dakota",
       "key": "deadwood-south-dakota",
       "qid": "Q262483",
+      "lat": 44.3767,
+      "lon": -103.7292,
       "photo": {
         "src": "/imgs/been/deadwood-south-dakota.webp",
         "licence": "CC BY-SA 3.0",
@@ -164,7 +203,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Deadwood_today.jpg",
         "credit_required": true,
         "bytes": 28258
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=44.3767%2C-103.7292"
     },
     {
       "name": "Timberline Lodge",
@@ -172,6 +212,8 @@
       "note": "the Overlook Hotel's exterior in The Shining",
       "key": "timberline-lodge-mount-hood-oregon",
       "qid": "Q1574090",
+      "lat": 45.3312,
+      "lon": -121.7113,
       "photo": {
         "src": "/imgs/been/timberline-lodge-mount-hood-oregon.webp",
         "licence": "CC BY-SA 3.0",
@@ -179,13 +221,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:Timlodge.jpg",
         "credit_required": true,
         "bytes": 49028
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=45.3312%2C-121.7113"
     },
     {
       "name": "Haystack Rock",
       "where": "Cannon Beach, Oregon",
       "key": "haystack-rock-cannon-beach-oregon",
       "qid": "Q1592015",
+      "lat": 45.8844,
+      "lon": -123.9681,
       "photo": {
         "src": "/imgs/been/haystack-rock-cannon-beach-oregon.webp",
         "licence": "GFDL 1.2",
@@ -193,18 +238,33 @@
         "source": "https://commons.wikimedia.org/wiki/File:Haystack_rock_00022.jpg",
         "credit_required": true,
         "bytes": 8796
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=45.8844%2C-123.9681"
     },
     {
       "name": "Row River Trail",
       "where": "Cottage Grove, Oregon",
-      "key": "row-river-trail-cottage-grove-oregon"
+      "qid": "Q7371755",
+      "key": "row-river-trail-cottage-grove-oregon",
+      "lat": 43.7978,
+      "lon": -123.057,
+      "photo": {
+        "src": "/imgs/been/row-river-trail-cottage-grove-oregon.webp",
+        "licence": "Public domain",
+        "author": "Bureau of Land Management",
+        "source": "https://commons.wikimedia.org/wiki/File:Row_River_National_Recreation_Trail.jpg",
+        "credit_required": false,
+        "bytes": 72910
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=43.7978%2C-123.057"
     },
     {
       "name": "North Bend",
       "where": "Oregon",
       "key": "north-bend-oregon",
       "qid": "Q669104",
+      "lat": 43.4064,
+      "lon": -124.2242,
       "photo": {
         "src": "/imgs/been/north-bend-oregon.webp",
         "licence": "CC BY 2.0",
@@ -212,20 +272,26 @@
         "source": "https://commons.wikimedia.org/wiki/File:North_Bend_aerial.jpg",
         "credit_required": true,
         "bytes": 22862
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=43.4064%2C-124.2242"
     },
     {
       "name": "Ariel Store",
       "where": "Ariel, Washington",
       "note": "home of D. B. Cooper Days",
       "key": "ariel-store-ariel-washington",
-      "qid": "Q4790370"
+      "qid": "Q4790370",
+      "lat": 45.9568,
+      "lon": -122.5709,
+      "map": "https://www.google.com/maps/search/?api=1&query=45.9568%2C-122.5709"
     },
     {
       "name": "Marysville",
       "where": "California",
       "key": "marysville-california",
       "qid": "Q950966",
+      "lat": 39.1458,
+      "lon": -121.5914,
       "photo": {
         "src": "/imgs/been/marysville-california.webp",
         "licence": "Public domain",
@@ -233,25 +299,34 @@
         "source": "https://commons.wikimedia.org/wiki/File:MarysvilleEllisLake.jpg",
         "credit_required": false,
         "bytes": 28136
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=39.1458%2C-121.5914"
     },
     {
       "name": "Hilmar",
       "where": "California",
       "key": "hilmar-california",
-      "qid": "Q3322376"
+      "qid": "Q3322376",
+      "lat": 37.4086,
+      "lon": -120.8503,
+      "map": "https://www.google.com/maps/search/?api=1&query=37.4086%2C-120.8503"
     },
     {
       "name": "Reedley College",
       "where": "California",
       "key": "reedley-college-california",
-      "qid": "Q7306738"
+      "qid": "Q7306738",
+      "lat": 36.6054,
+      "lon": -119.4601,
+      "map": "https://www.google.com/maps/search/?api=1&query=36.6054%2C-119.4601"
     },
     {
       "name": "Markleeville",
       "where": "California",
       "key": "markleeville-california",
       "qid": "Q1019532",
+      "lat": 38.695,
+      "lon": -119.7803,
       "photo": {
         "src": "/imgs/been/markleeville-california.webp",
         "licence": "CC BY-SA 3.0",
@@ -259,13 +334,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:Markleeville_-_General_Store.jpg",
         "credit_required": true,
         "bytes": 30538
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=38.695%2C-119.7803"
     },
     {
       "name": "Sanger",
       "where": "California",
       "key": "sanger-california",
       "qid": "Q174427",
+      "lat": 36.7081,
+      "lon": -119.5558,
       "photo": {
         "src": "/imgs/been/sanger-california.webp",
         "licence": "CC BY 3.0",
@@ -273,19 +351,25 @@
         "source": "https://commons.wikimedia.org/wiki/File:2009-0725-CA-SangerDepotMuseum.jpg",
         "credit_required": true,
         "bytes": 47802
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=36.7081%2C-119.5558"
     },
     {
       "name": "Taylorsville",
       "where": "California",
       "key": "taylorsville-california",
-      "qid": "Q1898897"
+      "qid": "Q1898897",
+      "lat": 40.0736,
+      "lon": -120.838,
+      "map": "https://www.google.com/maps/search/?api=1&query=40.0736%2C-120.838"
     },
     {
       "name": "Lassen County",
       "where": "California",
       "key": "lassen-county-california",
       "qid": "Q156340",
+      "lat": 40.65,
+      "lon": -120.58,
       "photo": {
         "src": "/imgs/been/lassen-county-california.webp",
         "licence": "CC BY-SA 3.0",
@@ -293,13 +377,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:Lassen_County_Courthouse.jpg",
         "credit_required": true,
         "bytes": 27168
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=40.65%2C-120.58"
     },
     {
       "name": "Cal Poly",
       "where": "California",
       "key": "cal-poly-california",
       "qid": "Q1026846",
+      "lat": 35.3017,
+      "lon": -120.6598,
       "photo": {
         "src": "/imgs/been/cal-poly-california.webp",
         "licence": "Public domain",
@@ -307,13 +394,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:Cal-Poly-from-outback.jpg",
         "credit_required": false,
         "bytes": 67816
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=35.3017%2C-120.6598"
     },
     {
       "name": "Fresno State",
       "where": "California",
       "key": "fresno-state-california",
       "qid": "Q1026919",
+      "lat": 36.8133,
+      "lon": -119.75,
       "photo": {
         "src": "/imgs/been/fresno-state-california.webp",
         "licence": "CC BY 3.0",
@@ -321,20 +411,23 @@
         "source": "https://commons.wikimedia.org/wiki/File:2009-0725-CA-CSUF-ThomasAdministration.jpg",
         "credit_required": true,
         "bytes": 38286
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=36.8133%2C-119.75"
     },
     {
       "name": "Cattlemens",
       "where": "Steakhouse",
       "note": "steak, and the reason this section exists",
-      "key": "cattlemens-steakhouse",
-      "qid": "Q49785762"
+      "no_lookup": true,
+      "key": "cattlemens-steakhouse"
     },
     {
       "name": "White Sands",
       "where": "New Mexico",
       "key": "white-sands-new-mexico",
       "qid": "Q1200164",
+      "lat": 32.7797,
+      "lon": -106.1717,
       "photo": {
         "src": "/imgs/been/white-sands-new-mexico.webp",
         "licence": "Public domain",
@@ -342,13 +435,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_dunefield,_White_Sands_National_Park,_New_Mexico,_United_States.png",
         "credit_required": false,
         "bytes": 13872
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=32.7797%2C-106.1717"
     },
     {
       "name": "San Antonio",
       "where": "Texas",
       "key": "san-antonio-texas",
       "qid": "Q975",
+      "lat": 29.425,
+      "lon": -98.4939,
       "photo": {
         "src": "/imgs/been/san-antonio-texas.webp",
         "licence": "Public domain",
@@ -356,13 +452,16 @@
         "source": "https://commons.wikimedia.org/wiki/File:SA_Montage_Nima.png",
         "credit_required": false,
         "bytes": 91638
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=29.425%2C-98.4939"
     },
     {
       "name": "River Walk",
       "where": "San Antonio, Texas",
       "key": "river-walk-san-antonio-texas",
       "qid": "Q4311109",
+      "lat": 29.4252,
+      "lon": -98.4916,
       "photo": {
         "src": "/imgs/been/river-walk-san-antonio-texas.webp",
         "licence": "CC BY-SA 3.0",
@@ -370,7 +469,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Casa_Rio_in_San_Antonio.jpg",
         "credit_required": true,
         "bytes": 51276
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=29.4252%2C-98.4916"
     },
     {
       "name": "Snow Park",
@@ -378,6 +478,8 @@
       "note": "Deer Valley's base area",
       "key": "snow-park-park-city-utah",
       "qid": "Q3021172",
+      "lat": 40.6228,
+      "lon": -111.4894,
       "photo": {
         "src": "/imgs/been/snow-park-park-city-utah.webp",
         "licence": "CC BY-SA 2.0",
@@ -385,7 +487,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Deer_Valley_Olympic_venue.jpg",
         "credit_required": true,
         "bytes": 23946
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=40.6228%2C-111.4894"
     }
   ],
   "skiing": [
@@ -395,6 +498,8 @@
       "note": "Vast terrain and luxury amenities.",
       "key": "vail-colorado",
       "qid": "Q14685139",
+      "lat": 39.6391,
+      "lon": -106.374,
       "photo": {
         "src": "/imgs/been/vail-colorado.webp",
         "licence": "CC BY-SA 2.0",
@@ -402,7 +507,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Birds_of_Prey_(ski_course),_Beaver_Creek.jpg",
         "credit_required": true,
         "bytes": 22732
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=39.6391%2C-106.374"
     },
     {
       "name": "Park City",
@@ -410,6 +516,8 @@
       "note": "The largest ski resort in the US, with diverse runs.",
       "key": "park-city-utah",
       "qid": "Q3821979",
+      "lat": 40.6508,
+      "lon": -111.507,
       "photo": {
         "src": "/imgs/been/park-city-utah.webp",
         "licence": "CC BY-SA 2.0",
@@ -417,14 +525,22 @@
         "source": "https://commons.wikimedia.org/wiki/File:Eagle_Race_Arena_at_Park_City_Resort.jpg",
         "credit_required": true,
         "bytes": 34040
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=40.6508%2C-111.507"
     },
     {
       "name": "Aspen Snowmass",
       "where": "Colorado",
       "note": "Four mountains, four different days.",
       "file": "Snowmass gondola and Ski area.jpg",
+      "qid": "Q4807795",
+      "latlon": [
+        39.2084,
+        -106.949
+      ],
       "key": "aspen-snowmass-colorado",
+      "lat": 39.2084,
+      "lon": -106.949,
       "photo": {
         "src": "/imgs/been/aspen-snowmass-colorado.webp",
         "licence": "CC BY-SA 3.0",
@@ -432,7 +548,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Snowmass_gondola_and_Ski_area.jpg",
         "credit_required": true,
         "bytes": 22060
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=39.2084%2C-106.949"
     },
     {
       "name": "Jackson Hole",
@@ -440,6 +557,8 @@
       "note": "Steep, and famous for it.",
       "key": "jackson-hole-wyoming",
       "qid": "Q10538901",
+      "lat": 43.5872,
+      "lon": -110.825,
       "photo": {
         "src": "/imgs/been/jackson-hole-wyoming.webp",
         "licence": "Public domain",
@@ -447,7 +566,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Jackson_hole_new_tram.jpg",
         "credit_required": false,
         "bytes": 30126
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=43.5872%2C-110.825"
     },
     {
       "name": "Deer Valley",
@@ -455,6 +575,8 @@
       "note": "Top-rated for grooming and service.",
       "key": "deer-valley-utah",
       "qid": "Q3021172",
+      "lat": 40.6228,
+      "lon": -111.4894,
       "photo": {
         "src": "/imgs/been/deer-valley-utah.webp",
         "licence": "CC BY-SA 2.0",
@@ -462,7 +584,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Deer_Valley_Olympic_venue.jpg",
         "credit_required": true,
         "bytes": 23946
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=40.6228%2C-111.4894"
     },
     {
       "name": "Breckenridge",
@@ -470,6 +593,8 @@
       "note": "High altitude, endless intermediate terrain.",
       "key": "breckenridge-colorado",
       "qid": "Q12053500",
+      "lat": 39.475,
+      "lon": -106.06,
       "photo": {
         "src": "/imgs/been/breckenridge-colorado.webp",
         "licence": "CC BY-SA 3.0",
@@ -477,7 +602,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Breckenridge_Ski_Area_from_Dercum_Mountain,_Keystone_Ski_Area.jpg",
         "credit_required": true,
         "bytes": 36018
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=39.475%2C-106.06"
     },
     {
       "name": "Big Sky",
@@ -485,6 +611,8 @@
       "note": "Massive terrain, far fewer crowds.",
       "key": "big-sky-montana",
       "qid": "Q4906372",
+      "lat": 45.275,
+      "lon": -111.4319,
       "photo": {
         "src": "/imgs/been/big-sky-montana.webp",
         "licence": "CC BY-SA 2.0",
@@ -492,7 +620,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Big_Sky_resort.jpg",
         "credit_required": true,
         "bytes": 25982
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=45.275%2C-111.4319"
     },
     {
       "name": "Steamboat",
@@ -500,6 +629,8 @@
       "note": "Champagne powder, and hot springs after.",
       "key": "steamboat-colorado",
       "qid": "Q7605410",
+      "lat": 40.4528,
+      "lon": -106.773,
       "photo": {
         "src": "/imgs/been/steamboat-colorado.webp",
         "licence": "CC BY-SA 3.0",
@@ -507,7 +638,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Steamboat_springs_ski_resort.jpg",
         "credit_required": true,
         "bytes": 28470
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=40.4528%2C-106.773"
     },
     {
       "name": "Palisades Tahoe",
@@ -515,6 +647,8 @@
       "note": "Steeps, and plenty of variety.",
       "key": "palisades-tahoe-california",
       "qid": "Q2182804",
+      "lat": 39.1882,
+      "lon": -120.2639,
       "photo": {
         "src": "/imgs/been/palisades-tahoe-california.webp",
         "licence": "Public domain",
@@ -522,7 +656,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:TheVillageatSquawValley-exterior.jpg",
         "credit_required": false,
         "bytes": 31734
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=39.1882%2C-120.2639"
     },
     {
       "name": "Heavenly",
@@ -530,6 +665,8 @@
       "note": "The views are the point.",
       "key": "heavenly-california-nevada",
       "qid": "Q1548153",
+      "lat": 38.9353,
+      "lon": -119.94,
       "photo": {
         "src": "/imgs/been/heavenly-california-nevada.webp",
         "licence": "CC BY 2.0",
@@ -537,7 +674,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Heavenly_Gondola_Base.jpg",
         "credit_required": true,
         "bytes": 47650
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=38.9353%2C-119.94"
     },
     {
       "name": "Snowbird",
@@ -545,6 +683,8 @@
       "note": "Powder, and steep chutes.",
       "key": "snowbird-utah",
       "qid": "Q3487194",
+      "lat": 40.5817,
+      "lon": -111.6559,
       "photo": {
         "src": "/imgs/been/snowbird-utah.webp",
         "licence": "Public domain",
@@ -552,14 +692,18 @@
         "source": "https://commons.wikimedia.org/wiki/File:May_28_2006_Snowbird_UT_USA.jpg",
         "credit_required": false,
         "bytes": 42114
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=40.5817%2C-111.6559"
     },
     {
       "name": "Sun Valley",
       "where": "Idaho",
       "note": "Historic, and reliable snowmaking.",
       "file": "Bald Mountain in Sun Valley, Idaho.jpg",
+      "qid": "Q955969",
       "key": "sun-valley-idaho",
+      "lat": 43.6806,
+      "lon": -114.3428,
       "photo": {
         "src": "/imgs/been/sun-valley-idaho.webp",
         "licence": "CC BY-SA 4.0",
@@ -567,7 +711,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Bald_Mountain_in_Sun_Valley,_Idaho.jpg",
         "credit_required": true,
         "bytes": 28470
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=43.6806%2C-114.3428"
     },
     {
       "name": "Bear Valley",
@@ -575,6 +720,8 @@
       "note": "Small, high, and quiet.",
       "key": "bear-valley-california",
       "qid": "Q4876586",
+      "lat": 38.4922,
+      "lon": -120.0067,
       "photo": {
         "src": "/imgs/been/bear-valley-california.webp",
         "licence": "CC BY 2.0",
@@ -582,7 +729,8 @@
         "source": "https://commons.wikimedia.org/wiki/File:Bear_Valley.jpg",
         "credit_required": true,
         "bytes": 32852
-      }
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=38.4922%2C-120.0067"
     }
   ]
 }

@@ -25,18 +25,49 @@ scripts/fetch-*.mjs ──► site/data/*.json ──► templates ──► pub
 | `fetch-chess.mjs` | `api.chess.com/pub` | `site/data/chess.json` | none |
 | `fetch-duolingo.mjs` | `duolingo.com/2017-06-30/users` | `site/data/duolingo.json` | none |
 | `fetch-nexus.mjs` | `api-router.nexusmods.com/graphql` | `site/data/nexus.json` + `site/static/imgs/nexus/avatar-*.webp` | none |
+| `fetch-x.mjs` | `api.fxtwitter.com`, `api.vxtwitter.com` | `site/data/x.json` + `site/static/imgs/x/avatar-*.webp` | none |
+| `fetch-steam-owned.mjs` | `api.steampowered.com` | `site/data/steam-owned.json` | **`STEAM_API_KEY`** (optional) |
 | `fetch-steam-art.mjs` | `steam.json` + Steam CDN | `site/static/imgs/steam/*.webp` | none, **local only** |
 | `build-stamps.mjs` | nothing — arithmetic | `site/data/stamps.json` | n/a |
 | `fetch-media.mjs` | Wikimedia Commons + Open Library | `site/static/imgs/media/*.webp` + `site/data/media.json` | none, **local only** |
-| `build-map.mjs` | Wikimedia Commons + `site/data/travel.json` | `site/static/imgs/us-visited.svg` + `site/data/travel-map.json` | none, **local only** |
+| `build-map.mjs` | us-atlas TopoJSON + `travel.json` + `been.json` + `media.json` | `site/static/imgs/us-visited-*.svg` + `site/data/travel-map.json` | none, **local only** |
 | `fetch-icons.mjs` | Simple Icons | `site/data/icons.json` | none |
 | `fetch-logos.mjs` | Wikimedia Commons | `site/static/imgs/logos/*.webp` + `site/data/logos.json` | none, **local only** |
 | `fetch-titles.mjs` | Wikidata + Commons + `site/data/watching.json` | `site/data/titles.json` + `site/static/imgs/titles/*.webp` | none, **local only** |
 | `fetch-posters.mjs` | TMDb | merges posters into `site/data/titles.json` | **needs `TMDB_API_KEY`**, local only |
-| `fetch-places.mjs` | Wikidata + Commons + `site/data/places.json` | `site/data/been.json` + `site/static/imgs/been/*.webp` | none, **local only** |
+| `fetch-places.mjs` | Wikidata (P625 + P18) + Commons + `places.json` | `site/data/been.json` + `site/static/imgs/been/*.webp` | none, **local only** |
 
-All five fetchers run from `build-zola.sh` on every Cloudflare deploy. No API
-key, no token, no cookie: every endpoint above answers unauthenticated.
+All seven fetchers run from `build-zola.sh` on every Cloudflare deploy. Only one
+of them can use a key, and it works without one: every other endpoint above
+answers unauthenticated.
+
+## Live means "rebuilt", not "fetched in the browser"
+
+Every number on this site is baked into HTML at build time. That is the whole
+reason a visitor's browser never contacts a third party — and it has exactly one
+weakness, which is that a snapshot is only as fresh as the last deploy.
+
+`.github/workflows/refresh.yml` closes it: a cron every three hours asks
+Cloudflare Pages to rebuild, every `fetch-*.mjs` re-runs, and the page is
+regenerated. Nothing is committed and no client-side JavaScript appears. It
+needs one secret, `CF_DEPLOY_HOOK` — the setup is four lines in that file's
+header.
+
+**Three hours, not one, and that is arithmetic.** Cloudflare Pages allows 500
+builds a month free. Every three hours is 248; hourly is 744 and would run the
+account dry around the 20th.
+
+Two things worth knowing if this is ever revisited:
+
+- **GitHub only runs `schedule` from the default branch.** On a feature branch
+  the workflow file does nothing until it is merged.
+- **Nothing here needs the browser to fetch anything.** Chess.com, GitHub and
+  Nexus Mods all send `Access-Control-Allow-Origin: *`, so a few lines of
+  client-side JavaScript *could* refresh those numbers per pageview — and would
+  hand every visitor's IP to three companies to save three hours of staleness.
+  It is a bad trade. If per-request freshness is ever genuinely wanted, the
+  right shape is a Pages Function rewriting the HTML at the edge, where the
+  fetch happens on Cloudflare's machines and not the reader's.
 
 `build-stamps.mjs` is the odd one out: it touches no network. It exists because
 "9 years, 9 months and 17 days on X" is a lovely thing to put on a page and a
@@ -67,12 +98,29 @@ The consequence to remember: **the snapshots are committed to git and are the
 source of truth for a build.** If a fetch fails, the site renders the last good
 copy. Delete a snapshot and the section it feeds disappears rather than breaking.
 
-## Steam is the odd one
+## Steam is the odd one, and it has a key-shaped fix
 
 The Steam profile is **private** (`privacyState=private` on the public profile
 XML), so `IPlayerService/GetOwnedGames`, `IWishlistService/GetWishlist` and the
-community games XML all refuse. There is no public endpoint that will return
-this account's library, wishlist or playtime.
+community games XML all refuse *anyone else's* request. There is no public
+endpoint that will return this account's library, wishlist or playtime.
+
+There is a non-public one. From the Steamworks documentation for IPlayerService:
+
+> Private, friends-only, and other privacy settings are not supported unless you
+> are asking for your own personal details (i.e. the WebAPI key you are using is
+> linked to the steamID you are requesting).
+
+So the account's **own** free key — generated at
+<https://steamcommunity.com/dev/apikey> — reads the whole library with real
+playtime while the profile stays private to everybody else. That is what
+`scripts/fetch-steam-owned.mjs` does. Set `STEAM_API_KEY` and the hand-pinned
+library stops being the source of truth; leave it unset and everything below
+still applies, unchanged.
+
+Achievement counts stay pinned either way: `GetOwnedGames` does not return them
+and `GetPlayerAchievements` is one call per game, which is ninety calls into a
+rate limit of about two hundred per five minutes.
 
 So it is split in two:
 
@@ -136,32 +184,59 @@ The two sources are not the same situation:
 Every id is **pinned**. Searching Commons at build time would mean the pictures
 could change under the site whenever the search got re-ranked.
 
-## The map is a file, and its coordinates are not rounded
+## The map is a file, its pins are real, and its projection is checked
 
-`build-map.mjs` paints the visited-states map. Add a state to the `visited`
-array in `site/data/travel.json`, re-run it, commit both outputs. An unknown
-code fails the script loudly rather than quietly colouring nothing.
+`build-map.mjs` writes one SVG: fifty-one state outlines with sixteen filled in,
+and forty-six pins — thirty places, thirteen ski resorts, three summits. It is an
+`<img>`, not inline SVG, because 52 KB of path data would double the home page,
+and as a file it caches for a year under the `/imgs/*` rule.
 
-Two decisions worth keeping:
+**Every pin is a real coordinate.** `fetch-places.mjs` asks Wikidata for P625
+alongside the P18 image it was already fetching — one entity call, both answers —
+and 43 of the 44 places have one. The summits are written down in
+`fetch-media.mjs` because there are three of them and a summit does not move.
 
-**It is an `<img>`, not inline SVG.** The path data is 44 KB — about 12 KB over
-the wire — which would have doubled the home page for one section. As a separate
-file it is one request that caches for a year under the `/imgs/*` rule in
-`_headers`, and the HTML does not grow at all. The cost is that an
-`<img>`-referenced SVG is a static picture: no per-state hover, no tooltips. So
-the state names are rendered as real text beside the map, which a screen reader
-prefers anyway.
+### Why the base map had to change
 
-**Do not round the coordinates.** The obvious optimisation is to drop the
-decimal place and save 15 KB. It does not work. The source paths are *relative*
-(`m`/`v`/`h`/`l`), so the error does not stay local — it accumulates along each
-path and the states drift off one another into an unrecognisable scatter of
-black polygons. Stripping whitespace and leading zeros is free and safe;
-touching the precision is neither.
+It used to trace a blank SVG from Wikimedia Commons. That was fine while the only
+job was colouring states in, and impossible the moment pins were wanted: **a
+finished SVG tells you where Nevada is drawn but not what projection put it
+there**, so there is no way to turn 39.19°N 120.26°W into a point on it. Fitting
+one by least squares over state centroids was tried and landed within ~20px,
+which is Sacramento in the Pacific.
 
-The base map is "Blank US Map (states only).svg" by Heitordp, released **CC0**,
-so unlike the photographs it carries no attribution requirement. It is credited
-on the page regardless.
+The geometry now comes from us-atlas' `states-albers-10m.json`, which is
+pre-projected with published parameters:
+
+```
+d3.geoAlbersUsa().scale(1300).translate([487.5, 305])   on a 975 x 610 canvas
+```
+
+Those are reimplemented by hand (d3 is not a dependency) and **verified, not
+assumed**: `node scripts/build-map.mjs --verify` drops every state's Census
+internal point through the projection and asserts it lands inside that state's
+own polygon. 51 of 51, Alaska and Hawaii insets included. A future us-atlas that
+changes canvas fails that check loudly instead of scattering pins into the sea.
+
+Two traps, both already sprung:
+
+- **d3's `.center()` is in rotated coordinates.** Albers is
+  `.rotate([96,0]).center([-0.6, 38.7])`; rotating the centre as well puts it at
+  95.4° and throws every point ~1400px off canvas. Rotate the point, not the
+  centre.
+- **Simplify arcs, not rings.** Douglas–Peucker runs once per TopoJSON *arc* —
+  the shared border segment two states both reference. Simplifying each state's
+  ring separately drops different points on each side of the same line and opens
+  white cracks down the middle of the country.
+
+### Why there is no Google Maps embed
+
+The Maps Embed API is genuinely free and genuinely unlimited — and it wants a
+Google Cloud project with a billing account attached, and forty-six iframes would
+put forty-six third-party requests and a tracking cookie on a page whose entire
+claim is that it has neither. So every card links out to
+`google.com/maps/search/?api=1&query=<lat>,<lon>` instead: nothing loads until
+somebody actually clicks it.
 
 ## Logos: whose they are, and when not to use one
 
@@ -228,6 +303,28 @@ origin like everything else. Two things about it:
 Re-encoding needs `cwebp`, which the Cloudflare builder does not have, so that
 step is skipped there and the committed file stays — the same fail-soft rule as
 the rest of the directory.
+
+## X: the profile is live, the posts cannot be
+
+`@AndrewParkerH` is a **protected** account. `fetch-x.mjs` reads the profile —
+name, bio, location, website, join date, and all three counts — from FixTweet
+with a vxtwitter fallback, both free and keyless, both queried at build time only.
+That part is live.
+
+The posts are hand-written in `site/data/feeds.toml` and will stay that way.
+Every route was checked:
+
+| Route | Result |
+|---|---|
+| Official X API | Respects protection at every tier. As of February 2026 there is no free read tier at all — pay-per-use, $0.005 per post read — and paying does not unlock a protected timeline. |
+| `syndication.twitter.com/srv/timeline-profile` | The endpoint the embed widget uses, and the last free timeline read. Returns `entries: []` for this account, and now for public accounts too. |
+| `platform.twitter.com/widgets.js` | Renders nothing for a protected account. Also a third-party script and a tracking pixel. |
+| Nitter | Dead since February 2024, when X removed guest accounts. |
+
+The only mechanism that would work is authenticating **as** the account and
+republishing its posts to a public web page, which defeats the point of the
+account being protected. The template says so under the rail rather than leaving
+an unexplained gap.
 
 ## The watch-list pipeline
 

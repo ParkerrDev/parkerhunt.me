@@ -28,6 +28,7 @@ import { dirname, resolve } from "node:path";
 
 const SEED = resolve(process.argv[2] || "site/data/steam-seed.json");
 const OUT = resolve(process.argv[3] || "site/data/steam.json");
+const OWNED = resolve("site/data/steam-owned.json");
 
 /* Steam's own review-score buckets, in Steam's own blue/grey/red. The label
    comes from the API; the colour does not, so it is mapped here. */
@@ -133,7 +134,35 @@ function priceOf(d) {
   };
 }
 
-const libIds = seed.library.map((g) => g.appid);
+/* THE LIBRARY, PREFERABLY NOT BY HAND.
+ *
+ * scripts/fetch-steam-owned.mjs writes steam-owned.json from the real API using
+ * the account's own key, which reads a private profile where nobody else's key
+ * can. When that file is there it wins outright: every appid and every minute
+ * comes from Steam instead of from a person retyping the library page.
+ *
+ * The seed is still the fallback, and still carries the achievement counts —
+ * GetOwnedGames does not return those, and GetPlayerAchievements is one call
+ * per game, which is ninety calls into a rate limit of about two hundred per
+ * five minutes. So achievements stay pinned and are matched back on by appid. */
+let libSource = "seed";
+let libRows = seed.library;
+if (existsSync(OWNED)) {
+  try {
+    const owned = JSON.parse(readFileSync(OWNED, "utf8"));
+    if (Array.isArray(owned.games) && owned.games.length) {
+      const ach = new Map(seed.library.filter((g) => g.ach).map((g) => [g.appid, g.ach]));
+      libRows = owned.games
+        .filter((g) => g.minutes > 0)
+        .map((g) => ({ appid: g.appid, minutes: g.minutes, ach: ach.get(g.appid), last_played: g.last_played }));
+      libSource = `api (${owned.fetched})`;
+    }
+  } catch (err) {
+    console.warn(`WARNING: steam-owned.json unreadable (${err.message}) — using the pinned seed.`);
+  }
+}
+
+const libIds = libRows.map((g) => g.appid);
 const wishIds = seed.wishlist;
 const extraIds = seed.extra || [];
 const allIds = [...new Set([...libIds, ...wishIds, ...extraIds])];
@@ -191,7 +220,7 @@ function common(appid) {
   };
 }
 
-const library = seed.library
+const library = libRows
   .filter((g) => details.has(g.appid))
   .map((g) => ({
     ...common(g.appid),
@@ -200,6 +229,7 @@ const library = seed.library
     ach_done: g.ach ? g.ach[0] : null,
     ach_total: g.ach ? g.ach[1] : null,
     ach_pct: g.ach && g.ach[1] ? Math.round((g.ach[0] / g.ach[1]) * 100) : null,
+    last_played: g.last_played || "",
   }))
   .sort((a, b) => b.minutes - a.minutes);
 
@@ -236,6 +266,7 @@ writeFileSync(
   JSON.stringify(
     {
       profile: seed.profile,
+      library_source: libSource,
       fetched: new Date().toISOString().slice(0, 10),
       totals,
       library,
