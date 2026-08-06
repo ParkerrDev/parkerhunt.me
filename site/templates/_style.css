@@ -1,0 +1,292 @@
+/* parkerhunt.me — inlined into every page's <head>.
+ *
+ * Inlined rather than linked because the whole stylesheet is smaller than the
+ * HTTP round trip it would cost. First paint needs exactly one request.
+ *
+ * No webfonts. The display face is the system serif — New York on Apple,
+ * Georgia elsewhere — which is where the quiet, academic tone comes from and
+ * costs zero bytes. The system sans carries UI, the system mono carries
+ * metadata. A portfolio that loads no fonts is faster than one that loads
+ * "only two", and it renders instantly instead of swapping.
+ */
+
+/* ---------------------------------------------------------------- tokens -- */
+:root {
+  --serif: ui-serif, "New York", Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+
+  /* Pure, not off-white. The whole point is the hard edge between paper and
+     ink; a warm grey would soften exactly the thing that makes it feel sharp. */
+  --bg: #fff;
+  --fg: #000;
+  --muted: rgba(0, 0, 0, 0.54);
+  --faint: rgba(0, 0, 0, 0.11);
+  --panel: rgba(0, 0, 0, 0.025);
+
+  --measure: 34rem;
+  --page: 68rem;
+  --gap: 1.125rem;
+  --radius: 0.625rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000;
+    --fg: #fff;
+    --muted: rgba(255, 255, 255, 0.58);
+    --faint: rgba(255, 255, 255, 0.15);
+    --panel: rgba(255, 255, 255, 0.035);
+  }
+}
+
+/* ------------------------------------------------------------------ base -- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+/* Underline only on the ink side, so links read as text first and targets
+   second — the opposite of a portfolio full of coloured words. */
+.prose a, .lede a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--faint);
+  transition: text-decoration-color 0.18s;
+}
+.prose a:hover, .lede a:hover { text-decoration-color: var(--fg); }
+
+:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.625rem 1rem;
+  font: 500 0.8125rem/1 var(--sans);
+  z-index: 10;
+}
+.skip:focus { left: 0; }
+
+/* ---------------------------------------------------------------- header -- */
+.masthead {
+  padding: clamp(3rem, 9vw, 5.5rem) 0 clamp(2.5rem, 6vw, 3.5rem);
+  border-bottom: 1px solid var(--faint);
+}
+
+.masthead h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2rem, 5.5vw, 2.875rem);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+}
+
+/* Short by construction. The brief was to convey the point and stop, so the
+   lede is capped at one line of measure rather than a three-paragraph hero. */
+.lede {
+  margin: 0.875rem 0 0;
+  max-width: var(--measure);
+  font-size: 1.0625rem;
+  color: var(--muted);
+  text-wrap: balance;
+}
+
+/* The details that are actually his, set in mono so they read as data rather
+   than as a bio. This is where the personality lives. */
+.facts {
+  margin: 1.375rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem 0.875rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.facts li { display: flex; align-items: center; gap: 0.875rem; }
+.facts li:not(:last-child)::after { content: "·"; opacity: 0.5; }
+
+.tools {
+  margin-top: 1.875rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Inversion on hover instead of a colour change: the palette is two values,
+   so the only honest emphasis is to swap them. */
+.tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9375rem;
+  border: 1px solid var(--faint);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+.tool:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.tool svg { width: 0.8125rem; height: 0.8125rem; fill: none; stroke: currentColor; stroke-width: 1.75; }
+
+/* --------------------------------------------------------------- section -- */
+section { padding: clamp(2.5rem, 6vw, 3.75rem) 0; }
+
+/* Section labels as mono eyebrows, not headlines — keeps the page quiet and
+   makes the work itself the largest thing on screen. */
+.eyebrow {
+  margin: 0 0 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--faint);
+}
+
+/* ----------------------------------------------------------------- cards -- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: var(--gap);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--faint);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--panel);
+  transition: border-color 0.18s;
+}
+.card:hover { border-color: var(--fg); }
+
+/* Reserved by aspect-ratio so the grid never reflows when art loads — the
+   cheapest CLS fix there is. */
+.card-art {
+  aspect-ratio: 900 / 338;
+  background: var(--panel);
+  border-bottom: 1px solid var(--faint);
+}
+.card-art img { width: 100%; height: 100%; object-fit: cover; }
+
+.card-body {
+  padding: 0.9375rem 1.0625rem 1.0625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  flex: 1;
+}
+
+.card-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.1875rem;
+  letter-spacing: -0.012em;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4375rem;
+}
+.card-title .ext { font-size: 0.6875rem; color: var(--muted); }
+
+.card-desc {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.card-meta {
+  margin-top: auto;
+  padding-top: 0.625rem;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  color: var(--muted);
+}
+
+/* ----------------------------------------------------------------- prose -- */
+.prose {
+  max-width: var(--measure);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.72;
+}
+.prose p { margin: 0 0 1.125rem; }
+.prose p:last-child { margin-bottom: 0; }
+
+/* ---------------------------------------------------------------- footer -- */
+footer {
+  border-top: 1px solid var(--faint);
+  padding: 2rem 0 2.75rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+.footer-links a { transition: color 0.18s; }
+.footer-links a:hover { color: var(--fg); }
+.colophon { margin-top: 0.75rem; opacity: 0.7; }
+
+/* --------------------------------------------------------------- a11y/UA -- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+@media print {
+  .tools, .skip, footer { display: none; }
+  body { color: #000; background: #fff; }
+}

@@ -5,7 +5,7 @@ date = 2026-03-04
 updated = 2026-04-04
 weight = 1
 [extra]
-card_image = "/imgs/project-cards/parkerhunt.svg"
+card_image = "/imgs/project-cards/opt/parkerhunt.webp"
 website_url = "https://parkerhunt.me"
 +++
 

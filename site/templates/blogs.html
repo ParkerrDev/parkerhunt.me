@@ -1,14 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
-<header>
-  <h1 class="title">{{ section.title }}</h1>
-</header>
-
-<ul id="blogs">
-  {% for page in section.pages %}
-  <li><a href="{{ page.path | safe }}">{{ page.title }}</a></li>
-  {% endfor %}
-</ul>
-
-{% endblock content %}
+<header class="masthead"><div class="wrap"><h1>{{ section.title }}</h1>
+<div class="tools"><a class="tool" href="/">← Back</a></div></div></header>
+<main id="main"><section><div class="wrap"><div class="prose">{% for p in section.pages %}<p><a href="{{ p.path | safe }}">{{ p.title }}</a></p>{% endfor %}</div></div></section></main>
+{% endblock %}

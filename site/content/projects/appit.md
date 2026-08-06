@@ -5,7 +5,7 @@ date = 2026-03-02
 updated = 2026-04-04
 weight = 2
 [extra]
-card_image = "/imgs/project-cards/appit.svg"
+card_image = "/imgs/project-cards/opt/appit.webp"
 website_url = "https://appitapp.app"
 +++
 

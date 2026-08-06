@@ -1,52 +1,64 @@
 {# The one page skeleton. Every template extends this.
 
-   Blocks, in the order they appear:
-     html_attrs  extra attributes on <html>. The home page sets id="home";
-                 main.scss styles every *other* page through `html:not(#home)`,
-                 so that id is load-bearing, not decoration.
-     head_extra  per-page <head> additions.
-     title       the full <title>. Override only to break the "X | Parker Hunt" pattern.
-     chrome      body furniture before <main>. Defaults to the floating back
-                 link; the home page overrides it to nothing.
-                 It must stay a DIRECT child of <body> — main.scss positions it
-                 per-page via `body:has(.projects-page) > a.back`.
-     content     the page.
-     footer      overridable so the full-bleed résumé page can drop it.
+   Blocks: description, title, content, and `og_image` for social cards.
+
+   The stylesheet is inlined rather than linked: it is smaller than the round
+   trip it would cost, so first paint needs exactly one request and there is no
+   render-blocking CSS at all. See templates/_style.css for the reasoning.
 #}<!DOCTYPE html>
-<html lang="en"{% block html_attrs %}{% endblock %}>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="description" content="{% block description %}Andrew Parker Hunt is a Student in Clovis, California, USA, with an interest in software development, computer science, and cybersecurity.{% endblock %}">
-    <link rel="stylesheet" href="/main.css">
-    <link rel="icon" href="/imgs/webp/memoji-circle.webp">
+    <title>{% block title %}{% if page.title %}{{ page.title }} · {% elif section.title %}{{ section.title }} · {% endif %}Parker Hunt{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
+    <link rel="canonical" href="{{ current_url | default(value=config.base_url) | safe }}">
+
+    {# Declared for both schemes so the browser chrome matches the page instead
+       of flashing a light bar above a black document. #}
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Parker Hunt">
+    <meta property="og:title" content="{{ page.title | default(value=section.title) | default(value=config.title) }}">
+    <meta property="og:description" content="{{ page.description | default(value=config.description) }}">
+    <meta property="og:url" content="{{ current_url | default(value=config.base_url) | safe }}">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="/imgs/webp/memoji-circle.webp" type="image/webp">
     {%- if config.generate_feeds %}
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=config.feed_filenames[0], trailing_slash=false) }}">
     {%- endif %}
-    <title>{% block title %}{% if page.title %}{{ page.title }} | {% elif section.title %}{{ section.title }} | {% endif %}Parker Hunt{% endblock %}</title>
-    {%- block head_extra %}{% endblock %}
+
+    {# load_data rather than include: Zola only registers *.html as templates,
+       so the stylesheet is read as a data file and emitted verbatim. #}
+    <style>{{ load_data(path="templates/_style.css", format="plain") | safe }}</style>
 </head>
 
 <body>
-    {%- block chrome %}
-    <a href="/" id="back" class="back"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-            fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-            <path fill-rule="evenodd"
-                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
-        </svg> back</a>
-    <script async src="/js/nav.js"></script>
-    {%- endblock %}
+    <a href="#main" class="skip">Skip to content</a>
+    {% block content %}{% endblock %}
 
-    <main id="main-content" tabindex="-1">
-        {%- block content %}{% endblock %}
-    </main>
-
-    {%- block footer %}
+    {% block footer %}
     <footer>
-        <p>Designed, and Built, by Me</p>
+        <div class="wrap">
+            <div class="footer-row">
+                <div>© 2026 parker hunt</div>
+                <nav class="footer-links" aria-label="Elsewhere">
+                    <a href="https://github.com/ParkerrDev" rel="me">github</a>
+                    <a href="https://www.linkedin.com/in/andrewparkerh/" rel="me">linkedin</a>
+                    <a href="https://x.com/AndrewParkerH" rel="me">x</a>
+                    <a href="mailto:email@parkerhunt.me">email</a>
+                </nav>
+            </div>
+            {# Stating the build is the flex. It is also true, and checkable. #}
+            <div class="colophon">built with zola · no javascript · no webfonts · system type</div>
+        </div>
     </footer>
-    {%- endblock %}
+    {% endblock %}
 </body>
 
 </html>

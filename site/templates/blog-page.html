@@ -1,9 +1,6 @@
 {% extends "base.html" %}
-
 {% block content %}
-<article class="blog-detail">
-<h1 class="title">{{ page.title }}</h1>
-<p class="subtitle"><strong>{% if page.updated %}Updated {{ page.updated }}{% else %}{{ page.date }}{% endif %}</strong></p>
-{{ page.content | safe }}
-</article>
-{% endblock content %}
+<header class="masthead"><div class="wrap"><h1>{{ page.title }}</h1>
+<div class="tools"><a class="tool" href="/">← Back</a></div></div></header>
+<main id="main"><section><div class="wrap"><div class="prose">{{ page.content | safe }}</div></div></section></main>
+{% endblock %}

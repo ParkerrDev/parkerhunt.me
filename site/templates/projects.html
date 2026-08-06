@@ -1,29 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
-
-<section class="projects-page" aria-label="Project cards">
-  <header>
-    <h1 class="title">{{ section.title }}</h1>
-    {% if section.description %}
-    <p class="subtitle">{{ section.description }}</p>
-    {% endif %}
-  </header>
-
-  <div class="projects-grid">
-    {% for page in section.pages %}
-    <article class="project-drop-in" style="--anim-idx: {{ loop.index }};">
-      {% set card_image = page.extra.card_image | default(value="/imgs/project-cards/default.svg") %}
-      {% set website_url = page.extra.website_url | default(value="") %}
-      <a class="project-card" href="{% if website_url %}{{ website_url }}{% else %}{{ page.path | safe }}{% endif %}" {% if website_url %}target="_blank" rel="noopener noreferrer"{% endif %} aria-label="{{ page.title }}">
-        <img class="project-card-image" src="{{ card_image }}" alt="{{ page.title }}" loading="lazy" decoding="async">
-      </a>
-      <a class="project-read-bar" href="{{ page.path | safe }}">
-        <span class="project-read-label">Read About</span>
-        <span class="project-read-date">{% if page.updated %}{{ page.updated | date(format="%b %d, %Y") }}{% else %}{{ page.date | date(format="%b %d, %Y") }}{% endif %}</span>
-      </a>
-    </article>
-    {% endfor %}
+<header class="masthead">
+  <div class="wrap">
+    <h1>{{ section.title }}</h1>
+    {% if section.description %}<p class="lede">{{ section.description }}</p>{% endif %}
+    <div class="tools"><a class="tool" href="/">← Back</a></div>
   </div>
-</section>
-
-{% endblock content %}
+</header>
+<main id="main">
+  <section><div class="wrap">
+    <div class="grid">
+      {% for project in section.pages %}
+      {% set url = project.extra.website_url | default(value=project.permalink) %}
+      <a class="card" href="{{ url }}"{% if project.extra.website_url %} target="_blank" rel="noopener"{% endif %}>
+        {% if project.extra.card_image %}
+        <div class="card-art"><img src="{{ project.extra.card_image }}" alt="" width="900" height="338" loading="lazy" decoding="async"></div>
+        {% endif %}
+        <div class="card-body">
+          <h3 class="card-title">{{ project.title }}{% if project.extra.website_url %}<span class="ext">↗</span>{% endif %}</h3>
+          {% if project.description %}<p class="card-desc">{{ project.description }}</p>{% endif %}
+          <div class="card-meta">{% if project.updated %}{{ project.updated | date(format="%Y") }}{% elif project.date %}{{ project.date | date(format="%Y") }}{% endif %}</div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div></section>
+</main>
+{% endblock %}

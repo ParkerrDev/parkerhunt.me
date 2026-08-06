@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-
-<div class="about-page">
-  <header>
-    <h1 class="title">Andrew Parker Hunt</h1>
-    <p class="subtitle"><strong>Last Updated {{ page.date }}</strong></p>
-  </header>
-
-  {{ page.content | safe }}
-</div>
-
-{% endblock content %}
+<header class="masthead">
+  <div class="wrap">
+    <h1>{{ page.title }}</h1>
+    <p class="lede">A few things that are actually mine.</p>
+    <div class="tools"><a class="tool" href="/">← Back</a></div>
+  </div>
+</header>
+<main id="main">
+  <section><div class="wrap"><div class="prose">{{ page.content | safe }}</div></div></section>
+</main>
+{% endblock %}
