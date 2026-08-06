@@ -95,32 +95,65 @@ async function getJSON(url, ms = 30000) {
 }
 
 /** Find the Wikidata item for a title, or null. */
-async function resolve_qid(title) {
-  /* Two passes. A bare title search for "Barry" returns a given name, a family
-     name and a town in the Vale of Glamorgan before it returns the show, so if
-     the plain search yields nothing usable, ask again with the disambiguator
-     people actually type. */
-  for (const q of [title, `${title} television series`, `${title} anime`]) {
+/*
+ * SCORED, NOT FIRST-HIT, and the difference is not academic. A bare label search
+ * for "Shrek" returns the ogre before the film, "Ted" returns Ted Danson,
+ * "Peter Pan" returns the character, "Annie" returns an awards ceremony and
+ * "Winnie the Pooh" returns a bear. Taking the first acceptable hit put an
+ * IMDb *character* id (ch0002004) on Shrek and a *person* id (nm0740485) on
+ * Ted, both of which render as links to nothing anybody wanted.
+ *
+ * Three signals, in order of strength:
+ *
+ *   1. The IMDb id must look like a TITLE — `tt` and nothing else. `nm` is a
+ *      person, `ch` a character, `ev` an event. That one test alone would have
+ *      caught every wrong answer above.
+ *   2. The year must match the year in watching.json, within one. Release dates
+ *      drift by a year between festival and general release, but not by ten,
+ *      and this is what separates the 1990 Total Recall from the 2012 one.
+ *   3. P31 has to be a film or a series, not a franchise or a character.
+ *
+ * `year` is what makes this work, so pass it. Without one, scoring falls back
+ * to type-and-id and behaves as it did before.
+ */
+async function resolve_qid(title, year = null) {
+  const tries = year
+    ? [title, `${title} ${year} film`, `${title} film`, `${title} television series`, `${title} anime`]
+    : [title, `${title} television series`, `${title} anime`, `${title} film`];
+
+  let best = null, bestScore = 0;
+  for (const q of tries) {
     const u =
       "https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&limit=8&type=item&search=" +
       encodeURIComponent(q);
     let hits = [];
     try { hits = (await getJSON(u))?.search || []; } catch { continue; }
 
-    const scored = [];
     for (const h of hits.slice(0, 6)) {
       const e = await entity(h.id);
       if (!e) continue;
       const p31 = (e.claims?.P31 || []).map((c) => c.mainsnak?.datavalue?.value?.id);
       if (p31.some((id) => NOT_A_SHOW.includes(id))) continue;
-      if (p31.some((id) => KINDS.includes(id))) return h.id;
-      // Weaker signal, kept as a fallback: an IMDb id on something that is not
-      // on the blocklist is almost always the screen work we are looking for.
-      if (e.claims?.P345) scored.push(h.id);
+
+      const imdb = e.claims?.P345?.[0]?.mainsnak?.datavalue?.value || "";
+      const when = e.claims?.P577?.[0]?.mainsnak?.datavalue?.value
+                || e.claims?.P580?.[0]?.mainsnak?.datavalue?.value;
+      const yr = when?.time ? Number(when.time.slice(1, 5)) : null;
+
+      let score = 0;
+      if (/^tt\d+$/.test(imdb)) score += 4;
+      else if (imdb) score -= 4;                       // nm / ch / ev: wrong kind of thing
+      if (p31.some((id) => KINDS.includes(id))) score += 3;
+      if (year && yr) score += Math.abs(yr - year) <= 1 ? 4 : -3;
+
+      // A perfect card — right kind, right year, real title id — cannot be
+      // beaten, so stop looking rather than spend six more entity fetches.
+      if (score >= 11) return h.id;
+      if (score > bestScore) { bestScore = score; best = h.id; }
     }
-    if (scored.length) return scored[0];
+    if (bestScore >= 7) break;
   }
-  return null;
+  return bestScore > 0 ? best : null;
 }
 
 const cache = new Map();
@@ -246,7 +279,7 @@ async function collect(rows) {
 
     let qid = s.qid || null;
     try {
-      if (!qid) qid = await resolve_qid(s.title);
+      if (!qid) qid = await resolve_qid(s.title, s.year || null);
     } catch (err) {
     console.warn(`  ${s.title}: search failed (${err.message})`);
     }
@@ -255,7 +288,10 @@ async function collect(rows) {
     const e = await entity(qid);
     if (e) {
       row.qid = qid;
-      const imdb = s.imdb || claim(e, "P345");
+      /* Belt and braces: even a hand-pinned qid can carry a character id, so
+         nothing that is not a tt-id becomes a link. */
+      const found = claim(e, "P345");
+      const imdb = s.imdb || (/^tt\d+$/.test(found || "") ? found : null);
       if (imdb && !row.imdb_url) { row.imdb = imdb; row.imdb_url = `https://www.imdb.com/title/${imdb}/`; withImdb++; }
       else if (imdb) row.imdb = imdb;
 

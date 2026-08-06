@@ -827,12 +827,22 @@
        else — it was three, and three rows of ninety-two posters is a wall.
        Shuffled per build, so which half you see is not always the same half. #}
     {% if titles.movies | length > 0 %}
-    {% set per = titles.movies | length / 2 | round(method="ceil") %}
+    {# A SAMPLE, not the lot. All 333 are on /movies/ with a search box; putting
+       them all here put 668 poster cards in the HTML (the marquee prints each
+       row twice so the track can loop seamlessly), took the page from 36 KB to
+       46 KB, and made a row 21,000px long that had to move at 228 px/s to get
+       round in the time allowed — which is not a shelf, it is a blur.
+
+       Sixty is two comfortable rows. The per-build shuffle means it is a
+       different sixty every time, which is the good version of this: the home
+       page is a window on the list, and the list is one click away. #}
+    {% set sample = titles.movies | slice(end=60) %}
+    {% set per = sample | length / 2 | round(method="ceil") %}
     <section id="movies">
         <div class="wrap">
             <div class="head">
                 <h2>Movies</h2>
-                <p>Every film I have ever watched — all {{ titles.movie_count }} of them, shuffled. Every card links to IMDb.</p>
+                <p>Every film I have ever watched — {{ titles.movie_count }} of them. Sixty at random below; the rest are one click away.</p>
                 <a class="more" href="/movies/">All of them →</a>
             </div>
         </div>
@@ -841,7 +851,7 @@
             <div class="mq-track">
                 {% for pass in [1, 2] %}
                 <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
-                {% for m in titles.movies | slice(start=(row - 1) * per, end=row * per) %}
+                {% for m in sample | slice(start=(row - 1) * per, end=row * per) %}
                 {{ isle::poster(w=m, size="sm") }}
                 {% endfor %}
                 </span>

@@ -285,7 +285,8 @@
       "year": 2019,
       "bg": "#20222b",
       "fg": "#c9cbd6",
-      "tmdb_id": 450465
+      "tmdb_id": 450465,
+      "qid": "Q30939513"
     },
     {
       "title": "Iron Man",
@@ -334,7 +335,8 @@
       "year": 2002,
       "bg": "#20222b",
       "fg": "#c9cbd6",
-      "tmdb_id": 557
+      "tmdb_id": 557,
+      "qid": "Q484442"
     },
     {
       "title": "Spider-Man 2",
@@ -437,7 +439,8 @@
       "year": 2009,
       "bg": "#20222b",
       "fg": "#c9cbd6",
-      "tmdb_id": 19995
+      "tmdb_id": 19995,
+      "qid": "Q24871"
     },
     {
       "title": "Avatar: The Way of Water",
@@ -624,7 +627,8 @@
       "year": 2017,
       "bg": "#20222b",
       "fg": "#c9cbd6",
-      "tmdb_id": 354912
+      "tmdb_id": 354912,
+      "qid": "Q5815826"
     },
     {
       "title": "Toy Story",
@@ -810,6 +814,1476 @@
       "title": "The Wizard of Oz",
       "year": 1939,
       "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Guardians of the Galaxy",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Guardians of the Galaxy Vol. 2",
+      "year": 2017,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Guardians of the Galaxy Vol. 3",
+      "year": 2023,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Maleficent",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Rio",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q223359"
+    },
+    {
+      "title": "Rio 2",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Teenage Mutant Ninja Turtles",
+      "year": 1990,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q58439"
+    },
+    {
+      "title": "Mr. Peabody & Sherman",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "300",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Heaven Is for Real",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "RoboCop",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Earth to Echo",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Frozen",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Despicable Me",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Despicable Me 2",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Despicable Me 3",
+      "year": 2017,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Man of Steel",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Croods",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Grown Ups",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Cloudy with a Chance of Meatballs",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Cloudy with a Chance of Meatballs 2",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Jackass Presents: Bad Grandpa",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Planes",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q1657080"
+    },
+    {
+      "title": "Planes: Fire & Rescue",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Her",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q788822"
+    },
+    {
+      "title": "Free Birds",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Jobs",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Purge",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Nut Job",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Lego Movie",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Lego Movie 2: The Second Part",
+      "year": 2019,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Dictator",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Project X",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q3407141"
+    },
+    {
+      "title": "Frankenweenie",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Battleship",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q474033"
+    },
+    {
+      "title": "Looper",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "John Carter",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q235347"
+    },
+    {
+      "title": "The Campaign",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hotel Transylvania",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Taken",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Taken 2",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Argo",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q59653"
+    },
+    {
+      "title": "Ice Age",
+      "year": 2002,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ice Age: The Meltdown",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ice Age: Dawn of the Dinosaurs",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ice Age: Continental Drift",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ice Age: Collision Course",
+      "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Men in Black",
+      "year": 1997,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Men in Black II",
+      "year": 2002,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Men in Black 3",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Madagascar",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Madagascar: Escape 2 Africa",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Madagascar 3: Europe's Most Wanted",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ted",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q641760"
+    },
+    {
+      "title": "Brave",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Hobbit: An Unexpected Journey",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Hobbit: The Desolation of Smaug",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Hobbit: The Battle of the Five Armies",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Hunger Games",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Thor",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Thor: The Dark World",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Thor: Ragnarok",
+      "year": 2017,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Thor: Love and Thunder",
+      "year": 2022,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Wolverine",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Smurfs",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q454398"
+    },
+    {
+      "title": "The Smurfs 2",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Turbo",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q1523217"
+    },
+    {
+      "title": "The Lorax",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Wreck-It Ralph",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ralph Breaks the Internet",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Total Recall",
+      "year": 1990,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Big Hero 6",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Captain America: The First Avenger",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Captain America: The Winter Soldier",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Gone Girl",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Nightcrawler",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Cars",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Cars 2",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Cars 3",
+      "year": 2017,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Kung Fu Panda",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Kung Fu Panda 2",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Kung Fu Panda 3",
+      "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Puss in Boots",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Puss in Boots: The Last Wish",
+      "year": 2022,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Shrek",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Shrek 2",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Rango",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Alvin and the Chipmunks: Chipwrecked",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Green Lantern",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hop",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q753605"
+    },
+    {
+      "title": "Cowboys & Aliens",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Gnomeo & Juliet",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Muppets",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Limitless",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q753517"
+    },
+    {
+      "title": "Moneyball",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Happy Feet Two",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Arthur Christmas",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hall Pass",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Spy Kids",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Spy Kids 2: The Island of Lost Dreams",
+      "year": 2002,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Spy Kids 3-D: Game Over",
+      "year": 2003,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Spy Kids: All the Time in the World",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Winnie the Pooh",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Dumb and Dumber",
+      "year": 1994,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Penguins of Madagascar",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Night at the Museum",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Night at the Museum: Battle of the Smithsonian",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Night at the Museum: Secret of the Tomb",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Annie",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q15039835"
+    },
+    {
+      "title": "The Theory of Everything",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Zookeeper",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Alice in Wonderland",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q174385"
+    },
+    {
+      "title": "The Karate Kid",
+      "year": 1984,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Tangled",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Little Fockers",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Megamind",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Yogi Bear",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Social Network",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Red",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q858842"
+    },
+    {
+      "title": "Diary of a Wimpy Kid",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "A Nightmare on Elm Street 3: Dream Warriors",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Get Him to the Greek",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Tooth Fairy",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hot Tub Time Machine",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hot Tub Time Machine 2",
+      "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Alpha and Omega",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "127 Hours",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Star Wars",
+      "year": 1977,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q17738"
+    },
+    {
+      "title": "The Empire Strikes Back",
+      "year": 1980,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Return of the Jedi",
+      "year": 1983,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Jurassic World",
+      "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ant-Man",
+      "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The SpongeBob Movie: Sponge Out of Water",
+      "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Minions",
+      "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Goosebumps",
+      "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Goosebumps 2: Haunted Halloween",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Paul Blart: Mall Cop",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "National Lampoon's Vacation",
+      "year": 1983,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "National Lampoon's European Vacation",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "National Lampoon's Christmas Vacation",
+      "year": 1989,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Chappie",
+      "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ex Machina",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Alvin and the Chipmunks: The Squeakquel",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Sherlock Holmes",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Monsters vs. Aliens",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "A Christmas Carol",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "District 9",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Princess and the Frog",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Knowing",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Zombieland",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Coraline",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hotel for Dogs",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "17 Again",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "18 Again!",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Year One",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Astro Boy",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Crank: High Voltage",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Flash",
+      "year": 2023,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Captain Marvel",
+      "year": 2019,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ghostbusters",
+      "year": 1984,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q108745"
+    },
+    {
+      "title": "Ghostbusters II",
+      "year": 1989,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ghostbusters: Afterlife",
+      "year": 2021,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ghostbusters: Frozen Empire",
+      "year": 2024,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Deadpool",
+      "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Deadpool 2",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Deadpool & Wolverine",
+      "year": 2024,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Doctor Strange",
+      "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Doctor Strange in the Multiverse of Madness",
+      "year": 2022,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Finding Dory",
+      "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Jungle Book",
+      "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Angry Birds Movie",
+      "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Black Panther",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Grinch",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hancock",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Horton Hears a Who!",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Curious Case of Benjamin Button",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Bolt",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q212792"
+    },
+    {
+      "title": "Tropic Thunder",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Step Brothers",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Yes Man",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "First Blood",
+      "year": 1982,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Rambo: First Blood Part II",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Rambo: Last Blood",
+      "year": 2019,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Bee Movie",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Drillbit Taylor",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Lost World: Jurassic Park",
+      "year": 1997,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Jurassic Park III",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Others",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Doctor Dolittle",
+      "year": 1998,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q663014"
+    },
+    {
+      "title": "Dr. Dolittle 2",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "A Beautiful Mind",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Jimmy Neutron: Boy Genius",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q1743785"
+    },
+    {
+      "title": "A.I. Artificial Intelligence",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Mexican",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Shallow Hal",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Animal",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Joe Dirt",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Overboard",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Super Troopers",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Osmosis Jones",
+      "year": 2001,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Incredible Shrinking Woman",
+      "year": 1981,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "How the Grinch Stole Christmas",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Cast Away",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "What Women Want",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Meet the Parents",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Chicken Run",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Me, Myself & Irene",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Space Cowboys",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "101 Dalmatians",
+      "year": 1996,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Kid",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q280186"
+    },
+    {
+      "title": "The Tigger Movie",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "O Brother, Where Art Thou?",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Frequency",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "American Psycho",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Count of Monte Cristo",
+      "year": 2002,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Stuart Little",
+      "year": 1999,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Stuart Little 2",
+      "year": 2002,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "National Lampoon's Van Wilder",
+      "year": 2002,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Wedding Crashers",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The 40-Year-Old Virgin",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Dukes of Hazzard",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Deuce Bigalow: Male Gigolo",
+      "year": 1999,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Charlie and the Chocolate Factory",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Robots",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Cinderella Man",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Day After Tomorrow",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "National Treasure",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "I, Robot",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Troy",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q186587"
+    },
+    {
+      "title": "DodgeBall: A True Underdog Story",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Aviator",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Starsky & Hutch",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The SpongeBob SquarePants Movie",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Scooby-Doo",
+      "year": 2002,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Anchorman: The Legend of Ron Burgundy",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Terminal",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Garfield",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Punisher",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Big Fish",
+      "year": 2003,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Peter Pan",
+      "year": 2003,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q1364029"
+    },
+    {
+      "title": "Willy Wonka & the Chocolate Factory",
+      "year": 1971,
+      "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
   ]
