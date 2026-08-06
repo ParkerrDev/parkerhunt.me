@@ -405,31 +405,86 @@
 .cc-when { color: var(--c-dim); font-size: 0.6875rem; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 
 /* ----------------------------------------------------- island: Nexus Mods -- */
+/* The palette is Nexus Mods' own, read off their stylesheet rather than guessed
+   at: surface base/low/mid are Tailwind zinc 950/900/800, the text ramp is zinc
+   100/300/400/500, and the accent is orange-400. What was here before was an
+   invented #1b1e26 with a muddy #da8e35 called "Montserrat", which is not their
+   colour and not their typeface — that is why it never looked like the thing it
+   was imitating.
+   Inter is theirs and is not shipped, same rule as Chirp and Motiva Sans up the
+   file. Naming it first costs nothing and gets used where it is installed. */
 .nx {
-  --n-bg: #1b1e26;
-  --n-panel: #23262f;
-  --n-ink: #d6d8de;
-  --n-dim: #8e93a0;
-  --n-orange: #da8e35;
-  --n-line: rgba(255, 255, 255, 0.07);
-  background: var(--n-bg); color: var(--n-ink);
-  font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --n-bg: #0f0f10;
+  --n-low: #1d1d21;
+  --n-mid: #29292e;
+  --n-ink: #f4f4f5;
+  --n-mod: #d4d4d8;
+  --n-dim: #a1a1aa;
+  --n-weak: #71717a;
+  --n-orange: #fb923c;
+  --n-line: rgba(255, 255, 255, 0.1);
+  background: var(--n-bg); color: var(--n-mod);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   letter-spacing: normal;
 }
-.nx-head { display: flex; align-items: center; gap: 0.625rem; padding: 0.875rem 1rem; background: var(--n-panel); border-bottom: 1px solid #000; font-size: 0.875rem; }
-.nx-head svg { width: 1.25rem; height: 1.25rem; fill: var(--n-orange); flex-shrink: 0; }
-.nx-head b { color: #fff; }
-.nx-head .nx-h-sub { margin-left: auto; color: var(--n-dim); font-size: 0.75rem; white-space: nowrap; }
-.nx-mod { display: block; padding: 0.875rem 1rem; border-bottom: 1px solid var(--n-line); }
-.nx-mod:last-child { border-bottom: 0; }
-.nx-mod:hover { background: var(--n-panel); }
-.nx-name { font-weight: 600; font-size: 0.9375rem; color: #fff; }
+
+/* The hero, which is Nexus's: the avatar sits over an over-scaled blurred copy
+   of itself, with the Supporter pill hung off its bottom edge. */
+.nx-hero { position: relative; overflow: hidden; padding: 1.125rem 1rem 1rem; }
+.nx-wash {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  transform: scale(3); filter: blur(26px) brightness(0.7) saturate(1.6);
+  pointer-events: none;
+}
+/* Load-bearing: the wash is whatever picture the avatar happens to be, so
+   without a scrim over it a pale avatar takes the username down with it. */
+.nx-hero::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(15, 15, 16, 0.5), var(--n-bg));
+}
+.nx-hero-in { position: relative; z-index: 1; display: flex; align-items: center; gap: 1rem; }
+.nx-id { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+.nx-av { width: 3.5rem; height: 3.5rem; border-radius: 50%; object-fit: cover; }
+.nx-badge {
+  margin-top: -0.3125rem; padding: 0.0625rem 0.5rem; border-radius: 999px;
+  background: #52525b; color: var(--n-ink);
+  font-size: 0.5625rem; letter-spacing: 0.04em; white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.nx-who { min-width: 0; }
+.nx-user { display: flex; align-items: center; gap: 0.5rem; }
+.nx-user svg { width: 1.25rem; height: 1.25rem; fill: var(--n-orange); flex-shrink: 0; }
+.nx-user b { color: var(--n-ink); font-size: 1.0625rem; font-weight: 600; overflow-wrap: anywhere; }
+.nx-verified { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.375rem; }
+.nx-verified svg { width: 1.125rem; height: 1.125rem; fill: var(--n-ink); flex-shrink: 0; }
+.nx-verified span { font-size: 0.6875rem; color: var(--n-dim); }
+.nx-verified b { display: block; color: var(--n-ink); font-size: 0.75rem; font-weight: 600; }
+
+/* Four counters, deliberately the same shape as the Steam island's — but on a
+   grid rather than wrapping flex, because four is an awkward number to wrap:
+   at the widths just above the phone breakpoint a flex row drops exactly one
+   tile onto a line of its own, and a full-width box reading "11 KUDOS" under
+   three normal ones looks like a mistake. Four across, then two by two. The
+   1px gaps over a black ground are the dividers. */
+.nx-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: #000; padding: 1px 0; }
+.nx-stats--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.nx-stat { background: var(--n-low); padding: 0.75rem 0.875rem; }
+.nx-stat b { display: block; font-size: 1.25rem; font-weight: 600; color: var(--n-ink); line-height: 1.15; font-variant-numeric: tabular-nums; }
+.nx-stat span { font-size: 0.5625rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--n-dim); }
+
+.nx-mod { display: block; padding: 0.875rem 1rem; border-top: 1px solid var(--n-line); }
+.nx-mod:hover { background: var(--n-low); }
+.nx-top { display: flex; align-items: baseline; gap: 0.5rem; }
+.nx-name { flex: 1; min-width: 0; font-weight: 600; font-size: 0.9375rem; color: var(--n-ink); }
 .nx-mod:hover .nx-name { color: var(--n-orange); }
-.nx-game { font-size: 0.6875rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--n-orange); margin-top: 0.125rem; }
-.nx-sum { margin: 0.375rem 0 0; font-size: 0.8125rem; color: var(--n-dim); line-height: 1.45; }
-.nx-meta { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.875rem; font-size: 0.75rem; color: var(--n-dim); }
+.nx-ver { flex-shrink: 0; padding: 0.0625rem 0.375rem; border-radius: 4px; background: var(--n-mid); color: var(--n-dim); font-size: 0.625rem; font-variant-numeric: tabular-nums; }
+.nx-game { margin-top: 0.1875rem; font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--n-orange); }
+.nx-game i { font-style: normal; color: var(--n-weak); }
+.nx-sum { margin: 0.4375rem 0 0; font-size: 0.8125rem; color: var(--n-dim); line-height: 1.5; }
+.nx-meta { margin-top: 0.5625rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.875rem; font-size: 0.75rem; color: var(--n-dim); font-variant-numeric: tabular-nums; }
 .nx-meta span { display: inline-flex; align-items: center; gap: 0.3125rem; }
 .nx-meta svg { width: 0.875rem; height: 0.875rem; }
+.nx-when { margin-left: auto; color: var(--n-weak); }
 
 /* ------------------------------------------------------------- islands@ -- */
 /* Narrow screens. Kept at the bottom of this file for the same reason the
@@ -445,4 +500,17 @@
   .s-stat { flex-basis: 4.5rem; padding: 0.625rem; }
   .s-stat b { font-size: 1.125rem; }
   .cc-head, .cc-mode, .cc-game { padding-left: 0.75rem; padding-right: 0.75rem; }
+  .nx-hero, .nx-mod { padding-left: 0.75rem; padding-right: 0.75rem; }
+  .nx-stat { padding: 0.625rem 0.75rem; }
+  .nx-stat b { font-size: 1.125rem; }
+}
+
+/* The Nexus counters break earlier than everything else above, and on purpose.
+   "ENDORSEMENTS" is one twelve-character word with no break opportunity in it,
+   so a quarter-width tile stops shrinking at whatever that word measures and
+   the grid pushes itself wider than the panel. 34rem is comfortably above the
+   width where that starts (~28rem), so the two-by-two arrives before the
+   overflow does rather than after it. */
+@media (max-width: 34rem) {
+  .nx-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

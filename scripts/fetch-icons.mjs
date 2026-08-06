@@ -51,7 +51,7 @@ const WANT = [
   // Coffee
   "starbucks",
   // Elsewhere on the site
-  "steam",
+  "steam", "nexusmods",
 ];
 
 const CDN = "https://cdn.jsdelivr.net/npm/simple-icons@latest";

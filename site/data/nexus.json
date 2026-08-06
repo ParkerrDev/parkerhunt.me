@@ -1,11 +1,30 @@
 {
   "author": "hydronautica",
-  "url": "https://www.nexusmods.com/profile/hydronautica/mods",
+  "url": "https://www.nexusmods.com/profile/hydronautica",
+  "mods_url": "https://www.nexusmods.com/profile/hydronautica/mods",
   "fetched": "2026-08-06",
   "count": 5,
   "totals": {
     "downloads": 18536,
     "endorsements": 229
+  },
+  "profile": {
+    "member_id": 186080535,
+    "joined": "2023-07-28",
+    "kudos": 11,
+    "views": 1370,
+    "posts": 77,
+    "verified_author": true,
+    "unique_downloads": 15612,
+    "endorsements_given": 37,
+    "roles": [
+      "member",
+      "supporter"
+    ],
+    "badge": "supporter",
+    "avatar_source": "https://avatars.nexusmods.com/186080535/100",
+    "avatar": "/imgs/nexus/avatar-1f3c0459.webp",
+    "avatar_bytes": 2444
   },
   "games": [
     "Subnautica",

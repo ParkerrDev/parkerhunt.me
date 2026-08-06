@@ -24,7 +24,7 @@ scripts/fetch-*.mjs ──► site/data/*.json ──► templates ──► pub
 | `fetch-steam.mjs` | `store.steampowered.com` + `site/data/steam-seed.json` | `site/data/steam.json` | none |
 | `fetch-chess.mjs` | `api.chess.com/pub` | `site/data/chess.json` | none |
 | `fetch-duolingo.mjs` | `duolingo.com/2017-06-30/users` | `site/data/duolingo.json` | none |
-| `fetch-nexus.mjs` | `api-router.nexusmods.com/graphql` | `site/data/nexus.json` | none |
+| `fetch-nexus.mjs` | `api-router.nexusmods.com/graphql` | `site/data/nexus.json` + `site/static/imgs/nexus/avatar-*.webp` | none |
 | `fetch-steam-art.mjs` | `steam.json` + Steam CDN | `site/static/imgs/steam/*.webp` | none, **local only** |
 | `build-stamps.mjs` | nothing — arithmetic | `site/data/stamps.json` | n/a |
 | `fetch-media.mjs` | Wikimedia Commons + Open Library | `site/static/imgs/media/*.webp` + `site/data/media.json` | none, **local only** |
@@ -186,6 +186,48 @@ to a two-letter monogram.
 TV posters are the one thing that cannot be solved this way. Key art is
 copyrighted and has no free source at any size, which is why the show cards are
 typography rather than pictures.
+
+**Do not draw a brand mark by hand.** The Nexus Mods island shipped for weeks
+with a hexagon containing a letter N, invented from memory, which is not that
+company's logo and never resembled it — theirs is an interlocking four-way knot.
+Simple Icons has it under the slug `nexusmods`, as it has almost everything, and
+the two call sites reach for it through `ico::brand()` so there is exactly one
+copy of the 2.8 KB path. If a mark is worth showing it is worth looking up; if
+it cannot be looked up, use a generic glyph and say so.
+
+## Nexus Mods asks two questions, not one
+
+`fetch-nexus.mjs` makes two unauthenticated GraphQL calls, the same pair the
+profile page itself fires:
+
+- `mods(filter: { uploaderId })` — the published mods, sorted by downloads.
+- `userByName(name)` — the profile: kudos, views, join date, verified-author
+  flag, unique downloads, avatar URL.
+
+The second one is a **bonus, not a requirement**. If it fails the mods still
+publish and the island renders without its hero; the template drops the Kudos
+tile rather than printing a confident `0`, because "we did not fetch it" and
+"nobody gave him any" are different claims.
+
+**Two download numbers that disagree, both correct.** `totals.downloads` (18,536)
+is the sum of the five mods' counts. `profile.unique_downloads` (15,612) is what
+Nexus puts on the profile and counts each person once however many mods they
+took. Label them separately or the page quietly claims a figure Nexus does not.
+
+The avatar is downloaded, re-encoded (19 KB → 2.4 KB) and served from this
+origin like everything else. Two things about it:
+
+- Nexus only serves it at **100×100**. Asking for `/200` or `/400` returns the
+  grey placeholder mark rather than a larger picture, so there is no retina
+  version to fetch.
+- The filename **carries a hash of the source bytes**, for the reason spelled
+  out under the map above: `/imgs/*` is `immutable` for a year, so a picture
+  that changes while keeping its name is one returning visitors hold onto until
+  next August.
+
+Re-encoding needs `cwebp`, which the Cloudflare builder does not have, so that
+step is skipped there and the committed file stays — the same fail-soft rule as
+the rest of the directory.
 
 ## The watch-list pipeline
 
