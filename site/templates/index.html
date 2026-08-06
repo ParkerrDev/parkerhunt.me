@@ -787,10 +787,17 @@
 
     {# ------------------------------------------------------ fav TV shows -- #}
     {# A grid, not a marquee: a favourite that scrolls away is not being
-       treated as a favourite. Membership comes from `favourite_shows` in
-       me.toml, matched on exact title. #}
+       treated as a favourite. Shows and anime are two labelled groups in one
+       section rather than two sections — they were given as two lists and
+       me.toml already keeps [[anime]] separate, but four posters do not need
+       two headings between them.
+
+       The inner loop walks the NAME list and finds the show, not the other way
+       round, so the order is the order in me.toml. Walking titles.shows would
+       hand the ordering to whatever the per-build shuffle did, and a favourites
+       list that reshuffles itself is a ranking that means nothing. #}
     {% set_global fav_tv_n = 0 %}
-    {% for w in titles.shows %}{% if w.title in me.favourite_shows %}{% set_global fav_tv_n = fav_tv_n + 1 %}{% endif %}{% endfor %}
+    {% for w in titles.shows %}{% if w.title in me.favourite_shows or w.title in me.favourite_anime %}{% set_global fav_tv_n = fav_tv_n + 1 %}{% endif %}{% endfor %}
     {% if fav_tv_n > 0 %}
     <section id="fav-tv">
         <div class="wrap">
@@ -798,9 +805,18 @@
                 <h2>Favourite TV shows</h2>
                 <p>{{ fav_tv_n }} of the {{ titles.count }}. The ones I would put on again.</p>
             </div>
-            <div class="favs">
-                {% for w in titles.shows %}{% if w.title in me.favourite_shows %}{{ isle::poster(w=w, size="sm") }}{% endif %}{% endfor %}
+            {% if me.favourite_shows | length > 0 %}
+            <p class="fav-k">Shows</p>
+            <div class="favs" style="margin-bottom:1.25rem">
+                {% for name in me.favourite_shows %}{% for w in titles.shows %}{% if w.title == name %}{{ isle::poster(w=w, size="sm") }}{% endif %}{% endfor %}{% endfor %}
             </div>
+            {% endif %}
+            {% if me.favourite_anime | length > 0 %}
+            <p class="fav-k">Anime</p>
+            <div class="favs">
+                {% for name in me.favourite_anime %}{% for w in titles.shows %}{% if w.title == name %}{{ isle::poster(w=w, size="sm") }}{% endif %}{% endfor %}{% endfor %}
+            </div>
+            {% endif %}
         </div>
     </section>
     {% endif %}
