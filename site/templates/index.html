@@ -325,15 +325,28 @@
 
         </div>
 
-        {# The library and the wishlist, each as a horizontal shelf inside its
-           own Steam panel. The panel is the point: a bare row of capsules on a
-           white page was not recognisably Steam, and the profile bar and the
-           four counters are half of what made the section read at a glance. #}
-        <div class="wrap" style="display:grid;gap:var(--gap)">
-            {{ isle::steam_shelf(steam=steam, games=steam.library | slice(end=steam.totals.played), label="Most played") }}
-            {% if steam.on_sale | length > 0 %}
-            {{ isle::steam_shelf(steam=steam, games=steam.on_sale, label=steam.totals.on_sale ~ " on sale right now", sale=true) }}
-            {% endif %}
+        {# Back to the two vertical panels. The horizontal shelf was worse in
+           both directions: it hid the achievement counts and the playtime bar
+           that made the library worth looking at, and a wishlist row without
+           its review score and price block is just a picture of a game. #}
+        <div class="wrap">
+            <div class="duo">
+                <div>
+                    <div class="feed stm">
+                        {{ isle::steam_head(steam=steam, label="Most played") }}
+                        {{ isle::steam_stats(steam=steam) }}
+                        {{ isle::steam_played(games=steam.library | slice(end=steam.totals.played), top=steam.library | first | get(key="minutes")) }}
+                    </div>
+                </div>
+                {% if steam.on_sale | length > 0 %}
+                <div>
+                    <div class="feed stm">
+                        {{ isle::steam_head(steam=steam, label=steam.totals.on_sale ~ " on sale right now") }}
+                        {{ isle::steam_wish(games=steam.on_sale) }}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
         </div>
 
         <div class="wrap">
@@ -485,7 +498,7 @@
                 {% for s in me.coffee_shop %}
                 <div class="receipt{% if s.orders | length == 0 %} receipt--sour{% endif %}">
                     <div class="receipt-h">
-                        <span class="mark mark--lg{% if not s.icon %} mark--letter{% endif %}" style="--c:{{ s.colour }}">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, name=s.icon, mono=s.mono) }}</span>
+                        {{ ico::banner(logos=logos.logos, name=s.icon, mono=s.mono, colour=s.colour) }}
                         <b>{{ s.name }}</b>
                         <span>{% if s.orders | length > 0 %}Usual order{% else %}No order{% endif %}</span>
                     </div>
@@ -498,6 +511,12 @@
                 </div>
                 {% endfor %}
             </div>
+            {% set_global cred = [] %}
+            <p class="credit">
+                {%- for sh in me.coffee_shop %}{% set k = sh.icon | replace(from="c:", to="") %}
+                {%- if k and logos.logos[k] is defined and logos.logos[k].credit_required %}{{ sh.name }} photo/logo by {{ logos.logos[k].author }}, <a href="{{ logos.logos[k].source }}" target="_blank" rel="noopener">{{ logos.logos[k].licence }}</a>. {% endif %}
+                {%- endfor -%}
+            </p>
         </div>
     </section>
     {% endif %}
@@ -516,9 +535,10 @@
                    uppercase label on top and the actual name under it — which
                    made a list of three restaurants look like a list of three
                    food groups. #}
-                <div class="tile-s2 tile--icon">
-                    <span class="mark mark--lg mark--letter" style="--c:{{ r.colour }}">{{ r.mono }}</span>
-                    <span><span class="t-t" style="display:block">{{ r.name }}</span><span class="t-s">{{ r.kind }}</span></span>
+                <div class="tile-s2">
+                    {{ ico::banner(logos=logos.logos, name=r.icon, mono=r.mono, colour=r.colour, small=true) }}
+                    <span class="t-t" style="margin-top:0.4375rem">{{ r.name }}</span>
+                    <span class="t-s">{{ r.kind }}</span>
                 </div>
                 {% endfor %}
             </div>
@@ -529,7 +549,7 @@
                 {% if r.order | length > 0 %}
                 <div class="receipt">
                     <div class="receipt-h">
-                        <span class="mark mark--lg mark--letter" style="--c:{{ r.colour }}">{{ r.mono }}</span>
+                        {{ ico::banner(logos=logos.logos, name=r.icon, mono=r.mono, colour=r.colour) }}
                         <b>{{ r.name }}</b><span>Usual order</span>
                     </div>
                     <ul>

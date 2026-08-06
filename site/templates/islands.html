@@ -235,15 +235,21 @@
    logo's own ink — measured at fetch time, see isDark() in fetch-titles.mjs.
    Dark type gets a near-white plate, light type gets a near-black one. Without
    this, Better Call Saul's black wordmark sat on a black card and vanished. #}
-<a class="poster poster--{{ size }}{% if w.logo %} poster--logo poster--{% if w.logo.dark %}plate{% else %}slate{% endif %}{% endif %}"
+<a class="poster poster--{{ size }}{% if w.poster %} poster--art{% elif w.logo %} poster--logo poster--{% if w.logo.dark %}plate{% else %}slate{% endif %}{% endif %}"
    style="--pb:{{ w.bg }};--pf:{{ w.fg }}"
    {% if w.imdb_url %}href="{{ w.imdb_url }}" target="_blank" rel="noopener"{% endif %}>
     {% if w.rank %}<span class="poster-n">{% if w.rank < 10 %}0{% endif %}{{ w.rank }}</span>{% endif %}
-    {% if w.logo %}
+    {% if w.poster %}
+    {# The real poster, straight from TMDb's CDN. It is the only third-party
+       request on this site, and it is TMDb's own condition for licensing the
+       artwork — see scripts/fetch-posters.mjs. #}
+    <img class="poster-p" src="{{ w.poster.src }}" alt="{{ w.title }}" width="342" height="513" loading="lazy" decoding="async">
+    {% if w.poster.rating %}<span class="poster-r">{{ w.poster.rating }}</span>{% endif %}
+    {% elif w.logo %}
     <img class="poster-i" src="{{ w.logo.src }}" alt="{{ w.title }}" width="240" height="120" loading="lazy" decoding="async">
     {% else %}
     <span class="poster-t">{{ w.title }}</span>
     {% endif %}
-    <span class="poster-y">{{ w.year }}{% if w.anime %} · anime{% endif %}{% if w.imdb_url %} · IMDb{% endif %}</span>
+    {% if not w.poster %}<span class="poster-y">{{ w.year }}{% if w.anime %} · anime{% endif %}{% if w.imdb_url %} · IMDb{% endif %}</span>{% endif %}
 </a>
 {% endmacro poster %}

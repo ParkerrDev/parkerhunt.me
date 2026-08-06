@@ -22,10 +22,12 @@
  * file whose licence turns out to be "fair use" fails loudly instead of quietly
  * putting a non-free logo on a public site.
  *
- * STILL MISSING, AND NOT FOR WANT OF LOOKING: Chipotle, Cattlemens, Butterfish
- * and Kuppa Joy. Commons has no free file for any of them — the first is a
- * pictorial mark that is above the originality threshold, and the other three
- * are local businesses nobody has uploaded. Those keep their lettermarks.
+ * WHEN THERE IS NO LOGO, THERE IS OFTEN A PHOTOGRAPH. Chipotle, Cattlemens and
+ * Kuppa Joy have no free logo — the first is a pictorial mark above the
+ * originality threshold and the other two are local — but Commons has freely
+ * licensed photographs of all three storefronts, and a picture of the place is
+ * a better answer than two letters in a box. Butterfish has neither and keeps
+ * its lettermark.
  *
  * Usage:  node scripts/fetch-logos.mjs [outDir] [dataFile]
  */
@@ -45,10 +47,20 @@ const UA = {
 /* key -> exact Commons filename. `pad` leaves breathing room inside the disc
    for wordmarks, which are much wider than they are tall. */
 const WANT = [
-  { key: "dutchbros", file: "Dutch Bros Coffee wordmark.svg", pad: true },
-  { key: "nobara", file: "Nobara logotype.png", pad: true },
+  // Wordmarks. `wide` tells the template to give them a letterbox rather than a
+  // square: a wordmark shrunk to fit a square is a wordmark nobody can read.
+  { key: "dutchbros", file: "Dutch Bros Coffee wordmark.svg", wide: true },
+  { key: "starbucks", file: "Starbucks coffee wordmark.png", wide: true },
+  { key: "nobara", file: "Nobara logotype.png", wide: true },
   { key: "cachyos", file: "CachyOS Logo.svg" },
   { key: "windows", file: "Windows logo - 2021 (Black).svg" },
+
+  /* Storefront photographs, for the businesses with no free logo anywhere.
+     A picture of the place is a better answer than two letters in a circle, and
+     these are all CC BY / CC BY-SA, so the photographer gets a credit line. */
+  { key: "kuppajoy", file: "Kuppa Joy.jpg", photo: true },
+  { key: "cattlemens", file: "Cattlemens Petaluma - June 2022 - Sarah Stierch 01.jpg", photo: true },
+  { key: "chipotle", file: "Chipotle Mexican Grill (15068734500).jpg", photo: true },
 ];
 
 /* Licences that may be redistributed from this site. Anything else — most
@@ -112,14 +124,16 @@ for (const w of WANT) {
     const tmp = join(tmpdir(), `logo-${w.key}.bin`);
     writeFileSync(tmp, buf);
     const out = join(DIR, `${w.key}.webp`);
-    // -q 90 because these are flat-colour marks, where webp's chroma
-    // subsampling shows up as fringing long before it does on a photograph.
-    execFileSync("cwebp", ["-quiet", "-q", "90", "-resize", "256", "0", tmp, "-o", out]);
+    // Flat-colour marks get q90 because webp's chroma subsampling shows up as
+    // fringing on hard edges long before it does on a photograph; photographs
+    // get q74 and twice the width, because they are photographs.
+    execFileSync("cwebp", ["-quiet", "-q", w.photo ? 74 : 90, "-resize", w.photo ? "480" : "256", "0", tmp, "-o", out].map(String));
     unlinkSync(tmp);
 
     logos[w.key] = {
       src: `/imgs/logos/${w.key}.webp`,
-      pad: !!w.pad,
+      wide: !!w.wide,
+      photo: !!w.photo,
       licence,
       author: plain(m.Artist?.value) || "Unknown",
       source: info.descriptionurl || `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(w.file)}`,

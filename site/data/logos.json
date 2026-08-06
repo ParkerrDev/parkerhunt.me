@@ -3,16 +3,28 @@
   "logos": {
     "dutchbros": {
       "src": "/imgs/logos/dutchbros.webp",
-      "pad": true,
+      "wide": true,
+      "photo": false,
       "licence": "Public domain",
       "author": "Dutch Bros. Coffee (Q5317253)",
       "source": "https://commons.wikimedia.org/wiki/File:Dutch_Bros_Coffee_wordmark.svg",
       "credit_required": false,
       "bytes": 5560
     },
+    "starbucks": {
+      "src": "/imgs/logos/starbucks.webp",
+      "wide": true,
+      "photo": false,
+      "licence": "Public domain",
+      "author": "Unknown authorUnknown author",
+      "source": "https://commons.wikimedia.org/wiki/File:Starbucks_coffee_wordmark.png",
+      "credit_required": false,
+      "bytes": 4012
+    },
     "nobara": {
       "src": "/imgs/logos/nobara.webp",
-      "pad": true,
+      "wide": true,
+      "photo": false,
       "licence": "CC BY-SA 4.0",
       "author": "Nobara Project",
       "source": "https://commons.wikimedia.org/wiki/File:Nobara_logotype.png",
@@ -21,7 +33,8 @@
     },
     "cachyos": {
       "src": "/imgs/logos/cachyos.webp",
-      "pad": false,
+      "wide": false,
+      "photo": false,
       "licence": "GPL",
       "author": "ptr1337",
       "source": "https://commons.wikimedia.org/wiki/File:CachyOS_Logo.svg",
@@ -30,12 +43,43 @@
     },
     "windows": {
       "src": "/imgs/logos/windows.webp",
-      "pad": false,
+      "wide": false,
+      "photo": false,
       "licence": "Public domain",
       "author": "Original work: Microsoft (may be obtained from https://answers.microsoft.com/static/resourceimages/categories/windows.svg) File:Windows 11 Logo.svg: Multiple editors; see image description page This work: Minionguyjpro",
       "source": "https://commons.wikimedia.org/wiki/File:Windows_logo_-_2021_(Black).svg",
       "credit_required": false,
       "bytes": 288
+    },
+    "kuppajoy": {
+      "src": "/imgs/logos/kuppajoy.webp",
+      "wide": false,
+      "photo": true,
+      "licence": "CC BY 4.0",
+      "author": "DoulosBen",
+      "source": "https://commons.wikimedia.org/wiki/File:Kuppa_Joy.jpg",
+      "credit_required": true,
+      "bytes": 42890
+    },
+    "cattlemens": {
+      "src": "/imgs/logos/cattlemens.webp",
+      "wide": false,
+      "photo": true,
+      "licence": "CC BY 4.0",
+      "author": "Missvain",
+      "source": "https://commons.wikimedia.org/wiki/File:Cattlemens_Petaluma_-_June_2022_-_Sarah_Stierch_01.jpg",
+      "credit_required": true,
+      "bytes": 25460
+    },
+    "chipotle": {
+      "src": "/imgs/logos/chipotle.webp",
+      "wide": false,
+      "photo": true,
+      "licence": "CC BY 2.0",
+      "author": "Mike Mozart from Funny YouTube, USA",
+      "source": "https://commons.wikimedia.org/wiki/File:Chipotle_Mexican_Grill_(15068734500).jpg",
+      "credit_required": true,
+      "bytes": 23290
     }
   }
 }

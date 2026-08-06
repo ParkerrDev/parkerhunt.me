@@ -32,6 +32,7 @@ scripts/fetch-*.mjs ──► site/data/*.json ──► templates ──► pub
 | `fetch-icons.mjs` | Simple Icons | `site/data/icons.json` | none |
 | `fetch-logos.mjs` | Wikimedia Commons | `site/static/imgs/logos/*.webp` + `site/data/logos.json` | none, **local only** |
 | `fetch-titles.mjs` | Wikidata + Commons + `site/data/watching.json` | `site/data/titles.json` + `site/static/imgs/titles/*.webp` | none, **local only** |
+| `fetch-posters.mjs` | TMDb | merges posters into `site/data/titles.json` | **needs `TMDB_API_KEY`**, local only |
 
 All five fetchers run from `build-zola.sh` on every Cloudflare deploy. No API
 key, no token, no cookie: every endpoint above answers unauthenticated.
@@ -224,6 +225,15 @@ Three things that took a second pass:
   decodes each logo with `dwebp` to PAM, averages the luminance of the *opaque*
   pixels only, and records it; the template then puts dark ink on a near-white
   plate and light ink on a near-black one.
+
+## Posters are the one thing that needs a key
+
+See **POSTERS.md**. Short version: poster art is the studios', no free-licence
+source exists, and TMDb is the only service that licenses its API for showing
+it. That costs a free key and one broken rule — TMDb requires images be served
+from their CDN, so posters are the only third-party request this site makes.
+Nothing happens until someone runs the script with a key; until then the shows
+keep their Commons title logos and typographic cards, all locally served.
 
 ## The hand-written half
 
