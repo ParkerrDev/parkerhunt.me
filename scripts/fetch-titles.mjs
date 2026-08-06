@@ -260,7 +260,13 @@ mkdirSync(DIR, { recursive: true });
 let previous = {};
 try {
   const old = JSON.parse(readFileSync(OUT, "utf8"));
-  for (const s of [...(old.shows || []), ...(old.movies || [])]) if (s.poster) previous[s.title] = s.poster;
+  /* KEYED BY LIST AND YEAR, NOT BY TITLE. Three titles already live in both
+     lists — Fargo, The Flash and Underdog are each a series and a film — and
+     Goosebumps is a fourth. Keying on the title alone meant the last one read
+     won, so a show could inherit a film's poster on any run where
+     fetch-posters did not follow. Latent until it was not. */
+  for (const [list, rows] of [["show", old.shows || []], ["film", old.movies || []]])
+    for (const s of rows) if (s.poster) previous[`${list}:${s.title}:${s.year || ""}`] = s.poster;
   if (old.posters) var carriedPosters = old.posters;
 } catch {}
 
@@ -268,7 +274,7 @@ let withLogo = 0, withImdb = 0, refused = 0;
 
 /* Two lists, one loop. A film and a television series differ only in which
    Wikidata class they match, and KINDS already covers both. */
-async function collect(rows) {
+async function collect(rows, kind) {
   const out = [];
   for (const s of rows) {
     const key = slug(s.title);
@@ -335,7 +341,8 @@ async function collect(rows) {
     }
     }
 
-    if (previous[s.title]) row.poster = previous[s.title];
+    const carried = previous[`${kind}:${s.title}:${s.year || ""}`];
+    if (carried) row.poster = carried;
     out.push(row);
     process.stdout.write(
       `  ${s.title.slice(0, 40).padEnd(42)} ${(row.imdb || "—").padEnd(11)} ${row.logo ? "logo" : ""}\n`
@@ -347,8 +354,8 @@ async function collect(rows) {
   return out;
 }
 
-let shows = await collect(input.shows);
-let movies = await collect(input.movies || []);
+let shows = await collect(input.shows, "show");
+let movies = await collect(input.movies || [], "film");
 
 /* A TITLE ENDS UP IN THE LIST WIKIDATA SAYS IT BELONGS IN, not the one it was
    typed into. "Mr. Peabody & Sherman" was written under films and matched the
