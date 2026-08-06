@@ -137,7 +137,21 @@
    the company wordmarks that are public domain, and some businesses are in
    neither. See scripts/fetch-icons.mjs and scripts/fetch-logos.mjs. #}
 {% macro anymark(icons, logos, name, mono="") %}
-{%- if name is starting_with("c:") %}{% set k = name | replace(from="c:", to="") %}{% if logos[k] %}<img class="bi bl{% if logos[k].pad %} bl--pad{% endif %}" src="{{ logos[k].src }}" alt="" width="64" height="64" loading="lazy" decoding="async">{% endif %}
+{%- if name is starting_with("c:") %}{% set k = name | replace(from="c:", to="") %}{% if logos[k] is defined %}<img class="bl" src="{{ logos[k].src }}" alt="" width="128" height="64" loading="lazy" decoding="async">{% endif %}
 {%- elif name %}{{ self::mark(icons=icons, name=name) }}
 {%- else %}{{ mono }}{% endif -%}
 {% endmacro anymark %}
+
+{# A full-width banner instead of a chip: the right shape for a wordmark or a
+   storefront photograph, both of which are much wider than they are tall. Falls
+   back to the lettermark when there is nothing to show. #}
+{% macro banner(logos, name, mono="", colour="", small=false) %}
+{#- An empty `name` is normal — Butterfish has no free logo anywhere — so the
+    lookup has to be guarded rather than attempted. Tera subscripts a map with
+    "" as a real key and errors rather than returning nothing. -#}
+{%- set k = name | replace(from="c:", to="") -%}
+{%- set has = k and logos[k] is defined -%}
+<span class="banner{% if small %} banner--sm{% endif %}{% if has and logos[k].photo %} banner--photo{% elif not has %} banner--letter{% endif %}"{% if colour %} style="--c:{{ colour }}"{% endif %}>
+{%- if has %}<img src="{{ logos[k].src }}" alt="" width="240" height="96" loading="lazy" decoding="async">{% else %}{{ mono }}{% endif -%}
+</span>
+{% endmacro banner %}
