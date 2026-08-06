@@ -89,3 +89,40 @@
 {% macro dl() %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11m0 0 4.2-4.2M12 14l-4.2-4.2M3.8 17.5v1.7a1.8 1.8 0 0 0 1.8 1.8h12.8a1.8 1.8 0 0 0 1.8-1.8v-1.7"/></svg>{% endmacro dl %}
 
 {% macro heart() %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8.4-5-8.4-10.8A4.9 4.9 0 0 1 12 7.2a4.9 4.9 0 0 1 8.4 3c0 5.8-8.4 10.8-8.4 10.8Z"/></svg>{% endmacro heart %}
+
+{# --- brand marks ---------------------------------------------------------- #}
+{# Renders a logo out of site/data/icons.json. The map has to be passed in
+   because a Tera macro cannot see globals — which is the right constraint
+   here: it makes these pure functions of a snapshot.
+
+   `tint` paints the mark in the brand's own published colour; without it the
+   mark inherits currentColor, which is what you want on a coloured tile where
+   the logo is knocked out in white. A slug that is not in the set renders
+   nothing at all, so a missing logo can never take a page down. #}
+{% macro brand(icons, slug, tint=false) %}{% if slug and icons[slug] %}<svg class="bi" viewBox="0 0 24 24" fill="{% if tint %}{{ icons[slug].hex }}{% else %}currentColor{% endif %}" aria-hidden="true"><path d="{{ icons[slug].d }}"/></svg>{% endif %}{% endmacro brand %}
+
+{# --- generic glyphs ------------------------------------------------------- #}
+{# For everything with no free logo: Windows, Chipotle, Dutch Bros, and every
+   local business. Drawing a passable imitation of a trademark from memory would
+   look worse AND sit closer to the line than using the real mark nominatively,
+   so these are honestly generic — a screen, a cup, a bowl. Referenced from
+   me.toml as "g:name". #}
+{% macro glyph(name) %}
+{%- if name == "monitor" -%}
+<svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="3.5" width="19" height="13" rx="2"/><path d="M8.5 20.5h7M12 16.5v4"/></svg>
+{%- elif name == "cup" -%}
+<svg class="bi" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.6 2h12.8l-.7 4H6.3L5.6 2Zm.9 5.5h11l-1.2 12.1A2.6 2.6 0 0 1 13.7 22h-3.4a2.6 2.6 0 0 1-2.6-2.4L6.5 7.5Zm11.6 1.9 2.5.5a2.4 2.4 0 0 1 1.8 2.9l-.5 2.3a2.4 2.4 0 0 1-2.5 1.9l-1.7-.1.2-1.9 1.5.1a.6.6 0 0 0 .6-.4l.5-2.3a.5.5 0 0 0-.4-.6l-2.2-.5.2-1.9Z"/></svg>
+{%- elif name == "bowl" -%}
+<svg class="bi" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 10.5h20a10 10 0 0 1-6.2 9.2l-.4 1.1a1.4 1.4 0 0 1-1.3.9h-4.2a1.4 1.4 0 0 1-1.3-.9l-.4-1.1A10 10 0 0 1 2 10.5Zm12.4-8.1 1.5 1.2-4.7 5.6H8.8l5.6-6.8Zm3.6 1.9 1.4 1.3-2.6 3.6h-2.4l3.6-4.9Z"/></svg>
+{%- elif name == "steak" -%}
+<svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 2.5v7a2.5 2.5 0 0 0 5 0v-7M9 2.5v5"/><path d="M9 12v9.5"/><path d="M17.5 2.5c-1.7 1.2-2.5 3.2-2.5 5.5 0 1.7.6 3 1.6 3.7v9.8"/></svg>
+{%- elif name == "burrito" -%}
+<svg class="bi" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.1 17.4 17.4 3.1a2 2 0 0 1 2.8 0l.7.7a2 2 0 0 1 0 2.8L6.6 20.9a2 2 0 0 1-2.8 0l-.7-.7a2 2 0 0 1 0-2.8Zm2.3 1.4 1-1-1.4-1.4-1 1 1.4 1.4Zm2.5-2.5 1.4-1.4L8 13.5l-1.4 1.4 1.3 1.4Zm2.9-2.9 1.4-1.4-1.4-1.4-1.4 1.4 1.4 1.4Zm2.8-2.8 1.4-1.4-1.4-1.4-1.4 1.4 1.4 1.4Zm2.9-2.9 1-1-1.4-1.4-1 1 1.4 1.4Z"/></svg>
+{%- elif name == "chips" -%}
+<svg class="bi" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 2h12a1 1 0 0 1 1 1.2l-2.4 17A2 2 0 0 1 14.6 22H9.4a2 2 0 0 1-2-1.8L5 3.2A1 1 0 0 1 6 2Zm1.2 2 .5 3.5h8.6L16.8 4H7.2Z"/></svg>
+{%- endif -%}
+{% endmacro glyph %}
+
+{# One call site for both kinds: "g:cup" draws a glyph, anything else is a
+   Simple Icons slug. Keeps me.toml down to a single `icon` field per row. #}
+{% macro mark(icons, name, tint=false) %}{% if name is starting_with("g:") %}{{ self::glyph(name=name | replace(from="g:", to="")) }}{% else %}{{ self::brand(icons=icons, slug=name, tint=tint) }}{% endif %}{% endmacro mark %}

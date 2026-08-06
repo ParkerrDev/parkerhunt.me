@@ -29,6 +29,7 @@ scripts/fetch-*.mjs ──► site/data/*.json ──► templates ──► pub
 | `build-stamps.mjs` | nothing — arithmetic | `site/data/stamps.json` | n/a |
 | `fetch-media.mjs` | Wikimedia Commons + Open Library | `site/static/imgs/media/*.webp` + `site/data/media.json` | none, **local only** |
 | `build-map.mjs` | Wikimedia Commons + `site/data/travel.json` | `site/static/imgs/us-visited.svg` + `site/data/travel-map.json` | none, **local only** |
+| `fetch-icons.mjs` | Simple Icons | `site/data/icons.json` | none |
 
 All five fetchers run from `build-zola.sh` on every Cloudflare deploy. No API
 key, no token, no cookie: every endpoint above answers unauthenticated.
@@ -157,6 +158,30 @@ touching the precision is neither.
 The base map is "Blank US Map (states only).svg" by Heitordp, released **CC0**,
 so unlike the photographs it carries no attribution requirement. It is credited
 on the page regardless.
+
+## Logos: whose they are, and when not to use one
+
+`fetch-icons.mjs` pulls the brand marks into `site/data/icons.json` — single
+monochrome paths on a 24×24 grid plus each brand's published hex, inlined into
+the page so nothing fetches a logo at load time.
+
+Simple Icons releases its SVG data CC0, but CC0 cannot give away someone else's
+trademark. What makes this fine is what the marks are used *for*: "I daily drive
+Linux", "my Starbucks order is this". That is nominative use — a mark referring
+to the thing it names — which is what every comparison table does. No mark is
+altered beyond being tinted to its own brand colour, and nothing implies
+endorsement.
+
+Where there is no free mark — Windows, Chipotle, Dutch Bros, Nobara, CachyOS,
+and every local business — the answer is **not** to draw an imitation from
+memory. That would look worse *and* sit closer to the line than using the real
+thing nominatively. Those get honestly generic glyphs from `macros.html`
+(`g:monitor`, `g:cup`, `g:bowl`, `g:steak`, `g:burrito`, `g:chips`) or fall back
+to a two-letter monogram.
+
+TV posters are the one thing that cannot be solved this way. Key art is
+copyrighted and has no free source at any size, which is why the show cards are
+typography rather than pictures.
 
 ## The hand-written half
 

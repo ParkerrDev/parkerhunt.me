@@ -1086,7 +1086,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 89,
-        "count": 49036
+        "count": 49037
       }
     },
     {
@@ -1111,7 +1111,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 89,
-        "count": 278708
+        "count": 278714
       }
     },
     {
@@ -1381,7 +1381,7 @@
         "label": "Mostly Positive",
         "tone": "pos",
         "pct": 75,
-        "count": 66779
+        "count": 66780
       }
     },
     {
@@ -1643,7 +1643,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 97,
-        "count": 1204278
+        "count": 1204281
       }
     },
     {
@@ -1693,7 +1693,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 83,
-        "count": 774595
+        "count": 774596
       }
     },
     {
@@ -1863,7 +1863,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 51211
+        "count": 51213
       }
     },
     {

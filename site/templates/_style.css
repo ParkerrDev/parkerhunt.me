@@ -416,6 +416,7 @@ a.row:hover .row-t { color: var(--accent); }
   font-family: var(--mono); font-size: 0.8125rem;
 }
 .receipt-h {
+  display: flex; flex-direction: column; align-items: center; gap: 0.375rem;
   text-align: center; padding-bottom: 0.625rem; margin-bottom: 0.625rem;
   border-bottom: 2px dashed var(--line);
 }
@@ -700,6 +701,25 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
    ignored on an inline box, which left three jackets at three heights. */
 .cover { display: block; aspect-ratio: 2 / 3; border-radius: 6px; overflow: hidden; background: var(--bg-soft); box-shadow: var(--shadow-2); }
 .cover img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ----------------------------------------------------------------- marks -- */
+/* Brand logos and generic glyphs share one box so a row of them lines up
+   whether it is Tux or a drawing of a cup. */
+.bi { width: 1.125rem; height: 1.125rem; flex-shrink: 0; }
+.mark {
+  display: grid; place-items: center; flex-shrink: 0;
+  width: 2rem; height: 2rem; border-radius: 8px;
+  background: color-mix(in srgb, var(--c, var(--fg)) 12%, var(--card));
+  color: var(--c, var(--fg));
+}
+.mark--lose { background: var(--bg-soft); color: var(--faint); }
+/* On a saturated tile the logo is knocked out in white rather than tinted. */
+.mark--solid { background: var(--c, var(--fg)); color: #fff; }
+.mark--lg { width: 2.5rem; height: 2.5rem; border-radius: 10px; }
+/* A tile that leads with a mark lays out sideways instead of stacked. */
+.tile--icon { flex-direction: row; align-items: center; gap: 0.625rem; }
+.mark--lg .bi { width: 1.375rem; height: 1.375rem; }
+.swatch .bi { width: 44%; height: 44%; }
 
 /* ------------------------------------------------------------------ map -- */
 /* Map on the left, the states as text on the right. Collapses to stacked at
