@@ -13,257 +13,6 @@
   },
   "shows": [
     {
-      "title": "Barry",
-      "year": 2018,
-      "bg": "#1A1A1A",
-      "fg": "#E8C547",
-      "key": "barry",
-      "qid": "Q26812664",
-      "imdb": "tt5348176",
-      "imdb_url": "https://www.imdb.com/title/tt5348176/",
-      "year_wd": 2018,
-      "genres": [
-        "black comedy television series",
-        "comedy drama",
-        "psychological drama film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/barry.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Alec Berg Inc., Hanarply, and/or HBO",
-        "source": "https://commons.wikimedia.org/wiki/File:Barry_logo.svg",
-        "credit_required": false,
-        "bytes": 11686
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/j1XpwD11f0BAEI7pX6UdMhUVX2F.jpg",
-        "tmdb_id": 73107,
-        "rating": 7.9,
-        "votes": 1188,
-        "overview_len": 100
-      }
-    },
-    {
-      "title": "The Flash",
-      "year": 2014,
-      "bg": "#B3121C",
-      "fg": "#F5D547",
-      "key": "the-flash",
-      "qid": "Q23562553",
-      "imdb": "tt0439572",
-      "imdb_url": "https://www.imdb.com/title/tt0439572/",
-      "year_wd": 2023,
-      "genres": [
-        "science fiction film",
-        "action film",
-        "adventure film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
-        "tmdb_id": 298618,
-        "rating": 6.6,
-        "votes": 5137,
-        "overview_len": 381
-      }
-    },
-    {
-      "title": "The Walking Dead",
-      "year": 2010,
-      "bg": "#232320",
-      "fg": "#E88379",
-      "key": "the-walking-dead",
-      "qid": "Q232737",
-      "imdb": "tt1520211",
-      "imdb_url": "https://www.imdb.com/title/tt1520211/",
-      "year_wd": 2010,
-      "genres": [
-        "horror television series",
-        "drama television series",
-        "post-apocalyptic television series"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-walking-dead.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Unknown authorUnknown author",
-        "source": "https://commons.wikimedia.org/wiki/File:The_Walking_Dead_(Fernsehserie)_logo.svg",
-        "credit_required": false,
-        "bytes": 4178
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/aN29llVoCFtBTwDZFtqdD9d8dHb.jpg",
-        "tmdb_id": 1402,
-        "rating": 8.1,
-        "votes": 18040,
-        "overview_len": 198
-      }
-    },
-    {
-      "title": "Danny Phantom",
-      "year": 2004,
-      "bg": "#0E1B3A",
-      "fg": "#3FE0A8",
-      "key": "danny-phantom",
-      "qid": "Q83978",
-      "imdb": "tt0366005",
-      "imdb_url": "https://www.imdb.com/title/tt0366005/",
-      "year_wd": 2004,
-      "genres": [
-        "fantasy television series",
-        "adventure television series",
-        "action television series"
-      ],
-      "logo": {
-        "src": "/imgs/titles/danny-phantom.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "Viacom International Inc.",
-        "source": "https://commons.wikimedia.org/wiki/File:Neues_Danny_Phantom_Logo.jpg",
-        "credit_required": false,
-        "bytes": 17298
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/pBUOFBmZLaIxzjDjQP7d3QZrd4w.jpg",
-        "tmdb_id": 2309,
-        "rating": 8.3,
-        "votes": 1175,
-        "overview_len": 385
-      }
-    },
-    {
-      "title": "Lab Rats",
-      "year": 2012,
-      "bg": "#123A5E",
-      "fg": "#4FC3F7",
-      "key": "lab-rats",
-      "qid": "Q2699347",
-      "imdb": "tt1991564",
-      "imdb_url": "https://www.imdb.com/title/tt1991564/",
-      "year_wd": 2012,
-      "genres": [
-        "science fiction television series",
-        "teen sitcom",
-        "sitcom"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/lcQMvn9ZptPd3dxn0a17viRfi7Y.jpg",
-        "tmdb_id": 38867,
-        "rating": 8.1,
-        "votes": 175,
-        "overview_len": 653
-      }
-    },
-    {
-      "title": "Gravity Falls",
-      "year": 2012,
-      "bg": "#1E3D2F",
-      "fg": "#E0B04C",
-      "key": "gravity-falls",
-      "qid": "Q550555",
-      "imdb": "tt1865718",
-      "imdb_url": "https://www.imdb.com/title/tt1865718/",
-      "year_wd": 2012,
-      "genres": [
-        "fantasy television series",
-        "comedy television series",
-        "adventure television series"
-      ],
-      "logo": {
-        "src": "/imgs/titles/gravity-falls.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Disney Television Animation (source), OfficialAntarctica (derivative)",
-        "source": "https://commons.wikimedia.org/wiki/File:Gravity_Falls_logo.svg",
-        "credit_required": false,
-        "bytes": 25538
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/qwi3p6PzKfQZ4YXBzv3CP5pO2dE.jpg",
-        "tmdb_id": 40075,
-        "rating": 8.6,
-        "votes": 3543,
-        "overview_len": 207
-      }
-    },
-    {
-      "title": "Kid Danger",
-      "year": 2018,
-      "bg": "#123C7A",
-      "fg": "#F5B301",
-      "key": "kid-danger",
-      "qid": "Q46365050",
-      "imdb": "tt7833530",
-      "imdb_url": "https://www.imdb.com/title/tt7833530/",
-      "year_wd": 2018,
-      "genres": [
-        "comedy television series",
-        "children's television series"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/3JqQ473UkYpFBjvpGMydI5sjoCI.jpg",
-        "tmdb_id": 76534,
-        "rating": 6.8,
-        "votes": 25,
-        "overview_len": 232
-      }
-    },
-    {
-      "title": "Life on Mars",
-      "year": 2006,
-      "bg": "#6B3410",
-      "fg": "#E8D5B0",
-      "key": "life-on-mars",
-      "qid": "Q1071501",
-      "imdb": "tt0478942",
-      "imdb_url": "https://www.imdb.com/title/tt0478942/",
-      "year_wd": 2006,
-      "genres": [
-        "police television drama",
-        "science fiction television series",
-        "drama television series"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/eoZzXx2DW8XeaIS8iYs0ePxH3DG.jpg",
-        "tmdb_id": 2973,
-        "rating": 7.8,
-        "votes": 317,
-        "overview_len": 387
-      }
-    },
-    {
-      "title": "Stranger Things",
-      "year": 2016,
-      "bg": "#0B0B14",
-      "fg": "#F4525B",
-      "key": "stranger-things",
-      "qid": "Q19798734",
-      "imdb": "tt4574334",
-      "imdb_url": "https://www.imdb.com/title/tt4574334/",
-      "year_wd": 2016,
-      "genres": [
-        "science fiction television series",
-        "horror television series",
-        "drama television series"
-      ],
-      "logo": {
-        "src": "/imgs/titles/stranger-things.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Netflix",
-        "source": "https://commons.wikimedia.org/wiki/File:Stranger_Things_logo.svg",
-        "credit_required": false,
-        "bytes": 16212
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/uKYUR8GPkKRCksczYDJb3pwZauo.jpg",
-        "tmdb_id": 66732,
-        "rating": 8.6,
-        "votes": 21588,
-        "overview_len": 149
-      }
-    },
-    {
       "title": "Rick and Morty",
       "year": 2013,
       "bg": "#0F2E28",
@@ -296,18 +45,67 @@
       }
     },
     {
-      "title": "Tom and Jerry",
-      "year": 1940,
-      "bg": "#2A2118",
-      "fg": "#E8B44A",
-      "tmdb_id": 7842,
-      "key": "tom-and-jerry",
+      "title": "BoJack Horseman",
+      "year": 2014,
+      "bg": "#F4A93B",
+      "fg": "#2B3A55",
+      "key": "bojack-horseman",
+      "qid": "Q17733404",
+      "imdb": "tt3398228",
+      "imdb_url": "https://www.imdb.com/title/tt3398228/",
+      "year_wd": 2014,
+      "genres": [
+        "animated sitcom",
+        "comedy drama",
+        "comedy television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/bojack-horseman.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Netflix",
+        "source": "https://commons.wikimedia.org/wiki/File:BoJack_Horseman_Logo.svg",
+        "credit_required": false,
+        "bytes": 24790
+      },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/um2758jtENjV7WwgP56aCPLfQGo.jpg",
-        "tmdb_id": 7842,
+        "src": "https://image.tmdb.org/t/p/w342/6JFWzlChcGgLiIUo2COgNlWGFKy.jpg",
+        "tmdb_id": 61222,
+        "rating": 8.5,
+        "votes": 2926,
+        "overview_len": 150
+      }
+    },
+    {
+      "title": "SpongeBob SquarePants",
+      "year": 1999,
+      "bg": "#F2C300",
+      "fg": "#12507A",
+      "key": "spongebob-squarepants",
+      "qid": "Q83279",
+      "imdb": "tt0206512",
+      "imdb_url": "https://www.imdb.com/title/tt0206512/",
+      "year_wd": 1999,
+      "genres": [
+        "animated sitcom",
+        "comedy television series",
+        "fantasy television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/spongebob-squarepants.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Nickelodeon",
+        "source": "https://commons.wikimedia.org/wiki/File:SpongeBob_SquarePants_logo_(2000%E2%80%932008,_without_background).svg",
+        "credit_required": false,
+        "bytes": 29716
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/5h0EU2lqBb03dp5vtRuUHJwqzem.jpg",
+        "tmdb_id": 387,
         "rating": 7.7,
-        "votes": 1170,
-        "overview_len": 245
+        "votes": 3247,
+        "overview_len": 603
       }
     },
     {
@@ -332,65 +130,81 @@
       }
     },
     {
-      "title": "Seinfeld",
-      "year": 1989,
-      "bg": "#1F4FA3",
-      "fg": "#F4D03F",
-      "rank": 3,
-      "key": "seinfeld",
-      "qid": "Q23733",
-      "imdb": "tt0098904",
-      "imdb_url": "https://www.imdb.com/title/tt0098904/",
-      "year_wd": 1989,
+      "title": "Life on Mars",
+      "year": 2006,
+      "bg": "#6B3410",
+      "fg": "#E8D5B0",
+      "key": "life-on-mars",
+      "qid": "Q1071501",
+      "imdb": "tt0478942",
+      "imdb_url": "https://www.imdb.com/title/tt0478942/",
+      "year_wd": 2006,
       "genres": [
-        "sitcom"
+        "police television drama",
+        "science fiction television series",
+        "drama television series"
       ],
-      "logo": {
-        "src": "/imgs/titles/seinfeld.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "Trademark owned by Castle Rock Entertainment and Sony Pictures.",
-        "source": "https://commons.wikimedia.org/wiki/File:Seinfeld_logo.svg",
-        "credit_required": false,
-        "bytes": 19204
-      },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/aCw8ONfyz3AhngVQa1E2Ss4KSUQ.jpg",
-        "tmdb_id": 1400,
-        "rating": 8.3,
-        "votes": 2403,
-        "overview_len": 147
+        "src": "https://image.tmdb.org/t/p/w342/eoZzXx2DW8XeaIS8iYs0ePxH3DG.jpg",
+        "tmdb_id": 2973,
+        "rating": 7.8,
+        "votes": 317,
+        "overview_len": 387
       }
     },
     {
-      "title": "Silicon Valley",
-      "year": 2014,
-      "bg": "#04564E",
-      "fg": "#7FE8D8",
-      "rank": 1,
-      "key": "silicon-valley",
-      "qid": "Q15956708",
-      "imdb": "tt2575988",
-      "imdb_url": "https://www.imdb.com/title/tt2575988/",
-      "year_wd": 2014,
+      "title": "Breaking Bad",
+      "year": 2008,
+      "bg": "#253B26",
+      "fg": "#D7C64A",
+      "key": "breaking-bad",
+      "qid": "Q1079",
+      "imdb": "tt0903747",
+      "imdb_url": "https://www.imdb.com/title/tt0903747/",
+      "year_wd": 2008,
       "genres": [
-        "comedy television series"
+        "crime television series",
+        "drama television series",
+        "thriller television series"
       ],
       "logo": {
-        "src": "/imgs/titles/silicon-valley.webp",
+        "src": "/imgs/titles/breaking-bad.webp",
         "dark": true,
         "licence": "Public domain",
-        "author": "HBO",
-        "source": "https://commons.wikimedia.org/wiki/File:Silicon_Valley.svg",
+        "author": "AMC",
+        "source": "https://commons.wikimedia.org/wiki/File:Breaking_Bad_logo.svg",
         "credit_required": false,
-        "bytes": 19084
+        "bytes": 12068
       },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/4ptpmWBVD9HY9hMh8Cbs6SMiy7p.jpg",
-        "tmdb_id": 60573,
+        "src": "https://image.tmdb.org/t/p/w342/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg",
+        "tmdb_id": 1396,
+        "rating": 8.9,
+        "votes": 18297,
+        "overview_len": 312
+      }
+    },
+    {
+      "title": "Lab Rats",
+      "year": 2012,
+      "bg": "#123A5E",
+      "fg": "#4FC3F7",
+      "key": "lab-rats",
+      "qid": "Q2699347",
+      "imdb": "tt1991564",
+      "imdb_url": "https://www.imdb.com/title/tt1991564/",
+      "year_wd": 2012,
+      "genres": [
+        "science fiction television series",
+        "teen sitcom",
+        "sitcom"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/lcQMvn9ZptPd3dxn0a17viRfi7Y.jpg",
+        "tmdb_id": 38867,
         "rating": 8.1,
-        "votes": 1982,
-        "overview_len": 376
+        "votes": 175,
+        "overview_len": 653
       }
     },
     {
@@ -427,261 +241,6 @@
       }
     },
     {
-      "title": "SpongeBob SquarePants",
-      "year": 1999,
-      "bg": "#F2C300",
-      "fg": "#12507A",
-      "key": "spongebob-squarepants",
-      "qid": "Q83279",
-      "imdb": "tt0206512",
-      "imdb_url": "https://www.imdb.com/title/tt0206512/",
-      "year_wd": 1999,
-      "genres": [
-        "animated sitcom",
-        "comedy television series",
-        "fantasy television series"
-      ],
-      "logo": {
-        "src": "/imgs/titles/spongebob-squarepants.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "Nickelodeon",
-        "source": "https://commons.wikimedia.org/wiki/File:SpongeBob_SquarePants_logo_(2000%E2%80%932008,_without_background).svg",
-        "credit_required": false,
-        "bytes": 29716
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/5h0EU2lqBb03dp5vtRuUHJwqzem.jpg",
-        "tmdb_id": 387,
-        "rating": 7.7,
-        "votes": 3247,
-        "overview_len": 603
-      }
-    },
-    {
-      "title": "Breaking Bad",
-      "year": 2008,
-      "bg": "#253B26",
-      "fg": "#D7C64A",
-      "key": "breaking-bad",
-      "qid": "Q1079",
-      "imdb": "tt0903747",
-      "imdb_url": "https://www.imdb.com/title/tt0903747/",
-      "year_wd": 2008,
-      "genres": [
-        "crime television series",
-        "drama television series",
-        "thriller television series"
-      ],
-      "logo": {
-        "src": "/imgs/titles/breaking-bad.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "AMC",
-        "source": "https://commons.wikimedia.org/wiki/File:Breaking_Bad_logo.svg",
-        "credit_required": false,
-        "bytes": 12068
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg",
-        "tmdb_id": 1396,
-        "rating": 8.9,
-        "votes": 18297,
-        "overview_len": 312
-      }
-    },
-    {
-      "title": "Better Call Saul",
-      "year": 2015,
-      "bg": "#1F1B14",
-      "fg": "#E2B33C",
-      "key": "better-call-saul",
-      "qid": "Q14925221",
-      "imdb": "tt3032476",
-      "imdb_url": "https://www.imdb.com/title/tt3032476/",
-      "year_wd": 2015,
-      "genres": [
-        "legal drama",
-        "crime television series",
-        "drama fiction"
-      ],
-      "logo": {
-        "src": "/imgs/titles/better-call-saul.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "SVG: STVNLogo: AMC",
-        "source": "https://commons.wikimedia.org/wiki/File:Better_Call_Saul_-_Logo_2.svg",
-        "credit_required": false,
-        "bytes": 12662
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/zjg4jpK1Wp2kiRvtt5ND0kznako.jpg",
-        "tmdb_id": 60059,
-        "rating": 8.7,
-        "votes": 6716,
-        "overview_len": 412
-      }
-    },
-    {
-      "title": "Naruto",
-      "year": 2002,
-      "bg": "#E4761B",
-      "fg": "#16233F",
-      "anime": true,
-      "note": "and Shippuden, and the films",
-      "key": "naruto",
-      "qid": "Q25929253",
-      "imdb": "tt0409591",
-      "imdb_url": "https://www.imdb.com/title/tt0409591/",
-      "year_wd": 2002,
-      "genres": [
-        "action anime",
-        "adventure anime",
-        "gag anime"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/1GVfX7kqIbQBp38Riiy1QLQkhJQ.jpg",
-        "tmdb_id": 46260,
-        "rating": 8.4,
-        "votes": 6066,
-        "overview_len": 165
-      }
-    },
-    {
-      "title": "Death Note",
-      "year": 2006,
-      "bg": "#101014",
-      "fg": "#F2545B",
-      "anime": true,
-      "note": "37 episodes, no filler",
-      "key": "death-note",
-      "qid": "Q718624",
-      "imdb": "tt0877057",
-      "imdb_url": "https://www.imdb.com/title/tt0877057/",
-      "year_wd": 2006,
-      "genres": [
-        "thriller anime",
-        "mystery anime",
-        "supernatural anime"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/tCZFfYTIwrR7n94J6G14Y4hAFU6.jpg",
-        "tmdb_id": 13916,
-        "rating": 8.6,
-        "votes": 5056,
-        "overview_len": 433
-      }
-    },
-    {
-      "title": "The Queen's Gambit",
-      "year": 2020,
-      "bg": "#2E4A3F",
-      "fg": "#EFE6D2",
-      "key": "the-queen-s-gambit",
-      "qid": "Q85808226",
-      "imdb": "tt10048342",
-      "imdb_url": "https://www.imdb.com/title/tt10048342/",
-      "year_wd": 2020,
-      "genres": [
-        "drama television series",
-        "coming-of-age television program",
-        "sport film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/zU0htwkhNvBQdVSIKB9s6hgVeFK.jpg",
-        "tmdb_id": 87739,
-        "rating": 8.4,
-        "votes": 5632,
-        "overview_len": 148
-      }
-    },
-    {
-      "title": "Fargo",
-      "year": 2014,
-      "bg": "#E8EDF2",
-      "fg": "#8C2F2F",
-      "key": "fargo",
-      "qid": "Q222720",
-      "imdb": "tt0116282",
-      "imdb_url": "https://www.imdb.com/title/tt0116282/",
-      "year_wd": 1996,
-      "genres": [
-        "crime film",
-        "drama film",
-        "neo-noir"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/rt7cpEr1uP6RTZykBFhBTcRaKvG.jpg",
-        "tmdb_id": 275,
-        "rating": 7.8,
-        "votes": 9223,
-        "overview_len": 553
-      }
-    },
-    {
-      "title": "The Chosen",
-      "year": 2017,
-      "bg": "#2C3E50",
-      "fg": "#E4C97E",
-      "tmdb_id": 85077,
-      "key": "the-chosen",
-      "qid": "Q60787503",
-      "imdb": "tt9471404",
-      "imdb_url": "https://www.imdb.com/title/tt9471404/",
-      "year_wd": 2017,
-      "genres": [
-        "drama television series"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-chosen.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "The Chosen press photos (press.thechosen.tv)",
-        "source": "https://commons.wikimedia.org/wiki/File:The_Chosen_-_logo.jpg",
-        "credit_required": false,
-        "bytes": 6320
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/dqVUFuNrMFWt7uGNWlpo91VKYOI.jpg",
-        "tmdb_id": 85077,
-        "rating": 8.8,
-        "votes": 937,
-        "overview_len": 65
-      }
-    },
-    {
-      "title": "BoJack Horseman",
-      "year": 2014,
-      "bg": "#F4A93B",
-      "fg": "#2B3A55",
-      "key": "bojack-horseman",
-      "qid": "Q17733404",
-      "imdb": "tt3398228",
-      "imdb_url": "https://www.imdb.com/title/tt3398228/",
-      "year_wd": 2014,
-      "genres": [
-        "animated sitcom",
-        "comedy drama",
-        "comedy television series"
-      ],
-      "logo": {
-        "src": "/imgs/titles/bojack-horseman.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Netflix",
-        "source": "https://commons.wikimedia.org/wiki/File:BoJack_Horseman_Logo.svg",
-        "credit_required": false,
-        "bytes": 24790
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/6JFWzlChcGgLiIUo2COgNlWGFKy.jpg",
-        "tmdb_id": 61222,
-        "rating": 8.5,
-        "votes": 2926,
-        "overview_len": 150
-      }
-    },
-    {
       "title": "Naruto Shippuden",
       "year": 2007,
       "bg": "#1C2540",
@@ -715,97 +274,35 @@
       }
     },
     {
-      "title": "Invincible",
-      "year": 2021,
-      "bg": "#1B3A8C",
-      "fg": "#E4C200",
-      "key": "invincible",
-      "qid": "Q55614601",
-      "imdb": "tt6741278",
-      "imdb_url": "https://www.imdb.com/title/tt6741278/",
-      "year_wd": 2021,
+      "title": "The Walking Dead",
+      "year": 2010,
+      "bg": "#232320",
+      "fg": "#E88379",
+      "key": "the-walking-dead",
+      "qid": "Q232737",
+      "imdb": "tt1520211",
+      "imdb_url": "https://www.imdb.com/title/tt1520211/",
+      "year_wd": 2010,
       "genres": [
-        "superhero television program",
-        "action television series",
-        "adult animated television series"
+        "horror television series",
+        "drama television series",
+        "post-apocalyptic television series"
       ],
       "logo": {
-        "src": "/imgs/titles/invincible.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "Amazon Prime",
-        "source": "https://commons.wikimedia.org/wiki/File:Invincible_title_card.jpg",
-        "credit_required": false,
-        "bytes": 14692
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/4tblBrslcKSifMVZ3TmtT2ukMor.jpg",
-        "tmdb_id": 95557,
-        "rating": 8.6,
-        "votes": 5979,
-        "overview_len": 235
-      }
-    },
-    {
-      "title": "The Simpsons",
-      "year": 1989,
-      "bg": "#FFD90F",
-      "fg": "#2B4A9B",
-      "key": "the-simpsons",
-      "qid": "Q886",
-      "imdb": "tt0096697",
-      "imdb_url": "https://www.imdb.com/title/tt0096697/",
-      "year_wd": 1989,
-      "genres": [
-        "animated sitcom",
-        "satire",
-        "black comedy"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-simpsons.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Matt Groening",
-        "source": "https://commons.wikimedia.org/wiki/File:Logo_The_Simpsons.svg",
-        "credit_required": false,
-        "bytes": 17498
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/uWpG7GqfKGQqX4YMAo3nv5OrglV.jpg",
-        "tmdb_id": 456,
-        "rating": 8,
-        "votes": 10910,
-        "overview_len": 431
-      }
-    },
-    {
-      "title": "Arrested Development",
-      "year": 2003,
-      "bg": "#F2E205",
-      "fg": "#1B4D8C",
-      "key": "arrested-development",
-      "qid": "Q11598",
-      "imdb": "tt0367279",
-      "imdb_url": "https://www.imdb.com/title/tt0367279/",
-      "year_wd": 2003,
-      "genres": [
-        "comedy television series"
-      ],
-      "logo": {
-        "src": "/imgs/titles/arrested-development.webp",
+        "src": "/imgs/titles/the-walking-dead.webp",
         "dark": true,
         "licence": "Public domain",
         "author": "Unknown authorUnknown author",
-        "source": "https://commons.wikimedia.org/wiki/File:Arrested_Development.svg",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Walking_Dead_(Fernsehserie)_logo.svg",
         "credit_required": false,
-        "bytes": 20316
+        "bytes": 4178
       },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/p4r4RD7RsNcJVoz0H6z3dBoTBtW.jpg",
-        "tmdb_id": 4589,
-        "rating": 7.9,
-        "votes": 1705,
-        "overview_len": 116
+        "src": "https://image.tmdb.org/t/p/w342/aN29llVoCFtBTwDZFtqdD9d8dHb.jpg",
+        "tmdb_id": 1402,
+        "rating": 8.1,
+        "votes": 18040,
+        "overview_len": 198
       }
     },
     {
@@ -840,132 +337,92 @@
       }
     },
     {
-      "title": "The Office",
-      "year": 2005,
-      "bg": "#2E4E6B",
-      "fg": "#E8E2D0",
-      "key": "the-office",
-      "qid": "Q23831",
-      "imdb": "tt0386676",
-      "imdb_url": "https://www.imdb.com/title/tt0386676/",
-      "year_wd": 2005,
+      "title": "Stranger Things",
+      "year": 2016,
+      "bg": "#0B0B14",
+      "fg": "#F4525B",
+      "key": "stranger-things",
+      "qid": "Q19798734",
+      "imdb": "tt4574334",
+      "imdb_url": "https://www.imdb.com/title/tt4574334/",
+      "year_wd": 2016,
       "genres": [
-        "sitcom",
-        "mockumentary"
+        "science fiction television series",
+        "horror television series",
+        "drama television series"
       ],
       "logo": {
-        "src": "/imgs/titles/the-office.webp",
+        "src": "/imgs/titles/stranger-things.webp",
         "dark": true,
         "licence": "Public domain",
-        "author": "Jo9100",
-        "source": "https://commons.wikimedia.org/wiki/File:The_Office_US_logo.svg",
+        "author": "Netflix",
+        "source": "https://commons.wikimedia.org/wiki/File:Stranger_Things_logo.svg",
         "credit_required": false,
-        "bytes": 4880
+        "bytes": 16212
       },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/AcsDnYMUKwYepl75Uc1Hb4aKvDC.jpg",
-        "tmdb_id": 2316,
+        "src": "https://image.tmdb.org/t/p/w342/uKYUR8GPkKRCksczYDJb3pwZauo.jpg",
+        "tmdb_id": 66732,
         "rating": 8.6,
-        "votes": 5353,
-        "overview_len": 122
+        "votes": 21588,
+        "overview_len": 149
       }
     },
     {
-      "title": "Haikyuu!!",
-      "year": 2014,
-      "bg": "#E36414",
-      "fg": "#14213D",
-      "key": "haikyuu",
-      "qid": "Q67144604",
-      "imdb": "tt3398540",
-      "imdb_url": "https://www.imdb.com/title/tt3398540/",
-      "year_wd": 2014,
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/8WEr48swcqe89Zsy5sdrGCASlIg.jpg",
-        "tmdb_id": 60863,
-        "rating": 8.6,
-        "votes": 1531,
-        "overview_len": 418
-      }
-    },
-    {
-      "title": "One Punch Man",
-      "year": 2015,
-      "bg": "#F2C500",
-      "fg": "#6E0A11",
-      "key": "one-punch-man",
-      "qid": "Q22341674",
-      "imdb": "tt4508902",
-      "imdb_url": "https://www.imdb.com/title/tt4508902/",
-      "year_wd": 2015,
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/dT10AxJIXVvRwFAew4tt2RhzJrD.jpg",
-        "tmdb_id": 63926,
-        "rating": 8.4,
-        "votes": 4180,
-        "overview_len": 464
-      }
-    },
-    {
-      "title": "Boardwalk Empire",
-      "year": 2010,
-      "bg": "#14100C",
-      "fg": "#C9A227",
-      "key": "boardwalk-empire",
-      "qid": "Q585758",
-      "imdb": "tt0979432",
-      "imdb_url": "https://www.imdb.com/title/tt0979432/",
-      "year_wd": 2010,
-      "genres": [
-        "drama television series",
-        "crime television series",
-        "historical television series"
-      ],
-      "logo": {
-        "src": "/imgs/titles/boardwalk-empire.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Annito74",
-        "source": "https://commons.wikimedia.org/wiki/File:Boardwalk_Empire_logo_2010.jpg",
-        "credit_required": false,
-        "bytes": 4700
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/zyHLWVmqS8m7bxABJjcDFMYLdF8.jpg",
-        "tmdb_id": 1621,
-        "rating": 8,
-        "votes": 1297,
-        "overview_len": 229
-      }
-    },
-    {
-      "title": "The IT Crowd",
+      "title": "Death Note",
       "year": 2006,
-      "bg": "#C1272D",
-      "fg": "#F2F2F2",
-      "key": "the-it-crowd",
-      "qid": "Q239672",
-      "imdb": "tt0487831",
-      "imdb_url": "https://www.imdb.com/title/tt0487831/",
+      "bg": "#101014",
+      "fg": "#F2545B",
+      "anime": true,
+      "note": "37 episodes, no filler",
+      "key": "death-note",
+      "qid": "Q718624",
+      "imdb": "tt0877057",
+      "imdb_url": "https://www.imdb.com/title/tt0877057/",
       "year_wd": 2006,
       "genres": [
-        "sitcom"
+        "thriller anime",
+        "mystery anime",
+        "supernatural anime"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/tCZFfYTIwrR7n94J6G14Y4hAFU6.jpg",
+        "tmdb_id": 13916,
+        "rating": 8.6,
+        "votes": 5056,
+        "overview_len": 433
+      }
+    },
+    {
+      "title": "Invincible",
+      "year": 2021,
+      "bg": "#1B3A8C",
+      "fg": "#E4C200",
+      "key": "invincible",
+      "qid": "Q55614601",
+      "imdb": "tt6741278",
+      "imdb_url": "https://www.imdb.com/title/tt6741278/",
+      "year_wd": 2021,
+      "genres": [
+        "superhero television program",
+        "action television series",
+        "adult animated television series"
       ],
       "logo": {
-        "src": "/imgs/titles/the-it-crowd.webp",
-        "dark": true,
+        "src": "/imgs/titles/invincible.webp",
+        "dark": false,
         "licence": "Public domain",
-        "author": "Channel 4",
-        "source": "https://commons.wikimedia.org/wiki/File:Theitcrowd_1.svg",
+        "author": "Amazon Prime",
+        "source": "https://commons.wikimedia.org/wiki/File:Invincible_title_card.jpg",
         "credit_required": false,
-        "bytes": 5850
+        "bytes": 14692
       },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/qtxL0ZLAZN1nd0kOpcu8V32bsU4.jpg",
-        "tmdb_id": 2490,
-        "rating": 8.2,
-        "votes": 1654,
-        "overview_len": 165
+        "src": "https://image.tmdb.org/t/p/w342/4tblBrslcKSifMVZ3TmtT2ukMor.jpg",
+        "tmdb_id": 95557,
+        "rating": 8.6,
+        "votes": 5979,
+        "overview_len": 235
       }
     },
     {
@@ -1005,922 +462,160 @@
         "votes": 410,
         "overview_len": 353
       }
-    }
-  ],
-  "movies": [
-    {
-      "title": "Back to the Future",
-      "year": 1985,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "back-to-the-future",
-      "qid": "Q91540",
-      "imdb": "tt0088763",
-      "imdb_url": "https://www.imdb.com/title/tt0088763/",
-      "year_wd": 1985,
-      "genres": [
-        "science fiction film",
-        "adventure film",
-        "comedy film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/back-to-the-future.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "Universal Studios or Drew Strutzan",
-        "source": "https://commons.wikimedia.org/wiki/File:Back_to_the_Future_film_series_logo.png",
-        "credit_required": false,
-        "bytes": 38324
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg",
-        "tmdb_id": 105,
-        "rating": 8.3,
-        "votes": 22099,
-        "overview_len": 327
-      }
     },
     {
-      "title": "Back to the Future Part II",
-      "year": 1989,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "back-to-the-future-part-ii",
-      "qid": "Q109331",
-      "imdb": "tt0096874",
-      "imdb_url": "https://www.imdb.com/title/tt0096874/",
-      "year_wd": 1989,
+      "title": "Boardwalk Empire",
+      "year": 2010,
+      "bg": "#14100C",
+      "fg": "#C9A227",
+      "key": "boardwalk-empire",
+      "qid": "Q585758",
+      "imdb": "tt0979432",
+      "imdb_url": "https://www.imdb.com/title/tt0979432/",
+      "year_wd": 2010,
       "genres": [
-        "science fiction film",
-        "teen film",
-        "comedy film"
+        "drama television series",
+        "crime television series",
+        "historical television series"
       ],
       "logo": {
-        "src": "/imgs/titles/back-to-the-future-part-ii.webp",
+        "src": "/imgs/titles/boardwalk-empire.webp",
         "dark": true,
         "licence": "Public domain",
-        "author": "Universal Pictures/UIP",
-        "source": "https://commons.wikimedia.org/wiki/File:Zur%C3%BCck_in_die_zukunft_2_logo.svg",
+        "author": "Annito74",
+        "source": "https://commons.wikimedia.org/wiki/File:Boardwalk_Empire_logo_2010.jpg",
         "credit_required": false,
-        "bytes": 19580
+        "bytes": 4700
       },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/hQq8xZe5uLjFzSBt4LanNP7SQjl.jpg",
-        "tmdb_id": 165,
-        "rating": 7.8,
-        "votes": 14106,
-        "overview_len": 320
+        "src": "https://image.tmdb.org/t/p/w342/zyHLWVmqS8m7bxABJjcDFMYLdF8.jpg",
+        "tmdb_id": 1621,
+        "rating": 8,
+        "votes": 1297,
+        "overview_len": 229
       }
     },
     {
-      "title": "Back to the Future Part III",
-      "year": 1990,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "back-to-the-future-part-iii",
-      "qid": "Q230552",
-      "imdb": "tt0099088",
-      "imdb_url": "https://www.imdb.com/title/tt0099088/",
-      "year_wd": 1990,
+      "title": "The Queen's Gambit",
+      "year": 2020,
+      "bg": "#2E4A3F",
+      "fg": "#EFE6D2",
+      "key": "the-queen-s-gambit",
+      "qid": "Q85808226",
+      "imdb": "tt10048342",
+      "imdb_url": "https://www.imdb.com/title/tt10048342/",
+      "year_wd": 2020,
       "genres": [
-        "science fiction film",
-        "teen film",
-        "comedy film"
+        "drama television series",
+        "coming-of-age television program",
+        "sport film"
       ],
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/crzoVQnMzIrRfHtQw0tLBirNfVg.jpg",
-        "tmdb_id": 196,
-        "rating": 7.5,
-        "votes": 11666,
-        "overview_len": 327
+        "src": "https://image.tmdb.org/t/p/w342/zU0htwkhNvBQdVSIKB9s6hgVeFK.jpg",
+        "tmdb_id": 87739,
+        "rating": 8.4,
+        "votes": 5632,
+        "overview_len": 148
       }
     },
     {
-      "title": "Unbreakable",
-      "year": 2000,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "unbreakable",
-      "qid": "Q650613",
-      "imdb": "tt0217869",
-      "imdb_url": "https://www.imdb.com/title/tt0217869/",
-      "year_wd": 2000,
+      "title": "The IT Crowd",
+      "year": 2006,
+      "bg": "#C1272D",
+      "fg": "#F2F2F2",
+      "key": "the-it-crowd",
+      "qid": "Q239672",
+      "imdb": "tt0487831",
+      "imdb_url": "https://www.imdb.com/title/tt0487831/",
+      "year_wd": 2006,
       "genres": [
-        "mystery film",
-        "fantasy film",
-        "science fiction film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/mLuehrGLiK5zFCyRmDDOH6gbfPf.jpg",
-        "tmdb_id": 9741,
-        "rating": 7.1,
-        "votes": 10029,
-        "overview_len": 273
-      }
-    },
-    {
-      "title": "Glass",
-      "year": 2019,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "glass",
-      "tmdb_id": 450465,
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/svIDTNUoajS8dLEo7EosxvyAsgJ.jpg",
-        "tmdb_id": 450465,
-        "rating": 6.7,
-        "votes": 9173,
-        "overview_len": 298
-      }
-    },
-    {
-      "title": "Iron Man",
-      "year": 2008,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "iron-man",
-      "qid": "Q192724",
-      "imdb": "tt0371746",
-      "imdb_url": "https://www.imdb.com/title/tt0371746/",
-      "year_wd": 2008,
-      "genres": [
-        "action film",
-        "science fiction film",
-        "adventure film"
+        "sitcom"
       ],
       "logo": {
-        "src": "/imgs/titles/iron-man.webp",
+        "src": "/imgs/titles/the-it-crowd.webp",
         "dark": true,
         "licence": "Public domain",
-        "author": "Versedi",
-        "source": "https://commons.wikimedia.org/wiki/File:Iron_Man_-_2008_movie_logo.svg",
+        "author": "Channel 4",
+        "source": "https://commons.wikimedia.org/wiki/File:Theitcrowd_1.svg",
         "credit_required": false,
-        "bytes": 2216
+        "bytes": 5850
       },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/78lPtwv72eTNqFW9COBYI0dWDJa.jpg",
-        "tmdb_id": 1726,
-        "rating": 7.7,
-        "votes": 28468,
-        "overview_len": 132
+        "src": "https://image.tmdb.org/t/p/w342/qtxL0ZLAZN1nd0kOpcu8V32bsU4.jpg",
+        "tmdb_id": 2490,
+        "rating": 8.2,
+        "votes": 1654,
+        "overview_len": 165
       }
     },
     {
-      "title": "The Incredible Hulk",
-      "year": 2008,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-incredible-hulk",
-      "qid": "Q466611",
-      "imdb": "tt0800080",
-      "imdb_url": "https://www.imdb.com/title/tt0800080/",
-      "year_wd": 2008,
-      "genres": [
-        "action film",
-        "adventure film",
-        "science fiction film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-incredible-hulk.webp",
-        "dark": true,
-        "licence": "CC BY-SA 4.0",
-        "author": "Cygomezm",
-        "source": "https://commons.wikimedia.org/wiki/File:The-incredible-hulk-logo.svg",
-        "credit_required": true,
-        "bytes": 12094
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/gKzYx79y0AQTL4UAk1cBQJ3nvrm.jpg",
-        "tmdb_id": 1724,
-        "rating": 6.3,
-        "votes": 12903,
-        "overview_len": 271
-      }
-    },
-    {
-      "title": "The Avengers",
-      "year": 2012,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-avengers",
-      "qid": "Q182218",
-      "imdb": "tt0848228",
-      "imdb_url": "https://www.imdb.com/title/tt0848228/",
-      "year_wd": 2012,
-      "genres": [
-        "action film",
-        "science fiction film",
-        "crossover fiction"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-avengers.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Marvel Studios",
-        "source": "https://commons.wikimedia.org/wiki/File:The_Avengers_Logo_Black.svg",
-        "credit_required": false,
-        "bytes": 8490
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg",
-        "tmdb_id": 24428,
-        "rating": 8.1,
-        "votes": 39037,
-        "overview_len": 297
-      }
-    },
-    {
-      "title": "Avengers: Age of Ultron",
+      "title": "Better Call Saul",
       "year": 2015,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "avengers-age-of-ultron",
-      "qid": "Q14171368",
-      "imdb": "tt2395427",
-      "imdb_url": "https://www.imdb.com/title/tt2395427/",
+      "bg": "#1F1B14",
+      "fg": "#E2B33C",
+      "key": "better-call-saul",
+      "qid": "Q14925221",
+      "imdb": "tt3032476",
+      "imdb_url": "https://www.imdb.com/title/tt3032476/",
       "year_wd": 2015,
       "genres": [
-        "science fiction film",
-        "superhero film"
+        "legal drama",
+        "crime television series",
+        "drama fiction"
       ],
       "logo": {
-        "src": "/imgs/titles/avengers-age-of-ultron.webp",
-        "dark": true,
-        "licence": "CC BY-SA 4.0",
-        "author": "Cygomezm",
-        "source": "https://commons.wikimedia.org/wiki/File:Avengers-age-of-ultron-logo.svg",
-        "credit_required": true,
-        "bytes": 10790
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/4ssDuvEDkSArWEdyBl2X5EHvYKU.jpg",
-        "tmdb_id": 99861,
-        "rating": 7.3,
-        "votes": 24728,
-        "overview_len": 394
-      }
-    },
-    {
-      "title": "Avengers: Infinity War",
-      "year": 2018,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "avengers-infinity-war",
-      "qid": "Q23780914",
-      "imdb": "tt4154756",
-      "imdb_url": "https://www.imdb.com/title/tt4154756/",
-      "year_wd": 2018,
-      "genres": [
-        "superhero film",
-        "science fiction film",
-        "action film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/avengers-infinity-war.webp",
+        "src": "/imgs/titles/better-call-saul.webp",
         "dark": true,
         "licence": "Public domain",
-        "author": "John Roberti",
-        "source": "https://commons.wikimedia.org/wiki/File:Avengers-infinity-war-logo.svg",
+        "author": "SVG: STVNLogo: AMC",
+        "source": "https://commons.wikimedia.org/wiki/File:Better_Call_Saul_-_Logo_2.svg",
         "credit_required": false,
-        "bytes": 20508
+        "bytes": 12662
       },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
-        "tmdb_id": 299536,
-        "rating": 8.2,
-        "votes": 32470,
-        "overview_len": 490
+        "src": "https://image.tmdb.org/t/p/w342/zjg4jpK1Wp2kiRvtt5ND0kznako.jpg",
+        "tmdb_id": 60059,
+        "rating": 8.7,
+        "votes": 6716,
+        "overview_len": 412
       }
     },
     {
-      "title": "Avengers: Endgame",
-      "year": 2019,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "avengers-endgame",
-      "qid": "Q23781155",
-      "imdb": "tt4154796",
-      "imdb_url": "https://www.imdb.com/title/tt4154796/",
-      "year_wd": 2019,
-      "genres": [
-        "superhero film",
-        "speculative fiction film",
-        "action film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/avengers-endgame.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Walt Disney Studios Motion Pictures",
-        "source": "https://commons.wikimedia.org/wiki/File:Avengers_Endgame_Logo_Black.svg",
-        "credit_required": false,
-        "bytes": 15344
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg",
-        "tmdb_id": 299534,
-        "rating": 8.2,
-        "votes": 28207,
-        "overview_len": 327
-      }
-    },
-    {
-      "title": "Black Widow",
-      "year": 2021,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "black-widow",
-      "qid": "Q23894626",
-      "imdb": "tt3480822",
-      "imdb_url": "https://www.imdb.com/title/tt3480822/",
-      "year_wd": 2021,
-      "genres": [
-        "superhero film",
-        "action film",
-        "science fiction film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/black-widow.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "17jiangz1",
-        "source": "https://commons.wikimedia.org/wiki/File:Black_Widow.svg",
-        "credit_required": false,
-        "bytes": 6128
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg",
-        "tmdb_id": 497698,
-        "rating": 7.2,
-        "votes": 11413,
-        "overview_len": 332
-      }
-    },
-    {
-      "title": "Spider-Man",
-      "year": 2002,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "spider-man",
-      "tmdb_id": 557,
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/nXdAh5vUwERL4WGVMaee8RoDEAS.jpg",
-        "tmdb_id": 557,
-        "rating": 7.3,
-        "votes": 21021,
-        "overview_len": 190
-      }
-    },
-    {
-      "title": "Spider-Man 2",
-      "year": 2004,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "spider-man-2",
-      "qid": "Q190145",
-      "imdb": "tt0316654",
-      "imdb_url": "https://www.imdb.com/title/tt0316654/",
-      "year_wd": 2004,
-      "genres": [
-        "action film",
-        "thriller film",
-        "superhero film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/spider-man-2.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Unknown authorUnknown author",
-        "source": "https://commons.wikimedia.org/wiki/File:Spider-Man_2-Logo.svg",
-        "credit_required": false,
-        "bytes": 2700
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/aGuvNAaaZuWXYQQ6N2v7DeuP6mB.jpg",
-        "tmdb_id": 558,
-        "rating": 7.3,
-        "votes": 16626,
-        "overview_len": 402
-      }
-    },
-    {
-      "title": "Spider-Man 3",
-      "year": 2007,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "spider-man-3",
-      "qid": "Q182212",
-      "imdb": "tt0413300",
-      "imdb_url": "https://www.imdb.com/title/tt0413300/",
-      "year_wd": 2007,
-      "genres": [
-        "action film",
-        "thriller film",
-        "superhero film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/spider-man-3.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Unknown authorUnknown author",
-        "source": "https://commons.wikimedia.org/wiki/File:Spider-Man_3-Logo.svg",
-        "credit_required": false,
-        "bytes": 2698
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/qFmwhVUoUSXjkKRmca5yGDEXBIj.jpg",
-        "tmdb_id": 559,
-        "rating": 6.5,
-        "votes": 15470,
-        "overview_len": 286
-      }
-    },
-    {
-      "title": "The Amazing Spider-Man",
-      "year": 2012,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-amazing-spider-man",
-      "qid": "Q229808",
-      "imdb": "tt0948470",
-      "imdb_url": "https://www.imdb.com/title/tt0948470/",
-      "year_wd": 2012,
-      "genres": [
-        "action film",
-        "thriller film",
-        "teen film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/jexoNYnPd6vVrmygwF6QZmWPFdu.jpg",
-        "tmdb_id": 1930,
-        "rating": 6.7,
-        "votes": 18793,
-        "overview_len": 113
-      }
-    },
-    {
-      "title": "The Amazing Spider-Man 2",
-      "year": 2014,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-amazing-spider-man-2",
-      "qid": "Q4254026",
-      "imdb": "tt1872181",
-      "imdb_url": "https://www.imdb.com/title/tt1872181/",
-      "year_wd": 2014,
-      "genres": [
-        "action film",
-        "thriller film",
-        "teen film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/dGjoPttcbKR5VWg1jQuNFB247KL.jpg",
-        "tmdb_id": 102382,
-        "rating": 6.6,
-        "votes": 14481,
-        "overview_len": 471
-      }
-    },
-    {
-      "title": "Spider-Man: Homecoming",
+      "title": "The Chosen",
       "year": 2017,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "spider-man-homecoming",
-      "qid": "Q23010088",
-      "imdb": "tt2250912",
-      "imdb_url": "https://www.imdb.com/title/tt2250912/",
+      "bg": "#2C3E50",
+      "fg": "#E4C97E",
+      "tmdb_id": 85077,
+      "key": "the-chosen",
+      "qid": "Q60787503",
+      "imdb": "tt9471404",
+      "imdb_url": "https://www.imdb.com/title/tt9471404/",
       "year_wd": 2017,
       "genres": [
-        "superhero film",
-        "action film"
+        "drama television series"
       ],
       "logo": {
-        "src": "/imgs/titles/spider-man-homecoming.webp",
-        "dark": true,
-        "licence": "CC BY-SA 4.0",
-        "author": "John Roberti",
-        "source": "https://commons.wikimedia.org/wiki/File:Spider-man-homecoming-logo.svg",
-        "credit_required": true,
-        "bytes": 17270
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg",
-        "tmdb_id": 315635,
-        "rating": 7.3,
-        "votes": 23489,
-        "overview_len": 289
-      }
-    },
-    {
-      "title": "Spider-Man: Far From Home",
-      "year": 2019,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "spider-man-far-from-home",
-      "qid": "Q27985819",
-      "imdb": "tt6320628",
-      "imdb_url": "https://www.imdb.com/title/tt6320628/",
-      "year_wd": 2019,
-      "genres": [
-        "action film",
-        "adventure film",
-        "science fiction film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/spider-man-far-from-home.webp",
-        "dark": true,
-        "licence": "CC BY-SA 4.0",
-        "author": "John Roberti",
-        "source": "https://commons.wikimedia.org/wiki/File:Spider-man-far-from-home.svg",
-        "credit_required": true,
-        "bytes": 9888
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg",
-        "tmdb_id": 429617,
-        "rating": 7.4,
-        "votes": 17264,
-        "overview_len": 250
-      }
-    },
-    {
-      "title": "Spider-Man: No Way Home",
-      "year": 2021,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "spider-man-no-way-home",
-      "qid": "Q68934496",
-      "imdb": "tt10872600",
-      "imdb_url": "https://www.imdb.com/title/tt10872600/",
-      "year_wd": 2021,
-      "genres": [
-        "superhero film",
-        "action film",
-        "adventure film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/spider-man-no-way-home.webp",
-        "dark": true,
-        "licence": "CC BY-SA 4.0",
-        "author": "Josephzbazin",
-        "source": "https://commons.wikimedia.org/wiki/File:Spider_Man_No_Way_Home_Logo.svg",
-        "credit_required": true,
-        "bytes": 12532
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
-        "tmdb_id": 634649,
-        "rating": 7.9,
-        "votes": 22489,
-        "overview_len": 258
-      }
-    },
-    {
-      "title": "Harry Potter and the Philosopher's Stone",
-      "year": 2001,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "harry-potter-and-the-philosopher-s-stone",
-      "qid": "Q102438",
-      "imdb": "tt0241527",
-      "imdb_url": "https://www.imdb.com/title/tt0241527/",
-      "year_wd": 2001,
-      "genres": [
-        "fantasy film",
-        "adventure film",
-        "speculative fiction film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/harry-potter-and-the-philosopher-s-stone.webp",
-        "dark": true,
-        "licence": "CC BY-SA 4.0",
-        "author": "Cygomezm",
-        "source": "https://commons.wikimedia.org/wiki/File:Harry-potter-and-the-sorcerers-stone-logo.svg",
-        "credit_required": true,
-        "bytes": 11884
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
-        "tmdb_id": 671,
-        "rating": 7.9,
-        "votes": 29928,
-        "overview_len": 406
-      }
-    },
-    {
-      "title": "Harry Potter and the Chamber of Secrets",
-      "year": 2002,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "harry-potter-and-the-chamber-of-secrets",
-      "qid": "Q102244",
-      "imdb": "tt0295297",
-      "imdb_url": "https://www.imdb.com/title/tt0295297/",
-      "year_wd": 2002,
-      "genres": [
-        "fantasy film",
-        "adventure film",
-        "children's film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/sdEOH0992YZ0QSxgXNIGLq1ToUi.jpg",
-        "tmdb_id": 672,
-        "rating": 7.7,
-        "votes": 23848,
-        "overview_len": 328
-      }
-    },
-    {
-      "title": "Harry Potter and the Prisoner of Azkaban",
-      "year": 2004,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "harry-potter-and-the-prisoner-of-azkaban",
-      "qid": "Q102448",
-      "imdb": "tt0304141",
-      "imdb_url": "https://www.imdb.com/title/tt0304141/",
-      "year_wd": 2004,
-      "genres": [
-        "fantasy film",
-        "children's film",
-        "werewolf film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/harry-potter-and-the-prisoner-of-azkaban.webp",
-        "dark": true,
-        "licence": "CC BY-SA 4.0",
-        "author": "Cygomezm",
-        "source": "https://commons.wikimedia.org/wiki/File:Harry-potter-and-the-prisoner-of-azkaban-logo.svg",
-        "credit_required": true,
-        "bytes": 11838
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg",
-        "tmdb_id": 673,
-        "rating": 8,
-        "votes": 23413,
-        "overview_len": 135
-      }
-    },
-    {
-      "title": "Harry Potter and the Goblet of Fire",
-      "year": 2005,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "harry-potter-and-the-goblet-of-fire",
-      "qid": "Q102225",
-      "imdb": "tt0330373",
-      "imdb_url": "https://www.imdb.com/title/tt0330373/",
-      "year_wd": 2005,
-      "genres": [
-        "fantasy film",
-        "children's film",
-        "adventure film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg",
-        "tmdb_id": 674,
-        "rating": 7.8,
-        "votes": 22423,
-        "overview_len": 243
-      }
-    },
-    {
-      "title": "Harry Potter and the Order of the Phoenix",
-      "year": 2007,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "harry-potter-and-the-order-of-the-phoenix",
-      "qid": "Q102235",
-      "imdb": "tt0373889",
-      "imdb_url": "https://www.imdb.com/title/tt0373889/",
-      "year_wd": 2007,
-      "genres": [
-        "fantasy film",
-        "family film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/5aOyriWkPec0zUDxmHFP9qMmBaj.jpg",
-        "tmdb_id": 675,
-        "rating": 7.7,
-        "votes": 21029,
-        "overview_len": 150
-      }
-    },
-    {
-      "title": "Harry Potter and the Half-Blood Prince",
-      "year": 2009,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "harry-potter-and-the-half-blood-prince",
-      "qid": "Q161687",
-      "imdb": "tt0417741",
-      "imdb_url": "https://www.imdb.com/title/tt0417741/",
-      "year_wd": 2009,
-      "genres": [
-        "fantasy film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/z7uo9zmQdQwU5ZJHFpv2Upl30i1.jpg",
-        "tmdb_id": 767,
-        "rating": 7.7,
-        "votes": 21009,
-        "overview_len": 134
-      }
-    },
-    {
-      "title": "The Lord of the Rings: The Fellowship of the Ring",
-      "year": 2001,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-lord-of-the-rings-the-fellowship-of-the-ring",
-      "qid": "Q127367",
-      "imdb": "tt0120737",
-      "imdb_url": "https://www.imdb.com/title/tt0120737/",
-      "year_wd": 2001,
-      "genres": [
-        "fantasy film",
-        "adventure film",
-        "action film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-lord-of-the-rings-the-fellowship-of-the-ring.webp",
+        "src": "/imgs/titles/the-chosen.webp",
         "dark": true,
         "licence": "Public domain",
-        "author": "New Line Cinema",
-        "source": "https://commons.wikimedia.org/wiki/File:LotR21.png",
+        "author": "The Chosen press photos (press.thechosen.tv)",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Chosen_-_logo.jpg",
         "credit_required": false,
-        "bytes": 10482
+        "bytes": 6320
       },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg",
-        "tmdb_id": 120,
-        "rating": 8.4,
-        "votes": 28010,
-        "overview_len": 351
-      }
-    },
-    {
-      "title": "The Lord of the Rings: The Two Towers",
-      "year": 2002,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-lord-of-the-rings-the-two-towers",
-      "qid": "Q164963",
-      "imdb": "tt0167261",
-      "imdb_url": "https://www.imdb.com/title/tt0167261/",
-      "year_wd": 2002,
-      "genres": [
-        "fantasy film",
-        "adventure film",
-        "action film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-lord-of-the-rings-the-two-towers.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "the lord of the rings - the two towers",
-        "source": "https://commons.wikimedia.org/wiki/File:Tloftr-ttt2-logo.svg",
-        "credit_required": false,
-        "bytes": 12246
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg",
-        "tmdb_id": 121,
-        "rating": 8.4,
-        "votes": 24272,
-        "overview_len": 558
-      }
-    },
-    {
-      "title": "The Lord of the Rings: The Return of the King",
-      "year": 2003,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-lord-of-the-rings-the-return-of-the-king",
-      "qid": "Q131074",
-      "imdb": "tt0167260",
-      "imdb_url": "https://www.imdb.com/title/tt0167260/",
-      "year_wd": 2003,
-      "genres": [
-        "fantasy film",
-        "adventure film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-lord-of-the-rings-the-return-of-the-king.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "the lord of the rings - the return of the king logo",
-        "source": "https://commons.wikimedia.org/wiki/File:Tloftr-rotk2-logo.svg",
-        "credit_required": false,
-        "bytes": 13872
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
-        "tmdb_id": 122,
-        "rating": 8.5,
-        "votes": 27000,
-        "overview_len": 523
-      }
-    },
-    {
-      "title": "Avatar",
-      "year": 2009,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "avatar",
-      "qid": "Q29387886",
-      "genres": [
-        "science fiction film",
-        "science fantasy"
-      ],
-      "logo": {
-        "src": "/imgs/titles/avatar.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "TheCuriousGnome",
-        "source": "https://commons.wikimedia.org/wiki/File:Avatar-Logo-avatar.svg",
-        "credit_required": false,
-        "bytes": 7564
-      },
-      "tmdb_id": 19995,
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/gKY6q7SjCkAU6FqvqWybDYgUKIF.jpg",
-        "tmdb_id": 19995,
-        "rating": 7.6,
-        "votes": 34373,
-        "overview_len": 175
-      }
-    },
-    {
-      "title": "Avatar: The Way of Water",
-      "year": 2022,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "avatar-the-way-of-water",
-      "qid": "Q3604746",
-      "imdb": "tt1630029",
-      "imdb_url": "https://www.imdb.com/title/tt1630029/",
-      "year_wd": 2022,
-      "genres": [
-        "science fiction film",
-        "action film",
-        "adventure film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/avatar-the-way-of-water.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "20th Century Studios",
-        "source": "https://commons.wikimedia.org/wiki/File:Avatar_-_La_via_dell%27acqua_logo.png",
-        "credit_required": false,
-        "bytes": 10472
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
-        "tmdb_id": 76600,
-        "rating": 7.6,
-        "votes": 14449,
-        "overview_len": 272
-      }
-    },
-    {
-      "title": "Avatar: Fire and Ash",
-      "year": 2025,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "avatar-fire-and-ash",
-      "qid": "Q29580929",
-      "imdb": "tt1757678",
-      "imdb_url": "https://www.imdb.com/title/tt1757678/",
-      "year_wd": 2025,
-      "genres": [
-        "action film",
-        "science fiction film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/avatar-fire-and-ash.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "20th Century Studios",
-        "source": "https://commons.wikimedia.org/wiki/File:Avatar_-_Fuoco_e_cenere.png",
-        "credit_required": false,
-        "bytes": 12760
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/bRBeSHfGHwkEpImlhxPmOcUsaeg.jpg",
-        "tmdb_id": 83533,
-        "rating": 7.6,
-        "votes": 4048,
-        "overview_len": 361
+        "src": "https://image.tmdb.org/t/p/w342/dqVUFuNrMFWt7uGNWlpo91VKYOI.jpg",
+        "tmdb_id": 85077,
+        "rating": 8.8,
+        "votes": 937,
+        "overview_len": 65
       }
     },
     {
       "title": "Fargo",
-      "year": 1996,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
+      "year": 2014,
+      "bg": "#E8EDF2",
+      "fg": "#8C2F2F",
       "key": "fargo",
       "qid": "Q222720",
       "imdb": "tt0116282",
@@ -1940,58 +635,432 @@
       }
     },
     {
-      "title": "Harry and the Hendersons",
-      "year": 1987,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "harry-and-the-hendersons",
-      "qid": "Q240899",
-      "imdb": "tt0093148",
-      "imdb_url": "https://www.imdb.com/title/tt0093148/",
-      "year_wd": 1987,
+      "title": "Danny Phantom",
+      "year": 2004,
+      "bg": "#0E1B3A",
+      "fg": "#3FE0A8",
+      "key": "danny-phantom",
+      "qid": "Q83978",
+      "imdb": "tt0366005",
+      "imdb_url": "https://www.imdb.com/title/tt0366005/",
+      "year_wd": 2004,
       "genres": [
-        "fantasy film",
-        "buddy film",
-        "monster film"
+        "fantasy television series",
+        "adventure television series",
+        "action television series"
       ],
+      "logo": {
+        "src": "/imgs/titles/danny-phantom.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Viacom International Inc.",
+        "source": "https://commons.wikimedia.org/wiki/File:Neues_Danny_Phantom_Logo.jpg",
+        "credit_required": false,
+        "bytes": 17298
+      },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/5ZNWhOEsuNHIQ1gbtwdTGK7srCr.jpg",
-        "tmdb_id": 8989,
-        "rating": 6.1,
-        "votes": 754,
-        "overview_len": 398
+        "src": "https://image.tmdb.org/t/p/w342/pBUOFBmZLaIxzjDjQP7d3QZrd4w.jpg",
+        "tmdb_id": 2309,
+        "rating": 8.3,
+        "votes": 1175,
+        "overview_len": 385
       }
     },
     {
-      "title": "The Shawshank Redemption",
-      "year": 1994,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-shawshank-redemption",
-      "qid": "Q172241",
-      "imdb": "tt0111161",
-      "imdb_url": "https://www.imdb.com/title/tt0111161/",
-      "year_wd": 1994,
+      "title": "Haikyuu!!",
+      "year": 2014,
+      "bg": "#E36414",
+      "fg": "#14213D",
+      "key": "haikyuu",
+      "qid": "Q67144604",
+      "imdb": "tt3398540",
+      "imdb_url": "https://www.imdb.com/title/tt3398540/",
+      "year_wd": 2014,
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/8WEr48swcqe89Zsy5sdrGCASlIg.jpg",
+        "tmdb_id": 60863,
+        "rating": 8.6,
+        "votes": 1531,
+        "overview_len": 418
+      }
+    },
+    {
+      "title": "The Office",
+      "year": 2005,
+      "bg": "#2E4E6B",
+      "fg": "#E8E2D0",
+      "key": "the-office",
+      "qid": "Q23831",
+      "imdb": "tt0386676",
+      "imdb_url": "https://www.imdb.com/title/tt0386676/",
+      "year_wd": 2005,
       "genres": [
-        "drama film",
-        "buddy film",
-        "prison film"
+        "sitcom",
+        "mockumentary"
       ],
       "logo": {
-        "src": "/imgs/titles/the-shawshank-redemption.webp",
-        "dark": false,
+        "src": "/imgs/titles/the-office.webp",
+        "dark": true,
         "licence": "Public domain",
-        "author": "Marmolejo1489",
-        "source": "https://commons.wikimedia.org/wiki/File:The_Shawshank_Redemption_movie_logo.png",
+        "author": "Jo9100",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Office_US_logo.svg",
         "credit_required": false,
-        "bytes": 21250
+        "bytes": 4880
       },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
-        "tmdb_id": 278,
-        "rating": 8.7,
-        "votes": 30937,
-        "overview_len": 392
+        "src": "https://image.tmdb.org/t/p/w342/AcsDnYMUKwYepl75Uc1Hb4aKvDC.jpg",
+        "tmdb_id": 2316,
+        "rating": 8.6,
+        "votes": 5353,
+        "overview_len": 122
+      }
+    },
+    {
+      "title": "Naruto",
+      "year": 2002,
+      "bg": "#E4761B",
+      "fg": "#16233F",
+      "anime": true,
+      "note": "and Shippuden, and the films",
+      "key": "naruto",
+      "qid": "Q25929253",
+      "imdb": "tt0409591",
+      "imdb_url": "https://www.imdb.com/title/tt0409591/",
+      "year_wd": 2002,
+      "genres": [
+        "action anime",
+        "adventure anime",
+        "gag anime"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/1GVfX7kqIbQBp38Riiy1QLQkhJQ.jpg",
+        "tmdb_id": 46260,
+        "rating": 8.4,
+        "votes": 6066,
+        "overview_len": 165
+      }
+    },
+    {
+      "title": "Silicon Valley",
+      "year": 2014,
+      "bg": "#04564E",
+      "fg": "#7FE8D8",
+      "rank": 1,
+      "key": "silicon-valley",
+      "qid": "Q15956708",
+      "imdb": "tt2575988",
+      "imdb_url": "https://www.imdb.com/title/tt2575988/",
+      "year_wd": 2014,
+      "genres": [
+        "comedy television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/silicon-valley.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "HBO",
+        "source": "https://commons.wikimedia.org/wiki/File:Silicon_Valley.svg",
+        "credit_required": false,
+        "bytes": 19084
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/4ptpmWBVD9HY9hMh8Cbs6SMiy7p.jpg",
+        "tmdb_id": 60573,
+        "rating": 8.1,
+        "votes": 1982,
+        "overview_len": 376
+      }
+    },
+    {
+      "title": "The Simpsons",
+      "year": 1989,
+      "bg": "#FFD90F",
+      "fg": "#2B4A9B",
+      "key": "the-simpsons",
+      "qid": "Q886",
+      "imdb": "tt0096697",
+      "imdb_url": "https://www.imdb.com/title/tt0096697/",
+      "year_wd": 1989,
+      "genres": [
+        "animated sitcom",
+        "satire",
+        "black comedy"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-simpsons.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Matt Groening",
+        "source": "https://commons.wikimedia.org/wiki/File:Logo_The_Simpsons.svg",
+        "credit_required": false,
+        "bytes": 17498
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/uWpG7GqfKGQqX4YMAo3nv5OrglV.jpg",
+        "tmdb_id": 456,
+        "rating": 8,
+        "votes": 10910,
+        "overview_len": 431
+      }
+    },
+    {
+      "title": "Kid Danger",
+      "year": 2018,
+      "bg": "#123C7A",
+      "fg": "#F5B301",
+      "key": "kid-danger",
+      "qid": "Q46365050",
+      "imdb": "tt7833530",
+      "imdb_url": "https://www.imdb.com/title/tt7833530/",
+      "year_wd": 2018,
+      "genres": [
+        "comedy television series",
+        "children's television series"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/3JqQ473UkYpFBjvpGMydI5sjoCI.jpg",
+        "tmdb_id": 76534,
+        "rating": 6.8,
+        "votes": 25,
+        "overview_len": 232
+      }
+    },
+    {
+      "title": "Gravity Falls",
+      "year": 2012,
+      "bg": "#1E3D2F",
+      "fg": "#E0B04C",
+      "key": "gravity-falls",
+      "qid": "Q550555",
+      "imdb": "tt1865718",
+      "imdb_url": "https://www.imdb.com/title/tt1865718/",
+      "year_wd": 2012,
+      "genres": [
+        "fantasy television series",
+        "comedy television series",
+        "adventure television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/gravity-falls.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Disney Television Animation (source), OfficialAntarctica (derivative)",
+        "source": "https://commons.wikimedia.org/wiki/File:Gravity_Falls_logo.svg",
+        "credit_required": false,
+        "bytes": 25538
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/qwi3p6PzKfQZ4YXBzv3CP5pO2dE.jpg",
+        "tmdb_id": 40075,
+        "rating": 8.6,
+        "votes": 3543,
+        "overview_len": 207
+      }
+    },
+    {
+      "title": "Arrested Development",
+      "year": 2003,
+      "bg": "#F2E205",
+      "fg": "#1B4D8C",
+      "key": "arrested-development",
+      "qid": "Q11598",
+      "imdb": "tt0367279",
+      "imdb_url": "https://www.imdb.com/title/tt0367279/",
+      "year_wd": 2003,
+      "genres": [
+        "comedy television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/arrested-development.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Unknown authorUnknown author",
+        "source": "https://commons.wikimedia.org/wiki/File:Arrested_Development.svg",
+        "credit_required": false,
+        "bytes": 20316
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/p4r4RD7RsNcJVoz0H6z3dBoTBtW.jpg",
+        "tmdb_id": 4589,
+        "rating": 7.9,
+        "votes": 1705,
+        "overview_len": 116
+      }
+    },
+    {
+      "title": "The Flash",
+      "year": 2014,
+      "bg": "#B3121C",
+      "fg": "#F5D547",
+      "key": "the-flash",
+      "qid": "Q23562553",
+      "imdb": "tt0439572",
+      "imdb_url": "https://www.imdb.com/title/tt0439572/",
+      "year_wd": 2023,
+      "genres": [
+        "science fiction film",
+        "action film",
+        "adventure film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
+        "tmdb_id": 298618,
+        "rating": 6.6,
+        "votes": 5137,
+        "overview_len": 381
+      }
+    },
+    {
+      "title": "Tom and Jerry",
+      "year": 1940,
+      "bg": "#2A2118",
+      "fg": "#E8B44A",
+      "tmdb_id": 7842,
+      "key": "tom-and-jerry",
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/um2758jtENjV7WwgP56aCPLfQGo.jpg",
+        "tmdb_id": 7842,
+        "rating": 7.7,
+        "votes": 1170,
+        "overview_len": 245
+      }
+    },
+    {
+      "title": "Seinfeld",
+      "year": 1989,
+      "bg": "#1F4FA3",
+      "fg": "#F4D03F",
+      "rank": 3,
+      "key": "seinfeld",
+      "qid": "Q23733",
+      "imdb": "tt0098904",
+      "imdb_url": "https://www.imdb.com/title/tt0098904/",
+      "year_wd": 1989,
+      "genres": [
+        "sitcom"
+      ],
+      "logo": {
+        "src": "/imgs/titles/seinfeld.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Trademark owned by Castle Rock Entertainment and Sony Pictures.",
+        "source": "https://commons.wikimedia.org/wiki/File:Seinfeld_logo.svg",
+        "credit_required": false,
+        "bytes": 19204
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/aCw8ONfyz3AhngVQa1E2Ss4KSUQ.jpg",
+        "tmdb_id": 1400,
+        "rating": 8.3,
+        "votes": 2403,
+        "overview_len": 147
+      }
+    },
+    {
+      "title": "Barry",
+      "year": 2018,
+      "bg": "#1A1A1A",
+      "fg": "#E8C547",
+      "key": "barry",
+      "qid": "Q26812664",
+      "imdb": "tt5348176",
+      "imdb_url": "https://www.imdb.com/title/tt5348176/",
+      "year_wd": 2018,
+      "genres": [
+        "black comedy television series",
+        "comedy drama",
+        "psychological drama film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/barry.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Alec Berg Inc., Hanarply, and/or HBO",
+        "source": "https://commons.wikimedia.org/wiki/File:Barry_logo.svg",
+        "credit_required": false,
+        "bytes": 11686
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/j1XpwD11f0BAEI7pX6UdMhUVX2F.jpg",
+        "tmdb_id": 73107,
+        "rating": 7.9,
+        "votes": 1188,
+        "overview_len": 100
+      }
+    },
+    {
+      "title": "One Punch Man",
+      "year": 2015,
+      "bg": "#F2C500",
+      "fg": "#6E0A11",
+      "key": "one-punch-man",
+      "qid": "Q22341674",
+      "imdb": "tt4508902",
+      "imdb_url": "https://www.imdb.com/title/tt4508902/",
+      "year_wd": 2015,
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/dT10AxJIXVvRwFAew4tt2RhzJrD.jpg",
+        "tmdb_id": 63926,
+        "rating": 8.4,
+        "votes": 4180,
+        "overview_len": 464
+      }
+    }
+  ],
+  "movies": [
+    {
+      "title": "Pirates of the Caribbean: On Stranger Tides",
+      "year": 2011,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "pirates-of-the-caribbean-on-stranger-tides",
+      "qid": "Q183555",
+      "imdb": "tt1298650",
+      "imdb_url": "https://www.imdb.com/title/tt1298650/",
+      "year_wd": 2011,
+      "genres": [
+        "fantasy film",
+        "swashbuckler film",
+        "zombie film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/pirates-of-the-caribbean-on-stranger-tides.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Walt Disney Pictures",
+        "source": "https://commons.wikimedia.org/wiki/File:Pirates_of_the_Caribbean_4_Logo.svg",
+        "credit_required": false,
+        "bytes": 7124
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/keGfSvCmYj7CvdRx36OdVrAEibE.jpg",
+        "tmdb_id": 1865,
+        "rating": 6.6,
+        "votes": 15115,
+        "overview_len": 162
+      }
+    },
+    {
+      "title": "The Wizard of Oz",
+      "year": 1939,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-wizard-of-oz",
+      "qid": "Q193695",
+      "imdb": "tt0032138",
+      "imdb_url": "https://www.imdb.com/title/tt0032138/",
+      "year_wd": 1939,
+      "genres": [
+        "fantasy film",
+        "musical film",
+        "adventure film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/uCC3j4pV9eOZwzDUWp2ilbcTf1f.jpg",
+        "tmdb_id": 630,
+        "rating": 7.6,
+        "votes": 6197,
+        "overview_len": 307
       }
     },
     {
@@ -2027,1030 +1096,35 @@
       }
     },
     {
-      "title": "The Good, the Bad and the Ugly",
-      "year": 1966,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-good-the-bad-and-the-ugly",
-      "qid": "Q41483",
-      "imdb": "tt0060196",
-      "imdb_url": "https://www.imdb.com/title/tt0060196/",
-      "year_wd": 1966,
-      "genres": [
-        "Spaghetti Western",
-        "treasure hunt film",
-        "war film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-good-the-bad-and-the-ugly.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "United Artists",
-        "source": "https://commons.wikimedia.org/wiki/File:Il_buono,_il_brutto,_il_cattivo.png",
-        "credit_required": false,
-        "bytes": 21460
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/bX2xnavhMYjWDoZp1VM6VnU1xwe.jpg",
-        "tmdb_id": 429,
-        "rating": 8.5,
-        "votes": 9806,
-        "overview_len": 225
-      }
-    },
-    {
-      "title": "Forrest Gump",
+      "title": "The Shawshank Redemption",
       "year": 1994,
       "bg": "#20222b",
       "fg": "#c9cbd6",
-      "key": "forrest-gump",
-      "qid": "Q134773",
-      "imdb": "tt0109830",
-      "imdb_url": "https://www.imdb.com/title/tt0109830/",
+      "key": "the-shawshank-redemption",
+      "qid": "Q172241",
+      "imdb": "tt0111161",
+      "imdb_url": "https://www.imdb.com/title/tt0111161/",
       "year_wd": 1994,
       "genres": [
-        "coming-of-age film",
-        "flashback film",
-        "comedy film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/forrest-gump.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Diseñadores publicitarios",
-        "source": "https://commons.wikimedia.org/wiki/File:Forrest_Gump.svg",
-        "credit_required": false,
-        "bytes": 16402
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg",
-        "tmdb_id": 13,
-        "rating": 8.5,
-        "votes": 30128,
-        "overview_len": 238
-      }
-    },
-    {
-      "title": "The Matrix",
-      "year": 1999,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-matrix",
-      "qid": "Q83495",
-      "imdb": "tt0133093",
-      "imdb_url": "https://www.imdb.com/title/tt0133093/",
-      "year_wd": 1999,
-      "genres": [
-        "thriller film",
-        "dystopian film",
-        "cyberpunk"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-matrix.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "Warner Bros. Pictures / Village Roadshow Pictures",
-        "source": "https://commons.wikimedia.org/wiki/File:The-matrix-logo.svg",
-        "credit_required": false,
-        "bytes": 12802
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/dXNAPwY7VrqMAo51EKhhCJfaGb5.jpg",
-        "tmdb_id": 603,
-        "rating": 8.3,
-        "votes": 28350,
-        "overview_len": 181
-      }
-    },
-    {
-      "title": "Interstellar",
-      "year": 2014,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "interstellar",
-      "qid": "Q13417189",
-      "imdb": "tt0816692",
-      "imdb_url": "https://www.imdb.com/title/tt0816692/",
-      "year_wd": 2014,
-      "genres": [
-        "science fiction film",
-        "adventure film",
-        "dystopian film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/interstellar.webp",
-        "dark": true,
-        "licence": "CC0",
-        "author": "Super Galaxy II",
-        "source": "https://commons.wikimedia.org/wiki/File:Interstellar-logo.jpg",
-        "credit_required": false,
-        "bytes": 8384
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
-        "tmdb_id": 157336,
-        "rating": 8.5,
-        "votes": 40614,
-        "overview_len": 198
-      }
-    },
-    {
-      "title": "One Flew Over the Cuckoo's Nest",
-      "year": 1975,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "one-flew-over-the-cuckoo-s-nest",
-      "qid": "Q171669",
-      "imdb": "tt0073486",
-      "imdb_url": "https://www.imdb.com/title/tt0073486/",
-      "year_wd": 1975,
-      "genres": [
-        "comedy film",
-        "medical drama",
+        "drama film",
+        "buddy film",
         "prison film"
       ],
       "logo": {
-        "src": "/imgs/titles/one-flew-over-the-cuckoo-s-nest.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Warner Bros.",
-        "source": "https://commons.wikimedia.org/wiki/File:One_Flew_Over_the_Cuckoo%27s_Nest_Logo.png",
-        "credit_required": false,
-        "bytes": 11512
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/kjWsMh72V6d8KRLV4EOoSJLT1H7.jpg",
-        "tmdb_id": 510,
-        "rating": 8.4,
-        "votes": 11603,
-        "overview_len": 210
-      }
-    },
-    {
-      "title": "It's a Wonderful Life",
-      "year": 1946,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "it-s-a-wonderful-life",
-      "qid": "Q204191",
-      "imdb": "tt0038650",
-      "imdb_url": "https://www.imdb.com/title/tt0038650/",
-      "year_wd": 1946,
-      "genres": [
-        "romantic comedy film",
-        "fantasy film",
-        "drama film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/bSqt9rhDZx1Q7UZ86dBPKdNomp2.jpg",
-        "tmdb_id": 1585,
-        "rating": 8.3,
-        "votes": 4979,
-        "overview_len": 283
-      }
-    },
-    {
-      "title": "The Green Mile",
-      "year": 1999,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-green-mile",
-      "qid": "Q208263",
-      "imdb": "tt0120689",
-      "imdb_url": "https://www.imdb.com/title/tt0120689/",
-      "year_wd": 1999,
-      "genres": [
-        "drama film",
-        "flashback film",
-        "fantasy film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-green-mile.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Original: Warner Bros. Pictures & Castle Rock Entertainment Vectorization: Logovectorizer",
-        "source": "https://commons.wikimedia.org/wiki/File:The_Green_Mile_logo.svg",
-        "credit_required": false,
-        "bytes": 5850
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg",
-        "tmdb_id": 497,
-        "rating": 8.5,
-        "votes": 19553,
-        "overview_len": 303
-      }
-    },
-    {
-      "title": "The Terminator",
-      "year": 1984,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-terminator",
-      "qid": "Q162255",
-      "imdb": "tt0088247",
-      "imdb_url": "https://www.imdb.com/title/tt0088247/",
-      "year_wd": 1984,
-      "genres": [
-        "action film",
-        "science fiction film",
-        "cyberpunk"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-terminator.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Vectorized by Amberrock",
-        "source": "https://commons.wikimedia.org/wiki/File:The_Terminator_(logo).svg",
-        "credit_required": false,
-        "bytes": 2134
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/qvktm0BHcnmDpul4Hz01GIazWPr.jpg",
-        "tmdb_id": 218,
-        "rating": 7.7,
-        "votes": 14867,
-        "overview_len": 389
-      }
-    },
-    {
-      "title": "Terminator 2: Judgment Day",
-      "year": 1991,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "terminator-2-judgment-day",
-      "qid": "Q170564",
-      "imdb": "tt0103064",
-      "imdb_url": "https://www.imdb.com/title/tt0103064/",
-      "year_wd": 1991,
-      "genres": [
-        "action film",
-        "thriller film",
-        "science fiction film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/terminator-2-judgment-day.webp",
-        "dark": false,
-        "licence": "CC BY-SA 4.0",
-        "author": "Lightstorm",
-        "source": "https://commons.wikimedia.org/wiki/File:Terminator_2_Judgement_Day_(logo).png",
-        "credit_required": true,
-        "bytes": 31008
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/jFTVD4XoWQTcg7wdyJKa8PEds5q.jpg",
-        "tmdb_id": 280,
-        "rating": 8.2,
-        "votes": 14585,
-        "overview_len": 241
-      }
-    },
-    {
-      "title": "Kill Bill: Volume 1",
-      "year": 2003,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "kill-bill-volume-1",
-      "qid": "Q165325",
-      "imdb": "tt0266697",
-      "imdb_url": "https://www.imdb.com/title/tt0266697/",
-      "year_wd": 2003,
-      "genres": [
-        "action thriller",
-        "girls with guns",
-        "martial arts film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/kill-bill-volume-1.webp",
+        "src": "/imgs/titles/the-shawshank-redemption.webp",
         "dark": false,
         "licence": "Public domain",
-        "author": "quentin tarantino",
-        "source": "https://commons.wikimedia.org/wiki/File:Killbill-vol1-logo.svg",
+        "author": "Marmolejo1489",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Shawshank_Redemption_movie_logo.png",
         "credit_required": false,
-        "bytes": 9814
+        "bytes": 21250
       },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/v7TaX8kXMXs5yFFGR41guUDNcnB.jpg",
-        "tmdb_id": 24,
-        "rating": 8,
-        "votes": 19193,
-        "overview_len": 138
-      }
-    },
-    {
-      "title": "Kill Bill: Volume 2",
-      "year": 2004,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "kill-bill-volume-2",
-      "qid": "Q928019",
-      "imdb": "tt0378194",
-      "imdb_url": "https://www.imdb.com/title/tt0378194/",
-      "year_wd": 2004,
-      "genres": [
-        "action film",
-        "thriller film",
-        "girls with guns"
-      ],
-      "logo": {
-        "src": "/imgs/titles/kill-bill-volume-2.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "SunOfErat",
-        "source": "https://commons.wikimedia.org/wiki/File:Kill_Bill_svg_logo.svg",
-        "credit_required": false,
-        "bytes": 3648
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/2yhg0mZQMhDyvUQ4rG1IZ4oIA8L.jpg",
-        "tmdb_id": 393,
-        "rating": 7.9,
-        "votes": 15263,
-        "overview_len": 295
-      }
-    },
-    {
-      "title": "Gladiator",
-      "year": 2000,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "gladiator",
-      "qid": "Q128518",
-      "imdb": "tt0172495",
-      "imdb_url": "https://www.imdb.com/title/tt0172495/",
-      "year_wd": 2000,
-      "genres": [
-        "sword-and-sandal film",
-        "melodrama",
-        "action film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/gladiator.webp",
-        "dark": true,
-        "licence": "CC BY-SA 4.0",
-        "author": "Pietrus",
-        "source": "https://commons.wikimedia.org/wiki/File:Gladiator_logo.svg",
-        "credit_required": true,
-        "bytes": 13588
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/wN2xWp1eIwCKOD0BHTcErTBv1Uq.jpg",
-        "tmdb_id": 98,
-        "rating": 8.2,
-        "votes": 21205,
-        "overview_len": 283
-      }
-    },
-    {
-      "title": "The Lion King",
-      "year": 1994,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-lion-king",
-      "qid": "Q27044293",
-      "imdb": "tt6105098",
-      "imdb_url": "https://www.imdb.com/title/tt6105098/",
-      "year_wd": 2019,
-      "genres": [
-        "adventure film",
-        "family film",
-        "comedy film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-lion-king.webp",
-        "dark": true,
-        "licence": "CC BY-SA 4.0",
-        "author": "Gkaidan",
-        "source": "https://commons.wikimedia.org/wiki/File:Lion-king.png",
-        "credit_required": true,
-        "bytes": 9718
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg",
-        "tmdb_id": 420818,
-        "rating": 7.1,
-        "votes": 10831,
-        "overview_len": 466
-      }
-    },
-    {
-      "title": "Léon: The Professional",
-      "year": 1994,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "leon-the-professional",
-      "qid": "Q484675",
-      "imdb": "tt0110413",
-      "imdb_url": "https://www.imdb.com/title/tt0110413/",
-      "year_wd": 1995,
-      "genres": [
-        "crime thriller film",
-        "buddy film",
-        "gangster film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/bxB2q91nKYp8JNzqE7t7TWBVupB.jpg",
-        "tmdb_id": 101,
-        "rating": 8.3,
-        "votes": 16306,
-        "overview_len": 313
-      }
-    },
-    {
-      "title": "The Shining",
-      "year": 1980,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-shining",
-      "qid": "Q186341",
-      "imdb": "tt0081505",
-      "imdb_url": "https://www.imdb.com/title/tt0081505/",
-      "year_wd": 1980,
-      "genres": [
-        "horror film",
-        "psychological horror film",
-        "drama film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-shining.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "the shining",
-        "source": "https://commons.wikimedia.org/wiki/File:Theshining-logo.svg",
-        "credit_required": false,
-        "bytes": 9872
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/uAR0AWqhQL1hQa69UDEbb2rE5Wx.jpg",
-        "tmdb_id": 694,
-        "rating": 8.2,
-        "votes": 19158,
-        "overview_len": 239
-      }
-    },
-    {
-      "title": "The Thing",
-      "year": 1982,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-thing",
-      "qid": "Q210756",
-      "imdb": "tt0084787",
-      "imdb_url": "https://www.imdb.com/title/tt0084787/",
-      "year_wd": 1982,
-      "genres": [
-        "horror film",
-        "science fiction film",
-        "mystery film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-thing.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "PD-Text",
-        "source": "https://commons.wikimedia.org/wiki/File:John_Carpenter%27s_The_Thing_(closing_credits_Logo).png",
-        "credit_required": false,
-        "bytes": 4846
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/tzGY49kseSE9QAKk47uuDGwnSCu.jpg",
-        "tmdb_id": 1091,
-        "rating": 8.1,
-        "votes": 8101,
-        "overview_len": 109
-      }
-    },
-    {
-      "title": "Poltergeist",
-      "year": 1982,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "poltergeist",
-      "qid": "Q497622",
-      "imdb": "tt0084516",
-      "imdb_url": "https://www.imdb.com/title/tt0084516/",
-      "year_wd": 1982,
-      "genres": [
-        "horror film",
-        "ghost film",
-        "supernatural horror film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/poltergeist.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Metro-Goldwyn-Mayer Film Co.",
-        "source": "https://commons.wikimedia.org/wiki/File:Poltergeist_Logo.svg",
-        "credit_required": false,
-        "bytes": 5504
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/4eMN3GANH5GG4kXdHkrTZEUuQ9M.jpg",
-        "tmdb_id": 609,
-        "rating": 7.2,
-        "votes": 3392,
-        "overview_len": 171
-      }
-    },
-    {
-      "title": "WALL-E",
-      "year": 2008,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "wall-e",
-      "qid": "Q104905",
-      "imdb": "tt0910970",
-      "imdb_url": "https://www.imdb.com/title/tt0910970/",
-      "year_wd": 2008,
-      "genres": [
-        "romantic comedy film",
-        "post-apocalyptic film",
-        "science fiction comedy"
-      ],
-      "logo": {
-        "src": "/imgs/titles/wall-e.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Pixar Animation Studios, Walt Disney Pictures",
-        "source": "https://commons.wikimedia.org/wiki/File:WALL%C2%B7E_Logo.svg",
-        "credit_required": false,
-        "bytes": 2572
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/hbhFnRzzg6ZDmm8YAmxBnQpQIPh.jpg",
-        "tmdb_id": 10681,
-        "rating": 8.1,
-        "votes": 20590,
-        "overview_len": 462
-      }
-    },
-    {
-      "title": "Apocalypto",
-      "year": 2006,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "apocalypto",
-      "qid": "Q188035",
-      "imdb": "tt0472043",
-      "imdb_url": "https://www.imdb.com/title/tt0472043/",
-      "year_wd": 2006,
-      "genres": [
-        "drama film",
-        "historical drama"
-      ],
-      "logo": {
-        "src": "/imgs/titles/apocalypto.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Touchstone Pictures",
-        "source": "https://commons.wikimedia.org/wiki/File:Apocalypto_Logo.png",
-        "credit_required": false,
-        "bytes": 8692
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/cRY25Q32kDNPFDkFkxAs6bgCq3L.jpg",
-        "tmdb_id": 1579,
-        "rating": 7.7,
-        "votes": 6541,
-        "overview_len": 395
-      }
-    },
-    {
-      "title": "Raiders of the Lost Ark",
-      "year": 1981,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "raiders-of-the-lost-ark",
-      "qid": "Q174284",
-      "imdb": "tt0082971",
-      "imdb_url": "https://www.imdb.com/title/tt0082971/",
-      "year_wd": 1981,
-      "genres": [
-        "action film",
-        "treasure hunt film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
-        "tmdb_id": 85,
-        "rating": 7.9,
-        "votes": 13814,
-        "overview_len": 227
-      }
-    },
-    {
-      "title": "Indiana Jones and the Temple of Doom",
-      "year": 1984,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "indiana-jones-and-the-temple-of-doom",
-      "qid": "Q179215",
-      "imdb": "tt0087469",
-      "imdb_url": "https://www.imdb.com/title/tt0087469/",
-      "year_wd": 1984,
-      "genres": [
-        "action film",
-        "adventure film",
-        "treasure hunt film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/gpdVNUaa4LhRMLfJOPj1AZdhAZ3.jpg",
-        "tmdb_id": 87,
-        "rating": 7.3,
-        "votes": 10240,
-        "overview_len": 204
-      }
-    },
-    {
-      "title": "Indiana Jones and the Last Crusade",
-      "year": 1989,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "indiana-jones-and-the-last-crusade",
-      "qid": "Q185658",
-      "imdb": "tt0097576",
-      "imdb_url": "https://www.imdb.com/title/tt0097576/",
-      "year_wd": 1989,
-      "genres": [
-        "action comedy film",
-        "adventure film",
-        "treasure hunt film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/indiana-jones-and-the-last-crusade.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Lucasfilm",
-        "source": "https://commons.wikimedia.org/wiki/File:Indiana_Jones_logo.svg",
-        "credit_required": false,
-        "bytes": 15898
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/sizg1AU8f8JDZX4QIgE4pjUMBvx.jpg",
-        "tmdb_id": 89,
-        "rating": 7.9,
-        "votes": 11212,
-        "overview_len": 625
-      }
-    },
-    {
-      "title": "They Live",
-      "year": 1988,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "they-live",
-      "qid": "Q72909",
-      "imdb": "tt0096256",
-      "imdb_url": "https://www.imdb.com/title/tt0096256/",
-      "year_wd": 1988,
-      "genres": [
-        "action film",
-        "science fiction film",
-        "action thriller"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/ngnybFTuopfbfmmEeX9jjBQQmF6.jpg",
-        "tmdb_id": 8337,
-        "rating": 7.3,
-        "votes": 3548,
-        "overview_len": 189
-      }
-    },
-    {
-      "title": "Aliens",
-      "year": 1986,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "aliens",
-      "qid": "Q104814",
-      "imdb": "tt0090605",
-      "imdb_url": "https://www.imdb.com/title/tt0090605/",
-      "year_wd": 1986,
-      "genres": [
-        "action film",
-        "horror film",
-        "thriller film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/aliens.webp",
-        "dark": true,
-        "licence": "CC BY-SA 4.0",
-        "author": "Torfilm",
-        "source": "https://commons.wikimedia.org/wiki/File:Aliens_title.png",
-        "credit_required": true,
-        "bytes": 5424
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/r1x5JGpyqZU8PYhbs4UcrO1Xb6x.jpg",
-        "tmdb_id": 679,
-        "rating": 8,
-        "votes": 11019,
-        "overview_len": 280
-      }
-    },
-    {
-      "title": "Coco",
-      "year": 2017,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "coco",
-      "qid": "Q814",
-      "imdb": "nm1146910",
-      "imdb_url": "https://www.imdb.com/title/nm1146910/",
-      "tmdb_id": 354912,
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/6Ryitt95xrO8KXuqRGm1fUuNwqF.jpg",
-        "tmdb_id": 354912,
-        "rating": 8.2,
-        "votes": 21204,
-        "overview_len": 446
-      }
-    },
-    {
-      "title": "Toy Story",
-      "year": 1995,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "toy-story",
-      "qid": "Q171048",
-      "imdb": "tt0114709",
-      "imdb_url": "https://www.imdb.com/title/tt0114709/",
-      "year_wd": 1995,
-      "genres": [
-        "buddy film",
-        "fantasy film",
-        "adventure film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/toy-story.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "Pixar",
-        "source": "https://commons.wikimedia.org/wiki/File:Toy_Story_logo.svg",
-        "credit_required": false,
-        "bytes": 18252
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg",
-        "tmdb_id": 862,
-        "rating": 8,
-        "votes": 20268,
-        "overview_len": 303
-      }
-    },
-    {
-      "title": "Toy Story 2",
-      "year": 1999,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "toy-story-2",
-      "qid": "Q187266",
-      "imdb": "tt0120363",
-      "imdb_url": "https://www.imdb.com/title/tt0120363/",
-      "year_wd": 1999,
-      "genres": [
-        "buddy film",
-        "flashback film",
-        "fantasy film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/toy-story-2.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "Disney Pixar",
-        "source": "https://commons.wikimedia.org/wiki/File:Toy_Story_2_logo.svg",
-        "credit_required": false,
-        "bytes": 25736
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/4rbcp3ng8n1MKHjpeqW0L7Fnpzz.jpg",
-        "tmdb_id": 863,
-        "rating": 7.6,
-        "votes": 15168,
-        "overview_len": 322
-      }
-    },
-    {
-      "title": "Toy Story 3",
-      "year": 2010,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "toy-story-3",
-      "qid": "Q187278",
-      "imdb": "tt0435761",
-      "imdb_url": "https://www.imdb.com/title/tt0435761/",
-      "year_wd": 2010,
-      "genres": [
-        "buddy film",
-        "comedy drama",
-        "comedy film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/toy-story-3.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "Disney/Pixar",
-        "source": "https://commons.wikimedia.org/wiki/File:Toy_Story_3_logo.png",
-        "credit_required": false,
-        "bytes": 50098
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/AbbXspMOwdvwWZgVN0nabZq03Ec.jpg",
-        "tmdb_id": 10193,
-        "rating": 7.8,
-        "votes": 16010,
-        "overview_len": 247
-      }
-    },
-    {
-      "title": "Toy Story 4",
-      "year": 2019,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "toy-story-4",
-      "qid": "Q18517638",
-      "imdb": "tt1979376",
-      "imdb_url": "https://www.imdb.com/title/tt1979376/",
-      "year_wd": 2019,
-      "genres": [
-        "children's film",
-        "comedy film",
-        "adventure film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/toy-story-4.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "Walt Disney Studios Motion Pictures",
-        "source": "https://commons.wikimedia.org/wiki/File:Toy_Story_4_Logo_Black.svg",
-        "credit_required": false,
-        "bytes": 26682
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/w9kR8qbmQ01HwnvK4alvnQ2ca0L.jpg",
-        "tmdb_id": 301528,
-        "rating": 7.5,
-        "votes": 10816,
-        "overview_len": 337
-      }
-    },
-    {
-      "title": "Once Upon a Time in Hollywood",
-      "year": 2019,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "once-upon-a-time-in-hollywood",
-      "qid": "Q47300912",
-      "imdb": "tt7131622",
-      "imdb_url": "https://www.imdb.com/title/tt7131622/",
-      "year_wd": 2019,
-      "genres": [
-        "comedy drama",
-        "black comedy film",
-        "drama film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/once-upon-a-time-in-hollywood.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "Original: Columbia Pictures & Sony Pictures Derivative work: Logovectorizer",
-        "source": "https://commons.wikimedia.org/wiki/File:Once_Upon_a_Time_in_Hollywood_logo.svg",
-        "credit_required": false,
-        "bytes": 7918
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/8j58iEBw9pOXFD2L0nt0ZXeHviB.jpg",
-        "tmdb_id": 466272,
-        "rating": 7.4,
-        "votes": 15047,
-        "overview_len": 333
-      }
-    },
-    {
-      "title": "Up",
-      "year": 2009,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "up",
-      "qid": "Q174811",
-      "imdb": "tt1049413",
-      "imdb_url": "https://www.imdb.com/title/tt1049413/",
-      "year_wd": 2009,
-      "genres": [
-        "adventure film",
-        "comedy film",
-        "fantasy film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/up.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Pixar",
-        "source": "https://commons.wikimedia.org/wiki/File:Up_(2009_film)_logo.svg",
-        "credit_required": false,
-        "bytes": 11596
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/mFvoEwSfLqbcWwFsDjQebn9bzFe.jpg",
-        "tmdb_id": 14160,
-        "rating": 8,
-        "votes": 21901,
-        "overview_len": 274
-      }
-    },
-    {
-      "title": "The Truman Show",
-      "year": 1998,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "the-truman-show",
-      "qid": "Q214801",
-      "imdb": "tt0120382",
-      "imdb_url": "https://www.imdb.com/title/tt0120382/",
-      "year_wd": 1998,
-      "genres": [
-        "science fiction film",
-        "comedy film",
-        "drama film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/the-truman-show.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Unknown authorUnknown author",
-        "source": "https://commons.wikimedia.org/wiki/File:The_Truman_Show.png",
-        "credit_required": false,
-        "bytes": 2658
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/vuza0WqY239yBXOadKlGwJsZJFE.jpg",
-        "tmdb_id": 37165,
-        "rating": 8.2,
-        "votes": 20551,
-        "overview_len": 206
-      }
-    },
-    {
-      "title": "Oppenheimer",
-      "year": 2023,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "oppenheimer",
-      "qid": "Q108839994",
-      "imdb": "tt15398776",
-      "imdb_url": "https://www.imdb.com/title/tt15398776/",
-      "year_wd": 2023,
-      "genres": [
-        "historical film",
-        "biographical film",
-        "thriller film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/oppenheimer.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Original: Universal Pictures Derivative work: Logovectorizer",
-        "source": "https://commons.wikimedia.org/wiki/File:Oppenheimer_logo.svg",
-        "credit_required": false,
-        "bytes": 3962
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-        "tmdb_id": 872585,
-        "rating": 8,
-        "votes": 12158,
-        "overview_len": 100
-      }
-    },
-    {
-      "title": "Jurassic Park",
-      "year": 1993,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "jurassic-park",
-      "qid": "Q167726",
-      "imdb": "tt0107290",
-      "imdb_url": "https://www.imdb.com/title/tt0107290/",
-      "year_wd": 1993,
-      "genres": [
-        "science fiction film",
-        "adventure film",
-        "action film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/jurassic-park.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Universal City Studios LLC and Amblin Entertainment, Inc.",
-        "source": "https://commons.wikimedia.org/wiki/File:Jurassic_Park_wordmark.svg",
-        "credit_required": false,
-        "bytes": 12218
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/63viWuPfYQjRYLSZSZNq7dglJP5.jpg",
-        "tmdb_id": 329,
-        "rating": 8,
-        "votes": 18134,
-        "overview_len": 348
+        "src": "https://image.tmdb.org/t/p/w342/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
+        "tmdb_id": 278,
+        "rating": 8.7,
+        "votes": 30937,
+        "overview_len": 392
       }
     },
     {
@@ -3077,350 +1151,26 @@
       }
     },
     {
-      "title": "Top Gun: Maverick",
-      "year": 2022,
+      "title": "Unbreakable",
+      "year": 2000,
       "bg": "#20222b",
       "fg": "#c9cbd6",
-      "key": "top-gun-maverick",
-      "qid": "Q31202708",
-      "imdb": "tt1745960",
-      "imdb_url": "https://www.imdb.com/title/tt1745960/",
-      "year_wd": 2022,
+      "key": "unbreakable",
+      "qid": "Q650613",
+      "imdb": "tt0217869",
+      "imdb_url": "https://www.imdb.com/title/tt0217869/",
+      "year_wd": 2000,
       "genres": [
-        "action film",
-        "drama film",
-        "adventure film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/top-gun-maverick.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Paramount Pictures / Reproduction : Kilyann Le Hen",
-        "source": "https://commons.wikimedia.org/wiki/File:Top_Gun_-_Maverick_logo.svg",
-        "credit_required": false,
-        "bytes": 3796
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/n0YuM4f5lvGAP6MAW2kBIzugXnc.jpg",
-        "tmdb_id": 361743,
-        "rating": 8.2,
-        "votes": 11284,
-        "overview_len": 291
-      }
-    },
-    {
-      "title": "Finding Nemo",
-      "year": 2003,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "finding-nemo",
-      "qid": "Q132863",
-      "imdb": "tt0266543",
-      "imdb_url": "https://www.imdb.com/title/tt0266543/",
-      "year_wd": 2003,
-      "genres": [
-        "adventure film",
-        "family film",
-        "comedy film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/finding-nemo.webp",
-        "dark": false,
-        "licence": "Public domain",
-        "author": "The Walt Disney Company",
-        "source": "https://commons.wikimedia.org/wiki/File:Finding_Nemo_logo.svg",
-        "credit_required": false,
-        "bytes": 11454
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/5lc6nQc0VhWFYFbNv016xze8Jvy.jpg",
-        "tmdb_id": 12,
-        "rating": 7.8,
-        "votes": 20763,
-        "overview_len": 333
-      }
-    },
-    {
-      "title": "Catch Me If You Can",
-      "year": 2002,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "catch-me-if-you-can",
-      "qid": "Q208108",
-      "imdb": "tt0264464",
-      "imdb_url": "https://www.imdb.com/title/tt0264464/",
-      "year_wd": 2002,
-      "genres": [
-        "heist film",
-        "crime film",
-        "comedy film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/ctjEj2xM32OvBXCq8zAdK3ZrsAj.jpg",
-        "tmdb_id": 640,
-        "rating": 8,
-        "votes": 17333,
-        "overview_len": 292
-      }
-    },
-    {
-      "title": "Inside Out",
-      "year": 2015,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "inside-out",
-      "qid": "Q3282963",
-      "imdb": "tt1640486",
-      "imdb_url": "https://www.imdb.com/title/tt1640486/",
-      "year_wd": 2011,
-      "genres": [
-        "crime film",
-        "drama film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/gVcMbZjXFGi1R3HL8efpkRgz7Zb.jpg",
-        "tmdb_id": 70877,
-        "rating": 4.6,
-        "votes": 43,
-        "overview_len": 406
-      }
-    },
-    {
-      "title": "Ratatouille",
-      "year": 2007,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "ratatouille",
-      "qid": "Q170035",
-      "imdb": "tt0382932",
-      "imdb_url": "https://www.imdb.com/title/tt0382932/",
-      "year_wd": 2007,
-      "genres": [
-        "buddy film",
-        "coming-of-age film",
-        "flashback film"
-      ],
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/t3vaWRPSf6WjDSamIkKDs1iQWna.jpg",
-        "tmdb_id": 2062,
-        "rating": 7.8,
-        "votes": 18724,
-        "overview_len": 555
-      }
-    },
-    {
-      "title": "How to Train Your Dragon",
-      "year": 2010,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "how-to-train-your-dragon",
-      "qid": "Q373096",
-      "imdb": "tt0892769",
-      "imdb_url": "https://www.imdb.com/title/tt0892769/",
-      "year_wd": 2010,
-      "genres": [
+        "mystery film",
         "fantasy film",
-        "children's film",
-        "adventure film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/how-to-train-your-dragon.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "DreamWorks Animation",
-        "source": "https://commons.wikimedia.org/wiki/File:How_to_Train_Your_Dragon_logo.svg",
-        "credit_required": false,
-        "bytes": 6820
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/ygGmAO60t8GyqUo9xYeYxSZAR3b.jpg",
-        "tmdb_id": 10191,
-        "rating": 7.9,
-        "votes": 14561,
-        "overview_len": 353
-      }
-    },
-    {
-      "title": "Monsters, Inc.",
-      "year": 2001,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "monsters-inc",
-      "qid": "Q187726",
-      "imdb": "tt0198781",
-      "imdb_url": "https://www.imdb.com/title/tt0198781/",
-      "year_wd": 2001,
-      "genres": [
-        "buddy film",
-        "children's film",
-        "monster film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/monsters-inc.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "The Walt Disney Company",
-        "source": "https://commons.wikimedia.org/wiki/File:Monsters,_Inc._logo.svg",
-        "credit_required": false,
-        "bytes": 7196
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/wFSpyMsp7H0ttERbxY7Trlv8xry.jpg",
-        "tmdb_id": 585,
-        "rating": 7.9,
-        "votes": 20035,
-        "overview_len": 321
-      }
-    },
-    {
-      "title": "Monsters University",
-      "year": 2013,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "monsters-university",
-      "qid": "Q641362",
-      "imdb": "tt1453405",
-      "imdb_url": "https://www.imdb.com/title/tt1453405/",
-      "year_wd": 2013,
-      "genres": [
-        "comedy film",
-        "fantasy film",
-        "monster film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/monsters-university.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Pixa Animation Studios",
-        "source": "https://commons.wikimedia.org/wiki/File:Monsters_University_Logo.svg",
-        "credit_required": false,
-        "bytes": 15476
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/y7thwJ7z5Bplv6vwl6RI0yteaDD.jpg",
-        "tmdb_id": 62211,
-        "rating": 7.1,
-        "votes": 11449,
-        "overview_len": 144
-      }
-    },
-    {
-      "title": "Jaws",
-      "year": 1975,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "jaws",
-      "qid": "Q189505",
-      "imdb": "tt0073195",
-      "imdb_url": "https://www.imdb.com/title/tt0073195/",
-      "year_wd": 1975,
-      "genres": [
-        "thriller film",
-        "horror film",
-        "adventure film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/jaws.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Universal Pictures",
-        "source": "https://commons.wikimedia.org/wiki/File:Jaws_logo.svg",
-        "credit_required": false,
-        "bytes": 9680
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/lxM6kqilAdpdhqUl2biYp5frUxE.jpg",
-        "tmdb_id": 578,
-        "rating": 7.7,
-        "votes": 11702,
-        "overview_len": 248
-      }
-    },
-    {
-      "title": "E.T. the Extra-Terrestrial",
-      "year": 1982,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "e-t-the-extra-terrestrial",
-      "qid": "Q11621",
-      "imdb": "tt0083866",
-      "imdb_url": "https://www.imdb.com/title/tt0083866/",
-      "year_wd": 1982,
-      "genres": [
-        "science fiction film",
-        "drama film",
-        "children's film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/e-t-the-extra-terrestrial.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "User:TheCuriousGnome",
-        "source": "https://commons.wikimedia.org/wiki/File:ET_logo_3.svg",
-        "credit_required": false,
-        "bytes": 10920
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/an0nD6uq6byfxXCfk6lQBzdL2J1.jpg",
-        "tmdb_id": 601,
-        "rating": 7.5,
-        "votes": 12132,
-        "overview_len": 301
-      }
-    },
-    {
-      "title": "Firestarter",
-      "year": 1984,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "firestarter",
-      "qid": "Q848503",
-      "imdb": "tt0087262",
-      "imdb_url": "https://www.imdb.com/title/tt0087262/",
-      "year_wd": 1984,
-      "genres": [
-        "action film",
-        "thriller film",
         "science fiction film"
       ],
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/2ux5lqNuibd8eOkwwUhzfzAJBqD.jpg",
-        "tmdb_id": 11495,
-        "rating": 6.3,
-        "votes": 779,
-        "overview_len": 208
-      }
-    },
-    {
-      "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
-      "year": 2003,
-      "bg": "#20222b",
-      "fg": "#c9cbd6",
-      "key": "pirates-of-the-caribbean-the-curse-of-the-black-pearl",
-      "qid": "Q46717",
-      "imdb": "tt0325980",
-      "imdb_url": "https://www.imdb.com/title/tt0325980/",
-      "year_wd": 2003,
-      "genres": [
-        "fantasy film",
-        "swashbuckler film",
-        "treasure hunt film"
-      ],
-      "logo": {
-        "src": "/imgs/titles/pirates-of-the-caribbean-the-curse-of-the-black-pearl.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "The Walt Disney Company",
-        "source": "https://commons.wikimedia.org/wiki/File:Pirates_of_the_Caribbean_logo.svg",
-        "credit_required": false,
-        "bytes": 6726
-      },
-      "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/poHwCZeWzJCShH7tOjg8RIoyjcw.jpg",
-        "tmdb_id": 22,
-        "rating": 7.8,
-        "votes": 22533,
-        "overview_len": 312
+        "src": "https://image.tmdb.org/t/p/w342/mLuehrGLiK5zFCyRmDDOH6gbfPf.jpg",
+        "tmdb_id": 9741,
+        "rating": 7.1,
+        "votes": 10029,
+        "overview_len": 273
       }
     },
     {
@@ -3456,122 +1206,634 @@
       }
     },
     {
-      "title": "Pirates of the Caribbean: At World's End",
-      "year": 2007,
+      "title": "Top Gun: Maverick",
+      "year": 2022,
       "bg": "#20222b",
       "fg": "#c9cbd6",
-      "key": "pirates-of-the-caribbean-at-world-s-end",
-      "qid": "Q54274",
-      "imdb": "tt0449088",
-      "imdb_url": "https://www.imdb.com/title/tt0449088/",
-      "year_wd": 2007,
+      "key": "top-gun-maverick",
+      "qid": "Q31202708",
+      "imdb": "tt1745960",
+      "imdb_url": "https://www.imdb.com/title/tt1745960/",
+      "year_wd": 2022,
       "genres": [
-        "fantasy film",
-        "comedy drama",
-        "swashbuckler film"
+        "action film",
+        "drama film",
+        "adventure film"
       ],
       "logo": {
-        "src": "/imgs/titles/pirates-of-the-caribbean-at-world-s-end.webp",
+        "src": "/imgs/titles/top-gun-maverick.webp",
         "dark": true,
         "licence": "Public domain",
-        "author": "Walt Disney Pictures",
-        "source": "https://commons.wikimedia.org/wiki/File:Pirates_of_the_Caribbean_3_Logo.svg",
+        "author": "Paramount Pictures / Reproduction : Kilyann Le Hen",
+        "source": "https://commons.wikimedia.org/wiki/File:Top_Gun_-_Maverick_logo.svg",
         "credit_required": false,
-        "bytes": 13756
+        "bytes": 3796
       },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/jGWpG4YhpQwVmjyHEGkxEkeRf0S.jpg",
-        "tmdb_id": 285,
-        "rating": 7.3,
-        "votes": 15672,
-        "overview_len": 519
+        "src": "https://image.tmdb.org/t/p/w342/n0YuM4f5lvGAP6MAW2kBIzugXnc.jpg",
+        "tmdb_id": 361743,
+        "rating": 8.2,
+        "votes": 11284,
+        "overview_len": 291
       }
     },
     {
-      "title": "Pirates of the Caribbean: On Stranger Tides",
-      "year": 2011,
+      "title": "Inside Out",
+      "year": 2015,
       "bg": "#20222b",
       "fg": "#c9cbd6",
-      "key": "pirates-of-the-caribbean-on-stranger-tides",
-      "qid": "Q183555",
-      "imdb": "tt1298650",
-      "imdb_url": "https://www.imdb.com/title/tt1298650/",
+      "key": "inside-out",
+      "qid": "Q3282963",
+      "imdb": "tt1640486",
+      "imdb_url": "https://www.imdb.com/title/tt1640486/",
       "year_wd": 2011,
       "genres": [
-        "fantasy film",
-        "swashbuckler film",
-        "zombie film"
+        "crime film",
+        "drama film"
       ],
-      "logo": {
-        "src": "/imgs/titles/pirates-of-the-caribbean-on-stranger-tides.webp",
-        "dark": true,
-        "licence": "Public domain",
-        "author": "Walt Disney Pictures",
-        "source": "https://commons.wikimedia.org/wiki/File:Pirates_of_the_Caribbean_4_Logo.svg",
-        "credit_required": false,
-        "bytes": 7124
-      },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/keGfSvCmYj7CvdRx36OdVrAEibE.jpg",
-        "tmdb_id": 1865,
-        "rating": 6.6,
-        "votes": 15115,
-        "overview_len": 162
+        "src": "https://image.tmdb.org/t/p/w342/gVcMbZjXFGi1R3HL8efpkRgz7Zb.jpg",
+        "tmdb_id": 70877,
+        "rating": 4.6,
+        "votes": 43,
+        "overview_len": 406
       }
     },
     {
-      "title": "The Big Lebowski",
-      "year": 1998,
+      "title": "Toy Story 4",
+      "year": 2019,
       "bg": "#20222b",
       "fg": "#c9cbd6",
-      "key": "the-big-lebowski",
-      "qid": "Q337078",
-      "imdb": "tt0118715",
-      "imdb_url": "https://www.imdb.com/title/tt0118715/",
-      "year_wd": 1998,
+      "key": "toy-story-4",
+      "qid": "Q18517638",
+      "imdb": "tt1979376",
+      "imdb_url": "https://www.imdb.com/title/tt1979376/",
+      "year_wd": 2019,
       "genres": [
+        "children's film",
         "comedy film",
-        "crime film",
-        "comedy of error"
+        "adventure film"
       ],
+      "logo": {
+        "src": "/imgs/titles/toy-story-4.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Walt Disney Studios Motion Pictures",
+        "source": "https://commons.wikimedia.org/wiki/File:Toy_Story_4_Logo_Black.svg",
+        "credit_required": false,
+        "bytes": 26682
+      },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/3bv6WAp6BSxxYvB5ozKFUYuRA8C.jpg",
-        "tmdb_id": 115,
-        "rating": 7.8,
-        "votes": 12343,
-        "overview_len": 321
+        "src": "https://image.tmdb.org/t/p/w342/w9kR8qbmQ01HwnvK4alvnQ2ca0L.jpg",
+        "tmdb_id": 301528,
+        "rating": 7.5,
+        "votes": 10816,
+        "overview_len": 337
       }
     },
     {
-      "title": "The Incredibles",
+      "title": "The Matrix",
+      "year": 1999,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-matrix",
+      "qid": "Q83495",
+      "imdb": "tt0133093",
+      "imdb_url": "https://www.imdb.com/title/tt0133093/",
+      "year_wd": 1999,
+      "genres": [
+        "thriller film",
+        "dystopian film",
+        "cyberpunk"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-matrix.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Warner Bros. Pictures / Village Roadshow Pictures",
+        "source": "https://commons.wikimedia.org/wiki/File:The-matrix-logo.svg",
+        "credit_required": false,
+        "bytes": 12802
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/dXNAPwY7VrqMAo51EKhhCJfaGb5.jpg",
+        "tmdb_id": 603,
+        "rating": 8.3,
+        "votes": 28350,
+        "overview_len": 181
+      }
+    },
+    {
+      "title": "It's a Wonderful Life",
+      "year": 1946,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "it-s-a-wonderful-life",
+      "qid": "Q204191",
+      "imdb": "tt0038650",
+      "imdb_url": "https://www.imdb.com/title/tt0038650/",
+      "year_wd": 1946,
+      "genres": [
+        "romantic comedy film",
+        "fantasy film",
+        "drama film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/bSqt9rhDZx1Q7UZ86dBPKdNomp2.jpg",
+        "tmdb_id": 1585,
+        "rating": 8.3,
+        "votes": 4979,
+        "overview_len": 283
+      }
+    },
+    {
+      "title": "Catch Me If You Can",
+      "year": 2002,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "catch-me-if-you-can",
+      "qid": "Q208108",
+      "imdb": "tt0264464",
+      "imdb_url": "https://www.imdb.com/title/tt0264464/",
+      "year_wd": 2002,
+      "genres": [
+        "heist film",
+        "crime film",
+        "comedy film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/ctjEj2xM32OvBXCq8zAdK3ZrsAj.jpg",
+        "tmdb_id": 640,
+        "rating": 8,
+        "votes": 17333,
+        "overview_len": 292
+      }
+    },
+    {
+      "title": "Kill Bill: Volume 2",
       "year": 2004,
       "bg": "#20222b",
       "fg": "#c9cbd6",
-      "key": "the-incredibles",
-      "qid": "Q213326",
-      "imdb": "tt0317705",
-      "imdb_url": "https://www.imdb.com/title/tt0317705/",
+      "key": "kill-bill-volume-2",
+      "qid": "Q928019",
+      "imdb": "tt0378194",
+      "imdb_url": "https://www.imdb.com/title/tt0378194/",
       "year_wd": 2004,
       "genres": [
-        "superhero film",
         "action film",
+        "thriller film",
+        "girls with guns"
+      ],
+      "logo": {
+        "src": "/imgs/titles/kill-bill-volume-2.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "SunOfErat",
+        "source": "https://commons.wikimedia.org/wiki/File:Kill_Bill_svg_logo.svg",
+        "credit_required": false,
+        "bytes": 3648
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/2yhg0mZQMhDyvUQ4rG1IZ4oIA8L.jpg",
+        "tmdb_id": 393,
+        "rating": 7.9,
+        "votes": 15263,
+        "overview_len": 295
+      }
+    },
+    {
+      "title": "Finding Nemo",
+      "year": 2003,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "finding-nemo",
+      "qid": "Q132863",
+      "imdb": "tt0266543",
+      "imdb_url": "https://www.imdb.com/title/tt0266543/",
+      "year_wd": 2003,
+      "genres": [
+        "adventure film",
+        "family film",
         "comedy film"
       ],
       "logo": {
-        "src": "/imgs/titles/the-incredibles.webp",
-        "dark": true,
+        "src": "/imgs/titles/finding-nemo.webp",
+        "dark": false,
         "licence": "Public domain",
-        "author": "Pixar Animation Studios, Walt Disney Pictures",
-        "source": "https://commons.wikimedia.org/wiki/File:The_Incredibles_logo.svg",
+        "author": "The Walt Disney Company",
+        "source": "https://commons.wikimedia.org/wiki/File:Finding_Nemo_logo.svg",
         "credit_required": false,
-        "bytes": 8896
+        "bytes": 11454
       },
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/2LqaLgk4Z226KkgPJuiOQ58wvrm.jpg",
-        "tmdb_id": 9806,
+        "src": "https://image.tmdb.org/t/p/w342/5lc6nQc0VhWFYFbNv016xze8Jvy.jpg",
+        "tmdb_id": 12,
+        "rating": 7.8,
+        "votes": 20763,
+        "overview_len": 333
+      }
+    },
+    {
+      "title": "How to Train Your Dragon",
+      "year": 2010,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "how-to-train-your-dragon",
+      "qid": "Q373096",
+      "imdb": "tt0892769",
+      "imdb_url": "https://www.imdb.com/title/tt0892769/",
+      "year_wd": 2010,
+      "genres": [
+        "fantasy film",
+        "children's film",
+        "adventure film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/how-to-train-your-dragon.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "DreamWorks Animation",
+        "source": "https://commons.wikimedia.org/wiki/File:How_to_Train_Your_Dragon_logo.svg",
+        "credit_required": false,
+        "bytes": 6820
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/ygGmAO60t8GyqUo9xYeYxSZAR3b.jpg",
+        "tmdb_id": 10191,
+        "rating": 7.9,
+        "votes": 14561,
+        "overview_len": 353
+      }
+    },
+    {
+      "title": "Jurassic Park",
+      "year": 1993,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "jurassic-park",
+      "qid": "Q167726",
+      "imdb": "tt0107290",
+      "imdb_url": "https://www.imdb.com/title/tt0107290/",
+      "year_wd": 1993,
+      "genres": [
+        "science fiction film",
+        "adventure film",
+        "action film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/jurassic-park.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Universal City Studios LLC and Amblin Entertainment, Inc.",
+        "source": "https://commons.wikimedia.org/wiki/File:Jurassic_Park_wordmark.svg",
+        "credit_required": false,
+        "bytes": 12218
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/63viWuPfYQjRYLSZSZNq7dglJP5.jpg",
+        "tmdb_id": 329,
+        "rating": 8,
+        "votes": 18134,
+        "overview_len": 348
+      }
+    },
+    {
+      "title": "Once Upon a Time in Hollywood",
+      "year": 2019,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "once-upon-a-time-in-hollywood",
+      "qid": "Q47300912",
+      "imdb": "tt7131622",
+      "imdb_url": "https://www.imdb.com/title/tt7131622/",
+      "year_wd": 2019,
+      "genres": [
+        "comedy drama",
+        "black comedy film",
+        "drama film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/once-upon-a-time-in-hollywood.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Original: Columbia Pictures & Sony Pictures Derivative work: Logovectorizer",
+        "source": "https://commons.wikimedia.org/wiki/File:Once_Upon_a_Time_in_Hollywood_logo.svg",
+        "credit_required": false,
+        "bytes": 7918
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/8j58iEBw9pOXFD2L0nt0ZXeHviB.jpg",
+        "tmdb_id": 466272,
+        "rating": 7.4,
+        "votes": 15047,
+        "overview_len": 333
+      }
+    },
+    {
+      "title": "Harry and the Hendersons",
+      "year": 1987,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "harry-and-the-hendersons",
+      "qid": "Q240899",
+      "imdb": "tt0093148",
+      "imdb_url": "https://www.imdb.com/title/tt0093148/",
+      "year_wd": 1987,
+      "genres": [
+        "fantasy film",
+        "buddy film",
+        "monster film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/5ZNWhOEsuNHIQ1gbtwdTGK7srCr.jpg",
+        "tmdb_id": 8989,
+        "rating": 6.1,
+        "votes": 754,
+        "overview_len": 398
+      }
+    },
+    {
+      "title": "They Live",
+      "year": 1988,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "they-live",
+      "qid": "Q72909",
+      "imdb": "tt0096256",
+      "imdb_url": "https://www.imdb.com/title/tt0096256/",
+      "year_wd": 1988,
+      "genres": [
+        "action film",
+        "science fiction film",
+        "action thriller"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/ngnybFTuopfbfmmEeX9jjBQQmF6.jpg",
+        "tmdb_id": 8337,
+        "rating": 7.3,
+        "votes": 3548,
+        "overview_len": 189
+      }
+    },
+    {
+      "title": "Coco",
+      "year": 2017,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "coco",
+      "qid": "Q814",
+      "imdb": "nm1146910",
+      "imdb_url": "https://www.imdb.com/title/nm1146910/",
+      "tmdb_id": 354912,
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/6Ryitt95xrO8KXuqRGm1fUuNwqF.jpg",
+        "tmdb_id": 354912,
+        "rating": 8.2,
+        "votes": 21204,
+        "overview_len": 446
+      }
+    },
+    {
+      "title": "Back to the Future Part II",
+      "year": 1989,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "back-to-the-future-part-ii",
+      "qid": "Q109331",
+      "imdb": "tt0096874",
+      "imdb_url": "https://www.imdb.com/title/tt0096874/",
+      "year_wd": 1989,
+      "genres": [
+        "science fiction film",
+        "teen film",
+        "comedy film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/back-to-the-future-part-ii.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Universal Pictures/UIP",
+        "source": "https://commons.wikimedia.org/wiki/File:Zur%C3%BCck_in_die_zukunft_2_logo.svg",
+        "credit_required": false,
+        "bytes": 19580
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/hQq8xZe5uLjFzSBt4LanNP7SQjl.jpg",
+        "tmdb_id": 165,
+        "rating": 7.8,
+        "votes": 14106,
+        "overview_len": 320
+      }
+    },
+    {
+      "title": "Harry Potter and the Half-Blood Prince",
+      "year": 2009,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "harry-potter-and-the-half-blood-prince",
+      "qid": "Q161687",
+      "imdb": "tt0417741",
+      "imdb_url": "https://www.imdb.com/title/tt0417741/",
+      "year_wd": 2009,
+      "genres": [
+        "fantasy film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/z7uo9zmQdQwU5ZJHFpv2Upl30i1.jpg",
+        "tmdb_id": 767,
         "rating": 7.7,
-        "votes": 19100,
-        "overview_len": 234
+        "votes": 21009,
+        "overview_len": 134
+      }
+    },
+    {
+      "title": "Avengers: Age of Ultron",
+      "year": 2015,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "avengers-age-of-ultron",
+      "qid": "Q14171368",
+      "imdb": "tt2395427",
+      "imdb_url": "https://www.imdb.com/title/tt2395427/",
+      "year_wd": 2015,
+      "genres": [
+        "science fiction film",
+        "superhero film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/avengers-age-of-ultron.webp",
+        "dark": true,
+        "licence": "CC BY-SA 4.0",
+        "author": "Cygomezm",
+        "source": "https://commons.wikimedia.org/wiki/File:Avengers-age-of-ultron-logo.svg",
+        "credit_required": true,
+        "bytes": 10790
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/4ssDuvEDkSArWEdyBl2X5EHvYKU.jpg",
+        "tmdb_id": 99861,
+        "rating": 7.3,
+        "votes": 24728,
+        "overview_len": 394
+      }
+    },
+    {
+      "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "year": 2003,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "pirates-of-the-caribbean-the-curse-of-the-black-pearl",
+      "qid": "Q46717",
+      "imdb": "tt0325980",
+      "imdb_url": "https://www.imdb.com/title/tt0325980/",
+      "year_wd": 2003,
+      "genres": [
+        "fantasy film",
+        "swashbuckler film",
+        "treasure hunt film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/pirates-of-the-caribbean-the-curse-of-the-black-pearl.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "The Walt Disney Company",
+        "source": "https://commons.wikimedia.org/wiki/File:Pirates_of_the_Caribbean_logo.svg",
+        "credit_required": false,
+        "bytes": 6726
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/poHwCZeWzJCShH7tOjg8RIoyjcw.jpg",
+        "tmdb_id": 22,
+        "rating": 7.8,
+        "votes": 22533,
+        "overview_len": 312
+      }
+    },
+    {
+      "title": "The Green Mile",
+      "year": 1999,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-green-mile",
+      "qid": "Q208263",
+      "imdb": "tt0120689",
+      "imdb_url": "https://www.imdb.com/title/tt0120689/",
+      "year_wd": 1999,
+      "genres": [
+        "drama film",
+        "flashback film",
+        "fantasy film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-green-mile.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Original: Warner Bros. Pictures & Castle Rock Entertainment Vectorization: Logovectorizer",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Green_Mile_logo.svg",
+        "credit_required": false,
+        "bytes": 5850
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg",
+        "tmdb_id": 497,
+        "rating": 8.5,
+        "votes": 19553,
+        "overview_len": 303
+      }
+    },
+    {
+      "title": "E.T. the Extra-Terrestrial",
+      "year": 1982,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "e-t-the-extra-terrestrial",
+      "qid": "Q11621",
+      "imdb": "tt0083866",
+      "imdb_url": "https://www.imdb.com/title/tt0083866/",
+      "year_wd": 1982,
+      "genres": [
+        "science fiction film",
+        "drama film",
+        "children's film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/e-t-the-extra-terrestrial.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "User:TheCuriousGnome",
+        "source": "https://commons.wikimedia.org/wiki/File:ET_logo_3.svg",
+        "credit_required": false,
+        "bytes": 10920
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/an0nD6uq6byfxXCfk6lQBzdL2J1.jpg",
+        "tmdb_id": 601,
+        "rating": 7.5,
+        "votes": 12132,
+        "overview_len": 301
+      }
+    },
+    {
+      "title": "Spider-Man: Homecoming",
+      "year": 2017,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "spider-man-homecoming",
+      "qid": "Q23010088",
+      "imdb": "tt2250912",
+      "imdb_url": "https://www.imdb.com/title/tt2250912/",
+      "year_wd": 2017,
+      "genres": [
+        "superhero film",
+        "action film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/spider-man-homecoming.webp",
+        "dark": true,
+        "licence": "CC BY-SA 4.0",
+        "author": "John Roberti",
+        "source": "https://commons.wikimedia.org/wiki/File:Spider-man-homecoming-logo.svg",
+        "credit_required": true,
+        "bytes": 17270
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg",
+        "tmdb_id": 315635,
+        "rating": 7.3,
+        "votes": 23489,
+        "overview_len": 289
+      }
+    },
+    {
+      "title": "Toy Story",
+      "year": 1995,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "toy-story",
+      "qid": "Q171048",
+      "imdb": "tt0114709",
+      "imdb_url": "https://www.imdb.com/title/tt0114709/",
+      "year_wd": 1995,
+      "genres": [
+        "buddy film",
+        "fantasy film",
+        "adventure film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/toy-story.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Pixar",
+        "source": "https://commons.wikimedia.org/wiki/File:Toy_Story_logo.svg",
+        "credit_required": false,
+        "bytes": 18252
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg",
+        "tmdb_id": 862,
+        "rating": 8,
+        "votes": 20268,
+        "overview_len": 303
       }
     },
     {
@@ -3607,26 +1869,1038 @@
       }
     },
     {
-      "title": "The Iron Giant",
-      "year": 1999,
+      "title": "Poltergeist",
+      "year": 1982,
       "bg": "#20222b",
       "fg": "#c9cbd6",
-      "key": "the-iron-giant",
-      "qid": "Q867283",
-      "imdb": "tt0129167",
-      "imdb_url": "https://www.imdb.com/title/tt0129167/",
-      "year_wd": 1999,
+      "key": "poltergeist",
+      "qid": "Q497622",
+      "imdb": "tt0084516",
+      "imdb_url": "https://www.imdb.com/title/tt0084516/",
+      "year_wd": 1982,
+      "genres": [
+        "horror film",
+        "ghost film",
+        "supernatural horror film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/poltergeist.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Metro-Goldwyn-Mayer Film Co.",
+        "source": "https://commons.wikimedia.org/wiki/File:Poltergeist_Logo.svg",
+        "credit_required": false,
+        "bytes": 5504
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/4eMN3GANH5GG4kXdHkrTZEUuQ9M.jpg",
+        "tmdb_id": 609,
+        "rating": 7.2,
+        "votes": 3392,
+        "overview_len": 171
+      }
+    },
+    {
+      "title": "Spider-Man 2",
+      "year": 2004,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "spider-man-2",
+      "qid": "Q190145",
+      "imdb": "tt0316654",
+      "imdb_url": "https://www.imdb.com/title/tt0316654/",
+      "year_wd": 2004,
+      "genres": [
+        "action film",
+        "thriller film",
+        "superhero film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/spider-man-2.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Unknown authorUnknown author",
+        "source": "https://commons.wikimedia.org/wiki/File:Spider-Man_2-Logo.svg",
+        "credit_required": false,
+        "bytes": 2700
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/aGuvNAaaZuWXYQQ6N2v7DeuP6mB.jpg",
+        "tmdb_id": 558,
+        "rating": 7.3,
+        "votes": 16626,
+        "overview_len": 402
+      }
+    },
+    {
+      "title": "WALL-E",
+      "year": 2008,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "wall-e",
+      "qid": "Q104905",
+      "imdb": "tt0910970",
+      "imdb_url": "https://www.imdb.com/title/tt0910970/",
+      "year_wd": 2008,
+      "genres": [
+        "romantic comedy film",
+        "post-apocalyptic film",
+        "science fiction comedy"
+      ],
+      "logo": {
+        "src": "/imgs/titles/wall-e.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Pixar Animation Studios, Walt Disney Pictures",
+        "source": "https://commons.wikimedia.org/wiki/File:WALL%C2%B7E_Logo.svg",
+        "credit_required": false,
+        "bytes": 2572
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/hbhFnRzzg6ZDmm8YAmxBnQpQIPh.jpg",
+        "tmdb_id": 10681,
+        "rating": 8.1,
+        "votes": 20590,
+        "overview_len": 462
+      }
+    },
+    {
+      "title": "Monsters, Inc.",
+      "year": 2001,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "monsters-inc",
+      "qid": "Q187726",
+      "imdb": "tt0198781",
+      "imdb_url": "https://www.imdb.com/title/tt0198781/",
+      "year_wd": 2001,
+      "genres": [
+        "buddy film",
+        "children's film",
+        "monster film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/monsters-inc.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "The Walt Disney Company",
+        "source": "https://commons.wikimedia.org/wiki/File:Monsters,_Inc._logo.svg",
+        "credit_required": false,
+        "bytes": 7196
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/wFSpyMsp7H0ttERbxY7Trlv8xry.jpg",
+        "tmdb_id": 585,
+        "rating": 7.9,
+        "votes": 20035,
+        "overview_len": 321
+      }
+    },
+    {
+      "title": "The Good, the Bad and the Ugly",
+      "year": 1966,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-good-the-bad-and-the-ugly",
+      "qid": "Q41483",
+      "imdb": "tt0060196",
+      "imdb_url": "https://www.imdb.com/title/tt0060196/",
+      "year_wd": 1966,
+      "genres": [
+        "Spaghetti Western",
+        "treasure hunt film",
+        "war film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-good-the-bad-and-the-ugly.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "United Artists",
+        "source": "https://commons.wikimedia.org/wiki/File:Il_buono,_il_brutto,_il_cattivo.png",
+        "credit_required": false,
+        "bytes": 21460
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/bX2xnavhMYjWDoZp1VM6VnU1xwe.jpg",
+        "tmdb_id": 429,
+        "rating": 8.5,
+        "votes": 9806,
+        "overview_len": 225
+      }
+    },
+    {
+      "title": "The Thing",
+      "year": 1982,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-thing",
+      "qid": "Q210756",
+      "imdb": "tt0084787",
+      "imdb_url": "https://www.imdb.com/title/tt0084787/",
+      "year_wd": 1982,
+      "genres": [
+        "horror film",
+        "science fiction film",
+        "mystery film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-thing.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "PD-Text",
+        "source": "https://commons.wikimedia.org/wiki/File:John_Carpenter%27s_The_Thing_(closing_credits_Logo).png",
+        "credit_required": false,
+        "bytes": 4846
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/tzGY49kseSE9QAKk47uuDGwnSCu.jpg",
+        "tmdb_id": 1091,
+        "rating": 8.1,
+        "votes": 8101,
+        "overview_len": 109
+      }
+    },
+    {
+      "title": "The Incredibles",
+      "year": 2004,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-incredibles",
+      "qid": "Q213326",
+      "imdb": "tt0317705",
+      "imdb_url": "https://www.imdb.com/title/tt0317705/",
+      "year_wd": 2004,
+      "genres": [
+        "superhero film",
+        "action film",
+        "comedy film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-incredibles.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Pixar Animation Studios, Walt Disney Pictures",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Incredibles_logo.svg",
+        "credit_required": false,
+        "bytes": 8896
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/2LqaLgk4Z226KkgPJuiOQ58wvrm.jpg",
+        "tmdb_id": 9806,
+        "rating": 7.7,
+        "votes": 19100,
+        "overview_len": 234
+      }
+    },
+    {
+      "title": "Harry Potter and the Order of the Phoenix",
+      "year": 2007,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "harry-potter-and-the-order-of-the-phoenix",
+      "qid": "Q102235",
+      "imdb": "tt0373889",
+      "imdb_url": "https://www.imdb.com/title/tt0373889/",
+      "year_wd": 2007,
+      "genres": [
+        "fantasy film",
+        "family film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/5aOyriWkPec0zUDxmHFP9qMmBaj.jpg",
+        "tmdb_id": 675,
+        "rating": 7.7,
+        "votes": 21029,
+        "overview_len": 150
+      }
+    },
+    {
+      "title": "Oppenheimer",
+      "year": 2023,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "oppenheimer",
+      "qid": "Q108839994",
+      "imdb": "tt15398776",
+      "imdb_url": "https://www.imdb.com/title/tt15398776/",
+      "year_wd": 2023,
+      "genres": [
+        "historical film",
+        "biographical film",
+        "thriller film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/oppenheimer.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Original: Universal Pictures Derivative work: Logovectorizer",
+        "source": "https://commons.wikimedia.org/wiki/File:Oppenheimer_logo.svg",
+        "credit_required": false,
+        "bytes": 3962
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+        "tmdb_id": 872585,
+        "rating": 8,
+        "votes": 12158,
+        "overview_len": 100
+      }
+    },
+    {
+      "title": "Avengers: Endgame",
+      "year": 2019,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "avengers-endgame",
+      "qid": "Q23781155",
+      "imdb": "tt4154796",
+      "imdb_url": "https://www.imdb.com/title/tt4154796/",
+      "year_wd": 2019,
+      "genres": [
+        "superhero film",
+        "speculative fiction film",
+        "action film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/avengers-endgame.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Walt Disney Studios Motion Pictures",
+        "source": "https://commons.wikimedia.org/wiki/File:Avengers_Endgame_Logo_Black.svg",
+        "credit_required": false,
+        "bytes": 15344
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg",
+        "tmdb_id": 299534,
+        "rating": 8.2,
+        "votes": 28207,
+        "overview_len": 327
+      }
+    },
+    {
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-lord-of-the-rings-the-fellowship-of-the-ring",
+      "qid": "Q127367",
+      "imdb": "tt0120737",
+      "imdb_url": "https://www.imdb.com/title/tt0120737/",
+      "year_wd": 2001,
+      "genres": [
+        "fantasy film",
+        "adventure film",
+        "action film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-lord-of-the-rings-the-fellowship-of-the-ring.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "New Line Cinema",
+        "source": "https://commons.wikimedia.org/wiki/File:LotR21.png",
+        "credit_required": false,
+        "bytes": 10482
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg",
+        "tmdb_id": 120,
+        "rating": 8.4,
+        "votes": 28010,
+        "overview_len": 351
+      }
+    },
+    {
+      "title": "Glass",
+      "year": 2019,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "glass",
+      "tmdb_id": 450465,
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/svIDTNUoajS8dLEo7EosxvyAsgJ.jpg",
+        "tmdb_id": 450465,
+        "rating": 6.7,
+        "votes": 9173,
+        "overview_len": 298
+      }
+    },
+    {
+      "title": "Aliens",
+      "year": 1986,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "aliens",
+      "qid": "Q104814",
+      "imdb": "tt0090605",
+      "imdb_url": "https://www.imdb.com/title/tt0090605/",
+      "year_wd": 1986,
+      "genres": [
+        "action film",
+        "horror film",
+        "thriller film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/aliens.webp",
+        "dark": true,
+        "licence": "CC BY-SA 4.0",
+        "author": "Torfilm",
+        "source": "https://commons.wikimedia.org/wiki/File:Aliens_title.png",
+        "credit_required": true,
+        "bytes": 5424
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/r1x5JGpyqZU8PYhbs4UcrO1Xb6x.jpg",
+        "tmdb_id": 679,
+        "rating": 8,
+        "votes": 11019,
+        "overview_len": 280
+      }
+    },
+    {
+      "title": "Harry Potter and the Philosopher's Stone",
+      "year": 2001,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "harry-potter-and-the-philosopher-s-stone",
+      "qid": "Q102438",
+      "imdb": "tt0241527",
+      "imdb_url": "https://www.imdb.com/title/tt0241527/",
+      "year_wd": 2001,
+      "genres": [
+        "fantasy film",
+        "adventure film",
+        "speculative fiction film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/harry-potter-and-the-philosopher-s-stone.webp",
+        "dark": true,
+        "licence": "CC BY-SA 4.0",
+        "author": "Cygomezm",
+        "source": "https://commons.wikimedia.org/wiki/File:Harry-potter-and-the-sorcerers-stone-logo.svg",
+        "credit_required": true,
+        "bytes": 11884
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
+        "tmdb_id": 671,
+        "rating": 7.9,
+        "votes": 29928,
+        "overview_len": 406
+      }
+    },
+    {
+      "title": "Iron Man",
+      "year": 2008,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "iron-man",
+      "qid": "Q192724",
+      "imdb": "tt0371746",
+      "imdb_url": "https://www.imdb.com/title/tt0371746/",
+      "year_wd": 2008,
       "genres": [
         "action film",
         "science fiction film",
-        "comedy drama"
+        "adventure film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/iron-man.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Versedi",
+        "source": "https://commons.wikimedia.org/wiki/File:Iron_Man_-_2008_movie_logo.svg",
+        "credit_required": false,
+        "bytes": 2216
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/78lPtwv72eTNqFW9COBYI0dWDJa.jpg",
+        "tmdb_id": 1726,
+        "rating": 7.7,
+        "votes": 28468,
+        "overview_len": 132
+      }
+    },
+    {
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-lord-of-the-rings-the-return-of-the-king",
+      "qid": "Q131074",
+      "imdb": "tt0167260",
+      "imdb_url": "https://www.imdb.com/title/tt0167260/",
+      "year_wd": 2003,
+      "genres": [
+        "fantasy film",
+        "adventure film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-lord-of-the-rings-the-return-of-the-king.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "the lord of the rings - the return of the king logo",
+        "source": "https://commons.wikimedia.org/wiki/File:Tloftr-rotk2-logo.svg",
+        "credit_required": false,
+        "bytes": 13872
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
+        "tmdb_id": 122,
+        "rating": 8.5,
+        "votes": 27000,
+        "overview_len": 523
+      }
+    },
+    {
+      "title": "The Big Lebowski",
+      "year": 1998,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-big-lebowski",
+      "qid": "Q337078",
+      "imdb": "tt0118715",
+      "imdb_url": "https://www.imdb.com/title/tt0118715/",
+      "year_wd": 1998,
+      "genres": [
+        "comedy film",
+        "crime film",
+        "comedy of error"
       ],
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/ct04FCFLPImNG5thcPLRnVsZlmS.jpg",
-        "tmdb_id": 10386,
+        "src": "https://image.tmdb.org/t/p/w342/3bv6WAp6BSxxYvB5ozKFUYuRA8C.jpg",
+        "tmdb_id": 115,
+        "rating": 7.8,
+        "votes": 12343,
+        "overview_len": 321
+      }
+    },
+    {
+      "title": "The Lion King",
+      "year": 1994,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-lion-king",
+      "qid": "Q27044293",
+      "imdb": "tt6105098",
+      "imdb_url": "https://www.imdb.com/title/tt6105098/",
+      "year_wd": 2019,
+      "genres": [
+        "adventure film",
+        "family film",
+        "comedy film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-lion-king.webp",
+        "dark": true,
+        "licence": "CC BY-SA 4.0",
+        "author": "Gkaidan",
+        "source": "https://commons.wikimedia.org/wiki/File:Lion-king.png",
+        "credit_required": true,
+        "bytes": 9718
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg",
+        "tmdb_id": 420818,
+        "rating": 7.1,
+        "votes": 10831,
+        "overview_len": 466
+      }
+    },
+    {
+      "title": "The Amazing Spider-Man",
+      "year": 2012,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-amazing-spider-man",
+      "qid": "Q229808",
+      "imdb": "tt0948470",
+      "imdb_url": "https://www.imdb.com/title/tt0948470/",
+      "year_wd": 2012,
+      "genres": [
+        "action film",
+        "thriller film",
+        "teen film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/jexoNYnPd6vVrmygwF6QZmWPFdu.jpg",
+        "tmdb_id": 1930,
+        "rating": 6.7,
+        "votes": 18793,
+        "overview_len": 113
+      }
+    },
+    {
+      "title": "Apocalypto",
+      "year": 2006,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "apocalypto",
+      "qid": "Q188035",
+      "imdb": "tt0472043",
+      "imdb_url": "https://www.imdb.com/title/tt0472043/",
+      "year_wd": 2006,
+      "genres": [
+        "drama film",
+        "historical drama"
+      ],
+      "logo": {
+        "src": "/imgs/titles/apocalypto.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Touchstone Pictures",
+        "source": "https://commons.wikimedia.org/wiki/File:Apocalypto_Logo.png",
+        "credit_required": false,
+        "bytes": 8692
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/cRY25Q32kDNPFDkFkxAs6bgCq3L.jpg",
+        "tmdb_id": 1579,
+        "rating": 7.7,
+        "votes": 6541,
+        "overview_len": 395
+      }
+    },
+    {
+      "title": "Jaws",
+      "year": 1975,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "jaws",
+      "qid": "Q189505",
+      "imdb": "tt0073195",
+      "imdb_url": "https://www.imdb.com/title/tt0073195/",
+      "year_wd": 1975,
+      "genres": [
+        "thriller film",
+        "horror film",
+        "adventure film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/jaws.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Universal Pictures",
+        "source": "https://commons.wikimedia.org/wiki/File:Jaws_logo.svg",
+        "credit_required": false,
+        "bytes": 9680
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/lxM6kqilAdpdhqUl2biYp5frUxE.jpg",
+        "tmdb_id": 578,
+        "rating": 7.7,
+        "votes": 11702,
+        "overview_len": 248
+      }
+    },
+    {
+      "title": "Kill Bill: Volume 1",
+      "year": 2003,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "kill-bill-volume-1",
+      "qid": "Q165325",
+      "imdb": "tt0266697",
+      "imdb_url": "https://www.imdb.com/title/tt0266697/",
+      "year_wd": 2003,
+      "genres": [
+        "action thriller",
+        "girls with guns",
+        "martial arts film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/kill-bill-volume-1.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "quentin tarantino",
+        "source": "https://commons.wikimedia.org/wiki/File:Killbill-vol1-logo.svg",
+        "credit_required": false,
+        "bytes": 9814
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/v7TaX8kXMXs5yFFGR41guUDNcnB.jpg",
+        "tmdb_id": 24,
         "rating": 8,
-        "votes": 6276,
-        "overview_len": 205
+        "votes": 19193,
+        "overview_len": 138
+      }
+    },
+    {
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "year": 2004,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "harry-potter-and-the-prisoner-of-azkaban",
+      "qid": "Q102448",
+      "imdb": "tt0304141",
+      "imdb_url": "https://www.imdb.com/title/tt0304141/",
+      "year_wd": 2004,
+      "genres": [
+        "fantasy film",
+        "children's film",
+        "werewolf film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/harry-potter-and-the-prisoner-of-azkaban.webp",
+        "dark": true,
+        "licence": "CC BY-SA 4.0",
+        "author": "Cygomezm",
+        "source": "https://commons.wikimedia.org/wiki/File:Harry-potter-and-the-prisoner-of-azkaban-logo.svg",
+        "credit_required": true,
+        "bytes": 11838
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg",
+        "tmdb_id": 673,
+        "rating": 8,
+        "votes": 23413,
+        "overview_len": 135
+      }
+    },
+    {
+      "title": "Back to the Future Part III",
+      "year": 1990,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "back-to-the-future-part-iii",
+      "qid": "Q230552",
+      "imdb": "tt0099088",
+      "imdb_url": "https://www.imdb.com/title/tt0099088/",
+      "year_wd": 1990,
+      "genres": [
+        "science fiction film",
+        "teen film",
+        "comedy film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/crzoVQnMzIrRfHtQw0tLBirNfVg.jpg",
+        "tmdb_id": 196,
+        "rating": 7.5,
+        "votes": 11666,
+        "overview_len": 327
+      }
+    },
+    {
+      "title": "Toy Story 2",
+      "year": 1999,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "toy-story-2",
+      "qid": "Q187266",
+      "imdb": "tt0120363",
+      "imdb_url": "https://www.imdb.com/title/tt0120363/",
+      "year_wd": 1999,
+      "genres": [
+        "buddy film",
+        "flashback film",
+        "fantasy film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/toy-story-2.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Disney Pixar",
+        "source": "https://commons.wikimedia.org/wiki/File:Toy_Story_2_logo.svg",
+        "credit_required": false,
+        "bytes": 25736
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/4rbcp3ng8n1MKHjpeqW0L7Fnpzz.jpg",
+        "tmdb_id": 863,
+        "rating": 7.6,
+        "votes": 15168,
+        "overview_len": 322
+      }
+    },
+    {
+      "title": "Avatar: Fire and Ash",
+      "year": 2025,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "avatar-fire-and-ash",
+      "qid": "Q29580929",
+      "imdb": "tt1757678",
+      "imdb_url": "https://www.imdb.com/title/tt1757678/",
+      "year_wd": 2025,
+      "genres": [
+        "action film",
+        "science fiction film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/avatar-fire-and-ash.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "20th Century Studios",
+        "source": "https://commons.wikimedia.org/wiki/File:Avatar_-_Fuoco_e_cenere.png",
+        "credit_required": false,
+        "bytes": 12760
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/bRBeSHfGHwkEpImlhxPmOcUsaeg.jpg",
+        "tmdb_id": 83533,
+        "rating": 7.6,
+        "votes": 4048,
+        "overview_len": 361
+      }
+    },
+    {
+      "title": "Léon: The Professional",
+      "year": 1994,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "leon-the-professional",
+      "qid": "Q484675",
+      "imdb": "tt0110413",
+      "imdb_url": "https://www.imdb.com/title/tt0110413/",
+      "year_wd": 1995,
+      "genres": [
+        "crime thriller film",
+        "buddy film",
+        "gangster film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/bxB2q91nKYp8JNzqE7t7TWBVupB.jpg",
+        "tmdb_id": 101,
+        "rating": 8.3,
+        "votes": 16306,
+        "overview_len": 313
+      }
+    },
+    {
+      "title": "Terminator 2: Judgment Day",
+      "year": 1991,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "terminator-2-judgment-day",
+      "qid": "Q170564",
+      "imdb": "tt0103064",
+      "imdb_url": "https://www.imdb.com/title/tt0103064/",
+      "year_wd": 1991,
+      "genres": [
+        "action film",
+        "thriller film",
+        "science fiction film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/terminator-2-judgment-day.webp",
+        "dark": false,
+        "licence": "CC BY-SA 4.0",
+        "author": "Lightstorm",
+        "source": "https://commons.wikimedia.org/wiki/File:Terminator_2_Judgement_Day_(logo).png",
+        "credit_required": true,
+        "bytes": 31008
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/jFTVD4XoWQTcg7wdyJKa8PEds5q.jpg",
+        "tmdb_id": 280,
+        "rating": 8.2,
+        "votes": 14585,
+        "overview_len": 241
+      }
+    },
+    {
+      "title": "The Incredible Hulk",
+      "year": 2008,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-incredible-hulk",
+      "qid": "Q466611",
+      "imdb": "tt0800080",
+      "imdb_url": "https://www.imdb.com/title/tt0800080/",
+      "year_wd": 2008,
+      "genres": [
+        "action film",
+        "adventure film",
+        "science fiction film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-incredible-hulk.webp",
+        "dark": true,
+        "licence": "CC BY-SA 4.0",
+        "author": "Cygomezm",
+        "source": "https://commons.wikimedia.org/wiki/File:The-incredible-hulk-logo.svg",
+        "credit_required": true,
+        "bytes": 12094
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/gKzYx79y0AQTL4UAk1cBQJ3nvrm.jpg",
+        "tmdb_id": 1724,
+        "rating": 6.3,
+        "votes": 12903,
+        "overview_len": 271
+      }
+    },
+    {
+      "title": "Raiders of the Lost Ark",
+      "year": 1981,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "raiders-of-the-lost-ark",
+      "qid": "Q174284",
+      "imdb": "tt0082971",
+      "imdb_url": "https://www.imdb.com/title/tt0082971/",
+      "year_wd": 1981,
+      "genres": [
+        "action film",
+        "treasure hunt film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
+        "tmdb_id": 85,
+        "rating": 7.9,
+        "votes": 13814,
+        "overview_len": 227
+      }
+    },
+    {
+      "title": "Avatar: The Way of Water",
+      "year": 2022,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "avatar-the-way-of-water",
+      "qid": "Q3604746",
+      "imdb": "tt1630029",
+      "imdb_url": "https://www.imdb.com/title/tt1630029/",
+      "year_wd": 2022,
+      "genres": [
+        "science fiction film",
+        "action film",
+        "adventure film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/avatar-the-way-of-water.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "20th Century Studios",
+        "source": "https://commons.wikimedia.org/wiki/File:Avatar_-_La_via_dell%27acqua_logo.png",
+        "credit_required": false,
+        "bytes": 10472
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+        "tmdb_id": 76600,
+        "rating": 7.6,
+        "votes": 14449,
+        "overview_len": 272
+      }
+    },
+    {
+      "title": "Harry Potter and the Chamber of Secrets",
+      "year": 2002,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "harry-potter-and-the-chamber-of-secrets",
+      "qid": "Q102244",
+      "imdb": "tt0295297",
+      "imdb_url": "https://www.imdb.com/title/tt0295297/",
+      "year_wd": 2002,
+      "genres": [
+        "fantasy film",
+        "adventure film",
+        "children's film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/sdEOH0992YZ0QSxgXNIGLq1ToUi.jpg",
+        "tmdb_id": 672,
+        "rating": 7.7,
+        "votes": 23848,
+        "overview_len": 328
+      }
+    },
+    {
+      "title": "Spider-Man 3",
+      "year": 2007,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "spider-man-3",
+      "qid": "Q182212",
+      "imdb": "tt0413300",
+      "imdb_url": "https://www.imdb.com/title/tt0413300/",
+      "year_wd": 2007,
+      "genres": [
+        "action film",
+        "thriller film",
+        "superhero film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/spider-man-3.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Unknown authorUnknown author",
+        "source": "https://commons.wikimedia.org/wiki/File:Spider-Man_3-Logo.svg",
+        "credit_required": false,
+        "bytes": 2698
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/qFmwhVUoUSXjkKRmca5yGDEXBIj.jpg",
+        "tmdb_id": 559,
+        "rating": 6.5,
+        "votes": 15470,
+        "overview_len": 286
+      }
+    },
+    {
+      "title": "The Avengers",
+      "year": 2012,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-avengers",
+      "qid": "Q182218",
+      "imdb": "tt0848228",
+      "imdb_url": "https://www.imdb.com/title/tt0848228/",
+      "year_wd": 2012,
+      "genres": [
+        "action film",
+        "science fiction film",
+        "crossover fiction"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-avengers.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Marvel Studios",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Avengers_Logo_Black.svg",
+        "credit_required": false,
+        "bytes": 8490
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg",
+        "tmdb_id": 24428,
+        "rating": 8.1,
+        "votes": 39037,
+        "overview_len": 297
+      }
+    },
+    {
+      "title": "Monsters University",
+      "year": 2013,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "monsters-university",
+      "qid": "Q641362",
+      "imdb": "tt1453405",
+      "imdb_url": "https://www.imdb.com/title/tt1453405/",
+      "year_wd": 2013,
+      "genres": [
+        "comedy film",
+        "fantasy film",
+        "monster film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/monsters-university.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Pixa Animation Studios",
+        "source": "https://commons.wikimedia.org/wiki/File:Monsters_University_Logo.svg",
+        "credit_required": false,
+        "bytes": 15476
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/y7thwJ7z5Bplv6vwl6RI0yteaDD.jpg",
+        "tmdb_id": 62211,
+        "rating": 7.1,
+        "votes": 11449,
+        "overview_len": 144
       }
     },
     {
@@ -3653,27 +2927,754 @@
       }
     },
     {
-      "title": "The Wizard of Oz",
-      "year": 1939,
+      "title": "Avatar",
+      "year": 2009,
       "bg": "#20222b",
       "fg": "#c9cbd6",
-      "key": "the-wizard-of-oz",
-      "qid": "Q193695",
-      "imdb": "tt0032138",
-      "imdb_url": "https://www.imdb.com/title/tt0032138/",
-      "year_wd": 1939,
+      "key": "avatar",
+      "qid": "Q29387886",
+      "genres": [
+        "science fiction film",
+        "science fantasy"
+      ],
+      "logo": {
+        "src": "/imgs/titles/avatar.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "TheCuriousGnome",
+        "source": "https://commons.wikimedia.org/wiki/File:Avatar-Logo-avatar.svg",
+        "credit_required": false,
+        "bytes": 7564
+      },
+      "tmdb_id": 19995,
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/gKY6q7SjCkAU6FqvqWybDYgUKIF.jpg",
+        "tmdb_id": 19995,
+        "rating": 7.6,
+        "votes": 34373,
+        "overview_len": 175
+      }
+    },
+    {
+      "title": "Avengers: Infinity War",
+      "year": 2018,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "avengers-infinity-war",
+      "qid": "Q23780914",
+      "imdb": "tt4154756",
+      "imdb_url": "https://www.imdb.com/title/tt4154756/",
+      "year_wd": 2018,
+      "genres": [
+        "superhero film",
+        "science fiction film",
+        "action film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/avengers-infinity-war.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "John Roberti",
+        "source": "https://commons.wikimedia.org/wiki/File:Avengers-infinity-war-logo.svg",
+        "credit_required": false,
+        "bytes": 20508
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+        "tmdb_id": 299536,
+        "rating": 8.2,
+        "votes": 32470,
+        "overview_len": 490
+      }
+    },
+    {
+      "title": "The Iron Giant",
+      "year": 1999,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-iron-giant",
+      "qid": "Q867283",
+      "imdb": "tt0129167",
+      "imdb_url": "https://www.imdb.com/title/tt0129167/",
+      "year_wd": 1999,
+      "genres": [
+        "action film",
+        "science fiction film",
+        "comedy drama"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/ct04FCFLPImNG5thcPLRnVsZlmS.jpg",
+        "tmdb_id": 10386,
+        "rating": 8,
+        "votes": 6276,
+        "overview_len": 205
+      }
+    },
+    {
+      "title": "The Truman Show",
+      "year": 1998,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-truman-show",
+      "qid": "Q214801",
+      "imdb": "tt0120382",
+      "imdb_url": "https://www.imdb.com/title/tt0120382/",
+      "year_wd": 1998,
+      "genres": [
+        "science fiction film",
+        "comedy film",
+        "drama film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-truman-show.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Unknown authorUnknown author",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Truman_Show.png",
+        "credit_required": false,
+        "bytes": 2658
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/vuza0WqY239yBXOadKlGwJsZJFE.jpg",
+        "tmdb_id": 37165,
+        "rating": 8.2,
+        "votes": 20551,
+        "overview_len": 206
+      }
+    },
+    {
+      "title": "Indiana Jones and the Last Crusade",
+      "year": 1989,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "indiana-jones-and-the-last-crusade",
+      "qid": "Q185658",
+      "imdb": "tt0097576",
+      "imdb_url": "https://www.imdb.com/title/tt0097576/",
+      "year_wd": 1989,
+      "genres": [
+        "action comedy film",
+        "adventure film",
+        "treasure hunt film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/indiana-jones-and-the-last-crusade.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Lucasfilm",
+        "source": "https://commons.wikimedia.org/wiki/File:Indiana_Jones_logo.svg",
+        "credit_required": false,
+        "bytes": 15898
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/sizg1AU8f8JDZX4QIgE4pjUMBvx.jpg",
+        "tmdb_id": 89,
+        "rating": 7.9,
+        "votes": 11212,
+        "overview_len": 625
+      }
+    },
+    {
+      "title": "The Amazing Spider-Man 2",
+      "year": 2014,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-amazing-spider-man-2",
+      "qid": "Q4254026",
+      "imdb": "tt1872181",
+      "imdb_url": "https://www.imdb.com/title/tt1872181/",
+      "year_wd": 2014,
+      "genres": [
+        "action film",
+        "thriller film",
+        "teen film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/dGjoPttcbKR5VWg1jQuNFB247KL.jpg",
+        "tmdb_id": 102382,
+        "rating": 6.6,
+        "votes": 14481,
+        "overview_len": 471
+      }
+    },
+    {
+      "title": "The Lord of the Rings: The Two Towers",
+      "year": 2002,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-lord-of-the-rings-the-two-towers",
+      "qid": "Q164963",
+      "imdb": "tt0167261",
+      "imdb_url": "https://www.imdb.com/title/tt0167261/",
+      "year_wd": 2002,
       "genres": [
         "fantasy film",
-        "musical film",
+        "adventure film",
+        "action film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-lord-of-the-rings-the-two-towers.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "the lord of the rings - the two towers",
+        "source": "https://commons.wikimedia.org/wiki/File:Tloftr-ttt2-logo.svg",
+        "credit_required": false,
+        "bytes": 12246
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg",
+        "tmdb_id": 121,
+        "rating": 8.4,
+        "votes": 24272,
+        "overview_len": 558
+      }
+    },
+    {
+      "title": "Gladiator",
+      "year": 2000,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "gladiator",
+      "qid": "Q128518",
+      "imdb": "tt0172495",
+      "imdb_url": "https://www.imdb.com/title/tt0172495/",
+      "year_wd": 2000,
+      "genres": [
+        "sword-and-sandal film",
+        "melodrama",
+        "action film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/gladiator.webp",
+        "dark": true,
+        "licence": "CC BY-SA 4.0",
+        "author": "Pietrus",
+        "source": "https://commons.wikimedia.org/wiki/File:Gladiator_logo.svg",
+        "credit_required": true,
+        "bytes": 13588
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/wN2xWp1eIwCKOD0BHTcErTBv1Uq.jpg",
+        "tmdb_id": 98,
+        "rating": 8.2,
+        "votes": 21205,
+        "overview_len": 283
+      }
+    },
+    {
+      "title": "Pirates of the Caribbean: At World's End",
+      "year": 2007,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "pirates-of-the-caribbean-at-world-s-end",
+      "qid": "Q54274",
+      "imdb": "tt0449088",
+      "imdb_url": "https://www.imdb.com/title/tt0449088/",
+      "year_wd": 2007,
+      "genres": [
+        "fantasy film",
+        "comedy drama",
+        "swashbuckler film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/pirates-of-the-caribbean-at-world-s-end.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Walt Disney Pictures",
+        "source": "https://commons.wikimedia.org/wiki/File:Pirates_of_the_Caribbean_3_Logo.svg",
+        "credit_required": false,
+        "bytes": 13756
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/jGWpG4YhpQwVmjyHEGkxEkeRf0S.jpg",
+        "tmdb_id": 285,
+        "rating": 7.3,
+        "votes": 15672,
+        "overview_len": 519
+      }
+    },
+    {
+      "title": "Toy Story 3",
+      "year": 2010,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "toy-story-3",
+      "qid": "Q187278",
+      "imdb": "tt0435761",
+      "imdb_url": "https://www.imdb.com/title/tt0435761/",
+      "year_wd": 2010,
+      "genres": [
+        "buddy film",
+        "comedy drama",
+        "comedy film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/toy-story-3.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Disney/Pixar",
+        "source": "https://commons.wikimedia.org/wiki/File:Toy_Story_3_logo.png",
+        "credit_required": false,
+        "bytes": 50098
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/AbbXspMOwdvwWZgVN0nabZq03Ec.jpg",
+        "tmdb_id": 10193,
+        "rating": 7.8,
+        "votes": 16010,
+        "overview_len": 247
+      }
+    },
+    {
+      "title": "Ratatouille",
+      "year": 2007,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "ratatouille",
+      "qid": "Q170035",
+      "imdb": "tt0382932",
+      "imdb_url": "https://www.imdb.com/title/tt0382932/",
+      "year_wd": 2007,
+      "genres": [
+        "buddy film",
+        "coming-of-age film",
+        "flashback film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/t3vaWRPSf6WjDSamIkKDs1iQWna.jpg",
+        "tmdb_id": 2062,
+        "rating": 7.8,
+        "votes": 18724,
+        "overview_len": 555
+      }
+    },
+    {
+      "title": "Spider-Man: No Way Home",
+      "year": 2021,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "spider-man-no-way-home",
+      "qid": "Q68934496",
+      "imdb": "tt10872600",
+      "imdb_url": "https://www.imdb.com/title/tt10872600/",
+      "year_wd": 2021,
+      "genres": [
+        "superhero film",
+        "action film",
+        "adventure film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/spider-man-no-way-home.webp",
+        "dark": true,
+        "licence": "CC BY-SA 4.0",
+        "author": "Josephzbazin",
+        "source": "https://commons.wikimedia.org/wiki/File:Spider_Man_No_Way_Home_Logo.svg",
+        "credit_required": true,
+        "bytes": 12532
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+        "tmdb_id": 634649,
+        "rating": 7.9,
+        "votes": 22489,
+        "overview_len": 258
+      }
+    },
+    {
+      "title": "Interstellar",
+      "year": 2014,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "interstellar",
+      "qid": "Q13417189",
+      "imdb": "tt0816692",
+      "imdb_url": "https://www.imdb.com/title/tt0816692/",
+      "year_wd": 2014,
+      "genres": [
+        "science fiction film",
+        "adventure film",
+        "dystopian film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/interstellar.webp",
+        "dark": true,
+        "licence": "CC0",
+        "author": "Super Galaxy II",
+        "source": "https://commons.wikimedia.org/wiki/File:Interstellar-logo.jpg",
+        "credit_required": false,
+        "bytes": 8384
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
+        "tmdb_id": 157336,
+        "rating": 8.5,
+        "votes": 40614,
+        "overview_len": 198
+      }
+    },
+    {
+      "title": "Harry Potter and the Goblet of Fire",
+      "year": 2005,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "harry-potter-and-the-goblet-of-fire",
+      "qid": "Q102225",
+      "imdb": "tt0330373",
+      "imdb_url": "https://www.imdb.com/title/tt0330373/",
+      "year_wd": 2005,
+      "genres": [
+        "fantasy film",
+        "children's film",
         "adventure film"
       ],
       "poster": {
-        "src": "https://image.tmdb.org/t/p/w342/uCC3j4pV9eOZwzDUWp2ilbcTf1f.jpg",
-        "tmdb_id": 630,
-        "rating": 7.6,
-        "votes": 6197,
-        "overview_len": 307
+        "src": "https://image.tmdb.org/t/p/w342/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg",
+        "tmdb_id": 674,
+        "rating": 7.8,
+        "votes": 22423,
+        "overview_len": 243
+      }
+    },
+    {
+      "title": "Indiana Jones and the Temple of Doom",
+      "year": 1984,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "indiana-jones-and-the-temple-of-doom",
+      "qid": "Q179215",
+      "imdb": "tt0087469",
+      "imdb_url": "https://www.imdb.com/title/tt0087469/",
+      "year_wd": 1984,
+      "genres": [
+        "action film",
+        "adventure film",
+        "treasure hunt film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/gpdVNUaa4LhRMLfJOPj1AZdhAZ3.jpg",
+        "tmdb_id": 87,
+        "rating": 7.3,
+        "votes": 10240,
+        "overview_len": 204
+      }
+    },
+    {
+      "title": "Spider-Man",
+      "year": 2002,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "spider-man",
+      "tmdb_id": 557,
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/nXdAh5vUwERL4WGVMaee8RoDEAS.jpg",
+        "tmdb_id": 557,
+        "rating": 7.3,
+        "votes": 21021,
+        "overview_len": 190
+      }
+    },
+    {
+      "title": "Black Widow",
+      "year": 2021,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "black-widow",
+      "qid": "Q23894626",
+      "imdb": "tt3480822",
+      "imdb_url": "https://www.imdb.com/title/tt3480822/",
+      "year_wd": 2021,
+      "genres": [
+        "superhero film",
+        "action film",
+        "science fiction film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/black-widow.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "17jiangz1",
+        "source": "https://commons.wikimedia.org/wiki/File:Black_Widow.svg",
+        "credit_required": false,
+        "bytes": 6128
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg",
+        "tmdb_id": 497698,
+        "rating": 7.2,
+        "votes": 11413,
+        "overview_len": 332
+      }
+    },
+    {
+      "title": "Back to the Future",
+      "year": 1985,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "back-to-the-future",
+      "qid": "Q91540",
+      "imdb": "tt0088763",
+      "imdb_url": "https://www.imdb.com/title/tt0088763/",
+      "year_wd": 1985,
+      "genres": [
+        "science fiction film",
+        "adventure film",
+        "comedy film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/back-to-the-future.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Universal Studios or Drew Strutzan",
+        "source": "https://commons.wikimedia.org/wiki/File:Back_to_the_Future_film_series_logo.png",
+        "credit_required": false,
+        "bytes": 38324
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg",
+        "tmdb_id": 105,
+        "rating": 8.3,
+        "votes": 22099,
+        "overview_len": 327
+      }
+    },
+    {
+      "title": "Forrest Gump",
+      "year": 1994,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "forrest-gump",
+      "qid": "Q134773",
+      "imdb": "tt0109830",
+      "imdb_url": "https://www.imdb.com/title/tt0109830/",
+      "year_wd": 1994,
+      "genres": [
+        "coming-of-age film",
+        "flashback film",
+        "comedy film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/forrest-gump.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Diseñadores publicitarios",
+        "source": "https://commons.wikimedia.org/wiki/File:Forrest_Gump.svg",
+        "credit_required": false,
+        "bytes": 16402
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg",
+        "tmdb_id": 13,
+        "rating": 8.5,
+        "votes": 30128,
+        "overview_len": 238
+      }
+    },
+    {
+      "title": "The Shining",
+      "year": 1980,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-shining",
+      "qid": "Q186341",
+      "imdb": "tt0081505",
+      "imdb_url": "https://www.imdb.com/title/tt0081505/",
+      "year_wd": 1980,
+      "genres": [
+        "horror film",
+        "psychological horror film",
+        "drama film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-shining.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "the shining",
+        "source": "https://commons.wikimedia.org/wiki/File:Theshining-logo.svg",
+        "credit_required": false,
+        "bytes": 9872
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/uAR0AWqhQL1hQa69UDEbb2rE5Wx.jpg",
+        "tmdb_id": 694,
+        "rating": 8.2,
+        "votes": 19158,
+        "overview_len": 239
+      }
+    },
+    {
+      "title": "One Flew Over the Cuckoo's Nest",
+      "year": 1975,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "one-flew-over-the-cuckoo-s-nest",
+      "qid": "Q171669",
+      "imdb": "tt0073486",
+      "imdb_url": "https://www.imdb.com/title/tt0073486/",
+      "year_wd": 1975,
+      "genres": [
+        "comedy film",
+        "medical drama",
+        "prison film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/one-flew-over-the-cuckoo-s-nest.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Warner Bros.",
+        "source": "https://commons.wikimedia.org/wiki/File:One_Flew_Over_the_Cuckoo%27s_Nest_Logo.png",
+        "credit_required": false,
+        "bytes": 11512
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/kjWsMh72V6d8KRLV4EOoSJLT1H7.jpg",
+        "tmdb_id": 510,
+        "rating": 8.4,
+        "votes": 11603,
+        "overview_len": 210
+      }
+    },
+    {
+      "title": "Firestarter",
+      "year": 1984,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "firestarter",
+      "qid": "Q848503",
+      "imdb": "tt0087262",
+      "imdb_url": "https://www.imdb.com/title/tt0087262/",
+      "year_wd": 1984,
+      "genres": [
+        "action film",
+        "thriller film",
+        "science fiction film"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/2ux5lqNuibd8eOkwwUhzfzAJBqD.jpg",
+        "tmdb_id": 11495,
+        "rating": 6.3,
+        "votes": 779,
+        "overview_len": 208
+      }
+    },
+    {
+      "title": "The Terminator",
+      "year": 1984,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "the-terminator",
+      "qid": "Q162255",
+      "imdb": "tt0088247",
+      "imdb_url": "https://www.imdb.com/title/tt0088247/",
+      "year_wd": 1984,
+      "genres": [
+        "action film",
+        "science fiction film",
+        "cyberpunk"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-terminator.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Vectorized by Amberrock",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Terminator_(logo).svg",
+        "credit_required": false,
+        "bytes": 2134
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/qvktm0BHcnmDpul4Hz01GIazWPr.jpg",
+        "tmdb_id": 218,
+        "rating": 7.7,
+        "votes": 14867,
+        "overview_len": 389
+      }
+    },
+    {
+      "title": "Fargo",
+      "year": 1996,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "fargo",
+      "qid": "Q222720",
+      "imdb": "tt0116282",
+      "imdb_url": "https://www.imdb.com/title/tt0116282/",
+      "year_wd": 1996,
+      "genres": [
+        "crime film",
+        "drama film",
+        "neo-noir"
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/rt7cpEr1uP6RTZykBFhBTcRaKvG.jpg",
+        "tmdb_id": 275,
+        "rating": 7.8,
+        "votes": 9223,
+        "overview_len": 553
+      }
+    },
+    {
+      "title": "Up",
+      "year": 2009,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "up",
+      "qid": "Q174811",
+      "imdb": "tt1049413",
+      "imdb_url": "https://www.imdb.com/title/tt1049413/",
+      "year_wd": 2009,
+      "genres": [
+        "adventure film",
+        "comedy film",
+        "fantasy film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/up.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Pixar",
+        "source": "https://commons.wikimedia.org/wiki/File:Up_(2009_film)_logo.svg",
+        "credit_required": false,
+        "bytes": 11596
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/mFvoEwSfLqbcWwFsDjQebn9bzFe.jpg",
+        "tmdb_id": 14160,
+        "rating": 8,
+        "votes": 21901,
+        "overview_len": 274
+      }
+    },
+    {
+      "title": "Spider-Man: Far From Home",
+      "year": 2019,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "key": "spider-man-far-from-home",
+      "qid": "Q27985819",
+      "imdb": "tt6320628",
+      "imdb_url": "https://www.imdb.com/title/tt6320628/",
+      "year_wd": 2019,
+      "genres": [
+        "action film",
+        "adventure film",
+        "science fiction film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/spider-man-far-from-home.webp",
+        "dark": true,
+        "licence": "CC BY-SA 4.0",
+        "author": "John Roberti",
+        "source": "https://commons.wikimedia.org/wiki/File:Spider-man-far-from-home.svg",
+        "credit_required": true,
+        "bytes": 9888
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg",
+        "tmdb_id": 429617,
+        "rating": 7.4,
+        "votes": 17264,
+        "overview_len": 250
       }
     }
-  ]
+  ],
+  "shuffled": "2026-08-06T18:24:13.035Z"
 }

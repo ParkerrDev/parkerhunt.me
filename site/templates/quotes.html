@@ -5,6 +5,9 @@
 
 {% block content %}
 {% set me = load_data(path="data/me.toml") %}
+{# Shuffled per build. GENERATED from me.toml by scripts/build-shuffle.mjs —
+   edit me.toml, never quotes.json. #}
+{% set qd = load_data(path="data/quotes.json") %}
 <header class="hero">
     <div class="wrap">
         <a class="back" href="/">{{ ico::back() }} Home</a>
@@ -14,12 +17,12 @@
 </header>
 
 <main id="main">
-    {% if me.my_quotes | length > 0 %}
+    {% if qd.mine | length > 0 %}
     <section>
         <div class="wrap">
             <div class="head"><h2>Mine</h2></div>
             <div class="quotes">
-                {% for q in me.my_quotes %}
+                {% for q in qd.mine %}
                 <figure class="quote quote--mine">
                     <p>{{ q.text }}</p>
                     {% if q.who %}<footer>— {{ q.who }}</footer>{% endif %}
@@ -30,12 +33,12 @@
     </section>
     {% endif %}
 
-    {% if me.quotes | length > 0 %}
+    {% if qd.quotes | length > 0 %}
     <section>
         <div class="wrap">
             <div class="head"><h2>Borrowed</h2></div>
             <div class="quotes" data-findable="Search the wall…">
-                {% for q in me.quotes %}
+                {% for q in qd.quotes %}
                 <figure class="quote" data-find="{{ q.text }} {{ q.who }}">
                     <p>{{ q.text }}</p>
                     <footer>— {{ q.who }}</footer>
