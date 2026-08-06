@@ -326,6 +326,54 @@
       "year": 1969,
       "bg": "#0E3D6B",
       "fg": "#F2C14E"
+    },
+    {
+      "title": "Pokémon",
+      "year": 1997,
+      "bg": "#1B2A6B",
+      "fg": "#F5C518"
+    },
+    {
+      "title": "Limitless",
+      "year": 2015,
+      "bg": "#101820",
+      "fg": "#7FD1E8"
+    },
+    {
+      "title": "Young Sheldon",
+      "year": 2017,
+      "bg": "#123B5E",
+      "fg": "#F2C14E"
+    },
+    {
+      "title": "WandaVision",
+      "year": 2021,
+      "bg": "#2B0F2B",
+      "fg": "#E8C547"
+    },
+    {
+      "title": "The Magic School Bus",
+      "year": 1994,
+      "bg": "#123A2E",
+      "fg": "#F2C14E"
+    },
+    {
+      "title": "The Muppet Show",
+      "year": 1976,
+      "bg": "#3B1E5C",
+      "fg": "#E8C547"
+    },
+    {
+      "title": "Teen Titans Go!",
+      "year": 2013,
+      "bg": "#1A2E5C",
+      "fg": "#F25F5C"
+    },
+    {
+      "title": "Cobra Kai",
+      "year": 2018,
+      "bg": "#1B1B1B",
+      "fg": "#E23B3B"
     }
   ],
   "movies": [
@@ -2803,6 +2851,513 @@
     {
       "title": "Moana",
       "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Raising Arizona",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Adventures of RoboRex",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "imdb": "tt3044702",
+      "tmdb_id": 277969
+    },
+    {
+      "title": "Sicario",
+      "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Sicario: Day of the Soldado",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Running Man",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Naked Gun: From the Files of Police Squad!",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Beverly Hills Ninja",
+      "year": 1997,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Founder",
+      "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Morbius",
+      "year": 2022,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Interview",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Cocaine Bear",
+      "year": 2023,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "F1",
+      "year": 2025,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Teen Wolf",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "True Romance",
+      "year": 1993,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "I Love You Phillip Morris",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Five Nights at Freddy's",
+      "year": 2023,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Venom",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Venom: Let There Be Carnage",
+      "year": 2021,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Venom: The Last Dance",
+      "year": 2024,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Brewster's Millions",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Trading Places",
+      "year": 1983,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Nobody",
+      "year": 2021,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Zootopia",
+      "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Karate Kid Part II",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Predator",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Prey",
+      "year": 2022,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q108329738"
+    },
+    {
+      "title": "Skin Deep",
+      "year": 1989,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Zombieland: Double Tap",
+      "year": 2019,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Boss Baby",
+      "year": 2017,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q18619153"
+    },
+    {
+      "title": "Smokey and the Bandit",
+      "year": 1977,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Snowden",
+      "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Tootsie",
+      "year": 1982,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Christmas Chronicles",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Christmas Chronicles: Part Two",
+      "year": 2020,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Percy Jackson & the Olympians: The Lightning Thief",
+      "year": 2010,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Rocky IV",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "License to Drive",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Down and Out in Beverly Hills",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ferris Bueller's Day Off",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Gotcha!",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Just One of the Guys",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Better Off Dead",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Free Guy",
+      "year": 2021,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Splash",
+      "year": 1984,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ernest Goes to Camp",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ernest Saves Christmas",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Home Alone",
+      "year": 1990,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Home Alone 2: Lost in New York",
+      "year": 1992,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Big",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q858467"
+    },
+    {
+      "title": "The Wizard",
+      "year": 1989,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q786279"
+    },
+    {
+      "title": "The Last Starfighter",
+      "year": 1984,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Lilo & Stitch",
+      "year": 2002,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "A Charlie Brown Christmas",
+      "year": 1965,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "There's Something About Mary",
+      "year": 1998,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Loverboy",
+      "year": 1989,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hotel Transylvania 2",
+      "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hotel Transylvania 3: Summer Vacation",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hotel Transylvania: Transformania",
+      "year": 2022,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Santa Clause",
+      "year": 1994,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Santa Clause 2",
+      "year": 2002,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Santa Clause 3: The Escape Clause",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hocus Pocus",
+      "year": 1993,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hocus Pocus 2",
+      "year": 2022,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Sonic the Hedgehog",
+      "year": 2020,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Sonic the Hedgehog 2",
+      "year": 2022,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Sonic the Hedgehog 3",
+      "year": 2024,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Scooby-Doo 2: Monsters Unleashed",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Sing",
+      "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q20762698"
+    },
+    {
+      "title": "Sing 2",
+      "year": 2021,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Happytime Murders",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Fantastic Four",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Eurovision Song Contest: The Story of Fire Saga",
+      "year": 2020,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Finch",
+      "year": 2021,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q55605492"
+    },
+    {
+      "title": "Black Adam",
+      "year": 2022,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Frozen II",
+      "year": 2019,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q24733929"
+    },
+    {
+      "title": "Pixels",
+      "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Muppet Movie",
+      "year": 1979,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Great Muppet Caper",
+      "year": 1981,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Muppets Take Manhattan",
+      "year": 1984,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Muppet Christmas Carol",
+      "year": 1992,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Muppet Treasure Island",
+      "year": 1996,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Muppets from Space",
+      "year": 1999,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Muppets Most Wanted",
+      "year": 2014,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
