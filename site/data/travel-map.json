@@ -1,7 +1,7 @@
 {
   "built": "2026-08-06",
   "map": "/imgs/us-visited.svg",
-  "count": 14,
+  "count": 16,
   "total": 51,
   "credit": {
     "file": "Blank US Map (states only).svg",
@@ -47,8 +47,16 @@
       "name": "New Mexico"
     },
     {
+      "code": "ND",
+      "name": "North Dakota"
+    },
+    {
       "code": "OR",
       "name": "Oregon"
+    },
+    {
+      "code": "SD",
+      "name": "South Dakota"
     },
     {
       "code": "TX",
