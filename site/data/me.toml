@@ -63,6 +63,17 @@ films = []
 # [[sites]]  name = "" ; url = "" ; note = ""
 sites = []
 
+# Favourites, by EXACT title. The templates filter the full lists in
+# site/data/titles.json by membership, so these have to match the titles in
+# site/data/watching.json character for character — a typo is a card that
+# silently does not appear, not an error.
+#
+# Bare keys, so they live up here with films/sites: every plain `key = value`
+# at the root has to come before the first [[table]] header or TOML swallows it
+# into whichever table precedes it. That has bitten this file twice.
+favourite_shows = ["Naruto", "Death Note"]
+favourite_films = []
+
 # -------------------------------------------------------------------- now --
 # A /now page in one card, at the top of the site. Two rules: say what is
 # actually happening this month, and change `updated` when you change `doing`.

@@ -135,6 +135,12 @@ node scripts/fetch-x.mjs "${X_HANDLE:-AndrewParkerH}" site/data/x.json
 echo "Recomputing stamps..."
 node scripts/build-stamps.mjs site/data/stamps.json
 
+# Reorders the three lists with no natural order — quotes, shows, films — so a
+# rebuild is a different wall rather than the same one. Must run AFTER
+# fetch-titles' output is in place and BEFORE zola reads it.
+echo "Shuffling..."
+node scripts/build-shuffle.mjs site/data/titles.json site/data/me.toml site/data/quotes.json
+
 # Brand marks. Fails soft like the rest: the committed icons.json is what a
 # build renders from, and a logo that did not refresh is invisible.
 echo "Refreshing brand marks..."

@@ -769,3 +769,11 @@ p.wrap.kicker { margin-bottom: 0.4375rem; }
 .xc-meta { margin: 0.375rem 0 0; font-size: 0.8125rem; color: var(--muted); }
 .xc-meta a { color: var(--accent); }
 @media (max-width: 30rem) { .xc-counts { margin-left: 0; width: 100%; } }
+
+/* ------------------------------------------------------------------ favs -- */
+/* Favourite shows and films. A grid rather than a marquee, deliberately: a
+   favourite that scrolls away before you can look at it is not being treated
+   as a favourite. auto-fill with a hard cap so four favourites stay
+   poster-sized instead of stretching to fill the row. */
+.favs { display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 8.75rem)); gap: var(--gap); }
+@media (max-width: 30rem) { .favs { grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr)); } }

@@ -179,3 +179,18 @@
 {%- else %}{{ mono }}{% endif -%}
 </span>
 {% endmacro banner %}
+
+{# --- marquee speed --------------------------------------------------------- #}
+{# One rule for every auto-scrolling row on the site: THE MORE IT CARRIES, THE
+   FASTER IT MOVES.
+
+   The durations used to be hand-typed per section — 72s, 84s, 96s, 108s — and
+   were tuned to hold the pixels-per-second roughly constant, which meant a row
+   of 46 film posters crawled past at exactly the speed of a row of 7 quotes and
+   took nearly two minutes to show you what it had. Holding the DURATION roughly
+   constant instead is what makes a long row feel long-but-quick.
+
+   `n` is the number of items in one row, not in the section. Clamped at both
+   ends: under 40s a short row flicks past before it can be read, over 95s a
+   long one stops feeling like it is moving. #}
+{% macro mq_secs(n) %}{% set s = 30 + n * 12 / 10 %}{% if s < 40 %}40{% elif s > 95 %}95{% else %}{{ s | round }}{% endif %}{% endmacro mq_secs %}
