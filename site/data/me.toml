@@ -88,7 +88,8 @@ bean = "Colombian"
 # past tense.
 [vice]
 what = "Takis"
-icon = "g:chips"
+icon = ""
+mono = "TK"
 colour = "#C4162B"
 kicked = true
 line = "I love how they taste and I have a genuine problem with them — a fiesta-sized bag in a single sitting, in under half an hour. I do not buy them any more."
@@ -99,6 +100,7 @@ line = "I love how they taste and I have a genuine problem with them — a fiest
 [[coffee_shop]]
 name = "Starbucks"
 icon = "starbucks"
+mono = "SB"
 colour = "#00704A"
 verdict = ""
 orders = [
@@ -109,14 +111,16 @@ orders = [
 
 [[coffee_shop]]
 name = "Kuppa Joy"
-icon = "g:cup"
+icon = ""
+mono = "KJ"
 colour = "#6F4E37"
 verdict = "A little too sweet. Okay, I guess."
 orders = ["Grande vanilla sweet cream cold brew"]
 
 [[coffee_shop]]
 name = "Dutch Bros"
-icon = "g:cup"
+icon = ""
+mono = "DB"
 colour = "#00539B"
 verdict = "Too sweet. I do not go."
 orders = []
@@ -125,14 +129,16 @@ orders = []
 # `order` is optional and renders as a second receipt when it is there.
 [[restaurant]]
 name = "Cattlemens"
-icon = "g:steak"
+icon = ""
+mono = "CM"
 colour = "#8C3A2B"
 kind = "steak"
 order = []
 
 [[restaurant]]
 name = "Butterfish"
-icon = "g:bowl"
+icon = ""
+mono = "BF"
 colour = "#1F6F8B"
 kind = "poke"
 order = [
@@ -150,7 +156,8 @@ order = [
 
 [[restaurant]]
 name = "Chipotle"
-icon = "g:burrito"
+icon = ""
+mono = "CH"
 colour = "#A81612"
 kind = "burrito"
 order = []
@@ -159,16 +166,19 @@ order = []
 # The distro-hopping progression, in order. Exactly one entry should have
 # `current = true`; it is the one the numbering builds towards.
 #
-# `icon` is a Simple Icons slug (see scripts/fetch-icons.mjs) or "g:name" for one
-# of the generic glyphs in macros.html. Leave it empty and the tile falls back to
-# a two-letter monogram — which is what Nobara and CachyOS get, since neither has
-# a mark in any free set.
+# `icon` is a Simple Icons slug (see scripts/fetch-icons.mjs). Leave it empty and
+# the disc falls back to `mono`, a two-letter mark in the project's own colour.
+# Nobara and CachyOS get that, and so does every restaurant and both of the
+# coffee shops that are not Starbucks: no free icon set carries them, and a
+# hand-drawn imitation of a real logo would be worse on every axis than a
+# lettermark that is honest about being a stand-in.
 #
 # `colour` is the tile. These are approximations of each project's own accent
 # taken by eye, NOT their trademarks — nothing here reproduces a distro logo.
 # Correct any that look wrong; it is one hex value per row.
 [[distro]]
 name = "Raspbian"
+mono = ""
 icon = "raspberrypi"
 colour = "#C51A4A"
 note = "the first one, on a Pi"
@@ -176,6 +186,7 @@ current = false
 
 [[distro]]
 name = "Kali Linux"
+mono = ""
 icon = "kalilinux"
 colour = "#367BF0"
 note = "because it looked like hacking"
@@ -183,6 +194,7 @@ current = false
 
 [[distro]]
 name = "Ubuntu"
+mono = ""
 icon = "ubuntu"
 colour = "#E95420"
 note = "the sensible detour"
@@ -190,6 +202,7 @@ current = false
 
 [[distro]]
 name = "Zorin OS"
+mono = ""
 icon = "zorin"
 colour = "#0CC1F3"
 note = ""
@@ -197,6 +210,7 @@ current = false
 
 [[distro]]
 name = "Fedora"
+mono = ""
 icon = "fedora"
 colour = "#51A2DA"
 note = ""
@@ -205,12 +219,14 @@ current = false
 [[distro]]
 name = "Nobara"
 icon = ""
+mono = "No"
 colour = "#D9682D"
 note = "Fedora, but it plays games"
 current = false
 
 [[distro]]
 name = "NixOS"
+mono = ""
 icon = "nixos"
 colour = "#5277C3"
 note = "declarative, and a whole personality"
@@ -219,6 +235,7 @@ current = false
 [[distro]]
 name = "CachyOS"
 icon = ""
+mono = "Ca"
 colour = "#00A67D"
 note = "Arch, tuned, and where I stopped"
 current = true

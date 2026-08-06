@@ -317,27 +317,52 @@
             </div>
             {% endif %}
 
-            <div class="duo">
-                <div>
-                    <div class="panel stm">
-                        {{ isle::steam_head(steam=steam, label="Most played") }}
-                        {{ isle::steam_stats(steam=steam) }}
-                        {{ isle::steam_played(games=steam.library | slice(end=6), top=steam.library | first | get(key="minutes")) }}
-                    </div>
-                    <p class="feed-foot">Playtime is pinned by hand — the profile is private, so there is no public endpoint for it. See <code>site/data/steam-seed.json</code>.</p>
-                </div>
+        </div>
 
-                {% if steam.on_sale | length > 0 %}
-                <div>
-                    <div class="panel stm">
-                        {{ isle::steam_head(steam=steam, label="On sale right now") }}
-                        {{ isle::steam_wish(games=steam.on_sale | slice(end=6)) }}
-                        <p class="s-note">{{ steam.totals.on_sale }} of {{ steam.totals.wishlisted }} wishlisted games are discounted. Prices are fetched from Steam's public store API on every deploy.</p>
+        {# The library and the discounted wishlist, as rails rather than two
+           stacked panels. A library is a shelf — the natural way to look at one
+           is along it, and forty rows in a scroll pane was the opposite of that.
+           Both run full-bleed so the row reads as continuing past the edge. #}
+        <p class="wrap kicker">Most played · {{ steam.totals.hours | num_format }} hours across {{ steam.totals.played }} games</p>
+        <div class="rail">
+            <div class="rail-track">
+                {% for g in steam.library | slice(end=steam.totals.played) %}
+                <a class="gcard gcard--rail" href="{{ g.url }}" target="_blank" rel="noopener">
+                    <div class="gcard-art">
+                        <img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async">
+                        <span class="gcard-n">{{ g.hours }} h</span>
                     </div>
-                    <p class="feed-foot">Checked {{ steam.fetched }}. <a href="/games/">The whole wishlist →</a></p>
-                </div>
-                {% endif %}
+                    <div class="gcard-body">
+                        <span class="gcard-t">{{ g.name }}</span>
+                        <span class="gcard-m">{% if g.ach_total %}{{ g.ach_done }}/{{ g.ach_total }} achievements{% else %}{{ g.released }}{% endif %}</span>
+                    </div>
+                </a>
+                {% endfor %}
             </div>
+        </div>
+
+        {% if steam.on_sale | length > 0 %}
+        <p class="wrap kicker" style="margin-top:1rem">On sale from the wishlist right now · {{ steam.totals.on_sale }} of {{ steam.totals.wishlisted }}</p>
+        <div class="rail">
+            <div class="rail-track">
+                {% for g in steam.on_sale %}
+                <a class="gcard gcard--rail" href="{{ g.url }}" target="_blank" rel="noopener">
+                    <div class="gcard-art">
+                        <img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async">
+                        <span class="gcard-off">-{{ g.price.off }}%</span>
+                    </div>
+                    <div class="gcard-body">
+                        <span class="gcard-t">{{ g.name }}</span>
+                        <span class="gcard-m"><s>{{ g.price.was }}</s> {{ g.price.now }}</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="wrap">
+            <p class="feed-foot">Playtime is pinned by hand — the profile is private, so there is no public endpoint for it. Prices come from Steam's public store API and were checked {{ steam.fetched }}. <a href="/games/">The whole library and wishlist →</a></p>
         </div>
     </section>
     {% endif %}
@@ -485,7 +510,7 @@
                 {% for s in me.coffee_shop %}
                 <div class="receipt{% if s.orders | length == 0 %} receipt--sour{% endif %}">
                     <div class="receipt-h">
-                        <span class="mark mark--solid mark--lg" style="--c:{{ s.colour }}">{{ ico::mark(icons=ico2.icons, name=s.icon) }}</span>
+                        <span class="mark mark--lg{% if not s.icon %} mark--letter{% endif %}" style="--c:{{ s.colour }}">{% if s.icon %}{{ ico::mark(icons=ico2.icons, name=s.icon) }}{% else %}{{ s.mono }}{% endif %}</span>
                         <b>{{ s.name }}</b>
                         <span>{% if s.orders | length > 0 %}Usual order{% else %}No order{% endif %}</span>
                     </div>
@@ -509,22 +534,27 @@
             <div class="head"><h2>Eating</h2><p>Three places and one problem.</p></div>
 
             {% if me.restaurant | length > 0 %}
-            <div class="bento" style="margin-bottom:0.875rem">
+            <div class="duo" style="margin-bottom:0.875rem;align-items:start">
+            <div class="bento">
                 {% for r in me.restaurant %}
+                {# Name first. It used to read "steak / Cattlemens" — the tiny
+                   uppercase label on top and the actual name under it — which
+                   made a list of three restaurants look like a list of three
+                   food groups. #}
                 <div class="tile-s2 tile--icon">
-                    <span class="mark mark--solid mark--lg" style="--c:{{ r.colour }}">{{ ico::mark(icons=ico2.icons, name=r.icon) }}</span>
-                    <span><span class="t-k">{{ r.kind }}</span><span class="t-t" style="display:block">{{ r.name }}</span></span>
+                    <span class="mark mark--lg mark--letter" style="--c:{{ r.colour }}">{{ r.mono }}</span>
+                    <span><span class="t-t" style="display:block">{{ r.name }}</span><span class="t-s">{{ r.kind }}</span></span>
                 </div>
                 {% endfor %}
             </div>
 
             {# Only one of them has an order worth writing down. #}
-            <div class="receipts" style="margin-bottom:1.5rem">
+            <div class="receipts">
                 {% for r in me.restaurant %}
                 {% if r.order | length > 0 %}
                 <div class="receipt">
                     <div class="receipt-h">
-                        <span class="mark mark--solid mark--lg" style="--c:{{ r.colour }}">{{ ico::mark(icons=ico2.icons, name=r.icon) }}</span>
+                        <span class="mark mark--lg mark--letter" style="--c:{{ r.colour }}">{{ r.mono }}</span>
                         <b>{{ r.name }}</b><span>Usual order</span>
                     </div>
                     <ul>
@@ -534,14 +564,19 @@
                 {% endif %}
                 {% endfor %}
             </div>
+            </div>
             {% endif %}
 
             {% if me.vice.what %}
+            {# A float was doing the layout here and the text wrapped around the
+               icon at some widths and not others. Flex, so it never does. #}
             <div class="vice">
-                <span class="mark mark--solid mark--lg" style="--c:{{ me.vice.colour }};float:right;margin-left:0.75rem">{{ ico::mark(icons=ico2.icons, name=me.vice.icon) }}</span>
-                <div class="vice-k">The vice</div>
-                <div class="vice-t">{{ me.vice.what }}{% if me.vice.kicked %} <span class="vice-tag">no longer bought</span>{% endif %}</div>
-                <p>{{ me.vice.line }}</p>
+                <span class="mark mark--lg mark--letter" style="--c:{{ me.vice.colour }}">{{ me.vice.mono }}</span>
+                <div style="min-width:0">
+                    <div class="vice-k">The vice</div>
+                    <div class="vice-t">{{ me.vice.what }}{% if me.vice.kicked %} <span class="vice-tag">no longer bought</span>{% endif %}</div>
+                    <p>{{ me.vice.line }}</p>
+                </div>
             </div>
             {% endif %}
         </div>
@@ -562,8 +597,8 @@
                in me.toml so any that look wrong are a one-line fix. #}
             <ul class="bento bento--sm" style="list-style:none;margin:0;padding:0">
                 {% for d in me.distro %}
-                <li class="chip{% if d.current %} chip--now{% endif %}" style="--c:{{ d.colour }}">
-                    <span class="swatch" aria-hidden="true">{% if d.icon %}{{ ico::mark(icons=ico2.icons, name=d.icon) }}{% else %}{{ d.name | truncate(length=2, end="") }}{% endif %}</span>
+                <li class="chip{% if d.current %} chip--now{% endif %}">
+                    <span class="swatch" style="--c:{{ d.colour }}" aria-hidden="true">{% if d.icon %}{{ ico::mark(icons=ico2.icons, name=d.icon) }}{% else %}{{ d.mono }}{% endif %}</span>
                     <span class="t-t">{{ d.name }}</span>
                     <span class="t-k" style="text-align:center">{% if d.current %}Now{% else %}{% if loop.index < 10 %}0{% endif %}{{ loop.index }}{% endif %}</span>
                 </li>
@@ -604,6 +639,23 @@
     </section>
     {% endif %}
 
+    {# ------------------------------------------------------------ novel -- #}
+    {# Small and on its own. It used to be one row in the Shelf under "Written",
+       which put a novel next to a list of books somebody else wrote. #}
+    {% if me.books_mine | length > 0 %}
+    {% set nv = me.books_mine | first %}
+    <section id="novel">
+        <div class="wrap">
+            <a class="novel-card" {% if nv.url %}href="{{ nv.url }}"{% endif %}>
+                <span class="novel-k">I wrote a novel</span>
+                <span class="novel-t">{{ nv.title }}{% if nv.url %} <span class="ext" aria-hidden="true">→</span>{% endif %}</span>
+                <span class="novel-s">A boy called Nathan, a cabin in the Idaho mountains, and the man in the meadow.</span>
+                <span class="novel-m">{{ nv.status }} · still needs a title</span>
+            </a>
+        </div>
+    </section>
+    {% endif %}
+
     {# ----------------------------------------------------------- quotes -- #}
     {% if me.quotes | length > 0 %}
     <section id="quotes">
@@ -637,10 +689,10 @@
     {% endif %}
 
     {# ---------------------------------------------------------- shelves -- #}
-    {% if me.books_read | length > 0 or me.books_mine | length > 0 %}
+    {% if me.books_read | length > 0 %}
     <section id="shelf">
         <div class="wrap">
-            <div class="head"><h2>Shelf</h2><p>Read on the left, written on the right. More of the first than the second, so far.</p></div>
+            <div class="head"><h2>Shelf</h2><p>{{ me.books_read | length }} of them, in the order I read them.</p></div>
             <div class="duo">
                 {% if me.books_read | length > 0 %}
                 <div>
@@ -661,20 +713,6 @@
                             <span class="t-t">{{ b.title }}</span>
                             <span class="t-s">{{ b.author }}{% if b.year %} · {{ b.year }}{% endif %}</span>
                         </div>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endif %}
-                {% if me.books_mine | length > 0 %}
-                <div>
-                    <p class="kicker">Written</p>
-                    <div class="bento bento--lg" style="max-width:20rem">
-                        {% for b in me.books_mine %}
-                        <a class="tile-s2" {% if b.url %}href="{{ b.url }}"{% endif %}>
-                            <span class="t-k">{{ b.status }}</span>
-                            <span class="t-t">{{ b.title }}{% if b.url %} <span class="ext" aria-hidden="true">→</span>{% endif %}</span>
-                            {% if b.note %}<span class="t-s">{{ b.note }}</span>{% endif %}
-                        </a>
                         {% endfor %}
                     </div>
                 </div>
