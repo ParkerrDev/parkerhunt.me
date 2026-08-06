@@ -11,107 +11,7 @@
   ],
   "quotes": [
     {
-      "text": "I have no special talent. I am only passionately curious.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "Concern for man and his fate must always form the chief interest of all technical endeavors. Never forget this in the midst of your diagrams and equations.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "Life is like riding a bicycle. To keep your balance you must keep moving.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "Unthinking respect for authority is the greatest enemy of truth.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "I speak to everyone in the same way, whether he is the garbage man or the president of the university.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "It was always the women, and above all the young ones, who were the most bigoted adherents of the party, the swallowers of slogans, the amateur spies and nosers-out of unorthodoxy.",
-      "who": "George Orwell, 1984"
-    },
-    {
-      "text": "Invention is not the product of logical thought, even though the final product is tied to a logical structure.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "Anti-social behavior is a trait of intelligence in a world full of conformists.",
-      "who": "Nikola Tesla"
-    },
-    {
-      "text": "Look deep into nature, and then you will understand everything better.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "Being ignorant is not so much a shame, as being unwilling to learn.",
-      "who": "Benjamin Franklin"
-    },
-    {
-      "text": "The important thing is not to stop questioning. Curiosity has its own reason for existence.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "He who does not understand your silence will probably not understand your words.",
-      "who": "Elbert Hubbard"
-    },
-    {
-      "text": "I live in that solitude which is painful in youth, but delicious in the years of maturity.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
-      "who": "Benjamin Franklin"
-    },
-    {
-      "text": "The endless passage of time has cast an obfuscating fog over the facts.",
-      "who": "unattributed"
-    },
-    {
-      "text": "Everything should be made as simple as possible, but not simpler.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "Genius is patience.",
-      "who": "Isaac Newton"
-    },
-    {
       "text": "Anyone who doesn't take truth seriously in small matters cannot be trusted in large ones either.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "Science can flourish only in an atmosphere of free speech.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "There is no conflict between science and religion.",
-      "who": "Georges Lemaitre"
-    },
-    {
-      "text": "A coin a day makes a thousand coins in a thousand days. In time, a rope may saw through a tree, and dripping water can wear away stone.",
-      "who": "Zhang Guiyai, Southern Song"
-    },
-    {
-      "text": "By failing to prepare, you are preparing to fail.",
-      "who": "Benjamin Franklin"
-    },
-    {
-      "text": "A table, a chair, a bowl of fruit and a violin; what else does a man need to be happy?",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "No amount of experimentation can ever prove me right; a single experiment can prove me wrong.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "The years of anxious searching in the dark, with their intense longing, their alternations of confidence and exhaustion, and final emergence into light — only those who have experienced it can understand that.",
-      "who": "Albert Einstein"
-    },
-    {
-      "text": "The measure of intelligence is the ability to change.",
       "who": "Albert Einstein"
     },
     {
@@ -119,8 +19,108 @@
       "who": "Albert Einstein"
     },
     {
+      "text": "I speak to everyone in the same way, whether he is the garbage man or the president of the university.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "The measure of intelligence is the ability to change.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "The important thing is not to stop questioning. Curiosity has its own reason for existence.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "Invention is not the product of logical thought, even though the final product is tied to a logical structure.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "Look deep into nature, and then you will understand everything better.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
+      "who": "Benjamin Franklin"
+    },
+    {
+      "text": "Unthinking respect for authority is the greatest enemy of truth.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "Life is like riding a bicycle. To keep your balance you must keep moving.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "Genius is patience.",
+      "who": "Isaac Newton"
+    },
+    {
+      "text": "A coin a day makes a thousand coins in a thousand days. In time, a rope may saw through a tree, and dripping water can wear away stone.",
+      "who": "Zhang Guiyai, Southern Song"
+    },
+    {
+      "text": "A table, a chair, a bowl of fruit and a violin; what else does a man need to be happy?",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "Everything should be made as simple as possible, but not simpler.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "The years of anxious searching in the dark, with their intense longing, their alternations of confidence and exhaustion, and final emergence into light — only those who have experienced it can understand that.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "Concern for man and his fate must always form the chief interest of all technical endeavors. Never forget this in the midst of your diagrams and equations.",
+      "who": "Albert Einstein"
+    },
+    {
       "text": "Few are those who see with their own eyes and feel with their own hearts.",
       "who": "Albert Einstein"
+    },
+    {
+      "text": "I live in that solitude which is painful in youth, but delicious in the years of maturity.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "It was always the women, and above all the young ones, who were the most bigoted adherents of the party, the swallowers of slogans, the amateur spies and nosers-out of unorthodoxy.",
+      "who": "George Orwell, 1984"
+    },
+    {
+      "text": "No amount of experimentation can ever prove me right; a single experiment can prove me wrong.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "There is no conflict between science and religion.",
+      "who": "Georges Lemaitre"
+    },
+    {
+      "text": "The endless passage of time has cast an obfuscating fog over the facts.",
+      "who": "unattributed"
+    },
+    {
+      "text": "I have no special talent. I am only passionately curious.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "Science can flourish only in an atmosphere of free speech.",
+      "who": "Albert Einstein"
+    },
+    {
+      "text": "Being ignorant is not so much a shame, as being unwilling to learn.",
+      "who": "Benjamin Franklin"
+    },
+    {
+      "text": "He who does not understand your silence will probably not understand your words.",
+      "who": "Elbert Hubbard"
+    },
+    {
+      "text": "Anti-social behavior is a trait of intelligence in a world full of conformists.",
+      "who": "Nikola Tesla"
+    },
+    {
+      "text": "By failing to prepare, you are preparing to fail.",
+      "who": "Benjamin Franklin"
     }
   ]
 }
