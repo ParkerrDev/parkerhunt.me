@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
+{% import "islands.html" as isle %}
+
+{% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{% endblock %}
 
 {% block title %}Parker Hunt{% endblock %}
 
@@ -14,6 +17,17 @@
 {% set me = load_data(path="data/me.toml") %}
 {% set gh = load_data(path="data/github.json") %}
 {% set feeds = load_data(path="data/feeds.toml") %}
+{# Four build-time snapshots of four real accounts. Every one of them is written
+   by a script in scripts/ that fails soft, so a third party being down or slow
+   never fails a deploy — it just leaves the last snapshot in place. Nothing
+   below contacts steampowered.com, chess.com, duolingo.com or nexusmods.com
+   when the page loads; the numbers, the prices and even the capsule art are all
+   served from this origin. #}
+{% set steam = load_data(path="data/steam.json") %}
+{% set chess = load_data(path="data/chess.json") %}
+{% set duo = load_data(path="data/duolingo.json") %}
+{% set nexus = load_data(path="data/nexus.json") %}
+{% set games = load_data(path="data/games.toml") %}
 
 <header class="hero">
     <div class="wrap hero-in">
@@ -97,38 +111,55 @@
     {# Rebuilt in GitHub's own visual language — its palette, its metrics, its
        language dots — but rendered from a JSON snapshot taken at build time.
        Nothing here talks to github.com when you load the page. #}
-    {% if gh.repos | length > 0 %}
+    {% if gh.repos | length > 0 or nexus.mods | length > 0 %}
     <section id="code">
         <div class="wrap">
             <div class="head">
                 <h2>Code</h2>
-                <p>Public repositories, snapshotted at build time.</p>
-                <a class="more" href="https://github.com/ParkerrDev?tab=repositories" target="_blank" rel="noopener">On GitHub →</a>
+                <p>Repositories and published mods, both snapshotted at build time.</p>
             </div>
 
-            <div class="feed gh">
-                <div class="gh-head">
-                    {{ ico::github() }} <b>{{ gh.user }}</b> / repositories
-                    <span class="gh-h-sub">{{ gh.repos | length }} public</span>
+            <div class="duo">
+                {% if gh.repos | length > 0 %}
+                <div>
+                    <div class="feed gh">
+                        <div class="gh-head">
+                            {{ ico::github() }} <b>{{ gh.user }}</b> / repositories
+                            <span class="gh-h-sub">{{ gh.repos | length }} public</span>
+                        </div>
+                        {% for r in gh.repos %}
+                        <a class="repo" href="{{ r.url }}" target="_blank" rel="noopener">
+                            <div class="repo-top">
+                                <span class="repo-name">{{ r.name }}</span>
+                                <span class="repo-vis">Public</span>
+                            </div>
+                            {% if r.description %}<p class="repo-desc">{{ r.description }}</p>{% endif %}
+                            <div class="repo-meta">
+                                {% if r.language %}<span><i class="lang-dot" style="background:{{ r.color }}"></i>{{ r.language }}</span>{% endif %}
+                                {% if r.stars > 0 %}<span>{{ ico::star() }}{{ r.stars }}</span>{% endif %}
+                                {% if r.forks > 0 %}<span>{{ ico::fork() }}{{ r.forks }}</span>{% endif %}
+                                {% if r.license %}<span>{{ r.license }}</span>{% endif %}
+                                <span>Updated {{ r.updated }}</span>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                    <p class="feed-foot"><a href="https://github.com/ParkerrDev?tab=repositories" target="_blank" rel="noopener">github.com/{{ gh.user }}</a> · snapshot {{ gh.fetched }}</p>
                 </div>
-                {% for r in gh.repos %}
-                <a class="repo" href="{{ r.url }}" target="_blank" rel="noopener">
-                    <div class="repo-top">
-                        <span class="repo-name">{{ r.name }}</span>
-                        <span class="repo-vis">Public</span>
+                {% endif %}
+
+                {# Nexus Mods. Mods for Subnautica and Below Zero, which is a
+                   pleasing coincidence given what is at the top of the played
+                   list further down the page. #}
+                {% if nexus.mods | length > 0 %}
+                <div>
+                    <div class="feed nx">
+                        {{ isle::nexus(n=nexus, mods=nexus.mods) }}
                     </div>
-                    {% if r.description %}<p class="repo-desc">{{ r.description }}</p>{% endif %}
-                    <div class="repo-meta">
-                        {% if r.language %}<span><i class="lang-dot" style="background:{{ r.color }}"></i>{{ r.language }}</span>{% endif %}
-                        {% if r.stars > 0 %}<span>{{ ico::star() }}{{ r.stars }}</span>{% endif %}
-                        {% if r.forks > 0 %}<span>{{ ico::fork() }}{{ r.forks }}</span>{% endif %}
-                        {% if r.license %}<span>{{ r.license }}</span>{% endif %}
-                        <span>Updated {{ r.updated }}</span>
-                    </div>
-                </a>
-                {% endfor %}
+                    <p class="feed-foot"><a href="{{ nexus.url }}" target="_blank" rel="noopener">{{ nexus.count }} mods</a> · {{ nexus.totals.downloads | num_format }} downloads · {{ nexus.totals.endorsements | num_format }} endorsements</p>
+                </div>
+                {% endif %}
             </div>
-            <p class="feed-foot">Snapshot taken {{ gh.fetched }}. Refreshed on every deploy.</p>
         </div>
     </section>
     {% endif %}
@@ -252,6 +283,101 @@
     {% endif %}
     {% endif %}
 
+    {# ------------------------------------------------------------ games -- #}
+    {# Two Steam panels side by side, both dark because Steam has never had a
+       light theme and a light one would not read as Steam. The right-hand panel
+       is live in a way the rest of the page is not: it is whatever happens to
+       be discounted on the wishlist at the moment of the last deploy, so it
+       changes on its own. #}
+    {% if steam.library | length > 0 %}
+    <section id="games">
+        <div class="wrap">
+            <div class="head">
+                <h2>Games</h2>
+                <p>{{ steam.totals.owned }} games, {{ steam.totals.hours | num_format }} hours, and a wishlist that is longer than the library.</p>
+                <a class="more" href="/games/">Everything I have played →</a>
+            </div>
+
+            {% if games.favourite | length > 0 %}
+            <p class="kicker">Favourites</p>
+            <div class="gcards" style="margin-bottom:1.5rem">
+                {% for f in games.favourite %}
+                {% set g = steam.by_appid[f.appid] %}
+                <a class="gcard" href="{{ g.url }}" target="_blank" rel="noopener">
+                    <div class="gcard-art">
+                        <img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async">
+                        <span class="gcard-n">{{ loop.index }}</span>
+                    </div>
+                    <div class="gcard-body">
+                        <span class="gcard-t">{{ g.name }}</span>
+                        {% if f.note %}<p class="gcard-d">{{ f.note }}</p>{% endif %}
+                        <span class="gcard-m">{{ g.released }}</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <div class="duo">
+                <div>
+                    <div class="panel stm">
+                        {{ isle::steam_head(steam=steam, label="Most played") }}
+                        {{ isle::steam_stats(steam=steam) }}
+                        {{ isle::steam_played(games=steam.library | slice(end=6), top=steam.library | first | get(key="minutes")) }}
+                    </div>
+                    <p class="feed-foot">Playtime is pinned by hand — the profile is private, so there is no public endpoint for it. See <code>site/data/steam-seed.json</code>.</p>
+                </div>
+
+                {% if steam.on_sale | length > 0 %}
+                <div>
+                    <div class="panel stm">
+                        {{ isle::steam_head(steam=steam, label="On sale right now") }}
+                        {{ isle::steam_wish(games=steam.on_sale | slice(end=6)) }}
+                        <p class="s-note">{{ steam.totals.on_sale }} of {{ steam.totals.wishlisted }} wishlisted games are discounted. Prices are fetched from Steam's public store API on every deploy.</p>
+                    </div>
+                    <p class="feed-foot">Checked {{ steam.fetched }}. <a href="/games/">The whole wishlist →</a></p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------------ chess -- #}
+    {% if chess.modes | length > 0 %}
+    <section id="chess">
+        <div class="wrap">
+            <div class="head">
+                <h2>Chess</h2>
+                <p>{{ chess.record.win }} wins, {{ chess.record.loss }} losses, {{ chess.record.draw }} draws. I am working on the middle number.</p>
+                <a class="more" href="/chess/">Full record →</a>
+            </div>
+            <div class="panel cc">
+                {{ isle::chess_head(c=chess) }}
+                {{ isle::chess_modes(modes=chess.modes) }}
+                {{ isle::chess_games(games=chess.games | slice(end=5)) }}
+            </div>
+            <p class="feed-foot">Pulled from <a href="{{ chess.url }}" target="_blank" rel="noopener">chess.com/member/{{ chess.username }}</a> via their public API, {{ chess.fetched }}.</p>
+        </div>
+    </section>
+    {% endif %}
+
+    {# --------------------------------------------------------- learning -- #}
+    {% if duo.courses | length > 0 %}
+    <section id="learning">
+        <div class="wrap">
+            <div class="head">
+                <h2>Learning</h2>
+                <p>Mandarin, mostly. The streak is honest and the streak is zero.</p>
+            </div>
+            <div class="panel">
+                {{ isle::duolingo(d=duo) }}
+            </div>
+            <p class="feed-foot">Snapshot taken {{ duo.fetched }}. Refreshed on every deploy.</p>
+        </div>
+    </section>
+    {% endif %}
+
     {# ------------------------------------------------------------ ideas -- #}
     {% set ideas = load_data(path="data/ideas.toml") %}
     {% if ideas.idea | length > 0 %}
@@ -373,29 +499,23 @@
     </section>
     {% endif %}
 
-    {# ----------------------------------------------- chess and languages -- #}
-    {% if me.chess.rating > 0 or me.languages | length > 0 %}
-    <section id="elsewhere">
+    {# ------------------------------------------------------------ takes -- #}
+    {% if me.takes | length > 0 %}
+    <section id="takes">
         <div class="wrap">
-            <div class="head"><h2>Elsewhere</h2></div>
-            {% if me.chess.rating > 0 %}
-            <div class="tiles" style="margin-bottom:1.25rem">
-                <div class="tile"><span class="tile-k">Chess rating</span><span class="tile-v">{{ me.chess.rating }}</span><span class="tile-s">{{ me.chess.site }}{% if me.chess.best %} · best {{ me.chess.best }}{% endif %}</span></div>
-                {% if me.chess.games %}<div class="tile"><span class="tile-k">Games played</span><span class="tile-v">{{ me.chess.games }}</span><span class="tile-s">and counting</span></div>{% endif %}
-                {% if me.chess.url %}<a class="tile" href="{{ me.chess.url }}" target="_blank" rel="noopener"><span class="tile-k">Fancy a game?</span><span class="tile-v">♟</span><span class="tile-s">Play me on {{ me.chess.site }} →</span></a>{% endif %}
-            </div>
-            {% endif %}
-            {% if me.languages | length > 0 %}
-            <p class="kicker">Learning</p>
-            <ul class="langs">
-                {% for l in me.languages %}
-                <li>
-                    <div class="lang-top"><b>{{ l.name }}</b><span>{{ l.level }}{% if l.streak %} · {{ l.streak }}-day streak{% endif %}</span></div>
-                    <div class="bar-track"><div class="bar-fill" style="width:{{ l.pct }}%"></div></div>
-                </li>
+            <div class="head"><h2>Settled</h2><p>Arguments I am no longer having.</p></div>
+            <div class="takes">
+                {% for t in me.takes %}
+                <div class="take">
+                    <div class="take-vs">
+                        <span class="take-pick">{{ t.pick }}</span>
+                        <span class="take-over">over</span>
+                        <span class="take-lose">{{ t.over }}</span>
+                    </div>
+                    {% if t.why %}<p class="take-why">{{ t.why }}</p>{% endif %}
+                </div>
                 {% endfor %}
-            </ul>
-            {% endif %}
+            </div>
         </div>
     </section>
     {% endif %}

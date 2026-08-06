@@ -1,0 +1,440 @@
+/* parkerhunt.me — the brand islands.
+ *
+ * Loaded ONLY by the three templates that mount an island: index.html,
+ * games.html and chess.html. It is inlined into their <head> the same way
+ * _style.css is, so those pages still paint in exactly one request — but
+ * /blog/, /quotes/, /ideas/, /projects/ and /resume/ no longer carry 13 KB of
+ * GitHub, Steam and Chess.com palettes they will never use.
+ *
+ * ADDING AN ISLAND? Put its CSS here, not in _style.css, and make sure the
+ * template that renders it emits the css_extra block — see base.html. A page
+ * that forgets will render the island unstyled rather than fail the build.
+ *
+ * Each feed below is rebuilt in its own platform's visual language, using that
+ * platform's real palette and metrics. Nothing is embedded and nothing is
+ * fetched: no twimg, no licdn, no githubassets, no steamstatic, no iframe, no
+ * tracking script. The logos are inlined SVG paths, the avatar is the same
+ * local file the hero uses, and the Steam capsule art is a local WebP the build
+ * converted. That is the only way to have these look right and still load in
+ * one request.
+ *
+ * The fonts are the same system stack those sites fall back to; their own faces
+ * (Chirp, Motiva Sans, din-round) are proprietary and are not shipped.
+ */
+
+/* ----------------------------------------------------------------- panel -- */
+/* Everything .feed gives an island except the scroll pane. Used for the ones
+   that are short enough to show whole — an inner scrollbar on a five-row card
+   is a scrollbar for its own sake. overflow:hidden is what clips a brand's
+   dark background to the corner radius. */
+.panel {
+  border-radius: var(--r); border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-1); overflow: hidden;
+}
+
+
+/* Scroll panes. overscroll-behavior:contain stops the page from continuing to
+   scroll once the feed hits its end — without it an inner scroller on a phone
+   is a trap you have to swipe around. */
+.feed {
+  max-height: 30rem; overflow-y: auto; overscroll-behavior: contain;
+  border-radius: var(--r); border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-1);
+}
+.feed::-webkit-scrollbar { width: 10px; }
+.feed::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.16); border-radius: 8px; border: 3px solid transparent; background-clip: content-box; }
+@media (max-width: 44rem) { .feed { max-height: 26rem; } }
+
+.feed-foot { margin-top: 0.75rem; font-size: 0.8125rem; color: var(--faint); }
+.feed-foot a { color: var(--accent); }
+.feed-foot a:hover { text-decoration: underline; }
+.feed-foot code { font-family: var(--mono); font-size: 0.9em; background: var(--bg-soft); padding: 0.1em 0.35em; border-radius: 5px; }
+
+/* Two feeds side by side on a wide screen, stacked below ~46rem. auto-fit
+   rather than a media query so it collapses on the container it is actually
+   given, not on the viewport. */
+.duo { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(21rem, 100%), 1fr)); align-items: start; }
+
+/* -------------------------------------------------------------- island: X -- */
+.x {
+  --x-ink: #0f1419;
+  --x-dim: #536471;
+  --x-line: #eff3f4;
+  --x-bg: #fff;
+  --x-blue: #1d9bf0;
+  background: var(--x-bg); color: var(--x-ink);
+  font-family: "TwitterChirp", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: normal;
+}
+@media (prefers-color-scheme: dark) {
+  .x { --x-ink: #e7e9ea; --x-dim: #71767b; --x-line: #2f3336; --x-bg: #000; }
+}
+.x-head {
+  position: sticky; top: 0; z-index: 2;
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.75rem 1rem; border-bottom: 1px solid var(--x-line);
+  background: color-mix(in srgb, var(--x-bg) 85%, transparent);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  font-weight: 700; font-size: 0.9375rem;
+}
+.x-head svg { width: 1.125rem; height: 1.125rem; fill: currentColor; }
+.x-head .x-h-sub { margin-left: auto; font-weight: 400; font-size: 0.8125rem; color: var(--x-dim); }
+
+.tweet { display: flex; gap: 0.75rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--x-line); transition: background 0.15s; }
+.tweet:hover { background: color-mix(in srgb, var(--x-ink) 3%, transparent); }
+.tweet-av { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; overflow: hidden; background: var(--x-line); }
+.tweet-av img { width: 100%; height: 100%; object-fit: cover; }
+.tweet-main { min-width: 0; flex: 1; }
+.tweet-top { display: flex; align-items: center; gap: 0.25rem; font-size: 0.9375rem; line-height: 1.25rem; flex-wrap: wrap; }
+.tweet-name { font-weight: 700; }
+.tweet-badge { width: 1.0625rem; height: 1.0625rem; fill: var(--x-blue); }
+.tweet-handle, .tweet-time { color: var(--x-dim); }
+/* Paragraphs, not newlines-plus-pre-wrap. The HTML minifier collapses runs of
+   whitespace inside normal elements, so a post written with "\n" in it would
+   arrive as one long line — and pre-wrap would then also render the template's
+   own indentation as visible space. Real <p> elements survive both. */
+.tweet-body { margin: 0.125rem 0 0; font-size: 0.9375rem; line-height: 1.25rem; overflow-wrap: anywhere; }
+.tweet-body p { margin: 0 0 0.75em; }
+.tweet-body p:last-child { margin-bottom: 0; }
+.tweet-body a { color: var(--x-blue); }
+.tweet-body a:hover { text-decoration: underline; }
+.tweet-acts { display: flex; gap: 1.25rem; margin-top: 0.625rem; color: var(--x-dim); font-size: 0.8125rem; max-width: 26rem; }
+.tweet-act { display: inline-flex; align-items: center; gap: 0.3125rem; }
+.tweet-act svg { width: 1.0625rem; height: 1.0625rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ------------------------------------------------------- island: LinkedIn -- */
+.li {
+  --li-ink: rgba(0, 0, 0, 0.9);
+  --li-dim: rgba(0, 0, 0, 0.6);
+  --li-line: rgba(0, 0, 0, 0.08);
+  --li-bg: #f4f2ee;
+  --li-card: #fff;
+  --li-blue: #0a66c2;
+  background: var(--li-bg); color: var(--li-ink);
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: normal;
+  padding: 0.75rem;
+}
+@media (prefers-color-scheme: dark) {
+  .li { --li-ink: rgba(255,255,255,0.9); --li-dim: rgba(255,255,255,0.6); --li-line: rgba(255,255,255,0.13); --li-bg: #1b1f23; --li-card: #1d2226; }
+}
+.li-post { background: var(--li-card); border-radius: 8px; box-shadow: 0 0 0 1px var(--li-line); margin-bottom: 0.75rem; overflow: hidden; }
+.li-post:last-child { margin-bottom: 0; }
+.li-top { display: flex; gap: 0.625rem; padding: 0.75rem 1rem 0; }
+.li-av { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--li-line); }
+.li-av img { width: 100%; height: 100%; object-fit: cover; }
+.li-who { min-width: 0; }
+.li-name { font-size: 0.875rem; font-weight: 600; line-height: 1.3; }
+.li-role { font-size: 0.75rem; color: var(--li-dim); line-height: 1.35; }
+.li-time { font-size: 0.75rem; color: var(--li-dim); display: flex; align-items: center; gap: 0.25rem; }
+.li-time svg { width: 0.75rem; height: 0.75rem; fill: currentColor; }
+.li-body { padding: 0.625rem 1rem 0.75rem; font-size: 0.875rem; line-height: 1.42; overflow-wrap: anywhere; }
+.li-body p { margin: 0 0 0.7em; }
+.li-body p:last-child { margin-bottom: 0; }
+.li-body a { color: var(--li-blue); font-weight: 500; }
+.li-stats { padding: 0 1rem 0.5rem; font-size: 0.75rem; color: var(--li-dim); display: flex; gap: 0.375rem; align-items: center; }
+.li-react { display: inline-flex; }
+.li-react span { width: 1rem; height: 1rem; border-radius: 50%; display: grid; place-items: center; font-size: 0.5rem; color: #fff; border: 1px solid var(--li-card); margin-left: -3px; }
+.li-react span:first-child { margin-left: 0; background: var(--li-blue); }
+.li-react span:nth-child(2) { background: #6dae4f; }
+.li-acts { display: flex; border-top: 1px solid var(--li-line); padding: 0.25rem 0.5rem; }
+.li-act { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 0.375rem; padding: 0.5rem; border-radius: 4px; font-size: 0.8125rem; font-weight: 600; color: var(--li-dim); }
+.li-act svg { width: 1.125rem; height: 1.125rem; fill: currentColor; }
+.li-act:hover { background: rgba(0, 0, 0, 0.06); }
+
+/* --------------------------------------------------------- island: GitHub -- */
+.gh {
+  --gh-ink: #1f2328;
+  --gh-dim: #59636e;
+  --gh-line: #d1d9e0;
+  --gh-bg: #fff;
+  --gh-blue: #0969da;
+  background: var(--gh-bg); color: var(--gh-ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  letter-spacing: normal;
+}
+@media (prefers-color-scheme: dark) {
+  .gh { --gh-ink: #f0f6fc; --gh-dim: #9198a1; --gh-line: #3d444d; --gh-bg: #0d1117; --gh-blue: #4493f8; }
+}
+.gh-head {
+  position: sticky; top: 0; z-index: 2;
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1rem; border-bottom: 1px solid var(--gh-line);
+  background: var(--gh-bg); font-size: 0.875rem; color: var(--gh-dim);
+}
+.gh-head svg { width: 1.125rem; height: 1.125rem; fill: var(--gh-ink); }
+.gh-head b { color: var(--gh-ink); }
+.gh-head .gh-h-sub { margin-left: auto; }
+
+.repo { display: block; padding: 1rem; border-bottom: 1px solid var(--gh-line); }
+.repo:last-child { border-bottom: 0; }
+.repo:hover { background: color-mix(in srgb, var(--gh-ink) 3%, transparent); }
+.repo-top { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.repo-name { color: var(--gh-blue); font-weight: 600; font-size: 1.0625rem; }
+.repo:hover .repo-name { text-decoration: underline; }
+.repo-vis { font-size: 0.75rem; line-height: 1.125rem; padding: 0 0.4375rem; border: 1px solid var(--gh-line); border-radius: 2em; color: var(--gh-dim); font-weight: 500; }
+.repo-desc { margin: 0.375rem 0 0; font-size: 0.875rem; color: var(--gh-dim); max-width: 42rem; }
+.repo-meta { margin-top: 0.625rem; display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: var(--gh-dim); align-items: center; }
+.repo-meta span { display: inline-flex; align-items: center; gap: 0.25rem; }
+.repo-meta svg { width: 1rem; height: 1rem; fill: currentColor; }
+.lang-dot { width: 0.75rem; height: 0.75rem; border-radius: 50%; display: inline-block; }
+
+/* ---------------------------------------------------------- island: Steam -- */
+/* Steam has no light theme and never has, so this island does not get one
+   either. A "light mode Steam" would be a thing that has never existed; the
+   dark slab against a white page is what makes it read as Steam at a glance.
+   Palette straight off the store: #171a21 chrome, #1b2838 page, #66c0f4 links,
+   and the #4c6b22 / #beee11 discount flag, which is the single most
+   recognisable rectangle on the internet. */
+.stm {
+  --s-head: #171a21;
+  --s-bg: #1b2838;
+  --s-panel: #16202d;
+  --s-row: rgba(255, 255, 255, 0.035);
+  --s-ink: #c7d5e0;
+  --s-dim: #8f98a0;
+  --s-blue: #66c0f4;
+  --s-line: rgba(255, 255, 255, 0.07);
+  --s-off-bg: #4c6b22;
+  --s-off-fg: #beee11;
+  background: var(--s-bg); color: var(--s-ink);
+  font-family: "Motiva Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  letter-spacing: normal;
+}
+.stm a { color: inherit; }
+
+.s-head {
+  position: sticky; top: 0; z-index: 2;
+  display: flex; align-items: center; gap: 0.625rem;
+  padding: 0.75rem 1rem; background: var(--s-head);
+  border-bottom: 1px solid #000;
+  font-size: 0.875rem;
+}
+.s-head svg { width: 1.375rem; height: 1.375rem; fill: var(--s-blue); flex-shrink: 0; }
+.s-head b { color: #fff; font-weight: 600; }
+.s-head .s-h-sub { margin-left: auto; color: var(--s-dim); font-size: 0.75rem; white-space: nowrap; }
+
+/* The stat strip Steam puts under a profile name. */
+.s-stats { display: flex; flex-wrap: wrap; gap: 0.125rem; background: #000; padding: 1px 0; }
+.s-stat { flex: 1 1 6rem; background: var(--s-panel); padding: 0.75rem 0.875rem; }
+.s-stat b { display: block; font-size: 1.375rem; font-weight: 300; color: #fff; line-height: 1.15; }
+.s-stat span { font-size: 0.625rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--s-dim); }
+
+/* A game row: capsule, then everything else. The capsule is 134 CSS px wide,
+   which is exactly half of the 268px WebP the build wrote — see
+   scripts/fetch-steam-art.mjs. aspect-ratio holds the box open so 60 lazy
+   images landing at once cannot shift the page under a reader. */
+/* Three columns even though a library row only fills two: the price block is
+   the third, and an `auto` track with nothing in it is zero wide. Two columns
+   would push the price onto an implicit second row — under the capsule, which
+   is where it looked wrong the first time. */
+.sgame { display: grid; grid-template-columns: 8.375rem 1fr auto; gap: 0.875rem; padding: 0.75rem 1rem; align-items: center; border-bottom: 1px solid var(--s-line); }
+.sgame:last-child { border-bottom: 0; }
+.sgame:hover { background: var(--s-row); }
+.s-art { aspect-ratio: 460 / 215; border-radius: 3px; overflow: hidden; background: var(--s-panel); }
+.s-art img { width: 100%; height: 100%; object-fit: cover; }
+.s-main { min-width: 0; }
+.s-name { color: #fff; font-size: 0.9375rem; font-weight: 500; }
+.sgame:hover .s-name { color: var(--s-blue); }
+.s-sub { font-size: 0.75rem; color: var(--s-dim); margin-top: 0.1875rem; display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; align-items: center; }
+.s-sub svg { width: 0.8125rem; height: 0.8125rem; vertical-align: -1px; }
+.s-hours { color: var(--s-blue); font-weight: 500; }
+
+/* Playtime bar, scaled against the most-played game rather than a round
+   number, because the point is the shape of the distribution. */
+.s-bar { height: 3px; margin-top: 0.4375rem; background: rgba(0, 0, 0, 0.35); border-radius: 999px; overflow: hidden; }
+.s-bar i { display: block; height: 100%; background: linear-gradient(90deg, #417a9b, var(--s-blue)); border-radius: 999px; }
+
+/* Price block. Steam sets the discount flag flush against the price box with
+   no gap at all — that join is the whole look, so no gap here either. */
+.s-price { display: flex; align-items: stretch; justify-self: end; font-size: 0.8125rem; white-space: nowrap; }
+.s-off { background: var(--s-off-bg); color: var(--s-off-fg); font-weight: 700; padding: 0.3125rem 0.4375rem; font-size: 0.875rem; display: grid; place-items: center; }
+.s-cost { background: rgba(0, 0, 0, 0.3); padding: 0.3125rem 0.5rem; display: grid; place-items: center; text-align: right; }
+.s-was { display: block; font-size: 0.6875rem; color: #738895; text-decoration: line-through; }
+.s-now { display: block; color: #acdbf5; }
+.s-free .s-now { color: var(--s-off-fg); }
+
+/* Review score, in Steam's three buckets and Steam's three colours. */
+.s-rev { font-weight: 500; }
+.s-rev--pos { color: #66c0f4; }
+.s-rev--mix { color: #b9a074; }
+.s-rev--neg { color: #c15b3d; }
+
+.s-note { padding: 0.75rem 1rem; font-size: 0.75rem; color: var(--s-dim); background: var(--s-panel); border-top: 1px solid var(--s-line); }
+
+/* ------------------------------------------------------- island: Duolingo -- */
+/* Duolingo's look is two things: the green, and the 4px shelf under every
+   button and card. That bottom border is the entire design language — it is
+   what makes the whole interface feel like it is made of physical tiles — so
+   it is reproduced literally here rather than softened into a shadow. */
+.duol {
+  --d-green: #58cc02;
+  --d-green-d: #4daf00;
+  --d-blue: #1cb0f6;
+  --d-gold: #ffc800;
+  --d-red: #ff4b4b;
+  --d-ink: #3c3c3c;
+  --d-dim: #777;
+  --d-line: #e5e5e5;
+  --d-bg: #fff;
+  --d-soft: #f7f7f7;
+  background: var(--d-bg); color: var(--d-ink);
+  font-family: "din-round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: normal;
+  padding: 1rem;
+}
+@media (prefers-color-scheme: dark) {
+  .duol { --d-ink: #f1f7fb; --d-dim: #93a0a8; --d-line: #37464f; --d-bg: #131f24; --d-soft: #202f36; }
+}
+.d-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.875rem; }
+.d-av { width: 3rem; height: 3rem; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--d-soft); }
+.d-av img { width: 100%; height: 100%; object-fit: cover; }
+.d-who { min-width: 0; }
+.d-name { font-size: 1.0625rem; font-weight: 800; letter-spacing: -0.01em; }
+.d-user { font-size: 0.8125rem; color: var(--d-dim); }
+.d-mark { margin-left: auto; display: inline-flex; align-items: center; gap: 0.375rem; color: var(--d-green); font-weight: 800; font-size: 0.875rem; }
+.d-mark svg { width: 1.25rem; height: 1.25rem; }
+
+/* The 2×2 stat grid off the real profile page, shelf and all. */
+.d-stats { display: grid; gap: 0.625rem; grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr)); }
+.d-stat {
+  display: flex; align-items: center; gap: 0.625rem;
+  border: 2px solid var(--d-line); border-bottom-width: 4px; border-radius: 14px;
+  padding: 0.625rem 0.75rem; min-width: 0;
+}
+.d-stat svg { width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
+.d-stat b { display: block; font-size: 1.125rem; font-weight: 800; line-height: 1.15; }
+.d-stat span { display: block; font-size: 0.6875rem; color: var(--d-dim); font-weight: 700; letter-spacing: 0.01em; }
+.d-stat--xp svg { fill: var(--d-gold); }
+.d-stat--league svg { fill: var(--d-blue); }
+.d-stat--course svg { fill: var(--d-green); }
+
+.d-courses { list-style: none; margin: 0.875rem 0 0; padding: 0; display: grid; gap: 0.625rem; }
+.d-course { display: flex; align-items: center; gap: 0.75rem; }
+.d-flag { width: 2.25rem; height: 1.5rem; border-radius: 5px; overflow: hidden; flex-shrink: 0; box-shadow: 0 0 0 1px var(--d-line); }
+.d-flag svg { width: 100%; height: 100%; display: block; }
+.d-c-main { flex: 1; min-width: 0; }
+.d-c-top { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; font-size: 0.875rem; font-weight: 700; }
+.d-c-xp { font-size: 0.75rem; color: var(--d-dim); font-weight: 700; white-space: nowrap; }
+.d-c-bar { height: 8px; margin-top: 0.3125rem; background: var(--d-line); border-radius: 999px; overflow: hidden; }
+.d-c-bar i { display: block; height: 100%; background: var(--d-green); border-radius: 999px; }
+.d-current { font-size: 0.625rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; background: var(--d-green); border-radius: 999px; padding: 0.0625rem 0.4375rem; }
+
+/* The button. Uppercase, 800 weight, and the shelf. */
+.d-cta {
+  display: inline-block; margin-top: 0.875rem;
+  background: var(--d-green); color: #fff;
+  border-bottom: 4px solid var(--d-green-d); border-radius: 14px;
+  padding: 0.625rem 1.125rem 0.5rem;
+  font-size: 0.8125rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.d-cta:hover { background: #61dd02; }
+.d-cta:active { transform: translateY(2px); border-bottom-width: 2px; }
+
+/* ------------------------------------------------------ island: Chess.com -- */
+/* Also dark-only, for the same reason as Steam: the board is the product and
+   the board only looks right on their charcoal. The header strip is a real
+   checkerboard drawn with repeating-conic-gradient — eight squares of CSS
+   rather than an image, in their exact #EBECD0 / #739552. */
+.cc {
+  --c-bg: #302e2b;
+  --c-panel: #262522;
+  --c-ink: #f5f5f4;
+  --c-dim: #a2a09c;
+  --c-green: #81b64c;
+  --c-green-d: #5d9948;
+  --c-red: #ca3431;
+  --c-line: rgba(255, 255, 255, 0.08);
+  background: var(--c-bg); color: var(--c-ink);
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: normal;
+}
+.cc-board { height: 0.5rem; background-image: repeating-conic-gradient(#739552 0% 25%, #ebecd0 0% 50%); background-size: 1rem 1rem; }
+.cc-head { display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1rem; border-bottom: 1px solid var(--c-line); }
+.cc-av { width: 2.75rem; height: 2.75rem; border-radius: 6px; overflow: hidden; flex-shrink: 0; background: var(--c-panel); }
+.cc-av img { width: 100%; height: 100%; object-fit: cover; }
+.cc-who { min-width: 0; }
+.cc-user { font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.375rem; }
+.cc-user svg { width: 1rem; height: 1rem; fill: var(--c-green); }
+.cc-sub { font-size: 0.75rem; color: var(--c-dim); }
+.cc-league { margin-left: auto; text-align: right; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-dim); white-space: nowrap; }
+.cc-league b { display: block; font-size: 0.9375rem; letter-spacing: normal; text-transform: none; color: var(--c-green); }
+
+.cc-modes { display: grid; gap: 1px; background: var(--c-line); grid-template-columns: repeat(auto-fit, minmax(min(11rem, 100%), 1fr)); }
+.cc-mode { background: var(--c-bg); padding: 0.875rem 1rem; }
+.cc-m-top { display: flex; align-items: baseline; gap: 0.4375rem; font-size: 0.75rem; color: var(--c-dim); }
+.cc-m-top b { color: var(--c-ink); font-size: 0.8125rem; font-weight: 600; }
+.cc-rating { font-size: 1.75rem; font-weight: 700; line-height: 1.15; margin-top: 0.125rem; letter-spacing: -0.02em; }
+.cc-best { font-size: 0.6875rem; color: var(--c-dim); }
+/* W / D / L as one bar, in the site's own green-grey-red. The three widths are
+   percentages of the whole and always sum to 100, so there is never a sliver
+   of empty track at the end. */
+.cc-wdl { display: flex; height: 6px; margin-top: 0.5rem; border-radius: 999px; overflow: hidden; background: var(--c-panel); }
+.cc-wdl i { display: block; height: 100%; }
+.cc-w { background: var(--c-green); }
+.cc-d { background: #7d7a74; }
+.cc-l { background: var(--c-red); }
+.cc-legend { margin-top: 0.375rem; font-size: 0.6875rem; color: var(--c-dim); font-variant-numeric: tabular-nums; }
+
+.cc-games { border-top: 1px solid var(--c-line); }
+.cc-game { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 1rem; border-bottom: 1px solid var(--c-line); font-size: 0.8125rem; }
+.cc-game:last-child { border-bottom: 0; }
+.cc-game:hover { background: var(--c-panel); }
+.cc-res { width: 1.25rem; height: 1.25rem; border-radius: 4px; display: grid; place-items: center; font-size: 0.6875rem; font-weight: 700; color: #fff; flex-shrink: 0; }
+.cc-res--win { background: var(--c-green); }
+.cc-res--draw { background: #7d7a74; }
+.cc-res--loss { background: var(--c-red); }
+.cc-g-main { flex: 1; min-width: 0; }
+.cc-opp { font-weight: 600; display: flex; align-items: center; gap: 0.375rem; }
+/* The side played, as the piece colour itself. */
+.cc-side { width: 0.625rem; height: 0.625rem; border-radius: 50%; flex-shrink: 0; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35); }
+.cc-side--white { background: #f1f1f1; }
+.cc-side--black { background: #1a1a1a; }
+/* display:block is load-bearing: overflow/text-overflow do nothing on an
+   inline box, so without it a long opening name runs straight under the
+   date column on a phone instead of ellipsing. */
+.cc-open { display: block; color: var(--c-dim); font-size: 0.75rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cc-when { color: var(--c-dim); font-size: 0.6875rem; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* ----------------------------------------------------- island: Nexus Mods -- */
+.nx {
+  --n-bg: #1b1e26;
+  --n-panel: #23262f;
+  --n-ink: #d6d8de;
+  --n-dim: #8e93a0;
+  --n-orange: #da8e35;
+  --n-line: rgba(255, 255, 255, 0.07);
+  background: var(--n-bg); color: var(--n-ink);
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: normal;
+}
+.nx-head { display: flex; align-items: center; gap: 0.625rem; padding: 0.875rem 1rem; background: var(--n-panel); border-bottom: 1px solid #000; font-size: 0.875rem; }
+.nx-head svg { width: 1.25rem; height: 1.25rem; fill: var(--n-orange); flex-shrink: 0; }
+.nx-head b { color: #fff; }
+.nx-head .nx-h-sub { margin-left: auto; color: var(--n-dim); font-size: 0.75rem; white-space: nowrap; }
+.nx-mod { display: block; padding: 0.875rem 1rem; border-bottom: 1px solid var(--n-line); }
+.nx-mod:last-child { border-bottom: 0; }
+.nx-mod:hover { background: var(--n-panel); }
+.nx-name { font-weight: 600; font-size: 0.9375rem; color: #fff; }
+.nx-mod:hover .nx-name { color: var(--n-orange); }
+.nx-game { font-size: 0.6875rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--n-orange); margin-top: 0.125rem; }
+.nx-sum { margin: 0.375rem 0 0; font-size: 0.8125rem; color: var(--n-dim); line-height: 1.45; }
+.nx-meta { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.875rem; font-size: 0.75rem; color: var(--n-dim); }
+.nx-meta span { display: inline-flex; align-items: center; gap: 0.3125rem; }
+.nx-meta svg { width: 0.875rem; height: 0.875rem; }
+
+/* ------------------------------------------------------------- islands@ -- */
+/* Narrow screens. Kept at the bottom of this file for the same reason the
+   shell keeps its media queries last: these win on source order, not on
+   specificity, so anything added below them silently wins instead. */
+@media (max-width: 30rem) {
+  /* A 134px capsule leaves under 180px for a title, an hours figure and an
+     achievement count. Shrinking the art is cheaper than truncating all three;
+     the WebP is still 268px wide, so it only gets sharper. */
+  .sgame { grid-template-columns: 6rem 1fr auto; gap: 0.625rem; padding: 0.625rem 0.75rem; }
+  .s-name { font-size: 0.875rem; }
+  .s-head, .s-note { padding-left: 0.75rem; padding-right: 0.75rem; }
+  .s-stat { flex-basis: 4.5rem; padding: 0.625rem; }
+  .s-stat b { font-size: 1.125rem; }
+  .cc-head, .cc-mode, .cc-game { padding-left: 0.75rem; padding-right: 0.75rem; }
+}

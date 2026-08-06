@@ -82,16 +82,37 @@ else
   echo "WARNING: RESUME_TOKEN not set — /resume will have no PDF in this build." >&2
 fi
 
-# --- Refresh the GitHub repo snapshot ---------------------------------------
-# The "Code" section on the home page is rendered from site/data/github.json, so
-# a visitor's browser never talks to GitHub. This refreshes that file.
+# --- Refresh the account snapshots ------------------------------------------
+# Five sections of this site are rendered from JSON in site/data/ rather than
+# from an embed or a client-side fetch, so a visitor's browser never talks to
+# github.com, chess.com, duolingo.com, nexusmods.com or steampowered.com. These
+# five scripts are what keep those files current.
 #
-# Deliberately NOT guarded by `set -e` semantics: the script exits 0 even when
-# the API is unreachable or rate limited (Cloudflare's build IPs are shared, and
-# the unauthenticated limit is 60/hour/IP). A stale repo list is invisible; a
-# failed deploy is not. Contrast build-resume.mjs below, which fails hard.
+# Every one of them exits 0 even when its API is unreachable, rate limited or
+# has changed shape underneath us — Cloudflare's build IPs are shared, GitHub's
+# unauthenticated limit is 60/hour/IP and Steam's store API is roughly 200
+# requests per five minutes. Each script warns, keeps the committed snapshot and
+# carries on. A stale rating or a week-old price is invisible; a failed deploy
+# is not. Contrast build-resume.mjs above, which fails hard on purpose because a
+# missing PDF *is* a broken page.
+#
+# NOT here: scripts/fetch-steam-art.mjs. It shells out to cwebp, which is not on
+# this builder, and its output (site/static/imgs/steam/*.webp) is committed. Run
+# it locally after changing the seed.
 echo "Refreshing GitHub snapshot..."
 node scripts/fetch-github.mjs "${GITHUB_USER:-ParkerrDev}" site/data/github.json
+
+echo "Refreshing Steam snapshot..."
+node scripts/fetch-steam.mjs site/data/steam-seed.json site/data/steam.json
+
+echo "Refreshing Chess.com snapshot..."
+node scripts/fetch-chess.mjs "${CHESS_USER:-andrewparkerh}" site/data/chess.json
+
+echo "Refreshing Duolingo snapshot..."
+node scripts/fetch-duolingo.mjs "${DUOLINGO_USER:-parkerhunt.me}" site/data/duolingo.json
+
+echo "Refreshing Nexus Mods snapshot..."
+node scripts/fetch-nexus.mjs "${NEXUS_UPLOADER:-186080535}" site/data/nexus.json
 
 # --- Build the static site --------------------------------------------------
 # Run inside the site folder so Zola finds site/config.toml

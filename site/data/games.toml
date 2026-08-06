@@ -1,0 +1,341 @@
+# The part of /games/ that Steam does not know about.
+#
+# site/data/steam.json is generated (library, wishlist, prices, review scores,
+# capsule art). This file is the human half: which four are the favourites, and
+# the full list of everything ever finished, including the games that were never
+# on Steam in the first place.
+#
+# `appid` links a row to the Steam snapshot, which is where its name, store link
+# and local capsule art come from — so a title never has to be typed twice and
+# can never drift from what Steam calls it. Leave it empty for anything not on
+# Steam and give it a `title` and a `where` instead.
+#
+# The appids are strings, not numbers, because the template looks them up as
+# steam.by_appid[appid] and Tera will only subscript a map with a string.
+#
+# Adding an appid here that is neither owned nor wishlisted? Add it to the
+# `extra` array in site/data/steam-seed.json too, or the lookup misses and the
+# row silently disappears.
+
+# ------------------------------------------------------------- favourites --
+# Four, in order. Rendered large, with art.
+[[favourite]]
+appid = "264710"
+note = "An alien ocean, no guns, and one wrecked lifepod."
+
+[[favourite]]
+appid = "1326470"
+note = "Survival horror on an island that is not empty."
+
+[[favourite]]
+appid = "2322010"
+note = "Santa Monica Studio, 2022. Played on PlayStation."
+
+[[favourite]]
+appid = "1593500"
+note = "The Norse reboot — one unbroken camera shot, start to finish."
+
+# ------------------------------------------------------------------ played --
+# Everything, in the order it was written down rather than alphabetised or
+# ranked. `where` is only for games with no Steam entry to point at.
+[[played]]
+appid = "264710"
+title = ""
+where = ""
+
+[[played]]
+appid = "1326470"
+title = ""
+where = ""
+
+[[played]]
+appid = "2322010"
+title = ""
+where = "PlayStation"
+
+[[played]]
+appid = "1593500"
+title = ""
+where = "PlayStation"
+
+[[played]]
+appid = ""
+title = "Fortnite"
+where = "Epic Games"
+
+[[played]]
+appid = ""
+title = "Minecraft"
+where = "Mojang"
+
+[[played]]
+appid = "40800"
+title = ""
+where = ""
+
+[[played]]
+appid = "22300"
+title = ""
+where = ""
+
+[[played]]
+appid = "377160"
+title = ""
+where = ""
+
+[[played]]
+appid = "22380"
+title = ""
+where = ""
+
+[[played]]
+appid = "550"
+title = ""
+where = ""
+
+[[played]]
+appid = "42700"
+title = ""
+where = ""
+
+[[played]]
+appid = "202970"
+title = ""
+where = ""
+
+[[played]]
+appid = "311210"
+title = ""
+where = ""
+
+[[played]]
+appid = "17470"
+title = ""
+where = ""
+
+[[played]]
+appid = "489830"
+title = ""
+where = ""
+
+[[played]]
+appid = "271590"
+title = ""
+where = ""
+
+[[played]]
+appid = "3900"
+title = ""
+where = ""
+
+[[played]]
+appid = "242760"
+title = ""
+where = ""
+
+[[played]]
+appid = "427730"
+title = ""
+where = ""
+
+[[played]]
+appid = "26000"
+title = ""
+where = ""
+
+[[played]]
+appid = "35000"
+title = ""
+where = ""
+
+[[played]]
+appid = "17390"
+title = ""
+where = ""
+
+[[played]]
+appid = "105600"
+title = ""
+where = ""
+
+[[played]]
+appid = "1174180"
+title = ""
+where = ""
+
+[[played]]
+appid = "2668510"
+title = ""
+where = ""
+
+[[played]]
+appid = "613100"
+title = ""
+where = ""
+
+[[played]]
+appid = "400"
+title = ""
+where = ""
+
+[[played]]
+appid = "620"
+title = ""
+where = ""
+
+[[played]]
+appid = "70"
+title = ""
+where = ""
+
+[[played]]
+appid = "220"
+title = ""
+where = ""
+
+[[played]]
+appid = "275850"
+title = ""
+where = ""
+
+[[played]]
+appid = "871720"
+title = ""
+where = ""
+
+[[played]]
+appid = "319510"
+title = ""
+where = ""
+
+[[played]]
+appid = "332800"
+title = ""
+where = ""
+
+[[played]]
+appid = "354140"
+title = ""
+where = ""
+
+[[played]]
+appid = "388090"
+title = ""
+where = ""
+
+[[played]]
+appid = "506610"
+title = ""
+where = ""
+
+[[played]]
+appid = "1089130"
+title = ""
+where = ""
+
+[[played]]
+appid = "730"
+title = ""
+where = ""
+
+# Garden Warfare 1 was pulled from Steam years ago; only the sequel is still
+# listed, so the first one has to carry its own title.
+[[played]]
+appid = ""
+title = "Plants vs. Zombies: Garden Warfare"
+where = "EA · delisted"
+
+[[played]]
+appid = "1922560"
+title = ""
+where = ""
+
+[[played]]
+appid = "1817070"
+title = ""
+where = ""
+
+[[played]]
+appid = "22330"
+title = ""
+where = ""
+
+[[played]]
+appid = ""
+title = "Skate 3"
+where = "Xbox 360"
+
+[[played]]
+appid = ""
+title = "Minecraft: Story Mode"
+where = "Telltale · delisted"
+
+[[played]]
+appid = ""
+title = "Minecraft: Story Mode — Season Two"
+where = "Telltale · delisted"
+
+[[played]]
+appid = ""
+title = "Forza Horizon"
+where = "Xbox 360"
+
+[[played]]
+appid = "33230"
+title = ""
+where = ""
+
+[[played]]
+appid = "1962700"
+title = ""
+where = ""
+
+[[played]]
+appid = "206420"
+title = ""
+where = ""
+
+[[played]]
+appid = "6910"
+title = ""
+where = ""
+
+[[played]]
+appid = "1245620"
+title = ""
+where = ""
+
+[[played]]
+appid = "976730"
+title = ""
+where = ""
+
+[[played]]
+appid = "839310"
+title = ""
+where = ""
+
+[[played]]
+appid = "220200"
+title = ""
+where = ""
+
+[[played]]
+appid = "2677660"
+title = ""
+where = ""
+
+[[played]]
+appid = "1284190"
+title = ""
+where = ""
+
+[[played]]
+appid = "1942110"
+title = ""
+where = ""
+
+[[played]]
+appid = "848450"
+title = ""
+where = ""

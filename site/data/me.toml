@@ -7,8 +7,19 @@
 # in the meantime.
 #
 # TO FILL IN (currently empty, so the section is hidden):
-#   [[books_read]]  [[books_mine]]  [[films]]  [[shows]]
-#   [[sites]]       [[languages]]   [chess]
+#   [[books_mine]]  [[films]]  [[sites]]
+#
+# NOT HERE ANY MORE: chess and languages. Both are now fetched at build time
+# from the real accounts into site/data/chess.json and site/data/duolingo.json,
+# which is strictly better than a rating typed in by hand and left to rot. See
+# scripts/fetch-chess.mjs and scripts/fetch-duolingo.mjs. Games are the same
+# story: site/data/steam.json is generated, site/data/games.toml is the part
+# Steam does not know about.
+#
+# TOML ORDERING, and it bites every time: every bare `key = value` at the root
+# must appear BEFORE the first [[table]] header below, because once a header is
+# opened, everything after it belongs to that table. Add new scalars to the top
+# block, not next to the arrays of tables.
 
 # --------------------------------------------------------------------- hero --
 # The strip that rolls under the name. Six is not arbitrary: the CSS animation
@@ -32,6 +43,7 @@ facts = [
   "Half Dome at 6",
   "El Capitan at 8",
   "Mt. Whitney at 13",
+  "met Travis Walton",
 ]
 
 # Your own. Empty for now — anything added here renders in the same wall,
@@ -40,10 +52,6 @@ my_quotes = []
 
 # --------------------------------------------------- EMPTY — FILL THESE IN --
 # Each of these hides its whole section until it has at least one entry.
-
-# [[books_read]]
-#   title = "" ; author = "" ; year = 2026 ; note = ""
-books_read = []
 
 # Novels / books you have written.
 # [[books_mine]]
@@ -54,17 +62,63 @@ books_mine = []
 # [[films]]  title = "" ; year = 0 ; note = ""
 films = []
 
-# [[shows]]  title = "" ; year = 0 ; note = ""
-shows = []
-
 # Corners of the web worth keeping.
 # [[sites]]  name = "" ; url = "" ; note = ""
 sites = []
 
-# Duolingo. `pct` drives the bar (0–100); use whatever you want it to mean —
-# course completion is the honest one.
-# [[languages]]  name = "Mandarin" ; level = "Section 1, Unit 12" ; pct = 14 ; streak = 0
-languages = []
+# ------------------------------------------------------------------ shelf --
+# Order is the ranking. `year` is the year of publication, not of reading.
+[[books_read]]
+title = "Zero to One"
+author = "Peter Thiel"
+year = 2014
+note = "Notes on startups, or how to build the future"
+
+[[books_read]]
+title = "Einstein: His Life and Universe"
+author = "Walter Isaacson"
+year = 2007
+note = ""
+
+[[books_read]]
+title = "Steve Jobs"
+author = "Walter Isaacson"
+year = 2011
+note = ""
+
+# ----------------------------------------------------------------- ranked --
+[[shows]]
+title = "Silicon Valley"
+year = 2014
+note = "the only one that gets the industry right by getting it wrong"
+
+[[shows]]
+title = "Mr. Robot"
+year = 2015
+note = "the rare show where the terminal on screen is real"
+
+[[shows]]
+title = "Seinfeld"
+year = 1989
+note = ""
+
+# --------------------------------------------------------- settled matters --
+# Preferences stated as decisions, because that is what they are. `pick` wins,
+# `over` loses, `why` is the one-line argument. Order is not a ranking.
+[[takes]]
+pick = "Linux"
+over = "Windows"
+why = "It is the machine I actually daily drive. Nothing is in the way."
+
+[[takes]]
+pick = "macOS"
+over = "Windows"
+why = "Unix underneath, and hardware that does not fight the software."
+
+[[takes]]
+pick = "iOS"
+over = "Android"
+why = "Fewer decisions to make about a phone is the feature."
 
 # ------------------------------------------------------------- bucket list --
 # `done` flips the row to struck-through with a filled check.
@@ -277,12 +331,3 @@ who = "Albert Einstein"
 [[quotes]]
 text = "I live in that solitude which is painful in youth, but delicious in the years of maturity."
 who = "Albert Einstein"
-
-# Chess. Leave `rating = 0` to hide the section.
-[chess]
-site = "chess.com"
-username = ""
-url = ""
-rating = 0
-best = 0
-games = 0

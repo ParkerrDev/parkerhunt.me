@@ -9,12 +9,15 @@
  * Apple feel and costs zero bytes. It also renders on the first frame instead
  * of swapping, which no downloaded font can do.
  *
- * The page has two design languages on purpose:
- *   1. The shell   — light, quiet, Apple-ish. Everything below "shell".
- *   2. The islands — the X / LinkedIn / GitHub feeds, each rebuilt to match
- *                    that platform's own visual language. See "islands".
- * Keeping them scoped means the brand colours never leak into the shell, and
- * the shell's tokens never fight the brands.
+ * The site has two design languages on purpose:
+ *   1. The shell   — light, quiet, Apple-ish. That is this file.
+ *   2. The islands — the X / LinkedIn / GitHub / Steam / Duolingo / Chess.com /
+ *                    Nexus Mods feeds, each rebuilt to match that platform's own
+ *                    visual language. Those live in _islands.css, which only the
+ *                    three templates that mount one bother to inline.
+ * Keeping them in separate files means the brand colours never leak into the
+ * shell, the shell's tokens never fight the brands, and a blog post does not
+ * carry 13 KB of Steam blue it has no use for.
  */
 
 /* ============================================================ 1. SHELL ==== */
@@ -152,9 +155,12 @@ a { color: inherit; text-decoration: none; }
 /* The fade tells you the row scrolls — but only where it actually does. Applied
    unconditionally it dims the last item on a desktop that has room to spare,
    which looks like a rendering bug rather than an affordance. CSS cannot ask
-   "is this element overflowing", so the breakpoint stands in for the answer:
-   the seven nav items stop fitting a little under 48rem. */
-@media (max-width: 48rem) {
+   "is this element overflowing", so the breakpoint stands in for the answer.
+
+   MEASURED, not guessed, and it has to be re-measured whenever a nav item is
+   added or removed: the nine items are 476px wide, and .bar-nav's scrollWidth
+   first exceeds its clientWidth at exactly 640px = 40rem. */
+@media (max-width: 40rem) {
   .bar-nav {
     -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.25rem), transparent);
     mask-image: linear-gradient(to right, #000 calc(100% - 1.25rem), transparent);
@@ -269,162 +275,6 @@ a.card:hover { box-shadow: var(--shadow-3); transform: translateY(-2px); border-
 }
 .card-meta { margin-top: auto; padding-top: 0.625rem; font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); }
 
-/* ============================================================ 2. ISLANDS == */
-/* Each feed below is rebuilt in its own platform's visual language, using that
-   platform's real palette and metrics. Nothing is embedded and nothing is
-   fetched: no twimg, no licdn, no githubassets, no iframe, no tracking script.
-   The logos are inlined SVG paths and the avatar is the same local file the
-   hero uses. That is the only way to have these look right and still load in
-   one request.
-   The fonts are the same system stack those sites fall back to; their own
-   faces (Chirp, for one) are proprietary and are not shipped. */
-
-/* Scroll panes. overscroll-behavior:contain stops the page from continuing to
-   scroll once the feed hits its end — without it an inner scroller on a phone
-   is a trap you have to swipe around. */
-.feed {
-  max-height: 30rem; overflow-y: auto; overscroll-behavior: contain;
-  border-radius: var(--r); border: 1px solid var(--line-soft);
-  box-shadow: var(--shadow-1);
-}
-.feed::-webkit-scrollbar { width: 10px; }
-.feed::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.16); border-radius: 8px; border: 3px solid transparent; background-clip: content-box; }
-@media (max-width: 44rem) { .feed { max-height: 26rem; } }
-
-.feed-foot { margin-top: 0.75rem; font-size: 0.8125rem; color: var(--faint); }
-.feed-foot a { color: var(--accent); }
-.feed-foot a:hover { text-decoration: underline; }
-.feed-foot code { font-family: var(--mono); font-size: 0.9em; background: var(--bg-soft); padding: 0.1em 0.35em; border-radius: 5px; }
-
-/* Two feeds side by side on a wide screen, stacked below ~46rem. auto-fit
-   rather than a media query so it collapses on the container it is actually
-   given, not on the viewport. */
-.duo { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(21rem, 100%), 1fr)); align-items: start; }
-
-/* -------------------------------------------------------------- island: X -- */
-.x {
-  --x-ink: #0f1419;
-  --x-dim: #536471;
-  --x-line: #eff3f4;
-  --x-bg: #fff;
-  --x-blue: #1d9bf0;
-  background: var(--x-bg); color: var(--x-ink);
-  font-family: "TwitterChirp", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  letter-spacing: normal;
-}
-@media (prefers-color-scheme: dark) {
-  .x { --x-ink: #e7e9ea; --x-dim: #71767b; --x-line: #2f3336; --x-bg: #000; }
-}
-.x-head {
-  position: sticky; top: 0; z-index: 2;
-  display: flex; align-items: center; gap: 0.75rem;
-  padding: 0.75rem 1rem; border-bottom: 1px solid var(--x-line);
-  background: color-mix(in srgb, var(--x-bg) 85%, transparent);
-  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-  font-weight: 700; font-size: 0.9375rem;
-}
-.x-head svg { width: 1.125rem; height: 1.125rem; fill: currentColor; }
-.x-head .x-h-sub { margin-left: auto; font-weight: 400; font-size: 0.8125rem; color: var(--x-dim); }
-
-.tweet { display: flex; gap: 0.75rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--x-line); transition: background 0.15s; }
-.tweet:hover { background: color-mix(in srgb, var(--x-ink) 3%, transparent); }
-.tweet-av { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; overflow: hidden; background: var(--x-line); }
-.tweet-av img { width: 100%; height: 100%; object-fit: cover; }
-.tweet-main { min-width: 0; flex: 1; }
-.tweet-top { display: flex; align-items: center; gap: 0.25rem; font-size: 0.9375rem; line-height: 1.25rem; flex-wrap: wrap; }
-.tweet-name { font-weight: 700; }
-.tweet-badge { width: 1.0625rem; height: 1.0625rem; fill: var(--x-blue); }
-.tweet-handle, .tweet-time { color: var(--x-dim); }
-/* Paragraphs, not newlines-plus-pre-wrap. The HTML minifier collapses runs of
-   whitespace inside normal elements, so a post written with "\n" in it would
-   arrive as one long line — and pre-wrap would then also render the template's
-   own indentation as visible space. Real <p> elements survive both. */
-.tweet-body { margin: 0.125rem 0 0; font-size: 0.9375rem; line-height: 1.25rem; overflow-wrap: anywhere; }
-.tweet-body p { margin: 0 0 0.75em; }
-.tweet-body p:last-child { margin-bottom: 0; }
-.tweet-body a { color: var(--x-blue); }
-.tweet-body a:hover { text-decoration: underline; }
-.tweet-acts { display: flex; gap: 1.25rem; margin-top: 0.625rem; color: var(--x-dim); font-size: 0.8125rem; max-width: 26rem; }
-.tweet-act { display: inline-flex; align-items: center; gap: 0.3125rem; }
-.tweet-act svg { width: 1.0625rem; height: 1.0625rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-
-/* ------------------------------------------------------- island: LinkedIn -- */
-.li {
-  --li-ink: rgba(0, 0, 0, 0.9);
-  --li-dim: rgba(0, 0, 0, 0.6);
-  --li-line: rgba(0, 0, 0, 0.08);
-  --li-bg: #f4f2ee;
-  --li-card: #fff;
-  --li-blue: #0a66c2;
-  background: var(--li-bg); color: var(--li-ink);
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  letter-spacing: normal;
-  padding: 0.75rem;
-}
-@media (prefers-color-scheme: dark) {
-  .li { --li-ink: rgba(255,255,255,0.9); --li-dim: rgba(255,255,255,0.6); --li-line: rgba(255,255,255,0.13); --li-bg: #1b1f23; --li-card: #1d2226; }
-}
-.li-post { background: var(--li-card); border-radius: 8px; box-shadow: 0 0 0 1px var(--li-line); margin-bottom: 0.75rem; overflow: hidden; }
-.li-post:last-child { margin-bottom: 0; }
-.li-top { display: flex; gap: 0.625rem; padding: 0.75rem 1rem 0; }
-.li-av { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--li-line); }
-.li-av img { width: 100%; height: 100%; object-fit: cover; }
-.li-who { min-width: 0; }
-.li-name { font-size: 0.875rem; font-weight: 600; line-height: 1.3; }
-.li-role { font-size: 0.75rem; color: var(--li-dim); line-height: 1.35; }
-.li-time { font-size: 0.75rem; color: var(--li-dim); display: flex; align-items: center; gap: 0.25rem; }
-.li-time svg { width: 0.75rem; height: 0.75rem; fill: currentColor; }
-.li-body { padding: 0.625rem 1rem 0.75rem; font-size: 0.875rem; line-height: 1.42; overflow-wrap: anywhere; }
-.li-body p { margin: 0 0 0.7em; }
-.li-body p:last-child { margin-bottom: 0; }
-.li-body a { color: var(--li-blue); font-weight: 500; }
-.li-stats { padding: 0 1rem 0.5rem; font-size: 0.75rem; color: var(--li-dim); display: flex; gap: 0.375rem; align-items: center; }
-.li-react { display: inline-flex; }
-.li-react span { width: 1rem; height: 1rem; border-radius: 50%; display: grid; place-items: center; font-size: 0.5rem; color: #fff; border: 1px solid var(--li-card); margin-left: -3px; }
-.li-react span:first-child { margin-left: 0; background: var(--li-blue); }
-.li-react span:nth-child(2) { background: #6dae4f; }
-.li-acts { display: flex; border-top: 1px solid var(--li-line); padding: 0.25rem 0.5rem; }
-.li-act { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 0.375rem; padding: 0.5rem; border-radius: 4px; font-size: 0.8125rem; font-weight: 600; color: var(--li-dim); }
-.li-act svg { width: 1.125rem; height: 1.125rem; fill: currentColor; }
-.li-act:hover { background: rgba(0, 0, 0, 0.06); }
-
-/* --------------------------------------------------------- island: GitHub -- */
-.gh {
-  --gh-ink: #1f2328;
-  --gh-dim: #59636e;
-  --gh-line: #d1d9e0;
-  --gh-bg: #fff;
-  --gh-blue: #0969da;
-  background: var(--gh-bg); color: var(--gh-ink);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
-  letter-spacing: normal;
-}
-@media (prefers-color-scheme: dark) {
-  .gh { --gh-ink: #f0f6fc; --gh-dim: #9198a1; --gh-line: #3d444d; --gh-bg: #0d1117; --gh-blue: #4493f8; }
-}
-.gh-head {
-  position: sticky; top: 0; z-index: 2;
-  display: flex; align-items: center; gap: 0.5rem;
-  padding: 0.75rem 1rem; border-bottom: 1px solid var(--gh-line);
-  background: var(--gh-bg); font-size: 0.875rem; color: var(--gh-dim);
-}
-.gh-head svg { width: 1.125rem; height: 1.125rem; fill: var(--gh-ink); }
-.gh-head b { color: var(--gh-ink); }
-.gh-head .gh-h-sub { margin-left: auto; }
-
-.repo { display: block; padding: 1rem; border-bottom: 1px solid var(--gh-line); }
-.repo:last-child { border-bottom: 0; }
-.repo:hover { background: color-mix(in srgb, var(--gh-ink) 3%, transparent); }
-.repo-top { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-.repo-name { color: var(--gh-blue); font-weight: 600; font-size: 1.0625rem; }
-.repo:hover .repo-name { text-decoration: underline; }
-.repo-vis { font-size: 0.75rem; line-height: 1.125rem; padding: 0 0.4375rem; border: 1px solid var(--gh-line); border-radius: 2em; color: var(--gh-dim); font-weight: 500; }
-.repo-desc { margin: 0.375rem 0 0; font-size: 0.875rem; color: var(--gh-dim); max-width: 42rem; }
-.repo-meta { margin-top: 0.625rem; display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: var(--gh-dim); align-items: center; }
-.repo-meta span { display: inline-flex; align-items: center; gap: 0.25rem; }
-.repo-meta svg { width: 1rem; height: 1rem; fill: currentColor; }
-.lang-dot { width: 0.75rem; height: 0.75rem; border-radius: 50%; display: inline-block; }
-
 /* =========================================================== 3. MODULES === */
 /* ------------------------------------------------------------- factstrip -- */
 .facts { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; margin: 0; list-style: none; }
@@ -498,6 +348,58 @@ a.row:hover .row-t { color: var(--accent); }
 .lang-top span { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); }
 .bar-track { height: 6px; background: var(--line-soft); border-radius: 999px; overflow: hidden; }
 .bar-fill { height: 100%; background: var(--accent); border-radius: 999px; }
+
+/* ------------------------------------------------------------ hot takes -- */
+/* A preference is an argument you have already had, so it is set as one: the
+   winner in full ink, the loser struck through, the reason underneath. */
+.takes { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr)); }
+.take {
+  background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r);
+  padding: 1rem 1.125rem; box-shadow: var(--shadow-1);
+}
+.take-vs { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+.take-pick { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.018em; }
+.take-over { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+.take-lose { font-size: 0.9375rem; color: var(--faint); text-decoration: line-through; text-decoration-color: var(--line); }
+.take-why { margin: 0.5rem 0 0; font-size: 0.8125rem; line-height: 1.5; color: var(--muted); }
+
+/* ------------------------------------------------------------------ games -- */
+/* The four favourites, with art. Deliberately not the Steam island: these are
+   a personal ranking, not a library listing, so they use the site's own card. */
+.gcards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr)); }
+.gcard {
+  display: flex; flex-direction: column;
+  background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r);
+  overflow: hidden; box-shadow: var(--shadow-1);
+  transition: box-shadow 0.24s, transform 0.24s;
+}
+.gcard:hover { box-shadow: var(--shadow-3); transform: translateY(-2px); }
+.gcard-art { aspect-ratio: 460 / 215; background: var(--bg-soft); position: relative; }
+.gcard-art img { width: 100%; height: 100%; object-fit: cover; }
+/* The rank sits on the art rather than beside it, so four cards of different
+   title lengths still line their numbers up. */
+.gcard-n {
+  position: absolute; left: 0.5rem; bottom: 0.5rem;
+  font-family: var(--mono); font-size: 0.6875rem; font-weight: 600;
+  color: #fff; background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(6px);
+  border-radius: 999px; padding: 0.1875rem 0.5rem;
+}
+.gcard-body { padding: 0.875rem 1rem 1rem; display: flex; flex-direction: column; gap: 0.3125rem; flex: 1; }
+.gcard-t { font-size: 0.9375rem; font-weight: 600; letter-spacing: -0.012em; }
+.gcard-d { margin: 0; font-size: 0.8125rem; line-height: 1.45; color: var(--muted); }
+.gcard-m { margin-top: auto; padding-top: 0.5rem; font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); }
+
+/* The complete played list: 60-odd titles, so it is set as a column list and
+   not as 60 more images. Columns rather than a grid because the reading order
+   down a column is the order it was written in. */
+.gamelist { columns: 3 13rem; column-gap: 1.75rem; list-style: none; margin: 0; padding: 0; font-size: 0.875rem; }
+.gamelist li { break-inside: avoid; padding: 0.28rem 0; display: flex; gap: 0.5rem; align-items: baseline; }
+.gamelist a:hover { color: var(--accent); }
+.gamelist .where { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.04em; color: var(--faint); white-space: nowrap; }
+/* The bullet is the platform: filled if it is on Steam and therefore linked,
+   hollow if it only exists as a title. */
+.gamelist i { width: 0.3125rem; height: 0.3125rem; border-radius: 50%; flex-shrink: 0; background: var(--accent); transform: translateY(-0.15em); }
+.gamelist i.off { background: transparent; box-shadow: inset 0 0 0 1px var(--faint); }
 
 /* ------------------------------------------------------------ dreamhouse -- */
 /* A floor plan, not a render. Each room is a labelled cell in a grid, which is
