@@ -4102,6 +4102,24 @@
       "year": 2019,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "An American Werewolf in London",
+      "year": 1981,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Blazing Saddles",
+      "year": 1974,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Anchorman 2: The Legend Continues",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
     }
   ]
 }
