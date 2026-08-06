@@ -115,16 +115,19 @@ async function commons(file, key) {
 const input = JSON.parse(readFileSync(IN, "utf8"));
 mkdirSync(DIR, { recursive: true });
 
-const places = [];
 let withPhoto = 0, refused = 0, bytes = 0;
 
-for (const p of input.places) {
-  const key = slug(`${p.name}-${p.where}`);
-  const row = { ...p, key };
-  delete row.q;
+/* Two lists, one loop. A ski resort is a place with a photograph, so there is
+   no reason for it to have its own script — only its own section. */
+async function collect(rows, label) {
+  const out = [];
+  for (const p of rows) {
+    const key = slug(`${p.name}-${p.where}`);
+    const row = { ...p, key };
+    delete row.q;
 
-  if (!p.no_photo) {
-    try {
+    if (!p.no_photo) {
+      try {
       let qid = p.qid;
       if (!qid) {
         const u =
@@ -141,15 +144,20 @@ for (const p of input.places) {
           else if (img) { row.photo = img; withPhoto++; bytes += img.bytes; }
         }
       }
-    } catch (err) {
+      } catch (err) {
       console.warn(`  ${p.name}: ${err.message}`);
+      }
     }
-  }
 
-  places.push(row);
-  process.stdout.write(`  ${p.name.padEnd(24)} ${(p.where || "").padEnd(18)} ${row.photo ? "photo" : "—"}\n`);
-  await sleep(200);
+    out.push(row);
+    process.stdout.write(`  ${label} ${p.name.padEnd(22)} ${(p.where || "").padEnd(20)} ${row.photo ? "photo" : "—"}\n`);
+    await sleep(200);
+  }
+  return out;
 }
+
+const places = await collect(input.places, "place");
+const skiing = await collect(input.skiing || [], "ski  ");
 
 mkdirSync(dirname(OUT), { recursive: true });
 writeFileSync(
@@ -159,8 +167,10 @@ writeFileSync(
       fetched: new Date().toISOString().slice(0, 10),
       source: "https://www.wikidata.org (CC0); photographs from Wikimedia Commons",
       count: places.length,
+      ski_count: skiing.length,
       with_photo: withPhoto,
       places,
+      skiing,
     },
     null,
     2
@@ -168,6 +178,6 @@ writeFileSync(
 );
 
 console.log(
-  `Places: ${places.length}, ${withPhoto} with a photograph (${(bytes / 1024).toFixed(0)} KB)` +
+  `Places: ${places.length} + ${skiing.length} resorts, ${withPhoto} with a photograph (${(bytes / 1024).toFixed(0)} KB)` +
     (refused ? `, ${refused} refused as non-free` : "") + ` -> ${OUT}`
 );

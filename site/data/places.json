@@ -7,7 +7,10 @@
     "",
     "`q` is the Wikidata search term and only differs from `name` when the name on",
     "its own is ambiguous. `qid` pins an item outright when the search still gets",
-    "it wrong. `no_photo` skips the image lookup."
+    "it wrong. `no_photo` skips the image lookup.",
+    "",
+    "`skiing` is the same shape and goes through the same script — a ski resort is",
+    "a place with a photograph. It renders as its own section."
   ],
   "places": [
     {
@@ -44,11 +47,6 @@
       "where": "Florida"
     },
     {
-      "name": "Park City",
-      "where": "Utah",
-      "q": "Park City, Utah"
-    },
-    {
       "name": "Ketchum",
       "where": "Idaho",
       "q": "Ketchum, Idaho"
@@ -58,10 +56,6 @@
       "where": "Ketchum, Idaho",
       "q": "Ernest Hemingway House Ketchum",
       "note": "where he spent his last years"
-    },
-    {
-      "name": "Big Sky Resort",
-      "where": "Montana"
     },
     {
       "name": "Sheridan",
@@ -77,16 +71,6 @@
       "name": "Deadwood",
       "where": "South Dakota",
       "q": "Deadwood, South Dakota"
-    },
-    {
-      "name": "Vail",
-      "where": "Colorado",
-      "q": "Vail, Colorado"
-    },
-    {
-      "name": "Aspen",
-      "where": "Colorado",
-      "q": "Aspen, Colorado"
     },
     {
       "name": "Timberline Lodge",
@@ -160,6 +144,100 @@
       "name": "Cattlemens",
       "where": "Steakhouse",
       "note": "steak, and the reason this section exists"
+    },
+    {
+      "name": "White Sands",
+      "where": "New Mexico",
+      "q": "White Sands National Park"
+    },
+    {
+      "name": "San Antonio",
+      "where": "Texas"
+    },
+    {
+      "name": "River Walk",
+      "where": "San Antonio, Texas",
+      "q": "San Antonio River Walk"
+    },
+    {
+      "name": "Snow Park",
+      "where": "Park City, Utah",
+      "q": "Deer Valley Resort",
+      "note": "Deer Valley's base area"
+    }
+  ],
+  "skiing": [
+    {
+      "name": "Vail",
+      "where": "Colorado",
+      "q": "Vail Ski Resort",
+      "note": "Vast terrain and luxury amenities."
+    },
+    {
+      "name": "Park City",
+      "where": "Utah",
+      "q": "Park City Mountain Resort",
+      "note": "The largest ski resort in the US, with diverse runs."
+    },
+    {
+      "name": "Aspen Snowmass",
+      "where": "Colorado",
+      "q": "Aspen Snowmass",
+      "note": "Four mountains, four different days."
+    },
+    {
+      "name": "Jackson Hole",
+      "where": "Wyoming",
+      "q": "Jackson Hole Mountain Resort",
+      "note": "Steep, and famous for it."
+    },
+    {
+      "name": "Deer Valley",
+      "where": "Utah",
+      "q": "Deer Valley Resort",
+      "note": "Top-rated for grooming and service."
+    },
+    {
+      "name": "Breckenridge",
+      "where": "Colorado",
+      "q": "Breckenridge Ski Resort",
+      "note": "High altitude, endless intermediate terrain."
+    },
+    {
+      "name": "Big Sky",
+      "where": "Montana",
+      "q": "Big Sky Resort",
+      "note": "Massive terrain, far fewer crowds."
+    },
+    {
+      "name": "Steamboat",
+      "where": "Colorado",
+      "q": "Steamboat Ski Resort",
+      "note": "Champagne powder, and hot springs after."
+    },
+    {
+      "name": "Palisades Tahoe",
+      "where": "California",
+      "q": "Palisades Tahoe",
+      "note": "Steeps, and plenty of variety."
+    },
+    {
+      "name": "Heavenly",
+      "where": "California / Nevada",
+      "q": "Heavenly Mountain Resort",
+      "note": "The views are the point."
+    },
+    {
+      "name": "Snowbird",
+      "where": "Utah",
+      "q": "Snowbird",
+      "note": "Powder, and steep chutes."
+    },
+    {
+      "name": "Sun Valley",
+      "where": "Idaho",
+      "q": "Sun Valley Resort",
+      "note": "Historic, and reliable snowmaking."
     }
   ]
 }
