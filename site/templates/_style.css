@@ -442,6 +442,7 @@ a.row:hover .row-t { color: var(--accent); }
 /* ------------------------------------------------------------------ vice -- */
 /* One card, and it is meant to stand out from the quiet grey around it. */
 .vice {
+  display: flex; gap: 0.875rem; align-items: flex-start;
   border: 1px solid color-mix(in srgb, #d1544a 35%, var(--line));
   background: color-mix(in srgb, #d1544a 5%, var(--card));
   border-radius: var(--r); padding: 1.125rem 1.25rem; max-width: var(--measure);
@@ -658,22 +659,21 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---------------------------------------------------------------- swatch -- */
-/* A coloured square standing in for a logo. Used for the distros and, at a
-   different aspect ratio, for the show posters.
-
-   These are NOT the projects' logos. Reproducing eight trademarks from memory
-   would be both worse-looking and not ours to do; a monogram in the project's
-   own accent colour identifies it just as fast and is honest about being this
-   site's drawing. */
+/* The distro discs. Same rules as .mark — white, ringed, logo in the project's
+   own colour — just bigger, because these are the subject of their section
+   rather than a decoration beside a word. The current one gets the ring in its
+   colour instead of hairline grey. */
 .swatch {
   aspect-ratio: 1; display: grid; place-items: center;
-  border-radius: var(--r-sm); background: var(--c, var(--fg)); color: #fff;
-  font-size: 1.0625rem; font-weight: 600; letter-spacing: 0.01em;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  border-radius: 50%; background: #fff;
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--c, var(--fg));
+  font-size: 1.0625rem; font-weight: 650; letter-spacing: 0.01em;
 }
+.swatch .bi { width: 52%; height: 52%; }
 .chip { display: flex; flex-direction: column; gap: 0.375rem; min-width: 0; }
 .chip .t-t { text-align: center; }
-.chip--now .swatch { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08), 0 0 0 2px var(--bg), 0 0 0 4px var(--c); }
+.chip--now .swatch { box-shadow: inset 0 0 0 2px var(--c); }
 
 /* Typographic posters for the shows. Set in this site's own face rather than
    scanned off the real artwork, which belongs to the people who made it. */
@@ -703,23 +703,36 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .cover img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ----------------------------------------------------------------- marks -- */
-/* Brand logos and generic glyphs share one box so a row of them lines up
-   whether it is Tux or a drawing of a cup. */
+/* Circles, and light ones.
+
+   These were squircles filled with the brand colour and the logo knocked out in
+   white. Two things were wrong with that. A knocked-out mark is not the logo —
+   it is a silhouette of the logo, so Starbucks' siren was the only one that
+   still read, and everything else turned into a coloured blob. And a saturated
+   tile on a white page is a lot of contrast for something that is meant to sit
+   beside a word, not shout over it.
+
+   So: white disc, hairline ring, mark drawn in the brand's own colour. That is
+   how a logo is actually supposed to look, and it is the treatment every app
+   icon in a list uses. */
 .bi { width: 1.125rem; height: 1.125rem; flex-shrink: 0; }
 .mark {
   display: grid; place-items: center; flex-shrink: 0;
-  width: 2rem; height: 2rem; border-radius: 8px;
-  background: color-mix(in srgb, var(--c, var(--fg)) 12%, var(--card));
+  width: 2rem; height: 2rem; border-radius: 50%;
+  background: #fff; box-shadow: inset 0 0 0 1px var(--line);
   color: var(--c, var(--fg));
 }
-.mark--lose { background: var(--bg-soft); color: var(--faint); }
-/* On a saturated tile the logo is knocked out in white rather than tinted. */
-.mark--solid { background: var(--c, var(--fg)); color: #fff; }
-.mark--lg { width: 2.5rem; height: 2.5rem; border-radius: 10px; }
+.mark--lg { width: 2.75rem; height: 2.75rem; }
+.mark--lg .bi { width: 1.5rem; height: 1.5rem; }
+/* The losing side of an argument. Drained, not ringed. */
+.mark--lose { background: var(--bg-soft); box-shadow: none; color: var(--faint); }
+/* Where there is no free logo at all — local businesses, and the two distros no
+   icon set carries. A lettermark in the brand's colour is honest about being a
+   stand-in; a hand-drawn imitation of the real mark would not be. */
+.mark--letter { font-weight: 650; font-size: 0.75rem; letter-spacing: 0.01em; }
+.mark--lg.mark--letter { font-size: 0.9375rem; }
 /* A tile that leads with a mark lays out sideways instead of stacked. */
-.tile--icon { flex-direction: row; align-items: center; gap: 0.625rem; }
-.mark--lg .bi { width: 1.375rem; height: 1.375rem; }
-.swatch .bi { width: 44%; height: 44%; }
+.tile--icon { flex-direction: row; align-items: center; gap: 0.6875rem; }
 
 /* ------------------------------------------------------------------ map -- */
 /* Map on the left, the states as text on the right. Collapses to stacked at
@@ -727,6 +740,34 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .map-row { display: grid; gap: 1rem 1.5rem; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; }
 @media (max-width: 52rem) { .map-row { grid-template-columns: 1fr; } }
 .map { width: 100%; height: auto; display: block; }
+
+/* ----------------------------------------------------------------- novel -- */
+/* One card, deliberately not a section full of them. */
+.novel-card {
+  display: block; max-width: var(--measure);
+  background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r);
+  padding: 1rem 1.125rem; box-shadow: var(--shadow-1);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+a.novel-card:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow-2); }
+.novel-k { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--faint); }
+.novel-t { display: block; margin-top: 0.1875rem; font-family: var(--serif); font-size: 1.5rem; letter-spacing: -0.02em; line-height: 1.15; }
+.novel-s { display: block; margin-top: 0.375rem; font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
+.novel-m { display: block; margin-top: 0.5rem; font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); }
+
+/* ------------------------------------------------------------- game rail -- */
+/* A card sized for a horizontal track. Fixed width because 1fr means nothing
+   inside a flex row that is wider than the screen. */
+.gcard--rail { width: 13rem; flex: none; scroll-snap-align: start; }
+.gcard-off {
+  position: absolute; right: 0.5rem; top: 0.5rem;
+  background: #4c6b22; color: #beee11; font-weight: 700; font-size: 0.75rem;
+  border-radius: 4px; padding: 0.125rem 0.375rem;
+}
+.gcard-m s { color: var(--faint); }
+/* The kicker above a rail lines up with the page, not with the rail's own
+   inset padding. */
+p.wrap.kicker { margin-bottom: 0.4375rem; }
 
 /* ------------------------------------------------------------------ now -- */
 /* What is actually happening, at the top of the page where it belongs. */
