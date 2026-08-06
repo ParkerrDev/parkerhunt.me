@@ -98,6 +98,7 @@ const COVERS = [
   { key: "robinson-crusoe", id: 368541 },
   { key: "just-for-fun", id: 6933170 },
   { key: "sleep-smarter", id: 11504647 },
+  { key: "astrophysics", id: 7984709 },
 ];
 
 try {

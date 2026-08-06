@@ -14,7 +14,10 @@
     "`rank` marks the ranked favourites (1, 2, 3); `anime = true` marks anime.",
     "Anything else is just on the list.",
     "`tmdb_id` pins the poster when /find picks the wrong entry or has none —",
-    "The Chosen had a 2009 namesake, Tom and Jerry has no id to /find on at all."
+    "The Chosen had a 2009 namesake, Tom and Jerry has no id to /find on at all.",
+    "",
+    "`movies` is the same shape and goes through the same script. Films almost",
+    "always get a TMDb poster, so bg/fg here are only the fallback nobody sees."
   ],
   "shows": [
     {
@@ -250,6 +253,564 @@
       "year": 2011,
       "bg": "#1B2A4A",
       "fg": "#E8A33D"
+    }
+  ],
+  "movies": [
+    {
+      "title": "Back to the Future",
+      "year": 1985,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Back to the Future Part II",
+      "year": 1989,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Back to the Future Part III",
+      "year": 1990,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Unbreakable",
+      "year": 2000,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Glass",
+      "year": 2019,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "tmdb_id": 450465
+    },
+    {
+      "title": "Iron Man",
+      "year": 2008,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Incredible Hulk",
+      "year": 2008,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Avengers",
+      "year": 2012,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Avengers: Age of Ultron",
+      "year": 2015,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Avengers: Infinity War",
+      "year": 2018,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Avengers: Endgame",
+      "year": 2019,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Black Widow",
+      "year": 2021,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Spider-Man",
+      "year": 2002,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "tmdb_id": 557
+    },
+    {
+      "title": "Spider-Man 2",
+      "year": 2004,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Spider-Man 3",
+      "year": 2007,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Amazing Spider-Man",
+      "year": 2012,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Amazing Spider-Man 2",
+      "year": 2014,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Spider-Man: Homecoming",
+      "year": 2017,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Spider-Man: Far From Home",
+      "year": 2019,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Spider-Man: No Way Home",
+      "year": 2021,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Harry Potter and the Philosopher's Stone",
+      "year": 2001,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Harry Potter and the Chamber of Secrets",
+      "year": 2002,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "year": 2004,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Harry Potter and the Goblet of Fire",
+      "year": 2005,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Harry Potter and the Order of the Phoenix",
+      "year": 2007,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Harry Potter and the Half-Blood Prince",
+      "year": 2009,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Lord of the Rings: The Two Towers",
+      "year": 2002,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Avatar",
+      "year": 2009,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "tmdb_id": 19995
+    },
+    {
+      "title": "Avatar: The Way of Water",
+      "year": 2022,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Avatar: Fire and Ash",
+      "year": 2025,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Fargo",
+      "year": 1996,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Harry and the Hendersons",
+      "year": 1987,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Shawshank Redemption",
+      "year": 1994,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Pulp Fiction",
+      "year": 1994,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Good, the Bad and the Ugly",
+      "year": 1966,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Forrest Gump",
+      "year": 1994,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Matrix",
+      "year": 1999,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Interstellar",
+      "year": 2014,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "One Flew Over the Cuckoo's Nest",
+      "year": 1975,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "It's a Wonderful Life",
+      "year": 1946,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Green Mile",
+      "year": 1999,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Terminator",
+      "year": 1984,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Terminator 2: Judgment Day",
+      "year": 1991,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Kill Bill: Volume 1",
+      "year": 2003,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Kill Bill: Volume 2",
+      "year": 2004,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Gladiator",
+      "year": 2000,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Lion King",
+      "year": 1994,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Léon: The Professional",
+      "year": 1994,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Shining",
+      "year": 1980,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Thing",
+      "year": 1982,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Poltergeist",
+      "year": 1982,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "WALL-E",
+      "year": 2008,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Apocalypto",
+      "year": 2006,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Raiders of the Lost Ark",
+      "year": 1981,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Indiana Jones and the Temple of Doom",
+      "year": 1984,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Indiana Jones and the Last Crusade",
+      "year": 1989,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "They Live",
+      "year": 1988,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Aliens",
+      "year": 1986,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Coco",
+      "year": 2017,
+      "bg": "#20222b",
+      "fg": "#c9cbd6",
+      "tmdb_id": 354912
+    },
+    {
+      "title": "Toy Story",
+      "year": 1995,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Toy Story 2",
+      "year": 1999,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Toy Story 3",
+      "year": 2010,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Toy Story 4",
+      "year": 2019,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Once Upon a Time in Hollywood",
+      "year": 2019,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Up",
+      "year": 2009,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Truman Show",
+      "year": 1998,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Oppenheimer",
+      "year": 2023,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Jurassic Park",
+      "year": 1993,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Batman Begins",
+      "year": 2005,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Top Gun: Maverick",
+      "year": 2022,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Finding Nemo",
+      "year": 2003,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Catch Me If You Can",
+      "year": 2002,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Inside Out",
+      "year": 2015,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ratatouille",
+      "year": 2007,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "How to Train Your Dragon",
+      "year": 2010,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Monsters, Inc.",
+      "year": 2001,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Monsters University",
+      "year": 2013,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Jaws",
+      "year": 1975,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "E.T. the Extra-Terrestrial",
+      "year": 1982,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Firestarter",
+      "year": 1984,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "year": 2003,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Pirates of the Caribbean: Dead Man's Chest",
+      "year": 2006,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Pirates of the Caribbean: At World's End",
+      "year": 2007,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Pirates of the Caribbean: On Stranger Tides",
+      "year": 2011,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Big Lebowski",
+      "year": 1998,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Incredibles",
+      "year": 2004,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Exorcist",
+      "year": 1973,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Iron Giant",
+      "year": 1999,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Stand by Me",
+      "year": 1986,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Wizard of Oz",
+      "year": 1939,
+      "bg": "#20222b",
+      "fg": "#c9cbd6"
     }
   ]
 }

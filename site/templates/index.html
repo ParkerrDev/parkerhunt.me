@@ -769,16 +769,11 @@
     <section id="watching">
         <div class="wrap">
             <div class="head">
-                <h2>Watching</h2>
-                <p>{{ titles.count }} shows{% if titles.posters %}, {{ titles.posters.count }} with posters{% endif %}.</p>
+                <h2>TV shows</h2>
+                <p>{{ titles.count }} of them. Every card links to IMDb.</p>
                 <a class="more" href="/watching/">All of them →</a>
             </div>
         </div>
-        {# Two rails, opposite directions. Every card links to IMDb where
-           Wikidata had an id — see scripts/fetch-titles.mjs. #}
-        {# Auto-scrolling, like the quotes wall: two rows running opposite ways,
-           each printed twice so the track can translate -50% and loop with no
-           seam. Pauses on hover and on focus. #}
         {% for row in [1, 2] %}
         <div class="marquee{% if row == 2 %} mq-rev{% endif %}" style="--mq:{% if row == 1 %}96s{% else %}108s{% endif %}{% if row == 2 %};margin-top:var(--gap){% endif %}">
             <div class="mq-track">
@@ -792,9 +787,37 @@
             </div>
         </div>
         {% endfor %}
+    </section>
+    {% endif %}
+
+    {# ----------------------------------------------------------- movies -- #}
+    {# Split out of Watching, because a film and a series are not the same
+       thing and a list mixing them reads as neither. Three rows here rather
+       than two — there are nearly a hundred. #}
+    {% if titles.movies | length > 0 %}
+    <section id="movies">
+        <div class="wrap">
+            <div class="head">
+                <h2>Movies</h2>
+                <p>{{ titles.movie_count }} and nowhere near a complete list.</p>
+                <a class="more" href="/movies/">All of them →</a>
+            </div>
+        </div>
+        {% set per = titles.movies | length / 3 | round(method="ceil") %}
+        {% for row in [1, 2, 3] %}
+        <div class="marquee{% if row == 2 %} mq-rev{% endif %}" style="--mq:{{ 104 + row * 9 }}s{% if row > 1 %};margin-top:var(--gap){% endif %}">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
+                {% for m in titles.movies | slice(start=(row - 1) * per, end=row * per) %}
+                {{ isle::poster(w=m, size="sm") }}
+                {% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
         {% if titles.posters %}
-        {# TMDb's licence for the artwork requires this line. It is not a
-           courtesy — removing it removes the basis for showing the posters. #}
         <div class="wrap"><p class="credit" style="margin-top:0.75rem">{{ titles.posters.attribution }}</p></div>
         {% endif %}
     </section>

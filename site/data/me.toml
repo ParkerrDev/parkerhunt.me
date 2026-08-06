@@ -34,6 +34,7 @@ tidbits = [
   "favourite fruit: the cherry plum",
   "currently learning Mandarin",
   "eight distros deep, currently CachyOS",
+  "shares the house with a lilac-crowned amazon parrot",
   "this site ships zero javascript",
 ]
 
@@ -47,6 +48,7 @@ facts = [
   "Mt. Whitney at 13",
   "met Travis Walton",
   "cats over dogs",
+  "one lilac-crowned amazon",
   "2–4 cups a day",
 ]
 
@@ -252,6 +254,13 @@ title = "Untitled"
 status = "5 chapters"
 note = "A novel. Read it here."
 url = "/novel/"
+
+[[books_read]]
+title = "Astrophysics for People in a Hurry"
+cover = "astrophysics"
+author = "Neil deGrasse Tyson"
+year = 2017
+note = ""
 
 [[books_read]]
 title = "Zero to One"

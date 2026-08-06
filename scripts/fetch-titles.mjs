@@ -222,33 +222,36 @@ mkdirSync(DIR, { recursive: true });
 let previous = {};
 try {
   const old = JSON.parse(readFileSync(OUT, "utf8"));
-  for (const s of old.shows || []) if (s.poster) previous[s.title] = s.poster;
+  for (const s of [...(old.shows || []), ...(old.movies || [])]) if (s.poster) previous[s.title] = s.poster;
   if (old.posters) var carriedPosters = old.posters;
 } catch {}
 
-const shows = [];
 let withLogo = 0, withImdb = 0, refused = 0;
 
-for (const s of input.shows) {
-  const key = slug(s.title);
-  const row = { ...s, key };
-  delete row.qid;
+/* Two lists, one loop. A film and a television series differ only in which
+   Wikidata class they match, and KINDS already covers both. */
+async function collect(rows) {
+  const out = [];
+  for (const s of rows) {
+    const key = slug(s.title);
+    const row = { ...s, key };
+    delete row.qid;
 
-  /* A hand-written imdb wins outright, and no_imdb stops the search dead. Both
+    /* A hand-written imdb wins outright, and no_imdb stops the search dead. Both
      exist because a wrong link is worse than a missing one: "Tom and Jerry"
      resolves to a 1960s folk-rock duo's person page, which is a link nobody
      wants to follow from a list of cartoons. */
-  if (s.imdb) { row.imdb_url = `https://www.imdb.com/title/${s.imdb}/`; withImdb++; }
-  if (s.no_imdb) { delete row.no_imdb; shows.push(row); process.stdout.write(`  ${s.title.padEnd(26)} (no imdb, by hand)\n`); continue; }
+    if (s.imdb) { row.imdb_url = `https://www.imdb.com/title/${s.imdb}/`; withImdb++; }
+    if (s.no_imdb) { delete row.no_imdb; out.push(row); process.stdout.write(`  ${s.title.padEnd(26)} (no imdb, by hand)\n`); continue; }
 
-  let qid = s.qid || null;
-  try {
-    if (!qid) qid = await resolve_qid(s.title);
-  } catch (err) {
+    let qid = s.qid || null;
+    try {
+      if (!qid) qid = await resolve_qid(s.title);
+    } catch (err) {
     console.warn(`  ${s.title}: search failed (${err.message})`);
-  }
+    }
 
-  if (qid) {
+    if (qid) {
     const e = await entity(qid);
     if (e) {
       row.qid = qid;
@@ -283,17 +286,22 @@ for (const s of input.shows) {
         } catch {}
       }
     }
-  }
+    }
 
-  if (previous[s.title]) row.poster = previous[s.title];
-  shows.push(row);
-  process.stdout.write(
-    `  ${s.title.padEnd(26)} ${(row.imdb || "—").padEnd(11)} ${row.logo ? "logo" : "    "} ${(row.genres || []).slice(0, 2).join(", ")}\n`
-  );
-  // Wikidata asks for a courteous request rate and this is a build script, not
-  // a race. A quarter second between titles keeps it comfortably polite.
-  await sleep(250);
+    if (previous[s.title]) row.poster = previous[s.title];
+    out.push(row);
+    process.stdout.write(
+      `  ${s.title.slice(0, 40).padEnd(42)} ${(row.imdb || "—").padEnd(11)} ${row.logo ? "logo" : ""}\n`
+    );
+    // Wikidata asks for a courteous request rate and this is a build script,
+    // not a race. A quarter second between titles keeps it comfortably polite.
+    await sleep(250);
+  }
+  return out;
 }
+
+const shows = await collect(input.shows);
+const movies = await collect(input.movies || []);
 
 mkdirSync(dirname(OUT), { recursive: true });
 writeFileSync(
@@ -303,9 +311,11 @@ writeFileSync(
       fetched: new Date().toISOString().slice(0, 10),
       source: "https://www.wikidata.org (CC0); logos from Wikimedia Commons",
       count: shows.length,
+      movie_count: movies.length,
       with_logo: withLogo,
       ...(typeof carriedPosters !== "undefined" ? { posters: carriedPosters } : {}),
       shows,
+      movies,
     },
     null,
     2
@@ -313,6 +323,6 @@ writeFileSync(
 );
 
 console.log(
-  `Titles: ${shows.length} shows, ${withImdb} with IMDb ids, ${withLogo} with a free logo` +
+  `Titles: ${shows.length} shows + ${movies.length} films, ${withImdb} with IMDb ids, ${withLogo} with a free logo` +
     (refused ? `, ${refused} logo(s) refused as non-free` : "") + ` -> ${OUT}`
 );
