@@ -139,6 +139,23 @@
   letter-spacing: normal;
 }
 
+/* A rail nested inside a panel: no full-bleed gutter maths, no mask, and the
+   scrollbar is the panel's business rather than the page's. */
+.rail--in { scroll-padding-inline: 1rem; }
+.rail-track--in { padding: 0.75rem 1rem; }
+.sgame--tile {
+  display: flex; flex-direction: column; gap: 0.375rem;
+  width: 11.5rem; flex: none; scroll-snap-align: start;
+  padding: 0; border: 0; background: none;
+}
+.sgame--tile:hover { background: none; }
+.sgame--tile .s-art { display: block; width: 100%; aspect-ratio: 460 / 215; }
+.sgame--tile .s-name { font-size: 0.8125rem; line-height: 1.25; }
+.sgame--tile .s-sub { margin-top: 0; }
+.sgame--tile .s-off { padding: 0 0.25rem; font-size: 0.6875rem; border-radius: 3px; }
+.sgame--tile .s-was { display: inline; text-decoration: line-through; }
+.sgame--tile .s-now { display: inline; }
+
 /* --------------------------------------------------------- island: GitHub -- */
 .gh {
   --gh-ink: #1f2328;

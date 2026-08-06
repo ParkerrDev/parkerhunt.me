@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% import "macros.html" as ico %}
+
+{# Every book, at full height. The home page shows twelve in a rail and points
+   here for the rest — a shelf that is as tall as the collection is large is a
+   list, not a section. #}
+
+{% block content %}
+{% set me = load_data(path="data/me.toml") %}
+{% set media = load_data(path="data/media.json") %}
+
+<header class="hero">
+    <div class="wrap">
+        <a class="back" href="/">{{ ico::back() }} Home</a>
+        <h1>{{ page.title }}</h1>
+        <p class="hero-lede">{{ page.description }}</p>
+        <ul class="facts" style="margin-top:1.25rem">
+            <li>{{ me.books_read | length }} read</li>
+            <li>{{ me.books_mine | length }} written</li>
+        </ul>
+    </div>
+</header>
+
+<main id="main">
+    <section style="padding-top:0">
+        <div class="wrap">
+            <div class="bento bento--sm">
+                {% for b in me.books_read %}
+                <div class="chip">
+                    <span class="cover">
+                        {%- if b.cover and media.covers[b.cover] %}
+                        <img src="{{ media.covers[b.cover] }}" width="200" height="300" alt="{{ b.title }}" loading="lazy" decoding="async">
+                        {%- endif %}
+                    </span>
+                    <span class="t-t">{{ b.title }}</span>
+                    <span class="t-s">{{ b.author }}{% if b.year %} · {{ b.year }}{% endif %}</span>
+                    {% if b.note %}<span class="t-k">{{ b.note }}</span>{% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            <p class="feed-foot">Jacket art belongs to the publishers. It is shown here at thumbnail size to identify an edition, which is what every library catalogue and bookshop does with it. Covers are fetched once from Open Library and served from this origin — see <code>scripts/fetch-media.mjs</code>.</p>
+        </div>
+    </section>
+
+    {% if me.books_mine | length > 0 %}
+    <section>
+        <div class="wrap">
+            <div class="head"><h2>Written</h2></div>
+            <div class="bento bento--lg" style="max-width:20rem">
+                {% for b in me.books_mine %}
+                <a class="tile-s2" {% if b.url %}href="{{ b.url }}"{% endif %}>
+                    <span class="t-k">{{ b.status }}</span>
+                    <span class="t-t">{{ b.title }}{% if b.url %} <span class="ext" aria-hidden="true">→</span>{% endif %}</span>
+                    {% if b.note %}<span class="t-s">{{ b.note }}</span>{% endif %}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+</main>
+{% endblock %}

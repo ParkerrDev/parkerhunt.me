@@ -1,0 +1,748 @@
+{
+  "fetched": "2026-08-06",
+  "source": "https://www.wikidata.org (CC0); logos from Wikimedia Commons",
+  "count": 36,
+  "with_logo": 22,
+  "shows": [
+    {
+      "title": "Barry",
+      "year": 2018,
+      "bg": "#1A1A1A",
+      "fg": "#E8C547",
+      "key": "barry",
+      "qid": "Q26812664",
+      "imdb": "tt5348176",
+      "imdb_url": "https://www.imdb.com/title/tt5348176/",
+      "year_wd": 2018,
+      "genres": [
+        "black comedy television series",
+        "comedy drama",
+        "psychological drama film"
+      ],
+      "logo": {
+        "src": "/imgs/titles/barry.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Alec Berg Inc., Hanarply, and/or HBO",
+        "source": "https://commons.wikimedia.org/wiki/File:Barry_logo.svg",
+        "credit_required": false,
+        "bytes": 11686
+      }
+    },
+    {
+      "title": "The Flash",
+      "year": 2014,
+      "bg": "#B3121C",
+      "fg": "#F5D547",
+      "key": "the-flash",
+      "qid": "Q23562553",
+      "imdb": "tt0439572",
+      "imdb_url": "https://www.imdb.com/title/tt0439572/",
+      "year_wd": 2023,
+      "genres": [
+        "science fiction film",
+        "action film",
+        "adventure film"
+      ]
+    },
+    {
+      "title": "The Walking Dead",
+      "year": 2010,
+      "bg": "#232320",
+      "fg": "#E88379",
+      "key": "the-walking-dead",
+      "qid": "Q232737",
+      "imdb": "tt1520211",
+      "imdb_url": "https://www.imdb.com/title/tt1520211/",
+      "year_wd": 2010,
+      "genres": [
+        "horror television series",
+        "drama television series",
+        "post-apocalyptic television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-walking-dead.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Unknown authorUnknown author",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Walking_Dead_(Fernsehserie)_logo.svg",
+        "credit_required": false,
+        "bytes": 4178
+      }
+    },
+    {
+      "title": "Danny Phantom",
+      "year": 2004,
+      "bg": "#0E1B3A",
+      "fg": "#3FE0A8",
+      "key": "danny-phantom",
+      "qid": "Q83978",
+      "imdb": "tt0366005",
+      "imdb_url": "https://www.imdb.com/title/tt0366005/",
+      "year_wd": 2004,
+      "genres": [
+        "fantasy television series",
+        "adventure television series",
+        "action television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/danny-phantom.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Viacom International Inc.",
+        "source": "https://commons.wikimedia.org/wiki/File:Neues_Danny_Phantom_Logo.jpg",
+        "credit_required": false,
+        "bytes": 17298
+      }
+    },
+    {
+      "title": "Lab Rats",
+      "year": 2012,
+      "bg": "#123A5E",
+      "fg": "#4FC3F7",
+      "key": "lab-rats",
+      "qid": "Q2699347",
+      "imdb": "tt1991564",
+      "imdb_url": "https://www.imdb.com/title/tt1991564/",
+      "year_wd": 2012,
+      "genres": [
+        "science fiction television series",
+        "teen sitcom",
+        "sitcom"
+      ]
+    },
+    {
+      "title": "Gravity Falls",
+      "year": 2012,
+      "bg": "#1E3D2F",
+      "fg": "#E0B04C",
+      "key": "gravity-falls",
+      "qid": "Q550555",
+      "imdb": "tt1865718",
+      "imdb_url": "https://www.imdb.com/title/tt1865718/",
+      "year_wd": 2012,
+      "genres": [
+        "fantasy television series",
+        "comedy television series",
+        "adventure television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/gravity-falls.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Disney Television Animation (source), OfficialAntarctica (derivative)",
+        "source": "https://commons.wikimedia.org/wiki/File:Gravity_Falls_logo.svg",
+        "credit_required": false,
+        "bytes": 25538
+      }
+    },
+    {
+      "title": "Kid Danger",
+      "year": 2018,
+      "bg": "#123C7A",
+      "fg": "#F5B301",
+      "key": "kid-danger",
+      "qid": "Q46365050",
+      "imdb": "tt7833530",
+      "imdb_url": "https://www.imdb.com/title/tt7833530/",
+      "year_wd": 2018,
+      "genres": [
+        "comedy television series",
+        "children's television series"
+      ]
+    },
+    {
+      "title": "Life on Mars",
+      "year": 2006,
+      "bg": "#6B3410",
+      "fg": "#E8D5B0",
+      "key": "life-on-mars",
+      "qid": "Q1071501",
+      "imdb": "tt0478942",
+      "imdb_url": "https://www.imdb.com/title/tt0478942/",
+      "year_wd": 2006,
+      "genres": [
+        "police television drama",
+        "science fiction television series",
+        "drama television series"
+      ]
+    },
+    {
+      "title": "Stranger Things",
+      "year": 2016,
+      "bg": "#0B0B14",
+      "fg": "#F4525B",
+      "key": "stranger-things",
+      "qid": "Q19798734",
+      "imdb": "tt4574334",
+      "imdb_url": "https://www.imdb.com/title/tt4574334/",
+      "year_wd": 2016,
+      "genres": [
+        "science fiction television series",
+        "horror television series",
+        "drama television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/stranger-things.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Netflix",
+        "source": "https://commons.wikimedia.org/wiki/File:Stranger_Things_logo.svg",
+        "credit_required": false,
+        "bytes": 16212
+      }
+    },
+    {
+      "title": "Rick and Morty",
+      "year": 2013,
+      "bg": "#0F2E28",
+      "fg": "#97CE4C",
+      "key": "rick-and-morty",
+      "qid": "Q15659308",
+      "imdb": "tt2861424",
+      "imdb_url": "https://www.imdb.com/title/tt2861424/",
+      "year_wd": 2013,
+      "genres": [
+        "sitcom",
+        "science fiction television series",
+        "black comedy"
+      ],
+      "logo": {
+        "src": "/imgs/titles/rick-and-morty.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Adult Swim",
+        "source": "https://commons.wikimedia.org/wiki/File:Rick_and_Morty.svg",
+        "credit_required": false,
+        "bytes": 23566
+      }
+    },
+    {
+      "title": "Tom and Jerry",
+      "year": 1940,
+      "bg": "#2A2118",
+      "fg": "#E8B44A",
+      "key": "tom-and-jerry"
+    },
+    {
+      "title": "Blue's Clues",
+      "year": 1996,
+      "bg": "#1B5FA8",
+      "fg": "#FFFFFF",
+      "key": "blue-s-clues",
+      "qid": "Q886105",
+      "imdb": "tt0163929",
+      "imdb_url": "https://www.imdb.com/title/tt0163929/",
+      "year_wd": 1996,
+      "genres": [
+        "educational television"
+      ]
+    },
+    {
+      "title": "Seinfeld",
+      "year": 1989,
+      "bg": "#1F4FA3",
+      "fg": "#F4D03F",
+      "rank": 3,
+      "key": "seinfeld",
+      "qid": "Q23733",
+      "imdb": "tt0098904",
+      "imdb_url": "https://www.imdb.com/title/tt0098904/",
+      "year_wd": 1989,
+      "genres": [
+        "sitcom"
+      ],
+      "logo": {
+        "src": "/imgs/titles/seinfeld.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Trademark owned by Castle Rock Entertainment and Sony Pictures.",
+        "source": "https://commons.wikimedia.org/wiki/File:Seinfeld_logo.svg",
+        "credit_required": false,
+        "bytes": 19204
+      }
+    },
+    {
+      "title": "Silicon Valley",
+      "year": 2014,
+      "bg": "#04564E",
+      "fg": "#7FE8D8",
+      "rank": 1,
+      "key": "silicon-valley",
+      "qid": "Q15956708",
+      "imdb": "tt2575988",
+      "imdb_url": "https://www.imdb.com/title/tt2575988/",
+      "year_wd": 2014,
+      "genres": [
+        "comedy television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/silicon-valley.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "HBO",
+        "source": "https://commons.wikimedia.org/wiki/File:Silicon_Valley.svg",
+        "credit_required": false,
+        "bytes": 19084
+      }
+    },
+    {
+      "title": "Mr. Robot",
+      "year": 2015,
+      "bg": "#1A1A1A",
+      "fg": "#F26A63",
+      "rank": 2,
+      "key": "mr-robot",
+      "qid": "Q18844729",
+      "imdb": "tt4158110",
+      "imdb_url": "https://www.imdb.com/title/tt4158110/",
+      "year_wd": 2015,
+      "genres": [
+        "drama television series",
+        "psychological thriller",
+        "techno-thriller"
+      ],
+      "logo": {
+        "src": "/imgs/titles/mr-robot.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "USA Network",
+        "source": "https://commons.wikimedia.org/wiki/File:MR_Robot.svg",
+        "credit_required": false,
+        "bytes": 6732
+      }
+    },
+    {
+      "title": "SpongeBob SquarePants",
+      "year": 1999,
+      "bg": "#F2C300",
+      "fg": "#12507A",
+      "key": "spongebob-squarepants",
+      "qid": "Q83279",
+      "imdb": "tt0206512",
+      "imdb_url": "https://www.imdb.com/title/tt0206512/",
+      "year_wd": 1999,
+      "genres": [
+        "animated sitcom",
+        "comedy television series",
+        "fantasy television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/spongebob-squarepants.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Nickelodeon",
+        "source": "https://commons.wikimedia.org/wiki/File:SpongeBob_SquarePants_logo_(2000%E2%80%932008,_without_background).svg",
+        "credit_required": false,
+        "bytes": 29716
+      }
+    },
+    {
+      "title": "Breaking Bad",
+      "year": 2008,
+      "bg": "#253B26",
+      "fg": "#D7C64A",
+      "key": "breaking-bad",
+      "qid": "Q1079",
+      "imdb": "tt0903747",
+      "imdb_url": "https://www.imdb.com/title/tt0903747/",
+      "year_wd": 2008,
+      "genres": [
+        "crime television series",
+        "drama television series",
+        "thriller television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/breaking-bad.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "AMC",
+        "source": "https://commons.wikimedia.org/wiki/File:Breaking_Bad_logo.svg",
+        "credit_required": false,
+        "bytes": 12068
+      }
+    },
+    {
+      "title": "Better Call Saul",
+      "year": 2015,
+      "bg": "#1F1B14",
+      "fg": "#E2B33C",
+      "key": "better-call-saul",
+      "qid": "Q14925221",
+      "imdb": "tt3032476",
+      "imdb_url": "https://www.imdb.com/title/tt3032476/",
+      "year_wd": 2015,
+      "genres": [
+        "legal drama",
+        "crime television series",
+        "drama fiction"
+      ],
+      "logo": {
+        "src": "/imgs/titles/better-call-saul.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "SVG: STVNLogo: AMC",
+        "source": "https://commons.wikimedia.org/wiki/File:Better_Call_Saul_-_Logo_2.svg",
+        "credit_required": false,
+        "bytes": 12662
+      }
+    },
+    {
+      "title": "Naruto",
+      "year": 2002,
+      "bg": "#E4761B",
+      "fg": "#16233F",
+      "anime": true,
+      "note": "and Shippuden, and the films",
+      "key": "naruto",
+      "qid": "Q25929253",
+      "imdb": "tt0409591",
+      "imdb_url": "https://www.imdb.com/title/tt0409591/",
+      "year_wd": 2002,
+      "genres": [
+        "action anime",
+        "adventure anime",
+        "gag anime"
+      ]
+    },
+    {
+      "title": "Death Note",
+      "year": 2006,
+      "bg": "#101014",
+      "fg": "#F2545B",
+      "anime": true,
+      "note": "37 episodes, no filler",
+      "key": "death-note",
+      "qid": "Q718624",
+      "imdb": "tt0877057",
+      "imdb_url": "https://www.imdb.com/title/tt0877057/",
+      "year_wd": 2006,
+      "genres": [
+        "thriller anime",
+        "mystery anime",
+        "supernatural anime"
+      ]
+    },
+    {
+      "title": "The Queen's Gambit",
+      "year": 2020,
+      "bg": "#2E4A3F",
+      "fg": "#EFE6D2",
+      "key": "the-queen-s-gambit",
+      "qid": "Q85808226",
+      "imdb": "tt10048342",
+      "imdb_url": "https://www.imdb.com/title/tt10048342/",
+      "year_wd": 2020,
+      "genres": [
+        "drama television series",
+        "coming-of-age television program",
+        "sport film"
+      ]
+    },
+    {
+      "title": "Fargo",
+      "year": 2014,
+      "bg": "#E8EDF2",
+      "fg": "#8C2F2F",
+      "key": "fargo",
+      "qid": "Q222720",
+      "imdb": "tt0116282",
+      "imdb_url": "https://www.imdb.com/title/tt0116282/",
+      "year_wd": 1996,
+      "genres": [
+        "crime film",
+        "drama film",
+        "neo-noir"
+      ]
+    },
+    {
+      "title": "The Chosen",
+      "year": 2017,
+      "bg": "#2C3E50",
+      "fg": "#E4C97E",
+      "key": "the-chosen",
+      "qid": "Q60787503",
+      "imdb": "tt9471404",
+      "imdb_url": "https://www.imdb.com/title/tt9471404/",
+      "year_wd": 2017,
+      "genres": [
+        "drama television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-chosen.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "The Chosen press photos (press.thechosen.tv)",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Chosen_-_logo.jpg",
+        "credit_required": false,
+        "bytes": 6320
+      }
+    },
+    {
+      "title": "BoJack Horseman",
+      "year": 2014,
+      "bg": "#F4A93B",
+      "fg": "#2B3A55",
+      "key": "bojack-horseman",
+      "qid": "Q17733404",
+      "imdb": "tt3398228",
+      "imdb_url": "https://www.imdb.com/title/tt3398228/",
+      "year_wd": 2014,
+      "genres": [
+        "animated sitcom",
+        "comedy drama",
+        "comedy television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/bojack-horseman.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Netflix",
+        "source": "https://commons.wikimedia.org/wiki/File:BoJack_Horseman_Logo.svg",
+        "credit_required": false,
+        "bytes": 24790
+      }
+    },
+    {
+      "title": "Naruto Shippuden",
+      "year": 2007,
+      "bg": "#1C2540",
+      "fg": "#E4761B",
+      "note": "and every other Naruto series and film",
+      "key": "naruto-shippuden",
+      "qid": "Q12500134",
+      "imdb": "tt0988824",
+      "imdb_url": "https://www.imdb.com/title/tt0988824/",
+      "year_wd": 2007,
+      "genres": [
+        "action anime and manga",
+        "adventure anime and manga",
+        "fantasy anime and manga"
+      ],
+      "logo": {
+        "src": "/imgs/titles/naruto-shippuden.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Masashi Kishimoto / Pierrot",
+        "source": "https://commons.wikimedia.org/wiki/File:Logo_Naruto_Shipp%C5%ABden.svg",
+        "credit_required": false,
+        "bytes": 35672
+      }
+    },
+    {
+      "title": "Invincible",
+      "year": 2021,
+      "bg": "#1B3A8C",
+      "fg": "#E4C200",
+      "key": "invincible",
+      "qid": "Q55614601",
+      "imdb": "tt6741278",
+      "imdb_url": "https://www.imdb.com/title/tt6741278/",
+      "year_wd": 2021,
+      "genres": [
+        "superhero television program",
+        "action television series",
+        "adult animated television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/invincible.webp",
+        "dark": false,
+        "licence": "Public domain",
+        "author": "Amazon Prime",
+        "source": "https://commons.wikimedia.org/wiki/File:Invincible_title_card.jpg",
+        "credit_required": false,
+        "bytes": 14692
+      }
+    },
+    {
+      "title": "The Simpsons",
+      "year": 1989,
+      "bg": "#FFD90F",
+      "fg": "#2B4A9B",
+      "key": "the-simpsons",
+      "qid": "Q886",
+      "imdb": "tt0096697",
+      "imdb_url": "https://www.imdb.com/title/tt0096697/",
+      "year_wd": 1989,
+      "genres": [
+        "animated sitcom",
+        "satire",
+        "black comedy"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-simpsons.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Matt Groening",
+        "source": "https://commons.wikimedia.org/wiki/File:Logo_The_Simpsons.svg",
+        "credit_required": false,
+        "bytes": 17498
+      }
+    },
+    {
+      "title": "Arrested Development",
+      "year": 2003,
+      "bg": "#F2E205",
+      "fg": "#1B4D8C",
+      "key": "arrested-development",
+      "qid": "Q11598",
+      "imdb": "tt0367279",
+      "imdb_url": "https://www.imdb.com/title/tt0367279/",
+      "year_wd": 2003,
+      "genres": [
+        "comedy television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/arrested-development.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Unknown authorUnknown author",
+        "source": "https://commons.wikimedia.org/wiki/File:Arrested_Development.svg",
+        "credit_required": false,
+        "bytes": 20316
+      }
+    },
+    {
+      "title": "Parks and Recreation",
+      "year": 2009,
+      "bg": "#1E5B3E",
+      "fg": "#F2D06B",
+      "key": "parks-and-recreation",
+      "qid": "Q218035",
+      "imdb": "tt1266020",
+      "imdb_url": "https://www.imdb.com/title/tt1266020/",
+      "year_wd": 2009,
+      "genres": [
+        "sitcom",
+        "mockumentary"
+      ],
+      "logo": {
+        "src": "/imgs/titles/parks-and-recreation.webp",
+        "dark": true,
+        "licence": "CC BY-SA 3.0",
+        "author": "Florian64190",
+        "source": "https://commons.wikimedia.org/wiki/File:Parks_And_Recreation_Logo.png",
+        "credit_required": true,
+        "bytes": 10582
+      }
+    },
+    {
+      "title": "The Office",
+      "year": 2005,
+      "bg": "#2E4E6B",
+      "fg": "#E8E2D0",
+      "key": "the-office",
+      "qid": "Q23831",
+      "imdb": "tt0386676",
+      "imdb_url": "https://www.imdb.com/title/tt0386676/",
+      "year_wd": 2005,
+      "genres": [
+        "sitcom",
+        "mockumentary"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-office.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Jo9100",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Office_US_logo.svg",
+        "credit_required": false,
+        "bytes": 4880
+      }
+    },
+    {
+      "title": "Haikyuu!!",
+      "year": 2014,
+      "bg": "#E36414",
+      "fg": "#14213D",
+      "key": "haikyuu",
+      "qid": "Q67144604",
+      "imdb": "tt3398540",
+      "imdb_url": "https://www.imdb.com/title/tt3398540/",
+      "year_wd": 2014
+    },
+    {
+      "title": "One Punch Man",
+      "year": 2015,
+      "bg": "#F2C500",
+      "fg": "#6E0A11",
+      "key": "one-punch-man",
+      "qid": "Q22341674",
+      "imdb": "tt4508902",
+      "imdb_url": "https://www.imdb.com/title/tt4508902/",
+      "year_wd": 2015
+    },
+    {
+      "title": "Boardwalk Empire",
+      "year": 2010,
+      "bg": "#14100C",
+      "fg": "#C9A227",
+      "key": "boardwalk-empire",
+      "qid": "Q585758",
+      "imdb": "tt0979432",
+      "imdb_url": "https://www.imdb.com/title/tt0979432/",
+      "year_wd": 2010,
+      "genres": [
+        "drama television series",
+        "crime television series",
+        "historical television series"
+      ],
+      "logo": {
+        "src": "/imgs/titles/boardwalk-empire.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Annito74",
+        "source": "https://commons.wikimedia.org/wiki/File:Boardwalk_Empire_logo_2010.jpg",
+        "credit_required": false,
+        "bytes": 4700
+      }
+    },
+    {
+      "title": "The IT Crowd",
+      "year": 2006,
+      "bg": "#C1272D",
+      "fg": "#F2F2F2",
+      "key": "the-it-crowd",
+      "qid": "Q239672",
+      "imdb": "tt0487831",
+      "imdb_url": "https://www.imdb.com/title/tt0487831/",
+      "year_wd": 2006,
+      "genres": [
+        "sitcom"
+      ],
+      "logo": {
+        "src": "/imgs/titles/the-it-crowd.webp",
+        "dark": true,
+        "licence": "Public domain",
+        "author": "Channel 4",
+        "source": "https://commons.wikimedia.org/wiki/File:Theitcrowd_1.svg",
+        "credit_required": false,
+        "bytes": 5850
+      }
+    },
+    {
+      "title": "The Boys",
+      "year": 2019,
+      "bg": "#0D1B2A",
+      "fg": "#FF6B6B",
+      "imdb": "tt1190634",
+      "key": "the-boys",
+      "imdb_url": "https://www.imdb.com/title/tt1190634/"
+    },
+    {
+      "title": "Impractical Jokers",
+      "year": 2011,
+      "bg": "#1B2A4A",
+      "fg": "#E8A33D",
+      "key": "impractical-jokers",
+      "qid": "Q2029180",
+      "imdb": "tt2100976",
+      "imdb_url": "https://www.imdb.com/title/tt2100976/",
+      "year_wd": 2011,
+      "genres": [
+        "reality television",
+        "comedy television series"
+      ]
+    }
+  ]
+}

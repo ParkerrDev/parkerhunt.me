@@ -96,9 +96,14 @@ fi
 # is not. Contrast build-resume.mjs above, which fails hard on purpose because a
 # missing PDF *is* a broken page.
 #
-# NOT here: scripts/fetch-steam-art.mjs. It shells out to cwebp, which is not on
-# this builder, and its output (site/static/imgs/steam/*.webp) is committed. Run
-# it locally after changing the seed.
+# NOT here, and all for the same reason — they shell out to cwebp/dwebp, which
+# are not on this builder, and their output is committed:
+#   fetch-steam-art.mjs   Steam capsules
+#   fetch-media.mjs       summit photographs and book jackets
+#   fetch-logos.mjs       full-colour brand logos from Wikimedia Commons
+#   fetch-titles.mjs      the watch list, resolved against Wikidata
+#   build-map.mjs         the visited-states map
+# Run those locally after changing their inputs.
 echo "Refreshing GitHub snapshot..."
 node scripts/fetch-github.mjs "${GITHUB_USER:-ParkerrDev}" site/data/github.json
 
