@@ -114,6 +114,12 @@ node scripts/fetch-duolingo.mjs "${DUOLINGO_USER:-parkerhunt.me}" site/data/duol
 echo "Refreshing Nexus Mods snapshot..."
 node scripts/fetch-nexus.mjs "${NEXUS_UPLOADER:-186080535}" site/data/nexus.json
 
+# Not a fetch — pure arithmetic. Recomputes the durations that would otherwise
+# be wrong the day after they were typed ("9 years, 9 months and 17 days on X").
+# The anchor dates live in the script; see scripts/build-stamps.mjs.
+echo "Recomputing stamps..."
+node scripts/build-stamps.mjs site/data/stamps.json
+
 # --- Build the static site --------------------------------------------------
 # Run inside the site folder so Zola finds site/config.toml
 cd site

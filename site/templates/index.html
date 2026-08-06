@@ -28,6 +28,10 @@
 {% set duo = load_data(path="data/duolingo.json") %}
 {% set nexus = load_data(path="data/nexus.json") %}
 {% set games = load_data(path="data/games.toml") %}
+{# Durations that would be wrong tomorrow if they were typed. See
+   scripts/build-stamps.mjs — the anchor date is stored, the elapsed years,
+   months and days are recomputed on every deploy. #}
+{% set stamps = load_data(path="data/stamps.json") %}
 
 <header class="hero">
     <div class="wrap hero-in">
@@ -207,8 +211,10 @@
                         </article>
                         {% endfor %}
                     </div>
+                    {# The anniversary is computed, not typed — it is right on
+                       the day of every deploy and never needs touching. #}
                     <p class="feed-foot">
-                        {% if x_sample %}<b>Placeholder content</b> — replace in <code>site/data/feeds.toml</code>.{% else %}<a href="{{ feeds.x.url }}" target="_blank" rel="noopener">@{{ feeds.x.handle }}</a>{% endif %}
+                        {% if x_sample %}<b>Placeholder content</b> — replace in <code>site/data/feeds.toml</code>. {% else %}<a href="{{ feeds.x.url }}" target="_blank" rel="noopener">@{{ feeds.x.handle }}</a> · {% endif %}On X for {{ stamps.x.phrase }}.
                     </p>
                 </div>
                 {% endif %}
@@ -378,6 +384,117 @@
     </section>
     {% endif %}
 
+    {# ----------------------------------------------------------- coffee -- #}
+    {# Orders set as till receipts, because that is the form the content is
+       already in. See .receipt in _style.css. #}
+    {% if me.coffee_shop | length > 0 %}
+    <section id="coffee">
+        <div class="wrap">
+            <div class="head">
+                <h2>Coffee</h2>
+                <p>Every single day since I was {{ me.coffee.since }}. This is not a personality, it is a dependency.</p>
+            </div>
+
+            <div class="brew">
+                <div><b>{{ me.coffee.cups }}</b><span>Cups</span></div>
+                <div><b>{{ me.coffee.morning | title }}</b><span>In the morning</span></div>
+                <div><b>{{ me.coffee.bean }}</b><span>Bean of choice</span></div>
+                <div><b>Since {{ me.coffee.since }}</b><span>Daily, no exceptions</span></div>
+            </div>
+
+            <div class="receipts">
+                {% for s in me.coffee_shop %}
+                <div class="receipt{% if s.orders | length == 0 %} receipt--sour{% endif %}">
+                    <div class="receipt-h">
+                        <b>{{ s.name }}</b>
+                        <span>{% if s.orders | length > 0 %}Usual order{% else %}No order{% endif %}</span>
+                    </div>
+                    {% if s.orders | length > 0 %}
+                    <ul>
+                        {% for o in s.orders %}<li>{{ o }}</li>{% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% if s.verdict %}<p class="receipt-f">{{ s.verdict }}</p>{% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ----------------------------------------------------------- eating -- #}
+    {% if me.restaurant | length > 0 or me.vice.what %}
+    <section id="eating">
+        <div class="wrap">
+            <div class="head"><h2>Eating</h2><p>Three places and one problem.</p></div>
+
+            {% if me.restaurant | length > 0 %}
+            <ul class="rows narrow" style="margin-bottom:1.5rem">
+                {% for r in me.restaurant %}
+                <li><div class="row">
+                    <span class="row-n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
+                    <span class="row-main"><span class="row-t">{{ r.name }}</span></span>
+                    <span class="row-x">{{ r.kind }}</span>
+                </div></li>
+                {% endfor %}
+            </ul>
+
+            {# Only one of them has an order worth writing down. #}
+            <div class="receipts" style="margin-bottom:1.5rem">
+                {% for r in me.restaurant %}
+                {% if r.order | length > 0 %}
+                <div class="receipt">
+                    <div class="receipt-h"><b>{{ r.name }}</b><span>Usual order</span></div>
+                    <ul>
+                        {% for o in r.order %}<li>{{ o }}</li>{% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if me.vice.what %}
+            <div class="vice">
+                <div class="vice-k">The vice</div>
+                <div class="vice-t">{{ me.vice.what }}{% if me.vice.kicked %} <span class="vice-tag">no longer bought</span>{% endif %}</div>
+                <p>{{ me.vice.line }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------------ linux -- #}
+    {% if me.distro | length > 0 %}
+    <section id="linux">
+        <div class="wrap">
+            <div class="head">
+                <h2>Distro-hopping</h2>
+                <p>{{ me.distro | length }} of them, in order, starting at nine years old. It ends at an Arch derivative, as these things do.</p>
+            </div>
+            <ol class="distros">
+                {% for d in me.distro %}
+                <li>
+                    <span class="distro{% if d.current %} distro--now{% endif %}">
+                        <span class="distro-n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
+                        <span class="distro-t">{{ d.name }}</span>
+                        {%- if d.current %}<span class="distro-now">now</span>{% endif -%}
+                    </span>
+                </li>
+                {% endfor %}
+            </ol>
+            {% set_global has_notes = false %}
+            {% for d in me.distro %}{% if d.note %}{% set_global has_notes = true %}{% endif %}{% endfor %}
+            {% if has_notes %}
+            <ul class="distro-notes">
+                {% for d in me.distro %}{% if d.note %}<li><b>{{ d.name }}</b> — {{ d.note }}</li>{% endif %}{% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </section>
+    {% endif %}
+
     {# ------------------------------------------------------------ ideas -- #}
     {% set ideas = load_data(path="data/ideas.toml") %}
     {% if ideas.idea | length > 0 %}
@@ -447,10 +564,13 @@
                     <p class="kicker">Written</p>
                     <ul class="rows">
                         {% for b in me.books_mine %}
-                        <li><div class="row">
-                            <span class="row-main"><span class="row-t">{{ b.title }}</span>{% if b.note %}<br><span class="row-s">{{ b.note }}</span>{% endif %}</span>
+                        {# A row with a url becomes a link; one without stays a
+                           plain row. Same markup either way, so the two never
+                           drift apart visually. #}
+                        <li>{% if b.url %}<a class="row" href="{{ b.url }}">{% else %}<div class="row">{% endif %}
+                            <span class="row-main"><span class="row-t">{{ b.title }}{% if b.url %} <span class="ext" aria-hidden="true">→</span>{% endif %}</span>{% if b.note %}<br><span class="row-s">{{ b.note }}</span>{% endif %}</span>
                             {% if b.status %}<span class="row-x">{{ b.status }}</span>{% endif %}
-                        </div></li>
+                        {% if b.url %}</a>{% else %}</div>{% endif %}</li>
                         {% endfor %}
                     </ul>
                 </div>

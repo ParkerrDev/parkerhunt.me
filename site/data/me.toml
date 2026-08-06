@@ -7,7 +7,7 @@
 # in the meantime.
 #
 # TO FILL IN (currently empty, so the section is hidden):
-#   [[books_mine]]  [[films]]  [[sites]]
+#   [[films]]  [[sites]]
 #
 # NOT HERE ANY MORE: chess and languages. Both are now fetched at build time
 # from the real accounts into site/data/chess.json and site/data/duolingo.json,
@@ -29,9 +29,11 @@
 tidbits = [
   "1st-degree black belt · 12 years",
   "summited Mt. Whitney at 13, in a thunderstorm",
-  "linux daily driver, no windows",
+  "linux daily driver since nine years old",
+  "coffee every single day since thirteen",
   "favourite fruit: the cherry plum",
   "currently learning Mandarin",
+  "eight distros deep, currently CachyOS",
   "this site ships zero javascript",
 ]
 
@@ -44,19 +46,11 @@ facts = [
   "El Capitan at 8",
   "Mt. Whitney at 13",
   "met Travis Walton",
+  "2–4 cups a day",
 ]
-
-# Your own. Empty for now — anything added here renders in the same wall,
-# marked as yours with a dashed border.
-my_quotes = []
 
 # --------------------------------------------------- EMPTY — FILL THESE IN --
 # Each of these hides its whole section until it has at least one entry.
-
-# Novels / books you have written.
-# [[books_mine]]
-#   title = "" ; status = "draft" ; note = ""
-books_mine = []
 
 # Ranked. Order in the file is the ranking.
 # [[films]]  title = "" ; year = 0 ; note = ""
@@ -66,8 +60,130 @@ films = []
 # [[sites]]  name = "" ; url = "" ; note = ""
 sites = []
 
+# ----------------------------------------------------------------- coffee --
+# The habit. The orders live in [[coffee_shop]] below, because they belong to a
+# shop and one shop can have several.
+[coffee]
+since = "thirteen"
+cups = "2–4 a day"
+morning = "black"
+bean = "Colombian"
+
+# ------------------------------------------------------------------- vice --
+# One entry, stated plainly. `kicked` flips the card from a confession to a
+# past tense.
+[vice]
+what = "Takis"
+kicked = true
+line = "I love how they taste and I have a genuine problem with them — a fiesta-sized bag in a single sitting, in under half an hour. I do not buy them any more."
+
+# ------------------------------------------------------------ coffee shops --
+# `orders` is a list because one shop earns several. `verdict` is the one-line
+# opinion; leave it empty for a shop with no complaint attached.
+[[coffee_shop]]
+name = "Starbucks"
+verdict = ""
+orders = [
+  "Venti vanilla sweet cream cold brew",
+  "Iced triple blonde espresso",
+  "Grande upside-down iced triple blonde vanilla sweet cream nitro cold brew",
+]
+
+[[coffee_shop]]
+name = "Kuppa Joy"
+verdict = "A little too sweet. Okay, I guess."
+orders = ["Grande vanilla sweet cream cold brew"]
+
+[[coffee_shop]]
+name = "Dutch Bros"
+verdict = "Too sweet. I do not go."
+orders = []
+
+# ------------------------------------------------------------ restaurants --
+# `order` is optional and renders as a second receipt when it is there.
+[[restaurant]]
+name = "Cattlemens"
+kind = "steak"
+order = []
+
+[[restaurant]]
+name = "Butterfish"
+kind = "poke"
+order = [
+  "Build your own, large bowl",
+  "Sushi rice",
+  "Seared tuna",
+  "Spicy crab",
+  "Salmon",
+  "Spicy mayo",
+  "Veggies",
+  "Peas",
+  "Jalapeños",
+  "Bell pepper",
+]
+
+[[restaurant]]
+name = "Chipotle"
+kind = "burrito"
+order = []
+
+# ---------------------------------------------------------------- distros --
+# The distro-hopping progression, in order. Exactly one entry should have
+# `current = true`; it is the one the numbering builds towards.
+[[distro]]
+name = "Raspbian"
+note = "the first one, on a Pi"
+current = false
+
+[[distro]]
+name = "Kali Linux"
+note = "because it looked like hacking"
+current = false
+
+[[distro]]
+name = "Ubuntu"
+note = "the sensible detour"
+current = false
+
+[[distro]]
+name = "Zorin OS"
+note = ""
+current = false
+
+[[distro]]
+name = "Fedora"
+note = ""
+current = false
+
+[[distro]]
+name = "Nobara"
+note = "Fedora, but it plays games"
+current = false
+
+[[distro]]
+name = "NixOS"
+note = "declarative, and a whole personality"
+current = false
+
+[[distro]]
+name = "CachyOS"
+note = "Arch, tuned, and where I stopped"
+current = true
+
+# ------------------------------------------------------------- my quotes --
+# Mine. Rendered in the same wall as the rest, marked with a dashed border.
+[[my_quotes]]
+text = "To my knowledge nobody has ever become a tad bit more successful by drinking alcohol or smoking weed. I think if you want to increase your odds of success, never do these things."
+who = "Me"
+
 # ------------------------------------------------------------------ shelf --
-# Order is the ranking. `year` is the year of publication, not of reading.
+# Written, not read. `url` turns the row into a link to the text on this site.
+[[books_mine]]
+title = "Untitled"
+status = "5 chapters"
+note = "A novel. Read it here."
+url = "/novel/"
+
 [[books_read]]
 title = "Zero to One"
 author = "Peter Thiel"
@@ -331,3 +447,19 @@ who = "Albert Einstein"
 [[quotes]]
 text = "I live in that solitude which is painful in youth, but delicious in the years of maturity."
 who = "Albert Einstein"
+
+[[quotes]]
+text = "Anti-social behavior is a trait of intelligence in a world full of conformists."
+who = "Nikola Tesla"
+
+[[quotes]]
+text = "The measure of intelligence is the ability to change."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "There is no conflict between science and religion."
+who = "Georges Lemaitre"
+
+[[quotes]]
+text = "It was always the women, and above all the young ones, who were the most bigoted adherents of the party, the swallowers of slogans, the amateur spies and nosers-out of unorthodoxy."
+who = "George Orwell, 1984"
