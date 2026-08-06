@@ -3039,12 +3039,6 @@
       "fg": "#c9cbd6"
     },
     {
-      "title": "Snowden",
-      "year": 2016,
-      "bg": "#1d1f27",
-      "fg": "#c9cbd6"
-    },
-    {
       "title": "Tootsie",
       "year": 1982,
       "bg": "#1d1f27",
@@ -3543,7 +3537,7 @@
     },
     {
       "title": "The Parent Trap",
-      "year": 1998,
+      "year": 1961,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     },
@@ -3553,6 +3547,37 @@
       "bg": "#1d1f27",
       "fg": "#c9cbd6",
       "qid": "Q280400"
+    },
+    {
+      "title": "Citizenfour",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Mulan",
+      "year": 1998,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Cinderella",
+      "year": 1950,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q191753"
+    },
+    {
+      "title": "The Adam Project",
+      "year": 2022,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Swapped",
+      "year": 2026,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
     }
   ]
 }
