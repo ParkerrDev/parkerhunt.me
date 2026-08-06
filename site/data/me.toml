@@ -239,15 +239,15 @@ note = ""
 # type, not a scan of the real artwork, which is the network's and not ours.
 [[shows]]
 title = "Silicon Valley"
-bg = "#0E9E8F"
-fg = "#ffffff"
+bg = "#04564E"
+fg = "#7FE8D8"
 year = 2014
 note = "the only one that gets the industry right by getting it wrong"
 
 [[shows]]
 title = "Mr. Robot"
 bg = "#1A1A1A"
-fg = "#E23A32"
+fg = "#F26A63"
 year = 2015
 note = "the rare show where the terminal on screen is real"
 
@@ -276,6 +276,283 @@ pick = "iOS"
 over = "Android"
 why = "Fewer decisions to make about a phone is the feature."
 
+# ------------------------------------------------------------------ anime --
+# The two that get their own posters. Same shape as [[shows]].
+
+[[anime]]
+title = "Naruto"
+year = 2002
+bg = "#E4761B"
+fg = "#16233F"
+note = "and Shippuden, and the films"
+
+[[anime]]
+title = "Death Note"
+year = 2006
+bg = "#101014"
+fg = "#F2545B"
+note = "37 episodes, no filler"
+# ---------------------------------------------------------------- watched --
+# Everything seen, in no particular order — this is a list, not a ranking, and
+# the three in [[shows]] and the two in [[anime]] appear here too because they
+# were also, obviously, watched.
+#
+# `bg`/`fg` paint a typographic poster: the title set in this site's own face on
+# a colour chosen to evoke the show. Nothing here reproduces any real artwork,
+# logo or key art — those belong to the people who made them. To add a show,
+# copy a block and pick two hex values you like.
+
+[[watched]]
+title = "Barry"
+year = 2018
+bg = "#1A1A1A"
+fg = "#E8C547"
+note = ""
+
+[[watched]]
+title = "The Flash"
+year = 2014
+bg = "#B3121C"
+fg = "#F5D547"
+note = ""
+
+[[watched]]
+title = "The Walking Dead"
+year = 2010
+bg = "#232320"
+fg = "#E88379"
+note = ""
+
+[[watched]]
+title = "Danny Phantom"
+year = 2004
+bg = "#0E1B3A"
+fg = "#3FE0A8"
+note = ""
+
+[[watched]]
+title = "Lab Rats"
+year = 2012
+bg = "#123A5E"
+fg = "#4FC3F7"
+note = ""
+
+[[watched]]
+title = "Gravity Falls"
+year = 2012
+bg = "#1E3D2F"
+fg = "#E0B04C"
+note = ""
+
+[[watched]]
+title = "Kid Danger"
+year = 2018
+bg = "#123C7A"
+fg = "#F5B301"
+note = ""
+
+[[watched]]
+title = "Life on Mars"
+year = 2006
+bg = "#6B3410"
+fg = "#E8D5B0"
+note = ""
+
+[[watched]]
+title = "Stranger Things"
+year = 2016
+bg = "#0B0B14"
+fg = "#F4525B"
+note = ""
+
+[[watched]]
+title = "Rick and Morty"
+year = 2013
+bg = "#0F2E28"
+fg = "#97CE4C"
+note = ""
+
+[[watched]]
+title = "Tom and Jerry"
+year = 1940
+bg = "#2A2118"
+fg = "#E8B44A"
+note = ""
+
+[[watched]]
+title = "Blue's Clues"
+year = 1996
+bg = "#1B5FA8"
+fg = "#FFFFFF"
+note = ""
+
+[[watched]]
+title = "Seinfeld"
+year = 1989
+bg = "#1F4FA3"
+fg = "#F4D03F"
+note = ""
+
+[[watched]]
+title = "Silicon Valley"
+year = 2014
+bg = "#04564E"
+fg = "#7FE8D8"
+note = ""
+
+[[watched]]
+title = "Mr. Robot"
+year = 2015
+bg = "#1A1A1A"
+fg = "#F26A63"
+note = ""
+
+[[watched]]
+title = "SpongeBob SquarePants"
+year = 1999
+bg = "#F2C300"
+fg = "#12507A"
+note = ""
+
+[[watched]]
+title = "Breaking Bad"
+year = 2008
+bg = "#253B26"
+fg = "#D7C64A"
+note = ""
+
+[[watched]]
+title = "Better Call Saul"
+year = 2015
+bg = "#1F1B14"
+fg = "#E2B33C"
+note = ""
+
+[[watched]]
+title = "Naruto"
+year = 2002
+bg = "#E4761B"
+fg = "#16233F"
+note = ""
+
+[[watched]]
+title = "Death Note"
+year = 2006
+bg = "#101014"
+fg = "#F2545B"
+note = ""
+
+[[watched]]
+title = "The Queen's Gambit"
+year = 2020
+bg = "#2E4A3F"
+fg = "#EFE6D2"
+note = ""
+
+[[watched]]
+title = "Fargo"
+year = 2014
+bg = "#E8EDF2"
+fg = "#8C2F2F"
+note = ""
+
+[[watched]]
+title = "The Chosen"
+year = 2017
+bg = "#2C3E50"
+fg = "#E4C97E"
+note = ""
+
+[[watched]]
+title = "BoJack Horseman"
+year = 2014
+bg = "#F4A93B"
+fg = "#2B3A55"
+note = ""
+
+[[watched]]
+title = "Naruto Shippuden"
+year = 2007
+bg = "#1C2540"
+fg = "#E4761B"
+note = "and every other Naruto series and film"
+
+[[watched]]
+title = "Invincible"
+year = 2021
+bg = "#1B3A8C"
+fg = "#E4C200"
+note = ""
+
+[[watched]]
+title = "The Simpsons"
+year = 1989
+bg = "#FFD90F"
+fg = "#2B4A9B"
+note = ""
+
+[[watched]]
+title = "Arrested Development"
+year = 2003
+bg = "#F2E205"
+fg = "#1B4D8C"
+note = ""
+
+[[watched]]
+title = "Parks and Recreation"
+year = 2009
+bg = "#1E5B3E"
+fg = "#F2D06B"
+note = ""
+
+[[watched]]
+title = "The Office"
+year = 2005
+bg = "#2E4E6B"
+fg = "#E8E2D0"
+note = ""
+
+[[watched]]
+title = "Haikyuu!!"
+year = 2014
+bg = "#E36414"
+fg = "#14213D"
+note = ""
+
+[[watched]]
+title = "One Punch Man"
+year = 2015
+bg = "#F2C500"
+fg = "#6E0A11"
+note = ""
+
+[[watched]]
+title = "Boardwalk Empire"
+year = 2010
+bg = "#14100C"
+fg = "#C9A227"
+note = ""
+
+[[watched]]
+title = "The IT Crowd"
+year = 2006
+bg = "#C1272D"
+fg = "#F2F2F2"
+note = ""
+
+[[watched]]
+title = "The Boys"
+year = 2019
+bg = "#0D1B2A"
+fg = "#FF6B6B"
+note = ""
+
+[[watched]]
+title = "Impractical Jokers"
+year = 2011
+bg = "#1B2A4A"
+fg = "#E8A33D"
+note = ""
 # ------------------------------------------------------------- bucket list --
 # `done` flips the row to struck-through with a filled check.
 [[bucket]]
