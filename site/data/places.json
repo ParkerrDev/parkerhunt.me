@@ -10,12 +10,15 @@
     "it wrong. `no_photo` skips the image lookup.",
     "",
     "`skiing` is the same shape and goes through the same script — a ski resort is",
-    "a place with a photograph. It renders as its own section."
+    "a place with a photograph. It renders as its own section.",
+    "",
+    "`file` pins a Commons filename outright, for items with no P18."
   ],
   "places": [
     {
       "name": "Grand Canyon",
-      "where": "Arizona"
+      "where": "Arizona",
+      "qid": "Q118841"
     },
     {
       "name": "Meteor Crater",
@@ -35,7 +38,8 @@
     {
       "name": "Alamo",
       "where": "Texas",
-      "q": "Alamo, Texas"
+      "q": "Alamo, Texas",
+      "qid": "Q2636724"
     },
     {
       "name": "Johnson Space Center",
@@ -183,7 +187,8 @@
       "name": "Aspen Snowmass",
       "where": "Colorado",
       "q": "Aspen Snowmass",
-      "note": "Four mountains, four different days."
+      "note": "Four mountains, four different days.",
+      "file": "Snowmass gondola and Ski area.jpg"
     },
     {
       "name": "Jackson Hole",
@@ -237,7 +242,8 @@
       "name": "Sun Valley",
       "where": "Idaho",
       "q": "Sun Valley Resort",
-      "note": "Historic, and reliable snowmaking."
+      "note": "Historic, and reliable snowmaking.",
+      "file": "Bald Mountain in Sun Valley, Idaho.jpg"
     },
     {
       "name": "Bear Valley",

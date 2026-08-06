@@ -81,6 +81,17 @@
 
     {% block content %}{% endblock %}
 
+    {# The one script on the site, and only on the pages that ask for it.
+       See the `filter` block: a catalogue page emits it, everything else does
+       not, so the home page and the blog still ship zero JavaScript.
+
+       Progressive enhancement in the strict sense — the box is created BY the
+       script, so a reader without JavaScript never sees a search field that
+       cannot search. Filtering is done by toggling a class rather than by
+       removing nodes, so nothing reflows into a different grid and going back
+       to an empty query restores the original order exactly. #}
+    {% block filter %}{% endblock %}
+
     {% block footer %}
     <footer>
         <div class="wrap">
@@ -97,7 +108,9 @@
                 </nav>
             </div>
             {# Stating the build is the flex. It is also true, and checkable. #}
-            <div class="colophon">zola · no javascript · no webfonts · no trackers · one request to first paint</div>
+            {# Was "no javascript". The catalogue pages have a ~30-line search filter
+               now, so that claim is retired rather than quietly left wrong. #}
+            <div class="colophon">zola · no webfonts · no trackers · no analytics · one request to first paint</div>
         </div>
     </footer>
     {% endblock footer %}

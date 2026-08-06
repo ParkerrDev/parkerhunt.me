@@ -409,7 +409,14 @@ a.row:hover .row-t { color: var(--accent); }
 /* auto-fill with a 21rem cap rather than auto-fit with 1fr: a lone receipt
    should stay receipt-width instead of stretching to fill the page, which
    is exactly what happens to the one restaurant order that has an order. */
-.receipts { display: grid; gap: 0.875rem; grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 21rem)); justify-content: start; align-items: start; }
+/* Equal width AND equal height. auto-fill with a hard max made the last card
+   in a row narrower than its neighbours; 1fr makes every column the same. And
+   align-items defaults to stretch, which is what makes a two-line order card
+   as tall as a ten-line one — a row of cards that are all different heights
+   reads as a mistake, not as information. */
+.receipts { display: grid; gap: 0.875rem; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); }
+.receipt { display: flex; flex-direction: column; }
+.receipt ul { flex: 1; }
 .receipt {
   background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r-sm);
   box-shadow: var(--shadow-1); padding: 1rem 1.125rem;

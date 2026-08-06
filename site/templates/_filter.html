@@ -1,0 +1,77 @@
+{# The catalogue search box.
+
+   Emitted by the {% block filter %} in base.html, so ONLY the pages that
+   include it get any JavaScript at all — /movies/, /watching/, /shelf/,
+   /quotes/, /games/ and /ideas/. The home page and the blog still ship none.
+
+   Three deliberate choices:
+
+   1. The input is created by the script, not by the markup. A reader with
+      JavaScript off never sees a search field that cannot search.
+   2. Matching is done against a data-find attribute the template writes, so a
+      film matches on its title, year and genre without anyone having to search
+      the rendered HTML for stray words like "IMDb".
+   3. Filtering toggles a class instead of removing nodes. Nothing reflows into
+      a different grid, and clearing the box restores the original order
+      exactly — which a remove-and-reinsert approach does not.
+#}
+<style>
+  .find { margin: 0 0 1rem; display: flex; align-items: center; gap: 0.625rem; flex-wrap: wrap; }
+  .find input {
+    flex: 1 1 14rem; min-width: 0; max-width: 22rem;
+    font: inherit; font-size: 0.9375rem; color: var(--fg);
+    background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+    padding: 0.5rem 0.9375rem;
+  }
+  .find input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-color: transparent; }
+  .find output { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); }
+  [data-find].is-hidden { display: none; }
+  .find-none { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+</style>
+<script>
+(function () {
+  var scope = document.querySelector("[data-findable]");
+  if (!scope) return;
+  var items = scope.querySelectorAll("[data-find]");
+  if (items.length < 2) return;
+
+  var wrap = document.createElement("div");
+  wrap.className = "find";
+  var input = document.createElement("input");
+  input.type = "search";
+  input.placeholder = scope.dataset.findable || "Search";
+  input.setAttribute("aria-label", input.placeholder);
+  var count = document.createElement("output");
+  var empty = document.createElement("p");
+  empty.className = "find-none";
+  empty.hidden = true;
+  wrap.appendChild(input);
+  wrap.appendChild(count);
+  scope.parentNode.insertBefore(wrap, scope);
+  scope.parentNode.insertBefore(empty, scope.nextSibling);
+
+  var haystack = [];
+  for (var i = 0; i < items.length; i++) {
+    haystack.push((items[i].dataset.find || items[i].textContent).toLowerCase());
+  }
+
+  function run() {
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    for (var i = 0; i < items.length; i++) {
+      var hit = !q || haystack[i].indexOf(q) !== -1;
+      items[i].classList.toggle("is-hidden", !hit);
+      if (hit) shown++;
+    }
+    count.textContent = q ? shown + " of " + items.length : "";
+    empty.hidden = shown !== 0;
+    empty.textContent = shown === 0 ? 'Nothing matches "' + input.value.trim() + '".' : "";
+  }
+
+  input.addEventListener("input", run);
+  // Escape clears, which is what a search box is expected to do.
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { input.value = ""; run(); }
+  });
+})();
+</script>
