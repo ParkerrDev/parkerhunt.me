@@ -45,6 +45,12 @@
    see scripts/fetch-icons.mjs, including the note on why using someone
    else's logo to say "I use this" is fine and drawing an imitation is not. #}
 {% set ico2 = load_data(path="data/icons.json") %}
+{# Full-colour logos from Wikimedia Commons, for the brands Simple Icons does
+   not carry. Licences and credits are in the file; see scripts/fetch-logos.mjs. #}
+{% set logos = load_data(path="data/logos.json") %}
+{# The watch list, resolved against Wikidata: IMDb ids, years, genres, and a
+   free title logo where Commons has one. See scripts/fetch-titles.mjs. #}
+{% set titles = load_data(path="data/titles.json") %}
 
 <header class="hero">
     <div class="wrap hero-in">
@@ -319,47 +325,16 @@
 
         </div>
 
-        {# The library and the discounted wishlist, as rails rather than two
-           stacked panels. A library is a shelf — the natural way to look at one
-           is along it, and forty rows in a scroll pane was the opposite of that.
-           Both run full-bleed so the row reads as continuing past the edge. #}
-        <p class="wrap kicker">Most played · {{ steam.totals.hours | num_format }} hours across {{ steam.totals.played }} games</p>
-        <div class="rail">
-            <div class="rail-track">
-                {% for g in steam.library | slice(end=steam.totals.played) %}
-                <a class="gcard gcard--rail" href="{{ g.url }}" target="_blank" rel="noopener">
-                    <div class="gcard-art">
-                        <img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async">
-                        <span class="gcard-n">{{ g.hours }} h</span>
-                    </div>
-                    <div class="gcard-body">
-                        <span class="gcard-t">{{ g.name }}</span>
-                        <span class="gcard-m">{% if g.ach_total %}{{ g.ach_done }}/{{ g.ach_total }} achievements{% else %}{{ g.released }}{% endif %}</span>
-                    </div>
-                </a>
-                {% endfor %}
-            </div>
+        {# The library and the wishlist, each as a horizontal shelf inside its
+           own Steam panel. The panel is the point: a bare row of capsules on a
+           white page was not recognisably Steam, and the profile bar and the
+           four counters are half of what made the section read at a glance. #}
+        <div class="wrap" style="display:grid;gap:var(--gap)">
+            {{ isle::steam_shelf(steam=steam, games=steam.library | slice(end=steam.totals.played), label="Most played") }}
+            {% if steam.on_sale | length > 0 %}
+            {{ isle::steam_shelf(steam=steam, games=steam.on_sale, label=steam.totals.on_sale ~ " on sale right now", sale=true) }}
+            {% endif %}
         </div>
-
-        {% if steam.on_sale | length > 0 %}
-        <p class="wrap kicker" style="margin-top:1rem">On sale from the wishlist right now · {{ steam.totals.on_sale }} of {{ steam.totals.wishlisted }}</p>
-        <div class="rail">
-            <div class="rail-track">
-                {% for g in steam.on_sale %}
-                <a class="gcard gcard--rail" href="{{ g.url }}" target="_blank" rel="noopener">
-                    <div class="gcard-art">
-                        <img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async">
-                        <span class="gcard-off">-{{ g.price.off }}%</span>
-                    </div>
-                    <div class="gcard-body">
-                        <span class="gcard-t">{{ g.name }}</span>
-                        <span class="gcard-m"><s>{{ g.price.was }}</s> {{ g.price.now }}</span>
-                    </div>
-                </a>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
 
         <div class="wrap">
             <p class="feed-foot">Playtime is pinned by hand — the profile is private, so there is no public endpoint for it. Prices come from Steam's public store API and were checked {{ steam.fetched }}. <a href="/games/">The whole library and wishlist →</a></p>
@@ -510,7 +485,7 @@
                 {% for s in me.coffee_shop %}
                 <div class="receipt{% if s.orders | length == 0 %} receipt--sour{% endif %}">
                     <div class="receipt-h">
-                        <span class="mark mark--lg{% if not s.icon %} mark--letter{% endif %}" style="--c:{{ s.colour }}">{% if s.icon %}{{ ico::mark(icons=ico2.icons, name=s.icon) }}{% else %}{{ s.mono }}{% endif %}</span>
+                        <span class="mark mark--lg{% if not s.icon %} mark--letter{% endif %}" style="--c:{{ s.colour }}">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, name=s.icon, mono=s.mono) }}</span>
                         <b>{{ s.name }}</b>
                         <span>{% if s.orders | length > 0 %}Usual order{% else %}No order{% endif %}</span>
                     </div>
@@ -598,7 +573,7 @@
             <ul class="bento bento--sm" style="list-style:none;margin:0;padding:0">
                 {% for d in me.distro %}
                 <li class="chip{% if d.current %} chip--now{% endif %}">
-                    <span class="swatch" style="--c:{{ d.colour }}" aria-hidden="true">{% if d.icon %}{{ ico::mark(icons=ico2.icons, name=d.icon) }}{% else %}{{ d.mono }}{% endif %}</span>
+                    <span class="swatch" style="--c:{{ d.colour }}" aria-hidden="true">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, name=d.icon, mono=d.mono) }}</span>
                     <span class="t-t">{{ d.name }}</span>
                     <span class="t-k" style="text-align:center">{% if d.current %}Now{% else %}{% if loop.index < 10 %}0{% endif %}{{ loop.index }}{% endif %}</span>
                 </li>
@@ -692,119 +667,52 @@
     {% if me.books_read | length > 0 %}
     <section id="shelf">
         <div class="wrap">
-            <div class="head"><h2>Shelf</h2><p>{{ me.books_read | length }} of them, in the order I read them.</p></div>
-            <div class="duo">
-                {% if me.books_read | length > 0 %}
-                <div>
-                    <p class="kicker">Read</p>
-                    <div class="bento bento--sm">
-                        {% for b in me.books_read %}
-                        <div class="chip">
-                            {# Jacket art is the publisher's, shown at thumbnail
-                               size to identify an edition — the same thing every
-                               library catalogue does. Fetched and converted by
-                               scripts/fetch-media.mjs; nothing loads from
-                               openlibrary.org at page load. #}
-                            <span class="cover">
-                                {%- if b.cover and media.covers[b.cover] %}
-                                <img src="{{ media.covers[b.cover] }}" width="200" height="300" alt="{{ b.title }}" loading="lazy" decoding="async">
-                                {%- endif %}
-                            </span>
-                            <span class="t-t">{{ b.title }}</span>
-                            <span class="t-s">{{ b.author }}{% if b.year %} · {{ b.year }}{% endif %}</span>
-                        </div>
-                        {% endfor %}
-                    </div>
+            <div class="head">
+                <h2>Shelf</h2>
+                <p>{{ me.books_read | length }} of them. The section used to be as tall as the books were numerous, which is not a design.</p>
+                <a class="more" href="/shelf/">Every book →</a>
+            </div>
+        </div>
+        {# Twelve, scrolling. The rest are on /shelf/. #}
+        <div class="rail">
+            <div class="rail-track">
+                {% for b in me.books_read | slice(end=12) %}
+                <div class="chip chip--rail">
+                    <span class="cover">
+                        {%- if b.cover and media.covers[b.cover] %}
+                        <img src="{{ media.covers[b.cover] }}" width="200" height="300" alt="{{ b.title }}" loading="lazy" decoding="async">
+                        {%- endif %}
+                    </span>
+                    <span class="t-t">{{ b.title }}</span>
+                    <span class="t-s">{{ b.author }}{% if b.year %} · {{ b.year }}{% endif %}</span>
                 </div>
-                {% endif %}
+                {% endfor %}
             </div>
         </div>
     </section>
     {% endif %}
 
     {# --------------------------------------------------------- watching -- #}
-    {% if me.shows | length > 0 or me.watched | length > 0 or me.films | length > 0 %}
+    {% if titles.shows | length > 0 %}
     <section id="watching">
         <div class="wrap">
             <div class="head">
                 <h2>Watching</h2>
-                <p>{{ me.watched | length }} shows and counting. The first three are a ranking; the rest is just the list.</p>
+                <p>{{ titles.count }} shows. {{ titles.with_logo }} of them have a real title logo; the rest are set in type, because key art is copyrighted and free posters do not exist.</p>
+                <a class="more" href="/watching/">All of them →</a>
             </div>
-
-            {# Posters, but not the real ones. Key art belongs to the people who
-               made the show, so each of these is the title set in this site's
-               own face on a colour picked to evoke it — original artwork that
-               happens to be about someone else's. bg/fg live in me.toml. #}
-            {% if me.shows | length > 0 %}
-            <p class="kicker">Ranked</p>
-            <div class="bento" style="margin-bottom:1.25rem">
-                {% for sh in me.shows %}
-                <div class="chip">
-                    <div class="poster poster--lg" style="--pb:{{ sh.bg }};--pf:{{ sh.fg }}">
-                        <span class="poster-n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
-                        <span class="poster-t">{{ sh.title }}</span>
-                        <span class="poster-y">{{ sh.year }}</span>
-                    </div>
-                    {% if sh.note %}<span class="t-s">{{ sh.note }}</span>{% endif %}
-                </div>
-                {% endfor %}
-            </div>
-            {% endif %}
-
-            {% if me.anime | length > 0 %}
-            <p class="kicker">Anime</p>
-            <div class="bento" style="margin-bottom:1.25rem">
-                {% for a in me.anime %}
-                <div class="chip">
-                    <div class="poster poster--lg" style="--pb:{{ a.bg }};--pf:{{ a.fg }}">
-                        <span class="poster-t">{{ a.title }}</span>
-                        <span class="poster-y">{{ a.year }}</span>
-                    </div>
-                    {% if a.note %}<span class="t-s">{{ a.note }}</span>{% endif %}
-                </div>
-                {% endfor %}
-            </div>
-            {% endif %}
-
-            {% if me.films | length > 0 %}
-            <p class="kicker">Films</p>
-            <div class="bento" style="margin-bottom:1.25rem">
-                {% for f in me.films %}
-                <div class="tile-s2">
-                    <span class="t-k">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}{% if f.year %} · {{ f.year }}{% endif %}</span>
-                    <span class="t-t">{{ f.title }}</span>
-                    {% if f.note %}<span class="t-s">{{ f.note }}</span>{% endif %}
-                </div>
-                {% endfor %}
-            </div>
-            {% endif %}
-
-            {% if me.watched | length > 0 %}<p class="kicker">Everything, so far</p>{% endif %}
         </div>
-
-        {# The wall. Two rows running opposite ways, full-bleed, because 36
-           posters do not fit on a screen and a grid of 36 would be most of the
-           page. Split at the halfway mark so both rows are the same length and
-           neither runs out early. #}
-        {% if me.watched | length > 0 %}
-        {% set half = me.watched | length / 2 | round(method="ceil") %}
+        {# Two rails, opposite directions. Every card links to IMDb where
+           Wikidata had an id — see scripts/fetch-titles.mjs. #}
         {% for row in [1, 2] %}
-        <div class="marquee{% if row == 2 %} mq-rev{% endif %}" style="--mq:{% if row == 1 %}88s{% else %}96s{% endif %}{% if row == 2 %};margin-top:var(--gap){% endif %}">
-            <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
-                {% for w in me.watched | slice(start=(row - 1) * half, end=row * half) %}
-                <div class="poster poster--sm" style="--pb:{{ w.bg }};--pf:{{ w.fg }}">
-                    <span class="poster-t">{{ w.title }}</span>
-                    <span class="poster-y">{{ w.year }}{% if w.note %} · {{ w.note }}{% endif %}</span>
-                </div>
-                {% endfor %}
-                </span>
+        <div class="rail{% if row == 2 %}{% endif %}"{% if row == 2 %} style="margin-top:var(--gap)"{% endif %}>
+            <div class="rail-track">
+                {% for w in titles.shows | slice(start=(row - 1) * 18, end=row * 18) %}
+                {{ isle::poster(w=w, size="sm") }}
                 {% endfor %}
             </div>
         </div>
         {% endfor %}
-        {% endif %}
     </section>
     {% endif %}
 
@@ -820,10 +728,10 @@
                         {# The winner's mark in its own brand colour, the loser's
                            drained to grey. The argument is in the picture before
                            you read a word of it. #}
-                        <span class="mark" style="--c:{% if ico2.icons[t.pick_icon] %}{{ ico2.icons[t.pick_icon].hex }}{% else %}var(--fg){% endif %}">{{ ico::mark(icons=ico2.icons, name=t.pick_icon) }}</span>
+                        <span class="mark" style="--c:{% if ico2.icons[t.pick_icon] %}{{ ico2.icons[t.pick_icon].hex }}{% else %}var(--fg){% endif %}">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, name=t.pick_icon) }}</span>
                         <span class="take-pick">{{ t.pick }}</span>
                         <span class="take-over">over</span>
-                        <span class="mark mark--lose">{{ ico::mark(icons=ico2.icons, name=t.over_icon) }}</span>
+                        <span class="mark">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, name=t.over_icon) }}</span>
                         <span class="take-lose">{{ t.over }}</span>
                     </div>
                     {% if t.why %}<p class="take-why">{{ t.why }}</p>{% endif %}

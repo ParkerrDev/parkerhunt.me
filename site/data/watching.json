@@ -1,0 +1,251 @@
+{
+  "_comment": [
+    "The watch list. THIS IS THE ONLY FILE TO EDIT — add {\"title\": \"...\"} and run",
+    "  node scripts/fetch-titles.mjs",
+    "which resolves the rest from Wikidata: the IMDb id, the year, the genres, and",
+    "a title logo from Wikimedia Commons when a freely-licensed one exists.",
+    "",
+    "`qid` pins a Wikidata item by hand. Use it when a title is ambiguous -- 'The",
+    "`imdb` pins the id by hand; `no_imdb` says there is no good match and stops the",
+    "script guessing. Tom and Jerry has one because the search finds a folk-rock duo.",
+    "Boys' resolves to a 1962 series without one. `bg`/`fg` paint the fallback",
+    "card for titles with no free logo, which is most of them.",
+    "",
+    "`rank` marks the ranked favourites (1, 2, 3); `anime = true` marks anime.",
+    "Anything else is just on the list."
+  ],
+  "shows": [
+    {
+      "title": "Barry",
+      "year": 2018,
+      "bg": "#1A1A1A",
+      "fg": "#E8C547",
+      "qid": "Q26812664"
+    },
+    {
+      "title": "The Flash",
+      "year": 2014,
+      "bg": "#B3121C",
+      "fg": "#F5D547"
+    },
+    {
+      "title": "The Walking Dead",
+      "year": 2010,
+      "bg": "#232320",
+      "fg": "#E88379"
+    },
+    {
+      "title": "Danny Phantom",
+      "year": 2004,
+      "bg": "#0E1B3A",
+      "fg": "#3FE0A8"
+    },
+    {
+      "title": "Lab Rats",
+      "year": 2012,
+      "bg": "#123A5E",
+      "fg": "#4FC3F7"
+    },
+    {
+      "title": "Gravity Falls",
+      "year": 2012,
+      "bg": "#1E3D2F",
+      "fg": "#E0B04C",
+      "qid": "Q550555"
+    },
+    {
+      "title": "Kid Danger",
+      "year": 2018,
+      "bg": "#123C7A",
+      "fg": "#F5B301"
+    },
+    {
+      "title": "Life on Mars",
+      "year": 2006,
+      "bg": "#6B3410",
+      "fg": "#E8D5B0"
+    },
+    {
+      "title": "Stranger Things",
+      "year": 2016,
+      "bg": "#0B0B14",
+      "fg": "#F4525B"
+    },
+    {
+      "title": "Rick and Morty",
+      "year": 2013,
+      "bg": "#0F2E28",
+      "fg": "#97CE4C"
+    },
+    {
+      "title": "Tom and Jerry",
+      "year": 1940,
+      "bg": "#2A2118",
+      "fg": "#E8B44A",
+      "no_imdb": true
+    },
+    {
+      "title": "Blue's Clues",
+      "year": 1996,
+      "bg": "#1B5FA8",
+      "fg": "#FFFFFF"
+    },
+    {
+      "title": "Seinfeld",
+      "year": 1989,
+      "bg": "#1F4FA3",
+      "fg": "#F4D03F",
+      "rank": 3
+    },
+    {
+      "title": "Silicon Valley",
+      "year": 2014,
+      "bg": "#04564E",
+      "fg": "#7FE8D8",
+      "rank": 1
+    },
+    {
+      "title": "Mr. Robot",
+      "year": 2015,
+      "bg": "#1A1A1A",
+      "fg": "#F26A63",
+      "rank": 2
+    },
+    {
+      "title": "SpongeBob SquarePants",
+      "year": 1999,
+      "bg": "#F2C300",
+      "fg": "#12507A"
+    },
+    {
+      "title": "Breaking Bad",
+      "year": 2008,
+      "bg": "#253B26",
+      "fg": "#D7C64A"
+    },
+    {
+      "title": "Better Call Saul",
+      "year": 2015,
+      "bg": "#1F1B14",
+      "fg": "#E2B33C"
+    },
+    {
+      "title": "Naruto",
+      "year": 2002,
+      "bg": "#E4761B",
+      "fg": "#16233F",
+      "anime": true,
+      "note": "and Shippuden, and the films"
+    },
+    {
+      "title": "Death Note",
+      "year": 2006,
+      "bg": "#101014",
+      "fg": "#F2545B",
+      "anime": true,
+      "note": "37 episodes, no filler"
+    },
+    {
+      "title": "The Queen's Gambit",
+      "year": 2020,
+      "bg": "#2E4A3F",
+      "fg": "#EFE6D2"
+    },
+    {
+      "title": "Fargo",
+      "year": 2014,
+      "bg": "#E8EDF2",
+      "fg": "#8C2F2F"
+    },
+    {
+      "title": "The Chosen",
+      "year": 2017,
+      "bg": "#2C3E50",
+      "fg": "#E4C97E"
+    },
+    {
+      "title": "BoJack Horseman",
+      "year": 2014,
+      "bg": "#F4A93B",
+      "fg": "#2B3A55"
+    },
+    {
+      "title": "Naruto Shippuden",
+      "year": 2007,
+      "bg": "#1C2540",
+      "fg": "#E4761B",
+      "note": "and every other Naruto series and film"
+    },
+    {
+      "title": "Invincible",
+      "year": 2021,
+      "bg": "#1B3A8C",
+      "fg": "#E4C200",
+      "qid": "Q55614601"
+    },
+    {
+      "title": "The Simpsons",
+      "year": 1989,
+      "bg": "#FFD90F",
+      "fg": "#2B4A9B",
+      "qid": "Q886"
+    },
+    {
+      "title": "Arrested Development",
+      "year": 2003,
+      "bg": "#F2E205",
+      "fg": "#1B4D8C"
+    },
+    {
+      "title": "Parks and Recreation",
+      "year": 2009,
+      "bg": "#1E5B3E",
+      "fg": "#F2D06B"
+    },
+    {
+      "title": "The Office",
+      "year": 2005,
+      "bg": "#2E4E6B",
+      "fg": "#E8E2D0",
+      "qid": "Q23831"
+    },
+    {
+      "title": "Haikyuu!!",
+      "year": 2014,
+      "bg": "#E36414",
+      "fg": "#14213D"
+    },
+    {
+      "title": "One Punch Man",
+      "year": 2015,
+      "bg": "#F2C500",
+      "fg": "#6E0A11"
+    },
+    {
+      "title": "Boardwalk Empire",
+      "year": 2010,
+      "bg": "#14100C",
+      "fg": "#C9A227"
+    },
+    {
+      "title": "The IT Crowd",
+      "year": 2006,
+      "bg": "#C1272D",
+      "fg": "#F2F2F2"
+    },
+    {
+      "title": "The Boys",
+      "year": 2019,
+      "bg": "#0D1B2A",
+      "fg": "#FF6B6B",
+      "qid": "Q56312292",
+      "imdb": "tt1190634"
+    },
+    {
+      "title": "Impractical Jokers",
+      "year": 2011,
+      "bg": "#1B2A4A",
+      "fg": "#E8A33D"
+    }
+  ]
+}

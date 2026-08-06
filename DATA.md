@@ -30,6 +30,8 @@ scripts/fetch-*.mjs ──► site/data/*.json ──► templates ──► pub
 | `fetch-media.mjs` | Wikimedia Commons + Open Library | `site/static/imgs/media/*.webp` + `site/data/media.json` | none, **local only** |
 | `build-map.mjs` | Wikimedia Commons + `site/data/travel.json` | `site/static/imgs/us-visited.svg` + `site/data/travel-map.json` | none, **local only** |
 | `fetch-icons.mjs` | Simple Icons | `site/data/icons.json` | none |
+| `fetch-logos.mjs` | Wikimedia Commons | `site/static/imgs/logos/*.webp` + `site/data/logos.json` | none, **local only** |
+| `fetch-titles.mjs` | Wikidata + Commons + `site/data/watching.json` | `site/data/titles.json` + `site/static/imgs/titles/*.webp` | none, **local only** |
 
 All five fetchers run from `build-zola.sh` on every Cloudflare deploy. No API
 key, no token, no cookie: every endpoint above answers unauthenticated.
@@ -182,6 +184,46 @@ to a two-letter monogram.
 TV posters are the one thing that cannot be solved this way. Key art is
 copyrighted and has no free source at any size, which is why the show cards are
 typography rather than pictures.
+
+## The watch-list pipeline
+
+Adding a show is one line in `site/data/watching.json`:
+
+```json
+{ "title": "Severance" }
+```
+
+Then `node scripts/fetch-titles.mjs`. It comes back with a year, an IMDb link,
+the genres, and — where Wikimedia Commons has a freely-licensed one — the title
+logo, downloaded and converted. 35 of 36 shows resolved an IMDb id and 22 got a
+real logo without anyone typing an eleven-digit identifier.
+
+Facts come from **Wikidata**, which is CC0. TMDb and OMDb would have been less
+work and both would have been wrong here: they need an API key, which means a
+secret in the build, and their artwork is the studios' rather than theirs to
+license on.
+
+Three things that took a second pass:
+
+- **Title collisions.** A bare search for "Barry" returns a given name, a family
+  name and a town in the Vale of Glamorgan. `resolve_qid()` now retries with
+  "television series" and "anime" appended, matches a wide list of Wikidata
+  classes (a TV series is not one class — The Simpsons is an *animated sitcom*),
+  and falls back to "has an IMDb id and is not on the not-a-show blocklist".
+  Four titles still needed a hand-pinned `qid`; `imdb` and `no_imdb` override it
+  entirely, which is how Tom and Jerry stops resolving to a folk-rock duo.
+- **Posters do not exist, legally.** Key art is copyrighted with no free source
+  at any size; Wikipedia's own poster files are tagged non-free and are fair use
+  *on Wikipedia*, which does not travel. Title *logos* are different — a wordmark
+  set in a typeface is often below the threshold of originality and therefore
+  public domain. That is what this fetches, and it is why some shows have a real
+  logo and the rest are typography.
+- **Half the logos were invisible.** They are transparent wordmarks and the card
+  behind them was a hand-picked colour: Better Call Saul is black type, The
+  Walking Dead is white type, and no one card colour carries both. `isDark()`
+  decodes each logo with `dwebp` to PAM, averages the luminance of the *opaque*
+  pixels only, and records it; the template then puts dark ink on a near-white
+  plate and light ink on a near-black one.
 
 ## The hand-written half
 

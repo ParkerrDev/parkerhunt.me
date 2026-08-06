@@ -1,0 +1,41 @@
+{
+  "fetched": "2026-08-06",
+  "logos": {
+    "dutchbros": {
+      "src": "/imgs/logos/dutchbros.webp",
+      "pad": true,
+      "licence": "Public domain",
+      "author": "Dutch Bros. Coffee (Q5317253)",
+      "source": "https://commons.wikimedia.org/wiki/File:Dutch_Bros_Coffee_wordmark.svg",
+      "credit_required": false,
+      "bytes": 5560
+    },
+    "nobara": {
+      "src": "/imgs/logos/nobara.webp",
+      "pad": true,
+      "licence": "CC BY-SA 4.0",
+      "author": "Nobara Project",
+      "source": "https://commons.wikimedia.org/wiki/File:Nobara_logotype.png",
+      "credit_required": true,
+      "bytes": 2516
+    },
+    "cachyos": {
+      "src": "/imgs/logos/cachyos.webp",
+      "pad": false,
+      "licence": "GPL",
+      "author": "ptr1337",
+      "source": "https://commons.wikimedia.org/wiki/File:CachyOS_Logo.svg",
+      "credit_required": false,
+      "bytes": 6890
+    },
+    "windows": {
+      "src": "/imgs/logos/windows.webp",
+      "pad": false,
+      "licence": "Public domain",
+      "author": "Original work: Microsoft (may be obtained from https://answers.microsoft.com/static/resourceimages/categories/windows.svg) File:Windows 11 Logo.svg: Multiple editors; see image description page This work: Minionguyjpro",
+      "source": "https://commons.wikimedia.org/wiki/File:Windows_logo_-_2021_(Black).svg",
+      "credit_required": false,
+      "bytes": 288
+    }
+  }
+}

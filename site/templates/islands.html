@@ -189,3 +189,61 @@
 </a>
 {% endfor %}
 {% endmacro nexus %}
+
+{# --- Steam: the profile panel, with a horizontal shelf inside -------------- #}
+{# The chrome that got lost when the library became a rail: Steam's own header
+   bar and its four counters. A bare row of capsules on a white page was not
+   recognisably Steam. The rail lives INSIDE the dark panel now, so it is both
+   scrollable and unmistakably Steam. #}
+{% macro steam_shelf(steam, games, label, sale=false) %}
+<div class="panel stm">
+    <div class="s-head">
+        {{ ico::steam() }} <b>{{ steam.profile.name }}</b>
+        <span class="s-h-sub">{{ label }}</span>
+    </div>
+    <div class="s-stats">
+        <div class="s-stat"><b>{{ steam.totals.owned }}</b><span>Games</span></div>
+        <div class="s-stat"><b>{{ steam.totals.hours | num_format }}</b><span>Hours</span></div>
+        <div class="s-stat"><b>{{ steam.totals.wishlisted }}</b><span>Wishlisted</span></div>
+        <div class="s-stat"><b>{{ steam.totals.on_sale }}</b><span>On sale now</span></div>
+    </div>
+    <div class="rail rail--in">
+        <div class="rail-track rail-track--in">
+            {% for g in games %}
+            <a class="sgame sgame--tile" href="{{ g.url }}" target="_blank" rel="noopener">
+                <span class="s-art"><img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async"></span>
+                <span class="s-name">{{ g.name }}</span>
+                {% if sale %}
+                <span class="s-sub"><span class="s-off">-{{ g.price.off }}%</span><span class="s-was">{{ g.price.was }}</span><span class="s-now">{{ g.price.now }}</span></span>
+                {% else %}
+                <span class="s-sub"><span class="s-hours">{{ g.hours }} hours</span>{% if g.ach_total %}<span>{{ g.ach_done }}/{{ g.ach_total }}</span>{% endif %}</span>
+                {% endif %}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endmacro steam_shelf %}
+
+{# --- a show card ---------------------------------------------------------- #}
+{# A real title logo when Wikimedia Commons had a freely-licensed one, and the
+   title set in type when it did not — which is most of the time, because key
+   art is copyrighted and no free source for it exists at any size. The colour
+   pair is hand-picked per show in site/data/watching.json. #}
+{% macro poster(w, size="sm") %}
+{# A logo card ignores the hand-picked colour and uses a plate chosen from the
+   logo's own ink — measured at fetch time, see isDark() in fetch-titles.mjs.
+   Dark type gets a near-white plate, light type gets a near-black one. Without
+   this, Better Call Saul's black wordmark sat on a black card and vanished. #}
+<a class="poster poster--{{ size }}{% if w.logo %} poster--logo poster--{% if w.logo.dark %}plate{% else %}slate{% endif %}{% endif %}"
+   style="--pb:{{ w.bg }};--pf:{{ w.fg }}"
+   {% if w.imdb_url %}href="{{ w.imdb_url }}" target="_blank" rel="noopener"{% endif %}>
+    {% if w.rank %}<span class="poster-n">{% if w.rank < 10 %}0{% endif %}{{ w.rank }}</span>{% endif %}
+    {% if w.logo %}
+    <img class="poster-i" src="{{ w.logo.src }}" alt="{{ w.title }}" width="240" height="120" loading="lazy" decoding="async">
+    {% else %}
+    <span class="poster-t">{{ w.title }}</span>
+    {% endif %}
+    <span class="poster-y">{{ w.year }}{% if w.anime %} · anime{% endif %}{% if w.imdb_url %} · IMDb{% endif %}</span>
+</a>
+{% endmacro poster %}

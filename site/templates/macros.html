@@ -126,3 +126,18 @@
 {# One call site for both kinds: "g:cup" draws a glyph, anything else is a
    Simple Icons slug. Keeps me.toml down to a single `icon` field per row. #}
 {% macro mark(icons, name, tint=false) %}{% if name is starting_with("g:") %}{{ self::glyph(name=name | replace(from="g:", to="")) }}{% else %}{{ self::brand(icons=icons, slug=name, tint=tint) }}{% endif %}{% endmacro mark %}
+
+{# The full mark resolver, in priority order:
+     c:key   a full-colour logo from Wikimedia Commons (site/data/logos.json)
+     g:name  one of the generic glyphs above
+     slug    a monochrome Simple Icons path
+     else    the two-letter lettermark
+   Three sources because no single one covers everything: Simple Icons has the
+   software brands and only in monochrome, Commons has the full-colour logos and
+   the company wordmarks that are public domain, and some businesses are in
+   neither. See scripts/fetch-icons.mjs and scripts/fetch-logos.mjs. #}
+{% macro anymark(icons, logos, name, mono="") %}
+{%- if name is starting_with("c:") %}{% set k = name | replace(from="c:", to="") %}{% if logos[k] %}<img class="bi bl{% if logos[k].pad %} bl--pad{% endif %}" src="{{ logos[k].src }}" alt="" width="64" height="64" loading="lazy" decoding="async">{% endif %}
+{%- elif name %}{{ self::mark(icons=icons, name=name) }}
+{%- else %}{{ mono }}{% endif -%}
+{% endmacro anymark %}

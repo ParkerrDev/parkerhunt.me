@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% import "macros.html" as ico %}
+{% import "islands.html" as isle %}
+
+{# Every show, with the metadata the pipeline resolved: year, genres, IMDb.
+   See scripts/fetch-titles.mjs — adding a show is one line in
+   site/data/watching.json and a re-run. #}
+
+{% block content %}
+{% set titles = load_data(path="data/titles.json") %}
+
+<header class="hero">
+    <div class="wrap">
+        <a class="back" href="/">{{ ico::back() }} Home</a>
+        <h1>{{ page.title }}</h1>
+        <p class="hero-lede">{{ page.description }}</p>
+        <ul class="facts" style="margin-top:1.25rem">
+            <li>{{ titles.count }} shows</li>
+            <li>{{ titles.with_logo }} with a real logo</li>
+            <li>metadata from Wikidata</li>
+        </ul>
+    </div>
+</header>
+
+<main id="main">
+    <section style="padding-top:0">
+        <div class="wrap">
+            <div class="bento">
+                {% for w in titles.shows %}
+                <div class="chip">
+                    {{ isle::poster(w=w, size="lg") }}
+                    <span class="t-t">{{ w.title }}</span>
+                    {% if w.genres %}<span class="t-s">{{ w.genres | join(sep=" · ") }}</span>{% endif %}
+                    {% if w.note %}<span class="t-k">{{ w.note }}</span>{% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            {# Worth saying plainly, because the obvious question about a page of
+               shows is where the posters are. #}
+            <div class="prose">
+                <h2>Why there are no posters</h2>
+                <p>Key art is copyrighted and has no free source at any size. Wikipedia's own poster
+                   files are tagged non-free — they are fair use <em>on Wikipedia</em>, which does not
+                   travel to anyone else's site. So {{ titles.with_logo }} of these carry a real title
+                   logo, because a wordmark set in a typeface is often below the threshold of
+                   originality and therefore public domain, and the rest are set in this site's own
+                   type on a colour picked by hand.</p>
+                <p>Everything else — the year, the genres, the IMDb link — comes from
+                   <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a>, which is CC0.
+                   Snapshot taken {{ titles.fetched }}.</p>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
