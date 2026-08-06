@@ -1,0 +1,14 @@
+# Cloudflare Pages reads this from the deployed root.
+
+# The blog is disabled (see content/blog/_index.md). These URLs were published,
+# so they redirect rather than 404 — a previously-live path should not become a
+# dead end, and inbound links keep their value.
+#
+# This also serves a second purpose. Pages caches responses at its own edge with
+# a 7-day s-maxage, and the zone purge API cannot reach that cache: when /blog/
+# was simply deleted, the old page kept being served with no way to evict it.
+# Publishing a redirect at the same path replaces the cached object instead of
+# trying to delete it. Remove these three lines when the blog comes back.
+/blog     /  301
+/blog/    /  301
+/blog/*   /  301
