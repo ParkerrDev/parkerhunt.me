@@ -1,3 +1,8 @@
+# NOTE: the [li] block below is NO LONGER RENDERED. The home page shows the X
+# posts only, as a horizontal rail — see #posts in templates/index.html. The
+# data is left here rather than deleted so putting the feed back is a template
+# change and not a retyping job.
+
 # The X and LinkedIn feeds.
 #
 # WHY THESE ARE HAND-WRITTEN RATHER THAN FETCHED
