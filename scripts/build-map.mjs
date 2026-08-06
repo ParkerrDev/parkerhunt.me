@@ -36,8 +36,9 @@
  * Usage:  node scripts/build-map.mjs [travel.json] [outSvg] [outData]
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { dirname, resolve, join } from "node:path";
 
 const IN = resolve(process.argv[2] || "site/data/travel.json");
 const OUT_SVG = resolve(process.argv[3] || "site/static/imgs/us-visited.svg");
@@ -115,8 +116,28 @@ const svg =
   body +
   `</svg>\n`;
 
-mkdirSync(dirname(OUT_SVG), { recursive: true });
-writeFileSync(OUT_SVG, svg);
+/* CONTENT-HASHED, and this is not a nicety.
+ *
+ * _headers serves /imgs/* with `max-age=31536000, immutable`, which is correct
+ * for art whose filename encodes its contents and catastrophic for a file whose
+ * name stays put while its contents change. Adding two states to the map and
+ * re-deploying under the same name meant every browser that had ever loaded the
+ * page kept the old map for a year. The states were filled in the file and
+ * nobody could see it.
+ *
+ * So the name carries a hash of the fill set. New states, new filename, new
+ * download; unchanged map, unchanged filename, still cached. */
+const stamp = createHash("sha256").update([...want].sort().join(",")).digest("hex").slice(0, 8);
+const named = OUT_SVG.replace(/\.svg$/, `-${stamp}.svg`);
+
+mkdirSync(dirname(named), { recursive: true });
+// Sweep the old ones, or the directory silently accumulates a map per edit.
+for (const f of readdirSync(dirname(named))) {
+  if (/^us-visited(-[0-9a-f]{8})?\.svg$/.test(f) && join(dirname(named), f) !== named) {
+    unlinkSync(join(dirname(named), f));
+  }
+}
+writeFileSync(named, svg);
 
 mkdirSync(dirname(OUT_DATA), { recursive: true });
 writeFileSync(
@@ -124,7 +145,7 @@ writeFileSync(
   JSON.stringify(
     {
       built: new Date().toISOString().slice(0, 10),
-      map: "/imgs/us-visited.svg",
+      map: `/imgs/${named.split("/").pop()}`,
       count: want.size,
       total: states.length,
       credit: CREDIT,
@@ -141,5 +162,5 @@ writeFileSync(
 );
 
 console.log(
-  `Map: ${want.size} of ${states.length} states filled, ${(svg.length / 1024).toFixed(0)} KB -> ${OUT_SVG}`
+  `Map: ${want.size} of ${states.length} states filled, ${(svg.length / 1024).toFixed(0)} KB -> ${named}`
 );

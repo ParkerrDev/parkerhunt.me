@@ -89,7 +89,7 @@ bean = "Colombian"
 # past tense.
 [vice]
 what = "Takis"
-icon = ""
+icon = "b:takis"
 mono = "TK"
 colour = "#C4162B"
 kicked = true
@@ -100,7 +100,7 @@ line = "I love how they taste and I have a genuine problem with them — a fiest
 # opinion; leave it empty for a shop with no complaint attached.
 [[coffee_shop]]
 name = "Starbucks"
-icon = "c:starbucks"
+icon = "b:starbucks"
 mono = "SB"
 colour = "#00704A"
 verdict = ""
@@ -120,7 +120,7 @@ orders = ["Grande vanilla sweet cream cold brew"]
 
 [[coffee_shop]]
 name = "Dutch Bros"
-icon = "c:dutchbros"
+icon = "b:dutchbros"
 mono = "DB"
 colour = "#00539B"
 verdict = "Too sweet. I do not go."
@@ -130,7 +130,7 @@ orders = []
 # `order` is optional and renders as a second receipt when it is there.
 [[restaurant]]
 name = "Butterfish"
-icon = ""
+icon = "b:butterfish"
 mono = "BF"
 colour = "#1F6F8B"
 kind = "poke"
@@ -149,11 +149,17 @@ order = [
 
 [[restaurant]]
 name = "Chipotle"
-icon = ""
+icon = "b:chipotle"
 mono = "CH"
 colour = "#A81612"
-kind = "burrito"
-order = []
+kind = "burrito bowl"
+order = [
+  "Honey chicken",
+  "Cheese",
+  "Brown rice",
+  "Fajitas",
+  "Black beans",
+]
 
 # ---------------------------------------------------------------- distros --
 # The distro-hopping progression, in order. Exactly one entry should have

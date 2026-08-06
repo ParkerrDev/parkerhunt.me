@@ -12,7 +12,9 @@
     "card for titles with no free logo, which is most of them.",
     "",
     "`rank` marks the ranked favourites (1, 2, 3); `anime = true` marks anime.",
-    "Anything else is just on the list."
+    "Anything else is just on the list.",
+    "`tmdb_id` pins the poster when /find picks the wrong entry or has none —",
+    "The Chosen had a 2009 namesake, Tom and Jerry has no id to /find on at all."
   ],
   "shows": [
     {
@@ -82,7 +84,8 @@
       "year": 1940,
       "bg": "#2A2118",
       "fg": "#E8B44A",
-      "no_imdb": true
+      "no_imdb": true,
+      "tmdb_id": 7842
     },
     {
       "title": "Blue's Clues",
@@ -161,7 +164,8 @@
       "title": "The Chosen",
       "year": 2017,
       "bg": "#2C3E50",
-      "fg": "#E4C97E"
+      "fg": "#E4C97E",
+      "tmdb_id": 85077
     },
     {
       "title": "BoJack Horseman",

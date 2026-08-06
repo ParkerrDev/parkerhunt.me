@@ -83,10 +83,20 @@ const data = JSON.parse(readFileSync(FILE, "utf8"));
 let found = 0, missed = [];
 
 for (const s of data.shows) {
-  if (!s.imdb) { missed.push(s.title); continue; }
+  /* A hand-pinned tmdb_id wins outright. Needed twice: The Chosen's IMDb id
+     finds a 2009 namesake, and the classic Tom and Jerry shorts have no IMDb id
+     for /find to work from at all. */
+  if (!s.imdb && !s.tmdb_id) { missed.push(s.title); continue; }
   try {
-    const r = await tmdb(`/find/${s.imdb}`, { external_source: "imdb_id" });
-    const hit = (r.tv_results || [])[0] || (r.movie_results || [])[0] || null;
+    let hit = null;
+    if (s.tmdb_id) {
+      hit = await tmdb(`/tv/${s.tmdb_id}`).catch(() => null);
+      if (!hit?.poster_path) hit = await tmdb(`/movie/${s.tmdb_id}`).catch(() => null);
+    }
+    if (!hit?.poster_path && s.imdb) {
+      const r = await tmdb(`/find/${s.imdb}`, { external_source: "imdb_id" });
+      hit = (r.tv_results || [])[0] || (r.movie_results || [])[0] || null;
+    }
     if (hit?.poster_path) {
       s.poster = {
         src: BASE + hit.poster_path,
