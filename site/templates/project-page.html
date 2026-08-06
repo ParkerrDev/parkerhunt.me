@@ -1,17 +1,25 @@
 {% extends "base.html" %}
+{% import "macros.html" as ico %}
+
 {% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
+
 {% block content %}
-<header class="masthead">
-  <div class="wrap">
-    <h1>{{ page.title }}</h1>
-    {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
-    <div class="tools">
-      <a class="tool" href="/">← Back</a>
-      {% if page.extra.website_url %}<a class="tool" href="{{ page.extra.website_url }}" target="_blank" rel="noopener">Visit ↗</a>{% endif %}
+<header class="hero">
+    <div class="wrap">
+        <a class="back" href="/projects/">{{ ico::back() }} Projects</a>
+        <h1>{{ page.title }}</h1>
+        {% if page.description %}<p class="hero-lede">{{ page.description }}</p>{% endif %}
+        {% if page.extra.website_url %}
+        <div class="links">
+            <a class="pill pill--primary" href="{{ page.extra.website_url }}" target="_blank" rel="noopener">Visit ↗</a>
+        </div>
+        {% endif %}
     </div>
-  </div>
 </header>
+
 <main id="main">
-  <section><div class="wrap"><div class="prose">{{ page.content | safe }}</div></div></section>
+    <section>
+        <div class="wrap"><div class="prose">{{ page.content | safe }}</div></div>
+    </section>
 </main>
 {% endblock %}

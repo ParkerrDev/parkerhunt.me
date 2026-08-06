@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% import "macros.html" as ico %}
+
+{% block content %}
+{% set me = load_data(path="data/me.toml") %}
+<header class="hero">
+    <div class="wrap">
+        <a class="back" href="/">{{ ico::back() }} Home</a>
+        <h1>{{ page.title }}</h1>
+        <p class="hero-lede">{{ page.description }}</p>
+    </div>
+</header>
+
+<main id="main">
+    {% if me.my_quotes | length > 0 %}
+    <section>
+        <div class="wrap">
+            <div class="head"><h2>Mine</h2></div>
+            <div class="quotes">
+                {% for q in me.my_quotes %}
+                <figure class="quote quote--mine">
+                    <p>{{ q.text }}</p>
+                    {% if q.who %}<footer>— {{ q.who }}</footer>{% endif %}
+                </figure>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {% if me.quotes | length > 0 %}
+    <section>
+        <div class="wrap">
+            <div class="head"><h2>Borrowed</h2></div>
+            <div class="quotes">
+                {% for q in me.quotes %}
+                <figure class="quote">
+                    <p>{{ q.text }}</p>
+                    <footer>— {{ q.who }}</footer>
+                </figure>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+</main>
+{% endblock %}

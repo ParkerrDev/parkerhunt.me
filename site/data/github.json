@@ -1,0 +1,171 @@
+{
+  "user": "ParkerrDev",
+  "fetched": "2026-08-06",
+  "repos": [
+    {
+      "name": "parkerhunt.me",
+      "url": "https://github.com/ParkerrDev/parkerhunt.me",
+      "description": "My personal website.",
+      "language": "SCSS",
+      "color": "#c6538c",
+      "stars": 1,
+      "forks": 0,
+      "updated": "2026-08-06",
+      "license": ""
+    },
+    {
+      "name": "HolyC-wasm",
+      "url": "https://github.com/ParkerrDev/HolyC-wasm",
+      "description": "HolyC → WebAssembly compiler + browser runtime + in-browser editor (powers TempleOS-web)",
+      "language": "HolyC",
+      "color": "#ffefaf",
+      "stars": 2,
+      "forks": 1,
+      "updated": "2026-07-26",
+      "license": ""
+    },
+    {
+      "name": "declaudify",
+      "url": "https://github.com/ParkerrDev/declaudify",
+      "description": "Remove Claude attribution from a GitHub repo's history",
+      "language": "Shell",
+      "color": "#89e051",
+      "stars": 1,
+      "forks": 0,
+      "updated": "2026-07-26",
+      "license": "MIT"
+    },
+    {
+      "name": "HolyC-fmt",
+      "url": "https://github.com/ParkerrDev/HolyC-fmt",
+      "description": "Formtter for HolyC written in HolyC",
+      "language": "HolyC",
+      "color": "#ffefaf",
+      "stars": 1,
+      "forks": 0,
+      "updated": "2026-07-26",
+      "license": ""
+    },
+    {
+      "name": "Hemu-wasm",
+      "url": "https://github.com/ParkerrDev/Hemu-wasm",
+      "description": "A clean-room TempleOS x86-64 emulator in HolyC, compiled to WASM, with an x86→WASM JIT (powers TempleOS-web)",
+      "language": "JavaScript",
+      "color": "#f1e05a",
+      "stars": 1,
+      "forks": 1,
+      "updated": "2026-07-26",
+      "license": ""
+    },
+    {
+      "name": "TempleOS-Web",
+      "url": "https://github.com/ParkerrDev/TempleOS-Web",
+      "description": "TempleOS running in the browser",
+      "language": "HTML",
+      "color": "#e34c26",
+      "stars": 1,
+      "forks": 1,
+      "updated": "2026-07-26",
+      "license": ""
+    },
+    {
+      "name": "Modrix",
+      "url": "https://github.com/ParkerrDev/Modrix",
+      "description": "Free, open-source, cross-platform mod manager",
+      "language": "Rust",
+      "color": "#dea584",
+      "stars": 1,
+      "forks": 0,
+      "updated": "2026-07-26",
+      "license": "GPL-2.0"
+    },
+    {
+      "name": "ParkerrDev",
+      "url": "https://github.com/ParkerrDev/ParkerrDev",
+      "description": " Config files for my GitHub profile.",
+      "language": "",
+      "color": "#8b949e",
+      "stars": 2,
+      "forks": 0,
+      "updated": "2026-07-22",
+      "license": ""
+    },
+    {
+      "name": "pacrid",
+      "url": "https://github.com/ParkerrDev/pacrid",
+      "description": "Leftover-file debloater for pacman",
+      "language": "Rust",
+      "color": "#dea584",
+      "stars": 1,
+      "forks": 0,
+      "updated": "2026-07-21",
+      "license": ""
+    },
+    {
+      "name": "TerryADavis-archive-transcriber",
+      "url": "https://github.com/ParkerrDev/TerryADavis-archive-transcriber",
+      "description": "Whisper processed transcripts of TerryADavis archive ",
+      "language": "Python",
+      "color": "#3572A5",
+      "stars": 1,
+      "forks": 0,
+      "updated": "2026-06-13",
+      "license": ""
+    },
+    {
+      "name": "pocklet",
+      "url": "https://github.com/ParkerrDev/pocklet",
+      "description": "Allows you to cache any static site to your homescreen via safari",
+      "language": "HTML",
+      "color": "#e34c26",
+      "stars": 1,
+      "forks": 0,
+      "updated": "2026-04-06",
+      "license": ""
+    },
+    {
+      "name": "omcachy",
+      "url": "https://github.com/ParkerrDev/omcachy",
+      "description": "Fast, Beautiful, Modern & Opinionated Linux",
+      "language": "Shell",
+      "color": "#89e051",
+      "stars": 1,
+      "forks": 0,
+      "updated": "2026-02-11",
+      "license": "MIT"
+    },
+    {
+      "name": "dotfiles",
+      "url": "https://github.com/ParkerrDev/dotfiles",
+      "description": "My personal dotfiles, free to the public in case anyone likes my setup!",
+      "language": "Nix",
+      "color": "#7e7eff",
+      "stars": 3,
+      "forks": 0,
+      "updated": "2026-02-09",
+      "license": "MIT"
+    },
+    {
+      "name": "nixpkgs-windscribe",
+      "url": "https://github.com/ParkerrDev/nixpkgs-windscribe",
+      "description": "Windscribe GUI for NixOS",
+      "language": "Nix",
+      "color": "#7e7eff",
+      "stars": 11,
+      "forks": 2,
+      "updated": "2025-06-18",
+      "license": ""
+    },
+    {
+      "name": "nixpkgs-hotspotshield-cli",
+      "url": "https://github.com/ParkerrDev/nixpkgs-hotspotshield-cli",
+      "description": "Hotspotshield-cli for NixOS",
+      "language": "Nix",
+      "color": "#7e7eff",
+      "stars": 1,
+      "forks": 0,
+      "updated": "2025-06-18",
+      "license": "MIT"
+    }
+  ]
+}

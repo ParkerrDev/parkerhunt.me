@@ -1,0 +1,55 @@
+{# Icons, as macros.
+
+   Every mark on this site is an inlined SVG path rather than an icon font, a
+   sprite sheet or a CDN link. Three reasons, in order of how much they matter:
+
+     1. No request. An icon font is a render-blocking download for glyphs that
+        are already in the HTML you just sent.
+     2. No third party. Pulling GitHub's or X's own assets would leak every
+        visitor's IP to them on a page whose entire pitch is that it does not
+        do that.
+     3. currentColor. These inherit the colour of whatever they sit inside, so
+        the same mark works on a white pill and on an inverted one with no
+        second copy.
+
+   The brand marks below are each platform's own published logo path, which is
+   the only way for the feed sections to read as authentic. Everything else is
+   drawn here.
+#}
+
+{% macro github() %}<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>{% endmacro github %}
+
+{% macro x() %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117Z"/></svg>{% endmacro x %}
+
+{% macro linkedin() %}<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M14.546 0H1.455C.65 0 0 .651 0 1.455v13.09C0 15.35.651 16 1.455 16h13.09c.805 0 1.455-.651 1.455-1.455V1.455C16 .65 15.349 0 14.546 0ZM5.057 13.09H2.912V6.189h2.145v6.903ZM3.963 5.2c-.692 0-1.251-.56-1.251-1.25 0-.69.56-1.25 1.25-1.25.69 0 1.25.56 1.25 1.25 0 .69-.56 1.25-1.25 1.25Zm9.131 7.89h-2.144V9.734c0-.8-.015-1.83-1.115-1.83-1.117 0-1.288.872-1.288 1.772v3.415H6.403V6.188h2.058v.943h.029c.286-.543.986-1.115 2.03-1.115 2.172 0 2.574 1.43 2.574 3.289v3.786Z"/></svg>{% endmacro linkedin %}
+
+{% macro mail() %}<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="2"/><path d="M2 4.5 8 8.75 14 4.5"/></svg>{% endmacro mail %}
+
+{% macro doc() %}<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.25 1.5H4.5A1.5 1.5 0 0 0 3 3v10a1.5 1.5 0 0 0 1.5 1.5h7A1.5 1.5 0 0 0 13 13V5.25Z"/><path d="M9.25 1.5v3.75H13"/><path d="M5.75 8.5h4.5M5.75 11h3"/></svg>{% endmacro doc %}
+
+{% macro rss() %}<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><circle cx="3.5" cy="12.5" r="1.75"/><path d="M2 6.75a.75.75 0 0 1 .75-.75A7.25 7.25 0 0 1 10 13.25a.75.75 0 0 1-1.5 0A5.75 5.75 0 0 0 2.75 7.5.75.75 0 0 1 2 6.75Zm0-4.5A.75.75 0 0 1 2.75 1.5 11.75 11.75 0 0 1 14.5 13.25a.75.75 0 0 1-1.5 0A10.25 10.25 0 0 0 2.75 3 .75.75 0 0 1 2 2.25Z"/></svg>{% endmacro rss %}
+
+{% macro back() %}<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3.5 5 8l4.5 4.5"/></svg>{% endmacro back %}
+
+{# --- GitHub island -------------------------------------------------------- #}
+{% macro star() %}<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>{% endmacro star %}
+
+{% macro fork() %}<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"/></svg>{% endmacro fork %}
+
+{# --- X island ------------------------------------------------------------- #}
+{# Stroked rather than X's own filled glyphs: the action row is decoration
+   here, and a stroked set sits better next to the rest of the page. #}
+{% macro reply() %}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5a8.5 8.5 0 1 1 4.2 7.34L3 20.5l1.36-4.02A8.46 8.46 0 0 1 3 11.5Z"/></svg>{% endmacro reply %}
+{% macro repost() %}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9.5V8a3 3 0 0 1 3-3h9M4.5 9.5 2 7m2.5 2.5L7 7"/><path d="M19.5 14.5V16a3 3 0 0 1-3 3h-9m12-4.5L22 17m-2.5-2.5L17 17"/></svg>{% endmacro repost %}
+{% macro like() %}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-9.6A4.4 4.4 0 0 1 12 8.1a4.4 4.4 0 0 1 7.5 2.8c0 5-7.5 9.6-7.5 9.6Z"/></svg>{% endmacro like %}
+{% macro views() %}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M9.33 20V4M14.67 20v-7M20 20V7"/></svg>{% endmacro views %}
+
+{# --- LinkedIn island ------------------------------------------------------ #}
+{% macro thumb() %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10v11H3V10h4Zm2 0 3.5-7.2A1.9 1.9 0 0 1 16 3.6V9h4.1a1.9 1.9 0 0 1 1.86 2.29l-1.4 7A1.9 1.9 0 0 1 18.7 21H9V10Z"/></svg>{% endmacro thumb %}
+{% macro comment() %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3c5 0 9 3.36 9 7.5S17 18 12 18a10.9 10.9 0 0 1-2.6-.31L4.5 20l1.2-3.6A7.9 7.9 0 0 1 3 10.5C3 6.36 7 3 12 3Z"/></svg>{% endmacro comment %}
+{% macro send() %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 3 2.5 10.6l7.1 2.4 2.4 7.1L21 3Z"/></svg>{% endmacro send %}
+
+{# --- misc ----------------------------------------------------------------- #}
+{% macro check(done=false) %}{% if done %}<svg class="check check--done" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16Zm3.78-9.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06L6.75 9.19l3.97-3.97a.75.75 0 1 1 1.06 1.06Z"/></svg>{% else %}<svg class="check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="7"/></svg>{% endif %}{% endmacro check %}
+
+{% macro chess() %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a3.2 3.2 0 0 1 1.9 5.77c1.3.8 2.2 2.2 2.3 3.83H7.8c.1-1.63 1-3.03 2.3-3.83A3.2 3.2 0 0 1 12 2ZM8 13h8l-1 5h2.5l1 4h-13l1-4H9l-1-5Z"/></svg>{% endmacro chess %}

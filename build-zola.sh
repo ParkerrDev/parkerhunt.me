@@ -82,6 +82,17 @@ else
   echo "WARNING: RESUME_TOKEN not set — /resume will have no PDF in this build." >&2
 fi
 
+# --- Refresh the GitHub repo snapshot ---------------------------------------
+# The "Code" section on the home page is rendered from site/data/github.json, so
+# a visitor's browser never talks to GitHub. This refreshes that file.
+#
+# Deliberately NOT guarded by `set -e` semantics: the script exits 0 even when
+# the API is unreachable or rate limited (Cloudflare's build IPs are shared, and
+# the unauthenticated limit is 60/hour/IP). A stale repo list is invisible; a
+# failed deploy is not. Contrast build-resume.mjs below, which fails hard.
+echo "Refreshing GitHub snapshot..."
+node scripts/fetch-github.mjs "${GITHUB_USER:-ParkerrDev}" site/data/github.json
+
 # --- Build the static site --------------------------------------------------
 # Run inside the site folder so Zola finds site/config.toml
 cd site
