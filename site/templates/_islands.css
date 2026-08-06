@@ -106,6 +106,39 @@
 .tweet-act { display: inline-flex; align-items: center; gap: 0.3125rem; }
 .tweet-act svg { width: 1.0625rem; height: 1.0625rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
+/* ------------------------------------------------------------------ rail -- */
+/* A horizontal scroller for the posts. Deliberately not a .marquee: a marquee
+   is for things you glance at, and a post is something you read — text that
+   slides out from under you mid-sentence is worse than no motion at all.
+
+   scroll-snap-align on each card means a swipe lands on a post rather than
+   between two. scroll-padding-inline matches the page gutter so the first card
+   lines up with the heading above it while the row still runs off both edges. */
+.rail {
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: max(1.5rem, calc((100vw - var(--page)) / 2 + 1.5rem));
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.rail::-webkit-scrollbar { display: none; }
+.rail-track {
+  display: flex; gap: var(--gap); width: max-content;
+  padding-inline: max(1.5rem, calc((100vw - var(--page)) / 2 + 1.5rem));
+}
+.tweet--card {
+  scroll-snap-align: start;
+  width: min(23rem, 82vw); flex: none;
+  border: 1px solid var(--x-line); border-bottom: 1px solid var(--x-line);
+  border-radius: var(--r); background: var(--x-bg);
+}
+/* The X palette normally comes from a .x ancestor. These cards have no wrapper,
+   so the tokens are declared on the card itself. */
+.tweet--card { --x-ink: #0f1419; --x-dim: #536471; --x-line: #eff3f4; --x-bg: #fff; --x-blue: #1d9bf0;
+  color: var(--x-ink);
+  font-family: "TwitterChirp", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: normal;
+}
+
 /* ------------------------------------------------------- island: LinkedIn -- */
 .li {
   --li-ink: rgba(0, 0, 0, 0.9);

@@ -63,12 +63,12 @@
 
         <div class="hero-text">
             <h1>Andrew Parker Hunt</h1>
-            <p class="hero-lede">Student in Clovis, California. Software, computer science and security — I build things that are fast, small and finished.</p>
+            <p class="hero-lede">Student in Clovis, California. I focus on software development, computer science, and cybersecurity.</p>
 
             {# Icon-only. aria-label carries the name for anyone who cannot see
                the mark, so nothing is lost by dropping the visible word. #}
             <div class="links">
-                <a class="pill pill--primary" href="/AndrewHuntResume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF)" title="Résumé">{{ ico::doc() }}</a>
+                <a class="pill" href="/AndrewHuntResume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF)" title="Résumé">{{ ico::doc() }}</a>
                 <a class="pill" href="mailto:email@parkerhunt.me" aria-label="Email" title="Email">{{ ico::mail() }}</a>
                 <a class="pill" href="https://github.com/ParkerrDev" target="_blank" rel="me noopener" aria-label="GitHub" title="GitHub">{{ ico::github() }}</a>
                 <a class="pill" href="https://x.com/AndrewParkerH" target="_blank" rel="me noopener" aria-label="X" title="X">{{ ico::x() }}</a>
@@ -142,18 +142,17 @@
     {# Rebuilt in GitHub's own visual language — its palette, its metrics, its
        language dots — but rendered from a JSON snapshot taken at build time.
        Nothing here talks to github.com when you load the page. #}
-    {% if gh.repos | length > 0 or nexus.mods | length > 0 %}
+    {% if gh.repos | length > 0 %}
     <section id="code">
         <div class="wrap">
             <div class="head">
                 <h2>Code</h2>
-                <p>Repositories and published mods, both snapshotted at build time.</p>
+                <p>Public repositories, snapshotted at build time.</p>
             </div>
 
-            <div class="duo">
-                {% if gh.repos | length > 0 %}
-                <div>
-                    <div class="feed gh">
+            {% if gh.repos | length > 0 %}
+            <div>
+                <div class="feed gh">
                         <div class="gh-head">
                             {{ ico::github() }} <b>{{ gh.user }}</b> / repositories
                             <span class="gh-h-sub">{{ gh.repos | length }} public</span>
@@ -175,114 +174,65 @@
                         </a>
                         {% endfor %}
                     </div>
-                    <p class="feed-foot"><a href="https://github.com/ParkerrDev?tab=repositories" target="_blank" rel="noopener">github.com/{{ gh.user }}</a> · snapshot {{ gh.fetched }}</p>
-                </div>
-                {% endif %}
-
-                {# Nexus Mods. Mods for Subnautica and Below Zero, which is a
-                   pleasing coincidence given what is at the top of the played
-                   list further down the page. #}
-                {% if nexus.mods | length > 0 %}
-                <div>
-                    <div class="feed nx">
-                        {{ isle::nexus(n=nexus, mods=nexus.mods) }}
-                    </div>
-                    <p class="feed-foot"><a href="{{ nexus.url }}" target="_blank" rel="noopener">{{ nexus.count }} mods</a> · {{ nexus.totals.downloads | num_format }} downloads · {{ nexus.totals.endorsements | num_format }} endorsements</p>
-                </div>
-                {% endif %}
+                <p class="feed-foot"><a href="https://github.com/ParkerrDev?tab=repositories" target="_blank" rel="noopener">github.com/{{ gh.user }}</a> · snapshot {{ gh.fetched }}</p>
+            </div>
+            {% endif %}
             </div>
         </div>
     </section>
     {% endif %}
 
     {# ------------------------------------------------------------ posts -- #}
-    {% if feeds.x.post | length > 0 or feeds.li.post | length > 0 %}
+    {% if feeds.x.post | length > 0 %}
     <section id="posts">
         <div class="wrap">
             <div class="head">
                 <h2>Posts</h2>
                 <p>Rebuilt, not embedded — no third-party scripts, no tracking pixels, no iframes.</p>
+                <a class="more" href="{{ feeds.x.url }}" target="_blank" rel="noopener">@{{ feeds.x.handle }} →</a>
             </div>
+        </div>
 
-            <div class="duo">
-                {# --- X ------------------------------------------------- #}
-                {% if feeds.x.post | length > 0 %}
-                {% set_global x_sample = false %}
-                {% for p in feeds.x.post %}{% if p.sample %}{% set_global x_sample = true %}{% endif %}{% endfor %}
-                <div>
-                    <div class="feed x">
-                        <div class="x-head">
-                            {{ ico::x() }} Posts
-                            <span class="x-h-sub">@{{ feeds.x.handle }}</span>
+        {# A horizontal scroller rather than a column, and NOT a marquee: these
+           are meant to be read, and text that slides away mid-sentence is a
+           worse version of the same idea. scroll-snap so a swipe lands on a
+           post instead of between two.
+
+           Full-bleed so the row runs off both edges and reads as continuing,
+           with the first card indented to the page gutter by scroll-padding. #}
+        <div class="rail">
+            <div class="rail-track">
+                {% for p in feeds.x.post %}
+                <article class="tweet tweet--card">
+                    <div class="tweet-av"><img src="/imgs/webp/avatar-288.webp" width="40" height="40" alt="" loading="lazy" decoding="async"></div>
+                    <div class="tweet-main">
+                        <div class="tweet-top">
+                            <span class="tweet-name">{{ feeds.x.name }}</span>
+                            <span class="tweet-handle">@{{ feeds.x.handle }}</span>
+                            <span class="tweet-handle">·</span>
+                            <span class="tweet-time">{{ p.time }}</span>
                         </div>
-                        {% for p in feeds.x.post %}
-                        <article class="tweet">
-                            <div class="tweet-av"><img src="/imgs/webp/avatar-288.webp" width="40" height="40" alt="" loading="lazy" decoding="async"></div>
-                            <div class="tweet-main">
-                                <div class="tweet-top">
-                                    <span class="tweet-name">{{ feeds.x.name }}</span>
-                                    <span class="tweet-handle">@{{ feeds.x.handle }}</span>
-                                    <span class="tweet-handle">·</span>
-                                    <span class="tweet-time">{{ p.time }}</span>
-                                </div>
-                                <div class="tweet-body">
-                                    {% for para in p.body %}<p>{{ para }}</p>{% endfor %}
-                                </div>
-                                <div class="tweet-acts" aria-hidden="true">
-                                    <span class="tweet-act">{{ ico::reply() }}{{ p.replies }}</span>
-                                    <span class="tweet-act">{{ ico::repost() }}{{ p.reposts }}</span>
-                                    <span class="tweet-act">{{ ico::like() }}{{ p.likes }}</span>
-                                    <span class="tweet-act">{{ ico::views() }}{{ p.views }}</span>
-                                </div>
-                            </div>
-                        </article>
-                        {% endfor %}
+                        <div class="tweet-body">
+                            {% for para in p.body %}<p>{{ para }}</p>{% endfor %}
+                        </div>
+                        <div class="tweet-acts" aria-hidden="true">
+                            <span class="tweet-act">{{ ico::reply() }}{{ p.replies }}</span>
+                            <span class="tweet-act">{{ ico::repost() }}{{ p.reposts }}</span>
+                            <span class="tweet-act">{{ ico::like() }}{{ p.likes }}</span>
+                            <span class="tweet-act">{{ ico::views() }}{{ p.views }}</span>
+                        </div>
                     </div>
-                    {# The anniversary is computed, not typed — it is right on
-                       the day of every deploy and never needs touching. #}
-                    <p class="feed-foot">
-                        {% if x_sample %}<b>Placeholder content</b> — replace in <code>site/data/feeds.toml</code>. {% else %}<a href="{{ feeds.x.url }}" target="_blank" rel="noopener">@{{ feeds.x.handle }}</a> · {% endif %}On X for {{ stamps.x.phrase }}.
-                    </p>
-                </div>
-                {% endif %}
-
-                {# --- LinkedIn ------------------------------------------ #}
-                {% if feeds.li.post | length > 0 %}
-                {% set_global li_sample = false %}
-                {% for p in feeds.li.post %}{% if p.sample %}{% set_global li_sample = true %}{% endif %}{% endfor %}
-                <div>
-                    <div class="feed li">
-                        {% for p in feeds.li.post %}
-                        <article class="li-post">
-                            <div class="li-top">
-                                <div class="li-av"><img src="/imgs/webp/avatar-288.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div>
-                                <div class="li-who">
-                                    <div class="li-name">{{ feeds.li.name }}</div>
-                                    <div class="li-role">{{ feeds.li.role }}</div>
-                                    <div class="li-time">{{ p.time }} · 🌐</div>
-                                </div>
-                            </div>
-                            <div class="li-body">
-                                {% for para in p.body %}<p>{{ para }}</p>{% endfor %}
-                            </div>
-                            <div class="li-stats" aria-hidden="true">
-                                <span class="li-react"><span>👍</span><span>💡</span></span>
-                                {{ p.reactions }} · {{ p.comments }} comments
-                            </div>
-                            <div class="li-acts" aria-hidden="true">
-                                <span class="li-act">{{ ico::thumb() }} Like</span>
-                                <span class="li-act">{{ ico::comment() }} Comment</span>
-                                <span class="li-act">{{ ico::send() }} Send</span>
-                            </div>
-                        </article>
-                        {% endfor %}
-                    </div>
-                    <p class="feed-foot">
-                        {% if li_sample %}<b>Placeholder content</b> — replace in <code>site/data/feeds.toml</code>.{% else %}<a href="{{ feeds.li.url }}" target="_blank" rel="noopener">in/andrewparkerh</a>{% endif %}
-                    </p>
-                </div>
-                {% endif %}
+                </article>
+                {% endfor %}
             </div>
+        </div>
+
+        <div class="wrap">
+            {% set_global x_sample = false %}
+            {% for p in feeds.x.post %}{% if p.sample %}{% set_global x_sample = true %}{% endif %}{% endfor %}
+            <p class="feed-foot">
+                {% if x_sample %}<b>Placeholder content</b> — replace in <code>site/data/feeds.toml</code>. {% endif %}On X for {{ stamps.x.phrase }}.
+            </p>
         </div>
     </section>
     {% endif %}
@@ -387,6 +337,30 @@
                     <p class="feed-foot">Checked {{ steam.fetched }}. <a href="/games/">The whole wishlist →</a></p>
                 </div>
                 {% endif %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# -------------------------------------------------------------- mods -- #}
+    {# Below the games on purpose: every one of these is a Subnautica mod, and
+       Subnautica is the game at the top of the list directly above. #}
+    {% if nexus.mods | length > 0 %}
+    <section id="mods">
+        <div class="wrap">
+            <div class="head">
+                <h2>Mods</h2>
+                <p>{{ nexus.count }} published on Nexus Mods, {{ nexus.totals.downloads | num_format }} downloads between them.</p>
+                <a class="more" href="{{ nexus.url }}" target="_blank" rel="noopener">On Nexus Mods →</a>
+            </div>
+            {# Nexus Mods. Mods for Subnautica and Below Zero, which is a
+               pleasing coincidence given what is at the top of the played
+               list further down the page. #}
+                        <div>
+                <div class="feed nx">
+                    {{ isle::nexus(n=nexus, mods=nexus.mods) }}
+                </div>
+                <p class="feed-foot"><a href="{{ nexus.url }}" target="_blank" rel="noopener">{{ nexus.count }} mods</a> · {{ nexus.totals.downloads | num_format }} downloads · {{ nexus.totals.endorsements | num_format }} endorsements</p>
             </div>
         </div>
     </section>

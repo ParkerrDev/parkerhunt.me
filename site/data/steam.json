@@ -892,7 +892,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 96,
-        "count": 145372
+        "count": 145374
       }
     },
     {
@@ -1037,7 +1037,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 96,
-        "count": 183217
+        "count": 183220
       }
     },
     {
@@ -1185,7 +1185,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 1387351
+        "count": 1387358
       }
     },
     {
@@ -1235,7 +1235,7 @@
         "label": "Mostly Positive",
         "tone": "pos",
         "pct": 75,
-        "count": 5245
+        "count": 5246
       }
     },
     {
@@ -1260,7 +1260,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 85,
-        "count": 100705
+        "count": 100708
       }
     },
     {
@@ -1429,7 +1429,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 967447
+        "count": 967465
       }
     },
     {
@@ -1572,7 +1572,7 @@
         "label": "Mostly Positive",
         "tone": "pos",
         "pct": 80,
-        "count": 135397
+        "count": 135398
       }
     },
     {
@@ -1718,7 +1718,7 @@
         "label": "Mixed",
         "tone": "mix",
         "pct": 60,
-        "count": 114769
+        "count": 114773
       }
     },
     {
@@ -2209,7 +2209,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 85,
-        "count": 100705
+        "count": 100708
       }
     },
     {
@@ -2304,7 +2304,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 96,
-        "count": 145372
+        "count": 145374
       }
     },
     {
@@ -2374,7 +2374,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 967447
+        "count": 967465
       }
     },
     {
@@ -2470,7 +2470,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 1387351
+        "count": 1387358
       }
     },
     {

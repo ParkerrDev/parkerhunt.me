@@ -258,6 +258,130 @@ author = "Walter Isaacson"
 year = 2011
 note = ""
 
+[[books_read]]
+title = "The Power of Positive Thinking"
+cover = "power-of-positive-thinking"
+author = "Norman Vincent Peale"
+year = 1952
+note = ""
+
+[[books_read]]
+title = "Atomic Habits"
+cover = "atomic-habits"
+author = "James Clear"
+year = 2018
+note = ""
+
+[[books_read]]
+title = "Screw Business as Usual"
+cover = "screw-business-as-usual"
+author = "Richard Branson"
+year = 2011
+note = ""
+
+[[books_read]]
+title = "Fahrenheit 451"
+cover = "fahrenheit-451"
+author = "Ray Bradbury"
+year = 1953
+note = ""
+
+[[books_read]]
+title = "1984"
+cover = "1984"
+author = "George Orwell"
+year = 1949
+note = ""
+
+[[books_read]]
+title = "Hatchet"
+cover = "hatchet"
+author = "Gary Paulsen"
+year = 1986
+note = ""
+
+[[books_read]]
+title = "King James Bible"
+cover = "kjv"
+author = ""
+year = 1611
+note = ""
+
+[[books_read]]
+title = "Lord of the Flies"
+cover = "lord-of-the-flies"
+author = "William Golding"
+year = 1954
+note = ""
+
+[[books_read]]
+title = "Ready Player One"
+cover = "ready-player-one"
+author = "Ernest Cline"
+year = 2011
+note = ""
+
+[[books_read]]
+title = "Holes"
+cover = "holes"
+author = "Louis Sachar"
+year = 1998
+note = ""
+
+[[books_read]]
+title = "The Outsiders"
+cover = "the-outsiders"
+author = "S. E. Hinton"
+year = 1967
+note = ""
+
+[[books_read]]
+title = "Wonder"
+cover = "wonder"
+author = "R. J. Palacio"
+year = 2012
+note = ""
+
+[[books_read]]
+title = "The Odyssey"
+cover = "the-odyssey"
+author = "Homer"
+note = "eighth century BC, give or take"
+
+[[books_read]]
+title = "Romeo and Juliet"
+cover = "romeo-and-juliet"
+author = "William Shakespeare"
+year = 1597
+note = ""
+
+[[books_read]]
+title = "Mysterious Worlds"
+cover = ""
+author = ""
+note = "no cover found on Open Library"
+
+[[books_read]]
+title = "Robinson Crusoe"
+cover = "robinson-crusoe"
+author = "Daniel Defoe"
+year = 1719
+note = ""
+
+[[books_read]]
+title = "Just for Fun"
+cover = "just-for-fun"
+author = "Linus Torvalds"
+year = 2001
+note = "the Linux story, told by the person who started it"
+
+[[books_read]]
+title = "Sleep Smarter"
+cover = "sleep-smarter"
+author = "Shawn Stevenson"
+year = 2016
+note = ""
+
 # ----------------------------------------------------------------- ranked --
 # `bg`/`fg` paint a typographic poster for each show — set in this site's own
 # type, not a scan of the real artwork, which is the network's and not ours.

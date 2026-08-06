@@ -72,11 +72,32 @@ const PEAKS = [
   },
 ];
 
-/* Open Library cover ids, pinned to the edition. */
+/* Open Library cover ids, pinned to the edition. Resolved once by searching
+   Open Library and taking the match with the most editions, then written down —
+   searching at build time would let the jackets change under the site. A book
+   with no id here simply gets a text tile on the shelf, which is the right
+   failure: a shelf with one blank rectangle on it is fine. */
 const COVERS = [
   { key: "zero-to-one", id: 9002334 },
   { key: "einstein", id: 474440 },
   { key: "steve-jobs", id: 12374726 },
+  { key: "power-of-positive-thinking", id: 14570194 },
+  { key: "atomic-habits", id: 12539702 },
+  { key: "screw-business-as-usual", id: 8845523 },
+  { key: "fahrenheit-451", id: 12993656 },
+  { key: "1984", id: 14351142 },
+  { key: "hatchet", id: 11240448 },
+  { key: "kjv", id: 10654346 },
+  { key: "lord-of-the-flies", id: 8684447 },
+  { key: "ready-player-one", id: 8737626 },
+  { key: "holes", id: 19797 },
+  { key: "the-outsiders", id: 7263662 },
+  { key: "wonder", id: 8223160 },
+  { key: "the-odyssey", id: 12474938 },
+  { key: "romeo-and-juliet", id: 8257991 },
+  { key: "robinson-crusoe", id: 368541 },
+  { key: "just-for-fun", id: 6933170 },
+  { key: "sleep-smarter", id: 11504647 },
 ];
 
 try {
