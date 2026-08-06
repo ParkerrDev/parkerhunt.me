@@ -320,6 +320,12 @@
       "year": 1995,
       "bg": "#12210F",
       "fg": "#8FD14F"
+    },
+    {
+      "title": "Sesame Street",
+      "year": 1969,
+      "bg": "#0E3D6B",
+      "fg": "#F2C14E"
     }
   ],
   "movies": [
@@ -2749,6 +2755,54 @@
     {
       "title": "The Man with Two Brains",
       "year": 1983,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Adventures of Elmo in Grouchland",
+      "year": 1999,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Vivarium",
+      "year": 2019,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Deepsea Challenge 3D",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Substance",
+      "year": 2024,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Odyssey",
+      "year": 1997,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Mrs. Doubtfire",
+      "year": 1993,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Homeward Bound: The Incredible Journey",
+      "year": 1993,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Moana",
+      "year": 2016,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
