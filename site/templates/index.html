@@ -482,6 +482,42 @@
     </section>
     {% endif %}
 
+    {# ------------------------------------------------------------ skied -- #}
+    {# Same pipeline as the places above — a ski resort is a place with a
+       photograph — but its own section, because a list of twelve resorts is a
+       different thing from a list of towns. #}
+    {% if been.skiing | length > 0 %}
+    <section id="skied">
+        <div class="wrap">
+            <div class="head">
+                <h2>Skied</h2>
+                <p>{{ been.skiing | length }} resorts across seven states. The Rockies mostly, and Tahoe when it snows.</p>
+            </div>
+        </div>
+        <div class="rail">
+            <div class="rail-track">
+                {% for r in been.skiing %}
+                <figure class="shot place{% if not r.photo %} place--none{% endif %}">
+                    {% if r.photo %}
+                    <img src="{{ r.photo.src }}" alt="{{ r.name }}" width="280" height="187" loading="lazy" decoding="async">
+                    {% endif %}
+                    <figcaption>
+                        <span class="shot-t">{{ r.name }}</span>
+                        <span class="shot-s" style="display:block">{{ r.where }}</span>
+                    </figcaption>
+                </figure>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="wrap">
+            <ul class="distro-notes" style="margin-top:0.75rem">
+                {% for r in been.skiing %}{% if r.note %}<li><b>{{ r.name }}</b> — {{ r.note }}</li>{% endif %}{% endfor %}
+            </ul>
+            <p class="credit">Photographs from Wikimedia Commons — {% for r in been.skiing %}{% if r.photo and r.photo.credit_required %}<a href="{{ r.photo.source }}" target="_blank" rel="noopener">{{ r.name }}</a> {{ r.photo.author }}; {% endif %}{% endfor %}the rest public domain.</p>
+        </div>
+    </section>
+    {% endif %}
+
     {# ---------------------------------------------------------- summits -- #}
     {# The three facts that used to be grey pills reading "Half Dome at 6" are
        now the mountains themselves. Photographs from Wikimedia Commons; the

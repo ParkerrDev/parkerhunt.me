@@ -2,7 +2,8 @@
   "fetched": "2026-08-06",
   "source": "https://www.wikidata.org (CC0); photographs from Wikimedia Commons",
   "count": 31,
-  "with_photo": 23,
+  "ski_count": 12,
+  "with_photo": 33,
   "places": [
     {
       "name": "Grand Canyon",
@@ -96,20 +97,6 @@
       }
     },
     {
-      "name": "Park City",
-      "where": "Utah",
-      "key": "park-city-utah",
-      "qid": "Q482993",
-      "photo": {
-        "src": "/imgs/been/park-city-utah.webp",
-        "licence": "Public domain",
-        "author": "Skyguy414 at English Wikipedia",
-        "source": "https://commons.wikimedia.org/wiki/File:Park_City,_Utah_(1).jpg",
-        "credit_required": false,
-        "bytes": 31478
-      }
-    },
-    {
       "name": "Ketchum",
       "where": "Idaho",
       "key": "ketchum-idaho",
@@ -128,20 +115,6 @@
       "where": "Ketchum, Idaho",
       "note": "where he spent his last years",
       "key": "ernest-hemingway-house-ketchum-idaho"
-    },
-    {
-      "name": "Big Sky Resort",
-      "where": "Montana",
-      "key": "big-sky-resort-montana",
-      "qid": "Q4906372",
-      "photo": {
-        "src": "/imgs/been/big-sky-resort-montana.webp",
-        "licence": "CC BY-SA 2.0",
-        "author": "Jim from Lexington, KY, USA",
-        "source": "https://commons.wikimedia.org/wiki/File:Big_Sky_resort.jpg",
-        "credit_required": true,
-        "bytes": 25982
-      }
     },
     {
       "name": "Sheridan",
@@ -183,34 +156,6 @@
         "source": "https://commons.wikimedia.org/wiki/File:Deadwood_today.jpg",
         "credit_required": true,
         "bytes": 28258
-      }
-    },
-    {
-      "name": "Vail",
-      "where": "Colorado",
-      "key": "vail-colorado",
-      "qid": "Q747987",
-      "photo": {
-        "src": "/imgs/been/vail-colorado.webp",
-        "licence": "CC BY-SA 4.0",
-        "author": "Nick Csakany",
-        "source": "https://commons.wikimedia.org/wiki/File:Gore_Creek_Drive_-_Vail,_CO.jpg",
-        "credit_required": true,
-        "bytes": 35108
-      }
-    },
-    {
-      "name": "Aspen",
-      "where": "Colorado",
-      "key": "aspen-colorado",
-      "qid": "Q205842",
-      "photo": {
-        "src": "/imgs/been/aspen-colorado.webp",
-        "licence": "CC BY-SA 3.0",
-        "author": "Unknown",
-        "source": "https://commons.wikimedia.org/wiki/File:Downtown_of_Aspen,_Colorado.jpg",
-        "credit_required": true,
-        "bytes": 48940
       }
     },
     {
@@ -376,6 +321,229 @@
       "note": "steak, and the reason this section exists",
       "key": "cattlemens-steakhouse",
       "qid": "Q49785762"
+    },
+    {
+      "name": "White Sands",
+      "where": "New Mexico",
+      "key": "white-sands-new-mexico",
+      "qid": "Q1200164",
+      "photo": {
+        "src": "/imgs/been/white-sands-new-mexico.webp",
+        "licence": "Public domain",
+        "author": "uncredited NPS employee",
+        "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_dunefield,_White_Sands_National_Park,_New_Mexico,_United_States.png",
+        "credit_required": false,
+        "bytes": 13872
+      }
+    },
+    {
+      "name": "San Antonio",
+      "where": "Texas",
+      "key": "san-antonio-texas",
+      "qid": "Q975",
+      "photo": {
+        "src": "/imgs/been/san-antonio-texas.webp",
+        "licence": "Public domain",
+        "author": "Zereshk",
+        "source": "https://commons.wikimedia.org/wiki/File:SA_Montage_Nima.png",
+        "credit_required": false,
+        "bytes": 91638
+      }
+    },
+    {
+      "name": "River Walk",
+      "where": "San Antonio, Texas",
+      "key": "river-walk-san-antonio-texas",
+      "qid": "Q4311109",
+      "photo": {
+        "src": "/imgs/been/river-walk-san-antonio-texas.webp",
+        "licence": "CC BY-SA 3.0",
+        "author": "Daniel J Simanek",
+        "source": "https://commons.wikimedia.org/wiki/File:Casa_Rio_in_San_Antonio.jpg",
+        "credit_required": true,
+        "bytes": 51276
+      }
+    },
+    {
+      "name": "Snow Park",
+      "where": "Park City, Utah",
+      "note": "Deer Valley's base area",
+      "key": "snow-park-park-city-utah",
+      "qid": "Q3021172",
+      "photo": {
+        "src": "/imgs/been/snow-park-park-city-utah.webp",
+        "licence": "CC BY-SA 2.0",
+        "author": "Ken Lund from Las Vegas, Nevada, USA",
+        "source": "https://commons.wikimedia.org/wiki/File:Deer_Valley_Olympic_venue.jpg",
+        "credit_required": true,
+        "bytes": 23946
+      }
+    }
+  ],
+  "skiing": [
+    {
+      "name": "Vail",
+      "where": "Colorado",
+      "note": "Vast terrain and luxury amenities.",
+      "key": "vail-colorado",
+      "qid": "Q14685139",
+      "photo": {
+        "src": "/imgs/been/vail-colorado.webp",
+        "licence": "CC BY-SA 2.0",
+        "author": "Rudi Riet from Washington, DC, United States",
+        "source": "https://commons.wikimedia.org/wiki/File:Birds_of_Prey_(ski_course),_Beaver_Creek.jpg",
+        "credit_required": true,
+        "bytes": 22732
+      }
+    },
+    {
+      "name": "Park City",
+      "where": "Utah",
+      "note": "The largest ski resort in the US, with diverse runs.",
+      "key": "park-city-utah",
+      "qid": "Q3821979",
+      "photo": {
+        "src": "/imgs/been/park-city-utah.webp",
+        "licence": "CC BY-SA 2.0",
+        "author": "Rudi Riet from Washington, DC, United States",
+        "source": "https://commons.wikimedia.org/wiki/File:Eagle_Race_Arena_at_Park_City_Resort.jpg",
+        "credit_required": true,
+        "bytes": 34040
+      }
+    },
+    {
+      "name": "Aspen Snowmass",
+      "where": "Colorado",
+      "note": "Four mountains, four different days.",
+      "key": "aspen-snowmass-colorado",
+      "qid": "Q4807795"
+    },
+    {
+      "name": "Jackson Hole",
+      "where": "Wyoming",
+      "note": "Steep, and famous for it.",
+      "key": "jackson-hole-wyoming",
+      "qid": "Q10538901",
+      "photo": {
+        "src": "/imgs/been/jackson-hole-wyoming.webp",
+        "licence": "Public domain",
+        "author": "Enricokamasa",
+        "source": "https://commons.wikimedia.org/wiki/File:Jackson_hole_new_tram.jpg",
+        "credit_required": false,
+        "bytes": 30126
+      }
+    },
+    {
+      "name": "Deer Valley",
+      "where": "Utah",
+      "note": "Top-rated for grooming and service.",
+      "key": "deer-valley-utah",
+      "qid": "Q3021172",
+      "photo": {
+        "src": "/imgs/been/deer-valley-utah.webp",
+        "licence": "CC BY-SA 2.0",
+        "author": "Ken Lund from Las Vegas, Nevada, USA",
+        "source": "https://commons.wikimedia.org/wiki/File:Deer_Valley_Olympic_venue.jpg",
+        "credit_required": true,
+        "bytes": 23946
+      }
+    },
+    {
+      "name": "Breckenridge",
+      "where": "Colorado",
+      "note": "High altitude, endless intermediate terrain.",
+      "key": "breckenridge-colorado",
+      "qid": "Q12053500",
+      "photo": {
+        "src": "/imgs/been/breckenridge-colorado.webp",
+        "licence": "CC BY-SA 3.0",
+        "author": "Ahodges7",
+        "source": "https://commons.wikimedia.org/wiki/File:Breckenridge_Ski_Area_from_Dercum_Mountain,_Keystone_Ski_Area.jpg",
+        "credit_required": true,
+        "bytes": 36018
+      }
+    },
+    {
+      "name": "Big Sky",
+      "where": "Montana",
+      "note": "Massive terrain, far fewer crowds.",
+      "key": "big-sky-montana",
+      "qid": "Q4906372",
+      "photo": {
+        "src": "/imgs/been/big-sky-montana.webp",
+        "licence": "CC BY-SA 2.0",
+        "author": "Jim from Lexington, KY, USA",
+        "source": "https://commons.wikimedia.org/wiki/File:Big_Sky_resort.jpg",
+        "credit_required": true,
+        "bytes": 25982
+      }
+    },
+    {
+      "name": "Steamboat",
+      "where": "Colorado",
+      "note": "Champagne powder, and hot springs after.",
+      "key": "steamboat-colorado",
+      "qid": "Q7605410",
+      "photo": {
+        "src": "/imgs/been/steamboat-colorado.webp",
+        "licence": "CC BY-SA 3.0",
+        "author": "CarTick at English Wikipedia",
+        "source": "https://commons.wikimedia.org/wiki/File:Steamboat_springs_ski_resort.jpg",
+        "credit_required": true,
+        "bytes": 28470
+      }
+    },
+    {
+      "name": "Palisades Tahoe",
+      "where": "California",
+      "note": "Steeps, and plenty of variety.",
+      "key": "palisades-tahoe-california",
+      "qid": "Q2182804",
+      "photo": {
+        "src": "/imgs/been/palisades-tahoe-california.webp",
+        "licence": "Public domain",
+        "author": "Jonnyboyca at English Wikipedia",
+        "source": "https://commons.wikimedia.org/wiki/File:TheVillageatSquawValley-exterior.jpg",
+        "credit_required": false,
+        "bytes": 31734
+      }
+    },
+    {
+      "name": "Heavenly",
+      "where": "California / Nevada",
+      "note": "The views are the point.",
+      "key": "heavenly-california-nevada",
+      "qid": "Q1548153",
+      "photo": {
+        "src": "/imgs/been/heavenly-california-nevada.webp",
+        "licence": "CC BY 2.0",
+        "author": "The original uploader was ChrisRuvolo at English Wikipedia.",
+        "source": "https://commons.wikimedia.org/wiki/File:Heavenly_Gondola_Base.jpg",
+        "credit_required": true,
+        "bytes": 47650
+      }
+    },
+    {
+      "name": "Snowbird",
+      "where": "Utah",
+      "note": "Powder, and steep chutes.",
+      "key": "snowbird-utah",
+      "qid": "Q3487194",
+      "photo": {
+        "src": "/imgs/been/snowbird-utah.webp",
+        "licence": "Public domain",
+        "author": "Unknown",
+        "source": "https://commons.wikimedia.org/wiki/File:May_28_2006_Snowbird_UT_USA.jpg",
+        "credit_required": false,
+        "bytes": 42114
+      }
+    },
+    {
+      "name": "Sun Valley",
+      "where": "Idaho",
+      "note": "Historic, and reliable snowmaking.",
+      "key": "sun-valley-idaho",
+      "qid": "Q111416232"
     }
   ]
 }
