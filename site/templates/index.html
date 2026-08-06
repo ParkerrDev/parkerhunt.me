@@ -41,6 +41,9 @@
    data would have doubled this page — so this only carries the legend. See
    scripts/build-map.mjs. #}
 {% set travel = load_data(path="data/travel-map.json") %}
+{# Places, with photographs from Wikimedia Commons. Add one line to
+   site/data/places.json and re-run scripts/fetch-places.mjs. #}
+{% set been = load_data(path="data/been.json") %}
 {# Brand marks, inlined as paths. Nothing here fetches a logo at page load;
    see scripts/fetch-icons.mjs, including the note on why using someone
    else's logo to say "I use this" is fine and drawing an imitation is not. #}
@@ -420,7 +423,7 @@
         <div class="wrap">
             <div class="head">
                 <h2>Been there</h2>
-                <p>{{ travel.count }} states. Mostly the west, and mostly by car.</p>
+                <p>{{ travel.count }} states and {{ been.count }} places worth naming. Mostly the west, and mostly by car.</p>
             </div>
             <div class="map-row">
                 {# An <img>, not inline SVG: the paths are 44 KB and this page is
@@ -442,6 +445,36 @@
                 </div>
             </div>
         </div>
+
+        {% if been.count > 0 %}
+        <p class="wrap kicker" style="margin-top:1.25rem">{{ been.count }} places, {{ been.with_photo }} of them photographed</p>
+        {# A rail rather than a grid of thirty: the tiles are the point, not the
+           height of the section. Photographs are Commons, CC BY / CC BY-SA /
+           public domain, credited under the rail — those licences require it. #}
+        <div class="rail">
+            <div class="rail-track">
+                {% for pl in been.places %}
+                <figure class="shot place{% if not pl.photo %} place--none{% endif %}">
+                    {% if pl.photo %}
+                    <img src="{{ pl.photo.src }}" alt="{{ pl.name }}" width="280" height="187" loading="lazy" decoding="async">
+                    {% endif %}
+                    <figcaption>
+                        <span class="shot-t">{{ pl.name }}</span>
+                        <span class="shot-s" style="display:block">{{ pl.where }}</span>
+                    </figcaption>
+                </figure>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="wrap">
+            <p class="credit">Photographs from Wikimedia Commons under CC BY, CC BY-SA or public domain — {% for pl in been.places %}{% if pl.photo and pl.photo.credit_required %}<a href="{{ pl.photo.source }}" target="_blank" rel="noopener">{{ pl.name }}</a> {{ pl.photo.author }}; {% endif %}{% endfor %}the rest are public domain.</p>
+            {% if been.places | filter(attribute="note") | length > 0 %}
+            <ul class="distro-notes" style="margin-top:0.5rem">
+                {% for pl in been.places %}{% if pl.note %}<li><b>{{ pl.name }}</b> — {{ pl.note }}</li>{% endif %}{% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        {% endif %}
     </section>
     {% endif %}
 
@@ -511,12 +544,6 @@
                 </div>
                 {% endfor %}
             </div>
-            {% set_global cred = [] %}
-            <p class="credit">
-                {%- for sh in me.coffee_shop %}{% set k = sh.icon | replace(from="c:", to="") %}
-                {%- if k and logos.logos[k] is defined and logos.logos[k].credit_required %}{{ sh.name }} photo/logo by {{ logos.logos[k].author }}, <a href="{{ logos.logos[k].source }}" target="_blank" rel="noopener">{{ logos.logos[k].licence }}</a>. {% endif %}
-                {%- endfor -%}
-            </p>
         </div>
     </section>
     {% endif %}
@@ -718,7 +745,7 @@
         <div class="wrap">
             <div class="head">
                 <h2>Watching</h2>
-                <p>{{ titles.count }} shows. {{ titles.with_logo }} of them have a real title logo; the rest are set in type, because key art is copyrighted and free posters do not exist.</p>
+                <p>{{ titles.count }} shows{% if titles.posters %}, {{ titles.posters.count }} with posters{% endif %}.</p>
                 <a class="more" href="/watching/">All of them →</a>
             </div>
         </div>
@@ -733,6 +760,11 @@
             </div>
         </div>
         {% endfor %}
+        {% if titles.posters %}
+        {# TMDb's licence for the artwork requires this line. It is not a
+           courtesy — removing it removes the basis for showing the posters. #}
+        <div class="wrap"><p class="credit" style="margin-top:0.75rem">{{ titles.posters.attribution }}</p></div>
+        {% endif %}
     </section>
     {% endif %}
 

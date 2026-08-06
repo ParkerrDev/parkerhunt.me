@@ -46,6 +46,7 @@ facts = [
   "El Capitan at 8",
   "Mt. Whitney at 13",
   "met Travis Walton",
+  "cats over dogs",
   "2–4 cups a day",
 ]
 
@@ -111,7 +112,7 @@ orders = [
 
 [[coffee_shop]]
 name = "Kuppa Joy"
-icon = "c:kuppajoy"
+icon = ""
 mono = "KJ"
 colour = "#6F4E37"
 verdict = "A little too sweet. Okay, I guess."
@@ -127,14 +128,6 @@ orders = []
 
 # ------------------------------------------------------------ restaurants --
 # `order` is optional and renders as a second receipt when it is there.
-[[restaurant]]
-name = "Cattlemens"
-icon = "c:cattlemens"
-mono = "CM"
-colour = "#8C3A2B"
-kind = "steak"
-order = []
-
 [[restaurant]]
 name = "Butterfish"
 icon = ""
@@ -156,7 +149,7 @@ order = [
 
 [[restaurant]]
 name = "Chipotle"
-icon = "c:chipotle"
+icon = ""
 mono = "CH"
 colour = "#A81612"
 kind = "burrito"

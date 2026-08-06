@@ -1,0 +1,367 @@
+{
+  "fetched": "2026-08-06",
+  "source": "https://www.wikidata.org (CC0); photographs from Wikimedia Commons",
+  "count": 30,
+  "with_photo": 22,
+  "places": [
+    {
+      "name": "Grand Canyon",
+      "where": "Arizona",
+      "key": "grand-canyon-arizona",
+      "qid": "Q4570025",
+      "photo": {
+        "src": "/imgs/been/grand-canyon-arizona.webp",
+        "licence": "CC BY 3.0",
+        "author": "davidpinter",
+        "source": "https://commons.wikimedia.org/wiki/File:Grand_Canyon_University,_3300_W_Camelback_Rd,_Phoenix,_AZ_85017_-_panoramio_(195).jpg",
+        "credit_required": true,
+        "bytes": 38498
+      }
+    },
+    {
+      "name": "Meteor Crater",
+      "where": "Arizona",
+      "note": "also called Barringer Crater",
+      "key": "meteor-crater-arizona",
+      "qid": "Q431381",
+      "photo": {
+        "src": "/imgs/been/meteor-crater-arizona.webp",
+        "licence": "Public domain",
+        "author": "National Map Seamless Server",
+        "source": "https://commons.wikimedia.org/wiki/File:Meteor_Crater_-_Arizona.jpg",
+        "credit_required": false,
+        "bytes": 35464
+      }
+    },
+    {
+      "name": "Tombstone",
+      "where": "Arizona",
+      "key": "tombstone-arizona",
+      "qid": "Q79873",
+      "photo": {
+        "src": "/imgs/been/tombstone-arizona.webp",
+        "licence": "CC BY-SA 4.0",
+        "author": "tifoultoute",
+        "source": "https://commons.wikimedia.org/wiki/File:Tombstone_touristique.jpg",
+        "credit_required": true,
+        "bytes": 26558
+      }
+    },
+    {
+      "name": "Snowflake",
+      "where": "Arizona",
+      "key": "snowflake-arizona",
+      "qid": "Q1012644",
+      "photo": {
+        "src": "/imgs/been/snowflake-arizona.webp",
+        "licence": "CC BY-SA 3.0",
+        "author": "w:en:User:Mikejames",
+        "source": "https://commons.wikimedia.org/wiki/File:SnowflakeTemple.jpg",
+        "credit_required": true,
+        "bytes": 20724
+      }
+    },
+    {
+      "name": "Alamo",
+      "where": "Texas",
+      "key": "alamo-texas",
+      "qid": "Q981989"
+    },
+    {
+      "name": "Johnson Space Center",
+      "where": "Houston, Texas",
+      "key": "johnson-space-center-houston-texas",
+      "qid": "Q208371",
+      "photo": {
+        "src": "/imgs/been/johnson-space-center-houston-texas.webp",
+        "licence": "Public domain",
+        "author": "NASA",
+        "source": "https://commons.wikimedia.org/wiki/File:Aerial_View_of_the_Johnson_Space_Center_-_GPN-2000-001112.jpg",
+        "credit_required": false,
+        "bytes": 76688
+      }
+    },
+    {
+      "name": "Kennedy Space Center",
+      "where": "Florida",
+      "key": "kennedy-space-center-florida",
+      "qid": "Q48821",
+      "photo": {
+        "src": "/imgs/been/kennedy-space-center-florida.webp",
+        "licence": "Public domain",
+        "author": "NASA",
+        "source": "https://commons.wikimedia.org/wiki/File:Aerial_View_of_Launch_Complex_39.jpg",
+        "credit_required": false,
+        "bytes": 33758
+      }
+    },
+    {
+      "name": "Park City",
+      "where": "Utah",
+      "key": "park-city-utah",
+      "qid": "Q482993",
+      "photo": {
+        "src": "/imgs/been/park-city-utah.webp",
+        "licence": "Public domain",
+        "author": "Skyguy414 at English Wikipedia",
+        "source": "https://commons.wikimedia.org/wiki/File:Park_City,_Utah_(1).jpg",
+        "credit_required": false,
+        "bytes": 31478
+      }
+    },
+    {
+      "name": "Ketchum",
+      "where": "Idaho",
+      "key": "ketchum-idaho",
+      "qid": "Q1519069",
+      "photo": {
+        "src": "/imgs/been/ketchum-idaho.webp",
+        "licence": "Public domain",
+        "author": "Stephen Marks - (WT-en) StephenM at English Wikivoyage",
+        "source": "https://commons.wikimedia.org/wiki/File:Bald-Mountain-Sun-Valley-Rd.jpg",
+        "credit_required": false,
+        "bytes": 27568
+      }
+    },
+    {
+      "name": "Ernest Hemingway House",
+      "where": "Ketchum, Idaho",
+      "note": "where he spent his last years",
+      "key": "ernest-hemingway-house-ketchum-idaho"
+    },
+    {
+      "name": "Big Sky Resort",
+      "where": "Montana",
+      "key": "big-sky-resort-montana",
+      "qid": "Q4906372",
+      "photo": {
+        "src": "/imgs/been/big-sky-resort-montana.webp",
+        "licence": "CC BY-SA 2.0",
+        "author": "Jim from Lexington, KY, USA",
+        "source": "https://commons.wikimedia.org/wiki/File:Big_Sky_resort.jpg",
+        "credit_required": true,
+        "bytes": 25982
+      }
+    },
+    {
+      "name": "Sheridan",
+      "where": "Wyoming",
+      "key": "sheridan-wyoming",
+      "qid": "Q1017214",
+      "photo": {
+        "src": "/imgs/been/sheridan-wyoming.webp",
+        "licence": "CC BY-SA 3.0",
+        "author": "Vasiliymeshko",
+        "source": "https://commons.wikimedia.org/wiki/File:Sheridan.JPG",
+        "credit_required": true,
+        "bytes": 16868
+      }
+    },
+    {
+      "name": "Riverton",
+      "where": "Wyoming",
+      "key": "riverton-wyoming",
+      "qid": "Q603240",
+      "photo": {
+        "src": "/imgs/been/riverton-wyoming.webp",
+        "licence": "CC BY-SA 4.0",
+        "author": "Vasiliymeshko",
+        "source": "https://commons.wikimedia.org/wiki/File:Riverton_WY.jpg",
+        "credit_required": true,
+        "bytes": 21190
+      }
+    },
+    {
+      "name": "Vail",
+      "where": "Colorado",
+      "key": "vail-colorado",
+      "qid": "Q747987",
+      "photo": {
+        "src": "/imgs/been/vail-colorado.webp",
+        "licence": "CC BY-SA 4.0",
+        "author": "Nick Csakany",
+        "source": "https://commons.wikimedia.org/wiki/File:Gore_Creek_Drive_-_Vail,_CO.jpg",
+        "credit_required": true,
+        "bytes": 35108
+      }
+    },
+    {
+      "name": "Aspen",
+      "where": "Colorado",
+      "key": "aspen-colorado",
+      "qid": "Q205842",
+      "photo": {
+        "src": "/imgs/been/aspen-colorado.webp",
+        "licence": "CC BY-SA 3.0",
+        "author": "Unknown",
+        "source": "https://commons.wikimedia.org/wiki/File:Downtown_of_Aspen,_Colorado.jpg",
+        "credit_required": true,
+        "bytes": 48940
+      }
+    },
+    {
+      "name": "Timberline Lodge",
+      "where": "Mount Hood, Oregon",
+      "note": "the Overlook Hotel's exterior in The Shining",
+      "key": "timberline-lodge-mount-hood-oregon",
+      "qid": "Q1574090",
+      "photo": {
+        "src": "/imgs/been/timberline-lodge-mount-hood-oregon.webp",
+        "licence": "CC BY-SA 3.0",
+        "author": "Kelvin Kay, Kkmd at en.wikipedia",
+        "source": "https://commons.wikimedia.org/wiki/File:Timlodge.jpg",
+        "credit_required": true,
+        "bytes": 49028
+      }
+    },
+    {
+      "name": "Haystack Rock",
+      "where": "Cannon Beach, Oregon",
+      "key": "haystack-rock-cannon-beach-oregon",
+      "qid": "Q1592015",
+      "photo": {
+        "src": "/imgs/been/haystack-rock-cannon-beach-oregon.webp",
+        "licence": "GFDL 1.2",
+        "author": "Jkl sem at en.wikipedia",
+        "source": "https://commons.wikimedia.org/wiki/File:Haystack_rock_00022.jpg",
+        "credit_required": true,
+        "bytes": 8796
+      }
+    },
+    {
+      "name": "Row River Trail",
+      "where": "Cottage Grove, Oregon",
+      "key": "row-river-trail-cottage-grove-oregon"
+    },
+    {
+      "name": "North Bend",
+      "where": "Oregon",
+      "key": "north-bend-oregon",
+      "qid": "Q669104",
+      "photo": {
+        "src": "/imgs/been/north-bend-oregon.webp",
+        "licence": "CC BY 2.0",
+        "author": "Brian Burger (\"WireLizard\")",
+        "source": "https://commons.wikimedia.org/wiki/File:North_Bend_aerial.jpg",
+        "credit_required": true,
+        "bytes": 22862
+      }
+    },
+    {
+      "name": "Ariel Store",
+      "where": "Ariel, Washington",
+      "note": "home of D. B. Cooper Days",
+      "key": "ariel-store-ariel-washington",
+      "qid": "Q4790370"
+    },
+    {
+      "name": "Marysville",
+      "where": "California",
+      "key": "marysville-california",
+      "qid": "Q950966",
+      "photo": {
+        "src": "/imgs/been/marysville-california.webp",
+        "licence": "Public domain",
+        "author": "Mchavez at English Wikipedia",
+        "source": "https://commons.wikimedia.org/wiki/File:MarysvilleEllisLake.jpg",
+        "credit_required": false,
+        "bytes": 28136
+      }
+    },
+    {
+      "name": "Hilmar",
+      "where": "California",
+      "key": "hilmar-california",
+      "qid": "Q3322376"
+    },
+    {
+      "name": "Reedley College",
+      "where": "California",
+      "key": "reedley-college-california",
+      "qid": "Q7306738"
+    },
+    {
+      "name": "Markleeville",
+      "where": "California",
+      "key": "markleeville-california",
+      "qid": "Q1019532",
+      "photo": {
+        "src": "/imgs/been/markleeville-california.webp",
+        "licence": "CC BY-SA 3.0",
+        "author": "flamenc",
+        "source": "https://commons.wikimedia.org/wiki/File:Markleeville_-_General_Store.jpg",
+        "credit_required": true,
+        "bytes": 30538
+      }
+    },
+    {
+      "name": "Sanger",
+      "where": "California",
+      "key": "sanger-california",
+      "qid": "Q174427",
+      "photo": {
+        "src": "/imgs/been/sanger-california.webp",
+        "licence": "CC BY 3.0",
+        "author": "Bobak Ha'Eri",
+        "source": "https://commons.wikimedia.org/wiki/File:2009-0725-CA-SangerDepotMuseum.jpg",
+        "credit_required": true,
+        "bytes": 47802
+      }
+    },
+    {
+      "name": "Taylorsville",
+      "where": "California",
+      "key": "taylorsville-california",
+      "qid": "Q1898897"
+    },
+    {
+      "name": "Lassen County",
+      "where": "California",
+      "key": "lassen-county-california",
+      "qid": "Q156340",
+      "photo": {
+        "src": "/imgs/been/lassen-county-california.webp",
+        "licence": "CC BY-SA 3.0",
+        "author": "Finetooth",
+        "source": "https://commons.wikimedia.org/wiki/File:Lassen_County_Courthouse.jpg",
+        "credit_required": true,
+        "bytes": 27168
+      }
+    },
+    {
+      "name": "Cal Poly",
+      "where": "California",
+      "key": "cal-poly-california",
+      "qid": "Q1026846",
+      "photo": {
+        "src": "/imgs/been/cal-poly-california.webp",
+        "licence": "Public domain",
+        "author": "Gregg Erickson (Farwestern)",
+        "source": "https://commons.wikimedia.org/wiki/File:Cal-Poly-from-outback.jpg",
+        "credit_required": false,
+        "bytes": 67816
+      }
+    },
+    {
+      "name": "Fresno State",
+      "where": "California",
+      "key": "fresno-state-california",
+      "qid": "Q1026919",
+      "photo": {
+        "src": "/imgs/been/fresno-state-california.webp",
+        "licence": "CC BY 3.0",
+        "author": "Bobak Ha'Eri",
+        "source": "https://commons.wikimedia.org/wiki/File:2009-0725-CA-CSUF-ThomasAdministration.jpg",
+        "credit_required": true,
+        "bytes": 38286
+      }
+    },
+    {
+      "name": "Cattlemens",
+      "where": "Steakhouse",
+      "note": "steak, and the reason this section exists",
+      "key": "cattlemens-steakhouse",
+      "qid": "Q49785762"
+    }
+  ]
+}

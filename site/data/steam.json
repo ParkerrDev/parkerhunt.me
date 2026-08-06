@@ -772,7 +772,7 @@
         "label": "Mostly Positive",
         "tone": "pos",
         "pct": 78,
-        "count": 15321
+        "count": 15322
       }
     },
     {
@@ -844,7 +844,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 95,
-        "count": 10261
+        "count": 10262
       }
     },
     {
@@ -916,7 +916,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 86,
-        "count": 40878
+        "count": 40879
       }
     },
     {
@@ -1086,7 +1086,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 89,
-        "count": 49037
+        "count": 49038
       }
     },
     {
@@ -1185,7 +1185,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 1387358
+        "count": 1387367
       }
     },
     {
@@ -1260,7 +1260,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 85,
-        "count": 100708
+        "count": 100709
       }
     },
     {
@@ -1429,7 +1429,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 967465
+        "count": 967490
       }
     },
     {
@@ -1572,7 +1572,7 @@
         "label": "Mostly Positive",
         "tone": "pos",
         "pct": 80,
-        "count": 135398
+        "count": 135399
       }
     },
     {
@@ -2209,7 +2209,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 85,
-        "count": 100708
+        "count": 100709
       }
     },
     {
@@ -2374,7 +2374,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 967465
+        "count": 967490
       }
     },
     {
@@ -2420,7 +2420,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 95,
-        "count": 10261
+        "count": 10262
       }
     },
     {
@@ -2470,7 +2470,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 87,
-        "count": 1387358
+        "count": 1387367
       }
     },
     {
