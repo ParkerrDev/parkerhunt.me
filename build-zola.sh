@@ -107,6 +107,11 @@ fi
 echo "Refreshing GitHub snapshot..."
 node scripts/fetch-github.mjs "${GITHUB_USER:-ParkerrDev}" site/data/github.json
 
+# The real library, if a key is present. Without one this prints how to get a
+# free key and exits 0, and fetch-steam.mjs falls back to the pinned seed.
+echo "Refreshing Steam library..."
+node scripts/fetch-steam-owned.mjs site/data/steam-owned.json
+
 echo "Refreshing Steam snapshot..."
 node scripts/fetch-steam.mjs site/data/steam-seed.json site/data/steam.json
 
@@ -118,6 +123,11 @@ node scripts/fetch-duolingo.mjs "${DUOLINGO_USER:-parkerhunt.me}" site/data/duol
 
 echo "Refreshing Nexus Mods snapshot..."
 node scripts/fetch-nexus.mjs "${NEXUS_UPLOADER:-186080535}" site/data/nexus.json
+
+# The X PROFILE only. The account is protected, so there is no public timeline
+# to read at any price — see the header of scripts/fetch-x.mjs before trying.
+echo "Refreshing X profile..."
+node scripts/fetch-x.mjs "${X_HANDLE:-AndrewParkerH}" site/data/x.json
 
 # Not a fetch — pure arithmetic. Recomputes the durations that would otherwise
 # be wrong the day after they were typed ("9 years, 9 months and 17 days on X").

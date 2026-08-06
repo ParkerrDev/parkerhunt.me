@@ -13,7 +13,10 @@
       "art": {
         "sm": "/imgs/media/half-dome-480.webp",
         "lg": "/imgs/media/half-dome-960.webp"
-      }
+      },
+      "lat": 37.7459,
+      "lon": -119.5332,
+      "map": "https://www.google.com/maps/search/?api=1&query=37.7459%2C-119.5332"
     },
     {
       "key": "el-capitan",
@@ -27,7 +30,10 @@
       "art": {
         "sm": "/imgs/media/el-capitan-480.webp",
         "lg": "/imgs/media/el-capitan-960.webp"
-      }
+      },
+      "lat": 37.734,
+      "lon": -119.6377,
+      "map": "https://www.google.com/maps/search/?api=1&query=37.734%2C-119.6377"
     },
     {
       "key": "mount-whitney",
@@ -41,7 +47,10 @@
       "art": {
         "sm": "/imgs/media/mount-whitney-480.webp",
         "lg": "/imgs/media/mount-whitney-960.webp"
-      }
+      },
+      "lat": 36.5785,
+      "lon": -118.2923,
+      "map": "https://www.google.com/maps/search/?api=1&query=36.5785%2C-118.2923"
     }
   ],
   "covers": {

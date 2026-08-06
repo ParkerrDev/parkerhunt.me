@@ -44,7 +44,12 @@ const UA = {
 };
 
 /* The summits, in the order they were climbed. `file` is the exact Commons
-   filename — pinned, see above. */
+   filename — pinned, see above.
+
+   `latlon` puts each one on the map in scripts/build-map.mjs. Written down
+   rather than looked up because there are three of them, they are summits, and
+   a summit does not move — a Wikidata round trip per build to be told Half
+   Dome is still where it was would be a request for nothing. */
 const PEAKS = [
   {
     key: "half-dome",
@@ -52,6 +57,7 @@ const PEAKS = [
     where: "Yosemite, California",
     height: "8,839 ft",
     age: 6,
+    latlon: [37.7459, -119.5332],
     file: "Half Dome from Glacier Point, Yosemite NP - Diliff.jpg",
   },
   {
@@ -60,6 +66,7 @@ const PEAKS = [
     where: "Yosemite, California",
     height: "7,573 ft",
     age: 8,
+    latlon: [37.734, -119.6377],
     file: "Yosemite El Capitan.jpg",
   },
   {
@@ -68,6 +75,7 @@ const PEAKS = [
     where: "Sierra Nevada, California",
     height: "14,505 ft",
     age: 13,
+    latlon: [36.5785, -118.2923],
     file: "Mount Whitney September 2009.JPG",
   },
 ];
@@ -186,6 +194,15 @@ for (const p of PEAKS) {
      1400px landscape to show it 370px wide. */
   const out = { ...p, ...credit, art: {} };
   delete out.file;
+  /* Flattened to lat/lon so a summit is the same shape as a place — see
+     site/data/been.json. scripts/build-map.mjs pins all three lists with one
+     function because of it. */
+  if (Array.isArray(p.latlon)) {
+    out.lat = p.latlon[0];
+    out.lon = p.latlon[1];
+    out.map = `https://www.google.com/maps/search/?api=1&query=${out.lat}%2C${out.lon}`;
+    delete out.latlon;
+  }
   try {
     const buf = await download(info.thumburl || info.url);
     for (const [label, w, q] of [["sm", 480, 70], ["lg", 960, 68]]) {

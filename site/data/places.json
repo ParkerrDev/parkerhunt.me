@@ -12,7 +12,9 @@
     "`skiing` is the same shape and goes through the same script — a ski resort is",
     "a place with a photograph. It renders as its own section.",
     "",
-    "`file` pins a Commons filename outright, for items with no P18."
+    "`file` pins a Commons filename outright, for items with no P18.",
+    "`latlon` pins coordinates by hand for the one item whose Wikidata entry has no P625.",
+    "`no_lookup` skips Wikidata entirely, for a business with no item — a wrong coordinate is worse than none."
   ],
   "places": [
     {
@@ -59,7 +61,8 @@
       "name": "Ernest Hemingway House",
       "where": "Ketchum, Idaho",
       "q": "Ernest Hemingway House Ketchum",
-      "note": "where he spent his last years"
+      "note": "where he spent his last years",
+      "qid": "Q30641853"
     },
     {
       "name": "Sheridan",
@@ -87,7 +90,8 @@
     },
     {
       "name": "Row River Trail",
-      "where": "Cottage Grove, Oregon"
+      "where": "Cottage Grove, Oregon",
+      "qid": "Q7371755"
     },
     {
       "name": "North Bend",
@@ -147,7 +151,8 @@
     {
       "name": "Cattlemens",
       "where": "Steakhouse",
-      "note": "steak, and the reason this section exists"
+      "note": "steak, and the reason this section exists",
+      "no_lookup": true
     },
     {
       "name": "White Sands",
@@ -188,7 +193,12 @@
       "where": "Colorado",
       "q": "Aspen Snowmass",
       "note": "Four mountains, four different days.",
-      "file": "Snowmass gondola and Ski area.jpg"
+      "file": "Snowmass gondola and Ski area.jpg",
+      "qid": "Q4807795",
+      "latlon": [
+        39.2084,
+        -106.949
+      ]
     },
     {
       "name": "Jackson Hole",
@@ -243,7 +253,8 @@
       "where": "Idaho",
       "q": "Sun Valley Resort",
       "note": "Historic, and reliable snowmaking.",
-      "file": "Bald Mountain in Sun Valley, Idaho.jpg"
+      "file": "Bald Mountain in Sun Valley, Idaho.jpg",
+      "qid": "Q955969"
     },
     {
       "name": "Bear Valley",
