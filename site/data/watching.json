@@ -3543,7 +3543,7 @@
     },
     {
       "title": "The Parent Trap",
-      "year": 1961,
+      "year": 1998,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     },
@@ -3771,10 +3771,10 @@
     },
     {
       "title": "The Call of the Wild",
-      "year": 1935,
+      "year": 1972,
       "bg": "#1d1f27",
       "fg": "#c9cbd6",
-      "qid": "Q2358112"
+      "qid": "Q153039"
     },
     {
       "title": "The Journey of Natty Gann",
@@ -3942,6 +3942,116 @@
     {
       "title": "The Voices",
       "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Cable Guy",
+      "year": 1996,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Sausage Party",
+      "year": 2016,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Elf",
+      "year": 2003,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q949879"
+    },
+    {
+      "title": "Very Bad Things",
+      "year": 1998,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Willow",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q515931"
+    },
+    {
+      "title": "Idiocracy",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Lethal Weapon",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Lethal Weapon 2",
+      "year": 1989,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Lethal Weapon 3",
+      "year": 1992,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Lethal Weapon 4",
+      "year": 1998,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Beverly Hills Cop",
+      "year": 1984,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Beverly Hills Cop II",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Beverly Hills Cop III",
+      "year": 1994,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Beverly Hills Cop: Axel F",
+      "year": 2024,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Running Scared",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "City Slickers",
+      "year": 1991,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "City Slickers II: The Legend of Curly's Gold",
+      "year": 1994,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Throw Momma from the Train",
+      "year": 1987,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
