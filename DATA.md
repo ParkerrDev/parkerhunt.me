@@ -27,6 +27,7 @@ scripts/fetch-*.mjs ──► site/data/*.json ──► templates ──► pub
 | `fetch-nexus.mjs` | `api-router.nexusmods.com/graphql` | `site/data/nexus.json` | none |
 | `fetch-steam-art.mjs` | `steam.json` + Steam CDN | `site/static/imgs/steam/*.webp` | none, **local only** |
 | `build-stamps.mjs` | nothing — arithmetic | `site/data/stamps.json` | n/a |
+| `fetch-media.mjs` | Wikimedia Commons + Open Library | `site/static/imgs/media/*.webp` + `site/data/media.json` | none, **local only** |
 
 All five fetchers run from `build-zola.sh` on every Cloudflare deploy. No API
 key, no token, no cookie: every endpoint above answers unauthenticated.
@@ -107,6 +108,27 @@ node scripts/fetch-steam-art.mjs    # needs cwebp: brew install webp
 It skips files that already exist; set `FORCE=1` to re-convert everything. It
 exits non-zero and names any game whose art it could not get, because a missing
 capsule is a broken `<img>` on a live page.
+
+## Photographs carry obligations
+
+`fetch-media.mjs` pulls the three summit photographs from Wikimedia Commons and
+the book jackets from Open Library, converts both to WebP and writes
+`site/data/media.json`. Like the Steam art it needs `cwebp`, so it runs locally
+and its output is committed.
+
+The two sources are not the same situation:
+
+- The **mountains** are CC BY or CC BY-SA. Freely licensed is not the same as
+  free of obligations — every one of those licences *requires* attribution, so
+  the author, licence and a link to the file page come out of the API with the
+  image and land in `media.json`. `.credit` renders them under each photo. Do
+  not remove that line; it is the price of the picture.
+- The **book jackets** are the publishers'. They are shown at thumbnail size to
+  identify an edition on a reading list, which is what every library catalogue
+  and bookshop does with them. Nothing is served at print resolution.
+
+Every id is **pinned**. Searching Commons at build time would mean the pictures
+could change under the site whenever the search got re-ranked.
 
 ## The hand-written half
 

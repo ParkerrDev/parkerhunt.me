@@ -1,0 +1,52 @@
+{
+  "fetched": "2026-08-06",
+  "peaks": [
+    {
+      "key": "half-dome",
+      "name": "Half Dome",
+      "where": "Yosemite, California",
+      "height": "8,839 ft",
+      "age": 6,
+      "author": "Diliff",
+      "licence": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Half_Dome_from_Glacier_Point,_Yosemite_NP_-_Diliff.jpg",
+      "art": {
+        "sm": "/imgs/media/half-dome-480.webp",
+        "lg": "/imgs/media/half-dome-960.webp"
+      }
+    },
+    {
+      "key": "el-capitan",
+      "name": "El Capitan",
+      "where": "Yosemite, California",
+      "height": "7,573 ft",
+      "age": 8,
+      "author": "Mike Murphy (talk · contribs)",
+      "licence": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Yosemite_El_Capitan.jpg",
+      "art": {
+        "sm": "/imgs/media/el-capitan-480.webp",
+        "lg": "/imgs/media/el-capitan-960.webp"
+      }
+    },
+    {
+      "key": "mount-whitney",
+      "name": "Mt. Whitney",
+      "where": "Sierra Nevada, California",
+      "height": "14,505 ft",
+      "age": 13,
+      "author": "Cullen328",
+      "licence": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mount_Whitney_September_2009.JPG",
+      "art": {
+        "sm": "/imgs/media/mount-whitney-480.webp",
+        "lg": "/imgs/media/mount-whitney-960.webp"
+      }
+    }
+  ],
+  "covers": {
+    "zero-to-one": "/imgs/media/book-zero-to-one.webp",
+    "einstein": "/imgs/media/book-einstein.webp",
+    "steve-jobs": "/imgs/media/book-steve-jobs.webp"
+  }
+}

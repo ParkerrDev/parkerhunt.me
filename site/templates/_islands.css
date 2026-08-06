@@ -20,6 +20,13 @@
  *
  * The fonts are the same system stack those sites fall back to; their own faces
  * (Chirp, Motiva Sans, din-round) are proprietary and are not shipped.
+ *
+ * LIGHT AND DARK ARE NOT A MODE HERE, THEY ARE THE BRAND. X, LinkedIn, GitHub
+ * and Duolingo are light because their light themes are the default ones people
+ * see; Steam, Chess.com and Nexus Mods are dark because those three products
+ * are dark and have never been anything else. Do not add a prefers-color-scheme
+ * block to any of them — the shell is light-only now, and a card that flips
+ * with the OS would be the only thing on the page that does.
  */
 
 /* ----------------------------------------------------------------- panel -- */
@@ -65,9 +72,6 @@
   background: var(--x-bg); color: var(--x-ink);
   font-family: "TwitterChirp", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   letter-spacing: normal;
-}
-@media (prefers-color-scheme: dark) {
-  .x { --x-ink: #e7e9ea; --x-dim: #71767b; --x-line: #2f3336; --x-bg: #000; }
 }
 .x-head {
   position: sticky; top: 0; z-index: 2;
@@ -115,9 +119,6 @@
   letter-spacing: normal;
   padding: 0.75rem;
 }
-@media (prefers-color-scheme: dark) {
-  .li { --li-ink: rgba(255,255,255,0.9); --li-dim: rgba(255,255,255,0.6); --li-line: rgba(255,255,255,0.13); --li-bg: #1b1f23; --li-card: #1d2226; }
-}
 .li-post { background: var(--li-card); border-radius: 8px; box-shadow: 0 0 0 1px var(--li-line); margin-bottom: 0.75rem; overflow: hidden; }
 .li-post:last-child { margin-bottom: 0; }
 .li-top { display: flex; gap: 0.625rem; padding: 0.75rem 1rem 0; }
@@ -152,9 +153,6 @@
   background: var(--gh-bg); color: var(--gh-ink);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   letter-spacing: normal;
-}
-@media (prefers-color-scheme: dark) {
-  .gh { --gh-ink: #f0f6fc; --gh-dim: #9198a1; --gh-line: #3d444d; --gh-bg: #0d1117; --gh-blue: #4493f8; }
 }
 .gh-head {
   position: sticky; top: 0; z-index: 2;
@@ -282,9 +280,6 @@
   font-family: "din-round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   letter-spacing: normal;
   padding: 1rem;
-}
-@media (prefers-color-scheme: dark) {
-  .duol { --d-ink: #f1f7fb; --d-dim: #93a0a8; --d-line: #37464f; --d-bg: #131f24; --d-soft: #202f36; }
 }
 .d-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.875rem; }
 .d-av { width: 3rem; height: 3rem; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--d-soft); }

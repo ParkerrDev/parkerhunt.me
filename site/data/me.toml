@@ -60,6 +60,20 @@ films = []
 # [[sites]]  name = "" ; url = "" ; note = ""
 sites = []
 
+# -------------------------------------------------------------------- now --
+# A /now page in one card, at the top of the site. Two rules: say what is
+# actually happening this month, and change `updated` when you change `doing`.
+# A "now" that is a year old is worse than no now at all.
+[now]
+updated = "2026-08"
+line = "Building AppIt! and getting ready to start college."
+doing = [
+  "AppIt! — an iOS browser that turns websites into their own apps",
+  "Getting ready to start college",
+  "Rebuilding this site from scratch, in public",
+  "Mandarin, most days",
+]
+
 # ----------------------------------------------------------------- coffee --
 # The habit. The orders live in [[coffee_shop]] below, because they belong to a
 # shop and one shop can have several.
@@ -82,6 +96,7 @@ line = "I love how they taste and I have a genuine problem with them — a fiest
 # opinion; leave it empty for a shop with no complaint attached.
 [[coffee_shop]]
 name = "Starbucks"
+colour = "#00704A"
 verdict = ""
 orders = [
   "Venti vanilla sweet cream cold brew",
@@ -91,11 +106,13 @@ orders = [
 
 [[coffee_shop]]
 name = "Kuppa Joy"
+colour = "#6F4E37"
 verdict = "A little too sweet. Okay, I guess."
 orders = ["Grande vanilla sweet cream cold brew"]
 
 [[coffee_shop]]
 name = "Dutch Bros"
+colour = "#00539B"
 verdict = "Too sweet. I do not go."
 orders = []
 
@@ -130,43 +147,55 @@ order = []
 # ---------------------------------------------------------------- distros --
 # The distro-hopping progression, in order. Exactly one entry should have
 # `current = true`; it is the one the numbering builds towards.
+#
+# `colour` is the tile. These are approximations of each project's own accent
+# taken by eye, NOT their trademarks — nothing here reproduces a distro logo.
+# Correct any that look wrong; it is one hex value per row.
 [[distro]]
 name = "Raspbian"
+colour = "#C51A4A"
 note = "the first one, on a Pi"
 current = false
 
 [[distro]]
 name = "Kali Linux"
+colour = "#367BF0"
 note = "because it looked like hacking"
 current = false
 
 [[distro]]
 name = "Ubuntu"
+colour = "#E95420"
 note = "the sensible detour"
 current = false
 
 [[distro]]
 name = "Zorin OS"
+colour = "#0CC1F3"
 note = ""
 current = false
 
 [[distro]]
 name = "Fedora"
+colour = "#51A2DA"
 note = ""
 current = false
 
 [[distro]]
 name = "Nobara"
+colour = "#D9682D"
 note = "Fedora, but it plays games"
 current = false
 
 [[distro]]
 name = "NixOS"
+colour = "#5277C3"
 note = "declarative, and a whole personality"
 current = false
 
 [[distro]]
 name = "CachyOS"
+colour = "#00A67D"
 note = "Arch, tuned, and where I stopped"
 current = true
 
@@ -186,35 +215,46 @@ url = "/novel/"
 
 [[books_read]]
 title = "Zero to One"
+cover = "zero-to-one"
 author = "Peter Thiel"
 year = 2014
 note = "Notes on startups, or how to build the future"
 
 [[books_read]]
 title = "Einstein: His Life and Universe"
+cover = "einstein"
 author = "Walter Isaacson"
 year = 2007
 note = ""
 
 [[books_read]]
 title = "Steve Jobs"
+cover = "steve-jobs"
 author = "Walter Isaacson"
 year = 2011
 note = ""
 
 # ----------------------------------------------------------------- ranked --
+# `bg`/`fg` paint a typographic poster for each show — set in this site's own
+# type, not a scan of the real artwork, which is the network's and not ours.
 [[shows]]
 title = "Silicon Valley"
+bg = "#0E9E8F"
+fg = "#ffffff"
 year = 2014
 note = "the only one that gets the industry right by getting it wrong"
 
 [[shows]]
 title = "Mr. Robot"
+bg = "#1A1A1A"
+fg = "#E23A32"
 year = 2015
 note = "the rare show where the terminal on screen is real"
 
 [[shows]]
 title = "Seinfeld"
+bg = "#1F4FA3"
+fg = "#F4D03F"
 year = 1989
 note = ""
 
