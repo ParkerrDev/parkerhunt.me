@@ -1,0 +1,28 @@
+{
+  "_comment": [
+    "States visited. Two-letter USPS codes, any order — the map script sorts",
+    "and de-duplicates. This is the ONLY place to edit; scripts/build-map.mjs",
+    "reads it, paints site/static/imgs/us-visited.svg and writes the legend data",
+    "to site/data/travel-map.json.",
+    "",
+    "Add a state:  put its code here, then run `node scripts/build-map.mjs` and",
+    "commit both outputs. An unknown code fails the script loudly rather than",
+    "quietly colouring nothing."
+  ],
+  "visited": [
+    "AZ",
+    "CA",
+    "CO",
+    "FL",
+    "ID",
+    "MT",
+    "NE",
+    "NM",
+    "NV",
+    "OR",
+    "TX",
+    "UT",
+    "WA",
+    "WY"
+  ]
+}

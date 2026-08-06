@@ -701,6 +701,13 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .cover { display: block; aspect-ratio: 2 / 3; border-radius: 6px; overflow: hidden; background: var(--bg-soft); box-shadow: var(--shadow-2); }
 .cover img { width: 100%; height: 100%; object-fit: cover; }
 
+/* ------------------------------------------------------------------ map -- */
+/* Map on the left, the states as text on the right. Collapses to stacked at
+   the point the two stop both being readable rather than at a round number. */
+.map-row { display: grid; gap: 1rem 1.5rem; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; }
+@media (max-width: 52rem) { .map-row { grid-template-columns: 1fr; } }
+.map { width: 100%; height: auto; display: block; }
+
 /* ------------------------------------------------------------------ now -- */
 /* What is actually happening, at the top of the page where it belongs. */
 .now {
