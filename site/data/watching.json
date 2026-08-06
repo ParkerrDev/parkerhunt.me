@@ -374,6 +374,12 @@
       "year": 2018,
       "bg": "#1B1B1B",
       "fg": "#E23B3B"
+    },
+    {
+      "title": "H2O: Just Add Water",
+      "year": 2006,
+      "bg": "#0B2E3F",
+      "fg": "#6FD3E8"
     }
   ],
   "movies": [
@@ -3576,6 +3582,269 @@
     {
       "title": "Swapped",
       "year": 2026,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Old School",
+      "year": 2003,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Scrooged",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Groundhog Day",
+      "year": 1993,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Kingpin",
+      "year": 1996,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Rudolph the Red-Nosed Reindeer",
+      "year": 1964,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q726898"
+    },
+    {
+      "title": "Big Trouble in Little China",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Conspiracy Theory",
+      "year": 1997,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Paddington",
+      "year": 2014,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Paddington 2",
+      "year": 2017,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Point Break",
+      "year": 1991,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "12 Angry Men",
+      "year": 1957,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Bridesmaids",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Spaceballs",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Indian in the Cupboard",
+      "year": 1995,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Cat's Eye",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Wonder",
+      "year": 2017,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q27958394"
+    },
+    {
+      "title": "The Super Mario Bros. Movie",
+      "year": 2023,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Super Mario Galaxy Movie",
+      "year": 2026,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Butterfly Effect",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "12 Monkeys",
+      "year": 1995,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Independence Day",
+      "year": 1996,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Pocahontas",
+      "year": 1995,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Pinocchio",
+      "year": 1940,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q4341553"
+    },
+    {
+      "title": "Dumbo",
+      "year": 1941,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Peter Pan",
+      "year": 1953,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q270470"
+    },
+    {
+      "title": "Where the Red Fern Grows",
+      "year": 1974,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Where the Red Fern Grows: Part Two",
+      "year": 1992,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Where the Red Fern Grows",
+      "year": 2003,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Sleeping Beauty",
+      "year": 1959,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Never Cry Wolf",
+      "year": 1983,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Call of the Wild",
+      "year": 1935,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q2358112"
+    },
+    {
+      "title": "The Journey of Natty Gann",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Mary Poppins",
+      "year": 1964,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Mary Poppins Returns",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Robin Hood",
+      "year": 1973,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Fox and the Hound",
+      "year": 1981,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Color Out of Space",
+      "year": 2019,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Family Man",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Aladdin",
+      "year": 1992,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "White Fang",
+      "year": 1991,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Flight of the Navigator",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Weird Science",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Star Wars: The Force Awakens",
+      "year": 2015,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
