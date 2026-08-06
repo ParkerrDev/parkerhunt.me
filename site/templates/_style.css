@@ -416,7 +416,7 @@ a.row:hover .row-t { color: var(--accent); }
   font-family: var(--mono); font-size: 0.8125rem;
 }
 .receipt-h {
-  display: flex; flex-direction: column; align-items: center; gap: 0.375rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
   text-align: center; padding-bottom: 0.625rem; margin-bottom: 0.625rem;
   border-bottom: 2px dashed var(--line);
 }
@@ -451,7 +451,7 @@ a.row:hover .row-t { color: var(--accent); }
 .vice-t { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin: 0.1875rem 0 0.375rem; display: flex; align-items: baseline; gap: 0.625rem; flex-wrap: wrap; }
 .vice-tag { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); border: 1px solid var(--line); border-radius: 999px; padding: 0.125rem 0.5rem; }
 .vice p { margin: 0; font-size: 0.9375rem; line-height: 1.55; color: var(--muted); }
-.vice .banner { width: 6rem; flex: none; }
+.vice .banner { width: 9rem; aspect-ratio: 4 / 3; flex: none; }
 
 /* ---------------------------------------------------------------- distros -- */
 /* The distro-hopping progression as one chain. Numbered rather than dated
@@ -751,24 +751,31 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .mark--lg.mark--letter { font-size: 0.875rem; }
 .tile--icon { flex-direction: row; align-items: center; gap: 0.6875rem; }
 
-/* The banner. Wordmarks get room to be words; photographs fill the frame. */
-.banner {
-  display: grid; place-items: center; overflow: hidden;
-  width: 100%; aspect-ratio: 5 / 2; border-radius: 9px;
-  background: #fff; box-shadow: inset 0 0 0 1px var(--line);
-  color: var(--c, var(--fg));
+/* NO CONTAINER. These used to be logos inside a bordered, white-filled box,
+   which put a card inside a card and made every mark look like a sticker
+   somebody had applied to the receipt. A logo already has its own shape; the
+   only thing it needs is room and a consistent height.
+
+   Height, not width, is what is held constant — that is what makes a round
+   siren, a wide wordmark and a square roundel look like they belong in the same
+   row. 2.75rem is the size where the Starbucks siren reads and the Kuppa Joy
+   wordmark is still legible. */
+.banner { display: grid; place-items: center; min-height: 3.5rem; }
+/* 3.5rem, because a site icon is a mark inset in a square: cap the FILE at the
+   size you want the MARK and the mark comes out a third smaller than intended.
+   Wordmarks are the opposite problem — 3.5rem tall would make "KUPPA JOY" the
+   biggest thing on the card — so they are capped by width instead. */
+.banner img { max-height: 3.5rem; max-width: 100%; width: auto; object-fit: contain; }
+.banner--wide img { max-height: 2rem; max-width: 82%; }
+.banner--letter {
+  min-height: 2.75rem; color: var(--c, var(--fg));
+  font-weight: 650; font-size: 1.0625rem; letter-spacing: 0.02em;
 }
-.banner img { max-width: 76%; max-height: 64%; object-fit: contain; }
-.banner--photo { background: var(--bg-soft); }
-.banner--photo img { width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; }
-.banner--letter { font-weight: 650; font-size: 1.0625rem; letter-spacing: 0.02em; }
-/* A real logo is square and wants to be seen, not letterboxed. */
-/* A light mark on transparent needs something behind it, or it is an empty
-   box. See inspect() in fetch-brands.mjs. */
-.banner--slate { background: #1b1b1f; }
-.banner--brand { aspect-ratio: 5 / 2; }
-.banner--brand img { max-width: none; max-height: 84%; width: auto; }
-.banner--sm { aspect-ratio: 16 / 7; border-radius: 7px; }
+/* A mark drawn in white needs something behind it, and only that mark does —
+   so the plate is a disc around the logo rather than a box across the card. */
+.banner--slate { background: #1b1b1f; border-radius: 10px; padding: 0.4375rem 0.75rem; }
+.banner--sm { min-height: 2.25rem; }
+.banner--sm img { max-height: 2.25rem; }
 
 /* ------------------------------------------------------------------ map -- */
 /* Map on the left, the states as text on the right. Collapses to stacked at

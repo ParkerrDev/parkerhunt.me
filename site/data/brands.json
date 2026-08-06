@@ -7,30 +7,42 @@
       "src": "/imgs/brands/starbucks.webp",
       "domain": "starbucks.com",
       "plate": "light",
+      "wide": false,
       "bytes": 12192
+    },
+    "kuppajoy": {
+      "src": "/imgs/brands/kuppajoy.webp",
+      "domain": "kuppajoy.com",
+      "plate": "light",
+      "wide": true,
+      "bytes": 6706
     },
     "dutchbros": {
       "src": "/imgs/brands/dutchbros.webp",
       "domain": "dutchbros.com",
       "plate": "light",
+      "wide": false,
       "bytes": 1976
     },
     "chipotle": {
       "src": "/imgs/brands/chipotle.webp",
       "domain": "chipotle.com",
       "plate": "light",
+      "wide": false,
       "bytes": 12338
     },
     "butterfish": {
       "src": "/imgs/brands/butterfish.webp",
       "domain": "butterfishpoke.com",
       "plate": "light",
+      "wide": false,
       "bytes": 750
     },
     "takis": {
       "src": "/imgs/brands/takis.webp",
       "domain": "takisusa.com",
       "plate": "dark",
+      "wide": false,
       "bytes": 336
     }
   }

@@ -940,7 +940,7 @@
         "label": "Overwhelmingly Positive",
         "tone": "pos",
         "pct": 98,
-        "count": 104873
+        "count": 104874
       }
     },
     {
@@ -987,7 +987,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 93,
-        "count": 1146988
+        "count": 1146993
       }
     },
     {
@@ -1061,7 +1061,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 90,
-        "count": 69572
+        "count": 69573
       }
     },
     {
@@ -1547,7 +1547,7 @@
         "label": "Mostly Positive",
         "tone": "pos",
         "pct": 76,
-        "count": 69522
+        "count": 69525
       }
     },
     {
@@ -1595,7 +1595,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 90,
-        "count": 134578
+        "count": 134579
       }
     },
     {
@@ -1936,7 +1936,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 92,
-        "count": 67005
+        "count": 67006
       }
     },
     {
@@ -2157,7 +2157,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 90,
-        "count": 66454
+        "count": 66455
       }
     },
     {
@@ -2280,7 +2280,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 90,
-        "count": 66454
+        "count": 66455
       }
     },
     {
@@ -2328,7 +2328,7 @@
         "label": "Very Positive",
         "tone": "pos",
         "pct": 90,
-        "count": 69572
+        "count": 69573
       }
     },
     {
@@ -2540,7 +2540,7 @@
         "label": "Mostly Positive",
         "tone": "pos",
         "pct": 76,
-        "count": 69522
+        "count": 69525
       }
     }
   ],

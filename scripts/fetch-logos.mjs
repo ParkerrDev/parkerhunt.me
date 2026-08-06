@@ -22,12 +22,11 @@
  * file whose licence turns out to be "fair use" fails loudly instead of quietly
  * putting a non-free logo on a public site.
  *
- * WHEN THERE IS NO LOGO, THERE IS OFTEN A PHOTOGRAPH. Chipotle, Cattlemens and
- * Kuppa Joy have no free logo — the first is a pictorial mark above the
- * originality threshold and the other two are local — but Commons has freely
- * licensed photographs of all three storefronts, and a picture of the place is
- * a better answer than two letters in a box. Butterfish has neither and keeps
- * its lettermark.
+ * THE STOREFRONT PHOTOGRAPHS ARE GONE. They were here as a stand-in for missing
+ * logos and they answered the wrong question — the section they appeared in is
+ * about what I order, not about buildings. Real logos now come from each
+ * company's own site icon; see scripts/fetch-brands.mjs. What is left here is
+ * one actual product photograph, which is a photograph on purpose.
  *
  * Usage:  node scripts/fetch-logos.mjs [outDir] [dataFile]
  */
@@ -58,9 +57,9 @@ const WANT = [
   /* Storefront photographs, for the businesses with no free logo anywhere.
      A picture of the place is a better answer than two letters in a circle, and
      these are all CC BY / CC BY-SA, so the photographer gets a credit line. */
-  { key: "kuppajoy", file: "Kuppa Joy.jpg", photo: true },
-  { key: "cattlemens", file: "Cattlemens Petaluma - June 2022 - Sarah Stierch 01.jpg", photo: true },
-  { key: "chipotle", file: "Chipotle Mexican Grill (15068734500).jpg", photo: true },
+  /* Not a logo — an actual photograph of the bags, which is what the vice card
+     wanted. CC0, so no attribution is owed; credited anyway. */
+  { key: "takis-bag", file: "Barcel Guacamole Takis.jpg", photo: true },
 ];
 
 /* Licences that may be redistributed from this site. Anything else — most

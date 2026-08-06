@@ -37,7 +37,12 @@ const DATA = resolve(process.argv[3] || "site/data/brands.json");
 /* key -> the company's own domain. That is the whole configuration. */
 const WANT = [
   { key: "starbucks", domain: "starbucks.com" },
-  { key: "kuppajoy", domain: "kuppajoy.com" },
+  /* icon.horse only finds a 32px favicon for Kuppa Joy, so their logo comes
+     straight off their own homepage instead — it is right there in the header,
+     at 400px, which is exactly the mark and exactly the size wanted. `url`
+     exists for this case and skips the icon lookup entirely. */
+  { key: "kuppajoy", domain: "kuppajoy.com",
+    url: "https://kuppajoy.com/wp-content/uploads/2016/08/Kuppa-Joy_Dark-Logo-Sticky-HD.png" },
   { key: "dutchbros", domain: "dutchbros.com" },
   { key: "chipotle", domain: "chipotle.com" },
   { key: "butterfish", domain: "butterfishpoke.com" },
@@ -67,8 +72,25 @@ const PLATE = {
   dutchbros: "light",   // navy windmill, pale blue ground
   chipotle: "light",    // dark red roundel
   butterfish: "light",  // grey B on its own pale ground
+  kuppajoy: "light",    // dark wordmark on transparent
   takis: "dark",        // white mark on transparent
 };
+
+/* Wide or square? A site icon is usually a square with the mark inset in it,
+   so capping every logo at one height makes the square ones look shrunken and
+   the wordmarks look enormous. Read the dimensions out of the PAM header —
+   which is a text line, so this needs no decoding at all. */
+function isWide(webpPath) {
+  try {
+    const head = execFileSync("dwebp", ["-quiet", "-pam", webpPath, "-o", "-"], { maxBuffer: 8 * 1024 * 1024 })
+      .subarray(0, 120).toString("latin1");
+    const w = +(head.match(/WIDTH (\d+)/)?.[1] || 0);
+    const h = +(head.match(/HEIGHT (\d+)/)?.[1] || 0);
+    return w && h ? w / h > 1.6 : false;
+  } catch {
+    return false;
+  }
+}
 
 mkdirSync(DIR, { recursive: true });
 const brands = {};
@@ -76,7 +98,7 @@ let failed = 0;
 
 for (const w of WANT) {
   try {
-    const res = await fetch(`https://icon.horse/icon/${w.domain}`, {
+    const res = await fetch(w.url || `https://icon.horse/icon/${w.domain}`, {
       headers: { "User-Agent": "parkerhunt.me-build/1.0 (https://parkerhunt.me)" },
       signal: AbortSignal.timeout(25000),
     });
@@ -96,7 +118,7 @@ for (const w of WANT) {
     execFileSync("cwebp", ["-quiet", "-q", "92", tmp, "-o", out]);
     unlinkSync(tmp);
 
-    brands[w.key] = { src: `/imgs/brands/${w.key}.webp`, domain: w.domain, plate: PLATE[w.key] || "light", bytes: statSync(out).size };
+    brands[w.key] = { src: `/imgs/brands/${w.key}.webp`, domain: w.domain, plate: PLATE[w.key] || "light", wide: isWide(out), bytes: statSync(out).size };
     console.log(`  ${w.key.padEnd(12)} ${w.domain.padEnd(22)} ${(brands[w.key].bytes / 1024).toFixed(1)} KB`);
   } catch (err) {
     console.error(`  ${w.key.padEnd(12)} ${w.domain.padEnd(22)} FAILED: ${err.message}`);
