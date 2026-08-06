@@ -41,6 +41,10 @@
    data would have doubled this page — so this only carries the legend. See
    scripts/build-map.mjs. #}
 {% set travel = load_data(path="data/travel-map.json") %}
+{# Brand marks, inlined as paths. Nothing here fetches a logo at page load;
+   see scripts/fetch-icons.mjs, including the note on why using someone
+   else's logo to say "I use this" is fine and drawing an imitation is not. #}
+{% set ico2 = load_data(path="data/icons.json") %}
 
 <header class="hero">
     <div class="wrap hero-in">
@@ -507,6 +511,7 @@
                 {% for s in me.coffee_shop %}
                 <div class="receipt{% if s.orders | length == 0 %} receipt--sour{% endif %}">
                     <div class="receipt-h">
+                        <span class="mark mark--solid mark--lg" style="--c:{{ s.colour }}">{{ ico::mark(icons=ico2.icons, name=s.icon) }}</span>
                         <b>{{ s.name }}</b>
                         <span>{% if s.orders | length > 0 %}Usual order{% else %}No order{% endif %}</span>
                     </div>
@@ -532,9 +537,9 @@
             {% if me.restaurant | length > 0 %}
             <div class="bento" style="margin-bottom:0.875rem">
                 {% for r in me.restaurant %}
-                <div class="tile-s2">
-                    <span class="t-k">{{ r.kind }}</span>
-                    <span class="t-t">{{ r.name }}</span>
+                <div class="tile-s2 tile--icon">
+                    <span class="mark mark--solid mark--lg" style="--c:{{ r.colour }}">{{ ico::mark(icons=ico2.icons, name=r.icon) }}</span>
+                    <span><span class="t-k">{{ r.kind }}</span><span class="t-t" style="display:block">{{ r.name }}</span></span>
                 </div>
                 {% endfor %}
             </div>
@@ -544,7 +549,10 @@
                 {% for r in me.restaurant %}
                 {% if r.order | length > 0 %}
                 <div class="receipt">
-                    <div class="receipt-h"><b>{{ r.name }}</b><span>Usual order</span></div>
+                    <div class="receipt-h">
+                        <span class="mark mark--solid mark--lg" style="--c:{{ r.colour }}">{{ ico::mark(icons=ico2.icons, name=r.icon) }}</span>
+                        <b>{{ r.name }}</b><span>Usual order</span>
+                    </div>
                     <ul>
                         {% for o in r.order %}<li>{{ o }}</li>{% endfor %}
                     </ul>
@@ -556,6 +564,7 @@
 
             {% if me.vice.what %}
             <div class="vice">
+                <span class="mark mark--solid mark--lg" style="--c:{{ me.vice.colour }};float:right;margin-left:0.75rem">{{ ico::mark(icons=ico2.icons, name=me.vice.icon) }}</span>
                 <div class="vice-k">The vice</div>
                 <div class="vice-t">{{ me.vice.what }}{% if me.vice.kicked %} <span class="vice-tag">no longer bought</span>{% endif %}</div>
                 <p>{{ me.vice.line }}</p>
@@ -580,7 +589,7 @@
             <ul class="bento bento--sm" style="list-style:none;margin:0;padding:0">
                 {% for d in me.distro %}
                 <li class="chip{% if d.current %} chip--now{% endif %}" style="--c:{{ d.colour }}">
-                    <span class="swatch" aria-hidden="true">{{ d.name | truncate(length=2, end="") }}</span>
+                    <span class="swatch" aria-hidden="true">{% if d.icon %}{{ ico::mark(icons=ico2.icons, name=d.icon) }}{% else %}{{ d.name | truncate(length=2, end="") }}{% endif %}</span>
                     <span class="t-t">{{ d.name }}</span>
                     <span class="t-k" style="text-align:center">{% if d.current %}Now{% else %}{% if loop.index < 10 %}0{% endif %}{{ loop.index }}{% endif %}</span>
                 </li>
@@ -796,8 +805,13 @@
                 {% for t in me.takes %}
                 <div class="take">
                     <div class="take-vs">
+                        {# The winner's mark in its own brand colour, the loser's
+                           drained to grey. The argument is in the picture before
+                           you read a word of it. #}
+                        <span class="mark" style="--c:{% if ico2.icons[t.pick_icon] %}{{ ico2.icons[t.pick_icon].hex }}{% else %}var(--fg){% endif %}">{{ ico::mark(icons=ico2.icons, name=t.pick_icon) }}</span>
                         <span class="take-pick">{{ t.pick }}</span>
                         <span class="take-over">over</span>
+                        <span class="mark mark--lose">{{ ico::mark(icons=ico2.icons, name=t.over_icon) }}</span>
                         <span class="take-lose">{{ t.over }}</span>
                     </div>
                     {% if t.why %}<p class="take-why">{{ t.why }}</p>{% endif %}

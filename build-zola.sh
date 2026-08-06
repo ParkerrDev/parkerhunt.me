@@ -120,6 +120,11 @@ node scripts/fetch-nexus.mjs "${NEXUS_UPLOADER:-186080535}" site/data/nexus.json
 echo "Recomputing stamps..."
 node scripts/build-stamps.mjs site/data/stamps.json
 
+# Brand marks. Fails soft like the rest: the committed icons.json is what a
+# build renders from, and a logo that did not refresh is invisible.
+echo "Refreshing brand marks..."
+node scripts/fetch-icons.mjs site/data/icons.json
+
 # --- Build the static site --------------------------------------------------
 # Run inside the site folder so Zola finds site/config.toml
 cd site
