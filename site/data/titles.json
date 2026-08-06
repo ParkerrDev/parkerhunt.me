@@ -292,7 +292,15 @@
       "year": 1940,
       "bg": "#2A2118",
       "fg": "#E8B44A",
-      "key": "tom-and-jerry"
+      "key": "tom-and-jerry",
+      "tmdb_id": 7842,
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/um2758jtENjV7WwgP56aCPLfQGo.jpg",
+        "tmdb_id": 7842,
+        "rating": 7.7,
+        "votes": 1170,
+        "overview_len": 245
+      }
     },
     {
       "title": "Blue's Clues",
@@ -623,6 +631,14 @@
         "source": "https://commons.wikimedia.org/wiki/File:The_Chosen_-_logo.jpg",
         "credit_required": false,
         "bytes": 6320
+      },
+      "tmdb_id": 85077,
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/dqVUFuNrMFWt7uGNWlpo91VKYOI.jpg",
+        "tmdb_id": 85077,
+        "rating": 8.8,
+        "votes": 937,
+        "overview_len": 65
       }
     },
     {
@@ -985,7 +1001,7 @@
   ],
   "posters": {
     "fetched": "2026-08-06",
-    "count": 34,
+    "count": 36,
     "base": "https://image.tmdb.org/t/p/w342",
     "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
     "terms": "https://www.themoviedb.org/api-terms-of-use"

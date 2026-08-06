@@ -51,6 +51,10 @@
 {# Full-colour logos from Wikimedia Commons, for the brands Simple Icons does
    not carry. Licences and credits are in the file; see scripts/fetch-logos.mjs. #}
 {% set logos = load_data(path="data/logos.json") %}
+{# The businesses' own logos, taken from their own site icons. See
+   scripts/fetch-brands.mjs — this is where Starbucks' siren and Chipotle's
+   pepper come from, neither of which exists under a free licence anywhere. #}
+{% set brands = load_data(path="data/brands.json") %}
 {# The watch list, resolved against Wikidata: IMDb ids, years, genres, and a
    free title logo where Commons has one. See scripts/fetch-titles.mjs. #}
 {% set titles = load_data(path="data/titles.json") %}
@@ -531,7 +535,7 @@
                 {% for s in me.coffee_shop %}
                 <div class="receipt{% if s.orders | length == 0 %} receipt--sour{% endif %}">
                     <div class="receipt-h">
-                        {{ ico::banner(logos=logos.logos, name=s.icon, mono=s.mono, colour=s.colour) }}
+                        {{ ico::banner(logos=logos.logos, brands=brands.brands, name=s.icon, mono=s.mono, colour=s.colour) }}
                         <b>{{ s.name }}</b>
                         <span>{% if s.orders | length > 0 %}Usual order{% else %}No order{% endif %}</span>
                     </div>
@@ -552,48 +556,33 @@
     {% if me.restaurant | length > 0 or me.vice.what %}
     <section id="eating">
         <div class="wrap">
-            <div class="head"><h2>Eating</h2><p>Three places and one problem.</p></div>
-
-            {% if me.restaurant | length > 0 %}
-            <div class="duo" style="margin-bottom:0.875rem;align-items:start">
-            <div class="bento">
-                {% for r in me.restaurant %}
-                {# Name first. It used to read "steak / Cattlemens" — the tiny
-                   uppercase label on top and the actual name under it — which
-                   made a list of three restaurants look like a list of three
-                   food groups. #}
-                <div class="tile-s2">
-                    {{ ico::banner(logos=logos.logos, name=r.icon, mono=r.mono, colour=r.colour, small=true) }}
-                    <span class="t-t" style="margin-top:0.4375rem">{{ r.name }}</span>
-                    <span class="t-s">{{ r.kind }}</span>
-                </div>
-                {% endfor %}
+            <div class="head">
+                <h2>Eating</h2>
+                <p>Places I keep going back to, and what I order when I get there.</p>
             </div>
 
-            {# Only one of them has an order worth writing down. #}
+            {# One card per place, each showing the logo and the order. It used
+               to be a row of name tiles, then a lone receipt underneath, then
+               the vice — three unrelated blocks stacked up. The section is about
+               the orders, so the order is the card. #}
             <div class="receipts">
                 {% for r in me.restaurant %}
-                {% if r.order | length > 0 %}
                 <div class="receipt">
                     <div class="receipt-h">
-                        {{ ico::banner(logos=logos.logos, name=r.icon, mono=r.mono, colour=r.colour) }}
-                        <b>{{ r.name }}</b><span>Usual order</span>
+                        {{ ico::banner(logos=logos.logos, brands=brands.brands, name=r.icon, mono=r.mono, colour=r.colour) }}
+                        <b>{{ r.name }}</b>
+                        <span>{{ r.kind }}</span>
                     </div>
-                    <ul>
-                        {% for o in r.order %}<li>{{ o }}</li>{% endfor %}
-                    </ul>
+                    {% if r.order | length > 0 %}
+                    <ul>{% for o in r.order %}<li>{{ o }}</li>{% endfor %}</ul>
+                    {% endif %}
                 </div>
-                {% endif %}
                 {% endfor %}
             </div>
-            </div>
-            {% endif %}
 
             {% if me.vice.what %}
-            {# A float was doing the layout here and the text wrapped around the
-               icon at some widths and not others. Flex, so it never does. #}
-            <div class="vice">
-                <span class="mark mark--lg mark--letter" style="--c:{{ me.vice.colour }}">{{ me.vice.mono }}</span>
+            <div class="vice" style="margin-top:1rem">
+                {{ ico::banner(logos=logos.logos, brands=brands.brands, name=me.vice.icon, mono=me.vice.mono, colour=me.vice.colour) }}
                 <div style="min-width:0">
                     <div class="vice-k">The vice</div>
                     <div class="vice-t">{{ me.vice.what }}{% if me.vice.kicked %} <span class="vice-tag">no longer bought</span>{% endif %}</div>
@@ -620,7 +609,7 @@
             <ul class="bento bento--sm" style="list-style:none;margin:0;padding:0">
                 {% for d in me.distro %}
                 <li class="chip{% if d.current %} chip--now{% endif %}">
-                    <span class="swatch" style="--c:{{ d.colour }}" aria-hidden="true">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, name=d.icon, mono=d.mono) }}</span>
+                    <span class="swatch" style="--c:{{ d.colour }}" aria-hidden="true">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, brands=brands.brands, name=d.icon, mono=d.mono) }}</span>
                     <span class="t-t">{{ d.name }}</span>
                     <span class="t-k" style="text-align:center">{% if d.current %}Now{% else %}{% if loop.index < 10 %}0{% endif %}{{ loop.index }}{% endif %}</span>
                 </li>
@@ -751,11 +740,18 @@
         </div>
         {# Two rails, opposite directions. Every card links to IMDb where
            Wikidata had an id — see scripts/fetch-titles.mjs. #}
+        {# Auto-scrolling, like the quotes wall: two rows running opposite ways,
+           each printed twice so the track can translate -50% and loop with no
+           seam. Pauses on hover and on focus. #}
         {% for row in [1, 2] %}
-        <div class="rail{% if row == 2 %}{% endif %}"{% if row == 2 %} style="margin-top:var(--gap)"{% endif %}>
-            <div class="rail-track">
+        <div class="marquee{% if row == 2 %} mq-rev{% endif %}" style="--mq:{% if row == 1 %}96s{% else %}108s{% endif %}{% if row == 2 %};margin-top:var(--gap){% endif %}">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
                 {% for w in titles.shows | slice(start=(row - 1) * 18, end=row * 18) %}
                 {{ isle::poster(w=w, size="sm") }}
+                {% endfor %}
+                </span>
                 {% endfor %}
             </div>
         </div>
@@ -780,10 +776,10 @@
                         {# The winner's mark in its own brand colour, the loser's
                            drained to grey. The argument is in the picture before
                            you read a word of it. #}
-                        <span class="mark" style="--c:{% if ico2.icons[t.pick_icon] %}{{ ico2.icons[t.pick_icon].hex }}{% else %}var(--fg){% endif %}">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, name=t.pick_icon) }}</span>
+                        <span class="mark" style="--c:{% if ico2.icons[t.pick_icon] and ico2.icons[t.pick_icon].hex != "#000000" %}{{ ico2.icons[t.pick_icon].hex }}{% else %}var(--fg){% endif %}">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, brands=brands.brands, name=t.pick_icon) }}</span>
                         <span class="take-pick">{{ t.pick }}</span>
                         <span class="take-over">over</span>
-                        <span class="mark">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, name=t.over_icon) }}</span>
+                        <span class="mark mark--lose">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, brands=brands.brands, name=t.over_icon) }}</span>
                         <span class="take-lose">{{ t.over }}</span>
                     </div>
                     {% if t.why %}<p class="take-why">{{ t.why }}</p>{% endif %}

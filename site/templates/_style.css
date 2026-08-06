@@ -442,7 +442,7 @@ a.row:hover .row-t { color: var(--accent); }
 /* ------------------------------------------------------------------ vice -- */
 /* One card, and it is meant to stand out from the quiet grey around it. */
 .vice {
-  display: flex; gap: 0.875rem; align-items: flex-start;
+  display: flex; gap: 1rem; align-items: center;
   border: 1px solid color-mix(in srgb, #d1544a 35%, var(--line));
   background: color-mix(in srgb, #d1544a 5%, var(--card));
   border-radius: var(--r); padding: 1.125rem 1.25rem; max-width: var(--measure);
@@ -451,6 +451,7 @@ a.row:hover .row-t { color: var(--accent); }
 .vice-t { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin: 0.1875rem 0 0.375rem; display: flex; align-items: baseline; gap: 0.625rem; flex-wrap: wrap; }
 .vice-tag { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); border: 1px solid var(--line); border-radius: 999px; padding: 0.125rem 0.5rem; }
 .vice p { margin: 0; font-size: 0.9375rem; line-height: 1.55; color: var(--muted); }
+.vice .banner { width: 6rem; flex: none; }
 
 /* ---------------------------------------------------------------- distros -- */
 /* The distro-hopping progression as one chain. Numbered rather than dated
@@ -736,13 +737,16 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 
 .mark {
   display: grid; place-items: center; flex-shrink: 0;
-  width: 2rem; height: 2rem; border-radius: 9px;
-  background: #fff; box-shadow: inset 0 0 0 1px var(--line);
+  width: 1.625rem; height: 1.625rem;
   color: var(--c, var(--fg));
 }
-.mark--lg { width: 2.5rem; height: 2.5rem; border-radius: 11px; }
-.mark--lg .bi { width: 1.375rem; height: 1.375rem; }
-.mark--lose { background: var(--bg-soft); box-shadow: none; color: var(--faint); }
+/* No box, no tint. A logo sitting in a tinted rounded square looks like an app
+   icon somebody made up; the marks are recognisable on their own and the only
+   colour they need is their own. */
+.mark .bi { width: 100%; height: 100%; }
+.mark--lg { width: 2.25rem; height: 2.25rem; }
+/* The losing side is drained to grey rather than boxed. */
+.mark--lose { color: #b9b9c0; }
 .mark--letter { font-weight: 650; font-size: 0.75rem; letter-spacing: 0.01em; }
 .mark--lg.mark--letter { font-size: 0.875rem; }
 .tile--icon { flex-direction: row; align-items: center; gap: 0.6875rem; }
@@ -758,6 +762,12 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .banner--photo { background: var(--bg-soft); }
 .banner--photo img { width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; }
 .banner--letter { font-weight: 650; font-size: 1.0625rem; letter-spacing: 0.02em; }
+/* A real logo is square and wants to be seen, not letterboxed. */
+/* A light mark on transparent needs something behind it, or it is an empty
+   box. See inspect() in fetch-brands.mjs. */
+.banner--slate { background: #1b1b1f; }
+.banner--brand { aspect-ratio: 5 / 2; }
+.banner--brand img { max-width: none; max-height: 84%; width: auto; }
 .banner--sm { aspect-ratio: 16 / 7; border-radius: 7px; }
 
 /* ------------------------------------------------------------------ map -- */

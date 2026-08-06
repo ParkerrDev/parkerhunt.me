@@ -136,22 +136,31 @@
    software brands and only in monochrome, Commons has the full-colour logos and
    the company wordmarks that are public domain, and some businesses are in
    neither. See scripts/fetch-icons.mjs and scripts/fetch-logos.mjs. #}
-{% macro anymark(icons, logos, name, mono="") %}
-{%- if name is starting_with("c:") %}{% set k = name | replace(from="c:", to="") %}{% if logos[k] is defined %}<img class="bl" src="{{ logos[k].src }}" alt="" width="128" height="64" loading="lazy" decoding="async">{% endif %}
+{% macro anymark(icons, logos, brands, name, mono="") %}
+{%- if name is starting_with("b:") %}{% set k = name | replace(from="b:", to="") %}{% if brands[k] is defined %}<img class="bl" src="{{ brands[k].src }}" alt="" width="128" height="128" loading="lazy" decoding="async">{% endif %}
+{%- elif name is starting_with("c:") %}{% set k = name | replace(from="c:", to="") %}{% if logos[k] is defined %}<img class="bl" src="{{ logos[k].src }}" alt="" width="128" height="64" loading="lazy" decoding="async">{% endif %}
 {%- elif name %}{{ self::mark(icons=icons, name=name) }}
 {%- else %}{{ mono }}{% endif -%}
 {% endmacro anymark %}
 
-{# A full-width banner instead of a chip: the right shape for a wordmark or a
-   storefront photograph, both of which are much wider than they are tall. Falls
-   back to the lettermark when there is nothing to show. #}
-{% macro banner(logos, name, mono="", colour="", small=false) %}
+{# A full-width banner instead of a chip. Three sources, in priority order:
+     b:key  the company's own site icon — the actual logo (fetch-brands.mjs)
+     c:key  a Commons file, for wordmarks that are public domain
+     else   a lettermark, for the one business with neither
+   `b:` wins because it is the real mark: Commons only ever had the Starbucks
+   *wordmark*, never the siren, and nothing at all for a six-branch chain. #}
+{% macro banner(logos, brands, name, mono="", colour="", small=false) %}
 {#- An empty `name` is normal — Butterfish has no free logo anywhere — so the
     lookup has to be guarded rather than attempted. Tera subscripts a map with
     "" as a real key and errors rather than returning nothing. -#}
+{%- set bk = name | replace(from="b:", to="") -%}
 {%- set k = name | replace(from="c:", to="") -%}
-{%- set has = k and logos[k] is defined -%}
-<span class="banner{% if small %} banner--sm{% endif %}{% if has and logos[k].photo %} banner--photo{% elif not has %} banner--letter{% endif %}"{% if colour %} style="--c:{{ colour }}"{% endif %}>
-{%- if has %}<img src="{{ logos[k].src }}" alt="" width="240" height="96" loading="lazy" decoding="async">{% else %}{{ mono }}{% endif -%}
+{%- set isb = name is starting_with("b:") and brands[bk] is defined -%}
+{%- set needsdark = isb and brands[bk].plate == "dark" -%}
+{%- set has = isb or (k and not name is starting_with("b:") and logos[k] is defined) -%}
+<span class="banner{% if small %} banner--sm{% endif %}{% if needsdark %} banner--slate{% endif %}{% if isb %} banner--brand{% elif has and logos[k].photo %} banner--photo{% elif not has %} banner--letter{% endif %}"{% if colour %} style="--c:{{ colour }}"{% endif %}>
+{%- if isb %}<img src="{{ brands[bk].src }}" alt="" width="128" height="128" loading="lazy" decoding="async">
+{%- elif has %}<img src="{{ logos[k].src }}" alt="" width="240" height="96" loading="lazy" decoding="async">
+{%- else %}{{ mono }}{% endif -%}
 </span>
 {% endmacro banner %}

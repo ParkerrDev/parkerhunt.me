@@ -216,6 +216,16 @@ const slug = (s) =>
 const input = JSON.parse(readFileSync(IN, "utf8"));
 mkdirSync(DIR, { recursive: true });
 
+/* Posters are merged into titles.json by a LATER script (fetch-posters.mjs), so
+   this one has to carry them across or re-running it silently wipes them —
+   which is exactly the sort of thing you discover three deploys later. */
+let previous = {};
+try {
+  const old = JSON.parse(readFileSync(OUT, "utf8"));
+  for (const s of old.shows || []) if (s.poster) previous[s.title] = s.poster;
+  if (old.posters) var carriedPosters = old.posters;
+} catch {}
+
 const shows = [];
 let withLogo = 0, withImdb = 0, refused = 0;
 
@@ -275,6 +285,7 @@ for (const s of input.shows) {
     }
   }
 
+  if (previous[s.title]) row.poster = previous[s.title];
   shows.push(row);
   process.stdout.write(
     `  ${s.title.padEnd(26)} ${(row.imdb || "—").padEnd(11)} ${row.logo ? "logo" : "    "} ${(row.genres || []).slice(0, 2).join(", ")}\n`
@@ -293,6 +304,7 @@ writeFileSync(
       source: "https://www.wikidata.org (CC0); logos from Wikimedia Commons",
       count: shows.length,
       with_logo: withLogo,
+      ...(typeof carriedPosters !== "undefined" ? { posters: carriedPosters } : {}),
       shows,
     },
     null,

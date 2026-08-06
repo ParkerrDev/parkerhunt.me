@@ -1,0 +1,37 @@
+{
+  "fetched": "2026-08-06",
+  "source": "each company's own site icon, resolved via icon.horse",
+  "note": "Trademarks of their owners, used nominatively to name the business. Served from this origin, never hotlinked.",
+  "brands": {
+    "starbucks": {
+      "src": "/imgs/brands/starbucks.webp",
+      "domain": "starbucks.com",
+      "plate": "light",
+      "bytes": 12192
+    },
+    "dutchbros": {
+      "src": "/imgs/brands/dutchbros.webp",
+      "domain": "dutchbros.com",
+      "plate": "light",
+      "bytes": 1976
+    },
+    "chipotle": {
+      "src": "/imgs/brands/chipotle.webp",
+      "domain": "chipotle.com",
+      "plate": "light",
+      "bytes": 12338
+    },
+    "butterfish": {
+      "src": "/imgs/brands/butterfish.webp",
+      "domain": "butterfishpoke.com",
+      "plate": "light",
+      "bytes": 750
+    },
+    "takis": {
+      "src": "/imgs/brands/takis.webp",
+      "domain": "takisusa.com",
+      "plate": "dark",
+      "bytes": 336
+    }
+  }
+}
