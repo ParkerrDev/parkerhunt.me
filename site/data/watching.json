@@ -3522,6 +3522,37 @@
       "year": 2004,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "Cloak & Dagger",
+      "year": 1984,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Nightmare Before Christmas",
+      "year": 1993,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Cat in the Hat",
+      "year": 2003,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Parent Trap",
+      "year": 1998,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Matilda",
+      "year": 1996,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q280400"
     }
   ]
 }
