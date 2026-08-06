@@ -257,7 +257,26 @@ mkdirSync(DIR, { recursive: true });
 /* Posters are merged into titles.json by a LATER script (fetch-posters.mjs), so
    this one has to carry them across or re-running it silently wipes them —
    which is exactly the sort of thing you discover three deploys later. */
+/* INCREMENTAL BY DEFAULT.
+ *
+ * A full pass is 660 Wikidata lookups at a polite 250ms each, plus an entity
+ * fetch per candidate and a Commons download per logo — about seventeen
+ * minutes, all of it re-deriving answers that have not changed since the last
+ * run. A row that already has a qid and a real tt-id is settled: Wikidata is
+ * not going to change its mind about which item The Goonies is.
+ *
+ * So a settled row is carried across whole and never queried. Adding six films
+ * to a list of six hundred costs six lookups.
+ *
+ *   --all    re-resolve everything, for when the resolver itself changes
+ *
+ * That flag is not optional politeness — every time the scoring in resolve_qid
+ * is edited, the existing rows were matched by the OLD rules and have to be
+ * done again. */
+const FULL = process.argv.includes("--all");
+
 let previous = {};
+let settled = {};
 try {
   const old = JSON.parse(readFileSync(OUT, "utf8"));
   /* KEYED BY LIST AND YEAR, NOT BY TITLE. Three titles already live in both
@@ -267,6 +286,13 @@ try {
      fetch-posters did not follow. Latent until it was not. */
   for (const [list, rows] of [["show", old.shows || []], ["film", old.movies || []]])
     for (const s of rows) if (s.poster) previous[`${list}:${s.title}:${s.year || ""}`] = s.poster;
+  if (!FULL) {
+    for (const [list, rows] of [["show", old.shows || []], ["film", old.movies || []]])
+      for (const s of rows) {
+        // A row counts as settled only with BOTH a pinned item and a title id.
+        if (s.qid && /^tt\d+$/.test(s.imdb || "")) settled[`${list}:${s.title}:${s.year || ""}`] = s;
+      }
+  }
   if (old.posters) var carriedPosters = old.posters;
 } catch {}
 
@@ -276,7 +302,20 @@ let withLogo = 0, withImdb = 0, refused = 0;
    Wikidata class they match, and KINDS already covers both. */
 async function collect(rows, kind) {
   const out = [];
+  let reused = 0;
   for (const s of rows) {
+    /* Settled and unchanged: take last run's answer and move on. The input row
+       still wins on the fields a person edits by hand — title, year, colours —
+       so correcting a colour in watching.json does not need a re-resolve. */
+    const done = settled[`${kind}:${s.title}:${s.year || ""}`];
+    if (done) {
+      out.push({ ...done, ...s, key: done.key, qid: done.qid, imdb: done.imdb, imdb_url: done.imdb_url });
+      if (done.imdb) withImdb++;
+      if (done.logo) withLogo++;
+      reused++;
+      continue;
+    }
+
     const key = slug(s.title);
     const row = { ...s, key };
     delete row.qid;
@@ -351,6 +390,7 @@ async function collect(rows, kind) {
     // not a race. A quarter second between titles keeps it comfortably polite.
     await sleep(250);
   }
+  if (reused) console.log(`  (${reused} already resolved, reused — pass --all to redo them)`);
   return out;
 }
 

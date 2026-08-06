@@ -366,6 +366,31 @@ Three things that took a second pass:
   pixels only, and records it; the template then puts dark ink on a near-white
   plate and light ink on a near-black one.
 
+## fetch-titles is incremental now
+
+A full pass is 660 Wikidata lookups at a polite 250ms each, plus an entity
+fetch per candidate and a Commons download per logo — about **seventeen
+minutes**, nearly all of it re-deriving answers that had not changed. A row
+that already has a `qid` and a real `tt` id is settled; Wikidata is not going
+to change its mind about which item The Goonies is.
+
+So settled rows are carried across whole and never queried. Adding eight films
+to a list of six hundred now takes **twelve seconds**.
+
+```
+node scripts/fetch-titles.mjs          # only the new and the unresolved
+node scripts/fetch-titles.mjs --all    # everything, from scratch
+```
+
+**`--all` is not optional politeness.** Every time the scoring in
+`resolve_qid` changes, the existing rows were matched under the *old* rules
+and have to be redone — otherwise a fix to the matcher silently applies to new
+titles only. Same after editing `SERIES_KINDS` / `FILM_KINDS`.
+
+The hand-edited fields still win on a reused row: title, year and the card
+colours come from `watching.json`, so fixing a colour does not need a
+re-resolve. Only `qid`, `imdb` and the fetched metadata are reused.
+
 ## Posters are the one thing that needs a key
 
 See **POSTERS.md**. Short version: poster art is the studios', no free-licence
