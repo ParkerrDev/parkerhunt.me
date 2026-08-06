@@ -594,87 +594,6 @@
     </section>
     {% endif %}
 
-    {# ----------------------------------------------------------- coffee -- #}
-    {# Orders set as till receipts, because that is the form the content is
-       already in. See .receipt in _style.css. #}
-    {% if me.coffee_shop | length > 0 %}
-    <section id="coffee">
-        <div class="wrap">
-            <div class="head">
-                <h2>Coffee orders</h2>
-                <p>Every single day since I was {{ me.coffee.since }}. This is not a personality, it is a dependency.</p>
-            </div>
-
-            <div class="brew">
-                <div><b>{{ me.coffee.cups }}</b><span>Cups</span></div>
-                <div><b>{{ me.coffee.morning | title }}</b><span>In the morning</span></div>
-                <div><b>{{ me.coffee.bean }}</b><span>Bean of choice</span></div>
-                <div><b>Since {{ me.coffee.since }}</b><span>Daily, no exceptions</span></div>
-            </div>
-
-            <div class="receipts">
-                {% for s in me.coffee_shop %}
-                <div class="receipt{% if s.orders | length == 0 %} receipt--sour{% endif %}">
-                    <div class="receipt-h">
-                        {{ ico::banner(logos=logos.logos, brands=brands.brands, name=s.icon, mono=s.mono, colour=s.colour) }}
-                        <b>{{ s.name }}</b>
-                        <span>{% if s.orders | length > 0 %}Usual order{% else %}No order{% endif %}</span>
-                    </div>
-                    {% if s.orders | length > 0 %}
-                    <ul>
-                        {% for o in s.orders %}<li>{{ o }}</li>{% endfor %}
-                    </ul>
-                    {% endif %}
-                    {% if s.verdict %}<p class="receipt-f">{{ s.verdict }}</p>{% endif %}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-
-    {# ----------------------------------------------------------- eating -- #}
-    {% if me.restaurant | length > 0 or me.vice.what %}
-    <section id="eating">
-        <div class="wrap">
-            <div class="head">
-                <h2>Orders</h2>
-                <p>Places I keep going back to, and what I ask for when I get there.</p>
-            </div>
-
-            {# One card per place, each showing the logo and the order. It used
-               to be a row of name tiles, then a lone receipt underneath, then
-               the vice — three unrelated blocks stacked up. The section is about
-               the orders, so the order is the card. #}
-            <div class="receipts">
-                {% for r in me.restaurant %}
-                <div class="receipt">
-                    <div class="receipt-h">
-                        {{ ico::banner(logos=logos.logos, brands=brands.brands, name=r.icon, mono=r.mono, colour=r.colour) }}
-                        <b>{{ r.name }}</b>
-                        <span>{{ r.kind }}</span>
-                    </div>
-                    {% if r.order | length > 0 %}
-                    <ul>{% for o in r.order %}<li>{{ o }}</li>{% endfor %}</ul>
-                    {% endif %}
-                </div>
-                {% endfor %}
-            </div>
-
-            {% if me.vice.what %}
-            <div class="vice" style="margin-top:1rem">
-                {{ ico::banner(logos=logos.logos, brands=brands.brands, name=me.vice.icon, mono=me.vice.mono, colour=me.vice.colour) }}
-                <div style="min-width:0">
-                    <div class="vice-k">The vice</div>
-                    <div class="vice-t">{{ me.vice.what }}{% if me.vice.kicked %} <span class="vice-tag">no longer bought</span>{% endif %}</div>
-                    <p>{{ me.vice.line }}</p>
-                </div>
-            </div>
-            {% endif %}
-        </div>
-    </section>
-    {% endif %}
-
     {# ------------------------------------------------------------ linux -- #}
     {% if me.distro | length > 0 %}
     <section id="linux">
@@ -868,32 +787,6 @@
     </section>
     {% endif %}
 
-    {# ------------------------------------------------------------ takes -- #}
-    {% if me.takes | length > 0 %}
-    <section id="takes">
-        <div class="wrap">
-            <div class="head"><h2>Settled</h2><p>Arguments I am no longer having.</p></div>
-            <div class="takes">
-                {% for t in me.takes %}
-                <div class="take">
-                    <div class="take-vs">
-                        {# The winner's mark in its own brand colour, the loser's
-                           drained to grey. The argument is in the picture before
-                           you read a word of it. #}
-                        <span class="mark" style="--c:{% if ico2.icons[t.pick_icon] and ico2.icons[t.pick_icon].hex != "#000000" %}{{ ico2.icons[t.pick_icon].hex }}{% else %}var(--fg){% endif %}">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, brands=brands.brands, name=t.pick_icon) }}</span>
-                        <span class="take-pick">{{ t.pick }}</span>
-                        <span class="take-over">over</span>
-                        <span class="mark mark--lose">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, brands=brands.brands, name=t.over_icon) }}</span>
-                        <span class="take-lose">{{ t.over }}</span>
-                    </div>
-                    {% if t.why %}<p class="take-why">{{ t.why }}</p>{% endif %}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-
     {# ----------------------------------------------------------- bucket -- #}
     {% if me.bucket | length > 0 %}
     <section id="bucket">
@@ -905,46 +798,6 @@
                     <span class="t-k">{{ ico::check(done=b.done) }}</span>
                     <span class="t-t">{{ b.text }}</span>
                     {% if b.note %}<span class="t-s">{{ b.note }}</span>{% endif %}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-
-    {# ------------------------------------------------------------ facts -- #}
-    {# Everything that used to flicker past in the hero, at rest and in one
-       place. It scrolls on its own, which is the one bit of movement that
-       earns itself: there are sixteen of these and no room for sixteen. #}
-    {% if me.facts | length > 0 or me.tidbits | length > 0 %}
-    <section id="facts">
-        <div class="wrap">
-            <div class="head"><h2>Assorted</h2><p>Small true things, in no order.</p></div>
-        </div>
-        <div class="marquee" style="--mq:64s">
-            <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
-                {% for f in me.facts %}<span class="tile-s2" style="width:11rem;flex:none"><span class="t-t">{{ f }}</span></span>{% endfor %}
-                {% for t in me.tidbits %}<span class="tile-s2" style="width:15rem;flex:none"><span class="t-s">{{ t }}</span></span>{% endfor %}
-                </span>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-
-    {# ------------------------------------------------------------ house -- #}
-    {% if me.rooms | length > 0 %}
-    <section id="house">
-        <div class="wrap">
-            <div class="head"><h2>The house</h2><p>A floor plan rather than a wish list, because that is what it actually is.</p></div>
-            <div class="plan">
-                {% for r in me.rooms %}
-                <div class="room{% if r.wide %} room--wide{% endif %}">
-                    <span class="room-i" aria-hidden="true">{{ r.icon }}</span>
-                    <span class="room-t">{{ r.name }}</span>
-                    {% if r.detail %}<span class="room-d">{{ r.detail }}</span>{% endif %}
                 </div>
                 {% endfor %}
             </div>
@@ -969,21 +822,5 @@
     </section>
     {% endif %}
 
-    {# ------------------------------------------------------------ about -- #}
-    <section id="about">
-        <div class="wrap">
-            <div class="head"><h2>About</h2></div>
-            <div class="prose">
-                <p>I am a student in Clovis, California. I build software that is fast, small
-                    and finished — sites that load in one request, tools that do one thing,
-                    systems I can explain end to end.</p>
-                <p>Away from a screen I have been doing martial arts for twelve years and hold a
-                    first-degree adult black belt. I have hiked to the summit of Half Dome at six,
-                    El Capitan at eight, and Mt. Whitney — the tallest mountain in the contiguous
-                    United States, 14,505 ft — at thirteen, in a thunderstorm.</p>
-                <p>Linux and macOS daily. Not Windows, unless the work insists.</p>
-            </div>
-        </div>
-    </section>
 </main>
 {% endblock %}

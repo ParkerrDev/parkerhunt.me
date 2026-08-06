@@ -173,6 +173,26 @@
       "where": "Park City, Utah",
       "q": "Deer Valley Resort",
       "note": "Deer Valley's base area"
+    },
+    {
+      "name": "Discovery Cove",
+      "where": "Florida",
+      "q": "Discovery Cove"
+    },
+    {
+      "name": "Reno",
+      "where": "Nevada",
+      "q": "Reno Nevada"
+    },
+    {
+      "name": "Las Vegas",
+      "where": "Nevada",
+      "q": "Las Vegas"
+    },
+    {
+      "name": "Seattle",
+      "where": "Washington",
+      "q": "Seattle"
     }
   ],
   "skiing": [

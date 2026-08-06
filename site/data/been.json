@@ -1,11 +1,11 @@
 {
   "fetched": "2026-08-06",
   "source": "https://www.wikidata.org (CC0) — P625 coordinates and P18 images; photographs from Wikimedia Commons",
-  "count": 31,
+  "count": 35,
   "ski_count": 13,
-  "with_photo": 38,
-  "with_coords": 43,
-  "places_with_photo": 25,
+  "with_photo": 42,
+  "with_coords": 47,
+  "places_with_photo": 29,
   "ski_with_photo": 13,
   "places": [
     {
@@ -489,6 +489,74 @@
         "bytes": 23946
       },
       "map": "https://www.google.com/maps/search/?api=1&query=40.6228%2C-111.4894"
+    },
+    {
+      "name": "Discovery Cove",
+      "where": "Florida",
+      "key": "discovery-cove-florida",
+      "qid": "Q1228570",
+      "lat": 28.4054,
+      "lon": -81.4617,
+      "photo": {
+        "src": "/imgs/been/discovery-cove-florida.webp",
+        "licence": "CC BY-SA 2.0 de",
+        "author": "Michael Lowin (Mlowin)",
+        "source": "https://commons.wikimedia.org/wiki/File:DisccoveDolphin.jpg",
+        "credit_required": true,
+        "bytes": 36928
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=28.4054%2C-81.4617"
+    },
+    {
+      "name": "Reno",
+      "where": "Nevada",
+      "key": "reno-nevada",
+      "qid": "Q3844887",
+      "lat": 39.5346,
+      "lon": -119.899,
+      "photo": {
+        "src": "/imgs/been/reno-nevada.webp",
+        "licence": "Public domain",
+        "author": "Andyknelson (talk)andyknelson",
+        "source": "https://commons.wikimedia.org/wiki/File:RenoNVTemple.JPG",
+        "credit_required": false,
+        "bytes": 35938
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=39.5346%2C-119.899"
+    },
+    {
+      "name": "Las Vegas",
+      "where": "Nevada",
+      "key": "las-vegas-nevada",
+      "qid": "Q23768",
+      "lat": 36.1672,
+      "lon": -115.1486,
+      "photo": {
+        "src": "/imgs/been/las-vegas-nevada.webp",
+        "licence": "CC BY-SA 2.0",
+        "author": "Ken Lund from Las Vegas, Nevada, USA",
+        "source": "https://commons.wikimedia.org/wiki/File:Downtown_Las_Vegas_from_Stratosphere_3.jpg",
+        "credit_required": true,
+        "bytes": 75296
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=36.1672%2C-115.1486"
+    },
+    {
+      "name": "Seattle",
+      "where": "Washington",
+      "key": "seattle-washington",
+      "qid": "Q5083",
+      "lat": 47.605,
+      "lon": -122.33,
+      "photo": {
+        "src": "/imgs/been/seattle-washington.webp",
+        "licence": "Public domain",
+        "author": "Rattlhed at English Wikipedia",
+        "source": "https://commons.wikimedia.org/wiki/File:Space_Needle002.jpg",
+        "credit_required": false,
+        "bytes": 13496
+      },
+      "map": "https://www.google.com/maps/search/?api=1&query=47.605%2C-122.33"
     }
   ],
   "skiing": [
