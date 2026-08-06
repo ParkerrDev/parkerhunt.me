@@ -45,8 +45,25 @@
     }
   ],
   "covers": {
+    "1984": "/imgs/media/book-1984.webp",
     "zero-to-one": "/imgs/media/book-zero-to-one.webp",
     "einstein": "/imgs/media/book-einstein.webp",
-    "steve-jobs": "/imgs/media/book-steve-jobs.webp"
+    "steve-jobs": "/imgs/media/book-steve-jobs.webp",
+    "power-of-positive-thinking": "/imgs/media/book-power-of-positive-thinking.webp",
+    "atomic-habits": "/imgs/media/book-atomic-habits.webp",
+    "screw-business-as-usual": "/imgs/media/book-screw-business-as-usual.webp",
+    "fahrenheit-451": "/imgs/media/book-fahrenheit-451.webp",
+    "hatchet": "/imgs/media/book-hatchet.webp",
+    "kjv": "/imgs/media/book-kjv.webp",
+    "lord-of-the-flies": "/imgs/media/book-lord-of-the-flies.webp",
+    "ready-player-one": "/imgs/media/book-ready-player-one.webp",
+    "holes": "/imgs/media/book-holes.webp",
+    "the-outsiders": "/imgs/media/book-the-outsiders.webp",
+    "wonder": "/imgs/media/book-wonder.webp",
+    "the-odyssey": "/imgs/media/book-the-odyssey.webp",
+    "romeo-and-juliet": "/imgs/media/book-romeo-and-juliet.webp",
+    "robinson-crusoe": "/imgs/media/book-robinson-crusoe.webp",
+    "just-for-fun": "/imgs/media/book-just-for-fun.webp",
+    "sleep-smarter": "/imgs/media/book-sleep-smarter.webp"
   }
 }
