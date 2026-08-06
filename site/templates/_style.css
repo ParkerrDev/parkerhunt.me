@@ -775,5 +775,6 @@ p.wrap.kicker { margin-bottom: 0.4375rem; }
    favourite that scrolls away before you can look at it is not being treated
    as a favourite. auto-fill with a hard cap so four favourites stay
    poster-sized instead of stretching to fill the row. */
+.fav-k { margin: 0 0 0.5rem; font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--faint); }
 .favs { display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 8.75rem)); gap: var(--gap); }
 @media (max-width: 30rem) { .favs { grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr)); } }

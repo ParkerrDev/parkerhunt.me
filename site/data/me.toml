@@ -63,7 +63,11 @@ films = []
 # [[sites]]  name = "" ; url = "" ; note = ""
 sites = []
 
-# Favourites, by EXACT title. The templates filter the full lists in
+# Favourites, by EXACT title. Shows and anime are kept apart because that is
+# how they were given and how the rest of the file already treats them — see
+# [[anime]] further down. They render as two labelled groups in one section.
+#
+# The templates filter the full lists in
 # site/data/titles.json by membership, so these have to match the titles in
 # site/data/watching.json character for character — a typo is a card that
 # silently does not appear, not an error.
@@ -71,7 +75,8 @@ sites = []
 # Bare keys, so they live up here with films/sites: every plain `key = value`
 # at the root has to come before the first [[table]] header or TOML swallows it
 # into whichever table precedes it. That has bitten this file twice.
-favourite_shows = ["Naruto", "Death Note"]
+favourite_shows = ["Silicon Valley", "Mr. Robot"]
+favourite_anime = ["Naruto", "Death Note"]
 favourite_films = []
 
 # -------------------------------------------------------------------- now --
