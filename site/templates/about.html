@@ -1,13 +1,32 @@
 {% extends "base.html" %}
+{% import "macros.html" as ico %}
+
 {% block content %}
-<header class="masthead">
-  <div class="wrap">
-    <h1>{{ page.title }}</h1>
-    <p class="lede">A few things that are actually mine.</p>
-    <div class="tools"><a class="tool" href="/">← Back</a></div>
-  </div>
+{% set me = load_data(path="data/me.toml") %}
+<header class="hero">
+    <div class="wrap hero-in">
+        <div class="avatar">
+            <img src="/imgs/webp/avatar-288.webp"
+                 srcset="/imgs/webp/avatar-288.webp 288w, /imgs/webp/avatar-576.webp 576w"
+                 sizes="(max-width: 40rem) 7rem, 9.5rem"
+                 width="288" height="288" alt="Andrew Parker Hunt" fetchpriority="high" decoding="async">
+        </div>
+        <div class="hero-text">
+            <a class="back" href="/">{{ ico::back() }} Home</a>
+            <h1>{{ page.title }}</h1>
+            <p class="hero-lede">A few things that are actually mine.</p>
+            {% if me.facts | length > 0 %}
+            <ul class="facts" style="margin-top:1.25rem">
+                {% for f in me.facts %}<li>{{ f }}</li>{% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
 </header>
+
 <main id="main">
-  <section><div class="wrap"><div class="prose">{{ page.content | safe }}</div></div></section>
+    <section>
+        <div class="wrap"><div class="prose">{{ page.content | safe }}</div></div>
+    </section>
 </main>
 {% endblock %}

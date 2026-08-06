@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import "macros.html" as ico %}
+
+{% block content %}
+{% set ideas = load_data(path="data/ideas.toml") %}
+<header class="hero">
+    <div class="wrap">
+        <a class="back" href="/">{{ ico::back() }} Home</a>
+        <h1>{{ page.title }}</h1>
+        <p class="hero-lede">{{ page.description }}</p>
+        <ul class="facts" style="margin-top:1.25rem">
+            <li>{{ ideas.idea | length }} entries</li>
+            <li>none of them are finished</li>
+            <li>take one if you want it</li>
+        </ul>
+    </div>
+</header>
+
+<main id="main">
+    <section>
+        <div class="wrap">
+            {% if page.content %}<div class="prose" style="margin-bottom:2rem">{{ page.content | safe }}</div>{% endif %}
+            <div class="ideas">
+                {% for i in ideas.idea %}
+                <article class="idea">
+                    <div class="idea-n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</div>
+                    <h3>{{ i.name }}</h3>
+                    {% if i.blurb %}<p>{{ i.blurb }}</p>{% endif %}
+                    {% if i.tag %}<span class="idea-tag">{{ i.tag }}</span>{% endif %}
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

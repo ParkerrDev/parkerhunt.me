@@ -1,52 +1,78 @@
 {% extends "base.html" %}
+{% import "macros.html" as ico %}
 
 {% block title %}Parker Hunt{% endblock %}
 
 {% block content %}
-{# One page. The old site put projects, about and résumé behind three separate
-   navigations; at five projects and five facts that is a menu guarding an
-   empty room. Everything worth reading now fits above two scrolls, which is
-   both the faster site and the more confident one. #}
-<header class="masthead">
-    <div class="wrap">
-        <h1>Andrew Parker Hunt</h1>
-        <p class="lede">Software development, computer science, and cybersecurity. Clovis, California.</p>
+{# The home page is the site. Everything with enough substance to stand alone
+   gets a page of its own (/ideas, /quotes, /projects, /resume); everything else
+   lives here in full.
 
-        <ul class="facts">
-            <li>1st-degree black belt</li>
-            <li>summited Mt. Whitney at 13</li>
-            <li>linux daily driver</li>
-        </ul>
+   Every section below is wrapped in a length check on its data, so a section
+   with nothing in it does not render at all — no empty headings, no "coming
+   soon". Fill in site/data/me.toml and the sections appear. #}
+{% set me = load_data(path="data/me.toml") %}
+{% set gh = load_data(path="data/github.json") %}
+{% set feeds = load_data(path="data/feeds.toml") %}
 
-        <div class="tools">
-            <a class="tool" href="/AndrewHuntResume.pdf" target="_blank" rel="noopener">
-                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1.5H4.5A1.5 1.5 0 0 0 3 3v10a1.5 1.5 0 0 0 1.5 1.5h7A1.5 1.5 0 0 0 13 13V5.5z"/><path d="M9 1.5V5.5H13"/></svg>
-                Résumé
-            </a>
-            <a class="tool" href="mailto:email@parkerhunt.me">
-                <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="1.5"/><path d="M1.5 4.5 8 9l6.5-4.5"/></svg>
-                email@parkerhunt.me
-            </a>
-            <a class="tool" href="https://github.com/ParkerrDev" target="_blank" rel="noopener">
-                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 12.5c-3 1-3-1.5-4.2-1.8M10.5 14.5v-2.3a2 2 0 0 0-.6-1.6c1.9-.2 3.9-.9 3.9-4.2a3.3 3.3 0 0 0-.9-2.3 3 3 0 0 0-.1-2.3s-.7-.2-2.4.9a8 8 0 0 0-4.2 0C4.5 1.4 3.8 1.6 3.8 1.6a3 3 0 0 0-.1 2.3 3.3 3.3 0 0 0-.9 2.3c0 3.3 2 4 3.9 4.2a2 2 0 0 0-.6 1.5v2.6"/></svg>
-                GitHub
-            </a>
+<header class="hero">
+    <div class="wrap hero-in">
+        {# The single largest image on the page, and it is 19 KB. Sized in CSS
+           with aspect-ratio so the circle is reserved before the bytes land. #}
+        <div class="avatar">
+            <img src="/imgs/webp/avatar-288.webp"
+                 srcset="/imgs/webp/avatar-288.webp 288w, /imgs/webp/avatar-576.webp 576w"
+                 sizes="(max-width: 40rem) 7rem, 9.5rem"
+                 width="288" height="288" alt="Andrew Parker Hunt" fetchpriority="high" decoding="async">
+        </div>
+
+        <div class="hero-text">
+            <h1>Andrew Parker Hunt</h1>
+            <p class="hero-lede">Software, computer science and security. I build things that are fast, small and finished.</p>
+
+            {% if me.tidbits | length > 0 %}
+            {# A film strip translated by whole lines, no JS. The first item is
+               repeated at the end so the loop lands where it started. #}
+            <div class="tidbit" style="--tid-n: {{ me.tidbits | length }}" aria-label="About me">
+                <ul>
+                    {% for t in me.tidbits %}<li>{{ t }}</li>{% endfor %}
+                    <li aria-hidden="true">{{ me.tidbits | first }}</li>
+                </ul>
+            </div>
+            {% endif %}
+
+            <div class="links">
+                <a class="pill pill--primary" href="/AndrewHuntResume.pdf" target="_blank" rel="noopener">{{ ico::doc() }} Résumé</a>
+                <a class="pill" href="mailto:email@parkerhunt.me">{{ ico::mail() }} Email</a>
+                <a class="pill" href="https://github.com/ParkerrDev" target="_blank" rel="me noopener">{{ ico::github() }} GitHub</a>
+                <a class="pill" href="https://x.com/AndrewParkerH" target="_blank" rel="me noopener">{{ ico::x() }} X</a>
+                <a class="pill" href="https://www.linkedin.com/in/andrewparkerh/" target="_blank" rel="me noopener">{{ ico::linkedin() }} LinkedIn</a>
+            </div>
+
+            {% if me.facts | length > 0 %}
+            <ul class="facts" style="margin-top:1.25rem">
+                {% for f in me.facts %}<li>{{ f }}</li>{% endfor %}
+            </ul>
+            {% endif %}
         </div>
     </div>
 </header>
 
 <main id="main">
-    <section aria-labelledby="work">
+
+    {# ------------------------------------------------------------- work -- #}
+    <section id="work">
         <div class="wrap">
-            <h2 class="eyebrow" id="work">Selected work</h2>
-            <div class="grid">
+            <div class="head">
+                <h2>Selected work</h2>
+                <a class="more" href="/projects/">All projects →</a>
+            </div>
+            <div class="grid grid--wide">
                 {% set projects = get_section(path="projects/_index.md") %}
                 {% for project in projects.pages %}
                 {% set url = project.extra.website_url | default(value=project.permalink) %}
                 <a class="card" href="{{ url }}"{% if project.extra.website_url %} target="_blank" rel="noopener"{% endif %}>
                     {% if project.extra.card_image %}
-                    {# width/height are on the element so the box is reserved before
-                       the bytes arrive; the aspect-ratio in CSS keeps it there. #}
                     <div class="card-art">
                         <img src="{{ project.extra.card_image }}" alt="" width="900" height="338" loading="lazy" decoding="async">
                     </div>
@@ -56,9 +82,7 @@
                             {{ project.title }}
                             {%- if project.extra.website_url %}<span class="ext" aria-label="opens in a new tab">↗</span>{% endif %}
                         </h3>
-                        {% if project.description %}
-                        <p class="card-desc">{{ project.description }}</p>
-                        {% endif %}
+                        {% if project.description %}<p class="card-desc">{{ project.description }}</p>{% endif %}
                         <div class="card-meta">
                             {%- if project.updated %}{{ project.updated | date(format="%Y") }}{% elif project.date %}{{ project.date | date(format="%Y") }}{% endif -%}
                         </div>
@@ -69,16 +93,378 @@
         </div>
     </section>
 
-    <section aria-labelledby="about">
+    {# ------------------------------------------------------------- code -- #}
+    {# Rebuilt in GitHub's own visual language — its palette, its metrics, its
+       language dots — but rendered from a JSON snapshot taken at build time.
+       Nothing here talks to github.com when you load the page. #}
+    {% if gh.repos | length > 0 %}
+    <section id="code">
         <div class="wrap">
-            <h2 class="eyebrow" id="about">About</h2>
+            <div class="head">
+                <h2>Code</h2>
+                <p>Public repositories, snapshotted at build time.</p>
+                <a class="more" href="https://github.com/ParkerrDev?tab=repositories" target="_blank" rel="noopener">On GitHub →</a>
+            </div>
+
+            <div class="feed gh">
+                <div class="gh-head">
+                    {{ ico::github() }} <b>{{ gh.user }}</b> / repositories
+                    <span class="gh-h-sub">{{ gh.repos | length }} public</span>
+                </div>
+                {% for r in gh.repos %}
+                <a class="repo" href="{{ r.url }}" target="_blank" rel="noopener">
+                    <div class="repo-top">
+                        <span class="repo-name">{{ r.name }}</span>
+                        <span class="repo-vis">Public</span>
+                    </div>
+                    {% if r.description %}<p class="repo-desc">{{ r.description }}</p>{% endif %}
+                    <div class="repo-meta">
+                        {% if r.language %}<span><i class="lang-dot" style="background:{{ r.color }}"></i>{{ r.language }}</span>{% endif %}
+                        {% if r.stars > 0 %}<span>{{ ico::star() }}{{ r.stars }}</span>{% endif %}
+                        {% if r.forks > 0 %}<span>{{ ico::fork() }}{{ r.forks }}</span>{% endif %}
+                        {% if r.license %}<span>{{ r.license }}</span>{% endif %}
+                        <span>Updated {{ r.updated }}</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            <p class="feed-foot">Snapshot taken {{ gh.fetched }}. Refreshed on every deploy.</p>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------------ posts -- #}
+    {% if feeds.x.post | length > 0 or feeds.li.post | length > 0 %}
+    <section id="posts">
+        <div class="wrap">
+            <div class="head">
+                <h2>Posts</h2>
+                <p>Rebuilt, not embedded — no third-party scripts, no tracking pixels, no iframes.</p>
+            </div>
+
+            <div class="duo">
+                {# --- X ------------------------------------------------- #}
+                {% if feeds.x.post | length > 0 %}
+                {% set_global x_sample = false %}
+                {% for p in feeds.x.post %}{% if p.sample %}{% set_global x_sample = true %}{% endif %}{% endfor %}
+                <div>
+                    <div class="feed x">
+                        <div class="x-head">
+                            {{ ico::x() }} Posts
+                            <span class="x-h-sub">@{{ feeds.x.handle }}</span>
+                        </div>
+                        {% for p in feeds.x.post %}
+                        <article class="tweet">
+                            <div class="tweet-av"><img src="/imgs/webp/avatar-288.webp" width="40" height="40" alt="" loading="lazy" decoding="async"></div>
+                            <div class="tweet-main">
+                                <div class="tweet-top">
+                                    <span class="tweet-name">{{ feeds.x.name }}</span>
+                                    <span class="tweet-handle">@{{ feeds.x.handle }}</span>
+                                    <span class="tweet-handle">·</span>
+                                    <span class="tweet-time">{{ p.time }}</span>
+                                </div>
+                                <div class="tweet-body">
+                                    {% for para in p.body %}<p>{{ para }}</p>{% endfor %}
+                                </div>
+                                <div class="tweet-acts" aria-hidden="true">
+                                    <span class="tweet-act">{{ ico::reply() }}{{ p.replies }}</span>
+                                    <span class="tweet-act">{{ ico::repost() }}{{ p.reposts }}</span>
+                                    <span class="tweet-act">{{ ico::like() }}{{ p.likes }}</span>
+                                    <span class="tweet-act">{{ ico::views() }}{{ p.views }}</span>
+                                </div>
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                    <p class="feed-foot">
+                        {% if x_sample %}<b>Placeholder content</b> — replace in <code>site/data/feeds.toml</code>.{% else %}<a href="{{ feeds.x.url }}" target="_blank" rel="noopener">@{{ feeds.x.handle }}</a>{% endif %}
+                    </p>
+                </div>
+                {% endif %}
+
+                {# --- LinkedIn ------------------------------------------ #}
+                {% if feeds.li.post | length > 0 %}
+                {% set_global li_sample = false %}
+                {% for p in feeds.li.post %}{% if p.sample %}{% set_global li_sample = true %}{% endif %}{% endfor %}
+                <div>
+                    <div class="feed li">
+                        {% for p in feeds.li.post %}
+                        <article class="li-post">
+                            <div class="li-top">
+                                <div class="li-av"><img src="/imgs/webp/avatar-288.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div>
+                                <div class="li-who">
+                                    <div class="li-name">{{ feeds.li.name }}</div>
+                                    <div class="li-role">{{ feeds.li.role }}</div>
+                                    <div class="li-time">{{ p.time }} · 🌐</div>
+                                </div>
+                            </div>
+                            <div class="li-body">
+                                {% for para in p.body %}<p>{{ para }}</p>{% endfor %}
+                            </div>
+                            <div class="li-stats" aria-hidden="true">
+                                <span class="li-react"><span>👍</span><span>💡</span></span>
+                                {{ p.reactions }} · {{ p.comments }} comments
+                            </div>
+                            <div class="li-acts" aria-hidden="true">
+                                <span class="li-act">{{ ico::thumb() }} Like</span>
+                                <span class="li-act">{{ ico::comment() }} Comment</span>
+                                <span class="li-act">{{ ico::send() }} Send</span>
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                    <p class="feed-foot">
+                        {% if li_sample %}<b>Placeholder content</b> — replace in <code>site/data/feeds.toml</code>.{% else %}<a href="{{ feeds.li.url }}" target="_blank" rel="noopener">in/andrewparkerh</a>{% endif %}
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ---------------------------------------------------------- writing -- #}
+    {# Gated on config.extra.blog rather than on the section itself: a drafted
+       section is not in Zola's library at all, so get_section() on it would
+       stop the build instead of skipping the block. #}
+    {% if config.extra.blog %}
+    {% set blog = get_section(path="blog/_index.md") %}
+    {% if blog.pages | length > 0 %}
+    <section id="writing">
+        <div class="wrap">
+            <div class="head">
+                <h2>Writing</h2>
+                <a class="more" href="/blog/">All posts →</a>
+            </div>
+            <div class="grid">
+                {% for post in blog.pages | slice(end=6) %}
+                <a class="card" href="{{ post.permalink }}">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ post.title }}</h3>
+                        {% if post.description %}<p class="card-desc">{{ post.description }}</p>{% endif %}
+                        <div class="card-meta">{{ post.date | date(format="%d %B %Y") }}</div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    {% endif %}
+
+    {# ------------------------------------------------------------ ideas -- #}
+    {% set ideas = load_data(path="data/ideas.toml") %}
+    {% if ideas.idea | length > 0 %}
+    <section id="ideas">
+        <div class="wrap">
+            <div class="head">
+                <h2>Ideas</h2>
+                <p>A running notebook. {{ ideas.idea | length }} entries and counting.</p>
+                <a class="more" href="/ideas/">Read them all →</a>
+            </div>
+            <div class="ideas">
+                {% for i in ideas.idea | slice(end=9) %}
+                <article class="idea">
+                    <div class="idea-n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</div>
+                    <h3>{{ i.name }}</h3>
+                    {% if i.blurb %}<p>{{ i.blurb }}</p>{% endif %}
+                    {% if i.tag %}<span class="idea-tag">{{ i.tag }}</span>{% endif %}
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ----------------------------------------------------------- quotes -- #}
+    {% if me.quotes | length > 0 %}
+    <section id="quotes">
+        <div class="wrap">
+            <div class="head">
+                <h2>Things worth keeping</h2>
+                <a class="more" href="/quotes/">The whole wall →</a>
+            </div>
+            <div class="quotes">
+                {% for q in me.quotes | slice(end=6) %}
+                <figure class="quote">
+                    <p>{{ q.text }}</p>
+                    <footer>— {{ q.who }}</footer>
+                </figure>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ---------------------------------------------------------- shelves -- #}
+    {% if me.books_read | length > 0 or me.books_mine | length > 0 %}
+    <section id="shelf">
+        <div class="wrap">
+            <div class="head"><h2>Shelf</h2></div>
+            <div class="duo">
+                {% if me.books_read | length > 0 %}
+                <div>
+                    <p class="kicker">Read</p>
+                    <ul class="rows">
+                        {% for b in me.books_read %}
+                        <li><div class="row">
+                            <span class="row-n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
+                            <span class="row-main"><span class="row-t">{{ b.title }}</span>{% if b.author %} <span class="row-s">— {{ b.author }}</span>{% endif %}{% if b.note %}<br><span class="row-s">{{ b.note }}</span>{% endif %}</span>
+                            {% if b.year %}<span class="row-x">{{ b.year }}</span>{% endif %}
+                        </div></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% if me.books_mine | length > 0 %}
+                <div>
+                    <p class="kicker">Written</p>
+                    <ul class="rows">
+                        {% for b in me.books_mine %}
+                        <li><div class="row">
+                            <span class="row-main"><span class="row-t">{{ b.title }}</span>{% if b.note %}<br><span class="row-s">{{ b.note }}</span>{% endif %}</span>
+                            {% if b.status %}<span class="row-x">{{ b.status }}</span>{% endif %}
+                        </div></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# --------------------------------------------------------- watching -- #}
+    {% if me.films | length > 0 or me.shows | length > 0 %}
+    <section id="watching">
+        <div class="wrap">
+            <div class="head"><h2>Ranked</h2><p>In order, not alphabetically. That is the whole point of a ranking.</p></div>
+            <div class="duo">
+                {% if me.films | length > 0 %}
+                <div>
+                    <p class="kicker">Films</p>
+                    <ul class="rows">
+                        {% for f in me.films %}
+                        <li><div class="row">
+                            <span class="row-n">{{ loop.index }}</span>
+                            <span class="row-main"><span class="row-t">{{ f.title }}</span>{% if f.note %}<br><span class="row-s">{{ f.note }}</span>{% endif %}</span>
+                            {% if f.year %}<span class="row-x">{{ f.year }}</span>{% endif %}
+                        </div></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% if me.shows | length > 0 %}
+                <div>
+                    <p class="kicker">Television</p>
+                    <ul class="rows">
+                        {% for s in me.shows %}
+                        <li><div class="row">
+                            <span class="row-n">{{ loop.index }}</span>
+                            <span class="row-main"><span class="row-t">{{ s.title }}</span>{% if s.note %}<br><span class="row-s">{{ s.note }}</span>{% endif %}</span>
+                            {% if s.year %}<span class="row-x">{{ s.year }}</span>{% endif %}
+                        </div></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ----------------------------------------------- chess and languages -- #}
+    {% if me.chess.rating > 0 or me.languages | length > 0 %}
+    <section id="elsewhere">
+        <div class="wrap">
+            <div class="head"><h2>Elsewhere</h2></div>
+            {% if me.chess.rating > 0 %}
+            <div class="tiles" style="margin-bottom:1.25rem">
+                <div class="tile"><span class="tile-k">Chess rating</span><span class="tile-v">{{ me.chess.rating }}</span><span class="tile-s">{{ me.chess.site }}{% if me.chess.best %} · best {{ me.chess.best }}{% endif %}</span></div>
+                {% if me.chess.games %}<div class="tile"><span class="tile-k">Games played</span><span class="tile-v">{{ me.chess.games }}</span><span class="tile-s">and counting</span></div>{% endif %}
+                {% if me.chess.url %}<a class="tile" href="{{ me.chess.url }}" target="_blank" rel="noopener"><span class="tile-k">Fancy a game?</span><span class="tile-v">♟</span><span class="tile-s">Play me on {{ me.chess.site }} →</span></a>{% endif %}
+            </div>
+            {% endif %}
+            {% if me.languages | length > 0 %}
+            <p class="kicker">Learning</p>
+            <ul class="langs">
+                {% for l in me.languages %}
+                <li>
+                    <div class="lang-top"><b>{{ l.name }}</b><span>{{ l.level }}{% if l.streak %} · {{ l.streak }}-day streak{% endif %}</span></div>
+                    <div class="bar-track"><div class="bar-fill" style="width:{{ l.pct }}%"></div></div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </section>
+    {% endif %}
+
+    {# ----------------------------------------------------------- bucket -- #}
+    {% if me.bucket | length > 0 %}
+    <section id="bucket">
+        <div class="wrap">
+            <div class="head"><h2>Bucket list</h2><p>Struck through means done.</p></div>
+            <ul class="rows narrow">
+                {% for b in me.bucket %}
+                <li><div class="row{% if b.done %} row--done{% endif %}">
+                    {{ ico::check(done=b.done) }}
+                    <span class="row-main"><span class="row-t">{{ b.text }}</span>{% if b.note %}<br><span class="row-s">{{ b.note }}</span>{% endif %}</span>
+                </div></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------------ house -- #}
+    {% if me.rooms | length > 0 %}
+    <section id="house">
+        <div class="wrap">
+            <div class="head"><h2>The house</h2><p>A floor plan rather than a wish list, because that is what it actually is.</p></div>
+            <div class="plan">
+                {% for r in me.rooms %}
+                <div class="room{% if r.wide %} room--wide{% endif %}">
+                    <span class="room-i" aria-hidden="true">{{ r.icon }}</span>
+                    <span class="room-t">{{ r.name }}</span>
+                    {% if r.detail %}<span class="room-d">{{ r.detail }}</span>{% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------------- web ---- #}
+    {% if me.sites | length > 0 %}
+    <section id="web">
+        <div class="wrap">
+            <div class="head"><h2>Corners of the web</h2><p>Places worth keeping a bookmark for.</p></div>
+            <ul class="rows narrow">
+                {% for s in me.sites %}
+                <li><a class="row" href="{{ s.url }}" target="_blank" rel="noopener">
+                    <span class="row-main"><span class="row-t">{{ s.name }}</span>{% if s.note %}<br><span class="row-s">{{ s.note }}</span>{% endif %}</span>
+                    <span class="row-x">↗</span>
+                </a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------------ about -- #}
+    <section id="about">
+        <div class="wrap">
+            <div class="head"><h2>About</h2></div>
             <div class="prose">
-                <p>I am a student in Clovis, California. I build software that is fast,
-                    small, and finished — sites that load in one request, tools that do one
-                    thing, systems I can explain end to end.</p>
-                <p>Away from a screen I have been doing martial arts for twelve years, and
-                    I have hiked Half Dome, El Capitan and Mt. Whitney — the last one at
-                    thirteen, in a thunderstorm.</p>
+                <p>I am a student in Clovis, California. I build software that is fast, small
+                    and finished — sites that load in one request, tools that do one thing,
+                    systems I can explain end to end.</p>
+                <p>Away from a screen I have been doing martial arts for twelve years and hold a
+                    first-degree adult black belt. I have hiked to the summit of Half Dome at six,
+                    El Capitan at eight, and Mt. Whitney — the tallest mountain in the contiguous
+                    United States, 14,505 ft — at thirteen, in a thunderstorm.</p>
+                <p>Linux and macOS daily. Not Windows, unless the work insists.</p>
             </div>
         </div>
     </section>

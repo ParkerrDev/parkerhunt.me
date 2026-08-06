@@ -1,0 +1,104 @@
+# The X and LinkedIn feeds.
+#
+# WHY THESE ARE HAND-WRITTEN RATHER THAN FETCHED
+#
+# X: the account is protected. There is no public timeline, no RSS and no
+# unauthenticated API to read it — and even if there were, auto-republishing a
+# protected account onto a public page would defeat the point of it being
+# protected. So posts are chosen and copied here deliberately.
+#
+# LinkedIn: has no public posts API at all, for anyone, at any price tier. Every
+# "LinkedIn feed widget" you have seen is either a scraper that breaks monthly
+# or a paid middleman. Neither belongs in a page that is meant to load in one
+# request.
+#
+# The upside of doing it this way: no third-party script, no tracking pixel, no
+# iframe, no runtime request, and the feed renders at the same speed as the rest
+# of the page. The cost is that it is a manual copy. That trade is the right way
+# round for a personal site.
+#
+# EVERY ENTRY BELOW IS A PLACEHOLDER. `sample = true` puts a visible banner on
+# the feed so a prototype can never be mistaken for the real thing. Replace the
+# text with real posts and delete the `sample` line — the banner disappears on
+# its own once no entry is marked.
+
+[x]
+name = "Andrew"
+handle = "AndrewParkerH"
+url = "https://x.com/AndrewParkerH"
+verified = false
+
+[[x.post]]
+sample = true
+body = [
+  "spent the evening deleting 4.3 MB of images off my own website. turns out a Figma export had a 3233×1431 PNG hiding inside an SVG that renders at 445px wide.",
+  "same picture, 110 KB now.",
+]
+time = "2h"
+replies = "3"
+reposts = "1"
+likes = "24"
+views = "1,204"
+
+[[x.post]]
+sample = true
+body = [
+  "unpopular opinion: the fastest font is the one you don't download",
+]
+time = "1d"
+replies = "7"
+reposts = "2"
+likes = "58"
+views = "3,910"
+
+[[x.post]]
+sample = true
+body = [
+  "TempleOS-Web is running HolyC in the browser now. compiled to wasm, x86 JIT underneath.",
+  "Terry would have hated that it needed JavaScript to bootstrap.",
+]
+time = "3d"
+replies = "11"
+reposts = "6"
+likes = "142"
+views = "9,733"
+
+[[x.post]]
+sample = true
+body = [
+  "the whole site is 692 KB. that is the entire deploy — every page, every image, both résumé PDFs.",
+  "the average web page is 2.6 MB.",
+]
+time = "5d"
+replies = "2"
+reposts = "0"
+likes = "31"
+views = "1,880"
+
+[li]
+name = "Andrew Parker Hunt"
+role = "Student · Software development, computer science & cybersecurity"
+url = "https://www.linkedin.com/in/andrewparkerh/"
+
+[[li.post]]
+sample = true
+body = [
+  "Rebuilt parkerhunt.me from scratch this month.",
+  "The goal was simple: make the whole site load in a single request. No webfonts, no JavaScript, no analytics, no CDN calls. Everything is pre-rendered at build time and the stylesheet is inlined because it is smaller than the round trip it would cost.",
+  "The result is 692 KB for the entire deploy, down from 5.6 MB. Most of that came from one thing — re-encoding Figma-exported SVGs that had oversized PNGs embedded inside them.",
+  "Performance is mostly just refusing to add things.",
+]
+time = "1w"
+reactions = "47"
+comments = "6"
+
+[[li.post]]
+sample = true
+body = [
+  "Something I keep coming back to: the résumé on my site is never a copy.",
+  "It is built in a separate private repository and pulled in at deploy time with a read-only key, so the published PDF can't drift from the source. If the file is missing or corrupt the build fails rather than shipping a dead link.",
+  "Small thing. But a broken résumé link is the one bug on a personal site that actually costs you something.",
+]
+time = "3w"
+reactions = "88"
+comments = "12"

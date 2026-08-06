@@ -1,0 +1,272 @@
+# The idea notebook. Rendered on /ideas in full; the home page shows the first
+# nine and links through.
+#
+# Order is chronological-ish, not ranked. `tag` is a single word used for the
+# little uppercase label — keep the vocabulary small so the page stays calm:
+# hardware, software, ai, web, infra, space, consumer, business, health,
+# robotics, fun.
+
+[[idea]]
+name = "Electrically tinted windows"
+tag = "hardware"
+blurb = "Tint on a dial, for houses and cars. In a car, sun- and eye-tracking darkens only the part of the glass that is actually blinding the driver."
+
+[[idea]]
+name = "An app store that doesn't tax you"
+tag = "software"
+blurb = "Open-source, cross-platform, privacy-respecting. Per-app network, Wi-Fi and Bluetooth controls; request inspection; filter lists. Every listing states plainly whether the app is open source, audited, encrypted, ad-free."
+
+[[idea]]
+name = "Decentralised grocery store"
+tag = "consumer"
+blurb = "Buy direct from local farms and small producers. Are you a farmer? Open your own storefront."
+
+[[idea]]
+name = "Single-word speed reader"
+tag = "software"
+blurb = "Rust. Reads links, HTML, EPUB, MOBI, TXT, PDF, DOCX. Adjustable WPM, red-letter fixation point, chapter and progress readout, P2P encrypted library sharing."
+
+[[idea]]
+name = "Decentralised compute platform"
+tag = "infra"
+blurb = "Spare cycles, pooled and paid for."
+
+[[idea]]
+name = "Automated personal historian"
+tag = "ai"
+blurb = "Prompts you about your own past, then compiles the answers — text, photos, video — into a real biography."
+
+[[idea]]
+name = "Wildlife spotting map"
+tag = "software"
+blurb = "Built for field biologists rather than for a leaderboard."
+
+[[idea]]
+name = "Butter-passing robot"
+tag = "robotics"
+blurb = "Oh my god."
+
+[[idea]]
+name = "CAD by language model"
+tag = "ai"
+blurb = "An LLM driving a parametric CAD language, so the model output is the part."
+
+[[idea]]
+name = "CRX sync"
+tag = "web"
+blurb = "A browser extension that installs other extensions from .crx files — an alternative store that needs no store."
+
+[[idea]]
+name = "Idea-generating algorithm"
+tag = "ai"
+blurb = "Random word triples fed to an agent, forced to reconcile them. Several entries on this page came out of it."
+
+[[idea]]
+name = "Nucleus"
+tag = "software"
+blurb = "Habit tracker, planner and routine builder, built on Atomic Habits properly rather than as a marketing line."
+
+[[idea]]
+name = "A coffee brand"
+tag = "consumer"
+blurb = "Self-explanatory."
+
+[[idea]]
+name = "Modular workforces"
+tag = "business"
+blurb = "Hire a whole division, not a headcount. A team that arrives already knowing how to ship the thing you need."
+
+[[idea]]
+name = "Tiny rockets"
+tag = "space"
+blurb = "Everyone is building the largest rockets in history. Nobody is building the smallest. Modular, staged, reusable, drone-launched — an extremely cheap way to put eyes in the sky."
+
+[[idea]]
+name = "Login pages via DNS"
+tag = "infra"
+blurb = "Put an auth wall in front of any site by pointing a record at it."
+
+[[idea]]
+name = "Smart bulbs that actually work"
+tag = "hardware"
+blurb = "Always-on Bluetooth, automatic time zone, real on-device timers. Nothing that stops working when a server does."
+
+[[idea]]
+name = "Phone-native self checkout"
+tag = "consumer"
+blurb = "Scan as you shop, pay on your phone, show the receipt on the way out."
+
+[[idea]]
+name = "VC meeting contracts"
+tag = "business"
+blurb = "Standard agreements that stop a pitch from turning up in someone else's roadmap. Plausibly a business in itself."
+
+[[idea]]
+name = "GPT++"
+tag = "ai"
+blurb = "A model that sounds like a person by default."
+
+[[idea]]
+name = "Mind2Matter"
+tag = "ai"
+blurb = "Neural interface → mental image → model → 3D print. The shortest possible path from imagining a thing to holding it."
+
+[[idea]]
+name = "Smart-ass autocomplete"
+tag = "fun"
+blurb = "A keyboard extension that suggests the comeback, in context."
+
+[[idea]]
+name = "Parallel laser market links"
+tag = "infra"
+blurb = "Split the bitstream across many lasers instead of one. Ten links, ten times the rate."
+
+[[idea]]
+name = "A microwave that shuts up"
+tag = "hardware"
+blurb = "Quiet door, mutable beep. Somebody has to."
+
+[[idea]]
+name = "One good thing a day"
+tag = "software"
+blurb = "An algorithm whose entire job is to find you one worthwhile post per day and then stop."
+
+[[idea]]
+name = "The calendar from Her"
+tag = "ai"
+blurb = "An assistant that actually understands the shape of your week."
+
+[[idea]]
+name = "I Am Rich Too"
+tag = "fun"
+blurb = "The sequel nobody asked for."
+
+[[idea]]
+name = "Payment to commit"
+tag = "business"
+blurb = "Send us money, we hold it until you do the thing. We keep a dollar. The more you send, the more you mean it."
+
+[[idea]]
+name = "Gift rerouting"
+tag = "consumer"
+blurb = "Ship your orders to us, we wrap them properly and forward them on."
+
+[[idea]]
+name = "Absurdly good soap"
+tag = "consumer"
+blurb = "For people with absurd amounts of money."
+
+[[idea]]
+name = "Filament recycling"
+tag = "hardware"
+blurb = "Recycling, manufacturing and the robots to do both."
+
+[[idea]]
+name = "Underwater drones"
+tag = "robotics"
+blurb = ""
+
+[[idea]]
+name = "Handheld planetary scanner"
+tag = "space"
+blurb = "Point it at terrain: 3D reconstruction and material analysis in one pass. For exploring somewhere that isn't here."
+
+[[idea]]
+name = "A Google Forms competitor"
+tag = "web"
+blurb = "Because there isn't a good one."
+
+[[idea]]
+name = "Iced coffee truck"
+tag = "consumer"
+blurb = "Ice cream truck model, caffeine payload."
+
+[[idea]]
+name = "TEA — The Everything App"
+tag = "software"
+blurb = "Groceries, food scanning, fitness, habits, to-dos, smart home and encrypted notes in one nonprofit app, all free. Revenue comes from delivery and hardware, not from the software."
+
+[[idea]]
+name = "Mesh messenger + SDK"
+tag = "infra"
+blurb = "P2P, end-to-end encrypted, and routable over internet, Wi-Fi, Bluetooth or LoRa — so it still works when the network doesn't."
+
+[[idea]]
+name = "Offline everything"
+tag = "software"
+blurb = "Wikipedia, maps and a local model in one bundle, able to read archives, books and dictionaries with no connection at all."
+
+[[idea]]
+name = "Brain-rot blocker"
+tag = "web"
+blurb = "Keyword-level filter rules. Never see the word 'sigma' again."
+
+[[idea]]
+name = "Torrent-based web"
+tag = "web"
+blurb = "If files can be seeded, so can pages. Why does browsing have to be centralised?"
+
+[[idea]]
+name = "Inline social"
+tag = "web"
+blurb = "Fraidycat, but for X — and then Fraidycat for iOS, which does not exist and should."
+
+[[idea]]
+name = "ComedyGPT"
+tag = "ai"
+blurb = "Trained on comedy that works and against comedy that doesn't. Deliberately not sanded down, because sanded-down is why the jokes are bad."
+
+[[idea]]
+name = "Powered back brace"
+tag = "robotics"
+blurb = "Exoskeleton back and legs, driven by a neural interface."
+
+[[idea]]
+name = "Old-school modelling agency"
+tag = "business"
+blurb = ""
+
+[[idea]]
+name = "Datacentre heaters"
+tag = "infra"
+blurb = "We heat your house and cover part of your power bill; in exchange the compute lives in your basement."
+
+[[idea]]
+name = "A language built for models"
+tag = "ai"
+blurb = "A general-purpose language designed for an AI to write, optimised for the fewest lines that still compile to something real."
+
+[[idea]]
+name = "Second Chance"
+tag = "business"
+blurb = "Re-skilling and placement for people whose industry got automated away, matched by the same kind of system that displaced them."
+
+[[idea]]
+name = "Vaccine Voyages"
+tag = "health"
+blurb = "A wellness cruise that also runs a travel-vaccination clinic on board, so you are covered for every port before you reach it."
+
+[[idea]]
+name = "Anaerobic pre-harvest irrigation"
+tag = "health"
+blurb = "Underground bioreactors culture beneficial microbes and feed them through precision irrigation, inoculating crops before harvest instead of fertilising them after."
+
+[[idea]]
+name = "Political affiliation classifier"
+tag = "ai"
+blurb = "Predicts left/right from demographic and behavioural signal. Mostly interesting for how uncomfortably well it would work."
+
+[[idea]]
+name = "Accountability shocker"
+tag = "fun"
+blurb = "An app that shocks you when you do the thing you said you would stop doing."
+
+[[idea]]
+name = "Grocery barcode scanner"
+tag = "consumer"
+blurb = "In-store, on your phone, honest about what is in the box."
+
+[[idea]]
+name = "PETER v3"
+tag = "software"
+blurb = ""

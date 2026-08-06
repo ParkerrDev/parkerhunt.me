@@ -1,0 +1,288 @@
+# Everything personal and small on the home page lives here.
+#
+# Read at build time with load_data(). Every section that reads this file is
+# wrapped in a length check, so an empty array simply removes that section from
+# the page rather than leaving a heading over nothing. That is deliberate: it
+# means you can fill these in whenever you like and the site never looks broken
+# in the meantime.
+#
+# TO FILL IN (currently empty, so the section is hidden):
+#   [[books_read]]  [[books_mine]]  [[films]]  [[shows]]
+#   [[sites]]       [[languages]]   [chess]
+
+# --------------------------------------------------------------------- hero --
+# The strip that rolls under the name. Six is not arbitrary: the CSS animation
+# steps through exactly this many frames, so if you add or remove one, update
+# steps(--tid-n) — the count is passed in from the template, so it stays in sync
+# automatically as long as the keyframe math stays proportional.
+tidbits = [
+  "1st-degree black belt · 12 years",
+  "summited Mt. Whitney at 13, in a thunderstorm",
+  "linux daily driver, no windows",
+  "favourite fruit: the cherry plum",
+  "currently learning Mandarin",
+  "this site ships zero javascript",
+]
+
+# The fact pills under the hero. Short, checkable, not a personality quiz.
+facts = [
+  "Clovis, California",
+  "student",
+  "software · security",
+  "Half Dome at 6",
+  "El Capitan at 8",
+  "Mt. Whitney at 13",
+]
+
+# Your own. Empty for now — anything added here renders in the same wall,
+# marked as yours with a dashed border.
+my_quotes = []
+
+# --------------------------------------------------- EMPTY — FILL THESE IN --
+# Each of these hides its whole section until it has at least one entry.
+
+# [[books_read]]
+#   title = "" ; author = "" ; year = 2026 ; note = ""
+books_read = []
+
+# Novels / books you have written.
+# [[books_mine]]
+#   title = "" ; status = "draft" ; note = ""
+books_mine = []
+
+# Ranked. Order in the file is the ranking.
+# [[films]]  title = "" ; year = 0 ; note = ""
+films = []
+
+# [[shows]]  title = "" ; year = 0 ; note = ""
+shows = []
+
+# Corners of the web worth keeping.
+# [[sites]]  name = "" ; url = "" ; note = ""
+sites = []
+
+# Duolingo. `pct` drives the bar (0–100); use whatever you want it to mean —
+# course completion is the honest one.
+# [[languages]]  name = "Mandarin" ; level = "Section 1, Unit 12" ; pct = 14 ; streak = 0
+languages = []
+
+# ------------------------------------------------------------- bucket list --
+# `done` flips the row to struck-through with a filled check.
+[[bucket]]
+text = "Get my genome sequenced"
+note = "whole-genome, not a chip array"
+done = false
+
+[[bucket]]
+text = "Trace the family tree back as far as the records go"
+note = ""
+done = false
+
+[[bucket]]
+text = "Skydive"
+note = ""
+done = false
+
+[[bucket]]
+text = "Cold plunge in the Arctic"
+note = "the real one, not a chest freezer"
+done = false
+
+[[bucket]]
+text = "Fast for 14 days"
+note = "water only"
+done = false
+
+[[bucket]]
+text = "Summit Mt. Whitney"
+note = "did it at 13 — 14,505 ft, during a thunderstorm"
+done = true
+
+[[bucket]]
+text = "Summit El Capitan"
+note = "at 8"
+done = true
+
+[[bucket]]
+text = "Summit Half Dome"
+note = "at 6"
+done = true
+
+# --------------------------------------------------------------- the house --
+# Laid out as a floor plan rather than a wish list, because that is what it is.
+# `wide = true` makes a room span two columns — use it for the big ones so the
+# grid reads like a building instead of a table.
+[[rooms]]
+icon = "☕"
+name = "Barista bar"
+detail = "Proper espresso setup. The single most over-specified room in the plan."
+wide = true
+
+[[rooms]]
+icon = "🛠"
+name = "Workshop"
+detail = "Garage, tools, machines. Somewhere to make a mess."
+wide = true
+
+[[rooms]]
+icon = "🖥"
+name = "Office"
+detail = "One desk, one window, no meetings."
+wide = false
+
+[[rooms]]
+icon = "🏋"
+name = "Gym"
+detail = "Home gym. No drive, no excuse."
+wide = false
+
+[[rooms]]
+icon = "🧖"
+name = "Sauna"
+detail = "Dry, hot, wood-lined."
+wide = false
+
+[[rooms]]
+icon = "♨️"
+name = "Hot tub"
+detail = "Outdoors, under the sky."
+wide = false
+
+[[rooms]]
+icon = "🏊"
+name = "Pool"
+detail = ""
+wide = false
+
+[[rooms]]
+icon = "🔥"
+name = "Fireplace"
+detail = "Real wood. The whole point is the smell."
+wide = false
+
+[[rooms]]
+icon = "🌌"
+name = "Stargazing ceiling"
+detail = "Glass overhead, bed underneath."
+wide = true
+
+[[rooms]]
+icon = "🌲"
+name = "Woods & beach"
+detail = "Trees out one side, water out the other."
+wide = true
+
+[[rooms]]
+icon = "🚪"
+name = "Bunker"
+detail = "Underground. Hopefully never used."
+wide = false
+
+# ------------------------------------------------------------------ quotes --
+# Attributed exactly as recorded. Heads up: several of the best-known lines
+# floating around under Einstein's name are misattributed — the ones here are
+# the ones that hold up. See /quotes for the full wall.
+[[quotes]]
+text = "Few are those who see with their own eyes and feel with their own hearts."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "The important thing is not to stop questioning. Curiosity has its own reason for existence."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "Everything should be made as simple as possible, but not simpler."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "Concern for man and his fate must always form the chief interest of all technical endeavors. Never forget this in the midst of your diagrams and equations."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "No amount of experimentation can ever prove me right; a single experiment can prove me wrong."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "He who does not understand your silence will probably not understand your words."
+who = "Elbert Hubbard"
+
+[[quotes]]
+text = "Tell me and I forget. Teach me and I remember. Involve me and I learn."
+who = "Benjamin Franklin"
+
+[[quotes]]
+text = "By failing to prepare, you are preparing to fail."
+who = "Benjamin Franklin"
+
+[[quotes]]
+text = "Being ignorant is not so much a shame, as being unwilling to learn."
+who = "Benjamin Franklin"
+
+[[quotes]]
+text = "Genius is patience."
+who = "Isaac Newton"
+
+[[quotes]]
+text = "A coin a day makes a thousand coins in a thousand days. In time, a rope may saw through a tree, and dripping water can wear away stone."
+who = "Zhang Guiyai, Southern Song"
+
+[[quotes]]
+text = "The endless passage of time has cast an obfuscating fog over the facts."
+who = "unattributed"
+
+[[quotes]]
+text = "The years of anxious searching in the dark, with their intense longing, their alternations of confidence and exhaustion, and final emergence into light — only those who have experienced it can understand that."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "I have no special talent. I am only passionately curious."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "Invention is not the product of logical thought, even though the final product is tied to a logical structure."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "Science can flourish only in an atmosphere of free speech."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "It is, in fact, nothing short of a miracle that the modern methods of instruction have not yet entirely strangled the holy curiosity of inquiry."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "I speak to everyone in the same way, whether he is the garbage man or the president of the university."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "Unthinking respect for authority is the greatest enemy of truth."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "Look deep into nature, and then you will understand everything better."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "A table, a chair, a bowl of fruit and a violin; what else does a man need to be happy?"
+who = "Albert Einstein"
+
+[[quotes]]
+text = "Life is like riding a bicycle. To keep your balance you must keep moving."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "Anyone who doesn't take truth seriously in small matters cannot be trusted in large ones either."
+who = "Albert Einstein"
+
+[[quotes]]
+text = "I live in that solitude which is painful in youth, but delicious in the years of maturity."
+who = "Albert Einstein"
+
+# Chess. Leave `rating = 0` to hide the section.
+[chess]
+site = "chess.com"
+username = ""
+url = ""
+rating = 0
+best = 0
+games = 0

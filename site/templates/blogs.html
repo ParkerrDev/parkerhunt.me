@@ -1,6 +1,30 @@
 {% extends "base.html" %}
+{% import "macros.html" as ico %}
+
 {% block content %}
-<header class="masthead"><div class="wrap"><h1>{{ section.title }}</h1>
-<div class="tools"><a class="tool" href="/">← Back</a></div></div></header>
-<main id="main"><section><div class="wrap"><div class="prose">{% for p in section.pages %}<p><a href="{{ p.path | safe }}">{{ p.title }}</a></p>{% endfor %}</div></div></section></main>
+<header class="hero">
+    <div class="wrap">
+        <a class="back" href="/">{{ ico::back() }} Home</a>
+        <h1>{{ section.title }}</h1>
+        {% if section.description %}<p class="hero-lede">{{ section.description }}</p>{% endif %}
+    </div>
+</header>
+
+<main id="main">
+    <section>
+        <div class="wrap">
+            <div class="grid">
+                {% for post in section.pages %}
+                <a class="card" href="{{ post.permalink }}">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ post.title }}</h3>
+                        {% if post.description %}<p class="card-desc">{{ post.description }}</p>{% endif %}
+                        <div class="card-meta">{{ post.date | date(format="%d %B %Y") }}</div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}
