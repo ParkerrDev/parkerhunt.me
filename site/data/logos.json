@@ -51,35 +51,15 @@
       "credit_required": false,
       "bytes": 288
     },
-    "kuppajoy": {
-      "src": "/imgs/logos/kuppajoy.webp",
+    "takis-bag": {
+      "src": "/imgs/logos/takis-bag.webp",
       "wide": false,
       "photo": true,
-      "licence": "CC BY 4.0",
-      "author": "DoulosBen",
-      "source": "https://commons.wikimedia.org/wiki/File:Kuppa_Joy.jpg",
-      "credit_required": true,
-      "bytes": 42890
-    },
-    "cattlemens": {
-      "src": "/imgs/logos/cattlemens.webp",
-      "wide": false,
-      "photo": true,
-      "licence": "CC BY 4.0",
-      "author": "Missvain",
-      "source": "https://commons.wikimedia.org/wiki/File:Cattlemens_Petaluma_-_June_2022_-_Sarah_Stierch_01.jpg",
-      "credit_required": true,
-      "bytes": 25460
-    },
-    "chipotle": {
-      "src": "/imgs/logos/chipotle.webp",
-      "wide": false,
-      "photo": true,
-      "licence": "CC BY 2.0",
-      "author": "Mike Mozart from Funny YouTube, USA",
-      "source": "https://commons.wikimedia.org/wiki/File:Chipotle_Mexican_Grill_(15068734500).jpg",
-      "credit_required": true,
-      "bytes": 23290
+      "licence": "CC0",
+      "author": "Thomson200",
+      "source": "https://commons.wikimedia.org/wiki/File:Barcel_Guacamole_Takis.jpg",
+      "credit_required": false,
+      "bytes": 10150
     }
   }
 }

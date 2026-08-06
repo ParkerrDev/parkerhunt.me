@@ -2,8 +2,8 @@
   "fetched": "2026-08-06",
   "source": "https://www.wikidata.org (CC0); photographs from Wikimedia Commons",
   "count": 31,
-  "ski_count": 12,
-  "with_photo": 33,
+  "ski_count": 13,
+  "with_photo": 34,
   "places": [
     {
       "name": "Grand Canyon",
@@ -544,6 +544,21 @@
       "note": "Historic, and reliable snowmaking.",
       "key": "sun-valley-idaho",
       "qid": "Q111416232"
+    },
+    {
+      "name": "Bear Valley",
+      "where": "California",
+      "note": "Small, high, and quiet.",
+      "key": "bear-valley-california",
+      "qid": "Q4876586",
+      "photo": {
+        "src": "/imgs/been/bear-valley-california.webp",
+        "licence": "CC BY 2.0",
+        "author": "Shayan Sanyal",
+        "source": "https://commons.wikimedia.org/wiki/File:Bear_Valley.jpg",
+        "credit_required": true,
+        "bytes": 32852
+      }
     }
   ]
 }

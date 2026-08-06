@@ -238,6 +238,12 @@
       "where": "Idaho",
       "q": "Sun Valley Resort",
       "note": "Historic, and reliable snowmaking."
+    },
+    {
+      "name": "Bear Valley",
+      "where": "California",
+      "q": "Bear Valley Mountain Resort",
+      "note": "Small, high, and quiet."
     }
   ]
 }

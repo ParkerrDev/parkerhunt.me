@@ -157,8 +157,9 @@
 {%- set k = name | replace(from="c:", to="") -%}
 {%- set isb = name is starting_with("b:") and brands[bk] is defined -%}
 {%- set needsdark = isb and brands[bk].plate == "dark" -%}
+{%- set wordmark = isb and brands[bk].wide -%}
 {%- set has = isb or (k and not name is starting_with("b:") and logos[k] is defined) -%}
-<span class="banner{% if small %} banner--sm{% endif %}{% if needsdark %} banner--slate{% endif %}{% if isb %} banner--brand{% elif has and logos[k].photo %} banner--photo{% elif not has %} banner--letter{% endif %}"{% if colour %} style="--c:{{ colour }}"{% endif %}>
+<span class="banner{% if small %} banner--sm{% endif %}{% if wordmark %} banner--wide{% endif %}{% if needsdark %} banner--slate{% endif %}{% if isb %} banner--brand{% elif has and logos[k].photo %} banner--photo{% elif not has %} banner--letter{% endif %}"{% if colour %} style="--c:{{ colour }}"{% endif %}>
 {%- if isb %}<img src="{{ brands[bk].src }}" alt="" width="128" height="128" loading="lazy" decoding="async">
 {%- elif has %}<img src="{{ logos[k].src }}" alt="" width="240" height="96" loading="lazy" decoding="async">
 {%- else %}{{ mono }}{% endif -%}

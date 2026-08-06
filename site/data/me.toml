@@ -89,7 +89,7 @@ bean = "Colombian"
 # past tense.
 [vice]
 what = "Takis"
-icon = "b:takis"
+icon = "c:takis-bag"
 mono = "TK"
 colour = "#C4162B"
 kicked = true
@@ -112,7 +112,7 @@ orders = [
 
 [[coffee_shop]]
 name = "Kuppa Joy"
-icon = ""
+icon = "b:kuppajoy"
 mono = "KJ"
 colour = "#6F4E37"
 verdict = "A little too sweet. Okay, I guess."
