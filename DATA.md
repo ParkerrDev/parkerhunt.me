@@ -28,6 +28,7 @@ scripts/fetch-*.mjs ──► site/data/*.json ──► templates ──► pub
 | `fetch-steam-art.mjs` | `steam.json` + Steam CDN | `site/static/imgs/steam/*.webp` | none, **local only** |
 | `build-stamps.mjs` | nothing — arithmetic | `site/data/stamps.json` | n/a |
 | `fetch-media.mjs` | Wikimedia Commons + Open Library | `site/static/imgs/media/*.webp` + `site/data/media.json` | none, **local only** |
+| `build-map.mjs` | Wikimedia Commons + `site/data/travel.json` | `site/static/imgs/us-visited.svg` + `site/data/travel-map.json` | none, **local only** |
 
 All five fetchers run from `build-zola.sh` on every Cloudflare deploy. No API
 key, no token, no cookie: every endpoint above answers unauthenticated.
@@ -129,6 +130,33 @@ The two sources are not the same situation:
 
 Every id is **pinned**. Searching Commons at build time would mean the pictures
 could change under the site whenever the search got re-ranked.
+
+## The map is a file, and its coordinates are not rounded
+
+`build-map.mjs` paints the visited-states map. Add a state to the `visited`
+array in `site/data/travel.json`, re-run it, commit both outputs. An unknown
+code fails the script loudly rather than quietly colouring nothing.
+
+Two decisions worth keeping:
+
+**It is an `<img>`, not inline SVG.** The path data is 44 KB — about 12 KB over
+the wire — which would have doubled the home page for one section. As a separate
+file it is one request that caches for a year under the `/imgs/*` rule in
+`_headers`, and the HTML does not grow at all. The cost is that an
+`<img>`-referenced SVG is a static picture: no per-state hover, no tooltips. So
+the state names are rendered as real text beside the map, which a screen reader
+prefers anyway.
+
+**Do not round the coordinates.** The obvious optimisation is to drop the
+decimal place and save 15 KB. It does not work. The source paths are *relative*
+(`m`/`v`/`h`/`l`), so the error does not stay local — it accumulates along each
+path and the states drift off one another into an unrecognisable scatter of
+black polygons. Stripping whitespace and leading zeros is free and safe;
+touching the precision is neither.
+
+The base map is "Blank US Map (states only).svg" by Heitordp, released **CC0**,
+so unlike the photographs it carries no attribution requirement. It is credited
+on the page regardless.
 
 ## The hand-written half
 

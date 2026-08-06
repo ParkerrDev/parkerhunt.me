@@ -37,6 +37,10 @@
    credit line under the photographs is not decoration — those licences
    require attribution. #}
 {% set media = load_data(path="data/media.json") %}
+{# The visited-states map. The SVG itself is a separate file — 44 KB of path
+   data would have doubled this page — so this only carries the legend. See
+   scripts/build-map.mjs. #}
+{% set travel = load_data(path="data/travel-map.json") %}
 
 <header class="hero">
     <div class="wrap hero-in">
@@ -415,6 +419,37 @@
                 {{ isle::duolingo(d=duo) }}
             </div>
             <p class="feed-foot">Snapshot taken {{ duo.fetched }}. Refreshed on every deploy.</p>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ----------------------------------------------------------- travel -- #}
+    {% if travel.count > 0 %}
+    <section id="travel">
+        <div class="wrap">
+            <div class="head">
+                <h2>Been there</h2>
+                <p>{{ travel.count }} states. Mostly the west, and mostly by car.</p>
+            </div>
+            <div class="map-row">
+                {# An <img>, not inline SVG: the paths are 44 KB and this page is
+                   20. As a file it caches for a year under the /imgs/* rule in
+                   _headers and costs the HTML nothing. The cost is that an
+                   <img> SVG is a static picture — no per-state hover — so the
+                   names are real text beside it, which a screen reader prefers
+                   to a tooltip anyway. #}
+                <img class="map" src="{{ travel.map }}" width="959" height="593"
+                     alt="Map of the United States with {{ travel.count }} states filled in: {{ travel.visited | map(attribute='name') | join(sep=', ') }}"
+                     loading="lazy" decoding="async">
+                <div>
+                    <div class="bento bento--sm">
+                        {% for st in travel.visited %}
+                        <div class="tile-s2"><span class="t-k">{{ st.code }}</span><span class="t-t">{{ st.name }}</span></div>
+                        {% endfor %}
+                    </div>
+                    <p class="credit">Base map by {{ travel.credit.author }}, <a href="{{ travel.credit.source }}" target="_blank" rel="noopener">{{ travel.credit.licence }}</a>.</p>
+                </div>
+            </div>
         </div>
     </section>
     {% endif %}

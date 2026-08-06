@@ -1,0 +1,70 @@
+{
+  "built": "2026-08-06",
+  "map": "/imgs/us-visited.svg",
+  "count": 14,
+  "total": 51,
+  "credit": {
+    "file": "Blank US Map (states only).svg",
+    "author": "Heitordp",
+    "licence": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg"
+  },
+  "visited": [
+    {
+      "code": "AZ",
+      "name": "Arizona"
+    },
+    {
+      "code": "CA",
+      "name": "California"
+    },
+    {
+      "code": "CO",
+      "name": "Colorado"
+    },
+    {
+      "code": "FL",
+      "name": "Florida"
+    },
+    {
+      "code": "ID",
+      "name": "Idaho"
+    },
+    {
+      "code": "MT",
+      "name": "Montana"
+    },
+    {
+      "code": "NE",
+      "name": "Nebraska"
+    },
+    {
+      "code": "NV",
+      "name": "Nevada"
+    },
+    {
+      "code": "NM",
+      "name": "New Mexico"
+    },
+    {
+      "code": "OR",
+      "name": "Oregon"
+    },
+    {
+      "code": "TX",
+      "name": "Texas"
+    },
+    {
+      "code": "UT",
+      "name": "Utah"
+    },
+    {
+      "code": "WA",
+      "name": "Washington"
+    },
+    {
+      "code": "WY",
+      "name": "Wyoming"
+    }
+  ]
+}
