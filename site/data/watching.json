@@ -308,6 +308,18 @@
       "year": 2017,
       "bg": "#14213D",
       "fg": "#F0A202"
+    },
+    {
+      "title": "K.C. Undercover",
+      "year": 2015,
+      "bg": "#1B1035",
+      "fg": "#F2C14E"
+    },
+    {
+      "title": "Goosebumps",
+      "year": 1995,
+      "bg": "#12210F",
+      "fg": "#8FD14F"
     }
   ],
   "movies": [
@@ -1836,7 +1848,7 @@
       "year": 2023,
       "bg": "#1d1f27",
       "fg": "#c9cbd6",
-      "qid": "Q15711398"
+      "qid": "Q23562553"
     },
     {
       "title": "Captain Marvel",
@@ -2622,6 +2634,121 @@
     {
       "title": "Boruto: Naruto the Movie",
       "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Stand and Deliver",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Spider-Man: Into the Spider-Verse",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Roxanne",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q1787875"
+    },
+    {
+      "title": "Dirty Rotten Scoundrels",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "¡Three Amigos!",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Brave Little Toaster",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Flubber",
+      "year": 1997,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Honey, I Shrunk the Kids",
+      "year": 1989,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Honey, I Blew Up the Kid",
+      "year": 1992,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Honey, We Shrunk Ourselves",
+      "year": 1997,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Air Buddies",
+      "year": 2006,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Snow Buddies",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Space Buddies",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Santa Buddies",
+      "year": 2009,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Spooky Buddies",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Treasure Buddies",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Super Buddies",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Great Outdoors",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Man with Two Brains",
+      "year": 1983,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
