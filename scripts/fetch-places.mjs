@@ -128,6 +128,19 @@ async function collect(rows, label) {
 
     if (!p.no_photo) {
       try {
+      /* `file` pins a Commons filename outright. Needed where the Wikidata
+         item carries no P18 at all — both Aspen Snowmass and Sun Valley are
+         like that — and it skips the item lookup entirely. */
+      if (p.file) {
+        const img = await commons(p.file, key);
+        if (img?.refused) refused++;
+        else if (img) { row.photo = img; withPhoto++; bytes += img.bytes; }
+        out.push(row);
+        process.stdout.write(`  ${label} ${p.name.padEnd(22)} ${(p.where || "").padEnd(20)} ${row.photo ? "photo (pinned)" : "—"}\n`);
+        await sleep(200);
+        continue;
+      }
+
       let qid = p.qid;
       if (!qid) {
         const u =

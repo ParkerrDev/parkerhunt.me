@@ -5,6 +5,8 @@
    here for the rest — a shelf that is as tall as the collection is large is a
    list, not a section. #}
 
+{% block filter %}{% include "_filter.html" %}{% endblock %}
+
 {% block content %}
 {% set me = load_data(path="data/me.toml") %}
 {% set media = load_data(path="data/media.json") %}
@@ -24,9 +26,9 @@
 <main id="main">
     <section style="padding-top:0">
         <div class="wrap">
-            <div class="bento bento--sm">
+            <div class="bento bento--sm" data-findable="Search the shelf…">
                 {% for b in me.books_read %}
-                <div class="chip">
+                <div class="chip" data-find="{{ b.title }} {{ b.author }}{% if b.year %} {{ b.year }}{% endif %}">
                     <span class="cover">
                         {%- if b.cover and media.covers[b.cover] %}
                         <img src="{{ media.covers[b.cover] }}" width="200" height="300" alt="{{ b.title }}" loading="lazy" decoding="async">

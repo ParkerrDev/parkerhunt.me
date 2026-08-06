@@ -3,20 +3,20 @@
   "source": "https://www.wikidata.org (CC0); photographs from Wikimedia Commons",
   "count": 31,
   "ski_count": 13,
-  "with_photo": 34,
+  "with_photo": 37,
   "places": [
     {
       "name": "Grand Canyon",
       "where": "Arizona",
+      "qid": "Q118841",
       "key": "grand-canyon-arizona",
-      "qid": "Q4570025",
       "photo": {
         "src": "/imgs/been/grand-canyon-arizona.webp",
-        "licence": "CC BY 3.0",
-        "author": "davidpinter",
-        "source": "https://commons.wikimedia.org/wiki/File:Grand_Canyon_University,_3300_W_Camelback_Rd,_Phoenix,_AZ_85017_-_panoramio_(195).jpg",
+        "licence": "CC BY-SA 4.0",
+        "author": "Chensiyuan",
+        "source": "https://commons.wikimedia.org/wiki/File:Grand_Canyon_view_from_Pima_Point_2010.jpg",
         "credit_required": true,
-        "bytes": 38498
+        "bytes": 62412
       }
     },
     {
@@ -65,8 +65,16 @@
     {
       "name": "Alamo",
       "where": "Texas",
+      "qid": "Q2636724",
       "key": "alamo-texas",
-      "qid": "Q981989"
+      "photo": {
+        "src": "/imgs/been/alamo-texas.webp",
+        "licence": "CC BY-SA 4.0",
+        "author": "Zygmunt Put Zetpe0202",
+        "source": "https://commons.wikimedia.org/wiki/File:Alamo_Mission,_San_Antonio,_Texas,_USA.jpg",
+        "credit_required": true,
+        "bytes": 25998
+      }
     },
     {
       "name": "Johnson Space Center",
@@ -415,8 +423,16 @@
       "name": "Aspen Snowmass",
       "where": "Colorado",
       "note": "Four mountains, four different days.",
+      "file": "Snowmass gondola and Ski area.jpg",
       "key": "aspen-snowmass-colorado",
-      "qid": "Q4807795"
+      "photo": {
+        "src": "/imgs/been/aspen-snowmass-colorado.webp",
+        "licence": "CC BY-SA 3.0",
+        "author": "This Photo was taken by Wolfgang Moroder. Feel free to use my photos, but please mention me as the author and send me a message. This image is not in the public domain. Please respect the copyright protection. It may only be used according to the rules mentioned here. This specifically excludes use in social media, if applicable terms of the licenses listed here not appropriate. Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved.Please if you think that any changes should be required, please inform the author.Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract.",
+        "source": "https://commons.wikimedia.org/wiki/File:Snowmass_gondola_and_Ski_area.jpg",
+        "credit_required": true,
+        "bytes": 22060
+      }
     },
     {
       "name": "Jackson Hole",
@@ -542,8 +558,16 @@
       "name": "Sun Valley",
       "where": "Idaho",
       "note": "Historic, and reliable snowmaking.",
+      "file": "Bald Mountain in Sun Valley, Idaho.jpg",
       "key": "sun-valley-idaho",
-      "qid": "Q111416232"
+      "photo": {
+        "src": "/imgs/been/sun-valley-idaho.webp",
+        "licence": "CC BY-SA 4.0",
+        "author": "Rickmouser45",
+        "source": "https://commons.wikimedia.org/wiki/File:Bald_Mountain_in_Sun_Valley,_Idaho.jpg",
+        "credit_required": true,
+        "bytes": 28470
+      }
     },
     {
       "name": "Bear Valley",

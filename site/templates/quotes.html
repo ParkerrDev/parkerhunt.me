@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
 
+{% block filter %}{% include "_filter.html" %}{% endblock %}
+
 {% block content %}
 {% set me = load_data(path="data/me.toml") %}
 <header class="hero">
@@ -32,9 +34,9 @@
     <section>
         <div class="wrap">
             <div class="head"><h2>Borrowed</h2></div>
-            <div class="quotes">
+            <div class="quotes" data-findable="Search the wall…">
                 {% for q in me.quotes %}
-                <figure class="quote">
+                <figure class="quote" data-find="{{ q.text }} {{ q.who }}">
                     <p>{{ q.text }}</p>
                     <footer>— {{ q.who }}</footer>
                 </figure>

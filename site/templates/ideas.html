@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
 
+{% block filter %}{% include "_filter.html" %}{% endblock %}
+
 {% block content %}
 {% set ideas = load_data(path="data/ideas.toml") %}
 <header class="hero">
@@ -20,9 +22,9 @@
     <section>
         <div class="wrap">
             {% if page.content %}<div class="prose" style="margin-bottom:2rem">{{ page.content | safe }}</div>{% endif %}
-            <div class="ideas">
+            <div class="ideas" data-findable="Search the notebook…">
                 {% for i in ideas.idea %}
-                <article class="idea">
+                <article class="idea" data-find="{{ i.name }} {{ i.blurb | default(value="") }} {{ i.tag | default(value="") }}">
                     <div class="idea-n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</div>
                     <h3>{{ i.name }}</h3>
                     {% if i.blurb %}<p>{{ i.blurb }}</p>{% endif %}
