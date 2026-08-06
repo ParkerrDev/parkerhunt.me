@@ -1,0 +1,160 @@
+{
+  "_comment": [
+    "Places visited. THIS IS THE ONLY FILE TO EDIT — add a row and run",
+    "  node scripts/fetch-places.mjs",
+    "which resolves each against Wikidata and pulls a freely-licensed photograph",
+    "from Wikimedia Commons where one exists.",
+    "",
+    "`q` is the Wikidata search term and only differs from `name` when the name on",
+    "its own is ambiguous. `qid` pins an item outright when the search still gets",
+    "it wrong. `no_photo` skips the image lookup."
+  ],
+  "places": [
+    {
+      "name": "Grand Canyon",
+      "where": "Arizona"
+    },
+    {
+      "name": "Meteor Crater",
+      "where": "Arizona",
+      "note": "also called Barringer Crater"
+    },
+    {
+      "name": "Tombstone",
+      "where": "Arizona",
+      "q": "Tombstone, Arizona"
+    },
+    {
+      "name": "Snowflake",
+      "where": "Arizona",
+      "q": "Snowflake, Arizona"
+    },
+    {
+      "name": "Alamo",
+      "where": "Texas",
+      "q": "Alamo, Texas"
+    },
+    {
+      "name": "Johnson Space Center",
+      "where": "Houston, Texas",
+      "q": "Lyndon B. Johnson Space Center"
+    },
+    {
+      "name": "Kennedy Space Center",
+      "where": "Florida"
+    },
+    {
+      "name": "Park City",
+      "where": "Utah",
+      "q": "Park City, Utah"
+    },
+    {
+      "name": "Ketchum",
+      "where": "Idaho",
+      "q": "Ketchum, Idaho"
+    },
+    {
+      "name": "Ernest Hemingway House",
+      "where": "Ketchum, Idaho",
+      "q": "Ernest Hemingway House Ketchum",
+      "note": "where he spent his last years"
+    },
+    {
+      "name": "Big Sky Resort",
+      "where": "Montana"
+    },
+    {
+      "name": "Sheridan",
+      "where": "Wyoming",
+      "q": "Sheridan, Wyoming"
+    },
+    {
+      "name": "Riverton",
+      "where": "Wyoming",
+      "q": "Riverton, Wyoming"
+    },
+    {
+      "name": "Vail",
+      "where": "Colorado",
+      "q": "Vail, Colorado"
+    },
+    {
+      "name": "Aspen",
+      "where": "Colorado",
+      "q": "Aspen, Colorado"
+    },
+    {
+      "name": "Timberline Lodge",
+      "where": "Mount Hood, Oregon",
+      "note": "the Overlook Hotel's exterior in The Shining"
+    },
+    {
+      "name": "Haystack Rock",
+      "where": "Cannon Beach, Oregon"
+    },
+    {
+      "name": "Row River Trail",
+      "where": "Cottage Grove, Oregon"
+    },
+    {
+      "name": "North Bend",
+      "where": "Oregon",
+      "q": "North Bend, Oregon"
+    },
+    {
+      "name": "Ariel Store",
+      "where": "Ariel, Washington",
+      "q": "Ariel, Washington",
+      "note": "home of D. B. Cooper Days"
+    },
+    {
+      "name": "Marysville",
+      "where": "California",
+      "q": "Marysville, California"
+    },
+    {
+      "name": "Hilmar",
+      "where": "California",
+      "q": "Hilmar, California"
+    },
+    {
+      "name": "Reedley College",
+      "where": "California"
+    },
+    {
+      "name": "Markleeville",
+      "where": "California",
+      "q": "Markleeville, California"
+    },
+    {
+      "name": "Sanger",
+      "where": "California",
+      "q": "Sanger, California"
+    },
+    {
+      "name": "Taylorsville",
+      "where": "California",
+      "q": "Taylorsville, California"
+    },
+    {
+      "name": "Lassen County",
+      "where": "California",
+      "q": "Lassen County, California"
+    },
+    {
+      "name": "Cal Poly",
+      "where": "California",
+      "q": "California Polytechnic State University"
+    },
+    {
+      "name": "Fresno State",
+      "where": "California",
+      "q": "California State University, Fresno"
+    },
+    {
+      "name": "Cattlemens",
+      "where": "Steakhouse",
+      "note": "steak, and the reason this section exists"
+    }
+  ]
+}

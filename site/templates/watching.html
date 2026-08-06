@@ -16,7 +16,8 @@
         <p class="hero-lede">{{ page.description }}</p>
         <ul class="facts" style="margin-top:1.25rem">
             <li>{{ titles.count }} shows</li>
-            <li>{{ titles.with_logo }} with a real logo</li>
+            {% if titles.posters %}<li>{{ titles.posters.count }} with posters</li>{% endif %}
+            <li>{{ titles.with_logo }} with a title logo</li>
             <li>metadata from Wikidata</li>
         </ul>
     </div>
@@ -43,6 +44,18 @@
             {# Worth saying plainly, because the obvious question about a page of
                shows is where the posters are. #}
             <div class="prose">
+                {% if titles.posters %}
+                <h2>Where these come from</h2>
+                <p>Posters are from <a href="https://www.themoviedb.org" target="_blank" rel="noopener">TMDb</a>, which
+                   licenses its API so applications can show this artwork. Two conditions come with that and both are
+                   met here: the attribution line below, and serving the images from TMDb's own CDN rather than
+                   re-hosting them. That makes these posters the only thing on this site your browser fetches from
+                   somewhere else — see <code>POSTERS.md</code>.</p>
+                <p><b>{{ titles.posters.attribution }}</b></p>
+                <p>{{ titles.with_logo }} shows also have a title logo from Wikimedia Commons, used where TMDb has no
+                   poster. Everything else — the year, the genres, the IMDb link — comes from
+                   <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a>, which is CC0.</p>
+                {% else %}
                 <h2>Why there are no posters</h2>
                 <p>Key art is copyrighted and has no free source at any size. Wikipedia's own poster
                    files are tagged non-free — they are fair use <em>on Wikipedia</em>, which does not
@@ -51,8 +64,9 @@
                    originality and therefore public domain, and the rest are set in this site's own
                    type on a colour picked by hand.</p>
                 <p>Everything else — the year, the genres, the IMDb link — comes from
-                   <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a>, which is CC0.
-                   Snapshot taken {{ titles.fetched }}.</p>
+                   <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a>, which is CC0.</p>
+                {% endif %}
+                <p>Snapshot taken {{ titles.fetched }}.</p>
             </div>
         </div>
     </section>

@@ -27,6 +27,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Barry_logo.svg",
         "credit_required": false,
         "bytes": 11686
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/j1XpwD11f0BAEI7pX6UdMhUVX2F.jpg",
+        "tmdb_id": 73107,
+        "rating": 7.9,
+        "votes": 1188,
+        "overview_len": 100
       }
     },
     {
@@ -43,7 +50,14 @@
         "science fiction film",
         "action film",
         "adventure film"
-      ]
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
+        "tmdb_id": 298618,
+        "rating": 6.6,
+        "votes": 5137,
+        "overview_len": 381
+      }
     },
     {
       "title": "The Walking Dead",
@@ -68,6 +82,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:The_Walking_Dead_(Fernsehserie)_logo.svg",
         "credit_required": false,
         "bytes": 4178
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/aN29llVoCFtBTwDZFtqdD9d8dHb.jpg",
+        "tmdb_id": 1402,
+        "rating": 8.1,
+        "votes": 18040,
+        "overview_len": 198
       }
     },
     {
@@ -93,6 +114,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Neues_Danny_Phantom_Logo.jpg",
         "credit_required": false,
         "bytes": 17298
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/pBUOFBmZLaIxzjDjQP7d3QZrd4w.jpg",
+        "tmdb_id": 2309,
+        "rating": 8.3,
+        "votes": 1175,
+        "overview_len": 385
       }
     },
     {
@@ -109,7 +137,14 @@
         "science fiction television series",
         "teen sitcom",
         "sitcom"
-      ]
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/lcQMvn9ZptPd3dxn0a17viRfi7Y.jpg",
+        "tmdb_id": 38867,
+        "rating": 8.1,
+        "votes": 175,
+        "overview_len": 653
+      }
     },
     {
       "title": "Gravity Falls",
@@ -134,6 +169,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Gravity_Falls_logo.svg",
         "credit_required": false,
         "bytes": 25538
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/qwi3p6PzKfQZ4YXBzv3CP5pO2dE.jpg",
+        "tmdb_id": 40075,
+        "rating": 8.6,
+        "votes": 3543,
+        "overview_len": 207
       }
     },
     {
@@ -149,7 +191,14 @@
       "genres": [
         "comedy television series",
         "children's television series"
-      ]
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/3JqQ473UkYpFBjvpGMydI5sjoCI.jpg",
+        "tmdb_id": 76534,
+        "rating": 6.8,
+        "votes": 25,
+        "overview_len": 232
+      }
     },
     {
       "title": "Life on Mars",
@@ -165,7 +214,14 @@
         "police television drama",
         "science fiction television series",
         "drama television series"
-      ]
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/eoZzXx2DW8XeaIS8iYs0ePxH3DG.jpg",
+        "tmdb_id": 2973,
+        "rating": 7.8,
+        "votes": 317,
+        "overview_len": 387
+      }
     },
     {
       "title": "Stranger Things",
@@ -190,6 +246,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Stranger_Things_logo.svg",
         "credit_required": false,
         "bytes": 16212
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/uKYUR8GPkKRCksczYDJb3pwZauo.jpg",
+        "tmdb_id": 66732,
+        "rating": 8.6,
+        "votes": 21588,
+        "overview_len": 149
       }
     },
     {
@@ -215,6 +278,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Rick_and_Morty.svg",
         "credit_required": false,
         "bytes": 23566
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
+        "tmdb_id": 60625,
+        "rating": 8.7,
+        "votes": 11234,
+        "overview_len": 113
       }
     },
     {
@@ -236,7 +306,14 @@
       "year_wd": 1996,
       "genres": [
         "educational television"
-      ]
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/dSCi1cLsKiQ7713m8Lf9J8iHbRH.jpg",
+        "tmdb_id": 10821,
+        "rating": 7.7,
+        "votes": 269,
+        "overview_len": 398
+      }
     },
     {
       "title": "Seinfeld",
@@ -260,6 +337,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Seinfeld_logo.svg",
         "credit_required": false,
         "bytes": 19204
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/aCw8ONfyz3AhngVQa1E2Ss4KSUQ.jpg",
+        "tmdb_id": 1400,
+        "rating": 8.3,
+        "votes": 2403,
+        "overview_len": 147
       }
     },
     {
@@ -284,6 +368,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Silicon_Valley.svg",
         "credit_required": false,
         "bytes": 19084
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/4ptpmWBVD9HY9hMh8Cbs6SMiy7p.jpg",
+        "tmdb_id": 60573,
+        "rating": 8.1,
+        "votes": 1982,
+        "overview_len": 376
       }
     },
     {
@@ -310,6 +401,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:MR_Robot.svg",
         "credit_required": false,
         "bytes": 6732
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/kv1nRqgebSsREnd7vdC2pSGjpLo.jpg",
+        "tmdb_id": 62560,
+        "rating": 8.3,
+        "votes": 5472,
+        "overview_len": 389
       }
     },
     {
@@ -335,6 +433,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:SpongeBob_SquarePants_logo_(2000%E2%80%932008,_without_background).svg",
         "credit_required": false,
         "bytes": 29716
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/5h0EU2lqBb03dp5vtRuUHJwqzem.jpg",
+        "tmdb_id": 387,
+        "rating": 7.7,
+        "votes": 3247,
+        "overview_len": 603
       }
     },
     {
@@ -360,6 +465,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Breaking_Bad_logo.svg",
         "credit_required": false,
         "bytes": 12068
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg",
+        "tmdb_id": 1396,
+        "rating": 8.9,
+        "votes": 18297,
+        "overview_len": 312
       }
     },
     {
@@ -385,6 +497,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Better_Call_Saul_-_Logo_2.svg",
         "credit_required": false,
         "bytes": 12662
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/zjg4jpK1Wp2kiRvtt5ND0kznako.jpg",
+        "tmdb_id": 60059,
+        "rating": 8.7,
+        "votes": 6716,
+        "overview_len": 412
       }
     },
     {
@@ -403,7 +522,14 @@
         "action anime",
         "adventure anime",
         "gag anime"
-      ]
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/1GVfX7kqIbQBp38Riiy1QLQkhJQ.jpg",
+        "tmdb_id": 46260,
+        "rating": 8.4,
+        "votes": 6066,
+        "overview_len": 165
+      }
     },
     {
       "title": "Death Note",
@@ -421,7 +547,14 @@
         "thriller anime",
         "mystery anime",
         "supernatural anime"
-      ]
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/tCZFfYTIwrR7n94J6G14Y4hAFU6.jpg",
+        "tmdb_id": 13916,
+        "rating": 8.6,
+        "votes": 5056,
+        "overview_len": 433
+      }
     },
     {
       "title": "The Queen's Gambit",
@@ -437,7 +570,14 @@
         "drama television series",
         "coming-of-age television program",
         "sport film"
-      ]
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/zU0htwkhNvBQdVSIKB9s6hgVeFK.jpg",
+        "tmdb_id": 87739,
+        "rating": 8.4,
+        "votes": 5632,
+        "overview_len": 148
+      }
     },
     {
       "title": "Fargo",
@@ -453,7 +593,14 @@
         "crime film",
         "drama film",
         "neo-noir"
-      ]
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/rt7cpEr1uP6RTZykBFhBTcRaKvG.jpg",
+        "tmdb_id": 275,
+        "rating": 7.8,
+        "votes": 9223,
+        "overview_len": 553
+      }
     },
     {
       "title": "The Chosen",
@@ -501,6 +648,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:BoJack_Horseman_Logo.svg",
         "credit_required": false,
         "bytes": 24790
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/6JFWzlChcGgLiIUo2COgNlWGFKy.jpg",
+        "tmdb_id": 61222,
+        "rating": 8.5,
+        "votes": 2926,
+        "overview_len": 150
       }
     },
     {
@@ -527,6 +681,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Logo_Naruto_Shipp%C5%ABden.svg",
         "credit_required": false,
         "bytes": 35672
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/kV27j3Nz4d5z8u6mN3EJw9RiLg2.jpg",
+        "tmdb_id": 31910,
+        "rating": 8.5,
+        "votes": 8727,
+        "overview_len": 246
       }
     },
     {
@@ -552,6 +713,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Invincible_title_card.jpg",
         "credit_required": false,
         "bytes": 14692
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/4tblBrslcKSifMVZ3TmtT2ukMor.jpg",
+        "tmdb_id": 95557,
+        "rating": 8.6,
+        "votes": 5979,
+        "overview_len": 235
       }
     },
     {
@@ -577,6 +745,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Logo_The_Simpsons.svg",
         "credit_required": false,
         "bytes": 17498
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/uWpG7GqfKGQqX4YMAo3nv5OrglV.jpg",
+        "tmdb_id": 456,
+        "rating": 8,
+        "votes": 10910,
+        "overview_len": 431
       }
     },
     {
@@ -600,6 +775,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Arrested_Development.svg",
         "credit_required": false,
         "bytes": 20316
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/p4r4RD7RsNcJVoz0H6z3dBoTBtW.jpg",
+        "tmdb_id": 4589,
+        "rating": 7.9,
+        "votes": 1705,
+        "overview_len": 116
       }
     },
     {
@@ -624,6 +806,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Parks_And_Recreation_Logo.png",
         "credit_required": true,
         "bytes": 10582
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/5IOj62y2Eb2ngyYmEn1IJ7bFhzH.jpg",
+        "tmdb_id": 8592,
+        "rating": 8,
+        "votes": 1873,
+        "overview_len": 323
       }
     },
     {
@@ -648,6 +837,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:The_Office_US_logo.svg",
         "credit_required": false,
         "bytes": 4880
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/AcsDnYMUKwYepl75Uc1Hb4aKvDC.jpg",
+        "tmdb_id": 2316,
+        "rating": 8.6,
+        "votes": 5353,
+        "overview_len": 122
       }
     },
     {
@@ -659,7 +855,14 @@
       "qid": "Q67144604",
       "imdb": "tt3398540",
       "imdb_url": "https://www.imdb.com/title/tt3398540/",
-      "year_wd": 2014
+      "year_wd": 2014,
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/8WEr48swcqe89Zsy5sdrGCASlIg.jpg",
+        "tmdb_id": 60863,
+        "rating": 8.6,
+        "votes": 1531,
+        "overview_len": 418
+      }
     },
     {
       "title": "One Punch Man",
@@ -670,7 +873,14 @@
       "qid": "Q22341674",
       "imdb": "tt4508902",
       "imdb_url": "https://www.imdb.com/title/tt4508902/",
-      "year_wd": 2015
+      "year_wd": 2015,
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/dT10AxJIXVvRwFAew4tt2RhzJrD.jpg",
+        "tmdb_id": 63926,
+        "rating": 8.4,
+        "votes": 4180,
+        "overview_len": 464
+      }
     },
     {
       "title": "Boardwalk Empire",
@@ -695,6 +905,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Boardwalk_Empire_logo_2010.jpg",
         "credit_required": false,
         "bytes": 4700
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/zyHLWVmqS8m7bxABJjcDFMYLdF8.jpg",
+        "tmdb_id": 1621,
+        "rating": 8,
+        "votes": 1297,
+        "overview_len": 229
       }
     },
     {
@@ -718,6 +935,13 @@
         "source": "https://commons.wikimedia.org/wiki/File:Theitcrowd_1.svg",
         "credit_required": false,
         "bytes": 5850
+      },
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/qtxL0ZLAZN1nd0kOpcu8V32bsU4.jpg",
+        "tmdb_id": 2490,
+        "rating": 8.2,
+        "votes": 1654,
+        "overview_len": 165
       }
     },
     {
@@ -727,7 +951,14 @@
       "fg": "#FF6B6B",
       "imdb": "tt1190634",
       "key": "the-boys",
-      "imdb_url": "https://www.imdb.com/title/tt1190634/"
+      "imdb_url": "https://www.imdb.com/title/tt1190634/",
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/in1R2dDc421JxsoRWaIIAqVI2KE.jpg",
+        "tmdb_id": 76479,
+        "rating": 8.4,
+        "votes": 13222,
+        "overview_len": 162
+      }
     },
     {
       "title": "Impractical Jokers",
@@ -742,7 +973,21 @@
       "genres": [
         "reality television",
         "comedy television series"
-      ]
+      ],
+      "poster": {
+        "src": "https://image.tmdb.org/t/p/w342/tRLj19YXH9GPiaqlU7GwWyd6G5K.jpg",
+        "tmdb_id": 59186,
+        "rating": 8,
+        "votes": 410,
+        "overview_len": 353
+      }
     }
-  ]
+  ],
+  "posters": {
+    "fetched": "2026-08-06",
+    "count": 34,
+    "base": "https://image.tmdb.org/t/p/w342",
+    "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+    "terms": "https://www.themoviedb.org/api-terms-of-use"
+  }
 }
