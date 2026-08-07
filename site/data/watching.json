@@ -434,6 +434,56 @@
       "year": 2016,
       "bg": "#1A1410",
       "fg": "#C9A227"
+    },
+    {
+      "title": "The Big Bang Theory",
+      "year": 2007,
+      "bg": "#1B2A4A",
+      "fg": "#E8C547"
+    },
+    {
+      "title": "Lost in Space",
+      "year": 1965,
+      "bg": "#0B1428",
+      "fg": "#5BC8E8"
+    },
+    {
+      "title": "Futurama",
+      "year": 1999,
+      "bg": "#12233B",
+      "fg": "#7DE0D0"
+    },
+    {
+      "title": "Full House",
+      "year": 1987,
+      "bg": "#2A1F3D",
+      "fg": "#F2C14E"
+    },
+    {
+      "title": "The Addams Family",
+      "year": 1964,
+      "bg": "#141018",
+      "fg": "#C9B8E0",
+      "qid": "Q266532"
+    },
+    {
+      "title": "Hogan's Heroes",
+      "year": 1965,
+      "bg": "#1E2418",
+      "fg": "#D8C88A"
+    },
+    {
+      "title": "Wednesday",
+      "year": 2022,
+      "bg": "#0F1418",
+      "fg": "#8FD4C8"
+    },
+    {
+      "title": "Doctor Who",
+      "year": 2005,
+      "bg": "#0A1730",
+      "fg": "#4FA3E8",
+      "qid": "Q39243484"
     }
   ],
   "movies": [
@@ -4292,6 +4342,81 @@
     {
       "title": "Jumanji: Welcome to the Jungle",
       "year": 2017,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Man from Earth",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Breakfast Club",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Martian",
+      "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Addams Family",
+      "year": 1991,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q1210947"
+    },
+    {
+      "title": "Legends of the Fall",
+      "year": 1994,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Falling Down",
+      "year": 1993,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Maternal Instinct",
+      "year": 2026,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Megalopolis",
+      "year": 2024,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "All Quiet on the Western Front",
+      "year": 1979,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q1093673"
+    },
+    {
+      "title": "Hercules",
+      "year": 1997,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q271189"
+    },
+    {
+      "title": "The Emperor's New Groove",
+      "year": 2000,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "JFK",
+      "year": 1991,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
