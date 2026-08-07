@@ -66,9 +66,22 @@ const KINDS = [
   "Q1366112",    // television programme
   "Q15416",      // television programme (broad)
   "Q11424",      // film
-  "Q24856",      // film series
   "Q220898",     // OVA
 ];
+
+/* NOT "Q24856", film series — deliberately. Wikidata has an item for the Happy
+   Feet *franchise* as well as for the 2006 film, the franchise carries its own
+   tt-id and a 2006 date, and with film-series in KINDS it scored the full 11
+   (real tt-id +4, right kind +3, year match +4) and won on the spot. The film
+   never got looked at. Nothing downstream could tell: the id looks like a title
+   id, the year is right, only the missing poster gave it away, because TMDb has
+   no such title.
+
+   A franchise is never the answer to "which work is this". Every qid on the site
+   was checked against P31 after this changed — 803 items — and Happy Feet was
+   the only row that had landed on one, so this needed no --all re-resolve.
+   Q24856 stays in FILM_KINDS below, which only decides which list a row belongs
+   in and is never reached now that such an item cannot win. */
 
 /* Things that share a title with a show and are NOT one. A video game or a
    manga can carry an IMDb id, so the P345 fallback below needs this guard or
