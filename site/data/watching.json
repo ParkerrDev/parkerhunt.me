@@ -4529,6 +4529,24 @@
       "year": 2017,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Spy Who Loved Me",
+      "year": 1977,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Bill & Ted's Excellent Adventure",
+      "year": 1989,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
     }
   ]
 }
