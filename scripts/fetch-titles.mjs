@@ -325,7 +325,15 @@ async function collect(rows, kind) {
      resolves to a 1960s folk-rock duo's person page, which is a link nobody
      wants to follow from a list of cartoons. */
     if (s.imdb) { row.imdb_url = `https://www.imdb.com/title/${s.imdb}/`; withImdb++; }
-    if (s.no_imdb) { delete row.no_imdb; out.push(row); process.stdout.write(`  ${s.title.padEnd(26)} (no imdb, by hand)\n`); continue; }
+    if (s.no_imdb) {
+      delete row.no_imdb;
+      out.push(row);
+      /* Two different reasons to be here, so say which: no id exists (Tom and
+         Jerry), or one was written down because Wikidata has no item to find
+         (Manhunt for Claude Dallas). */
+      process.stdout.write(`  ${s.title.padEnd(26)} ${s.imdb ? `${s.imdb.padEnd(11)} by hand, no lookup` : "(no imdb, by hand)"}\n`);
+      continue;
+    }
 
     let qid = s.qid || null;
     try {
