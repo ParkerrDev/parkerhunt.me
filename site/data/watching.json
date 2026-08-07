@@ -542,6 +542,36 @@
       "year": 2007,
       "bg": "#12242E",
       "fg": "#5FC2D9"
+    },
+    {
+      "title": "The Brady Bunch",
+      "year": 1969,
+      "bg": "#2E1F14",
+      "fg": "#E8A33B"
+    },
+    {
+      "title": "The Dukes of Hazzard",
+      "year": 1979,
+      "bg": "#2B1712",
+      "fg": "#E8801F"
+    },
+    {
+      "title": "The Fresh Prince of Bel-Air",
+      "year": 1990,
+      "bg": "#1B2E3B",
+      "fg": "#F2C14E"
+    },
+    {
+      "title": "The Flintstones",
+      "year": 1960,
+      "bg": "#2A2016",
+      "fg": "#E0A03B"
+    },
+    {
+      "title": "Family Matters",
+      "year": 1989,
+      "bg": "#1E2A3B",
+      "fg": "#E8C547"
     }
   ],
   "movies": [
@@ -4863,6 +4893,13 @@
       "year": 1988,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hook",
+      "year": 1991,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q646389"
     }
   ]
 }
