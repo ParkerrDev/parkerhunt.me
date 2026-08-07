@@ -5098,6 +5098,38 @@
       "year": 2010,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "Beetlejuice",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Dave",
+      "year": 1993,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q539658"
+    },
+    {
+      "title": "Swing Vote",
+      "year": 2008,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Money for Nothing",
+      "year": 1993,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q6899239"
+    },
+    {
+      "title": "One Crazy Summer",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
     }
   ]
 }
