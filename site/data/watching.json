@@ -298,12 +298,6 @@
       "fg": "#F2A93B"
     },
     {
-      "title": "Lab Rats: Bionic Island",
-      "year": 2015,
-      "bg": "#0F1B2E",
-      "fg": "#59C3E8"
-    },
-    {
       "title": "Boruto: Naruto Next Generations",
       "year": 2017,
       "bg": "#14213D",
@@ -389,13 +383,6 @@
       "qid": "Q1415559"
     },
     {
-      "title": "Sonic the Hedgehog",
-      "year": 1993,
-      "bg": "#0E1B3D",
-      "fg": "#4FA3E8",
-      "qid": "Q1164748"
-    },
-    {
       "title": "Sonic Underground",
       "year": 1999,
       "bg": "#2B1B4A",
@@ -415,13 +402,6 @@
       "bg": "#0F2A3D",
       "fg": "#56C0E0",
       "qid": "Q15711878"
-    },
-    {
-      "title": "Sonic Prime",
-      "year": 2022,
-      "bg": "#1A1140",
-      "fg": "#7B5CE8",
-      "qid": "Q105221079"
     },
     {
       "title": "Mickey Mouse Clubhouse",
@@ -486,12 +466,6 @@
       "qid": "Q39243484"
     },
     {
-      "title": "Teen Wolf",
-      "year": 2011,
-      "bg": "#0F1410",
-      "fg": "#9BC94F"
-    },
-    {
       "title": "Dirty Jobs",
       "year": 2003,
       "bg": "#2B1F14",
@@ -508,6 +482,66 @@
       "year": 2016,
       "bg": "#0E1F2E",
       "fg": "#3FC1E0"
+    },
+    {
+      "title": "Courage the Cowardly Dog",
+      "year": 1999,
+      "bg": "#2B1A2E",
+      "fg": "#C9A7E0"
+    },
+    {
+      "title": "CatDog",
+      "year": 1998,
+      "bg": "#2A2416",
+      "fg": "#E8C547"
+    },
+    {
+      "title": "Sam & Cat",
+      "year": 2013,
+      "bg": "#2B1430",
+      "fg": "#F06FA8"
+    },
+    {
+      "title": "Bunk'd",
+      "year": 2015,
+      "bg": "#1A2A18",
+      "fg": "#8FC96B"
+    },
+    {
+      "title": "The Thundermans",
+      "year": 2013,
+      "bg": "#141E3B",
+      "fg": "#F0C23B"
+    },
+    {
+      "title": "Bluey",
+      "year": 2018,
+      "bg": "#12283F",
+      "fg": "#6FB8E8"
+    },
+    {
+      "title": "Sofia the First",
+      "year": 2013,
+      "bg": "#2A1B3D",
+      "fg": "#E0A8D8"
+    },
+    {
+      "title": "Doc McStuffins",
+      "year": 2012,
+      "bg": "#1B2E3B",
+      "fg": "#7FD1E8"
+    },
+    {
+      "title": "Star vs. the Forces of Evil",
+      "year": 2015,
+      "bg": "#2B1430",
+      "fg": "#F25FA8"
+    },
+    {
+      "title": "iCarly",
+      "year": 2007,
+      "bg": "#12242E",
+      "fg": "#5FC2D9"
     }
   ],
   "movies": [
