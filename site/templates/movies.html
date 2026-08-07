@@ -33,7 +33,13 @@
         <div class="wrap">
             <div class="bento" data-findable="Search {{ titles.movie_count }} films…" data-random="Random film">
                 {% for m in titles.movies | sort(attribute="title") %}
-                <div class="chip" data-find="{{ m.title }} {{ m.year }} {% if m.genres %}{{ m.genres | join(sep=" ") }}{% endif %}">
+                {# `alias` is searchable text that is deliberately NOT displayed. A
+                   film is filed under its release title, and for the first entry in
+                   a series that title often has no trace of the series in it: First
+                   Blood is a Rambo film, Star Wars is A New Hope. Searching the
+                   franchise found the sequels and not the original, which reads as
+                   the original being missing. See site/data/watching.json. #}
+                <div class="chip" data-find="{{ m.title }} {{ m.year }} {% if m.genres %}{{ m.genres | join(sep=" ") }}{% endif %}{% if m.alias %} {{ m.alias }}{% endif %}">
                     {{ isle::poster(w=m, size="lg") }}
                     <span class="t-t">{{ m.title }}</span>
                     <span class="t-s">{{ m.year }}{% if m.genres %} · {{ m.genres | first }}{% endif %}</span>

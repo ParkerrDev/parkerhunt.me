@@ -359,6 +359,14 @@ Three things that took a second pass:
   carries `imdb: "tt0091473"` with `no_imdb: true`, which supplies the link and
   skips the search rather than retrying a lookup that will always come back
   empty. TMDb still has it, so the poster arrives normally.
+- **`alias` is searchable text that is never displayed.** A film is filed under
+  its release title, and the first entry in a series usually has no trace of the
+  series in it: *First Blood* is a Rambo film, *Star Wars* is *A New Hope*.
+  Searching "rambo" found the two sequels and not the original, which reads as
+  the original being missing rather than as being filed under F. The alias is
+  appended to `data-find` only — the card still says *First Blood*. Add one to a
+  row in `watching.json` and it flows through untouched, since the resolver
+  copies unknown fields across.
 - **Posters do not exist, legally.** Key art is copyrighted with no free source
   at any size; Wikipedia's own poster files are tagged non-free and are fair use
   *on Wikipedia*, which does not travel. Title *logos* are different — a wordmark
