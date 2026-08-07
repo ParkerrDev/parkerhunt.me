@@ -4614,6 +4614,18 @@
       "year": 2021,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "Young Guns",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Young Guns II",
+      "year": 1990,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
     }
   ]
 }
