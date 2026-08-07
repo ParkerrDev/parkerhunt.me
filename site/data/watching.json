@@ -5240,6 +5240,43 @@
       "year": 1986,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "Born in East L.A.",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "La Bamba",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Mask",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q929647"
+    },
+    {
+      "title": "Joe Versus the Volcano",
+      "year": 1990,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Heartbreak Kid",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Love Stinks",
+      "year": 1999,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
     }
   ]
 }
