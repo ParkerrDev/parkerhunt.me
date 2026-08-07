@@ -4688,6 +4688,25 @@
       "year": 1977,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "Ruthless People",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Fire in the Sky",
+      "year": 1993,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Death Wish",
+      "year": 2018,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q27450567"
     }
   ]
 }
