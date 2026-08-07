@@ -14,6 +14,13 @@
    3. Filtering toggles a class instead of removing nodes. Nothing reflows into
       a different grid, and clearing the box restores the original order
       exactly — which a remove-and-reinsert approach does not.
+
+   The Random button lives here rather than in one page's template because it
+   needs exactly what the search needs: the [data-find] items and which of them
+   are currently on screen. It picks from the VISIBLE ones, so it composes with
+   the search rather than ignoring it — type "pixar", press Random, get a Pixar
+   film. Every page that emits this block gets the button; the label comes from
+   data-random on the findable element.
 #}
 <style>
   .find { margin: 0 0 1rem; display: flex; align-items: center; gap: 0.625rem; flex-wrap: wrap; }
@@ -27,6 +34,22 @@
   .find output { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); }
   [data-find].is-hidden { display: none; }
   .find-none { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+
+  .find-pick {
+    flex: 0 0 auto;
+    font: inherit; font-size: 0.9375rem; color: var(--fg);
+    background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+    padding: 0.5rem 1rem; cursor: pointer;
+  }
+  .find-pick:hover { border-color: var(--accent); color: var(--accent); }
+  .find-pick:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* The ring fades on its own so there is nothing to clean up visually if the
+     reader scrolls away mid-animation; the class is still removed after, so a
+     second press on the same card re-triggers it. */
+  [data-find].is-picked { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: var(--r-sm); animation: findpick 1.6s ease-out forwards; }
+  @keyframes findpick { from { outline-color: var(--accent); } to { outline-color: transparent; } }
+  @media (prefers-reduced-motion: reduce) { [data-find].is-picked { animation: none; } }
 </style>
 <script>
 (function () {
@@ -42,10 +65,15 @@
   input.placeholder = scope.dataset.findable || "Search";
   input.setAttribute("aria-label", input.placeholder);
   var count = document.createElement("output");
+  var dice = document.createElement("button");
+  dice.type = "button";
+  dice.className = "find-pick";
+  dice.textContent = scope.dataset.random || "Random";
   var empty = document.createElement("p");
   empty.className = "find-none";
   empty.hidden = true;
   wrap.appendChild(input);
+  wrap.appendChild(dice);
   wrap.appendChild(count);
   scope.parentNode.insertBefore(wrap, scope);
   scope.parentNode.insertBefore(empty, scope.nextSibling);
@@ -72,6 +100,57 @@
   // Escape clears, which is what a search box is expected to do.
   input.addEventListener("keydown", function (e) {
     if (e.key === "Escape") { input.value = ""; run(); }
+  });
+
+  /* ---- Random ---------------------------------------------------------- */
+
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var picked = null, timer = 0;
+
+  function label(el) {
+    /* .t-t is the title span on a catalogue chip, h3 the heading on an idea.
+       Neither exists on a quote, and falling straight back to textContent is
+       wrong there: the markup is minified, so an idea's number, name and tag
+       run together as "44Old-school modelling agencybusiness". Prefer a single
+       titling element, then the first paragraph, then the whole text. */
+    var t = el.querySelector(".t-t, h3, h4") || el.querySelector("p") || el;
+    var s = t.textContent.replace(/\s+/g, " ").trim();
+    return s.length > 60 ? s.slice(0, 59) + "…" : s;
+  }
+
+  dice.addEventListener("click", function () {
+    var pool = [];
+    for (var i = 0; i < items.length; i++) {
+      if (!items[i].classList.contains("is-hidden")) pool.push(items[i]);
+    }
+    if (!pool.length) { count.textContent = "nothing to pick from"; return; }
+
+    var n = Math.floor(Math.random() * pool.length);
+    /* Never the same one twice running. With 674 films this would not matter;
+       with three left after a search it is the difference between a button
+       that works and one that looks broken. Stepping to the neighbour rather
+       than redrawing keeps this O(1) and, at a pool of two, alternates. */
+    if (pool.length > 1 && pool[n] === picked) n = (n + 1) % pool.length;
+    var choice = pool[n];
+
+    if (picked) picked.classList.remove("is-picked");
+    if (timer) clearTimeout(timer);
+    // Reflow between remove and add, or re-picking the same card after a
+    // search does not restart the animation.
+    void choice.offsetWidth;
+    choice.classList.add("is-picked");
+    picked = choice;
+    timer = setTimeout(function () { choice.classList.remove("is-picked"); }, 1700);
+
+    choice.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" });
+    /* Focus the card's own link so the keyboard lands on it and Enter opens
+       the film, and so screen readers move with the ring rather than being
+       told about a card the focus is nowhere near. */
+    var link = choice.querySelector("a[href]"), target = link || choice;
+    if (!link) target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
+
+    count.textContent = label(choice);
   });
 })();
 </script>

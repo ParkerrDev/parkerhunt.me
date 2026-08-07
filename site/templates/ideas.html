@@ -22,7 +22,7 @@
     <section>
         <div class="wrap">
             {% if page.content %}<div class="prose" style="margin-bottom:2rem">{{ page.content | safe }}</div>{% endif %}
-            <div class="ideas" data-findable="Search {{ ideas.idea | length }} ideas…">
+            <div class="ideas" data-findable="Search {{ ideas.idea | length }} ideas…" data-random="Random idea">
                 {% for i in ideas.idea %}
                 <article class="idea" data-find="{{ i.name }} {{ i.blurb | default(value="") }} {{ i.tag | default(value="") }}">
                     <div class="idea-n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</div>

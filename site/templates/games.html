@@ -128,7 +128,7 @@
                told you nothing sixty pictures do not; the seven that were never
                on Steam get a typographic tile in the same slot so the grid does
                not develop holes. #}
-            <div class="bento bento--lg" data-findable="Search everything played…">
+            <div class="bento bento--lg" data-findable="Search everything played…" data-random="Random game">
                 {% for p in games.played %}
                 {% if p.appid %}
                 {% set g = steam.by_appid[p.appid] %}
