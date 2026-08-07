@@ -443,7 +443,7 @@
     },
     {
       "title": "Lost in Space",
-      "year": 1965,
+      "year": 2018,
       "bg": "#0B1428",
       "fg": "#5BC8E8"
     },
@@ -490,6 +490,18 @@
       "year": 2011,
       "bg": "#0F1410",
       "fg": "#9BC94F"
+    },
+    {
+      "title": "Dirty Jobs",
+      "year": 2003,
+      "bg": "#2B1F14",
+      "fg": "#E0A030"
+    },
+    {
+      "title": "How It's Made",
+      "year": 2001,
+      "bg": "#12242E",
+      "fg": "#5FC2D9"
     }
   ],
   "movies": [
@@ -4545,6 +4557,12 @@
     {
       "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
       "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Edward Scissorhands",
+      "year": 1990,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
