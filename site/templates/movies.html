@@ -31,7 +31,7 @@
 <main id="main">
     <section style="padding-top:0">
         <div class="wrap">
-            <div class="bento" data-findable="Search {{ titles.movie_count }} films…">
+            <div class="bento" data-findable="Search {{ titles.movie_count }} films…" data-random="Random film">
                 {% for m in titles.movies | sort(attribute="title") %}
                 <div class="chip" data-find="{{ m.title }} {{ m.year }} {% if m.genres %}{{ m.genres | join(sep=" ") }}{% endif %}">
                     {{ isle::poster(w=m, size="lg") }}
