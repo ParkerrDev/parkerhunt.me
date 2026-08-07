@@ -578,6 +578,12 @@
       "year": 1962,
       "bg": "#131E3B",
       "fg": "#5FD1E8"
+    },
+    {
+      "title": "MacGyver",
+      "year": 1985,
+      "bg": "#1E2A14",
+      "fg": "#C9D96B"
     }
   ],
   "movies": [
@@ -5084,6 +5090,12 @@
     {
       "title": "Snowpiercer",
       "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "MacGruber",
+      "year": 2010,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
