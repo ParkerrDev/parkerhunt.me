@@ -3325,12 +3325,6 @@
       "fg": "#c9cbd6"
     },
     {
-      "title": "Hotel Transylvania: Transformania",
-      "year": 2022,
-      "bg": "#1d1f27",
-      "fg": "#c9cbd6"
-    },
-    {
       "title": "The Santa Clause",
       "year": 1994,
       "bg": "#1d1f27",
@@ -4790,6 +4784,25 @@
     {
       "title": "Secondhand Lions",
       "year": 2003,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Rad",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q7279911"
+    },
+    {
+      "title": "Poltergeist II: The Other Side",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "How the Grinch Stole Christmas!",
+      "year": 1966,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
