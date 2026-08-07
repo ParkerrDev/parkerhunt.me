@@ -5056,6 +5056,36 @@
       "year": 1996,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "Angel Has Fallen",
+      "year": 2019,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Greenland",
+      "year": 2020,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Leave the World Behind",
+      "year": 2023,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Tomorrow War",
+      "year": 2021,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Snowpiercer",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
     }
   ]
 }
