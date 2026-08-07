@@ -484,6 +484,12 @@
       "bg": "#0A1730",
       "fg": "#4FA3E8",
       "qid": "Q39243484"
+    },
+    {
+      "title": "Teen Wolf",
+      "year": 2011,
+      "bg": "#0F1410",
+      "fg": "#9BC94F"
     }
   ],
   "movies": [
@@ -4417,6 +4423,43 @@
     {
       "title": "JFK",
       "year": 1991,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Wild Hogs",
+      "year": 2007,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Coming to America",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Can't Buy Me Love",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Superman",
+      "year": 1978,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q213053"
+    },
+    {
+      "title": "Superman II",
+      "year": 1980,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Superman III",
+      "year": 1983,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
