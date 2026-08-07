@@ -397,6 +397,16 @@ The hand-edited fields still win on a reused row: title, year and the card
 colours come from `watching.json`, so fixing a colour does not need a
 re-resolve. Only `qid`, `imdb` and the fetched metadata are reused.
 
+**A changed pin is the exception, and it has to be.** Reusing the cached `qid`
+means writing one into `watching.json` to overrule a wrong match would otherwise
+do nothing — silently, because a row that resolved *wrongly* still has a qid and
+a `tt` id and therefore still counts as settled. That is exactly the case worth
+catching: the correction is only ever made because the cached answer is wrong.
+So a hand-written `qid` that disagrees with the cache forces that one row to
+re-resolve, and says so on stdout. *All Quiet on the Western Front* matched the
+1930 Milestone film when the 1979 Delbert Mann television film was wanted; the
+pin now takes effect on the next ordinary run, with no `--all`.
+
 ## Posters are the one thing that needs a key
 
 See **POSTERS.md**. Short version: poster art is the studios', no free-licence

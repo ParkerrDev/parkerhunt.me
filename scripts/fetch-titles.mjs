@@ -306,8 +306,20 @@ async function collect(rows, kind) {
   for (const s of rows) {
     /* Settled and unchanged: take last run's answer and move on. The input row
        still wins on the fields a person edits by hand — title, year, colours —
-       so correcting a colour in watching.json does not need a re-resolve. */
-    const done = settled[`${kind}:${s.title}:${s.year || ""}`];
+       so correcting a colour in watching.json does not need a re-resolve.
+
+       UNLESS THE PIN CHANGED. A settled row keeps its cached qid and imdb, which
+       is the whole point — but it also means writing a `qid` into watching.json
+       to overrule a wrong match would do nothing at all, silently, because the
+       row already had *some* qid and *some* tt-id and therefore counted as
+       settled. That is how "All Quiet on the Western Front" stayed pinned to the
+       1930 film after being corrected to the 1979 one. A hand-written qid that
+       disagrees with the cache is a correction, so it forces a re-resolve. */
+    let done = settled[`${kind}:${s.title}:${s.year || ""}`];
+    if (done && s.qid && s.qid !== done.qid) {
+      process.stdout.write(`  ${s.title.padEnd(26)} pin changed ${done.qid} -> ${s.qid}, re-resolving\n`);
+      done = null;
+    }
     if (done) {
       out.push({ ...done, ...s, key: done.key, qid: done.qid, imdb: done.imdb, imdb_url: done.imdb_url });
       if (done.imdb) withImdb++;
