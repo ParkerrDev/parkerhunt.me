@@ -4589,6 +4589,31 @@
       "year": 1987,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "One Hundred and One Dalmatians",
+      "year": 1961,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Cruella",
+      "year": 2021,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Village",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q465227"
+    },
+    {
+      "title": "Jungle Cruise",
+      "year": 2021,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
     }
   ]
 }
