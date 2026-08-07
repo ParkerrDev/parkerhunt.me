@@ -353,6 +353,12 @@ Three things that took a second pass:
   and falls back to "has an IMDb id and is not on the not-a-show blocklist".
   Four titles still needed a hand-pinned `qid`; `imdb` and `no_imdb` override it
   entirely, which is how Tom and Jerry stops resolving to a folk-rock duo.
+  Setting **both** covers the other case — a title Wikidata simply does not have.
+  *Manhunt for Claude Dallas* (CBS, 1986) is a made-for-television film with no
+  Wikidata item and no Wikipedia article, so there is nothing to resolve to; it
+  carries `imdb: "tt0091473"` with `no_imdb: true`, which supplies the link and
+  skips the search rather than retrying a lookup that will always come back
+  empty. TMDb still has it, so the poster arrives normally.
 - **Posters do not exist, legally.** Key art is copyrighted with no free source
   at any size; Wikipedia's own poster files are tagged non-free and are fair use
   *on Wikipedia*, which does not travel. Title *logos* are different — a wordmark

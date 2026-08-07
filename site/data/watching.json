@@ -4164,6 +4164,26 @@
       "year": 2019,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Machinist",
+      "year": 2004,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Manhunt for Claude Dallas",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "imdb": "tt0091473",
+      "no_imdb": true
+    },
+    {
+      "title": "Pee-wee's Big Adventure",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
     }
   ]
 }
