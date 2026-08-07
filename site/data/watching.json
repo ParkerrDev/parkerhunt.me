@@ -502,6 +502,12 @@
       "year": 2001,
       "bg": "#12242E",
       "fg": "#5FC2D9"
+    },
+    {
+      "title": "MECH-X4",
+      "year": 2016,
+      "bg": "#0E1F2E",
+      "fg": "#3FC1E0"
     }
   ],
   "movies": [
@@ -4803,6 +4809,24 @@
     {
       "title": "How the Grinch Stole Christmas!",
       "year": 1966,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Poltergeist III",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Short Circuit",
+      "year": 1986,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Short Circuit 2",
+      "year": 1988,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
     }
