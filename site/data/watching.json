@@ -422,6 +422,18 @@
       "bg": "#1A1140",
       "fg": "#7B5CE8",
       "qid": "Q105221079"
+    },
+    {
+      "title": "Mickey Mouse Clubhouse",
+      "year": 2006,
+      "bg": "#2A1414",
+      "fg": "#E8B23B"
+    },
+    {
+      "title": "Westworld",
+      "year": 2016,
+      "bg": "#1A1410",
+      "fg": "#C9A227"
     }
   ],
   "movies": [
@@ -4258,6 +4270,30 @@
       "bg": "#1d1f27",
       "fg": "#c9cbd6",
       "qid": "Q785157"
+    },
+    {
+      "title": "The NeverEnding Story",
+      "year": 1984,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Westworld",
+      "year": 1973,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "My Octopus Teacher",
+      "year": 2020,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Jumanji: Welcome to the Jungle",
+      "year": 2017,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
     }
   ]
 }
