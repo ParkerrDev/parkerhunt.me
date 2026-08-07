@@ -5130,6 +5130,44 @@
       "year": 1986,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Man with One Red Shoe",
+      "year": 1985,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Get the Gringo",
+      "year": 2012,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Hunting Season",
+      "year": 2025,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q137215321",
+      "imdb": "tt32537226"
+    },
+    {
+      "title": "Miracle on 34th Street",
+      "year": 1947,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Blind Date",
+      "year": 1987,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Red 2",
+      "year": 2013,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
     }
   ]
 }
