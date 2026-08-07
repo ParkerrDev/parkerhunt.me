@@ -20,6 +20,15 @@
         <a class="back" href="/">{{ ico::back() }} Home</a>
         <h1>TV shows</h1>
         <p class="hero-lede">{{ page.description }}</p>
+        {# What "watched" means here, because a list of 83 shows invites the
+           question and the answer is looser than it looks. Stated on this page
+           rather than the films page: the rule is about how television gets
+           watched, not how films do. #}
+        <p class="hero-lede" style="color:var(--muted);font-size:0.9375rem;max-width:44rem">
+            <b>What counts:</b> anything I have watched, finished or not. One episode counts — including
+            one I only half-watched because somebody else had it on. Second-hand viewing counts.
+            This is what has passed in front of me, not what I have followed.
+        </p>
         <ul class="facts" style="margin-top:1.25rem">
             <li>{{ titles.count }} shows</li>
             <li><a href="/movies/" style="color:var(--accent)">{{ titles.movie_count }} films →</a></li>
