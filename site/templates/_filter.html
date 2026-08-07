@@ -44,12 +44,29 @@
   .find-pick:hover { border-color: var(--accent); color: var(--accent); }
   .find-pick:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  /* The ring fades on its own so there is nothing to clean up visually if the
-     reader scrolls away mid-animation; the class is still removed after, so a
-     second press on the same card re-triggers it. */
-  [data-find].is-picked { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: var(--r-sm); animation: findpick 1.6s ease-out forwards; }
-  @keyframes findpick { from { outline-color: var(--accent); } to { outline-color: transparent; } }
+  /* THE RING STAYS UNTIL THE NEXT PRESS. The first version faded it out over
+     1.6s, which was invisible in practice: a smooth scroll across a grid of
+     675 films takes most of a second on its own, so by the time the card was
+     under the reader's eye the ring had already gone. A pick you cannot see is
+     not a pick. It now persists, and pulses twice on arrival to catch the eye
+     as the scroll settles. */
+  [data-find].is-picked {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: var(--r-sm);
+    animation: findpick 0.85s ease-in-out 2;
+  }
+  /* Pulsing the WIDTH rather than the colour, so the ring is never faint at any
+     point in the cycle — it only ever gets bolder. */
+  @keyframes findpick {
+    0%, 100% { outline-width: 3px; outline-offset: 4px; }
+    50%      { outline-width: 7px; outline-offset: 1px; }
+  }
   @media (prefers-reduced-motion: reduce) { [data-find].is-picked { animation: none; } }
+
+  /* And say it in the status line in the accent colour, so there are two
+     independent signals rather than one. */
+  .find output.is-pick { color: var(--accent); font-weight: 600; font-family: var(--sans); font-size: 0.875rem; }
 </style>
 <script>
 (function () {
@@ -83,6 +100,10 @@
     haystack.push((items[i].dataset.find || items[i].textContent).toLowerCase());
   }
 
+  // The currently ringed card. Shared, because searching clears it and the
+  // Random button moves it.
+  var picked = null;
+
   function run() {
     var q = input.value.trim().toLowerCase();
     var shown = 0;
@@ -92,8 +113,12 @@
       if (hit) shown++;
     }
     count.textContent = q ? shown + " of " + items.length : "";
+    count.classList.remove("is-pick");
     empty.hidden = shown !== 0;
     empty.textContent = shown === 0 ? 'Nothing matches "' + input.value.trim() + '".' : "";
+    // Typing is a new context, so drop the old ring rather than leaving it to
+    // reappear on a card the reader has stopped thinking about.
+    if (picked) { picked.classList.remove("is-picked"); picked = null; }
   }
 
   input.addEventListener("input", run);
@@ -105,7 +130,6 @@
   /* ---- Random ---------------------------------------------------------- */
 
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var picked = null, timer = 0;
 
   function label(el) {
     /* .t-t is the title span on a catalogue chip, h3 the heading on an idea.
@@ -134,13 +158,11 @@
     var choice = pool[n];
 
     if (picked) picked.classList.remove("is-picked");
-    if (timer) clearTimeout(timer);
     // Reflow between remove and add, or re-picking the same card after a
-    // search does not restart the animation.
+    // search does not restart the pulse.
     void choice.offsetWidth;
     choice.classList.add("is-picked");
     picked = choice;
-    timer = setTimeout(function () { choice.classList.remove("is-picked"); }, 1700);
 
     choice.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" });
     /* Focus the card's own link so the keyboard lands on it and Enter opens
@@ -151,6 +173,7 @@
     target.focus({ preventScroll: true });
 
     count.textContent = label(choice);
+    count.classList.add("is-pick");
   });
 })();
 </script>
