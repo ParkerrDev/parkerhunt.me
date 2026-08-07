@@ -380,6 +380,48 @@
       "year": 2006,
       "bg": "#0B2E3F",
       "fg": "#6FD3E8"
+    },
+    {
+      "title": "Adventures of Sonic the Hedgehog",
+      "year": 1993,
+      "bg": "#1B3A8C",
+      "fg": "#F2C14E",
+      "qid": "Q1415559"
+    },
+    {
+      "title": "Sonic the Hedgehog",
+      "year": 1993,
+      "bg": "#0E1B3D",
+      "fg": "#4FA3E8",
+      "qid": "Q1164748"
+    },
+    {
+      "title": "Sonic Underground",
+      "year": 1999,
+      "bg": "#2B1B4A",
+      "fg": "#E0A82E",
+      "qid": "Q1535979"
+    },
+    {
+      "title": "Sonic X",
+      "year": 2003,
+      "bg": "#12315E",
+      "fg": "#F25F5C",
+      "qid": "Q428130"
+    },
+    {
+      "title": "Sonic Boom",
+      "year": 2014,
+      "bg": "#0F2A3D",
+      "fg": "#56C0E0",
+      "qid": "Q15711878"
+    },
+    {
+      "title": "Sonic Prime",
+      "year": 2022,
+      "bg": "#1A1140",
+      "fg": "#7B5CE8",
+      "qid": "Q105221079"
     }
   ],
   "movies": [
@@ -4026,12 +4068,6 @@
       "fg": "#c9cbd6"
     },
     {
-      "title": "Beverly Hills Cop: Axel F",
-      "year": 2024,
-      "bg": "#1d1f27",
-      "fg": "#c9cbd6"
-    },
-    {
       "title": "Running Scared",
       "year": 1986,
       "bg": "#1d1f27",
@@ -4184,6 +4220,44 @@
       "year": 1985,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "Grizzly Man",
+      "year": 2005,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Revenant",
+      "year": 2015,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Bear",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q379460"
+    },
+    {
+      "title": "30 Minutes or Less",
+      "year": 2011,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "The Naked Gun",
+      "year": 2025,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Twins",
+      "year": 1988,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q785157"
     }
   ]
 }
