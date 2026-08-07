@@ -1925,19 +1925,22 @@
       "year": 1977,
       "bg": "#1d1f27",
       "fg": "#c9cbd6",
-      "qid": "Q17738"
+      "qid": "Q17738",
+      "alias": "A New Hope Episode IV"
     },
     {
       "title": "The Empire Strikes Back",
       "year": 1980,
       "bg": "#1d1f27",
-      "fg": "#c9cbd6"
+      "fg": "#c9cbd6",
+      "alias": "Star Wars Episode V"
     },
     {
       "title": "Return of the Jedi",
       "year": 1983,
       "bg": "#1d1f27",
-      "fg": "#c9cbd6"
+      "fg": "#c9cbd6",
+      "alias": "Star Wars Episode VI"
     },
     {
       "title": "Jurassic World",
@@ -2246,7 +2249,8 @@
       "title": "First Blood",
       "year": 1982,
       "bg": "#1d1f27",
-      "fg": "#c9cbd6"
+      "fg": "#c9cbd6",
+      "alias": "Rambo"
     },
     {
       "title": "Rambo: First Blood Part II",

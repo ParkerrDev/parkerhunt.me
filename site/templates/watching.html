@@ -44,7 +44,9 @@
         <div class="wrap">
             <div class="bento" data-findable="Search {{ titles.count }} shows…" data-random="Random show">
                 {% for w in titles.shows | sort(attribute="title") %}
-                <div class="chip" data-find="{{ w.title }} {{ w.year }} {% if w.genres %}{{ w.genres | join(sep=" ") }}{% endif %}">
+                {# `alias` is searchable text that is deliberately not displayed —
+                   see the note in movies.html. #}
+                <div class="chip" data-find="{{ w.title }} {{ w.year }} {% if w.genres %}{{ w.genres | join(sep=" ") }}{% endif %}{% if w.alias %} {{ w.alias }}{% endif %}">
                     {{ isle::poster(w=w, size="lg") }}
                     <span class="t-t">{{ w.title }}</span>
                     {% if w.genres %}<span class="t-s">{{ w.genres | join(sep=" · ") }}</span>{% endif %}
