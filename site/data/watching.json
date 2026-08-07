@@ -572,6 +572,12 @@
       "year": 1989,
       "bg": "#1E2A3B",
       "fg": "#E8C547"
+    },
+    {
+      "title": "The Jetsons",
+      "year": 1962,
+      "bg": "#131E3B",
+      "fg": "#5FD1E8"
     }
   ],
   "movies": [
