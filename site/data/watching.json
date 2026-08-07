@@ -4474,6 +4474,37 @@
       "year": 1968,
       "bg": "#1d1f27",
       "fg": "#c9cbd6"
+    },
+    {
+      "title": "Gremlins",
+      "year": 1984,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Apollo 13",
+      "year": 1995,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Soul",
+      "year": 2020,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6",
+      "qid": "Q64744044"
+    },
+    {
+      "title": "Space Jam",
+      "year": 1996,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
+    },
+    {
+      "title": "Dreamscape",
+      "year": 1984,
+      "bg": "#1d1f27",
+      "fg": "#c9cbd6"
     }
   ]
 }
