@@ -52,6 +52,8 @@ const WANT = [
   "starbucks",
   // Elsewhere on the site
   "steam", "nexusmods",
+  // Booking link in the hero
+  "caldotcom",
 ];
 
 const CDN = "https://cdn.jsdelivr.net/npm/simple-icons@latest";
@@ -77,11 +79,25 @@ try {
   bail(err.message);
 }
 
-/* The index is keyed by title, not slug, so rebuild the slug the same way the
-   project does: lowercase, strip everything that is not a letter or digit. */
+/* The index is keyed by title, not slug, so the slug has to be rebuilt — and
+   "lowercase and strip punctuation" is not the rule. Simple Icons SPELLS OUT
+   three characters before stripping the rest: `.` becomes "dot", `+` becomes
+   "plus", `&` becomes "and". Strip-first turns Cal.com into "calcom", the file
+   is served as caldotcom.svg, and the icon reports as missing while the CDN
+   quite happily has it. Same trap waiting for Notion.so, C++ or AT&T.
+
+   Diacritics are decomposed first so that, say, Paradox Interactive's é folds
+   to e rather than vanishing and shifting every letter after it. */
+const slugify = (title) =>
+  title
+    .normalize("NFD").replace(/\p{M}/gu, "")
+    .replace(/\+/g, "plus").replace(/\./g, "dot").replace(/&/g, "and")
+    .toLowerCase().replace(/[^a-z0-9]/g, "");
+
 const bySlug = new Map();
 for (const i of index) {
-  bySlug.set(i.slug || i.title.toLowerCase().replace(/[^a-z0-9]/g, ""), i);
+  const slug = i.slug || slugify(i.title);
+  bySlug.set(slug, { ...i, slug });
 }
 
 const icons = {};
@@ -94,7 +110,7 @@ for (const slug of WANT) {
     continue;
   }
   try {
-    const res = await fetch(`${CDN}/icons/${slug}.svg`, { signal: AbortSignal.timeout(20000) });
+    const res = await fetch(`${CDN}/icons/${meta.slug}.svg`, { signal: AbortSignal.timeout(20000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const svg = await res.text();
     const d = svg.match(/<path[^>]*\sd="([^"]+)"/)?.[1];

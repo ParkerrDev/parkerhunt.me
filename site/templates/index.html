@@ -94,6 +94,9 @@
             <div class="links">
                 <a class="pill" href="/AndrewHuntResume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF)" title="Résumé">{{ ico::doc() }}</a>
                 <a class="pill" href="mailto:email@parkerhunt.me" aria-label="Email" title="Email">{{ ico::mail() }}</a>
+                {# Cal.com, as a link. Their embed is a script that injects an iframe
+                   from cal.com — one third party on the one page that has none. #}
+                {% if me.cal_url %}<a class="pill" href="{{ me.cal_url }}" target="_blank" rel="noopener" aria-label="{{ me.cal_label | default(value='Book a time') }}" title="{{ me.cal_label | default(value='Book a time') }}">{{ ico::brand(icons=ico2.icons, slug="caldotcom") }}</a>{% endif %}
                 <a class="pill" href="https://github.com/ParkerrDev" target="_blank" rel="me noopener" aria-label="GitHub" title="GitHub">{{ ico::github() }}</a>
                 <a class="pill" href="https://x.com/AndrewParkerH" target="_blank" rel="me noopener" aria-label="X" title="X">{{ ico::x() }}</a>
                 <a class="pill" href="https://www.linkedin.com/in/andrewparkerh/" target="_blank" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">{{ ico::linkedin() }}</a>

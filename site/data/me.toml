@@ -21,6 +21,14 @@
 # opened, everything after it belongs to that table. Add new scalars to the top
 # block, not next to the arrays of tables.
 
+# ------------------------------------------------------------------ booking --
+# The public Cal.com page. A LINK, not the embed: Cal's embed is a script tag
+# that loads an iframe from cal.com, which would put a third party on the busiest
+# page of a site whose whole claim is that it has none. The link costs a click
+# and keeps that claim true. Empty this string and the pill disappears.
+cal_url = "https://cal.com/parkerhunt.me"
+cal_label = "Book a time"
+
 # --------------------------------------------------------------------- hero --
 # The strip that rolls under the name. Six is not arbitrary: the CSS animation
 # steps through exactly this many frames, so if you add or remove one, update

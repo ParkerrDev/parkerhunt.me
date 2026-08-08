@@ -101,6 +101,16 @@
                     <a href="https://www.linkedin.com/in/andrewparkerh/" rel="me noopener" target="_blank">{{ ico::linkedin() }} linkedin</a>
                     <a href="https://x.com/AndrewParkerH" rel="me noopener" target="_blank">{{ ico::x() }} x</a>
                     <a href="mailto:email@parkerhunt.me">{{ ico::mail() }} email</a>
+                    {# Site-wide, because a booking link is only useful where somebody
+                       has already decided to get in touch — which is rarely the top of
+                       the home page. #}
+                    {%- set memo = load_data(path="data/me.toml") %}
+                    {# Tera will not take a call as a macro argument, so the icon set
+                       has to land in a variable before ico::brand can be handed it. #}
+                    {%- set footicons = load_data(path="data/icons.json") %}
+                    {%- if memo.cal_url %}
+                    <a href="{{ memo.cal_url }}" target="_blank" rel="noopener">{{ ico::brand(icons=footicons.icons, slug="caldotcom") }} cal</a>
+                    {%- endif %}
                     {%- if config.generate_feeds %}
                     <a href="{{ get_url(path=config.feed_filenames[0], trailing_slash=false) }}">{{ ico::rss() }} rss</a>
                     {%- endif %}
