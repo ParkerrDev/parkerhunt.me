@@ -1,6 +1,125 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
 
+{# Each project is its own section, not one of N identical cards.
+
+   A five-up grid of same-sized tiles says these are five instances of one
+   thing. They are not: one is a film studio on Cloudflare, one is an iOS
+   browser, one is a marketing site. So every project below gets a full-width
+   band, its own accent, alternating sides, and room for a tagline and a stack.
+
+   THE ACCENT IS NOT INVENTED. scripts/project-accents.mjs samples it from that
+   project's own card art, so the band cannot disagree with the picture sitting
+   in it — re-export the art, re-run the script, the page follows. The same
+   script computes `accent_ink`, the black-or-white that reads on that accent,
+   because a colour chosen for vividness says nothing about its contrast: white
+   on AppIt's yellow-green is 1.5:1 and unreadable, white on Rickvirus's brown
+   is 8.8:1 and fine. Assuming either would have broken one of them.
+
+   Adding a project is a file in content/projects/ and one run of that script.
+   Everything else — tagline, stack, mirror_url — is optional and the band
+   simply omits what is missing. #}
+
+{% block css_extra %}
+  /* Scoped to this page via the css_extra block: the stylesheet is inlined into
+     every page, so anything only /projects/ needs must not ship on the other
+     fourteen. */
+  .projs { padding: 0; }
+  .proj {
+    --pa: var(--accent);          /* the project's colour */
+    --pi: #fff;                   /* text that reads on it, computed per project */
+    padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+    border-top: 1px solid var(--line-soft);
+    background:
+      linear-gradient(180deg,
+        color-mix(in srgb, var(--pa) 7%, transparent),
+        transparent 60%);
+  }
+  .proj:first-child { border-top: 0; }
+
+  .proj-in {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+  /* Alternate which side the art sits on, so a page of bands has a rhythm
+     rather than reading as a list with pictures. */
+  .proj:nth-child(even) .proj-art { order: 2; }
+
+  .proj-art {
+    border-radius: var(--r);
+    overflow: hidden;
+    background: var(--bg-soft);
+    box-shadow: var(--shadow-2);
+    outline: 1px solid color-mix(in srgb, var(--pa) 28%, var(--line));
+    outline-offset: 0;
+    aspect-ratio: 900 / 338;
+  }
+  .proj-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .proj-txt { min-width: 0; }
+  .proj-kicker {
+    font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.04em;
+    color: var(--faint); display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 0.625rem;
+  }
+  .proj-n {
+    display: inline-grid; place-items: center;
+    width: 1.5rem; height: 1.5rem; border-radius: 999px;
+    background: color-mix(in srgb, var(--pa) 16%, transparent);
+    color: color-mix(in srgb, var(--pa) 70%, var(--fg));
+    font-weight: 600;
+  }
+  .proj-title {
+    margin: 0; font-size: clamp(1.5rem, 3.4vw, 2.125rem);
+    letter-spacing: -0.02em; line-height: 1.1;
+  }
+  /* The rule is the one place the raw accent appears at full strength. */
+  .proj-title::after {
+    content: ""; display: block; width: 2.5rem; height: 3px; border-radius: 2px;
+    background: var(--pa); margin: 0.75rem 0 0;
+  }
+  .proj-tag {
+    margin: 0.875rem 0 0; font-family: var(--serif); font-size: 1.0625rem;
+    font-style: italic; color: var(--muted);
+  }
+  .proj-desc { margin: 0.75rem 0 0; color: var(--muted); max-width: var(--measure); }
+
+  .proj-stack { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+  .proj-stack li {
+    font-family: var(--mono); font-size: 0.6875rem; color: var(--muted);
+    padding: 0.25rem 0.5rem; border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--pa) 30%, var(--line));
+    background: color-mix(in srgb, var(--pa) 6%, transparent);
+  }
+
+  .proj-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; margin: 1.25rem 0 0; }
+  .proj-cta {
+    display: inline-flex; align-items: center; gap: 0.375rem;
+    font-size: 0.9375rem; font-weight: 600; text-decoration: none;
+    padding: 0.5rem 0.9375rem; border-radius: 999px;
+    /* The one place the accent carries text, so the ink is computed rather than
+       assumed — see scripts/project-accents.mjs. Black on AppIt's yellow-green,
+       white on Pocklet's violet; assuming either would have failed one of them
+       badly (white on #ccdc48 is 1.5:1). Both come from the front matter, so
+       the button stays the project's actual colour instead of a safe dark
+       approximation of it. */
+    background: var(--pa);
+    color: var(--pi);
+  }
+  .proj-cta:hover { filter: brightness(0.94) saturate(1.08); }
+  .proj-cta:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+  .proj-alt { font-size: 0.875rem; color: var(--muted); }
+  .proj-alt:hover { color: var(--fg); }
+  .proj-soon { margin: 1rem 0 0; font-family: var(--mono); font-size: 0.75rem; color: var(--faint); }
+
+  @media (max-width: 46rem) {
+    .proj-in { grid-template-columns: 1fr; }
+    .proj:nth-child(even) .proj-art { order: 0; }
+  }
+{% endblock css_extra %}
+
 {% block content %}
 <header class="hero">
     <div class="wrap">
@@ -11,24 +130,61 @@
 </header>
 
 <main id="main">
-    <section>
-        <div class="wrap">
-            <div class="grid grid--wide">
-                {% for project in section.pages %}
-                {% set url = project.extra.website_url | default(value=project.permalink) %}
-                <a class="card" href="{{ url }}"{% if project.extra.website_url %} target="_blank" rel="noopener"{% endif %}>
+    <div class="projs">
+        {% for project in section.pages %}
+        {% set accent = project.extra.accent | default(value="") %}
+        {% set ink = project.extra.accent_ink | default(value="#ffffff") %}
+        <section class="proj"{% if accent %} style="--pa:{{ accent }};--pi:{{ ink }}"{% endif %}>
+            <div class="wrap">
+                <article class="proj-in">
                     {% if project.extra.card_image %}
-                    <div class="card-art"><img src="{{ project.extra.card_image }}" alt="" width="900" height="338" loading="lazy" decoding="async"></div>
-                    {% endif %}
-                    <div class="card-body">
-                        <h3 class="card-title">{{ project.title }}{% if project.extra.website_url %}<span class="ext" aria-label="opens in a new tab">↗</span>{% endif %}</h3>
-                        {% if project.description %}<p class="card-desc">{{ project.description }}</p>{% endif %}
-                        <div class="card-meta">{% if project.updated %}{{ project.updated | date(format="%Y") }}{% elif project.date %}{{ project.date | date(format="%Y") }}{% endif %}</div>
+                    <div class="proj-art">
+                        <img src="{{ project.extra.card_image }}" alt="" width="900" height="338"
+                             {% if loop.index > 2 %}loading="lazy" {% endif %}decoding="async">
                     </div>
-                </a>
-                {% endfor %}
+                    {% endif %}
+                    <div class="proj-txt">
+                        <p class="proj-kicker">
+                            <span class="proj-n">{{ loop.index }}</span>
+                            {%- if project.updated %}{{ project.updated | date(format="%Y") }}
+                            {%- elif project.date %}{{ project.date | date(format="%Y") }}{% endif -%}
+                        </p>
+                        <h2 class="proj-title">{{ project.title }}</h2>
+                        {% if project.extra.tagline %}<p class="proj-tag">{{ project.extra.tagline }}</p>{% endif %}
+                        {% if project.description %}<p class="proj-desc">{{ project.description }}</p>{% endif %}
+
+                        {% if project.extra.stack %}
+                        <ul class="proj-stack">
+                            {% for s in project.extra.stack %}<li>{{ s }}</li>{% endfor %}
+                        </ul>
+                        {% endif %}
+
+                        <div class="proj-links">
+                            {% if project.extra.website_url %}
+                            <a class="proj-cta" href="{{ project.extra.website_url }}" target="_blank" rel="noopener">
+                                {{ project.extra.website_url | replace(from="https://", to="") | replace(from="/", to="") }}
+                                <span aria-hidden="true">↗</span>
+                            </a>
+                            {% endif %}
+                            {% if project.extra.mirror_url %}
+                            <a class="proj-alt" href="{{ project.extra.mirror_url }}" target="_blank" rel="noopener">mirror ↗</a>
+                            {% endif %}
+                            {# Only offer the page when there is a page worth opening. Three of
+                               these are a front-matter stub and a placeholder line; linking to
+                               them would promise something that is not there. #}
+                            {% if project.word_count and project.word_count > 60 %}
+                            <a class="proj-alt" href="{{ project.permalink }}">Read more →</a>
+                            {% endif %}
+                        </div>
+
+                        {% if not project.description %}
+                        <p class="proj-soon">write-up still to come</p>
+                        {% endif %}
+                    </div>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
+        {% endfor %}
+    </div>
 </main>
 {% endblock %}

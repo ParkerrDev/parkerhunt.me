@@ -7,6 +7,8 @@ weight = 3
 [extra]
 card_image = "/imgs/project-cards/opt/trion.webp"
 website_url = "https://noirt.netlify.app"
+accent = "#af6e6e"
+accent_ink = "#111112"
 +++
 
 ... (to be written)

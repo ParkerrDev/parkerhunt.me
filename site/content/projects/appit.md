@@ -7,6 +7,10 @@ weight = 2
 [extra]
 card_image = "/imgs/project-cards/opt/appit.webp"
 website_url = "https://appitapp.app"
+accent = "#ccdc48"
+accent_ink = "#111112"
+tagline = "Websites as applings, not tabs."
+stack = ["iOS", "Swift", "WKWebView", "Userscripts"]
 +++
 
 ## Overview
