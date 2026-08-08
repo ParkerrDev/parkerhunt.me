@@ -31,7 +31,7 @@ RESUME_DIR="${RESUME_DIR:-../resume}"
 
 # --- the résumé, from its own repo and nowhere else --------------------------
 echo "==> Résumé"
-rm -f site/static/AndrewHuntResume.pdf site/static/AndrewHuntResume-ATS.pdf
+rm -f site/static/AndrewHuntResume*.pdf
 if [ ! -d "${RESUME_DIR}" ]; then
   echo "ERROR: no resume checkout at ${RESUME_DIR}." >&2
   echo "       Clone ParkerrDev/resume beside this repo, or set RESUME_DIR." >&2
@@ -76,7 +76,7 @@ cd ..
 
 # The résumé is the one page that exists to be handed to somebody, so confirm it
 # survived into the output rather than trusting that it did.
-for f in AndrewHuntResume.pdf AndrewHuntResume-ATS.pdf; do
+for f in AndrewHuntResume.pdf; do
   [ -s "site/public/${f}" ] || { echo "ERROR: ${f} did not reach site/public/." >&2; exit 1; }
 done
 echo "==> Built. site/public/ is ready to deploy."

@@ -28,12 +28,14 @@ if (!resumeDir || !siteDir) {
 // build.mjs. It is currently the single-column document. Keep the NAME whatever
 // happens: it is the URL that is already out in the world.
 const ASSETS = [
+  // ONE FILE. There is one resume, and it is published under one name.
+  //
+  // This used to publish a second copy as AndrewHuntResume-ATS.pdf, from back
+  // when the plain name carried the three-column design and the single column
+  // was framed as the parser-safe alternate. That framing was wrong: the single
+  // column IS the resume, not a lesser version of it, and two URLs for one
+  // document only invites the question of which is the real one.
   ['AndrewHuntResume.pdf', 'AndrewHuntResume.pdf'],
-  // Published under its own name as well. Since PUBLISHED was flipped these are
-  // the same bytes twice, which is deliberate: /AndrewHuntResume-ATS.pdf has been
-  // linked from job portals and must not start 404ing because the default
-  // changed. Costs 154 KB on a deploy and nothing at all to a reader.
-  ['resume-ats.pdf', 'AndrewHuntResume-ATS.pdf'],
 ];
 
 const STATIC_OUT = join(siteDir, 'static');
