@@ -1,6 +1,6 @@
 +++
 title = "Pocklet"
-description = "save html sites to your home screen"
+description = "Save an HTML site to your home screen."
 date = 2026-03-01
 updated = 2026-04-04
 weight = 4
@@ -9,7 +9,6 @@ card_image = "/imgs/project-cards/opt/pocklet.webp"
 website_url = "https://pocklet.netlify.app"
 accent = "#705fdc"
 accent_ink = "#ffffff"
-tagline = "Save an HTML site to your home screen."
 stack = ["Web", "PWA"]
 +++
 

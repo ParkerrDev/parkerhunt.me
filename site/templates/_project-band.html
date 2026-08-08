@@ -1,41 +1,48 @@
-{# One project, as a band. Shared by /projects/ and the home page so the two can
+{# One project, as a card. Shared by /projects/ and the home page so the two can
    never drift; the CSS is templates/_projects.css, pulled in by both.
 
+   ORDER MATTERS AND USED NOT TO. What a reader wants, in order, is: whose is
+   this, what is it, what is it made of, where do I go. So the mark sits inline
+   with the title on one row, the tagline is the first sentence, and the hostname
+   appears exactly once — on the button, which is the only place it is
+   actionable. It used to also sit above the title in monospace, so every card
+   printed its own domain twice.
+
    Everything except the title is optional and simply does not render when a
-   project lacks it — a mark, a tagline, a stack, a mirror, a write-up. That is
-   deliberate: three of these five are still a stub, and a band that collapses
-   politely is what makes it safe to add a project before there is anything to
-   say about it. #}
+   project lacks it — a mark, a tagline, a stack, a mirror, a write-up. There is
+   deliberately no "coming soon" placeholder: a card that is short because there
+   is little to say looks finished, and a card apologising for itself does not. #}
 {% macro band(project, i) %}
 {% set accent = project.extra.accent | default(value="") %}
 {% set ink = project.extra.accent_ink | default(value="#ffffff") %}
 <section class="proj"{% if accent %} style="--pa:{{ accent }};--pi:{{ ink }}"{% endif %}>
     <div class="wrap">
-        <article class="proj-in">
+        <article class="proj-card">
             {% if project.extra.card_image %}
             <div class="proj-art">
                 <img src="{{ project.extra.card_image }}" alt="" width="900" height="338"
                      {% if i > 2 %}loading="lazy" {% endif %}decoding="async">
             </div>
             {% endif %}
+
             <div class="proj-txt">
-                {% if project.extra.brand_image or project.extra.website_url %}
-                <div class="proj-brandrow">
+                <div class="proj-head">
                     {% if project.extra.brand_image %}
                     <span class="proj-brand"><img src="{{ project.extra.brand_image }}" alt="" width="128" height="128" loading="lazy" decoding="async"></span>
+                    {% else %}
+                    {# No icon to take from that project's site — Pocklet serves its
+                       HTML page for the four it advertises, Trion ships one 32px
+                       favicon. A monogram in the project's own colour keeps every
+                       card starting the same way. #}
+                    <span class="proj-brand proj-brand--mono" aria-hidden="true">{{ project.title | truncate(length=1, end="") }}</span>
                     {% endif %}
-                    {% if project.extra.website_url %}
-                    <span class="proj-host">{{ project.extra.website_url | replace(from="https://", to="") | replace(from="/", to="") }}</span>
-                    {% endif %}
+                    <h2 class="proj-title">{{ project.title }}</h2>
+                    <span class="proj-year">
+                        {%- if project.updated %}{{ project.updated | date(format="%Y") }}
+                        {%- elif project.date %}{{ project.date | date(format="%Y") }}{% endif -%}
+                    </span>
                 </div>
-                {% endif %}
 
-                <p class="proj-kicker">
-                    <span class="proj-n">{{ i }}</span>
-                    {%- if project.updated %}{{ project.updated | date(format="%Y") }}
-                    {%- elif project.date %}{{ project.date | date(format="%Y") }}{% endif -%}
-                </p>
-                <h2 class="proj-title">{{ project.title }}</h2>
                 {% if project.extra.tagline %}<p class="proj-tag">{{ project.extra.tagline }}</p>{% endif %}
                 {% if project.description %}<p class="proj-desc">{{ project.description }}</p>{% endif %}
 
@@ -48,7 +55,7 @@
                 <div class="proj-links">
                     {% if project.extra.website_url %}
                     <a class="proj-cta" href="{{ project.extra.website_url }}" target="_blank" rel="noopener">
-                        {{ project.extra.website_url | replace(from="https://", to="") | replace(from="/", to="") }}
+                        {{- project.extra.website_url | replace(from="https://", to="") | replace(from="/", to="") -}}
                         <span aria-hidden="true">↗</span>
                     </a>
                     {% endif %}
@@ -60,10 +67,6 @@
                     <a class="proj-alt" href="{{ project.permalink }}">Read more →</a>
                     {% endif %}
                 </div>
-
-                {% if not project.description %}
-                <p class="proj-soon">write-up still to come</p>
-                {% endif %}
             </div>
         </article>
     </div>
