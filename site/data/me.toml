@@ -22,12 +22,15 @@
 # block, not next to the arrays of tables.
 
 # ------------------------------------------------------------------ booking --
-# The public Cal.com page. A LINK, not the embed: Cal's embed is a script tag
-# that loads an iframe from cal.com, which would put a third party on the busiest
-# page of a site whose whole claim is that it has none. The link costs a click
-# and keeps that claim true. Empty this string and the pill disappears.
+# The public Cal.com page. Rendered as a button of its own under the hero links,
+# not as another icon in among them: that row says where else I exist, and this
+# is the one thing on the page asking the reader to do something.
+#
+# A LINK, not the embed. Cal's embed is a script tag that injects an iframe from
+# cal.com, which would put a third party on a site whose whole claim is that it
+# has none. Empty this string and the button disappears.
 cal_url = "https://cal.com/parkerhunt.me"
-cal_label = "Book a time"
+cal_label = "Book an appointment"
 
 # --------------------------------------------------------------------- hero --
 # The strip that rolls under the name. Six is not arbitrary: the CSS animation

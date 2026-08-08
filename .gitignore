@@ -7,7 +7,6 @@ site/public/
 # No trailing slash: RESUME_DIR makes this a symlink, not a directory.
 _resume
 site/static/AndrewHuntResume.pdf
-site/static/AndrewHuntResume-ATS.pdf
 
 # Obsidian per-device state inside the blog vault (site/content/blog/).
 # Only .obsidian/app.json and appearance.json are tracked — the settings that

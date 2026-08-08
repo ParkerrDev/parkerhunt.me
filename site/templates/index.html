@@ -94,9 +94,6 @@
             <div class="links">
                 <a class="pill" href="/AndrewHuntResume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF)" title="Résumé">{{ ico::doc() }}</a>
                 <a class="pill" href="mailto:email@parkerhunt.me" aria-label="Email" title="Email">{{ ico::mail() }}</a>
-                {# Cal.com, as a link. Their embed is a script that injects an iframe
-                   from cal.com — one third party on the one page that has none. #}
-                {% if me.cal_url %}<a class="pill" href="{{ me.cal_url }}" target="_blank" rel="noopener" aria-label="{{ me.cal_label | default(value='Book a time') }}" title="{{ me.cal_label | default(value='Book a time') }}">{{ ico::brand(icons=ico2.icons, slug="caldotcom") }}</a>{% endif %}
                 <a class="pill" href="https://github.com/ParkerrDev" target="_blank" rel="me noopener" aria-label="GitHub" title="GitHub">{{ ico::github() }}</a>
                 <a class="pill" href="https://x.com/AndrewParkerH" target="_blank" rel="me noopener" aria-label="X" title="X">{{ ico::x() }}</a>
                 <a class="pill" href="https://www.linkedin.com/in/andrewparkerh/" target="_blank" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">{{ ico::linkedin() }}</a>
@@ -104,6 +101,26 @@
                 {% if false %}<a class="pill" href="{{ chess.url }}" target="_blank" rel="me noopener" aria-label="Chess.com" title="Chess.com">{{ ico::chesscom() }}</a>{% endif %}
                 {% if false %}<a class="pill" href="{{ nexus.url }}" target="_blank" rel="me noopener" aria-label="Nexus Mods" title="Nexus Mods">{{ ico::brand(icons=ico2.icons, slug="nexusmods") }}</a>{% endif %}
             </div>
+
+            {# Not a pill. The row above is "here is where else I exist"; this is
+               the one thing on the page that asks the reader to do something, and
+               putting it in among eight identical icons was the fastest way to
+               make sure nobody did it.
+
+               Still a link and not Cal's embed — that ships a script which injects
+               an iframe from cal.com, which would put a third party on the one
+               page that has none and hand over every visitor's IP whether or not
+               they ever booked. #}
+            {% if me.cal_url %}
+            <div class="booking">
+                <a class="book" href="{{ me.cal_url }}" target="_blank" rel="noopener">
+                    {{ ico::brand(icons=ico2.icons, slug="caldotcom") }}
+                    <span>{{ me.cal_label | default(value="Book an appointment") }}</span>
+                    <span class="book-x" aria-hidden="true">↗</span>
+                </a>
+                <span class="book-note">cal.com</span>
+            </div>
+            {% endif %}
         </div>
     </div>
 </header>
