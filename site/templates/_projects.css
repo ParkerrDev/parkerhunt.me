@@ -1,0 +1,126 @@
+/* The project bands, shared by /projects/ and the home page's Selected work.
+
+   Lives in its own file because both pages need it and neither should carry the
+   other's CSS: this is pulled in through each template's css_extra block, so it
+   ships on exactly those two pages and none of the other thirteen. The
+   stylesheet is inlined into every page, which makes "only where it is used" a
+   real saving rather than a tidiness argument. */
+  .projs { padding: 0; }
+  .proj {
+    --pa: var(--accent);          /* the project's colour */
+    --pi: #fff;                   /* text that reads on it, computed per project */
+    padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+    border-top: 1px solid var(--line-soft);
+    background:
+      linear-gradient(180deg,
+        color-mix(in srgb, var(--pa) 7%, transparent),
+        transparent 60%);
+  }
+  .proj:first-child { border-top: 0; }
+
+  .proj-in {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+  /* Alternate which side the art sits on, so a page of bands has a rhythm
+     rather than reading as a list with pictures. */
+  .proj:nth-child(even) .proj-art { order: 2; }
+
+  .proj-art {
+    border-radius: var(--r);
+    overflow: hidden;
+    background: var(--bg-soft);
+    box-shadow: var(--shadow-2);
+    outline: 1px solid color-mix(in srgb, var(--pa) 28%, var(--line));
+    outline-offset: 0;
+    aspect-ratio: 900 / 338;
+  }
+  .proj-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .proj-txt { min-width: 0; }
+  .proj-kicker {
+    font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.04em;
+    color: var(--faint); display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 0.625rem;
+  }
+  .proj-n {
+    display: inline-grid; place-items: center;
+    width: 1.5rem; height: 1.5rem; border-radius: 999px;
+    background: color-mix(in srgb, var(--pa) 16%, transparent);
+    color: color-mix(in srgb, var(--pa) 70%, var(--fg));
+    font-weight: 600;
+  }
+  .proj-title {
+    margin: 0; font-size: clamp(1.5rem, 3.4vw, 2.125rem);
+    letter-spacing: -0.02em; line-height: 1.1;
+  }
+  /* The rule is the one place the raw accent appears at full strength. */
+  .proj-title::after {
+    content: ""; display: block; width: 2.5rem; height: 3px; border-radius: 2px;
+    background: var(--pa); margin: 0.75rem 0 0;
+  }
+  .proj-tag {
+    margin: 0.875rem 0 0; font-family: var(--serif); font-size: 1.0625rem;
+    font-style: italic; color: var(--muted);
+  }
+  .proj-desc { margin: 0.75rem 0 0; color: var(--muted); max-width: var(--measure); }
+
+  .proj-stack { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+  .proj-stack li {
+    font-family: var(--mono); font-size: 0.6875rem; color: var(--muted);
+    padding: 0.25rem 0.5rem; border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--pa) 30%, var(--line));
+    background: color-mix(in srgb, var(--pa) 6%, transparent);
+  }
+
+  .proj-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; margin: 1.25rem 0 0; }
+  .proj-cta {
+    display: inline-flex; align-items: center; gap: 0.375rem;
+    font-size: 0.9375rem; font-weight: 600; text-decoration: none;
+    padding: 0.5rem 0.9375rem; border-radius: 999px;
+    /* The one place the accent carries text, so the ink is computed rather than
+       assumed — see scripts/project-accents.mjs. Black on AppIt's yellow-green,
+       white on Pocklet's violet; assuming either would have failed one of them
+       badly (white on #ccdc48 is 1.5:1). Both come from the front matter, so
+       the button stays the project's actual colour instead of a safe dark
+       approximation of it. */
+    background: var(--pa);
+    color: var(--pi);
+  }
+  .proj-cta:hover { filter: brightness(0.94) saturate(1.08); }
+  .proj-cta:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+  .proj-alt { font-size: 0.875rem; color: var(--muted); }
+  .proj-alt:hover { color: var(--fg); }
+  .proj-soon { margin: 1rem 0 0; font-family: var(--mono); font-size: 0.75rem; color: var(--faint); }
+
+  @media (max-width: 46rem) {
+    .proj-in { grid-template-columns: 1fr; }
+    .proj:nth-child(even) .proj-art { order: 0; }
+  }
+
+  /* THE PROJECT'S OWN MARK, from the project's own site — see
+     scripts/fetch-project-brand.mjs. Sits on a plate tinted with the accent so
+     a transparent icon still has something to sit on, and is allowed to be
+     absent: two of these five ship no icon big enough to use, and their band
+     simply starts at the title. */
+  .proj-brandrow { display: flex; align-items: center; gap: 0.625rem; margin: 0 0 0.75rem; }
+  .proj-brand {
+    width: 2.75rem; height: 2.75rem; flex: 0 0 auto;
+    border-radius: 12px; display: grid; place-items: center;
+    background: color-mix(in srgb, var(--pa) 12%, var(--card));
+    border: 1px solid color-mix(in srgb, var(--pa) 32%, var(--line));
+    box-shadow: var(--shadow-1);
+  }
+  .proj-brand img { width: 2rem; height: 2rem; object-fit: contain; display: block; border-radius: 6px; }
+  .proj-host {
+    font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.02em;
+    color: color-mix(in srgb, var(--pa) 55%, var(--muted));
+  }
+
+  /* On the home page the bands sit inside a normal section, so they need less
+     vertical air than they do as a whole page of their own. */
+  .projs--home .proj { padding: clamp(1.75rem, 4vw, 2.75rem) 0; }
+  .projs--home .proj:first-child { padding-top: 0.5rem; }
+  .projs--home .proj-title { font-size: clamp(1.25rem, 2.6vw, 1.625rem); }

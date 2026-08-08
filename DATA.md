@@ -31,6 +31,7 @@ scripts/fetch-*.mjs ──► site/data/*.json ──► templates ──► pub
 | `build-stamps.mjs` | nothing — arithmetic | `site/data/stamps.json` | n/a |
 | `fetch-media.mjs` | Wikimedia Commons + Open Library | `site/static/imgs/media/*.webp` + `site/data/media.json` | none, **local only** |
 | `build-map.mjs` | us-atlas TopoJSON + `travel.json` + `been.json` + `media.json` | `site/static/imgs/us-visited-*.svg` + `site/data/travel-map.json` | none, **local only** |
+| `fetch-project-brand.mjs` | each project's live site (icon / apple-touch-icon) | `site/static/imgs/project-brand/*.webp` + `brand_image` in `site/content/projects/*.md` | none, **local only** |
 | `project-accents.mjs` | `site/static/imgs/project-cards/opt/*.webp` | `accent` + `accent_ink` in `site/content/projects/*.md` | none, **local only** |
 | `fetch-icons.mjs` | Simple Icons | `site/data/icons.json` | none |
 | `fetch-logos.mjs` | Wikimedia Commons | `site/static/imgs/logos/*.webp` + `site/data/logos.json` | none, **local only** |

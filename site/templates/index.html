@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
+{% import "_project-band.html" as pb %}
 {% import "islands.html" as isle %}
 
 {% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{% endblock %}
@@ -96,9 +97,9 @@
                 <a class="pill" href="https://github.com/ParkerrDev" target="_blank" rel="me noopener" aria-label="GitHub" title="GitHub">{{ ico::github() }}</a>
                 <a class="pill" href="https://x.com/AndrewParkerH" target="_blank" rel="me noopener" aria-label="X" title="X">{{ ico::x() }}</a>
                 <a class="pill" href="https://www.linkedin.com/in/andrewparkerh/" target="_blank" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">{{ ico::linkedin() }}</a>
-                <a class="pill" href="{{ steam.profile.url }}" target="_blank" rel="me noopener" aria-label="Steam" title="Steam">{{ ico::steam() }}</a>
-                <a class="pill" href="{{ chess.url }}" target="_blank" rel="me noopener" aria-label="Chess.com" title="Chess.com">{{ ico::chesscom() }}</a>
-                <a class="pill" href="{{ nexus.url }}" target="_blank" rel="me noopener" aria-label="Nexus Mods" title="Nexus Mods">{{ ico::brand(icons=ico2.icons, slug="nexusmods") }}</a>
+                {% if false %}<a class="pill" href="{{ steam.profile.url }}" target="_blank" rel="me noopener" aria-label="Steam" title="Steam">{{ ico::steam() }}</a>{% endif %}
+                {% if false %}<a class="pill" href="{{ chess.url }}" target="_blank" rel="me noopener" aria-label="Chess.com" title="Chess.com">{{ ico::chesscom() }}</a>{% endif %}
+                {% if false %}<a class="pill" href="{{ nexus.url }}" target="_blank" rel="me noopener" aria-label="Nexus Mods" title="Nexus Mods">{{ ico::brand(icons=ico2.icons, slug="nexusmods") }}</a>{% endif %}
             </div>
         </div>
     </div>
@@ -135,29 +136,16 @@
                 <h2>Selected work</h2>
                 <a class="more" href="/projects/">All projects →</a>
             </div>
-            <div class="grid grid--wide">
-                {% set projects = get_section(path="projects/_index.md") %}
-                {% for project in projects.pages %}
-                {% set url = project.extra.website_url | default(value=project.permalink) %}
-                <a class="card" href="{{ url }}"{% if project.extra.website_url %} target="_blank" rel="noopener"{% endif %}>
-                    {% if project.extra.card_image %}
-                    <div class="card-art">
-                        <img src="{{ project.extra.card_image }}" alt="" width="900" height="338" loading="lazy" decoding="async">
-                    </div>
-                    {% endif %}
-                    <div class="card-body">
-                        <h3 class="card-title">
-                            {{ project.title }}
-                            {%- if project.extra.website_url %}<span class="ext" aria-label="opens in a new tab">↗</span>{% endif %}
-                        </h3>
-                        {% if project.description %}<p class="card-desc">{{ project.description }}</p>{% endif %}
-                        <div class="card-meta">
-                            {%- if project.updated %}{{ project.updated | date(format="%Y") }}{% elif project.date %}{{ project.date | date(format="%Y") }}{% endif -%}
-                        </div>
-                    </div>
-                </a>
-                {% endfor %}
-            </div>
+        </div>
+
+        {# Bands, not tiles — the same macro /projects/ uses, so the two pages
+           cannot drift. Each carries its own accent and its own mark, both
+           derived rather than chosen: see scripts/project-accents.mjs and
+           scripts/fetch-project-brand.mjs. Outside .wrap on purpose, so a band's
+           tint runs the full width like the other full-bleed rows do. #}
+        <div class="projs projs--home">
+            {% set projects = get_section(path="projects/_index.md") %}
+            {% for project in projects.pages %}{{ pb::band(project=project, i=loop.index) }}{% endfor %}
         </div>
     </section>
 
@@ -207,6 +195,10 @@
 
     {# ------------------------------------------------------------ posts -- #}
     {% if feeds.x.post | length > 0 or xd.profile %}
+{# DISABLED — asked to be taken down, kept rather than deleted so it can
+   come back as one edit. `if false` and not a {# #} comment because these
+   blocks contain comments of their own and Tera comments do not nest. #}
+{% if false %}
     <section id="posts">
         <div class="wrap">
             <div class="head">
@@ -286,6 +278,8 @@
             </p>
         </div>
     </section>
+{% endif %}
+
     {% endif %}
 
     {# ---------------------------------------------------------- writing -- #}
@@ -404,6 +398,10 @@
     {# -------------------------------------------------------------- mods -- #}
     {# Below the games on purpose: every one of these is a Subnautica mod, and
        Subnautica is the game at the top of the list directly above. #}
+{# DISABLED — asked to be taken down, kept rather than deleted so it can
+   come back as one edit. `if false` and not a {# #} comment because these
+   blocks contain comments of their own and Tera comments do not nest. #}
+{% if false %}
     {% if nexus.mods | length > 0 %}
     <section id="mods">
         <div class="wrap">
@@ -421,11 +419,17 @@
             {% if nexus.profile %}
             <p class="feed-foot">Joined {{ nexus.profile.joined | date(format="%B %Y") }} · {{ nexus.profile.views | num_format }} profile views · {{ nexus.profile.endorsements_given }} endorsements given to other authors. Snapshotted {{ nexus.fetched }} from Nexus Mods' public API. <a href="{{ nexus.mods_url }}" target="_blank" rel="noopener">All {{ nexus.count }} mods →</a></p>
             {% endif %}
+{% endif %}
+
         </div>
     </section>
     {% endif %}
 
     {# ------------------------------------------------------------ chess -- #}
+{# DISABLED — asked to be taken down, kept rather than deleted so it can
+   come back as one edit. `if false` and not a {# #} comment because these
+   blocks contain comments of their own and Tera comments do not nest. #}
+{% if false %}
     {% if chess.modes | length > 0 %}
     <section id="chess">
         <div class="wrap">
@@ -443,8 +447,14 @@
         </div>
     </section>
     {% endif %}
+{% endif %}
+
 
     {# --------------------------------------------------------- learning -- #}
+{# DISABLED — asked to be taken down, kept rather than deleted so it can
+   come back as one edit. `if false` and not a {# #} comment because these
+   blocks contain comments of their own and Tera comments do not nest. #}
+{% if false %}
     {% if duo.courses | length > 0 %}
     <section id="learning">
         <div class="wrap">
@@ -459,6 +469,8 @@
         </div>
     </section>
     {% endif %}
+{% endif %}
+
 
     {# ----------------------------------------------------------- travel -- #}
     {% if travel.count > 0 %}
@@ -681,6 +693,10 @@
        which put a novel next to a list of books somebody else wrote. #}
     {% if me.books_mine | length > 0 %}
     {% set nv = me.books_mine | first %}
+{# DISABLED — asked to be taken down, kept rather than deleted so it can
+   come back as one edit. `if false` and not a {# #} comment because these
+   blocks contain comments of their own and Tera comments do not nest. #}
+{% if false %}
     <section id="novel">
         <div class="wrap">
             <a class="novel-card" {% if nv.url %}href="{{ nv.url }}"{% endif %}>
@@ -691,6 +707,8 @@
             </a>
         </div>
     </section>
+{% endif %}
+
     {% endif %}
 
     {# ----------------------------------------------------------- quotes -- #}

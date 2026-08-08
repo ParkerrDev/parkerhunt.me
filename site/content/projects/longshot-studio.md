@@ -6,6 +6,7 @@ updated = 2026-08-08
 weight = 1
 [extra]
 card_image = "/imgs/project-cards/opt/longshot.webp"
+brand_image = "/imgs/project-brand/longshot-studio.webp"
 website_url = "https://longshot.studio"
 mirror_url = "https://longshot-studio.netlify.app/"
 accent = "#fd5200"
