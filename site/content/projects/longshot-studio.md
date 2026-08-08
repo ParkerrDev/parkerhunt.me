@@ -1,6 +1,6 @@
 +++
 title = "Longshot"
-description = "A studio and a cinema with nobody in between. Develop, write, board, frame and cut a film in the browser, then release it the same week — no distributor, no green-light committee."
+description = "Develop, write, board, frame and cut a film in the browser, then release it to an audience the same week. No distributor, no green-light committee."
 date = 2026-08-07
 updated = 2026-08-08
 weight = 1

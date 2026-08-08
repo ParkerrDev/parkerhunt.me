@@ -3,7 +3,34 @@
 {% import "_project-band.html" as pb %}
 {% import "islands.html" as isle %}
 
-{% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{% endblock %}
+{# ONE css_extra block, and it has to carry everything this page adds.
+
+   A template gets one block of a given name; a second definition is not merged,
+   it is ignored. The project cards were added here with their own css_extra
+   further down the file and this one silently won, so /projects/ had the card
+   styles and the home page rendered the same markup completely unstyled —
+   full-width images, chips as a bulleted list, the lot. Anything new goes IN
+   here, not next to it. #}
+{% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{{ load_data(path="templates/_projects.css", format="plain") | safe }}
+  /* The booking button. Home page only, so it rides here rather than in the
+     stylesheet that is inlined into all fifteen pages. */
+  /* justify-content: center to match .links directly above it — without it the
+     button sat hard left under a centred name, a centred lede and a centred row
+     of icons. */
+  .booking { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.875rem; }
+  .book {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.9375rem; font-weight: 600; text-decoration: none;
+    color: #fff; background: var(--fg);
+    padding: 0.625rem 1.125rem; border-radius: 999px;
+    box-shadow: var(--shadow-1);
+  }
+  .book:hover { background: var(--accent); }
+  .book:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .book .bi { width: 1rem; height: 1rem; }
+  .book-x { font-size: 0.75rem; opacity: 0.7; }
+  .book-note { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); }
+{% endblock %}
 
 {% block title %}Parker Hunt{% endblock %}
 
@@ -113,8 +140,12 @@
                they ever booked. #}
             {% if me.cal_url %}
             <div class="booking">
+                {# No mark on the button. Cal's Simple Icon is a WORDMARK — the
+                   letters "Cal.com" drawn as paths — and at the 16px a button
+                   affords it reads as a grey smudge rather than as a logo. The
+                   label says what the button does and the note says where it
+                   goes, which is what the mark was there to do. #}
                 <a class="book" href="{{ me.cal_url }}" target="_blank" rel="noopener">
-                    {{ ico::brand(icons=ico2.icons, slug="caldotcom") }}
                     <span>{{ me.cal_label | default(value="Book an appointment") }}</span>
                     <span class="book-x" aria-hidden="true">↗</span>
                 </a>
