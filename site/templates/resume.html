@@ -9,9 +9,14 @@
         <a class="back" href="/">{{ ico::back() }} Home</a>
         <h1>Résumé</h1>
         <p class="hero-lede">Built in a separate repository and pulled in at deploy time, so this is always the current one.</p>
+        {# ONE button, not two. There used to be a second offering the
+           "plain-text version" — but the published resume IS the single-column
+           document now, so both buttons pointed at identical bytes under two
+           names. /AndrewHuntResume-ATS.pdf is still published for the portals
+           that already have that link; it is just not worth a button that
+           promises something different and delivers the same file. #}
         <div class="links">
             <a class="pill pill--wide" href="/AndrewHuntResume.pdf" download>{{ ico::doc() }} Download PDF</a>
-            <a class="pill" href="/AndrewHuntResume-ATS.pdf" download>{{ ico::doc() }} Plain-text version</a>
         </div>
     </div>
 </header>
@@ -25,9 +30,9 @@
             <object class="resume-frame" data="/AndrewHuntResume.pdf" type="application/pdf">
                 <div class="prose" style="padding:2rem">
                     <p>Your browser can’t display this PDF inline.</p>
-                    <p><a href="/AndrewHuntResume.pdf" download>Download the PDF</a> or take the
-                        <a href="/AndrewHuntResume-ATS.pdf" download>plain-text version</a>, which is
-                        the one to hand to a job portal.</p>
+                    <p><a href="/AndrewHuntResume.pdf" download>Download the PDF</a> — single column,
+                        which is the layout a parser reads correctly and the one to hand to a job
+                        portal.</p>
                 </div>
             </object>
         </div>
