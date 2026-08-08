@@ -7,6 +7,10 @@ weight = 4
 [extra]
 card_image = "/imgs/project-cards/opt/pocklet.webp"
 website_url = "https://pocklet.netlify.app"
+accent = "#705fdc"
+accent_ink = "#ffffff"
+tagline = "Save an HTML site to your home screen."
+stack = ["Web", "PWA"]
 +++
 
 ... (to be written)
