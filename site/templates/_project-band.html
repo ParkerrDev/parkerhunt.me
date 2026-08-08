@@ -1,0 +1,71 @@
+{# One project, as a band. Shared by /projects/ and the home page so the two can
+   never drift; the CSS is templates/_projects.css, pulled in by both.
+
+   Everything except the title is optional and simply does not render when a
+   project lacks it — a mark, a tagline, a stack, a mirror, a write-up. That is
+   deliberate: three of these five are still a stub, and a band that collapses
+   politely is what makes it safe to add a project before there is anything to
+   say about it. #}
+{% macro band(project, i) %}
+{% set accent = project.extra.accent | default(value="") %}
+{% set ink = project.extra.accent_ink | default(value="#ffffff") %}
+<section class="proj"{% if accent %} style="--pa:{{ accent }};--pi:{{ ink }}"{% endif %}>
+    <div class="wrap">
+        <article class="proj-in">
+            {% if project.extra.card_image %}
+            <div class="proj-art">
+                <img src="{{ project.extra.card_image }}" alt="" width="900" height="338"
+                     {% if i > 2 %}loading="lazy" {% endif %}decoding="async">
+            </div>
+            {% endif %}
+            <div class="proj-txt">
+                {% if project.extra.brand_image or project.extra.website_url %}
+                <div class="proj-brandrow">
+                    {% if project.extra.brand_image %}
+                    <span class="proj-brand"><img src="{{ project.extra.brand_image }}" alt="" width="128" height="128" loading="lazy" decoding="async"></span>
+                    {% endif %}
+                    {% if project.extra.website_url %}
+                    <span class="proj-host">{{ project.extra.website_url | replace(from="https://", to="") | replace(from="/", to="") }}</span>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <p class="proj-kicker">
+                    <span class="proj-n">{{ i }}</span>
+                    {%- if project.updated %}{{ project.updated | date(format="%Y") }}
+                    {%- elif project.date %}{{ project.date | date(format="%Y") }}{% endif -%}
+                </p>
+                <h2 class="proj-title">{{ project.title }}</h2>
+                {% if project.extra.tagline %}<p class="proj-tag">{{ project.extra.tagline }}</p>{% endif %}
+                {% if project.description %}<p class="proj-desc">{{ project.description }}</p>{% endif %}
+
+                {% if project.extra.stack %}
+                <ul class="proj-stack">
+                    {% for s in project.extra.stack %}<li>{{ s }}</li>{% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="proj-links">
+                    {% if project.extra.website_url %}
+                    <a class="proj-cta" href="{{ project.extra.website_url }}" target="_blank" rel="noopener">
+                        {{ project.extra.website_url | replace(from="https://", to="") | replace(from="/", to="") }}
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                    {% endif %}
+                    {% if project.extra.mirror_url %}
+                    <a class="proj-alt" href="{{ project.extra.mirror_url }}" target="_blank" rel="noopener">mirror ↗</a>
+                    {% endif %}
+                    {# Only offer the page when there is a page worth opening. #}
+                    {% if project.word_count and project.word_count > 60 %}
+                    <a class="proj-alt" href="{{ project.permalink }}">Read more →</a>
+                    {% endif %}
+                </div>
+
+                {% if not project.description %}
+                <p class="proj-soon">write-up still to come</p>
+                {% endif %}
+            </div>
+        </article>
+    </div>
+</section>
+{% endmacro band %}

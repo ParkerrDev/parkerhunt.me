@@ -6,6 +6,7 @@ updated = 2026-04-04
 weight = 2
 [extra]
 card_image = "/imgs/project-cards/opt/appit.webp"
+brand_image = "/imgs/project-brand/appit.webp"
 website_url = "https://appitapp.app"
 accent = "#ccdc48"
 accent_ink = "#111112"
