@@ -5,6 +5,7 @@ date = 2026-08-09
 updated = 2026-08-09
 weight = 2
 [extra]
+brand_manual = true
 card_image = "/imgs/project-cards/opt/templeos.webp"
 brand_image = "/imgs/project-brand/templeos-web.webp"
 accent = "#0000ab"

@@ -6,7 +6,7 @@ updated = 2026-04-04
 weight = 5
 [extra]
 brand_image = "/imgs/project-brand/pocklet.webp"
-brand_from_card = true
+brand_manual = true
 card_image = "/imgs/project-cards/opt/pocklet.webp"
 website_url = "https://pocklet.netlify.app"
 accent = "#705fdc"
