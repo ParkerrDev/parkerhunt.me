@@ -70,16 +70,35 @@
 
 /* --- the one line of metadata that survived ------------------------------- */
 .proj-head { display: flex; align-items: center; gap: 0.75rem; }
+/* THE ICON IS THE MARK. It used to sit inset inside a tinted, bordered plate,
+   which drew a rounded square around things that are already rounded squares:
+   every one of these is an app icon that brings its own shape and its own
+   background. Two of them (AppIt, Longshot) have transparent corners, so the
+   plate's tint showed through them and the nesting was visible rather than just
+   redundant. The container is now the icon: same box, same radius, image
+   filling it edge to edge.
+
+   22% is the proportion an iOS icon's corner radius uses, so the container
+   agrees with the shape already baked into the artwork instead of cutting
+   across it. */
 .proj-brand {
   width: 2.5rem; height: 2.5rem; flex: 0 0 auto;
-  border-radius: 11px; display: grid; place-items: center;
-  background: color-mix(in srgb, var(--pa) 10%, var(--card));
-  border: 1px solid color-mix(in srgb, var(--pa) 26%, var(--line));
+  border-radius: 22%;
+  overflow: hidden;
+  display: grid; place-items: center;
+  /* A hairline hugging the icon's own edge, not a frame around it. Without it
+     AppIt's near-white icon has no boundary against a white card. */
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), var(--shadow-1);
 }
-.proj-brand img { width: 1.75rem; height: 1.75rem; object-fit: contain; display: block; border-radius: 6px; }
+.proj-brand img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
+
+/* The monogram still needs something to sit on, so it keeps the plate the
+   icons no longer want. */
 .proj-brand--mono {
   font-weight: 700; font-size: 1.0625rem; letter-spacing: -0.02em;
+  background: color-mix(in srgb, var(--pa) 10%, var(--card));
   color: color-mix(in srgb, var(--pa) 55%, var(--fg));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pa) 26%, var(--line));
 }
 .proj-title {
   margin: 0; flex: 1 1 auto; min-width: 0;
