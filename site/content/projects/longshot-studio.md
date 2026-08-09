@@ -9,6 +9,7 @@ card_image = "/imgs/project-cards/opt/longshot.webp"
 brand_image = "/imgs/project-brand/longshot-studio.webp"
 website_url = "https://longshot.studio"
 mirror_url = "https://longshot-studio.netlify.app/"
+hide_read_more = true
 accent = "#fd5200"
 accent_ink = "#111112"
 tagline = "A studio and a cinema with nobody in between."

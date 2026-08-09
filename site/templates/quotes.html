@@ -25,7 +25,7 @@
                 {% for q in qd.mine %}
                 <figure class="quote quote--mine">
                     <p>{{ q.text }}</p>
-                    {% if q.who %}<footer>, {{ q.who }}</footer>{% endif %}
+                    {% if q.who %}<footer>&#8211; {{ q.who }}</footer>{% endif %}
                 </figure>
                 {% endfor %}
             </div>
@@ -41,7 +41,7 @@
                 {% for q in qd.quotes %}
                 <figure class="quote" data-find="{{ q.text }} {{ q.who }}">
                     <p>{{ q.text }}</p>
-                    <footer>, {{ q.who }}</footer>
+                    <footer>&#8211; {{ q.who }}</footer>
                 </figure>
                 {% endfor %}
             </div>
