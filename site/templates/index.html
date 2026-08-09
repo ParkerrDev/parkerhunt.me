@@ -621,7 +621,7 @@
             <p class="credit">Photographs from Wikimedia Commons under CC BY, CC BY-SA or public domain, {% for pl in been.places %}{% if pl.photo and pl.photo.credit_required %}<a href="{{ pl.photo.source }}" target="_blank" rel="noopener">{{ pl.name }}</a> {{ pl.photo.author }}; {% endif %}{% endfor %}the rest are public domain.</p>
             {% if been.places | filter(attribute="note") | length > 0 %}
             <ul class="distro-notes" style="margin-top:0.5rem">
-                {% for pl in been.places %}{% if pl.note %}<li><b>{{ pl.name }}</b>, {{ pl.note }}</li>{% endif %}{% endfor %}
+                {% for pl in been.places %}{% if pl.note %}<li><b>{{ pl.name }}</b> &#8211; {{ pl.note }}</li>{% endif %}{% endfor %}
             </ul>
             {% endif %}
         </div>
@@ -679,7 +679,7 @@
         </div>
         <div class="wrap">
             <ul class="distro-notes" style="margin-top:0.75rem">
-                {% for r in been.skiing %}{% if r.note %}<li><b>{{ r.name }}</b>, {{ r.note }}</li>{% endif %}{% endfor %}
+                {% for r in been.skiing %}{% if r.note %}<li><b>{{ r.name }}</b> &#8211; {{ r.note }}</li>{% endif %}{% endfor %}
             </ul>
             <p class="credit">Photographs from Wikimedia Commons, {% for r in been.skiing %}{% if r.photo and r.photo.credit_required %}<a href="{{ r.photo.source }}" target="_blank" rel="noopener">{{ r.name }}</a> {{ r.photo.author }}; {% endif %}{% endfor %}the rest public domain.</p>
         </div>
@@ -742,7 +742,7 @@
             {% for d in me.distro %}{% if d.note %}{% set_global has_notes = true %}{% endif %}{% endfor %}
             {% if has_notes %}
             <ul class="distro-notes">
-                {% for d in me.distro %}{% if d.note %}<li><b>{{ d.name }}</b>, {{ d.note }}</li>{% endif %}{% endfor %}
+                {% for d in me.distro %}{% if d.note %}<li><b>{{ d.name }}</b> &#8211; {{ d.note }}</li>{% endif %}{% endfor %}
             </ul>
             {% endif %}
         </div>
@@ -838,7 +838,7 @@
                 {% for q in qd.quotes | slice(start=(row - 1) * per_row, end=row * per_row) %}
                 <figure class="quote" style="width:22rem;flex:none;margin:0">
                     <p>{{ q.text }}</p>
-                    <footer>, {{ q.who }}</footer>
+                    <footer>&#8211; {{ q.who }}</footer>
                 </figure>
                 {% endfor %}
                 </span>
