@@ -246,9 +246,16 @@
 
     {# ------------------------------------------------------------ posts -- #}
     {% if feeds.x.post | length > 0 or xd.profile %}
-{# DISABLED — asked to be taken down, kept rather than deleted so it can
-   come back as one edit. `if false` and not a {# #} comment because these
-   blocks contain comments of their own and Tera comments do not nest. #}
+{# DISABLED — asked to be taken down, kept rather than deleted so it can come
+   back as one edit.
+
+   Wrapped in `if false` rather than commented out, because these blocks contain
+   Tera comments of their own and Tera comments do not nest: the first inner
+   closer ends the outer comment and the remainder of it is emitted into the page
+   as text.
+
+   Which is precisely what an earlier version of THIS note did, five times over,
+   by spelling the delimiters out to explain them. So it no longer names them. #}
 {% if false %}
     <section id="posts">
         <div class="wrap">
@@ -449,9 +456,16 @@
     {# -------------------------------------------------------------- mods -- #}
     {# Below the games on purpose: every one of these is a Subnautica mod, and
        Subnautica is the game at the top of the list directly above. #}
-{# DISABLED — asked to be taken down, kept rather than deleted so it can
-   come back as one edit. `if false` and not a {# #} comment because these
-   blocks contain comments of their own and Tera comments do not nest. #}
+{# DISABLED — asked to be taken down, kept rather than deleted so it can come
+   back as one edit.
+
+   Wrapped in `if false` rather than commented out, because these blocks contain
+   Tera comments of their own and Tera comments do not nest: the first inner
+   closer ends the outer comment and the remainder of it is emitted into the page
+   as text.
+
+   Which is precisely what an earlier version of THIS note did, five times over,
+   by spelling the delimiters out to explain them. So it no longer names them. #}
 {% if false %}
     {% if nexus.mods | length > 0 %}
     <section id="mods">
@@ -477,9 +491,16 @@
     {% endif %}
 
     {# ------------------------------------------------------------ chess -- #}
-{# DISABLED — asked to be taken down, kept rather than deleted so it can
-   come back as one edit. `if false` and not a {# #} comment because these
-   blocks contain comments of their own and Tera comments do not nest. #}
+{# DISABLED — asked to be taken down, kept rather than deleted so it can come
+   back as one edit.
+
+   Wrapped in `if false` rather than commented out, because these blocks contain
+   Tera comments of their own and Tera comments do not nest: the first inner
+   closer ends the outer comment and the remainder of it is emitted into the page
+   as text.
+
+   Which is precisely what an earlier version of THIS note did, five times over,
+   by spelling the delimiters out to explain them. So it no longer names them. #}
 {% if false %}
     {% if chess.modes | length > 0 %}
     <section id="chess">
@@ -502,9 +523,16 @@
 
 
     {# --------------------------------------------------------- learning -- #}
-{# DISABLED — asked to be taken down, kept rather than deleted so it can
-   come back as one edit. `if false` and not a {# #} comment because these
-   blocks contain comments of their own and Tera comments do not nest. #}
+{# DISABLED — asked to be taken down, kept rather than deleted so it can come
+   back as one edit.
+
+   Wrapped in `if false` rather than commented out, because these blocks contain
+   Tera comments of their own and Tera comments do not nest: the first inner
+   closer ends the outer comment and the remainder of it is emitted into the page
+   as text.
+
+   Which is precisely what an earlier version of THIS note did, five times over,
+   by spelling the delimiters out to explain them. So it no longer names them. #}
 {% if false %}
     {% if duo.courses | length > 0 %}
     <section id="learning">
@@ -716,6 +744,14 @@
     {% endif %}
 
     {# ------------------------------------------------------------ ideas -- #}
+{# DISABLED — asked to be taken down, kept rather than deleted so it can come
+   back as one edit.
+
+   Wrapped in `if false` rather than commented out, because these blocks contain
+   Tera comments of their own and Tera comments do not nest: the first inner
+   closer ends the outer comment and the remainder of it is emitted into the page
+   as text. #}
+{% if false %}
     {% set ideas = load_data(path="data/ideas.toml") %}
     {% if ideas.idea | length > 0 %}
     <section id="ideas">
@@ -738,15 +774,24 @@
         </div>
     </section>
     {% endif %}
+{% endif %}
+
 
     {# ------------------------------------------------------------ novel -- #}
     {# Small and on its own. It used to be one row in the Shelf under "Written",
        which put a novel next to a list of books somebody else wrote. #}
     {% if me.books_mine | length > 0 %}
     {% set nv = me.books_mine | first %}
-{# DISABLED — asked to be taken down, kept rather than deleted so it can
-   come back as one edit. `if false` and not a {# #} comment because these
-   blocks contain comments of their own and Tera comments do not nest. #}
+{# DISABLED — asked to be taken down, kept rather than deleted so it can come
+   back as one edit.
+
+   Wrapped in `if false` rather than commented out, because these blocks contain
+   Tera comments of their own and Tera comments do not nest: the first inner
+   closer ends the outer comment and the remainder of it is emitted into the page
+   as text.
+
+   Which is precisely what an earlier version of THIS note did, five times over,
+   by spelling the delimiters out to explain them. So it no longer names them. #}
 {% if false %}
     <section id="novel">
         <div class="wrap">

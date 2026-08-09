@@ -59,18 +59,27 @@
                 <img src="/imgs/webp/memoji-circle.webp" width="26" height="26" alt="" decoding="async">
                 <span>Andrew Parker Hunt</span>
             </a>
+            {# The nav must not advertise what the page no longer has. Posts was
+               the worst of these: its section is disabled, so /#posts was an
+               anchor to nothing — a nav item that silently does nothing when
+               clicked. Chess, Novel and Ideas still have pages of their own, but
+               their home-page sections are off, so they come out too rather than
+               being the only way in to something otherwise removed.
+
+               The pages themselves are untouched and still answer on their URLs.
+               Delete an `if false` here to put an item back. #}
             <nav class="bar-nav" aria-label="Sections">
                 <a href="/#work">Work</a>
                 <a href="/#code">Code</a>
-                <a href="/#posts">Posts</a>
+                {% if false %}<a href="/#posts">Posts</a>{% endif %}
                 <a href="/games/">Games</a>
                 <a href="/watching/">TV</a>
                 <a href="/movies/">Movies</a>
                 <a href="/shelf/">Shelf</a>
-                <a href="/chess/">Chess</a>
+                {% if false %}<a href="/chess/">Chess</a>{% endif %}
                 <a href="/#skied">Skied</a>
-                <a href="/novel/">Novel</a>
-                <a href="/ideas/">Ideas</a>
+                {% if false %}<a href="/novel/">Novel</a>{% endif %}
+                {% if false %}<a href="/ideas/">Ideas</a>{% endif %}
                 <a href="/quotes/">Quotes</a>
                 <a href="/resume/">Résumé</a>
             </nav>
