@@ -3,7 +3,7 @@ title = "Rickvirus"
 description = ""
 date = 2026-03-01
 updated = 2026-04-04
-weight = 5
+weight = 6
 [extra]
 card_image = "/imgs/project-cards/opt/rickvirus.webp"
 brand_image = "/imgs/project-brand/rickvirus.webp"
