@@ -13,7 +13,6 @@ accent_ink = "#ffffff"
 website_url = "https://templeosweb.netlify.app"
 repo_url = "https://github.com/ParkerrDev/TempleOS-Web"
 tagline = "The real 64-bit OS, in a browser tab."
-stack = ["HolyC", "WebAssembly", "x86-64 JIT", "JavaScript", "Web Workers"]
 +++
 
 ## Overview

@@ -46,11 +46,6 @@
                 {% if project.extra.tagline %}<p class="proj-tag">{{ project.extra.tagline }}</p>{% endif %}
                 {% if project.description %}<p class="proj-desc">{{ project.description }}</p>{% endif %}
 
-                {% if project.extra.stack %}
-                <ul class="proj-stack">
-                    {% for s in project.extra.stack %}<li>{{ s }}</li>{% endfor %}
-                </ul>
-                {% endif %}
 
                 <div class="proj-links">
                     {% if project.extra.website_url %}

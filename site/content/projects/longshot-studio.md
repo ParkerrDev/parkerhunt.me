@@ -13,7 +13,6 @@ hide_read_more = true
 accent = "#fd5200"
 accent_ink = "#111112"
 tagline = "A studio and a cinema with nobody in between."
-stack = ["Cloudflare Workers", "D1", "R2", "Workers AI", "Hono", "React + Vite"]
 +++
 
 ## Overview

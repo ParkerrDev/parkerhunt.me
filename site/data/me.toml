@@ -98,10 +98,10 @@ favourite_films = []
 updated = "2026-08"
 line = "Building Longshot and getting ready to start college."
 doing = [
-  "Longshot, a permissionless film studio and cinema on Cloudflare",
+  "Longshot, make movies at home with AI",
+  "AppIt!",
   "Getting ready to start college",
   "Rebuilding this site from scratch, in public",
-  "Mandarin, most days",
 ]
 
 # NOT RENDERED ANY MORE. The Coffee orders, Orders, the vice, Settled, Assorted

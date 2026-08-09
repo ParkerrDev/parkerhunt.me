@@ -113,13 +113,6 @@
 /* No tagline: the description becomes the lede and gets the lede's weight. */
 .proj-txt > .proj-desc:first-of-type:not(.proj-tag + .proj-desc) { margin-top: 0.875rem; }
 
-.proj-stack { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 1rem 0 0; padding: 0; list-style: none; }
-.proj-stack li {
-  font-family: var(--mono); font-size: 0.6875rem; color: var(--muted);
-  padding: 0.25rem 0.5rem; border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--pa) 26%, var(--line));
-  background: color-mix(in srgb, var(--pa) 5%, transparent);
-}
 
 /* --- one action, plus quieter ones --------------------------------------- */
 .proj-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; margin: 1.25rem 0 0; }

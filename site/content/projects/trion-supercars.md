@@ -12,7 +12,6 @@ website_url = "https://noirt.netlify.app"
 accent = "#af6e6e"
 accent_ink = "#111112"
 tagline = "A marketing site for a supercar company."
-stack = ["Figma", "HTML", "SCSS", "JavaScript", "Alpine.js", "three.js"]
 +++
 
 ... (to be written)
