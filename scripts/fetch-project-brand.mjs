@@ -110,11 +110,16 @@ for (const f of readdirSync(DIR).filter((n) => n.endsWith(".md") && n !== "_inde
      the files are simply not deployed and its own PWA install has no icon
      either. Trion ships a single 32px favicon, which upscaled to a 40px plate
      at 2x is mush. For those two the mark was cut out of the project's own card
-     art, where the logo already lives at usable resolution, and the row is
-     flagged so a later run does not quietly replace real artwork with nothing.
-     Delete brand_from_card once the site actually serves an icon. */
-  if (/brand_from_card = true/.test(src)) {
-    console.log(`  ${slug.padEnd(18)} mark cut from its card art, left alone`);
+     art, where the logo already lives at usable resolution.
+
+     TempleOS is flagged for a different reason: its logo is 128x152, and the
+     square crop below takes the centre, which cut the top and bottom off its
+     own frame along with the sword's tip and pommel. Its mark is the same logo
+     fitted into the square instead of cropped to it.
+
+     Delete brand_manual once a site serves an icon this can use unaltered. */
+  if (/brand_manual = true/.test(src)) {
+    console.log(`  ${slug.padEnd(18)} hand-composed mark, left alone`);
     continue;
   }
 
