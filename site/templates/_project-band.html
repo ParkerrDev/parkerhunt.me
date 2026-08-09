@@ -62,6 +62,10 @@
                     {% if project.extra.mirror_url %}
                     <a class="proj-alt" href="{{ project.extra.mirror_url }}" target="_blank" rel="noopener">mirror ↗</a>
                     {% endif %}
+                    {# Optional, and only where the source is public. #}
+                    {% if project.extra.repo_url %}
+                    <a class="proj-alt" href="{{ project.extra.repo_url }}" target="_blank" rel="noopener">source ↗</a>
+                    {% endif %}
                     {# Only offer the page when there is a page worth opening, and
                        not at all where the front matter opts out. #}
                     {% if project.word_count and project.word_count > 60 and not project.extra.hide_read_more %}
