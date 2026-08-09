@@ -5,7 +5,7 @@
  * Endpoint:  duolingo.com/2017-06-30/users?username=<user>
  *
  * This is the same call the Duolingo web app makes for a public profile. It is
- * undocumented rather than secret — no key, no cookie — but "undocumented"
+ * undocumented rather than secret (no key, no cookie) but "undocumented"
  * means it can move without notice, which is exactly why this script fails soft
  * and the site renders from the committed snapshot either way.
  *
@@ -20,7 +20,7 @@ const OUT = resolve(process.argv[3] || "site/data/duolingo.json");
 
 /* Enough to draw a flag as a few rectangles and a couple of paths, keyed by
    Duolingo's own language codes. `flag` is picked up by the template, which
-   holds the actual SVG — this file stays data. */
+   holds the actual SVG, this file stays data. */
 const COURSES = {
   zh: { flag: "cn", native: "中文", label: "Chinese" },
   es: { flag: "es", native: "Español", label: "Spanish" },
@@ -37,7 +37,7 @@ function bail(reason) {
   console.warn(
     existsSync(OUT)
       ? "         Keeping the committed snapshot."
-      : "         No snapshot on disk — the Duolingo section will be hidden."
+      : "         No snapshot on disk, the Duolingo section will be hidden."
   );
   process.exit(0);
 }

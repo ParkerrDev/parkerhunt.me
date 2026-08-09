@@ -2,12 +2,12 @@
    places: a teaser on the home page and the full thing on its own page. One
    definition means the home page and /games/ can never drift apart.
 
-   These are markup only — all four palettes live in templates/_style.css under
+   These are markup only, all four palettes live in templates/_style.css under
    "2. ISLANDS", scoped to .stm / .duol / .cc / .nx so no brand colour can leak
    into the shell.
 
    Every macro takes its data as an argument. Tera macros cannot see globals, so
-   nothing here can reach for `me` or `config` — which is the point: they are
+   nothing here can reach for `me` or `config`, which is the point: they are
    pure functions of a JSON snapshot. #}
 {% import "macros.html" as ico %}
 
@@ -91,7 +91,7 @@
         <div class="d-stat">{{ ico::flame(lit=d.streak > 0) }}<div><b>{{ d.streak }}</b><span>Day streak</span></div></div>
         <div class="d-stat d-stat--xp">{{ ico::bolt() }}<div><b>{{ d.total_xp | num_format }}</b><span>Total XP</span></div></div>
         <div class="d-stat d-stat--course">{{ ico::duolingo() }}<div><b>{{ d.courses | length }}</b><span>Courses</span></div></div>
-        {# The main course carries its own flag rather than a generic trophy —
+        {# The main course carries its own flag rather than a generic trophy,
            the flag is the only icon here that actually says which language. #}
         {% set main = d.courses | first %}
         <div class="d-stat">
@@ -153,7 +153,7 @@
 {% endmacro chess_modes %}
 
 {# The result badge letter comes from the outcome, and the outcome is derived in
-   scripts/fetch-chess.mjs — Chess.com records how a game ended on the losing
+   scripts/fetch-chess.mjs: Chess.com records how a game ended on the losing
    side only, so it cannot be read off one player's record. #}
 {% macro chess_games(games) %}
 <div class="cc-games">
@@ -174,7 +174,7 @@
 {# Laid out the way the real profile page is: a hero with the avatar behind
    itself blurred, the Supporter pill hung off the avatar, the verified-author
    line, then a row of counters. `icons` has to be passed in for the same reason
-   every other argument does — a Tera macro cannot see globals — and it carries
+   every other argument does (a Tera macro cannot see globals) and it carries
    the actual Nexus mark from site/data/icons.json.
 
    `n.profile` is null if the second GraphQL call failed on the last build, so
@@ -212,7 +212,7 @@
    Nexus's unique count. See the note at the top of scripts/fetch-nexus.mjs.
 
    Kudos only exists on the profile, so when the profile call failed the tile
-   goes away and the grid drops to three rather than printing a confident 0 —
+   goes away and the grid drops to three rather than printing a confident 0,
    "we did not fetch it" and "nobody gave him any" are different claims. #}
 <div class="nx-stats{% if not p %} nx-stats--3{% endif %}">
     <div class="nx-stat"><b>{{ n.count }}</b><span>Mods</span></div>
@@ -275,12 +275,12 @@
 
 {# --- a show card ---------------------------------------------------------- #}
 {# A real title logo when Wikimedia Commons had a freely-licensed one, and the
-   title set in type when it did not — which is most of the time, because key
+   title set in type when it did not, which is most of the time, because key
    art is copyrighted and no free source for it exists at any size. The colour
    pair is hand-picked per show in site/data/watching.json. #}
 {% macro poster(w, size="sm") %}
 {# A logo card ignores the hand-picked colour and uses a plate chosen from the
-   logo's own ink — measured at fetch time, see isDark() in fetch-titles.mjs.
+   logo's own ink, measured at fetch time, see isDark() in fetch-titles.mjs.
    Dark type gets a near-white plate, light type gets a near-black one. Without
    this, Better Call Saul's black wordmark sat on a black card and vanished. #}
 <a class="poster poster--{{ size }}{% if w.poster %} poster--art{% elif w.logo %} poster--logo poster--{% if w.logo.dark %}plate{% else %}slate{% endif %}{% endif %}"
@@ -290,7 +290,7 @@
     {% if w.poster %}
     {# The real poster, straight from TMDb's CDN. It is the only third-party
        request on this site, and it is TMDb's own condition for licensing the
-       artwork — see scripts/fetch-posters.mjs. #}
+       artwork; see scripts/fetch-posters.mjs. #}
     <img class="poster-p" src="{{ w.poster.src }}" alt="{{ w.title }}" width="342" height="513" loading="lazy" decoding="async">
     {% if w.poster.rating %}<span class="poster-r">{{ w.poster.rating }}</span>{% endif %}
     {% elif w.logo %}

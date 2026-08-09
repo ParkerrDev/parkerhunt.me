@@ -1,7 +1,7 @@
 {# The catalogue search box.
 
    Emitted by the {% block filter %} in base.html, so ONLY the pages that
-   include it get any JavaScript at all — /movies/, /watching/, /shelf/,
+   include it get any JavaScript at all, /movies/, /watching/, /shelf/,
    /quotes/, /games/ and /ideas/. The home page and the blog still ship none.
 
    Three deliberate choices:
@@ -13,12 +13,12 @@
       the rendered HTML for stray words like "IMDb".
    3. Filtering toggles a class instead of removing nodes. Nothing reflows into
       a different grid, and clearing the box restores the original order
-      exactly — which a remove-and-reinsert approach does not.
+      exactly, which a remove-and-reinsert approach does not.
 
    The Random button lives here rather than in one page's template because it
    needs exactly what the search needs: the [data-find] items and which of them
    are currently on screen. It picks from the VISIBLE ones, so it composes with
-   the search rather than ignoring it — type "pixar", press Random, get a Pixar
+   the search rather than ignoring it, type "pixar", press Random, get a Pixar
    film. Every page that emits this block gets the button; the label comes from
    data-random on the findable element.
 #}
@@ -57,7 +57,7 @@
     animation: findpick 0.85s ease-in-out 2;
   }
   /* Pulsing the WIDTH rather than the colour, so the ring is never faint at any
-     point in the cycle — it only ever gets bolder. */
+     point in the cycle, it only ever gets bolder. */
   @keyframes findpick {
     0%, 100% { outline-width: 3px; outline-offset: 4px; }
     50%      { outline-width: 7px; outline-offset: 1px; }

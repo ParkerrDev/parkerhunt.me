@@ -3,7 +3,7 @@
 // Run by build-zola.sh on Cloudflare before `zola build`. Copies the PDF release
 // artifacts out of a clone of the PRIVATE resume repo into this site's static
 // tree, so /resume always serves that repo's current build. Nothing is committed
-// to parkerhunt.me in order to publish a new resume — the same model the blog
+// to parkerhunt.me in order to publish a new resume, the same model the blog
 // uses (see BLOG.md / RESUME.md).
 //
 //   node scripts/build-resume.mjs <resume-dir> <site-dir>
@@ -24,7 +24,7 @@ if (!resumeDir || !siteDir) {
 // [source in the resume repo, published name under site/static]
 //
 // `AndrewHuntResume.pdf` is the resume repo's release artifact, and which layout
-// it carries is that repo's decision, not this one's — see PUBLISHED in its
+// it carries is that repo's decision, not this one's; see PUBLISHED in its
 // build.mjs. It is currently the single-column document. Keep the NAME whatever
 // happens: it is the URL that is already out in the world.
 const ASSETS = [
@@ -44,7 +44,7 @@ const STATIC_OUT = join(siteDir, 'static');
 // that exists, so check the magic bytes rather than just the path.
 function assertPdf(path) {
   const { size } = statSync(path);
-  if (size < 1024) throw new Error(`${path} is only ${size} bytes — not a real PDF`);
+  if (size < 1024) throw new Error(`${path} is only ${size} bytes, not a real PDF`);
   const buf = Buffer.alloc(5);
   const fd = openSync(path, 'r');
   try {
@@ -69,7 +69,7 @@ let published = 0;
 for (const [from, to] of ASSETS) {
   const src = join(resumeDir, from);
   if (!existsSync(src)) {
-    console.error(`Resume: missing artifact ${from} in ${resumeDir} — run \`npm run build\` in the resume repo and commit it.`);
+    console.error(`Resume: missing artifact ${from} in ${resumeDir}; run \`npm run build\` in the resume repo and commit it.`);
     process.exit(1);
   }
   let size;

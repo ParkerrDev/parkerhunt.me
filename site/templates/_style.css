@@ -1,17 +1,17 @@
-/* parkerhunt.me — inlined into every page's <head>.
+/* parkerhunt.me, inlined into every page's <head>.
  *
  * Inlined rather than linked because the whole stylesheet is smaller than the
  * HTTP round trip it would cost. First paint needs exactly one request and
  * there is no render-blocking CSS at all.
  *
- * No webfonts, still. The type is the system UI face — SF Pro on Apple, Segoe
- * on Windows, Roboto on Android — which is exactly what gives the page its
+ * No webfonts, still. The type is the system UI face: SF Pro on Apple, Segoe
+ * on Windows, Roboto on Android, which is exactly what gives the page its
  * Apple feel and costs zero bytes. It also renders on the first frame instead
  * of swapping, which no downloaded font can do.
  *
  * The site has two design languages on purpose:
- *   1. The shell   — light, quiet, Apple-ish. That is this file.
- *   2. The islands — the X / LinkedIn / GitHub / Steam / Duolingo / Chess.com /
+ *   1. The shell , light, quiet, Apple-ish. That is this file.
+ *   2. The islands, the X / LinkedIn / GitHub / Steam / Duolingo / Chess.com /
  *                    Nexus Mods feeds, each rebuilt to match that platform's own
  *                    visual language. Those live in _islands.css, which only the
  *                    three templates that mount one bother to inline.
@@ -24,7 +24,7 @@
 /* ---------------------------------------------------------------- tokens -- */
 :root {
   /* Apple's actual neutral ramp: pure white pages, #f5f5f7 for recessed
-     surfaces, #1d1d1f for ink (not #000 — it reads softer at large sizes),
+     surfaces, #1d1d1f for ink (not #000, it reads softer at large sizes),
      #6e6e73 for secondary. Borrowed because it is genuinely the best-tuned
      light palette in wide use, not because it is Apple's. */
   --bg: #fff;
@@ -33,8 +33,8 @@
   --muted: #6e6e73;
   /* Apple's own tertiary grey is #86868b, which measures 3.65:1 on white and
      therefore fails WCAG AA for body-sized text. Darkened to the lightest value
-     that clears 4.5:1 (4.59), because this token carries the metadata lines —
-     dates, counts, the tidbit strip — and those are exactly the small text the
+     that clears 4.5:1 (4.59), because this token carries the metadata lines,
+     dates, counts, the tidbit strip, and those are exactly the small text the
      rule exists for. */
   --faint: #757579;
   --line: rgba(0, 0, 0, 0.09);
@@ -70,7 +70,7 @@
    tells the browser to stop trying to help, and form controls and scrollbars
    stay light with it.
 
-   The exceptions are the brand islands — Steam, Chess.com and Nexus Mods are
+   The exceptions are the brand islands: Steam, Chess.com and Nexus Mods are
    dark because those three products are dark and always have been. Those are
    quotations of somebody else's interface, not this site's theme. */
 
@@ -143,7 +143,7 @@ a { color: inherit; text-decoration: none; }
    dropping when ten nav items and a logo are fighting for a phone's width. */
 @media (max-width: 30rem) { .bar-home span { display: none; } }
 /* min-width:0 is load-bearing. A flex item defaults to min-width:auto, which
-   refuses to shrink below its own content — so without this the nav's natural
+   refuses to shrink below its own content, so without this the nav's natural
    width pushes .bar-in wider than the viewport and the whole page scrolls
    sideways on a phone. The overflow-x below is what should be scrolling, and
    it cannot until the item is allowed to shrink. */
@@ -154,7 +154,7 @@ a { color: inherit; text-decoration: none; }
 }
 .bar-nav::-webkit-scrollbar { display: none; }
 
-/* The fade tells you the row scrolls — but only where it actually does. Applied
+/* The fade tells you the row scrolls, but only where it actually does. Applied
    unconditionally it dims the last item on a desktop that has room to spare,
    which looks like a rendering bug rather than an affordance. CSS cannot ask
    "is this element overflowing", so the breakpoint stands in for the answer.
@@ -162,7 +162,7 @@ a { color: inherit; text-decoration: none; }
    MEASURED, not guessed, and it has to be re-measured whenever a nav item is
    added or removed: the ten items are 529px wide, and .bar-nav's scrollWidth
    first exceeds its clientWidth at 692px = 43.25rem. The odd fraction is the
-   measurement, not a rounded guess — rounding up would switch the mask on
+   measurement, not a rounded guess, rounding up would switch the mask on
    before there is anything to scroll. */
 @media (max-width: 43.25rem) {
   .bar-nav {
@@ -175,7 +175,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ------------------------------------------------------------------ hero -- */
 /* Centred, like the old parkerhunt.me: photo, name, one line, icons. Nothing
-   else. The rotating film-strip of facts that used to live here is gone — a
+   else. The rotating film-strip of facts that used to live here is gone, a
    line of text that changes while you are reading it is a magic trick, not
    information, and the facts are worth more as something you find further down
    the page than as something that flickers past. See .bento.facts. */
@@ -203,7 +203,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Bare icons in a row, exactly as the old parkerhunt.me had them: 25px, half a
-   rem of padding, inheriting the text colour. No border, no fill, no circle —
+   rem of padding, inheriting the text colour. No border, no fill, no circle,
    the ring around each one was the thing that made this strip look like a
    toolbar instead of a signature. aria-label carries the name, so dropping the
    visible word costs a screen reader nothing. */
@@ -376,7 +376,7 @@ a.row:hover .row-t { color: var(--accent); }
 
 /* ---------------------------------------------------------------- distros -- */
 /* The distro-hopping progression as one chain. Numbered rather than dated
-   because there are no dates — the order is the whole content. The arrow is a
+   because there are no dates, the order is the whole content. The arrow is a
    ::after on the item, not a separate element, so it wraps with the chip it
    belongs to instead of stranding itself at the start of a line. */
 .distros { display: flex; flex-wrap: wrap; gap: 0.5rem 0.25rem; list-style: none; margin: 0; padding: 0; align-items: stretch; }
@@ -471,9 +471,9 @@ body > footer { border-top: 1px solid var(--line-soft); padding: 2.25rem 0 3rem;
 
 
 /* =========================================================== 4. TILING ==== */
-/* The whole page is tiles now. It used to be a column of full-width rows —
+/* The whole page is tiles now. It used to be a column of full-width rows,
    book, then book, then book, each one a bar the width of the screen with three
-   words in it — which meant scrolling a long way to learn very little. A grid
+   words in it, which meant scrolling a long way to learn very little. A grid
    of small cards puts the same content in a fifth of the height, and things
    that belong together end up next to each other instead of above each other. */
 
@@ -558,8 +558,8 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---------------------------------------------------------------- swatch -- */
-/* The distro discs. Same rules as .mark — white, ringed, logo in the project's
-   own colour — just bigger, because these are the subject of their section
+/* The distro discs. Same rules as .mark, white, ringed, logo in the project's
+   own colour, just bigger, because these are the subject of their section
    rather than a decoration beside a word. The current one gets the ring in its
    colour instead of hairline grey. */
 .swatch {
@@ -595,7 +595,7 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
    stays pinned to the bottom, and the typographic title is not drawn at all. */
 .poster--logo { justify-content: space-between; align-items: stretch; }
 .poster--plate { background: #f4f4f6; color: #6e6e73; }
-/* A real poster fills the card edge to edge — it IS the card. */
+/* A real poster fills the card edge to edge, it IS the card. */
 .poster--art { padding: 0; position: relative; background: var(--bg-soft); }
 .poster-p { width: 100%; height: 100%; object-fit: cover; display: block; }
 .poster-r {
@@ -617,9 +617,9 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .poster--sm .poster-y { font-size: 0.5625rem; line-height: 1.3; }
 .poster-y { font-family: var(--mono); font-size: 0.625rem; opacity: 0.7; margin-top: 0.25rem; }
 
-/* Book covers. object-fit:contain, not cover — a jacket cropped to a square is
+/* Book covers. object-fit:contain, not cover, a jacket cropped to a square is
    a jacket with its title cut off. */
-/* display:block is load-bearing — this is a <span>, and aspect-ratio is
+/* display:block is load-bearing, this is a <span>, and aspect-ratio is
    ignored on an inline box, which left three jackets at three heights. */
 .cover { display: block; aspect-ratio: 2 / 3; border-radius: 6px; overflow: hidden; background: var(--bg-soft); box-shadow: var(--shadow-2); }
 .cover img { width: 100%; height: 100%; object-fit: cover; }
@@ -628,7 +628,7 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 /* NOT CIRCLES. A disc is fine for a square glyph and wrong for everything else:
    a wordmark that has to fit inside one gets shrunk until it cannot be read,
    which is exactly what happened to the Dutch Bros logo. So there are two
-   shapes here — a rounded square for square marks, and a full-width banner for
+   shapes here, a rounded square for square marks, and a full-width banner for
    wordmarks and photographs, which is the shape those actually are. */
 .bi { width: 1.125rem; height: 1.125rem; flex-shrink: 0; }
 .bl { width: 68%; height: 68%; object-fit: contain; }
@@ -653,22 +653,22 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
    somebody had applied to the receipt. A logo already has its own shape; the
    only thing it needs is room and a consistent height.
 
-   Height, not width, is what is held constant — that is what makes a round
+   Height, not width, is what is held constant, that is what makes a round
    siren, a wide wordmark and a square roundel look like they belong in the same
    row. 2.75rem is the size where the Starbucks siren reads and the Kuppa Joy
    wordmark is still legible. */
 .banner { display: grid; place-items: center; min-height: 3.5rem; }
 /* 3.5rem, because a site icon is a mark inset in a square: cap the FILE at the
    size you want the MARK and the mark comes out a third smaller than intended.
-   Wordmarks are the opposite problem — 3.5rem tall would make "KUPPA JOY" the
-   biggest thing on the card — so they are capped by width instead. */
+   Wordmarks are the opposite problem: 3.5rem tall would make "KUPPA JOY" the
+   biggest thing on the card, so they are capped by width instead. */
 .banner img { max-height: 3.5rem; max-width: 100%; width: auto; object-fit: contain; }
 .banner--wide img { max-height: 2rem; max-width: 82%; }
 .banner--letter {
   min-height: 2.75rem; color: var(--c, var(--fg));
   font-weight: 650; font-size: 1.0625rem; letter-spacing: 0.02em;
 }
-/* A mark drawn in white needs something behind it, and only that mark does —
+/* A mark drawn in white needs something behind it, and only that mark does,
    so the plate is a disc around the logo rather than a box across the card. */
 .banner--slate { background: #1b1b1f; border-radius: 10px; padding: 0.4375rem 0.75rem; }
 .banner--sm { min-height: 2.25rem; }
@@ -754,7 +754,7 @@ p.wrap.kicker { margin-bottom: 0.4375rem; }
 .pinlink { color: var(--accent); }
 .pinlink:hover { text-decoration: underline; }
 
-/* The X profile card. Live on every build — the account is protected, so the
+/* The X profile card. Live on every build, the account is protected, so the
    timeline is unreadable by anything, but the header is public. */
 .xcard { padding: 1rem 1.125rem; background: var(--bg-soft); }
 .xc-top { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }

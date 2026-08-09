@@ -11,7 +11,7 @@
 /imgs/*
   Cache-Control: public, max-age=31536000, immutable
 
-# main.css is NOT content-hashed — a long max-age here would strand visitors on
+# main.css is NOT content-hashed, a long max-age here would strand visitors on
 # an old stylesheet after a deploy.
 /main.css
   Cache-Control: public, max-age=3600

@@ -3,7 +3,7 @@
 {% import "islands.html" as isle %}
 
 {# Every show, with the metadata the pipeline resolved: year, genres, IMDb.
-   See scripts/fetch-titles.mjs — adding a show is one line in
+   See scripts/fetch-titles.mjs, adding a show is one line in
    site/data/watching.json and a re-run. #}
 
 {% block filter %}{% include "_filter.html" %}{% endblock %}
@@ -25,7 +25,7 @@
            rather than the films page: the rule is about how television gets
            watched, not how films do. #}
         <p class="hero-lede" style="color:var(--muted);font-size:0.9375rem;max-width:44rem">
-            <b>What counts:</b> anything I have watched, finished or not. One episode counts — including
+            <b>What counts:</b> anything I have watched, finished or not. One episode counts, including
             one I only half-watched because somebody else had it on. Second-hand viewing counts.
             This is what has passed in front of me, not what I have followed.
         </p>
@@ -44,7 +44,7 @@
         <div class="wrap">
             <div class="bento" data-findable="Search {{ titles.count }} shows…" data-random="Random show">
                 {% for w in titles.shows | sort(attribute="title") %}
-                {# `alias` is searchable text that is deliberately not displayed —
+                {# `alias` is searchable text that is deliberately not displayed,
                    see the note in movies.html. #}
                 <div class="chip" data-find="{{ w.title }} {{ w.year }} {% if w.genres %}{{ w.genres | join(sep=" ") }}{% endif %}{% if w.alias %} {{ w.alias }}{% endif %}">
                     {{ isle::poster(w=w, size="lg") }}
@@ -68,20 +68,20 @@
                    licenses its API so applications can show this artwork. Two conditions come with that and both are
                    met here: the attribution line below, and serving the images from TMDb's own CDN rather than
                    re-hosting them. That makes these posters the only thing on this site your browser fetches from
-                   somewhere else — see <code>POSTERS.md</code>.</p>
+                   somewhere else; see <code>POSTERS.md</code>.</p>
                 <p><b>{{ titles.posters.attribution }}</b></p>
                 <p>{{ titles.with_logo }} shows also have a title logo from Wikimedia Commons, used where TMDb has no
-                   poster. Everything else — the year, the genres, the IMDb link — comes from
+                   poster. Everything else (the year, the genres, the IMDb link) comes from
                    <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a>, which is CC0.</p>
                 {% else %}
                 <h2>Why there are no posters</h2>
                 <p>Key art is copyrighted and has no free source at any size. Wikipedia's own poster
-                   files are tagged non-free — they are fair use <em>on Wikipedia</em>, which does not
+                   files are tagged non-free, they are fair use <em>on Wikipedia</em>, which does not
                    travel to anyone else's site. So {{ titles.with_logo }} of these carry a real title
                    logo, because a wordmark set in a typeface is often below the threshold of
                    originality and therefore public domain, and the rest are set in this site's own
                    type on a colour picked by hand.</p>
-                <p>Everything else — the year, the genres, the IMDb link — comes from
+                <p>Everything else (the year, the genres, the IMDb link) comes from
                    <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a>, which is CC0.</p>
                 {% endif %}
                 <p>Snapshot taken {{ titles.fetched }}.</p>

@@ -18,7 +18,7 @@ stack = ["Cloudflare Workers", "D1", "R2", "Workers AI", "Hono", "React + Vite"]
 ## Overview
 
 Making a film has never been cheaper. Getting *permission* to make one has never
-been harder — rights clearance, guild paperwork, distribution deals, festival
+been harder: rights clearance, guild paperwork, distribution deals, festival
 calendars, insurance. The constraint on cinema has not been talent or tools for
 about fifteen years. It has been permission.
 
@@ -42,7 +42,7 @@ costs.
 ## Two ideas worth understanding
 
 **No product code names a vendor.** Every generative capability is a routing
-decision — modality, minimum quality, a hard cost ceiling, a preference — and
+decision (modality, minimum quality, a hard cost ceiling, a preference) and
 the registry picks a provider, enforces the budget and fails over. Swapping
 model vendors is a config change, not a rewrite.
 
@@ -54,6 +54,6 @@ failed generation refunds in full rather than silently charging for nothing.
 
 The pipeline is verified end to end in production on the free tier: signup
 through development, scene breakdown, an eight-shot list covering 38 seconds,
-and a 1024×576 still — twelve credits, about a penny of retail value, with the
+and a 1024×576 still. Twelve credits, about a penny of retail value, with the
 ledger settling correctly throughout. The Studio and the API are live; the
 catalog schema exists and its interface does not yet.

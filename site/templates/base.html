@@ -20,7 +20,7 @@
        of flashing a white bar above a dark document. #}
     {# One theme, one theme-color. color-scheme:light stops the browser
        darkening form controls and scrollbars on a page that has no dark
-       design to match them to — see the note at the top of _style.css. #}
+       design to match them to; see the note at the top of _style.css. #}
     <meta name="theme-color" content="#ffffff">
     <meta name="color-scheme" content="light">
 
@@ -61,7 +61,7 @@
             </a>
             {# The nav must not advertise what the page no longer has. Posts was
                the worst of these: its section is disabled, so /#posts was an
-               anchor to nothing — a nav item that silently does nothing when
+               anchor to nothing, a nav item that silently does nothing when
                clicked. Chess, Novel and Ideas still have pages of their own, but
                their home-page sections are off, so they come out too rather than
                being the only way in to something otherwise removed.
@@ -93,7 +93,7 @@
        See the `filter` block: a catalogue page emits it, everything else does
        not, so the home page and the blog still ship zero JavaScript.
 
-       Progressive enhancement in the strict sense — the box is created BY the
+       Progressive enhancement in the strict sense, the box is created BY the
        script, so a reader without JavaScript never sees a search field that
        cannot search. Filtering is done by toggling a class rather than by
        removing nodes, so nothing reflows into a different grid and going back

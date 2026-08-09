@@ -1,6 +1,6 @@
 {
   "_comment": [
-    "The watch list. THIS IS THE ONLY FILE TO EDIT — add {\"title\": \"...\"} and run",
+    "The watch list. THIS IS THE ONLY FILE TO EDIT, add {\"title\": \"...\"} and run",
     "  node scripts/fetch-titles.mjs",
     "which resolves the rest from Wikidata: the IMDb id, the year, the genres, and",
     "a title logo from Wikimedia Commons when a freely-licensed one exists.",
@@ -13,7 +13,7 @@
     "",
     "`rank` marks the ranked favourites (1, 2, 3); `anime = true` marks anime.",
     "Anything else is just on the list.",
-    "`tmdb_id` pins the poster when /find picks the wrong entry or has none —",
+    "`tmdb_id` pins the poster when /find picks the wrong entry or has none,",
     "The Chosen had a 2009 namesake, Tom and Jerry has no id to /find on at all.",
     "",
     "`movies` is the same shape and goes through the same script. Films almost",

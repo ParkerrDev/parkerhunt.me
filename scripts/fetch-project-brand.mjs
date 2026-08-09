@@ -2,14 +2,14 @@
 /**
  * Each project's own mark, taken from each project's own site.
  *
- *   site/content/projects/*.md          in   — website_url
+ *   site/content/projects/*.md          in , website_url
  *   site/static/imgs/project-brand/*.webp out
  *   `brand_image` written back into [extra]
  *
  * WHY NOT JUST DRAW FIVE ICONS. A band that claims to carry a project's
  * branding should carry the branding the project actually ships, not an
  * interpretation of it. The apple-touch-icon a site serves IS its mark, chosen
- * by whoever built it — which for all five of these was the same person, so
+ * by whoever built it, which for all five of these was the same person, so
  * pulling it is the difference between the page quoting him and paraphrasing
  * him.
  *
@@ -115,7 +115,7 @@ for (const f of readdirSync(DIR).filter((n) => n.endsWith(".md") && n !== "_inde
 
   if (!wrote) {
     const had = existsSync(join(OUT, `${slug}.webp`));
-    console.log(`  ${slug.padEnd(18)} no usable mark${had ? " — keeping the one already here" : ""}`);
+    console.log(`  ${slug.padEnd(18)} no usable mark${had ? ", keeping the one already here" : ""}`);
     if (!had) continue;
     kept++;
   } else {

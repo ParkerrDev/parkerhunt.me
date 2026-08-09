@@ -32,11 +32,11 @@ about a minute.
 
 | Published URL | Source file | For |
 |---|---|---|
-| `/AndrewHuntResume.pdf` | `AndrewHuntResume.pdf` | Humans. The pixel-exact Figma design. This is the URL the nav links and `/resume` embeds — it was already public, so the name is kept. |
+| `/AndrewHuntResume.pdf` | `AndrewHuntResume.pdf` | Humans. The pixel-exact Figma design. This is the URL the nav links and `/resume` embeds, it was already public, so the name is kept. |
 | `/AndrewHuntResume-ATS.pdf` | `resume-ats.pdf` | Machines. Single-column, parser-safe. Linked from the `/resume` fallback; use it for job-portal uploads. |
 
 `AndrewHuntResume.pdf` is **generated** by the resume repo's `build.mjs` (a copy
-of `resume.pdf`), not hand-maintained — that is what keeps the published résumé
+of `resume.pdf`), not hand-maintained, that is what keeps the published résumé
 from drifting from the repo. To publish the ATS layout under the plain name
 instead, flip the `PUBLISHED` constant in that repo's `build.mjs`.
 
@@ -46,12 +46,12 @@ instead, flip the `PUBLISHED` constant in that repo's `build.mjs`.
 |------|------|
 | `scripts/build-resume.mjs` | Copies the PDF artifacts out of a resume-repo checkout into `site/static/`, validating each one is a real, non-truncated PDF |
 | `build-zola.sh` | Clones the resume repo, runs the copier, then `zola build` |
-| `site/templates/resume.html` | The `/resume` page — a full-bleed `<object>` embed with a download fallback |
+| `site/templates/resume.html` | The `/resume` page, a full-bleed `<object>` embed with a download fallback |
 
 `site/static/AndrewHuntResume.pdf`, `site/static/AndrewHuntResume-ATS.pdf` and
-`_resume/` are git-ignored — they only exist during a build.
+`_resume/` are git-ignored, they only exist during a build.
 
-## How the build authenticates — already configured
+## How the build authenticates, already configured
 
 | Where | What |
 |---|---|
@@ -69,7 +69,7 @@ The variable holds the private key **base64-encoded**, because a Cloudflare buil
 variable is a single line and an OpenSSH key is not. `build-zola.sh` decodes it to
 a `mktemp` file, uses it for one clone, and deletes it.
 
-`build-zola.sh` pins GitHub's SSH host key rather than trusting on first use — the
+`build-zola.sh` pins GitHub's SSH host key rather than trusting on first use, the
 build machine is new every time, so TOFU would mean blindly accepting whatever
 answers on port 22, on every build. If GitHub ever rotates it, the current value
 is in `https://api.github.com/meta`.
@@ -93,7 +93,7 @@ gh api -X POST repos/ParkerrDev/resume/keys -f title=cloudflare-pages-parkerhunt
 
 ## Local build
 
-No credential needed — point the build at your local checkout:
+No credential needed, point the build at your local checkout:
 
 ```bash
 node scripts/build-resume.mjs ../resume site   # just the PDF copy step
@@ -102,8 +102,8 @@ RESUME_DIR=../resume ./build-zola.sh           # the whole build
 
 `RESUME_DIR` symlinks a local working copy in place of the clone;
 `build-resume.mjs` only reads from the source, so your checkout can't be
-modified. With neither a credential nor a directory the build still succeeds —
-`/resume` simply has no PDF — so the site builds standalone.
+modified. With neither a credential nor a directory the build still succeeds,
+`/resume` simply has no PDF, so the site builds standalone.
 
 ## Failure behaviour
 

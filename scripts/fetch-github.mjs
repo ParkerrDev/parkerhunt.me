@@ -13,7 +13,7 @@
  * Cloudflare. A rate-limited build is not a reason to fail a deploy, so on any
  * error this script leaves the committed snapshot in place, warns, and exits 0.
  * The page then shows the last known good list, which is a day or two stale at
- * worst — far better than a broken deploy or an empty section.
+ * worst, far better than a broken deploy or an empty section.
  *
  * That is the opposite of scripts/build-resume.mjs, which fails hard: a missing
  * résumé is a dead link on the one page whose whole job is to be handed to
@@ -62,7 +62,7 @@ const api = `https://api.github.com/users/${encodeURIComponent(
 )}/repos?per_page=100&sort=updated&type=owner`;
 
 function bail(reason) {
-  // Non-fatal by design — see the header comment.
+  // Non-fatal by design; see the header comment.
   console.warn(`WARNING: GitHub snapshot not refreshed (${reason}).`);
   if (existsSync(OUT)) {
     try {
@@ -72,7 +72,7 @@ function bail(reason) {
       console.warn("         Existing snapshot is unreadable.");
     }
   } else {
-    console.warn("         No snapshot on disk — the repo section will be empty.");
+    console.warn("         No snapshot on disk, the repo section will be empty.");
   }
   process.exit(0);
 }

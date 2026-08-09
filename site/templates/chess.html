@@ -4,7 +4,7 @@
 
 {% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{% endblock %}
 
-{# /chess/ — the full Chess.com record.
+{# /chess/, the full Chess.com record.
 
    Everything on this page comes from api.chess.com/pub, which is public, needs
    no key and is fetched at build time by scripts/fetch-chess.mjs. The island is
@@ -89,7 +89,7 @@
                only records HOW a game ended on the losing side. The winner's
                result is just "win", so "checkmate" or "timeout" always has to
                be read off the other player. #}
-            <p class="feed-foot">The opening is taken from each game's PGN. How a game ended is read off the losing side — Chess.com records the manner of defeat there and nowhere else.</p>
+            <p class="feed-foot">The opening is taken from each game's PGN. How a game ended is read off the losing side: Chess.com records the manner of defeat there and nowhere else.</p>
         </div>
     </section>
     {% endif %}

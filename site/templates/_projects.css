@@ -13,7 +13,7 @@
    Worse was the stack above the title: a brand plate and a hostname on one row,
    then a numbered circle and a year on another, then the title, then a coloured
    underline, then a tagline, then a paragraph. Six things to get past before
-   anything said what the project IS — and the hostname at the top was the same
+   anything said what the project IS, and the hostname at the top was the same
    string as the button at the bottom.
 
    So: one bounded card per project, the accent as a single soft wash in one
@@ -32,7 +32,7 @@
 
 .proj {
   --pa: var(--accent);   /* the project's colour, sampled from its own card art */
-  --pi: #fff;            /* text that reads on it — computed, see project-accents.mjs */
+  --pi: #fff;            /* text that reads on it, computed, see project-accents.mjs */
 }
 
 .proj-card {
@@ -109,7 +109,7 @@
   font-size: 0.9375rem; font-weight: 600; text-decoration: none;
   padding: 0.5rem 0.9375rem; border-radius: 999px;
   /* The one place the accent carries text, so the ink is computed rather than
-     assumed — black on AppIt's yellow-green, white on Pocklet's violet.
+     assumed, black on AppIt's yellow-green, white on Pocklet's violet.
      Assuming either would have failed one of them badly (white on #ccdc48 is
      1.5:1). Both values come from the front matter. */
   background: var(--pa);

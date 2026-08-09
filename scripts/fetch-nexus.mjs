@@ -3,8 +3,8 @@
  * Snapshot a Nexus Mods author's profile and published mods into
  * site/data/nexus.json.
  *
- * Nexus Mods' v2 GraphQL router answers both of these queries unauthenticated —
- * the same two their own profile page fires — so no API key is needed and
+ * Nexus Mods' v2 GraphQL router answers both of these queries unauthenticated,
+ * the same two their own profile page fires, so no API key is needed and
  * nothing here touches an account:
  *
  *   POST https://api-router.nexusmods.com/graphql
@@ -12,8 +12,8 @@
  *   userByName(name: <handle>)         { kudos views uniqueModDownloads ... }
  *
  * TWO KINDS OF DOWNLOAD NUMBER, AND THEY DISAGREE ON PURPOSE. `totals.downloads`
- * is the sum of every mod's download count — 18,536. `profile.unique_downloads`
- * is what Nexus itself puts on the profile page — 15,612 — and counts each
+ * is the sum of every mod's download count: 18,536. `profile.unique_downloads`
+ * is what Nexus itself puts on the profile page (15,612) and counts each
  * person once no matter how many of the five mods they took. Neither is wrong
  * and neither is the other; label them separately or the section quietly claims
  * a number that is not on Nexus.
@@ -21,12 +21,12 @@
  * THE AVATAR needs cwebp, so it only refreshes on a local run. Nexus serves it
  * at 100px and 19 KB; re-encoding gets that to about 2.5 KB for a picture that
  * renders at 56 CSS px. On the Cloudflare builder there is no cwebp, the
- * download is skipped, and the committed file stays — same fail-soft rule as
+ * download is skipped, and the committed file stays, same fail-soft rule as
  * everything else here.
  *
  * Usage:  node scripts/fetch-nexus.mjs [uploaderId] [out]
  *
- * FAILS SOFT — see scripts/fetch-github.mjs.
+ * FAILS SOFT; see scripts/fetch-github.mjs.
  */
 
 import { writeFileSync, existsSync, mkdirSync, unlinkSync, statSync, readdirSync } from "node:fs";
@@ -62,7 +62,7 @@ const QUERY = `query AuthorMods($filter: ModsFilter, $count: Int) {
 
 /* Everything the profile page shows in its hero, and nothing it does not: no
    email, no 2FA state, no moderation history. Those fields exist on the type
-   and are only populated for the signed-in user anyway — asking for them would
+   and are only populated for the signed-in user anyway, asking for them would
    return nulls and make this look like it wanted them. */
 const PROFILE = `query UserByName($name: String!) {
   userByName(name: $name) {
@@ -78,7 +78,7 @@ function bail(reason) {
   console.warn(
     existsSync(OUT)
       ? "         Keeping the committed snapshot."
-      : "         No snapshot on disk — the mods section will be hidden."
+      : "         No snapshot on disk, the mods section will be hidden."
   );
   process.exit(0);
 }
@@ -146,7 +146,7 @@ const totals = mods.reduce(
 const author = nodes[0]?.uploader?.name || "hydronautica";
 
 /* The profile is a bonus, not a requirement. If this second call fails the mods
-   still publish — the island just renders without the hero, which the template
+   still publish, the island just renders without the hero, which the template
    already guards for. Do NOT promote this to a bail(). */
 let profile = null;
 try {
@@ -174,14 +174,14 @@ try {
 }
 
 /* The avatar, re-encoded and served from this origin like every other image on
-   the site. Nexus only ever returns 100×100 here — asking for /200 or /400
-   silently hands back the grey placeholder mark, not a bigger picture — so
+   the site. Nexus only ever returns 100×100 here, asking for /200 or /400
+   silently hands back the grey placeholder mark, not a bigger picture, so
    there is no retina version to fetch and no point looking for one.
  *
  * THE FILENAME CARRIES A HASH OF THE BYTES, and that is not decoration. _headers
  * serves /imgs/* with `immutable, max-age=31536000`, so a picture that changes
  * while keeping its name is one every returning visitor holds for a year. That
- * has already happened once here — see the note in scripts/build-map.mjs about
+ * has already happened once here; see the note in scripts/build-map.mjs about
  * two states that were filled in the file and invisible in the browser. Change
  * the avatar on Nexus, get a new filename, get a new download. */
 function existingAvatar() {
@@ -198,7 +198,7 @@ if (profile?.avatar_source) {
     haveCwebp = false;
   }
   if (!haveCwebp) {
-    console.warn("         cwebp not found — keeping the committed avatar.");
+    console.warn("         cwebp not found, keeping the committed avatar.");
   } else {
     try {
       const res = await fetch(profile.avatar_source, {

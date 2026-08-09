@@ -1,6 +1,6 @@
 {
   "_comment": [
-    "States visited. Two-letter USPS codes, any order — the map script sorts",
+    "States visited. Two-letter USPS codes, any order, the map script sorts",
     "and de-duplicates. This is the ONLY place to edit; scripts/build-map.mjs",
     "reads it, paints site/static/imgs/us-visited.svg and writes the legend data",
     "to site/data/travel-map.json.",

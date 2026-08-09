@@ -11,7 +11,7 @@
  * TWO SOURCES, TWO DIFFERENT SITUATIONS
  *
  * The mountain photographs come from Wikimedia Commons and are freely licensed
- * — CC BY or CC BY-SA — which is not the same as free of obligations. Every one
+ * (CC BY or CC BY-SA) which is not the same as free of obligations. Every one
  * of those licences REQUIRES attribution, so the author, the licence and a link
  * back to the file page are pulled from the API alongside the image and land in
  * media.json. The template renders them. Do not drop the credit line; that is
@@ -44,11 +44,11 @@ const UA = {
 };
 
 /* The summits, in the order they were climbed. `file` is the exact Commons
-   filename — pinned, see above.
+   filename, pinned, see above.
 
    `latlon` puts each one on the map in scripts/build-map.mjs. Written down
    rather than looked up because there are three of them, they are summits, and
-   a summit does not move — a Wikidata round trip per build to be told Half
+   a summit does not move, a Wikidata round trip per build to be told Half
    Dome is still where it was would be a request for nothing. */
 const PEAKS = [
   {
@@ -81,7 +81,7 @@ const PEAKS = [
 ];
 
 /* Open Library cover ids, pinned to the edition. Resolved once by searching
-   Open Library and taking the match with the most editions, then written down —
+   Open Library and taking the match with the most editions, then written down,
    searching at build time would let the jackets change under the site. A book
    with no id here simply gets a text tile on the shelf, which is the right
    failure: a shelf with one blank rectangle on it is fine. */
@@ -194,7 +194,7 @@ for (const p of PEAKS) {
      1400px landscape to show it 370px wide. */
   const out = { ...p, ...credit, art: {} };
   delete out.file;
-  /* Flattened to lat/lon so a summit is the same shape as a place — see
+  /* Flattened to lat/lon so a summit is the same shape as a place; see
      site/data/been.json. scripts/build-map.mjs pins all three lists with one
      function because of it. */
   if (Array.isArray(p.latlon)) {

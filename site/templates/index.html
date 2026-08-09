@@ -8,13 +8,13 @@
    A template gets one block of a given name; a second definition is not merged,
    it is ignored. The project cards were added here with their own css_extra
    further down the file and this one silently won, so /projects/ had the card
-   styles and the home page rendered the same markup completely unstyled —
+   styles and the home page rendered the same markup completely unstyled,
    full-width images, chips as a bulleted list, the lot. Anything new goes IN
    here, not next to it. #}
 {% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{{ load_data(path="templates/_projects.css", format="plain") | safe }}
   /* The booking button. Home page only, so it rides here rather than in the
      stylesheet that is inlined into all fifteen pages. */
-  /* justify-content: center to match .links directly above it — without it the
+  /* justify-content: center to match .links directly above it, without it the
      button sat hard left under a centred name, a centred lede and a centred row
      of icons. */
   .booking { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.875rem; }
@@ -29,7 +29,13 @@
   .book:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .book .bi { width: 1rem; height: 1rem; }
   .book-x { font-size: 0.75rem; opacity: 0.7; }
-  .book-note { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); }
+  /* The destination lives inside the button now, divided off rather than
+     floating beside it as a caption nobody associated with the button. */
+  .book-host {
+    font-family: var(--mono); font-size: 0.6875rem; opacity: 0.72;
+    padding-left: 0.5rem; margin-left: 0.125rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.28);
+  }
 {% endblock %}
 
 {% block title %}Parker Hunt{% endblock %}
@@ -40,12 +46,12 @@
    lives here in full.
 
    Every section below is wrapped in a length check on its data, so a section
-   with nothing in it does not render at all — no empty headings, no "coming
+   with nothing in it does not render at all, no empty headings, no "coming
    soon". Fill in site/data/me.toml and the sections appear. #}
 {% set me = load_data(path="data/me.toml") %}
 {% set gh = load_data(path="data/github.json") %}
 {% set feeds = load_data(path="data/feeds.toml") %}
-{# The X PROFILE, live. Not the posts — the account is protected, so there is no
+{# The X PROFILE, live. Not the posts, the account is protected, so there is no
    public timeline to read at any price; scripts/fetch-x.mjs spells out every
    route that was tried and why each is closed. The posts below stay
    hand-written in feeds.toml, and this card says so rather than leaving a gap
@@ -53,7 +59,7 @@
 {% set xd = load_data(path="data/x.json") %}
 {# Four build-time snapshots of four real accounts. Every one of them is written
    by a script in scripts/ that fails soft, so a third party being down or slow
-   never fails a deploy — it just leaves the last snapshot in place. Nothing
+   never fails a deploy, it just leaves the last snapshot in place. Nothing
    below contacts steampowered.com, chess.com, duolingo.com or nexusmods.com
    when the page loads; the numbers, the prices and even the capsule art are all
    served from this origin. #}
@@ -63,16 +69,16 @@
 {% set nexus = load_data(path="data/nexus.json") %}
 {% set games = load_data(path="data/games.toml") %}
 {# Durations that would be wrong tomorrow if they were typed. See
-   scripts/build-stamps.mjs — the anchor date is stored, the elapsed years,
+   scripts/build-stamps.mjs, the anchor date is stored, the elapsed years,
    months and days are recomputed on every deploy. #}
 {% set stamps = load_data(path="data/stamps.json") %}
 {# Summit photographs (Wikimedia Commons, CC BY / CC BY-SA) and book jackets,
    both downloaded and converted to WebP by scripts/fetch-media.mjs. The
-   credit line under the photographs is not decoration — those licences
+   credit line under the photographs is not decoration, those licences
    require attribution. #}
 {% set media = load_data(path="data/media.json") %}
-{# The visited-states map. The SVG itself is a separate file — 44 KB of path
-   data would have doubled this page — so this only carries the legend. See
+{# The visited-states map. The SVG itself is a separate file: 44 KB of path
+   data would have doubled this page, so this only carries the legend. See
    scripts/build-map.mjs. #}
 {% set travel = load_data(path="data/travel-map.json") %}
 {# Places, with photographs from Wikimedia Commons. Add one line to
@@ -86,14 +92,14 @@
    not carry. Licences and credits are in the file; see scripts/fetch-logos.mjs. #}
 {% set logos = load_data(path="data/logos.json") %}
 {# The businesses' own logos, taken from their own site icons. See
-   scripts/fetch-brands.mjs — this is where Starbucks' siren and Chipotle's
+   scripts/fetch-brands.mjs, this is where Starbucks' siren and Chipotle's
    pepper come from, neither of which exists under a free licence anywhere. #}
 {% set brands = load_data(path="data/brands.json") %}
 {# The watch list, resolved against Wikidata: IMDb ids, years, genres, and a
    free title logo where Commons has one. See scripts/fetch-titles.mjs. #}
 {% set titles = load_data(path="data/titles.json") %}
 {# Quotes, shuffled per build. GENERATED from me.toml by scripts/build-shuffle.mjs
-   — edit me.toml, never quotes.json. Tera cannot randomise, so the randomising
+ , edit me.toml, never quotes.json. Tera cannot randomise, so the randomising
    happens to the data before the template runs. #}
 {% set qd = load_data(path="data/quotes.json") %}
 
@@ -101,7 +107,7 @@
     <div class="wrap hero-in">
         {# Centred, like the old parkerhunt.me: photo, name, one line, icons.
            The rotating strip of facts that used to sit under the name is gone
-           and so are the fact pills — a stack of seven grey lozenges reading
+           and so are the fact pills, a stack of seven grey lozenges reading
            "student", "Half Dome at 6" was a wall of text pretending to be a
            design. Those facts are now tiles further down, where you find them
            instead of being handed them. #}
@@ -134,22 +140,22 @@
                putting it in among eight identical icons was the fastest way to
                make sure nobody did it.
 
-               Still a link and not Cal's embed — that ships a script which injects
+               Still a link and not Cal's embed, that ships a script which injects
                an iframe from cal.com, which would put a third party on the one
                page that has none and hand over every visitor's IP whether or not
                they ever booked. #}
             {% if me.cal_url %}
             <div class="booking">
-                {# No mark on the button. Cal's Simple Icon is a WORDMARK — the
-                   letters "Cal.com" drawn as paths — and at the 16px a button
+                {# No mark on the button. Cal's Simple Icon is a WORDMARK, the
+                   letters "Cal.com" drawn as paths, and at the 16px a button
                    affords it reads as a grey smudge rather than as a logo. The
                    label says what the button does and the note says where it
                    goes, which is what the mark was there to do. #}
                 <a class="book" href="{{ me.cal_url }}" target="_blank" rel="noopener">
                     <span>{{ me.cal_label | default(value="Book an appointment") }}</span>
+                    <span class="book-host">cal.com</span>
                     <span class="book-x" aria-hidden="true">↗</span>
                 </a>
-                <span class="book-note">cal.com</span>
             </div>
             {% endif %}
         </div>
@@ -160,7 +166,7 @@
 
     {# -------------------------------------------------------------- now -- #}
     {# What is actually happening this month, at the top where it belongs.
-       Edit [now] in site/data/me.toml — and move `updated` when you do, because
+       Edit [now] in site/data/me.toml, and move `updated` when you do, because
        a "now" that is a year old is worse than no now at all. #}
     {% if me.now.line %}
     <section id="now" style="padding-top:0">
@@ -189,7 +195,7 @@
             </div>
         </div>
 
-        {# Bands, not tiles — the same macro /projects/ uses, so the two pages
+        {# Bands, not tiles, the same macro /projects/ uses, so the two pages
            cannot drift. Each carries its own accent and its own mark, both
            derived rather than chosen: see scripts/project-accents.mjs and
            scripts/fetch-project-brand.mjs. Outside .wrap on purpose, so a band's
@@ -201,8 +207,8 @@
     </section>
 
     {# ------------------------------------------------------------- code -- #}
-    {# Rebuilt in GitHub's own visual language — its palette, its metrics, its
-       language dots — but rendered from a JSON snapshot taken at build time.
+    {# Rebuilt in GitHub's own visual language, its palette, its metrics, its
+       language dots, but rendered from a JSON snapshot taken at build time.
        Nothing here talks to github.com when you load the page. #}
     {% if gh.repos | length > 0 %}
     <section id="code">
@@ -246,7 +252,7 @@
 
     {# ------------------------------------------------------------ posts -- #}
     {% if feeds.x.post | length > 0 or xd.profile %}
-{# DISABLED — asked to be taken down, kept rather than deleted so it can come
+{# DISABLED, asked to be taken down, kept rather than deleted so it can come
    back as one edit.
 
    Wrapped in `if false` rather than commented out, because these blocks contain
@@ -261,7 +267,7 @@
         <div class="wrap">
             <div class="head">
                 <h2>Posts</h2>
-                <p>Rebuilt, not embedded — no third-party scripts, no tracking pixels, no iframes.</p>
+                <p>Rebuilt, not embedded, no third-party scripts, no tracking pixels, no iframes.</p>
                 <a class="more" href="{{ xd.profile.url | default(value=feeds.x.url) }}" target="_blank" rel="noopener">@{{ xd.profile.handle | default(value=feeds.x.handle) }} →</a>
             </div>
 
@@ -330,8 +336,8 @@
             {% set_global x_sample = false %}
             {% for p in feeds.x.post %}{% if p.sample %}{% set_global x_sample = true %}{% endif %}{% endfor %}
             <p class="feed-foot">
-                {% if x_sample %}<b>Placeholder content</b> — replace in <code>site/data/feeds.toml</code>. {% endif -%}
-                {%- if xd.profile.protected %}The account is protected, so the posts here are chosen and copied by hand: a protected timeline is not readable by the API at any price tier, by the embed widget, or by anything else — and republishing it automatically would defeat the point of protecting it. The profile above is live. {% endif -%}
+                {% if x_sample %}<b>Placeholder content</b>, replace in <code>site/data/feeds.toml</code>. {% endif -%}
+                {%- if xd.profile.protected %}The account is protected, so the posts here are chosen and copied by hand: a protected timeline is not readable by the API at any price tier, by the embed widget, or by anything else, and republishing it automatically would defeat the point of protecting it. The profile above is live. {% endif -%}
                 On X for {{ stamps.x.phrase }}.
             </p>
         </div>
@@ -448,7 +454,7 @@
         </div>
 
         <div class="wrap">
-            <p class="feed-foot">Playtime is pinned by hand — the profile is private, so there is no public endpoint for it. Prices come from Steam's public store API and were checked {{ steam.fetched }}. <a href="/games/">The whole library and wishlist →</a></p>
+            <p class="feed-foot">Playtime is pinned by hand, the profile is private, so there is no public endpoint for it. Prices come from Steam's public store API and were checked {{ steam.fetched }}. <a href="/games/">The whole library and wishlist →</a></p>
         </div>
     </section>
     {% endif %}
@@ -456,7 +462,7 @@
     {# -------------------------------------------------------------- mods -- #}
     {# Below the games on purpose: every one of these is a Subnautica mod, and
        Subnautica is the game at the top of the list directly above. #}
-{# DISABLED — asked to be taken down, kept rather than deleted so it can come
+{# DISABLED, asked to be taken down, kept rather than deleted so it can come
    back as one edit.
 
    Wrapped in `if false` rather than commented out, because these blocks contain
@@ -491,7 +497,7 @@
     {% endif %}
 
     {# ------------------------------------------------------------ chess -- #}
-{# DISABLED — asked to be taken down, kept rather than deleted so it can come
+{# DISABLED, asked to be taken down, kept rather than deleted so it can come
    back as one edit.
 
    Wrapped in `if false` rather than commented out, because these blocks contain
@@ -523,7 +529,7 @@
 
 
     {# --------------------------------------------------------- learning -- #}
-{# DISABLED — asked to be taken down, kept rather than deleted so it can come
+{# DISABLED, asked to be taken down, kept rather than deleted so it can come
    back as one edit.
 
    Wrapped in `if false` rather than commented out, because these blocks contain
@@ -563,7 +569,7 @@
                 {# An <img>, not inline SVG: the paths are 52 KB and this page is
                    40. As a file it caches for a year under the /imgs/* rule in
                    _headers and costs the HTML nothing. The cost is that an
-                   <img> SVG is a static picture — no per-state hover — so the
+                   <img> SVG is a static picture (no per-state hover) so the
                    names are real text beside it, which a screen reader prefers
                    to a tooltip anyway.
 
@@ -573,7 +579,7 @@
                    through the same Albers projection the state outlines are
                    drawn in. See DATA.md. #}
                 <img class="map" src="{{ travel.map }}" width="975" height="610"
-                     alt="Map of the United States with {{ travel.count }} states filled in — {{ travel.visited | map(attribute='name') | join(sep=', ') }} — and {{ travel.pins }} places pinned"
+                     alt="Map of the United States with {{ travel.count }} states filled in ({{ travel.visited | map(attribute='name') | join(sep=', ') }}) and {{ travel.pins }} places pinned"
                      loading="lazy" decoding="async">
                 <div>
                     <p class="map-key">
@@ -595,7 +601,7 @@
         <p class="wrap kicker" style="margin-top:1.25rem">{{ been.count }} places, {{ been.places_with_photo }} of them photographed</p>
         {# A rail rather than a grid of thirty: the tiles are the point, not the
            height of the section. Photographs are Commons, CC BY / CC BY-SA /
-           public domain, credited under the rail — those licences require it. #}
+           public domain, credited under the rail, those licences require it. #}
         <div class="rail">
             <div class="rail-track">
                 {% for pl in been.places %}
@@ -612,10 +618,10 @@
             </div>
         </div>
         <div class="wrap">
-            <p class="credit">Photographs from Wikimedia Commons under CC BY, CC BY-SA or public domain — {% for pl in been.places %}{% if pl.photo and pl.photo.credit_required %}<a href="{{ pl.photo.source }}" target="_blank" rel="noopener">{{ pl.name }}</a> {{ pl.photo.author }}; {% endif %}{% endfor %}the rest are public domain.</p>
+            <p class="credit">Photographs from Wikimedia Commons under CC BY, CC BY-SA or public domain, {% for pl in been.places %}{% if pl.photo and pl.photo.credit_required %}<a href="{{ pl.photo.source }}" target="_blank" rel="noopener">{{ pl.name }}</a> {{ pl.photo.author }}; {% endif %}{% endfor %}the rest are public domain.</p>
             {% if been.places | filter(attribute="note") | length > 0 %}
             <ul class="distro-notes" style="margin-top:0.5rem">
-                {% for pl in been.places %}{% if pl.note %}<li><b>{{ pl.name }}</b> — {{ pl.note }}</li>{% endif %}{% endfor %}
+                {% for pl in been.places %}{% if pl.note %}<li><b>{{ pl.name }}</b>, {{ pl.note }}</li>{% endif %}{% endfor %}
             </ul>
             {% endif %}
         </div>
@@ -629,7 +635,7 @@
         <div class="wrap">
             {% set_global bucket_done = 0 %}
             {% for b in me.bucket %}{% if b.done %}{% set_global bucket_done = bucket_done + 1 %}{% endif %}{% endfor %}
-            <div class="head"><h2>Bucket list</h2><p>Struck through means done — {{ bucket_done }} of {{ me.bucket | length }}. The easy ones were the mountains.</p></div>
+            <div class="head"><h2>Bucket list</h2><p>Struck through means done, {{ bucket_done }} of {{ me.bucket | length }}. The easy ones were the mountains.</p></div>
             <div class="bento">
                 {% for b in me.bucket %}
                 <div class="tile-s2{% if b.done %} row--done{% endif %}">
@@ -644,8 +650,8 @@
     {% endif %}
 
     {# ------------------------------------------------------------ skied -- #}
-    {# Same pipeline as the places above — a ski resort is a place with a
-       photograph — but its own section, because a list of twelve resorts is a
+    {# Same pipeline as the places above, a ski resort is a place with a
+       photograph, but its own section, because a list of twelve resorts is a
        different thing from a list of towns. #}
     {% if been.skiing | length > 0 %}
     <section id="skied">
@@ -673,9 +679,9 @@
         </div>
         <div class="wrap">
             <ul class="distro-notes" style="margin-top:0.75rem">
-                {% for r in been.skiing %}{% if r.note %}<li><b>{{ r.name }}</b> — {{ r.note }}</li>{% endif %}{% endfor %}
+                {% for r in been.skiing %}{% if r.note %}<li><b>{{ r.name }}</b>, {{ r.note }}</li>{% endif %}{% endfor %}
             </ul>
-            <p class="credit">Photographs from Wikimedia Commons — {% for r in been.skiing %}{% if r.photo and r.photo.credit_required %}<a href="{{ r.photo.source }}" target="_blank" rel="noopener">{{ r.name }}</a> {{ r.photo.author }}; {% endif %}{% endfor %}the rest public domain.</p>
+            <p class="credit">Photographs from Wikimedia Commons, {% for r in been.skiing %}{% if r.photo and r.photo.credit_required %}<a href="{{ r.photo.source }}" target="_blank" rel="noopener">{{ r.name }}</a> {{ r.photo.author }}; {% endif %}{% endfor %}the rest public domain.</p>
         </div>
     </section>
     {% endif %}
@@ -689,7 +695,7 @@
         <div class="wrap">
             <div class="head">
                 <h2>Summits</h2>
-                <p>Half Dome at six, El Capitan at eight, Mt. Whitney at thirteen — that one in a thunderstorm.</p>
+                <p>Half Dome at six, El Capitan at eight, Mt. Whitney at thirteen, that one in a thunderstorm.</p>
             </div>
             <div class="bento bento--lg">
                 {% for k in media.peaks %}
@@ -736,7 +742,7 @@
             {% for d in me.distro %}{% if d.note %}{% set_global has_notes = true %}{% endif %}{% endfor %}
             {% if has_notes %}
             <ul class="distro-notes">
-                {% for d in me.distro %}{% if d.note %}<li><b>{{ d.name }}</b> — {{ d.note }}</li>{% endif %}{% endfor %}
+                {% for d in me.distro %}{% if d.note %}<li><b>{{ d.name }}</b>, {{ d.note }}</li>{% endif %}{% endfor %}
             </ul>
             {% endif %}
         </div>
@@ -744,7 +750,7 @@
     {% endif %}
 
     {# ------------------------------------------------------------ ideas -- #}
-{# DISABLED — asked to be taken down, kept rather than deleted so it can come
+{# DISABLED, asked to be taken down, kept rather than deleted so it can come
    back as one edit.
 
    Wrapped in `if false` rather than commented out, because these blocks contain
@@ -782,7 +788,7 @@
        which put a novel next to a list of books somebody else wrote. #}
     {% if me.books_mine | length > 0 %}
     {% set nv = me.books_mine | first %}
-{# DISABLED — asked to be taken down, kept rather than deleted so it can come
+{# DISABLED, asked to be taken down, kept rather than deleted so it can come
    back as one edit.
 
    Wrapped in `if false` rather than commented out, because these blocks contain
@@ -808,7 +814,7 @@
     {% endif %}
 
     {# ----------------------------------------------------------- quotes -- #}
-    {# Order is randomised per build — see scripts/build-shuffle.mjs. Tera has
+    {# Order is randomised per build; see scripts/build-shuffle.mjs. Tera has
        no way to shuffle, so the shuffling happens to the data before the
        template sees it, and quotes.json is the generated result. Edit me.toml. #}
     {% if qd.quotes | length > 0 %}
@@ -832,7 +838,7 @@
                 {% for q in qd.quotes | slice(start=(row - 1) * per_row, end=row * per_row) %}
                 <figure class="quote" style="width:22rem;flex:none;margin:0">
                     <p>{{ q.text }}</p>
-                    <footer>— {{ q.who }}</footer>
+                    <footer>, {{ q.who }}</footer>
                 </figure>
                 {% endfor %}
                 </span>
@@ -873,7 +879,7 @@
     {% endif %}
 
     {# --------------------------------------------------------- watching -- #}
-    {# Two rows, always — a third row of anything is a wall, not a shelf. The
+    {# Two rows, always, a third row of anything is a wall, not a shelf. The
        order is randomised per build so the two rows are not the same eighteen
        shows every time; see scripts/build-shuffle.mjs. #}
     {% if titles.shows | length > 0 %}
@@ -882,7 +888,7 @@
         <div class="wrap">
             <div class="head">
                 <h2>TV shows</h2>
-                <p>Every TV show I have ever watched — all {{ titles.count }} of them, shuffled. Every card links to IMDb.</p>
+                <p>Every TV show I have ever watched, all {{ titles.count }} of them, shuffled. Every card links to IMDb.</p>
                 <a class="more" href="/watching/">All of them →</a>
             </div>
         </div>
@@ -905,7 +911,7 @@
     {# ------------------------------------------------------ fav TV shows -- #}
     {# A grid, not a marquee: a favourite that scrolls away is not being
        treated as a favourite. Shows and anime are two labelled groups in one
-       section rather than two sections — they were given as two lists and
+       section rather than two sections, they were given as two lists and
        me.toml already keeps [[anime]] separate, but four posters do not need
        two headings between them.
 
@@ -914,7 +920,7 @@
        hand the ordering to whatever the per-build shuffle did, and a favourites
        list that reshuffles itself is a ranking that means nothing. #}
     {% set_global fav_tv_n = 0 %}
-    {% for w in titles.shows %}{% if w.title in me.favourite_shows or w.title in me.favourite_anime %}{% set_global fav_tv_n = fav_tv_n + 1 %}{% endif %}{% endfor %}
+    {% for w in titles.shows %}{% if w.title in me.favourite_shows %}{% set_global fav_tv_n = fav_tv_n + 1 %}{% endif %}{% endfor %}
     {% if fav_tv_n > 0 %}
     <section id="fav-tv">
         <div class="wrap">
@@ -923,17 +929,13 @@
                 <p>{{ fav_tv_n }} of the {{ titles.count }}. The ones I would put on again.</p>
             </div>
             {% if me.favourite_shows | length > 0 %}
-            <p class="fav-k">Shows</p>
-            <div class="favs" style="margin-bottom:1.25rem">
+            <div class="favs">
                 {% for name in me.favourite_shows %}{% for w in titles.shows %}{% if w.title == name %}{{ isle::poster(w=w, size="sm") }}{% endif %}{% endfor %}{% endfor %}
             </div>
             {% endif %}
-            {% if me.favourite_anime | length > 0 %}
-            <p class="fav-k">Anime</p>
-            <div class="favs">
-                {% for name in me.favourite_anime %}{% for w in titles.shows %}{% if w.title == name %}{{ isle::poster(w=w, size="sm") }}{% endif %}{% endfor %}{% endfor %}
-            </div>
-            {% endif %}
+            {# Anime group removed. me.favourite_anime is left in me.toml so the
+               list is not lost; nothing reads it now, and the count above
+               already stopped counting it. #}
         </div>
     </section>
     {% endif %}
@@ -941,14 +943,14 @@
     {# ----------------------------------------------------------- movies -- #}
     {# Split out of Watching, because a film and a series are not the same
        thing and a list mixing them reads as neither. Two rows, like everything
-       else — it was three, and three rows of ninety-two posters is a wall.
+       else, it was three, and three rows of ninety-two posters is a wall.
        Shuffled per build, so which half you see is not always the same half. #}
     {% if titles.movies | length > 0 %}
     {# A SAMPLE, not the lot. All 333 are on /movies/ with a search box; putting
        them all here put 668 poster cards in the HTML (the marquee prints each
        row twice so the track can loop seamlessly), took the page from 36 KB to
        46 KB, and made a row 21,000px long that had to move at 228 px/s to get
-       round in the time allowed — which is not a shelf, it is a blur.
+       round in the time allowed, which is not a shelf, it is a blur.
 
        Sixty is two comfortable rows. The per-build shuffle means it is a
        different sixty every time, which is the good version of this: the home
@@ -959,7 +961,7 @@
         <div class="wrap">
             <div class="head">
                 <h2>Movies</h2>
-                <p>Every film I have ever watched — {{ titles.movie_count }} of them. {{ sample | length }} at random below; the rest are one click away.</p>
+                <p>Every film I have ever watched, {{ titles.movie_count }} of them. {{ sample | length }} at random below; the rest are one click away.</p>
                 <a class="more" href="/movies/">All of them →</a>
             </div>
         </div>
@@ -985,7 +987,7 @@
     {# -------------------------------------------------------- fav films -- #}
     {# A grid, not a marquee: a favourite that scrolls away is not being treated
        as a favourite. Membership is `favourite_films` in me.toml, matched on
-       exact title — see the note there. #}
+       exact title; see the note there. #}
     {% set_global fav_film_n = 0 %}
     {% for m in titles.movies %}{% if m.title in me.favourite_films %}{% set_global fav_film_n = fav_film_n + 1 %}{% endif %}{% endfor %}
     {% if fav_film_n > 0 %}

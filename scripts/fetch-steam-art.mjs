@@ -15,7 +15,7 @@
  *
  * 268px wide is deliberate: the rows render the capsule at ~134 CSS px, so this
  * is exactly 2x for retina and nothing more. At q70 that lands around 4 KB a
- * game — the whole 100-game set is smaller than one uncompressed screenshot.
+ * game, the whole 100-game set is smaller than one uncompressed screenshot.
  *
  * Usage:  node scripts/fetch-steam-art.mjs [snapshot] [outDir]
  * Needs:  cwebp  (brew install webp)
@@ -43,8 +43,8 @@ try {
   process.exit(1);
 }
 
-/* by_appid is every game in the snapshot — owned, wishlisted and the
-   played-elsewhere extras — so it is the only list to walk. */
+/* by_appid is every game in the snapshot, owned, wishlisted and the
+   played-elsewhere extras, so it is the only list to walk. */
 const snap = JSON.parse(readFileSync(SNAP, "utf8"));
 const jobs = Object.values(snap.by_appid || {});
 
@@ -117,7 +117,7 @@ const bytes = jobs.reduce((n, a) => {
 }, 0);
 
 console.log(
-  `Steam art: ${written} written, ${skipped} already present, ${failed.length} failed — ` +
+  `Steam art: ${written} written, ${skipped} already present, ${failed.length} failed: ` +
     `${(bytes / 1024).toFixed(0)} KB total for ${jobs.length} games`
 );
 

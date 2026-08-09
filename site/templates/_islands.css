@@ -1,13 +1,13 @@
-/* parkerhunt.me — the brand islands.
+/* parkerhunt.me, the brand islands.
  *
  * Loaded ONLY by the three templates that mount an island: index.html,
  * games.html and chess.html. It is inlined into their <head> the same way
- * _style.css is, so those pages still paint in exactly one request — but
+ * _style.css is, so those pages still paint in exactly one request, but
  * /blog/, /quotes/, /ideas/, /projects/ and /resume/ no longer carry 13 KB of
  * GitHub, Steam and Chess.com palettes they will never use.
  *
  * ADDING AN ISLAND? Put its CSS here, not in _style.css, and make sure the
- * template that renders it emits the css_extra block — see base.html. A page
+ * template that renders it emits the css_extra block; see base.html. A page
  * that forgets will render the island unstyled rather than fail the build.
  *
  * Each feed below is rebuilt in its own platform's visual language, using that
@@ -25,13 +25,13 @@
  * Duolingo are light because their light themes are the default ones people
  * see; Steam, Chess.com and Nexus Mods are dark because those three products
  * are dark and have never been anything else. Do not add a prefers-color-scheme
- * block to any of them — the shell is light-only now, and a card that flips
+ * block to any of them, the shell is light-only now, and a card that flips
  * with the OS would be the only thing on the page that does.
  */
 
 /* ----------------------------------------------------------------- panel -- */
 /* Everything .feed gives an island except the scroll pane. Used for the ones
-   that are short enough to show whole — an inner scrollbar on a five-row card
+   that are short enough to show whole, an inner scrollbar on a five-row card
    is a scrollbar for its own sake. overflow:hidden is what clips a brand's
    dark background to the corner radius. */
 .panel {
@@ -41,7 +41,7 @@
 
 
 /* Scroll panes. overscroll-behavior:contain stops the page from continuing to
-   scroll once the feed hits its end — without it an inner scroller on a phone
+   scroll once the feed hits its end, without it an inner scroller on a phone
    is a trap you have to swipe around. */
 .feed {
   max-height: 30rem; overflow-y: auto; overscroll-behavior: contain;
@@ -95,7 +95,7 @@
 .tweet-handle, .tweet-time { color: var(--x-dim); }
 /* Paragraphs, not newlines-plus-pre-wrap. The HTML minifier collapses runs of
    whitespace inside normal elements, so a post written with "\n" in it would
-   arrive as one long line — and pre-wrap would then also render the template's
+   arrive as one long line, and pre-wrap would then also render the template's
    own indentation as visible space. Real <p> elements survive both. */
 .tweet-body { margin: 0.125rem 0 0; font-size: 0.9375rem; line-height: 1.25rem; overflow-wrap: anywhere; }
 .tweet-body p { margin: 0 0 0.75em; }
@@ -108,7 +108,7 @@
 
 /* ------------------------------------------------------------------ rail -- */
 /* A horizontal scroller for the posts. Deliberately not a .marquee: a marquee
-   is for things you glance at, and a post is something you read — text that
+   is for things you glance at, and a post is something you read, text that
    slides out from under you mid-sentence is worse than no motion at all.
 
    scroll-snap-align on each card means a swipe lands on a post rather than
@@ -232,12 +232,12 @@
 .s-stat span { font-size: 0.625rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--s-dim); }
 
 /* A game row: capsule, then everything else. The capsule is 134 CSS px wide,
-   which is exactly half of the 268px WebP the build wrote — see
+   which is exactly half of the 268px WebP the build wrote; see
    scripts/fetch-steam-art.mjs. aspect-ratio holds the box open so 60 lazy
    images landing at once cannot shift the page under a reader. */
 /* Three columns even though a library row only fills two: the price block is
    the third, and an `auto` track with nothing in it is zero wide. Two columns
-   would push the price onto an implicit second row — under the capsule, which
+   would push the price onto an implicit second row, under the capsule, which
    is where it looked wrong the first time. */
 .sgame { display: grid; grid-template-columns: 8.375rem 1fr auto; gap: 0.875rem; padding: 0.75rem 1rem; align-items: center; border-bottom: 1px solid var(--s-line); }
 .sgame:last-child { border-bottom: 0; }
@@ -257,7 +257,7 @@
 .s-bar i { display: block; height: 100%; background: linear-gradient(90deg, #417a9b, var(--s-blue)); border-radius: 999px; }
 
 /* Price block. Steam sets the discount flag flush against the price box with
-   no gap at all — that join is the whole look, so no gap here either. */
+   no gap at all, that join is the whole look, so no gap here either. */
 .s-price { display: flex; align-items: stretch; justify-self: end; font-size: 0.8125rem; white-space: nowrap; }
 .s-off { background: var(--s-off-bg); color: var(--s-off-fg); font-weight: 700; padding: 0.3125rem 0.4375rem; font-size: 0.875rem; display: grid; place-items: center; }
 .s-cost { background: rgba(0, 0, 0, 0.3); padding: 0.3125rem 0.5rem; display: grid; place-items: center; text-align: right; }
@@ -275,8 +275,8 @@
 
 /* ------------------------------------------------------- island: Duolingo -- */
 /* Duolingo's look is two things: the green, and the 4px shelf under every
-   button and card. That bottom border is the entire design language — it is
-   what makes the whole interface feel like it is made of physical tiles — so
+   button and card. That bottom border is the entire design language, it is
+   what makes the whole interface feel like it is made of physical tiles, so
    it is reproduced literally here rather than softened into a shadow. */
 .duol {
   --d-green: #58cc02;
@@ -342,7 +342,7 @@
 /* ------------------------------------------------------ island: Chess.com -- */
 /* Also dark-only, for the same reason as Steam: the board is the product and
    the board only looks right on their charcoal. The header strip is a real
-   checkerboard drawn with repeating-conic-gradient — eight squares of CSS
+   checkerboard drawn with repeating-conic-gradient, eight squares of CSS
    rather than an image, in their exact #EBECD0 / #739552. */
 .cc {
   --c-bg: #302e2b;
@@ -409,7 +409,7 @@
    at: surface base/low/mid are Tailwind zinc 950/900/800, the text ramp is zinc
    100/300/400/500, and the accent is orange-400. What was here before was an
    invented #1b1e26 with a muddy #da8e35 called "Montserrat", which is not their
-   colour and not their typeface — that is why it never looked like the thing it
+   colour and not their typeface, that is why it never looked like the thing it
    was imitating.
    Inter is theirs and is not shipped, same rule as Chirp and Motiva Sans up the
    file. Naming it first costs nothing and gets used where it is installed. */
@@ -460,7 +460,7 @@
 .nx-verified span { font-size: 0.6875rem; color: var(--n-dim); }
 .nx-verified b { display: block; color: var(--n-ink); font-size: 0.75rem; font-weight: 600; }
 
-/* Four counters, deliberately the same shape as the Steam island's — but on a
+/* Four counters, deliberately the same shape as the Steam island's, but on a
    grid rather than wrapping flex, because four is an awkward number to wrap:
    at the widths just above the phone breakpoint a flex row drops exactly one
    tile onto a line of its own, and a full-width box reading "11 KUDOS" under

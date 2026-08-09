@@ -11,14 +11,14 @@
 
    THE ACCENT IS NOT INVENTED. scripts/project-accents.mjs samples it from that
    project's own card art, so the band cannot disagree with the picture sitting
-   in it — re-export the art, re-run the script, the page follows. The same
+   in it, re-export the art, re-run the script, the page follows. The same
    script computes `accent_ink`, the black-or-white that reads on that accent,
    because a colour chosen for vividness says nothing about its contrast: white
    on AppIt's yellow-green is 1.5:1 and unreadable, white on Rickvirus's brown
    is 8.8:1 and fine. Assuming either would have broken one of them.
 
    Adding a project is a file in content/projects/ and one run of that script.
-   Everything else — tagline, stack, mirror_url — is optional and the band
+   Everything else (tagline, stack, mirror_url) is optional and the band
    simply omits what is missing. #}
 
 {% block css_extra %}{{ load_data(path="templates/_projects.css", format="plain") | safe }}{% endblock css_extra %}
