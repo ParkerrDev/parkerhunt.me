@@ -9,7 +9,7 @@ TARBALL="zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
 URL="https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/${TARBALL}"
 
 # --- Pull the résumé from the PRIVATE resume repo (build time) --------------
-# Blog posts live in THIS repo — site/content/blog/ is an Obsidian vault, so a
+# Blog posts live in THIS repo, site/content/blog/ is an Obsidian vault, so a
 # post is written and shipped in one commit with no conversion step (BLOG.md).
 #
 # The résumé is different: it is built in ParkerrDev/resume, which is private
@@ -25,7 +25,7 @@ RESUME_BRANCH="${RESUME_BRANCH:-master}"
 GITHUB_HOST_KEY='github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl'
 
 # Three ways in, in priority order:
-#   RESUME_DIR         a local working copy — no credential at all (local builds)
+#   RESUME_DIR         a local working copy, no credential at all (local builds)
 #   RESUME_DEPLOY_KEY  base64 of a read-only SSH deploy key (what Cloudflare uses)
 #   RESUME_TOKEN       a fine-grained PAT over HTTPS (the manual alternative)
 # The deploy key is preferred because it is scoped to this one repo by
@@ -33,7 +33,7 @@ GITHUB_HOST_KEY='github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6
 rm -rf _resume
 if [ -n "${RESUME_DIR:-}" ]; then
   # A symlink, because build-resume.mjs only ever reads from the source and
-  # writes into site/ — your checkout can't be dirtied.
+  # writes into site/, your checkout can't be dirtied.
   [ -d "${RESUME_DIR}" ] || { echo "ERROR: RESUME_DIR not found: ${RESUME_DIR}" >&2; exit 1; }
   echo "Using local resume at ${RESUME_DIR}"
   ln -s "$(cd "${RESUME_DIR}" && pwd)" _resume
@@ -41,7 +41,7 @@ if [ -n "${RESUME_DIR:-}" ]; then
 elif [ -n "${RESUME_DEPLOY_KEY:-}" ]; then
   echo "Fetching resume from ${RESUME_REPO}@${RESUME_BRANCH} (deploy key)..."
   # base64 because a Cloudflare build variable is one line and an OpenSSH private
-  # key is not. openssl rather than base64(1) — the -d/-D flag differs between
+  # key is not. openssl rather than base64(1), the -d/-D flag differs between
   # GNU and BSD, and this script runs on both.
   ssh_dir="$(mktemp -d)"
   trap 'rm -rf "${ssh_dir}"' EXIT
@@ -66,7 +66,7 @@ elif [ -n "${RESUME_TOKEN:-}" ]; then
   # reach the build log.
   if ! err="$(git clone --quiet --depth 1 --branch "${RESUME_BRANCH}" \
       "https://x-access-token:${RESUME_TOKEN}@github.com/${RESUME_REPO}.git" _resume 2>&1)"; then
-    echo "ERROR: could not clone ${RESUME_REPO}@${RESUME_BRANCH} — check the token's scope and expiry." >&2
+    echo "ERROR: could not clone ${RESUME_REPO}@${RESUME_BRANCH}; check the token's scope and expiry." >&2
     echo "${err//${RESUME_TOKEN}/***}" >&2
     exit 1
   fi
@@ -74,12 +74,12 @@ fi
 
 # A missing token only warns, so the site still builds locally with no secrets.
 # But once the source is there, build-resume.mjs exits non-zero on a missing or
-# corrupt PDF and `set -e` stops the build — better than deploying a dead link.
+# corrupt PDF and `set -e` stops the build, better than deploying a dead link.
 if [ -e _resume ]; then
   echo "Publishing resume PDFs -> site/static..."
   node scripts/build-resume.mjs _resume site
 else
-  echo "WARNING: RESUME_TOKEN not set — /resume will have no PDF in this build." >&2
+  echo "WARNING: RESUME_TOKEN not set, /resume will have no PDF in this build." >&2
 fi
 
 # --- Refresh the account snapshots ------------------------------------------
@@ -89,14 +89,14 @@ fi
 # five scripts are what keep those files current.
 #
 # Every one of them exits 0 even when its API is unreachable, rate limited or
-# has changed shape underneath us — Cloudflare's build IPs are shared, GitHub's
+# has changed shape underneath us: Cloudflare's build IPs are shared, GitHub's
 # unauthenticated limit is 60/hour/IP and Steam's store API is roughly 200
 # requests per five minutes. Each script warns, keeps the committed snapshot and
 # carries on. A stale rating or a week-old price is invisible; a failed deploy
 # is not. Contrast build-resume.mjs above, which fails hard on purpose because a
 # missing PDF *is* a broken page.
 #
-# NOT here, and all for the same reason — they shell out to cwebp/dwebp, which
+# NOT here, and all for the same reason, they shell out to cwebp/dwebp, which
 # are not on this builder, and their output is committed:
 #   fetch-steam-art.mjs   Steam capsules
 #   fetch-media.mjs       summit photographs and book jackets
@@ -125,17 +125,17 @@ echo "Refreshing Nexus Mods snapshot..."
 node scripts/fetch-nexus.mjs "${NEXUS_UPLOADER:-186080535}" site/data/nexus.json
 
 # The X PROFILE only. The account is protected, so there is no public timeline
-# to read at any price — see the header of scripts/fetch-x.mjs before trying.
+# to read at any price; see the header of scripts/fetch-x.mjs before trying.
 echo "Refreshing X profile..."
 node scripts/fetch-x.mjs "${X_HANDLE:-AndrewParkerH}" site/data/x.json
 
-# Not a fetch — pure arithmetic. Recomputes the durations that would otherwise
+# Not a fetch, pure arithmetic. Recomputes the durations that would otherwise
 # be wrong the day after they were typed ("9 years, 9 months and 17 days on X").
 # The anchor dates live in the script; see scripts/build-stamps.mjs.
 echo "Recomputing stamps..."
 node scripts/build-stamps.mjs site/data/stamps.json
 
-# Reorders the three lists with no natural order — quotes, shows, films — so a
+# Reorders the three lists with no natural order (quotes, shows, films) so a
 # rebuild is a different wall rather than the same one. Must run AFTER
 # fetch-titles' output is in place and BEFORE zola reads it.
 echo "Shuffling..."

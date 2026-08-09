@@ -1,6 +1,6 @@
 {
   "_comment": [
-    "Places visited. THIS IS THE ONLY FILE TO EDIT — add a row and run",
+    "Places visited. THIS IS THE ONLY FILE TO EDIT, add a row and run",
     "  node scripts/fetch-places.mjs",
     "which resolves each against Wikidata and pulls a freely-licensed photograph",
     "from Wikimedia Commons where one exists.",
@@ -9,12 +9,12 @@
     "its own is ambiguous. `qid` pins an item outright when the search still gets",
     "it wrong. `no_photo` skips the image lookup.",
     "",
-    "`skiing` is the same shape and goes through the same script — a ski resort is",
+    "`skiing` is the same shape and goes through the same script, a ski resort is",
     "a place with a photograph. It renders as its own section.",
     "",
     "`file` pins a Commons filename outright, for items with no P18.",
     "`latlon` pins coordinates by hand for the one item whose Wikidata entry has no P625.",
-    "`no_lookup` skips Wikidata entirely, for a business with no item — a wrong coordinate is worse than none."
+    "`no_lookup` skips Wikidata entirely, for a business with no item, a wrong coordinate is worse than none."
   ],
   "places": [
     {

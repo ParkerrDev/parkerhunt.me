@@ -1,7 +1,7 @@
 # Keep the live numbers live.
 #
-# Every section of this site that shows someone else's data — GitHub, Chess.com,
-# Duolingo, Nexus Mods, Steam, the X profile — is a JSON snapshot written at
+# Every section of this site that shows someone else's data: GitHub, Chess.com,
+# Duolingo, Nexus Mods, Steam, the X profile, is a JSON snapshot written at
 # BUILD time by a script in scripts/ and rendered into static HTML. That design
 # is why a visitor's browser never contacts a third party, and it has exactly
 # one weakness: a snapshot is only as fresh as the last deploy. Push nothing for
@@ -23,7 +23,7 @@
 # actual deploys that happen when the site changes. Hourly would be 744 and
 # would run the account out of builds around the 20th.
 #
-# SETUP — one secret, once:
+# SETUP, one secret, once:
 #   1. Cloudflare dashboard -> Workers & Pages -> parkerhunt-me -> Settings ->
 #      Builds -> Deploy hooks -> Add. Name it "scheduled refresh", branch master.
 #   2. Copy the URL it gives you.
@@ -61,7 +61,7 @@ jobs:
           HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
         run: |
           if [ -z "$HOOK" ]; then
-            echo "No CF_DEPLOY_HOOK secret set — nothing to do."
+            echo "No CF_DEPLOY_HOOK secret set, nothing to do."
             echo "See the header of .github/workflows/refresh.yml for the two-minute setup."
             exit 0
           fi

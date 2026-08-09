@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://parkerhunt.me"
 title = "Parker Hunt"
-description = "Andrew Parker Hunt — student in Clovis, California, with an interest in software development, computer science, and cybersecurity."
+description = "Andrew Parker Hunt, student in Clovis, California, with an interest in software development, computer science, and cybersecurity."
 author = "Andrew Parker Hunt"
 
 # Compile sass/main.scss (and its partials) to /main.css
@@ -23,13 +23,13 @@ taxonomies = []
 
 [markdown]
 # Adds loading="lazy" decoding="async" to images in markdown content. Syntax
-# highlighting stays off — nothing here posts code, and it would add a payload.
+# highlighting stays off, nothing here posts code, and it would add a payload.
 lazy_async_image = true
 
 [extra]
 # The blog section is drafted out (see content/blog/_index.md). A drafted
 # section is not in Zola's library at all, so get_section() on it aborts the
-# build rather than returning nothing — which means the home page cannot simply
+# build rather than returning nothing, which means the home page cannot simply
 # ask "are there any posts?". This flag is the guard. Flip both this and the
 # `draft = true` line in content/blog/_index.md to bring the blog back.
 blog = false

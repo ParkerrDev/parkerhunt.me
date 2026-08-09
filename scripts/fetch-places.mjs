@@ -2,13 +2,13 @@
 /**
  * The places pipeline.
  *
- *   site/data/places.json   in   — a list of places, hand-written
- *   site/data/been.json     out  — the same list with a photograph attached
- *   site/static/imgs/been/  out  — the photographs
+ *   site/data/places.json   in , a list of places, hand-written
+ *   site/data/been.json     out, the same list with a photograph attached
+ *   site/static/imgs/been/  out, the photographs
  *
  * ADDING A PLACE IS ONE LINE: {"name": "Crater Lake", "where": "Oregon"}. Run
  * this and it comes back with a photograph, if Wikimedia Commons has a freely
- * licensed one — which for national parks, landmarks and most towns, it does.
+ * licensed one, which for national parks, landmarks and most towns, it does.
  *
  * Same shape as fetch-titles.mjs and for the same reasons: Wikidata is CC0,
  * Commons files carry a licence that can be checked, and everything ends up
@@ -18,7 +18,7 @@
  * comes back with the image and the template renders them. That credit line is
  * the price of the picture.
  *
- * RUN LOCALLY, COMMIT THE OUTPUT — needs cwebp.
+ * RUN LOCALLY, COMMIT THE OUTPUT, needs cwebp.
  *
  * Usage:  node scripts/fetch-places.mjs [in] [out] [outDir]
  */
@@ -44,7 +44,7 @@ try {
   execFileSync("cwebp", ["-version"], { stdio: "ignore" });
 } catch {
   hasCwebp = false;
-  console.warn("WARNING: cwebp not found — no images will be written.");
+  console.warn("WARNING: cwebp not found, no images will be written.");
 }
 
 const plain = (h) =>
@@ -65,7 +65,7 @@ async function entity(qid) {
   return j?.entities?.[qid] || null;
 }
 
-/* P18 is "image" — for a place that is a photograph of the place, which is
+/* P18 is "image", for a place that is a photograph of the place, which is
    exactly what is wanted here. (For a television series it is usually a photo
    of the cast at a convention, which is why fetch-titles.mjs asks for P154
    instead.) P625 is "coordinate location", which every one of these has.
@@ -85,12 +85,12 @@ async function factsFor(qid) {
 
 /* Wikidata has two searches and they disagree. `wbsearchentities` matches
    labels and aliases only, so "Row River Trail" finds nothing even though the
-   item exists — it is filed under "Row River National Recreation Trail". The
+   item exists, it is filed under "Row River National Recreation Trail". The
    full-text search finds it. Try the precise one first, fall back to the broad
    one.
 
    The two calls take DIFFERENT terms, and that is load-bearing. The label
-   search wants the name on its own — adding ", Oregon" to "Timberline Lodge"
+   search wants the name on its own, adding ", Oregon" to "Timberline Lodge"
    makes it miss an item it would otherwise hit exactly. The full-text search
    wants the opposite: the place plus its state, or "Sanger" comes back as a
    German engineer. */
@@ -148,7 +148,7 @@ mkdirSync(DIR, { recursive: true });
 let withPhoto = 0, withCoords = 0, refused = 0, bytes = 0;
 
 /* Two lists, one loop. A ski resort is a place with a photograph, so there is
-   no reason for it to have its own script — only its own section. */
+   no reason for it to have its own script, only its own section. */
 async function collect(rows, label) {
   const out = [];
   for (const p of rows) {
@@ -166,7 +166,7 @@ async function collect(rows, label) {
 
     try {
       /* `file` pins a Commons filename outright, for items carrying no P18. It
-         skips the photo lookup but NOT the item lookup any more — the item is
+         skips the photo lookup but NOT the item lookup any more, the item is
          still where the coordinates come from. */
       let qid = p.qid;
       if (!qid && !p.no_lookup) qid = await findQid(p.q || p.name, `${p.q || p.name} ${p.where || ""}`.trim());
@@ -206,7 +206,7 @@ async function collect(rows, label) {
     process.stdout.write(
       `  ${label} ${p.name.padEnd(24)} ${(p.where || "").padEnd(20)} ` +
         `${row.lat != null ? String(row.lat).padStart(8) + "," + String(row.lon).padStart(10) : "  no coords        "} ` +
-        `${row.photo ? "photo" : "—"}\n`
+        `${row.photo ? "photo" : ", "}\n`
     );
     await sleep(200);
   }
@@ -222,7 +222,7 @@ writeFileSync(
   JSON.stringify(
     {
       fetched: new Date().toISOString().slice(0, 10),
-      source: "https://www.wikidata.org (CC0) — P625 coordinates and P18 images; photographs from Wikimedia Commons",
+      source: "https://www.wikidata.org (CC0): P625 coordinates and P18 images; photographs from Wikimedia Commons",
       count: places.length,
       ski_count: skiing.length,
       with_photo: withPhoto,

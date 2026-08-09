@@ -4,7 +4,7 @@
  *
  * Source: Simple Icons (simpleicons.org). Each icon is a single monochrome
  * path on a 24×24 grid plus the brand's own hex, which is exactly what this
- * site wants — the path goes straight into an inline <svg>, so there is no
+ * site wants, the path goes straight into an inline <svg>, so there is no
  * request, no sprite sheet and no third-party CDN at page load. The whole set
  * of marks used here comes to a couple of kilobytes.
  *
@@ -13,7 +13,7 @@
  * Simple Icons releases its SVG data CC0, but a logo is a trademark and CC0
  * cannot give away someone else's trademark. What makes this fine is what the
  * marks are being used FOR: "I daily drive Linux", "my Starbucks order is this".
- * That is nominative use — using a mark to refer to the thing it names — which
+ * That is nominative use (using a mark to refer to the thing it names) which
  * is what every comparison table and every review does. Nothing here implies
  * any of these companies endorse anything, and no mark is altered beyond being
  * tinted to its own published brand colour.
@@ -22,7 +22,7 @@
  *
  * Windows, Chipotle, Dutch Bros, Nobara and CachyOS are not in the set, and
  * local businesses like Cattlemens, Butterfish and Kuppa Joy never will be.
- * Those get plain generic glyphs drawn in templates/macros.html — a monitor, a
+ * Those get plain generic glyphs drawn in templates/macros.html, a monitor, a
  * cup, a bowl. Drawing a passable imitation of a trademark from memory would be
  * worse on both counts: worse-looking, and closer to the line than just using
  * the real thing under nominative use.
@@ -32,7 +32,7 @@
  *
  * Usage:  node scripts/fetch-icons.mjs [out]
  *
- * FAILS SOFT — the committed icons.json is the source of truth for a build.
+ * FAILS SOFT, the committed icons.json is the source of truth for a build.
  */
 
 import { writeFileSync, existsSync, mkdirSync } from "node:fs";
@@ -41,7 +41,7 @@ import { dirname, resolve } from "node:path";
 const OUT = resolve(process.argv[2] || "site/data/icons.json");
 
 /* Every slug the templates ask for. Keep this list and me.toml's `icon` fields
-   in step — a slug that is missing here renders as no icon at all, not as an
+   in step, a slug that is missing here renders as no icon at all, not as an
    error, because a missing logo should never take a page down. */
 const WANT = [
   // Settled
@@ -63,7 +63,7 @@ function bail(reason) {
   console.warn(
     existsSync(OUT)
       ? "         Keeping the committed icons.json."
-      : "         No icons.json on disk — brand marks will be missing."
+      : "         No icons.json on disk, brand marks will be missing."
   );
   process.exit(0);
 }
@@ -79,7 +79,7 @@ try {
   bail(err.message);
 }
 
-/* The index is keyed by title, not slug, so the slug has to be rebuilt — and
+/* The index is keyed by title, not slug, so the slug has to be rebuilt, and
    "lowercase and strip punctuation" is not the rule. Simple Icons SPELLS OUT
    three characters before stripping the rest: `.` becomes "dot", `+` becomes
    "plus", `&` becomes "and". Strip-first turns Cal.com into "calcom", the file

@@ -4,14 +4,14 @@
 
 {% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{% endblock %}
 
-{# /games/ — the whole library, the whole wishlist, and everything ever played.
+{# /games/, the whole library, the whole wishlist, and everything ever played.
    The library and wishlist panels are Steam's own visual language (see the .stm
    block in templates/_style.css); the favourites and the played list are the
    site's, because a personal ranking is not a store listing.
 
    About 100 capsule images render on this page. Every one is a local 268px WebP
    written by scripts/fetch-steam-art.mjs, lazy-loaded, with its box reserved by
-   aspect-ratio — so the page costs about 8 KB of HTML up front and pulls art in
+   aspect-ratio, so the page costs about 8 KB of HTML up front and pulls art in
    as you scroll. Nothing here resolves a Steam hostname. #}
 
 {% block filter %}{% include "_filter.html" %}{% endblock %}
@@ -70,7 +70,7 @@
 
     {# ---------------------------------------------------------- library -- #}
     {# The library is sorted by playtime descending, so everything with zero
-       hours is at the tail — which is exactly the free Valve bundle nobody
+       hours is at the tail, which is exactly the free Valve bundle nobody
        launches. Slicing at totals.played splits the list without needing a
        second array or a filter Tera would get wrong. #}
     <section id="library">
@@ -92,7 +92,7 @@
                 </p>
                 {% endif %}
             </div>
-            <p class="feed-foot">The profile is private, so playtime and achievements are pinned in <code>site/data/steam-seed.json</code>. Everything else on this page — names, art, release dates, prices, review scores — is fetched from Steam's public store API on every deploy.</p>
+            <p class="feed-foot">The profile is private, so playtime and achievements are pinned in <code>site/data/steam-seed.json</code>. Everything else on this page (names, art, release dates, prices, review scores) is fetched from Steam's public store API on every deploy.</p>
         </div>
     </section>
 

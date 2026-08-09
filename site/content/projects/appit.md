@@ -8,6 +8,7 @@ weight = 2
 card_image = "/imgs/project-cards/opt/appit.webp"
 brand_image = "/imgs/project-brand/appit.webp"
 website_url = "https://appitapp.app"
+hide_read_more = true
 accent = "#ccdc48"
 accent_ink = "#111112"
 tagline = "Websites as applings, not tabs."
@@ -22,7 +23,7 @@ AppIt! reimagines how you interact with the web on iOS. Instead of the tradition
 
 The modern web is powerful, but traditional browsers bury websites under endless tab management:
 - Tabs pile up and important sites get lost
-- No clear sense of place—everything feels temporary
+- No clear sense of place: everything feels temporary
 - Daily tools and services lack the polished experience of native apps
 - Power workflows require constant context switching
 

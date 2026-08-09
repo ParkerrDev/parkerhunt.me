@@ -2,7 +2,7 @@
 /**
  * Derive each project's accent colour from its own card art.
  *
- *   site/content/projects/*.md   in and out — `accent` and `accent_ink` in [extra]
+ *   site/content/projects/*.md   in and out: `accent` and `accent_ink` in [extra]
  *   site/static/imgs/project-cards/opt/*.webp   read
  *
  * WHY THIS IS A SCRIPT AND NOT FIVE HAND-PICKED HEX VALUES. /projects/ gives
@@ -12,14 +12,14 @@
  * disagree: re-run this after changing a card and the page follows.
  *
  * TWO VALUES, NOT ONE, AND THE SECOND ONE IS THE POINT. `accent` is the vivid
- * colour — it drives the rule, the tint, the chips. `accent_ink` is the text
+ * colour, it drives the rule, the tint, the chips. `accent_ink` is the text
  * colour to put ON that accent, and it has to be computed rather than assumed:
  * AppIt's card is a light yellow-green, where white text scores 1.5:1 and is
  * simply unreadable, while Rickvirus's is a dark brown where black text would
  * be. Picking whichever of black/white wins, and darkening the accent only if
  * neither clears 4.5:1, keeps every button both vivid and legible.
  *
- * Needs dwebp and sips (macOS). RUN LOCALLY, COMMIT THE RESULT — the built
+ * Needs dwebp and sips (macOS). RUN LOCALLY, COMMIT THE RESULT, the built
  * site reads the front matter, never this.
  *
  * Usage:  node scripts/project-accents.mjs [--check]
@@ -93,7 +93,7 @@ function accentOf(webp) {
   return best;
 }
 
-/** Black or white, whichever reads on this colour — darkening the colour only
+/** Black or white, whichever reads on this colour, darkening the colour only
  *  as far as it takes for one of them to clear AA. */
 function inkFor(rgb) {
   const W = [1, 1, 1], K = [0.067, 0.067, 0.071];

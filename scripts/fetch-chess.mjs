@@ -12,7 +12,7 @@
  *
  * Usage:  node scripts/fetch-chess.mjs [user] [out]
  *
- * FAILS SOFT — see scripts/fetch-github.mjs for the reasoning. A stale rating
+ * FAILS SOFT; see scripts/fetch-github.mjs for the reasoning. A stale rating
  * is not worth a red deploy.
  */
 
@@ -30,7 +30,7 @@ function bail(reason) {
   console.warn(
     existsSync(OUT)
       ? "         Keeping the committed snapshot."
-      : "         No snapshot on disk — the chess section will be hidden."
+      : "         No snapshot on disk, the chess section will be hidden."
   );
   process.exit(0);
 }
@@ -93,7 +93,7 @@ for (const [key, label, tempo] of MODES) {
 /* The opening comes out of the PGN as a chess.com URL slug, so it arrives
    hyphenated, with the moves glued on the end and every apostrophe stripped:
    "Queens-Pawn-Opening-Levitsky-Attack-2...f6-3.Bf4". Cut at the first move
-   number and put the apostrophes back — those names are possessives, and
+   number and put the apostrophes back, those names are possessives, and
    "Kings Pawn" reads like a typo. */
 const POSSESSIVE = /\b(King|Queen|Bishop|Alekhine|Philidor|Owen|Petrov|Reti|Bird|Grob|Ware|Wayward|Barnes|Clemenz|Anderssen|Nimzowitsch|Damiano|Napoleon|Amar|Saragossa|Mieses|Paulsen|Rousseau|Fool|Scholar|Legal|Blackburne|Charlick|Englund|Elephant|Latvian)s\b/g;
 

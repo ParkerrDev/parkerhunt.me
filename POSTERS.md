@@ -3,9 +3,9 @@
 The show cards on `/watching/` and the home page fall back through three things,
 in this order:
 
-1. **A real poster from TMDb** — only if `site/data/titles.json` has a `posters`
+1. **A real poster from TMDb**, only if `site/data/titles.json` has a `posters`
    block, which only happens once someone runs `fetch-posters.mjs` with a key.
-2. **A title logo from Wikimedia Commons** — 22 of 36 shows have one.
+2. **A title logo from Wikimedia Commons**: 22 of 36 shows have one.
 3. **The title set in this site's own type** on a hand-picked colour pair.
 
 ## Why posters need a key and everything else does not
@@ -28,7 +28,7 @@ display this artwork. Two conditions come with that, and both are honoured:
 ## The trade this makes, stated plainly
 
 Every other section of this site is built so that a visitor's browser contacts
-nothing but this origin — GitHub, Steam, Chess.com, Duolingo, Nexus Mods, the
+nothing but this origin: GitHub, Steam, Chess.com, Duolingo, Nexus Mods, the
 summit photographs, the book jackets and the state map are all fetched at build
 time and served locally.
 
@@ -46,7 +46,7 @@ oversight:
 
 ## Getting a key
 
-1. Sign up at <https://www.themoviedb.org> — free, instant, no card.
+1. Sign up at <https://www.themoviedb.org>, free, instant, no card.
 2. Settings → API → request a key.
 3. Run it:
 
@@ -61,5 +61,5 @@ Cloudflare's build environment variables, next to `RESUME_DEPLOY_KEY`.
 
 Matching is exact rather than fuzzy: `fetch-titles.mjs` has already resolved an
 IMDb id for 35 of the 36 shows, and TMDb's `/find` endpoint takes an IMDb id
-directly — so there is no title search to get wrong, and "The Boys" cannot come
+directly, so there is no title search to get wrong, and "The Boys" cannot come
 back as a 1962 war film the way it did from a plain name search.

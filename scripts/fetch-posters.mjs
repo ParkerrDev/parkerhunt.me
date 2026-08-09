@@ -2,14 +2,14 @@
 /**
  * Attach real posters to the watch list, from The Movie Database.
  *
- *   site/data/titles.json   in and out — posters are merged into it
+ *   site/data/titles.json   in and out, posters are merged into it
  *
  * NEEDS A FREE API KEY. Get one at https://www.themoviedb.org/settings/api
  * (a minute, no cost, no card), then:
  *
  *   TMDB_API_KEY=xxxxxxxx node scripts/fetch-posters.mjs
  *
- * It will not run without one and it will not invent anything in the meantime —
+ * It will not run without one and it will not invent anything in the meantime,
  * the shows keep their title logos and typographic cards until you supply a key.
  *
  * WHY A KEY, AND WHY THIS SOURCE
@@ -17,7 +17,7 @@
  * Poster art is the studios'. There is no free-licence source for it and there
  * never will be: Wikipedia's own poster files are tagged non-free and are fair
  * use ON WIKIPEDIA, which does not travel to anyone else's site. TMDb is the
- * exception — a service that licenses its API precisely so that applications
+ * exception, a service that licenses its API precisely so that applications
  * can display this artwork, on two conditions this script honours:
  *
  *   1. Attribution. The page must say it uses the TMDB API and is not endorsed
@@ -27,7 +27,7 @@
  *      rather than downloading and re-hosting, and it is the one place on this
  *      site where the browser talks to a third party. That is a real trade
  *      against the no-third-party rule, and it is TMDb's condition, not a
- *      shortcut — see POSTERS.md.
+ *      shortcut; see POSTERS.md.
  *
  * The key never touches the repo. It is read from the environment here, and if
  * you want posters to refresh on deploys it belongs in Cloudflare's build
@@ -35,7 +35,7 @@
  *
  * MATCHING IS EXACT, NOT FUZZY. scripts/fetch-titles.mjs has already resolved an
  * IMDb id for 35 of the 36 titles, and TMDb's /find endpoint takes an IMDb id
- * directly — so there is no title search to get wrong, and "The Boys" cannot
+ * directly, so there is no title search to get wrong, and "The Boys" cannot
  * come back as a 1962 war film the way it did from a name search.
  *
  * Usage:  TMDB_API_KEY=... node scripts/fetch-posters.mjs [titles.json]
@@ -75,7 +75,7 @@ async function tmdb(path, params = {}) {
   return res.json();
 }
 
-/* w342 is TMDb's own poster size for list views — about 25 KB each and sharp at
+/* w342 is TMDb's own poster size for list views, about 25 KB each and sharp at
    the ~170 CSS px these render at. w500 doubles the bytes for nothing. */
 const BASE = "https://image.tmdb.org/t/p/w342";
 
@@ -130,7 +130,7 @@ for (const { s, first } of queue) {
     }
     missed.push(`${s.title} (${err.message})`);
   }
-  process.stdout.write(`  ${s.title.padEnd(26)} ${s.poster ? "poster " + (s.poster.rating ?? "") : "—"}\n`);
+  process.stdout.write(`  ${s.title.padEnd(26)} ${s.poster ? "poster " + (s.poster.rating ?? "") : ", "}\n`);
   await sleep(120);
 }
 

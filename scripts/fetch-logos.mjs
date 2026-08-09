@@ -9,7 +9,7 @@
  *
  * Simple Icons is a monochrome set. It carries the big software brands and
  * nothing else, and the marks in it are single-colour silhouettes. Commons
- * carries the rest — including full-colour logos, and a surprising number of
+ * carries the rest, including full-colour logos, and a surprising number of
  * company wordmarks that are outright public domain because a wordmark set in a
  * typeface is below the threshold of originality in US copyright law.
  *
@@ -23,7 +23,7 @@
  * putting a non-free logo on a public site.
  *
  * THE STOREFRONT PHOTOGRAPHS ARE GONE. They were here as a stand-in for missing
- * logos and they answered the wrong question — the section they appeared in is
+ * logos and they answered the wrong question, the section they appeared in is
  * about what I order, not about buildings. Real logos now come from each
  * company's own site icon; see scripts/fetch-brands.mjs. What is left here is
  * one actual product photograph, which is a photograph on purpose.
@@ -57,13 +57,13 @@ const WANT = [
   /* Storefront photographs, for the businesses with no free logo anywhere.
      A picture of the place is a better answer than two letters in a circle, and
      these are all CC BY / CC BY-SA, so the photographer gets a credit line. */
-  /* Not a logo — an actual photograph of the bags, which is what the vice card
+  /* Not a logo, an actual photograph of the bags, which is what the vice card
      wanted. CC0, so no attribution is owed; credited anyway. */
   { key: "takis-bag", file: "Barcel Guacamole Takis.jpg", photo: true },
 ];
 
-/* Licences that may be redistributed from this site. Anything else — most
-   importantly Commons' "fair use" tags — is refused. */
+/* Licences that may be redistributed from this site. Anything else, most
+   importantly Commons' "fair use" tags, is refused. */
 const ALLOWED = [
   /^cc0/i, /^public domain/i, /^pd/i, /^cc by/i, /^cc-by/i,
   /^gpl/i, /^lgpl/i, /^gfdl/i, /^mit/i, /^apache/i,
@@ -111,7 +111,7 @@ for (const w of WANT) {
   const licence = plain(m.LicenseShortName?.value) || "unknown";
 
   if (!ALLOWED.some((re) => re.test(licence))) {
-    console.error(`REFUSED: ${w.key} is "${licence}" — not a licence this site can redistribute.`);
+    console.error(`REFUSED: ${w.key} is "${licence}", not a licence this site can redistribute.`);
     failed++;
     continue;
   }

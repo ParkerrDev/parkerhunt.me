@@ -9,7 +9,7 @@ _resume
 site/static/AndrewHuntResume.pdf
 
 # Obsidian per-device state inside the blog vault (site/content/blog/).
-# Only .obsidian/app.json and appearance.json are tracked — the settings that
+# Only .obsidian/app.json and appearance.json are tracked, the settings that
 # keep Obsidian writing markdown Zola can render. Everything else is local.
 site/content/blog/.obsidian/*
 !site/content/blog/.obsidian/app.json

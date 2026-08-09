@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Write site/data/stamps.json — durations that have to be recomputed rather
+ * Write site/data/stamps.json, durations that have to be recomputed rather
  * than typed, because they are wrong the day after they are written.
  *
  * "9 years, 9 months and 17 days on X" is a lovely thing to put on a page and a
@@ -16,7 +16,7 @@
  *
  * Usage:  node scripts/build-stamps.mjs [out]
  *
- * No network, so nothing to fail soft about — this one is pure arithmetic and
+ * No network, so nothing to fail soft about, this one is pure arithmetic and
  * either runs or the build is already broken for another reason.
  */
 
@@ -25,7 +25,7 @@ import { dirname, resolve } from "node:path";
 
 const OUT = resolve(process.argv[2] || "site/data/stamps.json");
 
-/* The anchors. Dates, not durations — that is the whole point of the file.
+/* The anchors. Dates, not durations, that is the whole point of the file.
    Add one here and it appears in stamps.json under the same key. */
 const ANCHORS = {
   // Derived from "9 years, 9 months and 17 days" as of 2026-08-05.
@@ -34,7 +34,7 @@ const ANCHORS = {
 
 /* Counted in Pacific time, not in the builder's clock. Cloudflare builds in UTC,
    so for the seven hours a day the two disagree an unpinned count would say 18
-   days where the person whose anniversary it is would say 17 — and it would
+   days where the person whose anniversary it is would say 17, and it would
    flip depending on what time of day the deploy ran. Pinning the zone makes the
    builder's location irrelevant, which is the actual robustness win here. */
 const ZONE = "America/Los_Angeles";
@@ -76,7 +76,7 @@ function elapsed(fromISO, to) {
   return { y, m, d, days };
 }
 
-/** "9 years, 9 months and 17 days" — Oxford-comma-free, zero parts dropped. */
+/** "9 years, 9 months and 17 days": Oxford-comma-free, zero parts dropped. */
 function phrase({ y, m, d }) {
   const parts = [];
   if (y) parts.push(`${y} year${y === 1 ? "" : "s"}`);

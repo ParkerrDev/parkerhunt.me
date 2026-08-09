@@ -3,7 +3,7 @@
 {% import "islands.html" as isle %}
 
 {# Every film, at full height. The home page shows them in three marquee rows
-   and points here. Same pipeline as the shows — see scripts/fetch-titles.mjs
+   and points here. Same pipeline as the shows; see scripts/fetch-titles.mjs
    and scripts/fetch-posters.mjs; adding one is a line in watching.json. #}
 
 {% block filter %}{% include "_filter.html" %}{% endblock %}
@@ -55,7 +55,7 @@
                 <h2>Where these come from</h2>
                 <p>Posters are from <a href="https://www.themoviedb.org" target="_blank" rel="noopener">TMDb</a>, which licenses
                    its API so applications can show this artwork. Two conditions come with that and both are met: the
-                   attribution below, and serving the images from TMDb's own CDN rather than re-hosting them — which makes
+                   attribution below, and serving the images from TMDb's own CDN rather than re-hosting them, which makes
                    these the only thing on this site your browser fetches from somewhere else. See <code>POSTERS.md</code>.</p>
                 <p><b>{{ titles.posters.attribution }}</b></p>
                 <p>Years, genres and IMDb links come from <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a>,

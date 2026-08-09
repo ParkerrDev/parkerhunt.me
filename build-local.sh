@@ -6,7 +6,7 @@ set -euo pipefail
 #
 # WHY THIS EXISTS. build-zola.sh downloads an x86_64 *Linux* Zola, so it only
 # runs as-is on the Cloudflare builder. The obvious local substitute is `cd site
-# && zola build` — and that is the bug this script fixes.
+# && zola build`, and that is the bug this script fixes.
 #
 # site/static/AndrewHuntResume*.pdf are GENERATED, git-ignored, and produced by
 # build-resume.mjs from the private resume repo. Zola does not generate them; it
@@ -19,7 +19,7 @@ set -euo pipefail
 # So: the PDFs are DELETED before every build and re-copied from the resume repo,
 # and build-resume.mjs exits non-zero if the source is missing or is not a real
 # PDF. There is no path through this script that reaches `zola build` with a
-# stale résumé — the worst case is no build at all, which is the right failure.
+# stale résumé, the worst case is no build at all, which is the right failure.
 #
 #   ./build-local.sh                    # resume from ../resume
 #   RESUME_DIR=path ./build-local.sh    # from somewhere else
@@ -47,7 +47,7 @@ node scripts/build-resume.mjs "${RESUME_DIR}" site
 head="$(git -C "${RESUME_DIR}" log -1 --format='%h %ad %s' --date=short 2>/dev/null || echo 'not a git checkout')"
 echo "    source: ${RESUME_DIR} @ ${head}"
 if [ -n "$(git -C "${RESUME_DIR}" status --porcelain 2>/dev/null || true)" ]; then
-  echo "    WARNING: that checkout has uncommitted changes — this may not match origin." >&2
+  echo "    WARNING: that checkout has uncommitted changes, this may not match origin." >&2
 fi
 shasum -a 256 site/static/AndrewHuntResume.pdf | awk '{print "    sha256: " substr($1,1,16) "  AndrewHuntResume.pdf"}'
 

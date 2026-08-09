@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Build site/data/steam.json — the data behind /games/.
+ * Build site/data/steam.json, the data behind /games/.
  *
  * Reads the pinned appid list in site/data/steam-seed.json and enriches every
  * entry from Steam's PUBLIC store endpoints:
@@ -9,7 +9,7 @@
  *   store.steampowered.com/appreviews/<id>  "Very Positive", 93%, review count
  *
  * Neither needs a key and neither needs the profile to be public, which matters
- * because this profile is private — see the note at the top of the seed file.
+ * because this profile is private; see the note at the top of the seed file.
  * The consequence is a split: the *list* of games is pinned, but every price,
  * discount and review score on the page is as fresh as the last deploy. A
  * wishlist whose prices are a year stale is worse than no wishlist.
@@ -56,7 +56,7 @@ function bail(reason) {
       console.warn("         Existing snapshot is unreadable.");
     }
   } else {
-    console.warn("         No snapshot on disk — /games/ will have no Steam section.");
+    console.warn("         No snapshot on disk, /games/ will have no Steam section.");
   }
   process.exit(0);
 }
@@ -105,7 +105,7 @@ async function appDetails(appid) {
 }
 
 async function appReviews(appid) {
-  // num_per_page=0 asks for the summary only — the review bodies are megabytes.
+  // num_per_page=0 asks for the summary only, the review bodies are megabytes.
   const url =
     `https://store.steampowered.com/appreviews/${appid}` +
     `?json=1&num_per_page=0&language=all&purchase_type=all`;
@@ -141,7 +141,7 @@ function priceOf(d) {
  * can. When that file is there it wins outright: every appid and every minute
  * comes from Steam instead of from a person retyping the library page.
  *
- * The seed is still the fallback, and still carries the achievement counts —
+ * The seed is still the fallback, and still carries the achievement counts,
  * GetOwnedGames does not return those, and GetPlayerAchievements is one call
  * per game, which is ninety calls into a rate limit of about two hundred per
  * five minutes. So achievements stay pinned and are matched back on by appid. */
@@ -158,7 +158,7 @@ if (existsSync(OWNED)) {
       libSource = `api (${owned.fetched})`;
     }
   } catch (err) {
-    console.warn(`WARNING: steam-owned.json unreadable (${err.message}) — using the pinned seed.`);
+    console.warn(`WARNING: steam-owned.json unreadable (${err.message}), using the pinned seed.`);
   }
 }
 
@@ -182,7 +182,7 @@ try {
   bail(err.name === "TimeoutError" ? "store API timed out" : err.message);
 }
 
-/* A handful of misses is normal — regional blocks, delisted apps, DLC that
+/* A handful of misses is normal, regional blocks, delisted apps, DLC that
    moved. A wholesale miss means Steam is throttling us, and the committed
    snapshot is better than a half-empty page. */
 if (details.size < allIds.length * 0.6) {
@@ -212,8 +212,8 @@ function common(appid) {
     // on the page ever loads an image from a Steam CDN.
     art: `/imgs/steam/${appid}.webp`,
     // Where that copy came from. Newer apps no longer sit at the guessable
-    // apps/<id>/header.jpg path — their art is under a content hash that only
-    // the store API knows — so the source URL has to be carried, not derived.
+    // apps/<id>/header.jpg path, their art is under a content hash that only
+    // the store API knows, so the source URL has to be carried, not derived.
     art_src: d.header_image || "",
     released: d.release_date?.coming_soon ? d.release_date?.date || "TBA" : d.release_date?.date || "",
     genres: (d.genres || []).slice(0, 3).map((g) => g.description),
@@ -238,7 +238,7 @@ const wishlist = wishIds
   .map((id) => ({ ...common(id), price: priceOf(details.get(id)), review: reviews.get(id) || null }));
 
 /* The played-it list on /games/ looks names up here by appid, so it needs every
-   game in the file, not only the ones from `extra` — a game can be owned,
+   game in the file, not only the ones from `extra`, a game can be owned,
    wishlisted and played-elsewhere all at once. Keyed by appid as a string
    because Tera can only subscript a map with one. */
 const by_appid = {};

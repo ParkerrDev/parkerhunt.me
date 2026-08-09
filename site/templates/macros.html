@@ -64,7 +64,7 @@
 {% macro cart() %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 3.5h2.2l2.2 10.2h9.6l2-7.2H6"/><circle cx="9" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg>{% endmacro cart %}
 
 {# --- Duolingo island ------------------------------------------------------ #}
-{# Not Duolingo's own owl — that is their trademark and is not ours to ship.
+{# Not Duolingo's own owl, that is their trademark and is not ours to ship.
    This is a simple owl of our own drawing, in their green, which is enough to
    read as "Duolingo" sitting next to the word itself. Body, eyes and pupils are
    one path with fill-rule:evenodd, so the holes nest correctly at any size. #}
@@ -86,7 +86,7 @@
 {# --- Nexus Mods ------------------------------------------------------------ #}
 {# NOT DRAWN HERE, and deliberately. What used to sit at this line was a
    hexagon with an N in it, invented from memory, which is not the Nexus Mods
-   logo and never was — theirs is an interlocking four-way knot. The real mark
+   logo and never was, theirs is an interlocking four-way knot. The real mark
    is 2.8 KB of path, so it lives once in site/data/icons.json (Simple Icons,
    CC0) and both call sites reach for it through ico::brand(). Copying it back
    into a macro here would mean two copies to keep in step for no gain.
@@ -97,7 +97,7 @@
 
 {% macro heart() %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8.4-5-8.4-10.8A4.9 4.9 0 0 1 12 7.2a4.9 4.9 0 0 1 8.4 3c0 5.8-8.4 10.8-8.4 10.8Z"/></svg>{% endmacro heart %}
 
-{# The shield Nexus Mods puts beside "Verified mod author" — Material Design
+{# The shield Nexus Mods puts beside "Verified mod author": Material Design
    Icons' shield-check, which is what they use and is Apache-2.0, so this is the
    same glyph rather than an approximation of it. #}
 {% macro lock() %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm0 2a3 3 0 0 1 3 3v3H9V7a3 3 0 0 1 3-3Z"/></svg>{% endmacro lock %}
@@ -106,7 +106,7 @@
 
 {# --- brand marks ---------------------------------------------------------- #}
 {# Renders a logo out of site/data/icons.json. The map has to be passed in
-   because a Tera macro cannot see globals — which is the right constraint
+   because a Tera macro cannot see globals, which is the right constraint
    here: it makes these pure functions of a snapshot.
 
    `tint` paints the mark in the brand's own published colour; without it the
@@ -119,7 +119,7 @@
 {# For everything with no free logo: Windows, Chipotle, Dutch Bros, and every
    local business. Drawing a passable imitation of a trademark from memory would
    look worse AND sit closer to the line than using the real mark nominatively,
-   so these are honestly generic — a screen, a cup, a bowl. Referenced from
+   so these are honestly generic, a screen, a cup, a bowl. Referenced from
    me.toml as "g:name". #}
 {% macro glyph(name) %}
 {%- if name == "monitor" -%}
@@ -158,13 +158,13 @@
 {% endmacro anymark %}
 
 {# A full-width banner instead of a chip. Three sources, in priority order:
-     b:key  the company's own site icon — the actual logo (fetch-brands.mjs)
+     b:key  the company's own site icon, the actual logo (fetch-brands.mjs)
      c:key  a Commons file, for wordmarks that are public domain
      else   a lettermark, for the one business with neither
    `b:` wins because it is the real mark: Commons only ever had the Starbucks
    *wordmark*, never the siren, and nothing at all for a six-branch chain. #}
 {% macro banner(logos, brands, name, mono="", colour="", small=false) %}
-{#- An empty `name` is normal — Butterfish has no free logo anywhere — so the
+{#- An empty `name` is normal (Butterfish has no free logo anywhere) so the
     lookup has to be guarded rather than attempted. Tera subscripts a map with
     "" as a real key and errors rather than returning nothing. -#}
 {%- set bk = name | replace(from="b:", to="") -%}
@@ -184,7 +184,7 @@
 {# One rule for every auto-scrolling row on the site: THE MORE IT CARRIES, THE
    FASTER IT MOVES.
 
-   The durations used to be hand-typed per section — 72s, 84s, 96s, 108s — and
+   The durations used to be hand-typed per section (72s, 84s, 96s, 108s) and
    were tuned to hold the pixels-per-second roughly constant, which meant a row
    of 46 film posters crawled past at exactly the speed of a row of 7 quotes and
    took nearly two minutes to show you what it had. Holding the DURATION roughly

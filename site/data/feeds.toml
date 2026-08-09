@@ -1,5 +1,5 @@
 # NOTE: the [li] block below is NO LONGER RENDERED. The home page shows the X
-# posts only, as a horizontal rail — see #posts in templates/index.html. The
+# posts only, as a horizontal rail; see #posts in templates/index.html. The
 # data is left here rather than deleted so putting the feed back is a template
 # change and not a retyping job.
 
@@ -8,7 +8,7 @@
 # WHY THESE ARE HAND-WRITTEN RATHER THAN FETCHED
 #
 # X: the account is protected. There is no public timeline, no RSS and no
-# unauthenticated API to read it — and even if there were, auto-republishing a
+# unauthenticated API to read it, and even if there were, auto-republishing a
 # protected account onto a public page would defeat the point of it being
 # protected. So posts are chosen and copied here deliberately.
 #
@@ -24,7 +24,7 @@
 #
 # EVERY ENTRY BELOW IS A PLACEHOLDER. `sample = true` puts a visible banner on
 # the feed so a prototype can never be mistaken for the real thing. Replace the
-# text with real posts and delete the `sample` line — the banner disappears on
+# text with real posts and delete the `sample` line, the banner disappears on
 # its own once no entry is marked.
 
 [x]
@@ -71,7 +71,7 @@ views = "9,733"
 [[x.post]]
 sample = true
 body = [
-  "the whole site is 692 KB. that is the entire deploy — every page, every image, both résumé PDFs.",
+  "the whole site is 692 KB. that is the entire deploy, every page, every image, both résumé PDFs.",
   "the average web page is 2.6 MB.",
 ]
 time = "5d"
@@ -90,7 +90,7 @@ sample = true
 body = [
   "Rebuilt parkerhunt.me from scratch this month.",
   "The goal was simple: make the whole site load in a single request. No webfonts, no JavaScript, no analytics, no CDN calls. Everything is pre-rendered at build time and the stylesheet is inlined because it is smaller than the round trip it would cost.",
-  "The result is 692 KB for the entire deploy, down from 5.6 MB. Most of that came from one thing — re-encoding Figma-exported SVGs that had oversized PNGs embedded inside them.",
+  "The result is 692 KB for the entire deploy, down from 5.6 MB. Most of that came from one thing, re-encoding Figma-exported SVGs that had oversized PNGs embedded inside them.",
   "Performance is mostly just refusing to add things.",
 ]
 time = "1w"

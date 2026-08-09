@@ -35,7 +35,7 @@ cal_label = "Book an appointment"
 # --------------------------------------------------------------------- hero --
 # The strip that rolls under the name. Six is not arbitrary: the CSS animation
 # steps through exactly this many frames, so if you add or remove one, update
-# steps(--tid-n) — the count is passed in from the template, so it stays in sync
+# steps(--tid-n), the count is passed in from the template, so it stays in sync
 # automatically as long as the keyframe math stays proportional.
 tidbits = [
   "1st-degree black belt · 12 years",
@@ -63,7 +63,7 @@ facts = [
   "2–4 cups a day",
 ]
 
-# --------------------------------------------------- EMPTY — FILL THESE IN --
+# --------------------------------------------------- EMPTY: FILL THESE IN --
 # Each of these hides its whole section until it has at least one entry.
 
 # Ranked. Order in the file is the ranking.
@@ -75,12 +75,12 @@ films = []
 sites = []
 
 # Favourites, by EXACT title. Shows and anime are kept apart because that is
-# how they were given and how the rest of the file already treats them — see
+# how they were given and how the rest of the file already treats them; see
 # [[anime]] further down. They render as two labelled groups in one section.
 #
 # The templates filter the full lists in
 # site/data/titles.json by membership, so these have to match the titles in
-# site/data/watching.json character for character — a typo is a card that
+# site/data/watching.json character for character, a typo is a card that
 # silently does not appear, not an error.
 #
 # Bare keys, so they live up here with films/sites: every plain `key = value`
@@ -96,9 +96,9 @@ favourite_films = []
 # A "now" that is a year old is worse than no now at all.
 [now]
 updated = "2026-08"
-line = "Building AppIt! and getting ready to start college."
+line = "Building Longshot and getting ready to start college."
 doing = [
-  "AppIt! — an iOS browser that turns websites into their own apps",
+  "Longshot, a permissionless film studio and cinema on Cloudflare",
   "Getting ready to start college",
   "Rebuilding this site from scratch, in public",
   "Mandarin, most days",
@@ -108,11 +108,11 @@ doing = [
 # and The house sections were removed from the home page on 2026-08-06. Their
 # data is left here rather than deleted, for the same reason feeds.toml keeps
 # its [li] block: putting a section back should be a template change, not a
-# retyping job. The keys below feed nothing today —
+# retyping job. The keys below feed nothing today,
 #
 #   [coffee] [[coffee_shop]] [[restaurant]] [vice] [[takes]] facts tidbits [[rooms]]
 #
-# — and so do site/data/brands.json and site/static/imgs/brands/, which existed
+#, and so do site/data/brands.json and site/static/imgs/brands/, which existed
 # only for the logos on those cards. scripts/fetch-brands.mjs and the `banner`
 # macro in templates/macros.html are likewise dormant, not broken.
 
@@ -135,7 +135,7 @@ icon = "c:takis-bag"
 mono = "TK"
 colour = "#C4162B"
 kicked = true
-line = "I love how they taste and I have a genuine problem with them — a fiesta-sized bag in a single sitting, in under half an hour. I do not buy them any more."
+line = "I love how they taste and I have a genuine problem with them: a fiesta-sized bag in a single sitting, in under half an hour. I do not buy them any more."
 
 # ------------------------------------------------------------ coffee shops --
 # `orders` is a list because one shop earns several. `verdict` is the one-line
@@ -215,7 +215,7 @@ order = [
 # lettermark that is honest about being a stand-in.
 #
 # `colour` is the tile. These are approximations of each project's own accent
-# taken by eye, NOT their trademarks — nothing here reproduces a distro logo.
+# taken by eye, NOT their trademarks, nothing here reproduces a distro logo.
 # Correct any that look wrong; it is one hex value per row.
 [[distro]]
 name = "Raspbian"
@@ -449,11 +449,11 @@ note = ""
 
 # ----------------------------------------------------------------- ranked --
 # SUPERSEDED. [[shows]], [[anime]] and [[watched]] are no longer read by any
-# template — the watch list moved to site/data/watching.json, which is a list of
+# template, the watch list moved to site/data/watching.json, which is a list of
 # titles that scripts/fetch-titles.mjs resolves against Wikidata for years,
 # genres, IMDb ids and title logos. Left here rather than deleted so nothing is
 # lost; delete freely once you are happy with the pipeline.
-# `bg`/`fg` paint a typographic poster for each show — set in this site's own
+# `bg`/`fg` paint a typographic poster for each show, set in this site's own
 # type, not a scan of the real artwork, which is the network's and not ours.
 [[shows]]
 title = "Silicon Valley"
@@ -517,13 +517,13 @@ bg = "#101014"
 fg = "#F2545B"
 note = "37 episodes, no filler"
 # ---------------------------------------------------------------- watched --
-# Everything seen, in no particular order — this is a list, not a ranking, and
+# Everything seen, in no particular order, this is a list, not a ranking, and
 # the three in [[shows]] and the two in [[anime]] appear here too because they
 # were also, obviously, watched.
 #
 # `bg`/`fg` paint a typographic poster: the title set in this site's own face on
 # a colour chosen to evoke the show. Nothing here reproduces any real artwork,
-# logo or key art — those belong to the people who made them. To add a show,
+# logo or key art, those belong to the people who made them. To add a show,
 # copy a block and pick two hex values you like.
 
 [[watched]]
@@ -806,7 +806,7 @@ done = false
 
 [[bucket]]
 text = "Summit Mt. Whitney"
-note = "did it at 13 — 14,505 ft, during a thunderstorm"
+note = "did it at 13, at 14,505 ft, in a thunderstorm"
 done = true
 
 [[bucket]]
@@ -821,7 +821,7 @@ done = true
 
 # --------------------------------------------------------------- the house --
 # Laid out as a floor plan rather than a wish list, because that is what it is.
-# `wide = true` makes a room span two columns — use it for the big ones so the
+# `wide = true` makes a room span two columns; use it for the big ones so the
 # grid reads like a building instead of a table.
 [[rooms]]
 icon = "☕"
@@ -891,7 +891,7 @@ wide = false
 
 # ------------------------------------------------------------------ quotes --
 # Attributed exactly as recorded. Heads up: several of the best-known lines
-# floating around under Einstein's name are misattributed — the ones here are
+# floating around under Einstein's name are misattributed, the ones here are
 # the ones that hold up. See /quotes for the full wall.
 [[quotes]]
 text = "Few are those who see with their own eyes and feel with their own hearts."

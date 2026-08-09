@@ -2,19 +2,19 @@
 /**
  * The watch-list pipeline.
  *
- *   site/data/watching.json   in   — a list of titles, hand-written
- *   site/data/titles.json     out  — the same list with everything filled in
- *   site/static/imgs/titles/  out  — title logos, where a free one exists
+ *   site/data/watching.json   in , a list of titles, hand-written
+ *   site/data/titles.json     out, the same list with everything filled in
+ *   site/static/imgs/titles/  out, title logos, where a free one exists
  *
  * ADDING A SHOW IS ONE LINE: {"title": "Severance"}. Run this and it comes back
- * with a year, an IMDb link, its genres and — if Wikimedia Commons happens to
- * have a freely-licensed title logo — a picture. That is the whole point of the
+ * with a year, an IMDb link, its genres and, if Wikimedia Commons happens to
+ * have a freely-licensed title logo, a picture. That is the whole point of the
  * script: the interesting part of a watch list is the list, and nobody should
  * have to look up eleven-digit IMDb ids by hand.
  *
  * WHERE THE DATA COMES FROM, AND WHY NOT SOMEWHERE EASIER
  *
- * Wikidata, which is CC0 — the facts are free to take and free to republish.
+ * Wikidata, which is CC0, the facts are free to take and free to republish.
  * TMDb and OMDb would be less work and both would be a mistake here: they need
  * an API key, which means a secret in the build, and their artwork is the
  * studios' rather than theirs to license on.
@@ -22,7 +22,7 @@
  * WHY THERE ARE STILL NO POSTERS. Key art is copyrighted, full stop, and no
  * free source for it exists at any size. Wikipedia's own poster files are
  * tagged non-free and are fair use ON WIKIPEDIA, which does not travel. What
- * Commons does often have is the *title logo* — a wordmark set in a typeface is
+ * Commons does often have is the *title logo*, a wordmark set in a typeface is
  * frequently below the threshold of originality and therefore public domain.
  * That is what this fetches, and it is why some shows get a real logo and most
  * get the typographic card.
@@ -31,7 +31,7 @@
  * written, so a non-free file fails loudly instead of quietly appearing on a
  * public site.
  *
- * RUN LOCALLY, COMMIT THE OUTPUT — it needs cwebp, and there is no reason to
+ * RUN LOCALLY, COMMIT THE OUTPUT, it needs cwebp, and there is no reason to
  * re-ask Wikidata about Seinfeld on every deploy.
  *
  * Usage:  node scripts/fetch-titles.mjs [in] [outData] [outDir]
@@ -53,7 +53,7 @@ const UA = {
 const ALLOWED = [/^cc0/i, /^public domain/i, /^pd/i, /^cc by/i, /^cc-by/i, /^gpl/i, /^gfdl/i];
 
 /* Wikidata classes worth matching. This list is longer than it looks like it
-   needs to be because P31 on a television series is not one value — Wikidata
+   needs to be because P31 on a television series is not one value: Wikidata
    distinguishes "television series", "animated series", "animated sitcom",
    "anime television series" and several more, and The Simpsons uses a class
    that none of the obvious guesses cover. */
@@ -69,7 +69,7 @@ const KINDS = [
   "Q220898",     // OVA
 ];
 
-/* NOT "Q24856", film series — deliberately. Wikidata has an item for the Happy
+/* NOT "Q24856", film series, deliberately. Wikidata has an item for the Happy
    Feet *franchise* as well as for the 2006 film, the franchise carries its own
    tt-id and a 2006 date, and with film-series in KINDS it scored the full 11
    (real tt-id +4, right kind +3, year match +4) and won on the spot. The film
@@ -78,7 +78,7 @@ const KINDS = [
    no such title.
 
    A franchise is never the answer to "which work is this". Every qid on the site
-   was checked against P31 after this changed — 803 items — and Happy Feet was
+   was checked against P31 after this changed (803 items) and Happy Feet was
    the only row that had landed on one, so this needed no --all re-resolve.
    Q24856 stays in FILM_KINDS below, which only decides which list a row belongs
    in and is never reached now that such an item cannot win. */
@@ -98,7 +98,7 @@ try {
   execFileSync("cwebp", ["-version"], { stdio: "ignore" });
 } catch {
   hasCwebp = false;
-  console.warn("WARNING: cwebp not found — metadata will refresh, images will not.");
+  console.warn("WARNING: cwebp not found, metadata will refresh, images will not.");
 }
 
 const plain = (h) =>
@@ -123,7 +123,7 @@ async function getJSON(url, ms = 30000) {
  *
  * Three signals, in order of strength:
  *
- *   1. The IMDb id must look like a TITLE — `tt` and nothing else. `nm` is a
+ *   1. The IMDb id must look like a TITLE: `tt` and nothing else. `nm` is a
  *      person, `ch` a character, `ev` an event. That one test alone would have
  *      caught every wrong answer above.
  *   2. The year must match the year in watching.json, within one. Release dates
@@ -164,7 +164,7 @@ async function resolve_qid(title, year = null) {
       if (p31.some((id) => KINDS.includes(id))) score += 3;
       if (year && yr) score += Math.abs(yr - year) <= 1 ? 4 : -3;
 
-      // A perfect card — right kind, right year, real title id — cannot be
+      // A perfect card (right kind, right year, real title id) cannot be
       // beaten, so stop looking rather than spend six more entity fetches.
       if (score >= 11) return h.id;
       if (score > bestScore) { bestScore = score; best = h.id; }
@@ -235,7 +235,7 @@ async function commonsImage(file, key) {
  * card colour can carry both. So measure it.
  *
  * dwebp ships with cwebp, decodes to PAM, and PAM is four bytes per pixel after
- * a short text header — which makes this about fifteen lines rather than a
+ * a short text header, which makes this about fifteen lines rather than a
  * reason to add an image library. Only pixels that are actually opaque count;
  * averaging in the transparent background would report every logo as mid-grey.
  */
@@ -244,7 +244,7 @@ function isDark(webpPath) {
   try {
     pam = execFileSync("dwebp", ["-quiet", "-pam", webpPath, "-o", "-"], { maxBuffer: 64 * 1024 * 1024 });
   } catch {
-    return false; // no dwebp, no opinion — the hand-picked colour stands
+    return false; // no dwebp, no opinion, the hand-picked colour stands
   }
   const head = pam.subarray(0, 200).toString("latin1");
   const start = head.indexOf("ENDHDR\n");
@@ -268,12 +268,12 @@ const input = JSON.parse(readFileSync(IN, "utf8"));
 mkdirSync(DIR, { recursive: true });
 
 /* Posters are merged into titles.json by a LATER script (fetch-posters.mjs), so
-   this one has to carry them across or re-running it silently wipes them —
+   this one has to carry them across or re-running it silently wipes them,
    which is exactly the sort of thing you discover three deploys later. */
 /* INCREMENTAL BY DEFAULT.
  *
  * A full pass is 660 Wikidata lookups at a polite 250ms each, plus an entity
- * fetch per candidate and a Commons download per logo — about seventeen
+ * fetch per candidate and a Commons download per logo, about seventeen
  * minutes, all of it re-deriving answers that have not changed since the last
  * run. A row that already has a qid and a real tt-id is settled: Wikidata is
  * not going to change its mind about which item The Goonies is.
@@ -283,7 +283,7 @@ mkdirSync(DIR, { recursive: true });
  *
  *   --all    re-resolve everything, for when the resolver itself changes
  *
- * That flag is not optional politeness — every time the scoring in resolve_qid
+ * That flag is not optional politeness, every time the scoring in resolve_qid
  * is edited, the existing rows were matched by the OLD rules and have to be
  * done again. */
 const FULL = process.argv.includes("--all");
@@ -293,7 +293,7 @@ let settled = {};
 try {
   const old = JSON.parse(readFileSync(OUT, "utf8"));
   /* KEYED BY LIST AND YEAR, NOT BY TITLE. Three titles already live in both
-     lists — Fargo, The Flash and Underdog are each a series and a film — and
+     lists (Fargo, The Flash and Underdog are each a series and a film) and
      Goosebumps is a fourth. Keying on the title alone meant the last one read
      won, so a show could inherit a film's poster on any run where
      fetch-posters did not follow. Latent until it was not. */
@@ -318,11 +318,11 @@ async function collect(rows, kind) {
   let reused = 0;
   for (const s of rows) {
     /* Settled and unchanged: take last run's answer and move on. The input row
-       still wins on the fields a person edits by hand — title, year, colours —
+       still wins on the fields a person edits by hand, title, year, colours,
        so correcting a colour in watching.json does not need a re-resolve.
 
        UNLESS THE PIN CHANGED. A settled row keeps its cached qid and imdb, which
-       is the whole point — but it also means writing a `qid` into watching.json
+       is the whole point, but it also means writing a `qid` into watching.json
        to overrule a wrong match would do nothing at all, silently, because the
        row already had *some* qid and *some* tt-id and therefore counted as
        settled. That is how "All Quiet on the Western Front" stayed pinned to the
@@ -417,13 +417,13 @@ async function collect(rows, kind) {
     if (carried) row.poster = carried;
     out.push(row);
     process.stdout.write(
-      `  ${s.title.slice(0, 40).padEnd(42)} ${(row.imdb || "—").padEnd(11)} ${row.logo ? "logo" : ""}\n`
+      `  ${s.title.slice(0, 40).padEnd(42)} ${(row.imdb || ", ").padEnd(11)} ${row.logo ? "logo" : ""}\n`
     );
     // Wikidata asks for a courteous request rate and this is a build script,
     // not a race. A quarter second between titles keeps it comfortably polite.
     await sleep(250);
   }
-  if (reused) console.log(`  (${reused} already resolved, reused — pass --all to redo them)`);
+  if (reused) console.log(`  (${reused} already resolved, reused, pass --all to redo them)`);
   return out;
 }
 
@@ -433,7 +433,7 @@ let movies = await collect(input.movies || [], "film");
 /* A TITLE ENDS UP IN THE LIST WIKIDATA SAYS IT BELONGS IN, not the one it was
    typed into. "Mr. Peabody & Sherman" was written under films and matched the
    2015 television series, so a film section showed a card reading "comedy
-   television series" — which is the kind of wrong that survives for months
+   television series", which is the kind of wrong that survives for months
    because nothing errors.
  *
  * This does not fix a bad match; it makes one visible and puts it somewhere

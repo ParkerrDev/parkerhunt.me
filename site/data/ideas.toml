@@ -2,7 +2,7 @@
 # nine and links through.
 #
 # Order is chronological-ish, not ranked. `tag` is a single word used for the
-# little uppercase label — keep the vocabulary small so the page stays calm:
+# little uppercase label; keep the vocabulary small so the page stays calm:
 # hardware, software, ai, web, infra, space, consumer, business, health,
 # robotics, fun.
 
@@ -34,7 +34,7 @@ blurb = "Spare cycles, pooled and paid for."
 [[idea]]
 name = "Automated personal historian"
 tag = "ai"
-blurb = "Prompts you about your own past, then compiles the answers — text, photos, video — into a real biography."
+blurb = "Prompts you about your own past, then compiles the answers (text, photos, video) into a real biography."
 
 [[idea]]
 name = "Wildlife spotting map"
@@ -54,7 +54,7 @@ blurb = "An LLM driving a parametric CAD language, so the model output is the pa
 [[idea]]
 name = "CRX sync"
 tag = "web"
-blurb = "A browser extension that installs other extensions from .crx files — an alternative store that needs no store."
+blurb = "A browser extension that installs other extensions from .crx files, an alternative store that needs no store."
 
 [[idea]]
 name = "Idea-generating algorithm"
@@ -79,7 +79,7 @@ blurb = "Hire a whole division, not a headcount. A team that arrives already kno
 [[idea]]
 name = "Tiny rockets"
 tag = "space"
-blurb = "Everyone is building the largest rockets in history. Nobody is building the smallest. Modular, staged, reusable, drone-launched — an extremely cheap way to put eyes in the sky."
+blurb = "Everyone is building the largest rockets in history. Nobody is building the smallest. Modular, staged, reusable, drone-launched, an extremely cheap way to put eyes in the sky."
 
 [[idea]]
 name = "Login pages via DNS"
@@ -182,14 +182,14 @@ tag = "consumer"
 blurb = "Ice cream truck model, caffeine payload."
 
 [[idea]]
-name = "TEA — The Everything App"
+name = "TEA: The Everything App"
 tag = "software"
 blurb = "Groceries, food scanning, fitness, habits, to-dos, smart home and encrypted notes in one nonprofit app, all free. Revenue comes from delivery and hardware, not from the software."
 
 [[idea]]
 name = "Mesh messenger + SDK"
 tag = "infra"
-blurb = "P2P, end-to-end encrypted, and routable over internet, Wi-Fi, Bluetooth or LoRa — so it still works when the network doesn't."
+blurb = "P2P, end-to-end encrypted, and routable over internet, Wi-Fi, Bluetooth or LoRa, so it still works when the network doesn't."
 
 [[idea]]
 name = "Offline everything"
@@ -209,7 +209,7 @@ blurb = "If files can be seeded, so can pages. Why does browsing have to be cent
 [[idea]]
 name = "Inline social"
 tag = "web"
-blurb = "Fraidycat, but for X — and then Fraidycat for iOS, which does not exist and should."
+blurb = "Fraidycat, but for X, and then Fraidycat for iOS, which does not exist and should."
 
 [[idea]]
 name = "ComedyGPT"

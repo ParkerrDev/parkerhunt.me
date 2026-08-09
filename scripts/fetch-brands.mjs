@@ -2,15 +2,15 @@
 /**
  * Business logos, from each business's own website.
  *
- *   site/data/brands.json          out — the manifest
- *   site/static/imgs/brands/*.webp out — the logos
+ *   site/data/brands.json          out, the manifest
+ *   site/static/imgs/brands/*.webp out, the logos
  *
  * RUN LOCALLY, COMMIT THE OUTPUT (needs cwebp).
  *
  * WHY THIS AND NOT COMMONS
  *
  * Wikimedia Commons only has a company's logo when the logo is simple enough to
- * be public domain. That gets you Starbucks' wordmark and nothing else — not
+ * be public domain. That gets you Starbucks' wordmark and nothing else, not
  * the siren, not Chipotle's pepper, and obviously nothing at all for a
  * six-branch coffee chain in Fresno. What every company DOES publish is its own
  * site icon: an apple-touch-icon or a large favicon, which for a restaurant is
@@ -18,7 +18,7 @@
  * background. icon.horse resolves that in one request, with no key.
  *
  * A logo is a trademark, and this uses each one to refer to the business it
- * names — "this is my Chipotle order" — which is nominative use and the same
+ * names ("this is my Chipotle order") which is nominative use and the same
  * basis as scripts/fetch-icons.mjs. Nothing is altered and nothing suggests any
  * of these companies endorse anything. Each file is fetched once here and
  * served from this origin, so no visitor's browser ever contacts icon.horse.
@@ -38,7 +38,7 @@ const DATA = resolve(process.argv[3] || "site/data/brands.json");
 const WANT = [
   { key: "starbucks", domain: "starbucks.com" },
   /* icon.horse only finds a 32px favicon for Kuppa Joy, so their logo comes
-     straight off their own homepage instead — it is right there in the header,
+     straight off their own homepage instead, it is right there in the header,
      at 400px, which is exactly the mark and exactly the size wanted. `url`
      exists for this case and skips the icon lookup entirely. */
   { key: "kuppajoy", domain: "kuppajoy.com",
@@ -58,8 +58,8 @@ try {
 
 /* PLATE, BY HAND, ON PURPOSE.
  *
- * Two rounds were spent trying to derive this — average ink luminance, then
- * opaque-pixel fraction — and both got it wrong in opposite directions:
+ * Two rounds were spent trying to derive this, average ink luminance, then
+ * opaque-pixel fraction, and both got it wrong in opposite directions:
  * Starbucks' green siren on white was classified as light ink and put on a
  * black tile, while Butterfish's white B was classified as self-contained and
  * left invisible on a white one. The pixels do not carry the answer, because
@@ -78,7 +78,7 @@ const PLATE = {
 
 /* Wide or square? A site icon is usually a square with the mark inset in it,
    so capping every logo at one height makes the square ones look shrunken and
-   the wordmarks look enormous. Read the dimensions out of the PAM header —
+   the wordmarks look enormous. Read the dimensions out of the PAM header,
    which is a text line, so this needs no decoding at all. */
 function isWide(webpPath) {
   try {
@@ -105,10 +105,10 @@ for (const w of WANT) {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = Buffer.from(await res.arrayBuffer());
 
-    /* A 32×32 favicon is a favicon, not a logo — it will look like mush at the
+    /* A 32×32 favicon is a favicon, not a logo, it will look like mush at the
        size these render. Anything under 1 KB is almost always that, or a
        placeholder, so refuse it rather than ship a blurry square. */
-    if (buf.length < 1000) throw new Error(`only ${buf.length} bytes — probably a 32px favicon, not a logo`);
+    if (buf.length < 1000) throw new Error(`only ${buf.length} bytes, probably a 32px favicon, not a logo`);
 
     const tmp = join(tmpdir(), `brand-${w.key}.bin`);
     writeFileSync(tmp, buf);

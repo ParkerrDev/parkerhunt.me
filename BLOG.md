@@ -39,7 +39,7 @@ TOML, so strings are quoted and dates are bare. The filename is the URL:
 `my-post.md` → `/blog/my-post/`. Rename the file to change the URL.
 
 **`draft = true` is the safety catch.** A draft is not rendered, not linked, and
-not in the feed — but the markdown is still committed to a **public** repo, so it
+not in the feed, but the markdown is still committed to a **public** repo, so it
 is readable by anyone who looks. Draft means unpublished, not private.
 
 ## Images
@@ -56,7 +56,7 @@ site/content/blog/my-post/
 output, and the URL stays `/blog/my-post/`. The tracked
 `.obsidian/app.json` sets `useMarkdownLinks` and `attachmentFolderPath: "./"` so
 Obsidian writes exactly that form instead of `![[wikilinks]]`, which Zola cannot
-render. Don't change those two settings — they are what keeps the one file
+render. Don't change those two settings, they are what keeps the one file
 readable by both tools.
 
 ## Obsidian setup
@@ -66,7 +66,7 @@ travel with the repo (`.obsidian/app.json`, `appearance.json`); everything else
 under `.obsidian/` is git-ignored per-device state.
 
 Publishing is a normal commit in this repo. The Obsidian Git plugin is
-deliberately **not** configured here — the vault is a subdirectory of a repo whose
+deliberately **not** configured here, the vault is a subdirectory of a repo whose
 other files are templates and build scripts, and a note-taking plugin should not
 be the thing that commits them. `git commit && git push`, or your editor.
 

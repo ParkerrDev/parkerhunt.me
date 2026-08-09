@@ -6,7 +6,7 @@
 # on Steam in the first place.
 #
 # `appid` links a row to the Steam snapshot, which is where its name, store link
-# and local capsule art come from — so a title never has to be typed twice and
+# and local capsule art come from, so a title never has to be typed twice and
 # can never drift from what Steam calls it. Leave it empty for anything not on
 # Steam and give it a `title` and a `where` instead.
 #
@@ -33,7 +33,7 @@ note = "Santa Monica Studio, 2022. Played on PlayStation."
 
 [[favourite]]
 appid = "1593500"
-note = "The Norse reboot — one unbroken camera shot, start to finish."
+note = "The Norse reboot, one unbroken camera shot, start to finish."
 
 # ------------------------------------------------------------------ played --
 # Everything, in the order it was written down rather than alphabetised or
@@ -272,7 +272,7 @@ where = "Telltale · delisted"
 
 [[played]]
 appid = ""
-title = "Minecraft: Story Mode — Season Two"
+title = "Minecraft: Story Mode: Season Two"
 where = "Telltale · delisted"
 
 [[played]]

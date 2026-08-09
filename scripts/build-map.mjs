@@ -19,7 +19,7 @@
  * wanted: a finished SVG tells you where Nevada is drawn but not what
  * projection put it there, so there is no way to convert 39.19°N 120.26°W into
  * a point on it. Fitting one by least squares over state centroids was tried
- * and got within about 20px — which is Sacramento landing in the Pacific.
+ * and got within about 20px, which is Sacramento landing in the Pacific.
  *
  * So the geometry now comes from us-atlas' `states-albers-10m.json`, which is
  * PRE-PROJECTED with known parameters:
@@ -39,7 +39,7 @@
  * Rotate the point; do not rotate the centre.
  *
  * SOURCES
- *   us-atlas (ISC) — https://github.com/topojson/us-atlas
+ *   us-atlas (ISC), https://github.com/topojson/us-atlas
  *   boundaries: US Census Bureau cartographic files, public domain.
  *
  * Usage:  node scripts/build-map.mjs [--verify] [travel.json] [outSvg] [outData]
@@ -66,7 +66,7 @@ const CREDIT = {
   source: "https://github.com/topojson/us-atlas",
 };
 
-/* The canvas the file is projected onto. Not a guess — see --verify. */
+/* The canvas the file is projected onto. Not a guess; see --verify. */
 const W = 975, H = 610;
 const K = 1300, T = [487.5, 305];
 
@@ -84,7 +84,7 @@ const wrap = (l) => (l > Math.PI ? l - 2 * Math.PI : l < -Math.PI ? l + 2 * Math
 
 function conic(parallels, rotDeg, centreDeg, k, t) {
   const raw = conicEqualAreaRaw(parallels[0] * RAD, parallels[1] * RAD);
-  const c = raw(centreDeg[0] * RAD, centreDeg[1] * RAD); // NOT rotated — see the header
+  const c = raw(centreDeg[0] * RAD, centreDeg[1] * RAD); // NOT rotated; see the header
   return (lon, lat) => {
     const p = raw(wrap((lon + rotDeg) * RAD), lat * RAD);
     return [k * (p[0] - c[0]) + t[0], t[1] - k * (p[1] - c[1])];
@@ -124,8 +124,8 @@ const [ox, oy] = topo.transform.translate;
 /* Douglas–Peucker, applied ONCE PER ARC rather than per ring.
  *
  * That distinction is the whole reason the borders still line up. An arc in
- * TopoJSON is a shared border segment — Nevada and Utah reference the same one,
- * one of them backwards — so simplifying the arc simplifies both sides
+ * TopoJSON is a shared border segment: Nevada and Utah reference the same one,
+ * one of them backwards, so simplifying the arc simplifies both sides
  * identically and no seam opens up. Simplifying each state's ring separately
  * would drop different points on each side of the same line and leave white
  * cracks down the middle of the country.
@@ -231,13 +231,13 @@ const CODES = {
 for (const s of states) s.code = CODES[s.name] || "";
 
 if (states.length < 50) {
-  console.error(`ERROR: parsed only ${states.length} states — the source has changed shape.`);
+  console.error(`ERROR: parsed only ${states.length} states, the source has changed shape.`);
   process.exit(1);
 }
 
 /* --------------------------------------------------------------- self-check */
 /* Census internal points: a point guaranteed to be inside the state, which is
-   exactly the assertion wanted. Michigan is the exception and uses Lansing —
+   exactly the assertion wanted. Michigan is the exception and uses Lansing,
    its published internal point sits in Grand Traverse Bay, which is inside the
    state and outside the polygon, and a self-check that cries wolf on its first
    run is worse than no self-check. */
@@ -384,7 +384,7 @@ writeFileSync(
       pins_by_kind: pins.reduce((a, p) => ({ ...a, [p.kind]: (a[p.kind] || 0) + 1 }), {}),
       credit: CREDIT,
       // Alphabetical by name, which is the order a list of places wants to be
-      // read in — the codes are only there to key the map.
+      // read in, the codes are only there to key the map.
       visited: states
         .filter((s) => want.has(s.code))
         .map((s) => ({ code: s.code, name: s.name }))
