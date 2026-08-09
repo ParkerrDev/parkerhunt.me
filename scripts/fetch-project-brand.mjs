@@ -104,6 +104,20 @@ for (const f of readdirSync(DIR).filter((n) => n.endsWith(".md") && n !== "_inde
   const slug = f.replace(/\.md$/, "");
   if (!site) { console.log(`  ${slug.padEnd(18)} no website_url, skipped`); continue; }
 
+  /* Some projects ship no icon a browser could use, and this is not a fetch bug.
+     Pocklet's markup and its manifest both point at /icons/icon-192.png and
+     friends; its host answers every one of them with the 52 KB HTML page, so
+     the files are simply not deployed and its own PWA install has no icon
+     either. Trion ships a single 32px favicon, which upscaled to a 40px plate
+     at 2x is mush. For those two the mark was cut out of the project's own card
+     art, where the logo already lives at usable resolution, and the row is
+     flagged so a later run does not quietly replace real artwork with nothing.
+     Delete brand_from_card once the site actually serves an icon. */
+  if (/brand_from_card = true/.test(src)) {
+    console.log(`  ${slug.padEnd(18)} mark cut from its card art, left alone`);
+    continue;
+  }
+
   let wrote = null, from = null;
   try {
     for (const cand of await iconCandidates(site)) {
