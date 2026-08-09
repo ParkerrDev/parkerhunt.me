@@ -11,7 +11,6 @@ card_image = "/imgs/project-cards/opt/pocklet.webp"
 website_url = "https://pocklet.netlify.app"
 accent = "#705fdc"
 accent_ink = "#ffffff"
-stack = ["Web", "PWA"]
 +++
 
 ... (to be written)
