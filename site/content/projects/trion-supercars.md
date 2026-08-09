@@ -5,6 +5,8 @@ date = 2026-03-02
 updated = 2026-04-04
 weight = 4
 [extra]
+brand_image = "/imgs/project-brand/trion-supercars.webp"
+brand_from_card = true
 card_image = "/imgs/project-cards/opt/trion.webp"
 website_url = "https://noirt.netlify.app"
 accent = "#af6e6e"
