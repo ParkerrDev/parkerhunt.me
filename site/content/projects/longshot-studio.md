@@ -5,8 +5,8 @@ date = 2026-08-07
 updated = 2026-08-08
 weight = 1
 [extra]
-card_image = "/imgs/project-cards/opt/longshot.webp"
-brand_image = "/imgs/project-brand/longshot-studio.webp"
+card_image = "/imgs/project-cards/opt/longshot-c108a3f0.webp"
+brand_image = "/imgs/project-brand/longshot-studio-49727a2c.webp"
 website_url = "https://longshot.studio"
 mirror_url = "https://longshot-studio.netlify.app/"
 hide_read_more = true

@@ -6,8 +6,8 @@ updated = 2026-08-09
 weight = 2
 [extra]
 brand_manual = true
-card_image = "/imgs/project-cards/opt/templeos.webp"
-brand_image = "/imgs/project-brand/templeos-web.webp"
+card_image = "/imgs/project-cards/opt/templeos-6e884899.webp"
+brand_image = "/imgs/project-brand/templeos-web-02b3f82f.webp"
 accent = "#0000ab"
 accent_ink = "#ffffff"
 website_url = "https://templeosweb.netlify.app"

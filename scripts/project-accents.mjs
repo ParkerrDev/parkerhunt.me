@@ -19,6 +19,11 @@
  * be. Picking whichever of black/white wins, and darkening the accent only if
  * neither clears 4.5:1, keeps every button both vivid and legible.
  *
+ * Card images are content-hashed in their filenames, for the reason spelled out
+ * in fetch-project-brand.mjs: /imgs/* is immutable for a year, so a file edited
+ * in place never reaches anybody. This script reads whatever card_image points
+ * at, so a rename needs nothing here.
+ *
  * Needs dwebp and sips (macOS). RUN LOCALLY, COMMIT THE RESULT, the built
  * site reads the front matter, never this.
  *

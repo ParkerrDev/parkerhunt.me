@@ -5,8 +5,8 @@ date = 2026-03-02
 updated = 2026-04-04
 weight = 3
 [extra]
-card_image = "/imgs/project-cards/opt/appit.webp"
-brand_image = "/imgs/project-brand/appit.webp"
+card_image = "/imgs/project-cards/opt/appit-3cb98b9e.webp"
+brand_image = "/imgs/project-brand/appit-7419d963.webp"
 website_url = "https://appitapp.app"
 hide_read_more = true
 accent = "#ccdc48"
