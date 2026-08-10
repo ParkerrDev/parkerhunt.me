@@ -29,7 +29,8 @@
  * Usage:  node scripts/fetch-project-brand.mjs
  */
 
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync, statSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync, statSync, unlinkSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
@@ -91,9 +92,24 @@ async function makeMark(url, slug) {
   execFileSync("sips", ["-c", String(side), String(side), png, "--out", png], { stdio: "ignore" });
   execFileSync("sips", ["-Z", "128", png, "--out", png], { stdio: "ignore" });
 
-  const out = join(OUT, `${slug}.webp`);
-  execFileSync("cwebp", ["-quiet", "-q", "86", png, "-o", out]);
-  return statSync(out).size;
+  /* CONTENT-HASHED, and this is not decoration. _headers serves /imgs/* with
+     `max-age=31536000, immutable`, so a mark written to a fixed path and then
+     replaced is invisible: every edge node and every browser that saw the first
+     version keeps it for a year. Three marks were revised repeatedly at fixed
+     names and the live site went on serving the originals throughout, which
+     looked exactly like the fix not working. The hash in the name means a
+     changed file is a changed URL. */
+  const tmpOut = join(tmpdir(), `pb-out-${slug}.webp`);
+  execFileSync("cwebp", ["-quiet", "-q", "86", png, "-o", tmpOut]);
+  const stamp = createHash("sha256").update(readFileSync(tmpOut)).digest("hex").slice(0, 8);
+  const name = `${slug}-${stamp}.webp`;
+  const out = join(OUT, name);
+  writeFileSync(out, readFileSync(tmpOut));
+  // drop any earlier hash for this slug, so the folder holds one file per mark
+  for (const old of readdirSync(OUT)) {
+    if (old !== name && (old === `${slug}.webp` || old.startsWith(`${slug}-`))) unlinkSync(join(OUT, old));
+  }
+  return { size: statSync(out).size, name };
 }
 
 let ok = 0, kept = 0;
@@ -138,11 +154,12 @@ for (const f of readdirSync(DIR).filter((n) => n.endsWith(".md") && n !== "_inde
     if (!had) continue;
     kept++;
   } else {
-    console.log(`  ${slug.padEnd(18)} ${Math.round(wrote / 1024)} KB  <- ${from.slice(0, 62)}`);
+    console.log(`  ${slug.padEnd(18)} ${Math.round(wrote.size / 1024)} KB  ${wrote.name}`);
     ok++;
   }
 
-  const rel = `/imgs/project-brand/${slug}.webp`;
+  const rel = wrote ? `/imgs/project-brand/${wrote.name}` : null;
+  if (!rel) continue;
   if (!src.includes(`brand_image = "${rel}"`)) {
     src = src.includes("brand_image =")
       ? src.replace(/brand_image = "[^"]*"/, `brand_image = "${rel}"`)
