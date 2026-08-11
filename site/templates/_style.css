@@ -202,6 +202,21 @@ a { color: inherit; text-decoration: none; }
   color: var(--muted); text-wrap: balance;
 }
 
+/* The line of counts under a catalogue hero. THIS HAD NO RULE AT ALL, on any
+   page: /movies/, /watching/ and /shelf/ all emit `ul.facts` and all three were
+   rendering it as a default bulleted list, so the markers sat hard against the
+   left edge of the viewport while the centred text they belonged to sat in the
+   middle of the page. A row of separated items is what the markup always meant;
+   the separator is a middot drawn between items rather than a list marker, so
+   it never detaches from the text. */
+.facts {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 0.25rem 0.875rem;
+  font-family: var(--mono); font-size: 0.75rem; color: var(--faint);
+}
+.facts li + li::before { content: "·"; margin-right: 0.875rem; opacity: 0.55; }
+
 /* Bare icons in a row, exactly as the old parkerhunt.me had them: 25px, half a
    rem of padding, inheriting the text colour. No border, no fill, no circle,
    the ring around each one was the thing that made this strip look like a
