@@ -12,3 +12,12 @@
 /blog     /  301
 /blog/    /  301
 /blog/*   /  301
+
+# /dad/ was published for a few hours and is now local only. Same problem as the
+# blog above and the same fix: deleting the page left Pages serving a cached
+# copy for a week with no way to evict it, so this REPLACES the cached object
+# rather than trying to delete it. Without these lines parkerhunt.me/dad/ keeps
+# answering 200 while the deployment it came from answers 404.
+/dad      /  301
+/dad/     /  301
+/dad/*    /  301
