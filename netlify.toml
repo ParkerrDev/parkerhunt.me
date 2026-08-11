@@ -1,0 +1,17 @@
+# The prototype at parkerhunt-redesign.netlify.app.
+#
+# Production is Cloudflare Pages and is configured in the Cloudflare dashboard;
+# this file exists because the Netlify side was configured in ITS dashboard,
+# invisibly, and got it wrong: a deploy published the repository root, so
+# /site/public/dad/ answered and /dad/ did not. Build settings that live only in
+# a web UI are settings nobody can review. These are the same two values
+# Cloudflare uses, written down.
+#
+# build-zola.sh downloads a pinned x86_64 Linux Zola, which is what Netlify's
+# builders run, and pulls the resume out of the private repo. Without
+# RESUME_DEPLOY_KEY it warns rather than failing, and the PDF already sitting in
+# site/static/ from a local build is used instead, so the prototype still serves
+# /resume. See RESUME.md.
+[build]
+  command = "./build-zola.sh"
+  publish = "site/public"
