@@ -4,14 +4,20 @@
 # this file exists because the Netlify side was configured in ITS dashboard,
 # invisibly, and got it wrong: a deploy published the repository root, so
 # /site/public/dad/ answered and /dad/ did not. Build settings that live only in
-# a web UI are settings nobody can review. These are the same two values
-# Cloudflare uses, written down.
+# a web UI are settings nobody can review.
 #
-# build-zola.sh downloads a pinned x86_64 Linux Zola, which is what Netlify's
-# builders run, and pulls the resume out of the private repo. Without
-# RESUME_DEPLOY_KEY it warns rather than failing, and the PDF already sitting in
-# site/static/ from a local build is used instead, so the prototype still serves
-# /resume. See RESUME.md.
+# NETLIFY DOES NOT BUILD THIS SITE, it publishes a build that already happened.
+# The prototype's job is to show the exact bytes that are about to go to
+# production, and a second build on a different machine is a second thing that
+# can differ. build-zola.sh is Cloudflare's entry point and it needs the private
+# resume repo (RESUME_DEPLOY_KEY) to produce /resume; giving a preview host that
+# key to rebuild something already sitting in site/public/ buys nothing and
+# spreads the credential.
+#
+# So: run ./build-local.sh, then deploy. The command below is a guard rather
+# than a build. Without it an upload missing site/public/ would publish an empty
+# directory and report success, which is the failure mode that is hardest to
+# notice, because the old site simply stays up.
 [build]
-  command = "./build-zola.sh"
+  command = "test -f site/public/index.html || { echo 'site/public/ is missing: run ./build-local.sh before deploying' >&2; exit 1; }"
   publish = "site/public"
