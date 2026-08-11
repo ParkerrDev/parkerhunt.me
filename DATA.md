@@ -37,6 +37,7 @@ scripts/fetch-*.mjs ──► site/data/*.json ──► templates ──► pub
 | `fetch-logos.mjs` | Wikimedia Commons | `site/static/imgs/logos/*.webp` + `site/data/logos.json` | none, **local only** |
 | `fetch-titles.mjs` | Wikidata + Commons + `site/data/watching.json` | `site/data/titles.json` + `site/static/imgs/titles/*.webp` | none, **local only** |
 | `fetch-posters.mjs` | TMDb | merges posters into `site/data/titles.json` | **needs `TMDB_API_KEY`**, local only |
+| `fetch-dad.mjs` | TMDb + `site/data/dad-raw.txt` | `site/data/dad.json` | **needs `TMDB_API_KEY`**, local only |
 | `fetch-places.mjs` | Wikidata (P625 + P18) + Commons + `places.json` | `site/data/been.json` + `site/static/imgs/been/*.webp` | none, **local only** |
 
 All seven fetchers run from `build-zola.sh` on every Cloudflare deploy. Only one
