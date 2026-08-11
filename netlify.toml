@@ -19,5 +19,11 @@
 # directory and report success, which is the failure mode that is hardest to
 # notice, because the old site simply stays up.
 [build]
-  command = "test -f site/public/index.html || { echo 'site/public/ is missing: run ./build-local.sh before deploying' >&2; exit 1; }"
+  # rm FIRST, and this is not belt-and-braces. Netlify restores a cached copy of
+  # the publish directory between builds and the upload is overlaid onto it, so a
+  # page deleted locally keeps being published: /dad/ survived four deploys whose
+  # uploads provably did not contain it (a marker file proved the upload fresh
+  # while age: 34 proved the response was newly generated). Nothing here deletes
+  # anything that a build produces; site/public is build output and arrives whole.
+  command = "rm -rf site/public/dad && test -f site/public/index.html || { echo 'site/public/ is missing: run ./build-local.sh before deploying' >&2; exit 1; }"
   publish = "site/public"
