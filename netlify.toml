@@ -25,5 +25,5 @@
   # uploads provably did not contain it (a marker file proved the upload fresh
   # while age: 34 proved the response was newly generated). Nothing here deletes
   # anything that a build produces; site/public is build output and arrives whole.
-  command = "rm -rf site/public/dad && test -f site/public/index.html || { echo 'site/public/ is missing: run ./build-local.sh before deploying' >&2; exit 1; }"
+  command = "rm -rf site/public/dad site/public/_marker.txt && test -f site/public/index.html || { echo 'site/public/ is missing: run ./build-local.sh before deploying' >&2; exit 1; }"
   publish = "site/public"
