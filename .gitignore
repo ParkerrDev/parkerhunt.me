@@ -20,3 +20,18 @@ site/zola
 
 # OS cruft
 .DS_Store
+
+# DAD'S SHELF IS LOCAL ONLY. This repo is public and the page is not published;
+# the list, the resolver and the page all stay on disk and out of git. The
+# content file also carries draft = true, so a plain `zola build` leaves it out
+# even when the files ARE present, which is what keeps it off the Netlify
+# prototype (that publishes a local build, not a git checkout).
+#
+#   cd site && zola serve --drafts     to read it locally
+scripts/fetch-dad.mjs
+site/data/dad-raw.txt
+site/data/dad.json
+site/data/dad-decisions.md
+site/content/dad.md
+site/templates/dad.html
+.netlify/
