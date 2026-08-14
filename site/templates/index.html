@@ -882,7 +882,10 @@
     {# Two rows, always, a third row of anything is a wall, not a shelf. The
        order is randomised per build so the two rows are not the same eighteen
        shows every time; see scripts/build-shuffle.mjs. #}
-    {% if titles.shows | length > 0 %}
+    {# DISABLED. The TV shows are off the site; the page, the nav item and the
+       two sections here all come out together, and this one was guarded by
+       titles.shows | length > 0 before. #}
+    {% if false %}
     {% set tv_per_row = titles.shows | length / 2 | round(method="ceil") %}
     <section id="watching">
         <div class="wrap">
@@ -921,7 +924,8 @@
        list that reshuffles itself is a ranking that means nothing. #}
     {% set_global fav_tv_n = 0 %}
     {% for w in titles.shows %}{% if w.title in me.favourite_shows %}{% set_global fav_tv_n = fav_tv_n + 1 %}{% endif %}{% endfor %}
-    {% if fav_tv_n > 0 %}
+    {# DISABLED with the rest of the TV shows; was fav_tv_n > 0. #}
+    {% if false %}
     <section id="fav-tv">
         <div class="wrap">
             <div class="head">
