@@ -79,4 +79,10 @@ cd ..
 for f in AndrewHuntResume.pdf; do
   [ -s "site/public/${f}" ] || { echo "ERROR: ${f} did not reach site/public/." >&2; exit 1; }
 done
+# What this build produced, for netlify-prune.sh. Netlify lays an upload on top
+# of a restored cache rather than replacing the directory, so the deploy needs a
+# list of what is meant to be there to clear out what is not.
+( cd site/public && find . -type f | sed 's|^\./||' | grep -v '^\.manifest$' > .manifest && echo ".manifest" >> .manifest )
+echo "    manifest: $(wc -l < site/public/.manifest | tr -d ' ') files"
+
 echo "==> Built. site/public/ is ready to deploy."
