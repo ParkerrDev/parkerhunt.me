@@ -43,8 +43,8 @@ try {
   process.exit(1);
 }
 
-/* by_appid is every game in the snapshot, owned, wishlisted and the
-   played-elsewhere extras, so it is the only list to walk. */
+/* by_appid is every game in the snapshot, owned and the played-elsewhere
+   extras, so it is the only list to walk. */
 const snap = JSON.parse(readFileSync(SNAP, "utf8"));
 const jobs = Object.values(snap.by_appid || {});
 

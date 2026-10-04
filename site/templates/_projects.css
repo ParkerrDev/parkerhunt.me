@@ -2,150 +2,81 @@
 
    Lives in its own file because both pages need it and neither should carry the
    other's CSS: it is pulled in through each template's css_extra block, so it
-   ships on exactly those two pages and none of the other thirteen.
+   ships on exactly those two pages and none of the others.
 
-   WHAT THE FIRST VERSION GOT WRONG, since the fix is mostly subtraction. Each
-   project was a full-bleed band with a top-to-bottom tint. Five of those in a
-   column read as five stripes of slightly different colours rather than as five
-   projects, and because the tint faded to nothing halfway down, each stripe had
-   a hard edge at the top and a vague one at the bottom.
+   Small, plain dark cards in a grid, three across on a wide screen: a label,
+   the mark and title, one line, where it lives, and the card art in an inset
+   panel at the bottom. No colour washes; the art is the colour. */
 
-   Worse was the stack above the title: a brand plate and a hostname on one row,
-   then a numbered circle and a year on another, then the title, then a coloured
-   underline, then a tagline, then a paragraph. Six things to get past before
-   anything said what the project IS, and the hostname at the top was the same
-   string as the button at the bottom.
-
-   So: one bounded card per project, the accent as a single soft wash in one
-   corner instead of a stripe, the mark inline with the title, and the hostname
-   said once, on the button that uses it. */
-
-.projs { display: grid; gap: clamp(0.875rem, 2vw, 1.25rem); }
-
-/* The base stylesheet gives every `section + section` a top rule and every
-   section vertical padding. Both are right for a page of prose sections and
-   wrong here: each card already has a border, so the rule drew a second
-   boundary across the gap, and the padding fought the grid gap for control of
-   the spacing. */
-.projs .proj { padding: 0; }
-.projs .proj + .proj { border-top: 0; }
-
-.proj {
-  --pa: var(--accent);   /* the project's colour, sampled from its own card art */
-  --pi: #fff;            /* text that reads on it, computed, see project-accents.mjs */
+.pcs {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
 }
 
-.proj-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
-  gap: clamp(1.25rem, 3vw, 2.5rem);
-  align-items: center;
-  padding: clamp(1rem, 2.2vw, 1.75rem);
-  border-radius: var(--r-lg);
-  /* A wash in one corner, not a band across the page: it reads as light falling
-     on a card rather than as a stripe of colour behind text. */
-  background:
-    radial-gradient(130% 150% at 100% 0%, color-mix(in srgb, var(--pa) 10%, transparent), transparent 62%),
-    var(--card);
-  border: 1px solid color-mix(in srgb, var(--pa) 20%, var(--line));
-  box-shadow: var(--shadow-2);
-}
-/* Alternating sides, which only reads as rhythm once the cards have edges. */
-.proj:nth-child(even) .proj-card { grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); }
-.proj:nth-child(even) .proj-art { order: 2; }
-
-.proj-art {
-  aspect-ratio: 900 / 338;
+.pc {
+  position: relative;
+  display: flex; flex-direction: column;
+  padding: 0.75rem;
+  background: var(--card);
+  border: 1px solid var(--line-soft);
   border-radius: var(--r);
-  overflow: hidden;
-  background: var(--bg-soft);
-  /* Every card art gets the same hairline. Without it AppIt's near-white art
-     has no edge and floats, while the four dark ones look like solid blocks. */
-  border: 1px solid color-mix(in srgb, var(--pa) 22%, var(--line));
-  box-shadow: var(--shadow-1);
+  transition: border-color 0.24s, transform 0.24s;
 }
-.proj-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pc:hover { transform: translateY(-2px); border-color: var(--line); }
+/* The ring belongs on the card, since the card is what the link stands for. */
+.pc:has(.pc-link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
+.pc-link:focus-visible { outline: 0; }
 
-.proj-txt { min-width: 0; }
+.pc-body { padding: 0.625rem 0.5rem 1rem; display: flex; flex-direction: column; min-width: 0; }
 
-/* --- the one line of metadata that survived ------------------------------- */
-.proj-head { display: flex; align-items: center; gap: 0.75rem; }
-/* THE ICON IS THE MARK. It used to sit inset inside a tinted, bordered plate,
-   which drew a rounded square around things that are already rounded squares:
-   every one of these is an app icon that brings its own shape and its own
-   background. Two of them (AppIt, Longshot) have transparent corners, so the
-   plate's tint showed through them and the nesting was visible rather than just
-   redundant. The container is now the icon: same box, same radius, image
-   filling it edge to edge.
-
-   22% is the proportion an iOS icon's corner radius uses, so the container
-   agrees with the shape already baked into the artwork instead of cutting
-   across it. */
-.proj-brand {
-  width: 2.5rem; height: 2.5rem; flex: 0 0 auto;
-  border-radius: 22%;
-  overflow: hidden;
-  display: grid; place-items: center;
-  /* A hairline hugging the icon's own edge, not a frame around it. Without it
-     AppIt's near-white icon has no boundary against a white card. */
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), var(--shadow-1);
+/* --- kind ------------------------------------------------------------------ */
+/* Shown exactly as written in the front matter, which is in capitals already:
+   text-transform would turn "iOS" into "IOS". */
+.pc-kind {
+  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.08em;
+  color: var(--faint);
 }
-.proj-brand img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
 
-/* The monogram still needs something to sit on, so it keeps the plate the
-   icons no longer want. */
-.proj-brand--mono {
-  font-weight: 700; font-size: 1.0625rem; letter-spacing: -0.02em;
-  background: color-mix(in srgb, var(--pa) 10%, var(--card));
-  color: color-mix(in srgb, var(--pa) 55%, var(--fg));
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pa) 26%, var(--line));
+/* --- title ----------------------------------------------------------------- */
+.pc-title {
+  margin: 0.75rem 0 0; display: flex; align-items: center; gap: 0.5625rem;
+  font-size: 1.375rem; font-weight: 400; letter-spacing: -0.025em; line-height: 1.15;
 }
-.proj-title {
-  margin: 0; flex: 1 1 auto; min-width: 0;
-  font-size: clamp(1.3125rem, 2.2vw, 1.6875rem);
-  letter-spacing: -0.02em; line-height: 1.15;
+/* The icon is the mark, at the proportions an iOS icon uses for its corners. */
+.pc-brand {
+  width: 1.5rem; height: 1.5rem; flex: 0 0 auto; border-radius: 22%;
+  object-fit: cover; box-shadow: 0 0 0 1px var(--line);
 }
-.proj-year { font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); flex: 0 0 auto; }
+/* The stretched link: its ::after covers the whole card, so the card is
+   clickable without an anchor wrapped around block content. */
+.pc-link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
 
-/* --- what the project is -------------------------------------------------- */
-.proj-tag { margin: 0.875rem 0 0; font-size: 1.0625rem; line-height: 1.4; color: var(--fg); }
-.proj-desc { margin: 0.5rem 0 0; font-size: 0.9375rem; color: var(--muted); max-width: 34rem; }
-/* No tagline: the description becomes the lede and gets the lede's weight. */
-.proj-txt > .proj-desc:first-of-type:not(.proj-tag + .proj-desc) { margin-top: 0.875rem; }
-
-
-/* --- one action, plus quieter ones --------------------------------------- */
-.proj-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; margin: 1.25rem 0 0; }
-.proj-cta {
-  display: inline-flex; align-items: center; gap: 0.4375rem;
-  font-size: 0.9375rem; font-weight: 600; text-decoration: none;
-  padding: 0.5rem 0.9375rem; border-radius: 999px;
-  /* The one place the accent carries text, so the ink is computed rather than
-     assumed, black on AppIt's yellow-green, white on Pocklet's violet.
-     Assuming either would have failed one of them badly (white on #ccdc48 is
-     1.5:1). Both values come from the front matter. */
-  background: var(--pa);
-  color: var(--pi);
-  box-shadow: var(--shadow-1);
+.pc-desc {
+  margin: 0.4375rem 0 0; font-size: 0.9375rem; line-height: 1.45; color: var(--muted);
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
 }
-.proj-cta:hover { filter: brightness(0.94) saturate(1.08); }
-.proj-cta:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
-.proj-alt { font-size: 0.875rem; color: var(--muted); text-decoration: none; }
-.proj-alt:hover { color: var(--fg); text-decoration: underline; }
 
-/* --- home page ------------------------------------------------------------ */
-/* The cards sit inside a section with a heading above them there, so they need
-   less of everything than they do as a page of their own. */
-.projs--home .proj-card { padding: clamp(0.875rem, 1.8vw, 1.25rem); gap: clamp(1rem, 2.4vw, 1.75rem); }
-.projs--home .proj-title { font-size: clamp(1.1875rem, 1.8vw, 1.375rem); }
-.projs--home .proj-tag { font-size: 1rem; margin-top: 0.75rem; }
-.projs--home .proj-desc { font-size: 0.875rem; }
-
-@media (max-width: 52rem) {
-  .proj-card,
-  .proj:nth-child(even) .proj-card { grid-template-columns: 1fr; }
-  /* Art always first on one column. Alternating sides is a two-column idea and
-     becomes an arbitrary reordering of a vertical list. */
-  .proj:nth-child(even) .proj-art { order: 0; }
-  .proj-desc { max-width: none; }
+/* Above the stretched link, or it would swallow their clicks. */
+.pc-more {
+  position: relative; z-index: 2; margin: 0.75rem 0 0;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1rem;
+  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase;
 }
+.pc-more:empty { display: none; }
+/* The host is not a link of its own, so it lets clicks fall through to the
+   card underneath. */
+.pc-host { color: var(--faint); pointer-events: none; text-transform: none; letter-spacing: 0.02em; }
+.pc-more a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.pc-more a:hover { color: var(--link); text-decoration-color: currentColor; }
+
+/* --- the art, in an inset panel -------------------------------------------- */
+/* margin-top:auto pins the panel to the bottom, so cards with less text still
+   line their art up with their neighbours in the row. */
+.pc-art {
+  margin-top: auto; aspect-ratio: 900 / 338; overflow: hidden;
+  border-radius: var(--r-sm);
+  background: #000;
+  border: 1px solid var(--line);
+}
+.pc-art img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1); }
+.pc:hover .pc-art img { transform: scale(1.03); }

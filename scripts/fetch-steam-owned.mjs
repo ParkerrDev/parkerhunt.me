@@ -28,10 +28,7 @@
  * read your own account's details, so treat it like the deploy key: never
  * printed, never committed, rotatable from the same page that issued it.
  *
- * WHAT THIS DOES NOT DO: the wishlist. IWishlistService/GetWishlist honours the
- * same owner exception, but wishlist privacy is a separate toggle from profile
- * privacy and this account has not been checked. The seed's wishlist stays
- * authoritative until someone confirms it; see the note at the bottom.
+ * The site does not show a wishlist, so this does not fetch one.
  *
  * Usage:  node scripts/fetch-steam-owned.mjs [out]
  *

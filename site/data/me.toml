@@ -96,9 +96,8 @@ favourite_films = []
 # A "now" that is a year old is worse than no now at all.
 [now]
 updated = "2026-08"
-line = "Building Longshot and getting ready to start college."
+line = "Building AppIt! and getting ready to start college."
 doing = [
-  "Longshot, make movies at home with AI",
   "AppIt!",
   "Getting ready to start college",
   "Rebuilding this site from scratch, in public",
@@ -942,7 +941,7 @@ text = "The endless passage of time has cast an obfuscating fog over the facts."
 who = "unattributed"
 
 [[quotes]]
-text = "The years of anxious searching in the dark, with their intense longing, their alternations of confidence and exhaustion, and final emergence into light — only those who have experienced it can understand that."
+text = "The years of anxious searching in the dark, with their intense longing, their alternations of confidence and exhaustion, and final emergence into light: only those who have experienced it can understand that."
 who = "Albert Einstein"
 
 [[quotes]]

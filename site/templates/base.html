@@ -16,13 +16,11 @@
     <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
     <link rel="canonical" href="{{ current_url | default(value=config.base_url) | safe }}">
 
-    {# Declared for both schemes so the browser chrome matches the page instead
-       of flashing a white bar above a dark document. #}
-    {# One theme, one theme-color. color-scheme:light stops the browser
-       darkening form controls and scrollbars on a page that has no dark
-       design to match them to; see the note at the top of _style.css. #}
-    <meta name="theme-color" content="#ffffff">
-    <meta name="color-scheme" content="light">
+    {# One theme, one theme-color, so the browser chrome is black above a black
+       page. color-scheme:dark draws form controls and scrollbars dark to
+       match; see the note at the top of _style.css. #}
+    <meta name="theme-color" content="#000000">
+    <meta name="color-scheme" content="dark">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Parker Hunt">
@@ -62,9 +60,10 @@
             {# The nav must not advertise what the page no longer has. Posts was
                the worst of these: its section is disabled, so /#posts was an
                anchor to nothing, a nav item that silently does nothing when
-               clicked. Chess, Novel and Ideas still have pages of their own, but
-               their home-page sections are off, so they come out too rather than
-               being the only way in to something otherwise removed.
+               clicked. Chess, Novel, Ideas, Shelf and Quotes still have pages of
+               their own, but their home-page sections are off, so they come out
+               too rather than being the only way in to something otherwise
+               removed.
 
                The pages themselves are untouched and still answer on their URLs.
                Delete an `if false` here to put an item back. #}
@@ -75,14 +74,16 @@
                 <a href="/games/">Games</a>
                 {% if false %}<a href="/watching/">TV</a>{% endif %}
                 <a href="/movies/">Movies</a>
-                <a href="/shelf/">Shelf</a>
+                {% if false %}<a href="/shelf/">Shelf</a>{% endif %}
                 {% if false %}<a href="/chess/">Chess</a>{% endif %}
                 <a href="/#skied">Skied</a>
                 {% if false %}<a href="/novel/">Novel</a>{% endif %}
                 {% if false %}<a href="/ideas/">Ideas</a>{% endif %}
-                <a href="/quotes/">Quotes</a>
-                <a href="/resume/">Résumé</a>
+                {% if false %}<a href="/quotes/">Quotes</a>{% endif %}
             </nav>
+            {# Out of the link row and into the one solid button: the résumé is
+               the page most worth handing somebody. #}
+            <a class="bar-cta" href="/resume/">Résumé</a>
         </div>
     </div>
     {% endblock chrome %}

@@ -21,12 +21,13 @@
  * The fonts are the same system stack those sites fall back to; their own faces
  * (Chirp, Motiva Sans, din-round) are proprietary and are not shipped.
  *
- * LIGHT AND DARK ARE NOT A MODE HERE, THEY ARE THE BRAND. X, GitHub and
- * Duolingo are light because their light themes are the default ones people
- * see; Steam, Chess.com and Nexus Mods are dark because those three products
- * are dark and have never been anything else. Do not add a prefers-color-scheme
- * block to any of them, the shell is light-only now, and a card that flips
- * with the OS would be the only thing on the page that does.
+ * LIGHT AND DARK ARE NOT A MODE HERE, THEY ARE THE BRAND. Steam, Chess.com and
+ * Nexus Mods are dark because those products have never been anything else.
+ * GitHub uses its own dark theme, because the shell is black and a white GitHub
+ * slab would be the brightest thing on the page. X and Duolingo are still in
+ * their light themes, and both of those sections are switched off. Do not add
+ * a prefers-color-scheme block to any of them: the shell is dark-only, and a
+ * card that flips with the OS would be the only thing on the page that does.
  */
 
 /* ----------------------------------------------------------------- panel -- */
@@ -49,18 +50,13 @@
   box-shadow: var(--shadow-1);
 }
 .feed::-webkit-scrollbar { width: 10px; }
-.feed::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.16); border-radius: 8px; border: 3px solid transparent; background-clip: content-box; }
+.feed::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 8px; border: 3px solid transparent; background-clip: content-box; }
 @media (max-width: 44rem) { .feed { max-height: 26rem; } }
 
 .feed-foot { margin-top: 0.75rem; font-size: 0.8125rem; color: var(--faint); }
-.feed-foot a { color: var(--accent); }
+.feed-foot a { color: var(--link); }
 .feed-foot a:hover { text-decoration: underline; }
 .feed-foot code { font-family: var(--mono); font-size: 0.9em; background: var(--bg-soft); padding: 0.1em 0.35em; border-radius: 5px; }
-
-/* Two feeds side by side on a wide screen, stacked below ~46rem. auto-fit
-   rather than a media query so it collapses on the container it is actually
-   given, not on the viewport. */
-.duo { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(21rem, 100%), 1fr)); align-items: start; }
 
 /* -------------------------------------------------------------- island: X -- */
 .x {
@@ -139,30 +135,16 @@
   letter-spacing: normal;
 }
 
-/* A rail nested inside a panel: no full-bleed gutter maths, no mask, and the
-   scrollbar is the panel's business rather than the page's. */
-.rail--in { scroll-padding-inline: 1rem; }
-.rail-track--in { padding: 0.75rem 1rem; }
-.sgame--tile {
-  display: flex; flex-direction: column; gap: 0.375rem;
-  width: 11.5rem; flex: none; scroll-snap-align: start;
-  padding: 0; border: 0; background: none;
-}
-.sgame--tile:hover { background: none; }
-.sgame--tile .s-art { display: block; width: 100%; aspect-ratio: 460 / 215; }
-.sgame--tile .s-name { font-size: 0.8125rem; line-height: 1.25; }
-.sgame--tile .s-sub { margin-top: 0; }
-.sgame--tile .s-off { padding: 0 0.25rem; font-size: 0.6875rem; border-radius: 3px; }
-.sgame--tile .s-was { display: inline; text-decoration: line-through; }
-.sgame--tile .s-now { display: inline; }
 
 /* --------------------------------------------------------- island: GitHub -- */
+/* GitHub's own dark theme, so the island is still recognisably GitHub and is
+   not a white slab on a black page. */
 .gh {
-  --gh-ink: #1f2328;
-  --gh-dim: #59636e;
-  --gh-line: #d1d9e0;
-  --gh-bg: #fff;
-  --gh-blue: #0969da;
+  --gh-ink: #f0f6fc;
+  --gh-dim: #9198a1;
+  --gh-line: #3d444d;
+  --gh-bg: #0d1117;
+  --gh-blue: #4493f8;
   background: var(--gh-bg); color: var(--gh-ink);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   letter-spacing: normal;
@@ -206,8 +188,6 @@
   --s-dim: #8f98a0;
   --s-blue: #66c0f4;
   --s-line: rgba(255, 255, 255, 0.07);
-  --s-off-bg: #4c6b22;
-  --s-off-fg: #beee11;
   background: var(--s-bg); color: var(--s-ink);
   font-family: "Motiva Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   letter-spacing: normal;
@@ -235,11 +215,7 @@
    which is exactly half of the 268px WebP the build wrote; see
    scripts/fetch-steam-art.mjs. aspect-ratio holds the box open so 60 lazy
    images landing at once cannot shift the page under a reader. */
-/* Three columns even though a library row only fills two: the price block is
-   the third, and an `auto` track with nothing in it is zero wide. Two columns
-   would push the price onto an implicit second row, under the capsule, which
-   is where it looked wrong the first time. */
-.sgame { display: grid; grid-template-columns: 8.375rem 1fr auto; gap: 0.875rem; padding: 0.75rem 1rem; align-items: center; border-bottom: 1px solid var(--s-line); }
+.sgame { display: grid; grid-template-columns: 8.375rem 1fr; gap: 0.875rem; padding: 0.75rem 1rem; align-items: center; border-bottom: 1px solid var(--s-line); }
 .sgame:last-child { border-bottom: 0; }
 .sgame:hover { background: var(--s-row); }
 .s-art { aspect-ratio: 460 / 215; border-radius: 3px; overflow: hidden; background: var(--s-panel); }
@@ -255,21 +231,6 @@
    number, because the point is the shape of the distribution. */
 .s-bar { height: 3px; margin-top: 0.4375rem; background: rgba(0, 0, 0, 0.35); border-radius: 999px; overflow: hidden; }
 .s-bar i { display: block; height: 100%; background: linear-gradient(90deg, #417a9b, var(--s-blue)); border-radius: 999px; }
-
-/* Price block. Steam sets the discount flag flush against the price box with
-   no gap at all, that join is the whole look, so no gap here either. */
-.s-price { display: flex; align-items: stretch; justify-self: end; font-size: 0.8125rem; white-space: nowrap; }
-.s-off { background: var(--s-off-bg); color: var(--s-off-fg); font-weight: 700; padding: 0.3125rem 0.4375rem; font-size: 0.875rem; display: grid; place-items: center; }
-.s-cost { background: rgba(0, 0, 0, 0.3); padding: 0.3125rem 0.5rem; display: grid; place-items: center; text-align: right; }
-.s-was { display: block; font-size: 0.6875rem; color: #738895; text-decoration: line-through; }
-.s-now { display: block; color: #acdbf5; }
-.s-free .s-now { color: var(--s-off-fg); }
-
-/* Review score, in Steam's three buckets and Steam's three colours. */
-.s-rev { font-weight: 500; }
-.s-rev--pos { color: #66c0f4; }
-.s-rev--mix { color: #b9a074; }
-.s-rev--neg { color: #c15b3d; }
 
 .s-note { padding: 0.75rem 1rem; font-size: 0.75rem; color: var(--s-dim); background: var(--s-panel); border-top: 1px solid var(--s-line); }
 
@@ -494,7 +455,7 @@
   /* A 134px capsule leaves under 180px for a title, an hours figure and an
      achievement count. Shrinking the art is cheaper than truncating all three;
      the WebP is still 268px wide, so it only gets sharper. */
-  .sgame { grid-template-columns: 6rem 1fr auto; gap: 0.625rem; padding: 0.625rem 0.75rem; }
+  .sgame { grid-template-columns: 6rem 1fr; gap: 0.625rem; padding: 0.625rem 0.75rem; }
   .s-name { font-size: 0.875rem; }
   .s-head, .s-note { padding-left: 0.75rem; padding-right: 0.75rem; }
   .s-stat { flex-basis: 4.5rem; padding: 0.625rem; }

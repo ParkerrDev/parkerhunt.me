@@ -1,17 +1,17 @@
 {
   "_comment": [
     "Hand-maintained seed for the Steam page. scripts/fetch-steam.mjs reads this,",
-    "enriches every appid from Steam's PUBLIC store API (names, prices, discounts,",
-    "review scores, release dates) and writes site/data/steam.json.",
+    "enriches every appid from Steam's PUBLIC store API (names, release dates,",
+    "genres) and writes site/data/steam.json.",
     "",
     "WHY THE PLAYTIME LIVES HERE AND IS NOT FETCHED",
     "",
     "The Steam profile is set to private (privacyState=private on the public",
     "profile XML), so IPlayerService/GetOwnedGames and the community games XML",
     "both refuse. There is no public endpoint that will return this account's",
-    "library or wishlist. The store API, by contrast, is public for everyone --",
-    "so prices and review scores DO refresh on every deploy; only the list of",
-    "appids and the hours are pinned here.",
+    "library. The store API, by contrast, is public for everyone, so names and",
+    "art DO refresh on every deploy; only the list of appids and the hours are",
+    "pinned here.",
     "",
     "To refresh the hours: open steamcommunity.com/id/parkerhunt/games?tab=all",
     "while logged in and update `minutes` below. Set the profile to public and",
@@ -21,9 +21,9 @@
     "no achievements. Games with minutes = 0 are the free Valve bundle and render",
     "as a single line rather than a row each.",
     "",
-    "`extra` is neither owned nor wishlisted: it is every game in the played-it",
+    "`extra` is not owned: it is every game in the played-it",
     "list (site/data/games.toml) that happens to exist on Steam but was played",
-    "somewhere else -- on a console, on Game Pass, or on an account that predates",
+    "somewhere else: on a console, on Game Pass, or on an account that predates",
     "this one. They are here only so that list gets real names, real links and",
     "local art instead of hand-typed strings. Games that are not on Steam at all",
     "(Fortnite, Minecraft, Skate 3) carry their titles in games.toml instead."
@@ -84,19 +84,11 @@
     { "appid": 500,     "minutes": 0 }
   ],
 
-  "wishlist": [
-    2840770, 839310, 648800, 2320, 206420, 220200, 371660, 546560, 611660,
-    1245620, 1468720, 1593500, 1693980, 2322010, 1551360, 2677660, 1962700,
-    252490, 244850, 1133870, 815370, 1284190, 409710, 1713350, 835960,
-    1149460, 1304930, 1091500, 292030, 2215430, 2668510, 1942110, 2623190,
-    1643320, 412020, 1715130, 2358720, 812140, 346110, 2399830, 1771300,
-    611670, 753640, 313120, 848450, 3041230, 3929970, 2472940, 1850570,
-    874260, 1641960, 1493640, 324080, 2663530, 1967630, 313630, 1631270,
-    403640, 2646460
-  ],
 
   "extra": [
-    3900, 6910, 17470, 22330, 33230, 40800, 42700, 202970, 271590, 311210,
-    319510, 332800, 354140, 388090, 506610, 976730, 1817070
+    3900, 6910, 17470, 22330, 33230, 40800, 42700, 202970, 206420, 220200,
+    271590, 311210, 319510, 332800, 354140, 388090, 506610, 839310, 848450,
+    976730, 1245620, 1284190, 1593500, 1817070, 1942110, 1962700, 2322010,
+    2668510, 2677660
   ]
 }

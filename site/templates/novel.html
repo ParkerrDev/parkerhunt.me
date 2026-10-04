@@ -27,11 +27,9 @@
 
         {# Numbered chips rather than a list of titles: every heading here is
            "Chapter N", so the titles would say nothing the numbers do not.
-           They live in the hero rather than in their own section because
-           main > section:nth-of-type(even) alternates the background, and a
-           second section would drop the prose itself onto a grey band. One
-           section on this page means the text is on white, which is the only
-           thing that matters on a page whose whole job is being read. #}
+           They live in the hero rather than in a section of their own, so
+           the page is one section of prose and nothing interrupts the
+           reading. #}
         {% if page.toc | length > 1 %}
         <nav class="chapters" style="margin-top:1.25rem" aria-label="Chapters">
             {% for h in page.toc %}<a href="#{{ h.id }}">{{ loop.index }}</a>{% endfor %}

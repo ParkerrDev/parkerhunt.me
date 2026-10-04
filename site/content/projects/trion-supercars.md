@@ -5,6 +5,7 @@ date = 2026-03-02
 updated = 2026-04-04
 weight = 4
 [extra]
+kind = "WEBSITE"
 brand_image = "/imgs/project-brand/trion-supercars-c0f81ed0.webp"
 brand_manual = true
 card_image = "/imgs/project-cards/opt/trion-d326544a.webp"

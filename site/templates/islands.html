@@ -30,32 +30,7 @@
 {% endfor %}
 {% endmacro steam_played %}
 
-{# --- Steam: a row of the wishlist ---------------------------------------- #}
-{% macro steam_wish(games) %}
-{% for g in games %}
-<a class="sgame" href="{{ g.url }}" target="_blank" rel="noopener">
-    <div class="s-art"><img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async"></div>
-    <div class="s-main">
-        <div class="s-name">{{ g.name }}</div>
-        <div class="s-sub">
-            {%- if g.review %}<span class="s-rev s-rev--{{ g.review.tone }}">{{ g.review.label }}</span><span>{{ g.review.pct }}% of {{ g.review.count | num_format }}</span>{% endif -%}
-            {%- if not g.review and g.released %}<span>{{ g.released }}</span>{% endif -%}
-        </div>
-    </div>
-    {% if g.price.now %}
-    <div class="s-price{% if g.price.free %} s-free{% endif %}">
-        {%- if g.price.off %}<span class="s-off">-{{ g.price.off }}%</span>{% endif -%}
-        <span class="s-cost">
-            {%- if g.price.was %}<span class="s-was">{{ g.price.was }}</span>{% endif -%}
-            <span class="s-now">{{ g.price.now }}</span>
-        </span>
-    </div>
-    {% endif %}
-</a>
-{% endfor %}
-{% endmacro steam_wish %}
-
-{# --- Steam: the profile bar and the four counters ------------------------ #}
+{# --- Steam: the profile bar and the counters ------------------------------ #}
 {% macro steam_head(steam, label) %}
 <div class="s-head">
     {{ ico::steam() }} <b>{{ steam.profile.name }}</b>
@@ -67,8 +42,7 @@
 <div class="s-stats">
     <div class="s-stat"><b>{{ steam.totals.owned }}</b><span>Games</span></div>
     <div class="s-stat"><b>{{ steam.totals.hours | num_format }}</b><span>Hours</span></div>
-    <div class="s-stat"><b>{{ steam.totals.wishlisted }}</b><span>Wishlisted</span></div>
-    <div class="s-stat"><b>{{ steam.totals.on_sale }}</b><span>On sale now</span></div>
+    <div class="s-stat"><b>{{ steam.totals.played }}</b><span>Played</span></div>
 </div>
 {% endmacro steam_stats %}
 
@@ -237,41 +211,6 @@
 </a>
 {% endfor %}
 {% endmacro nexus %}
-
-{# --- Steam: the profile panel, with a horizontal shelf inside -------------- #}
-{# The chrome that got lost when the library became a rail: Steam's own header
-   bar and its four counters. A bare row of capsules on a white page was not
-   recognisably Steam. The rail lives INSIDE the dark panel now, so it is both
-   scrollable and unmistakably Steam. #}
-{% macro steam_shelf(steam, games, label, sale=false) %}
-<div class="panel stm">
-    <div class="s-head">
-        {{ ico::steam() }} <b>{{ steam.profile.name }}</b>
-        <span class="s-h-sub">{{ label }}</span>
-    </div>
-    <div class="s-stats">
-        <div class="s-stat"><b>{{ steam.totals.owned }}</b><span>Games</span></div>
-        <div class="s-stat"><b>{{ steam.totals.hours | num_format }}</b><span>Hours</span></div>
-        <div class="s-stat"><b>{{ steam.totals.wishlisted }}</b><span>Wishlisted</span></div>
-        <div class="s-stat"><b>{{ steam.totals.on_sale }}</b><span>On sale now</span></div>
-    </div>
-    <div class="rail rail--in">
-        <div class="rail-track rail-track--in">
-            {% for g in games %}
-            <a class="sgame sgame--tile" href="{{ g.url }}" target="_blank" rel="noopener">
-                <span class="s-art"><img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async"></span>
-                <span class="s-name">{{ g.name }}</span>
-                {% if sale %}
-                <span class="s-sub"><span class="s-off">-{{ g.price.off }}%</span><span class="s-was">{{ g.price.was }}</span><span class="s-now">{{ g.price.now }}</span></span>
-                {% else %}
-                <span class="s-sub"><span class="s-hours">{{ g.hours }} hours</span>{% if g.ach_total %}<span>{{ g.ach_done }}/{{ g.ach_total }}</span>{% endif %}</span>
-                {% endif %}
-            </a>
-            {% endfor %}
-        </div>
-    </div>
-</div>
-{% endmacro steam_shelf %}
 
 {# --- a show card ---------------------------------------------------------- #}
 {# A real title logo when Wikimedia Commons had a freely-licensed one, and the

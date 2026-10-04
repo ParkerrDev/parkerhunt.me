@@ -5,6 +5,7 @@ date = 2026-08-09
 updated = 2026-08-09
 weight = 2
 [extra]
+kind = "EMULATOR"
 brand_manual = true
 card_image = "/imgs/project-cards/opt/templeos-6e884899.webp"
 brand_image = "/imgs/project-brand/templeos-web-02b3f82f.webp"

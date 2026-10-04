@@ -1,24 +1,11 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
-{% import "_project-band.html" as pb %}
+{% import "_project-card.html" as pc %}
 
-{# Each project is its own section, not one of N identical cards.
+{# Every project, as the same small card the home page uses, in a grid.
 
-   A five-up grid of same-sized tiles says these are five instances of one
-   thing. They are not: one is a film studio on Cloudflare, one is an iOS
-   browser, one is a marketing site. So every project below gets a full-width
-   band, its own accent, alternating sides, and room for a tagline and a stack.
-
-   THE ACCENT IS NOT INVENTED. scripts/project-accents.mjs samples it from that
-   project's own card art, so the band cannot disagree with the picture sitting
-   in it, re-export the art, re-run the script, the page follows. The same
-   script computes `accent_ink`, the black-or-white that reads on that accent,
-   because a colour chosen for vividness says nothing about its contrast: white
-   on AppIt's yellow-green is 1.5:1 and unreadable, white on Rickvirus's brown
-   is 8.8:1 and fine. Assuming either would have broken one of them.
-
-   Adding a project is a file in content/projects/ and one run of that script.
-   Everything else (tagline, stack, mirror_url) is optional and the band
+   Adding a project is a file in content/projects/. Everything beyond the title
+   (kind, tagline, card_image, repo_url, mirror_url) is optional and the card
    simply omits what is missing. #}
 
 {% block css_extra %}{{ load_data(path="templates/_projects.css", format="plain") | safe }}{% endblock css_extra %}
@@ -33,8 +20,12 @@
 </header>
 
 <main id="main">
-    <div class="projs">
-        {% for project in section.pages %}{{ pb::band(project=project, i=loop.index) }}{% endfor %}
-    </div>
+    <section>
+        <div class="wrap">
+            <div class="pcs">
+                {% for project in section.pages %}{{ pc::card(project=project, i=loop.index, h=2) }}{% endfor %}
+            </div>
+        </div>
+    </section>
 </main>
 {% endblock %}

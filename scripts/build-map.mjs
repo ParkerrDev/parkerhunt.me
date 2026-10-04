@@ -339,13 +339,16 @@ const body = states
   .join("");
 
 /* Styles live inside the file because an <img>-referenced SVG cannot see the
-   page's stylesheet. Colours match the shell's --accent and --bg-soft. */
+   page's stylesheet. Drawn for the black shell: unvisited states a step above
+   the page, visited ones in a muted version of the hero glow's blue, borders in the page colour,
+   and pins in yellow / orange / green, which is what .key--place, --ski and
+   --peak in _style.css use for the legend. */
 const svg =
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" ` +
   `aria-label="Map of the United States with ${want.size} states filled in and ${pins.length} places pinned">` +
   `<title>Where I have been</title>` +
-  `<style>path{stroke:#fff;stroke-width:1;stroke-linejoin:round}.off{fill:#e6e6ea}.on{fill:#9ec6f0}` +
-  `.pin{stroke:#fff;stroke-width:1.5}.pin--place{fill:#0a4f9e}.pin--ski{fill:#6d3bd1}.pin--peak{fill:#0a7c4a}</style>` +
+  `<style>path{stroke:#000;stroke-width:1;stroke-linejoin:round}.off{fill:#1c1c1f}.on{fill:#2a3b8f}` +
+  `.pin{stroke:#000;stroke-width:1.5}.pin--place{fill:#fce03d}.pin--ski{fill:#ff6a2a}.pin--peak{fill:#2fd27a}</style>` +
   body + dots +
   `</svg>\n`;
 
@@ -356,11 +359,10 @@ const svg =
  * name stays put while its contents change. Adding two states to the map and
  * re-deploying under the same name meant every browser that had ever loaded the
  * page kept the old map for a year. The states were filled in the file and
- * nobody could see it. Pins are in the hash for the same reason. */
-const stamp = createHash("sha256")
-  .update([...want].sort().join(",") + "|" + pins.map((p) => `${p.name}:${p.x},${p.y}`).join(";"))
-  .digest("hex")
-  .slice(0, 8);
+ * nobody could see it. The hash is over the whole file, so a change of colours
+ * gets a new name too: hashing only the states and pins meant a recoloured map
+ * would have kept the old filename and stayed cached in the old colours. */
+const stamp = createHash("sha256").update(svg).digest("hex").slice(0, 8);
 const named = OUT_SVG.replace(/\.svg$/, `-${stamp}.svg`);
 
 mkdirSync(dirname(named), { recursive: true });

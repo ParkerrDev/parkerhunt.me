@@ -5,12 +5,14 @@
  * there is no render-blocking CSS at all.
  *
  * No webfonts, still. The type is the system UI face: SF Pro on Apple, Segoe
- * on Windows, Roboto on Android, which is exactly what gives the page its
- * Apple feel and costs zero bytes. It also renders on the first frame instead
- * of swapping, which no downloaded font can do.
+ * on Windows, Roboto on Android. It costs zero bytes and renders on the first
+ * frame instead of swapping, which no downloaded font can do. The labels and
+ * buttons are set in the system monospace, uppercase and letter-spaced, which
+ * is where most of the industrial, instrument-panel feel comes from.
  *
  * The site has two design languages on purpose:
- *   1. The shell , light, quiet, Apple-ish. That is this file.
+ *   1. The shell, black, large regular-weight type, blue accent and a soft
+ *      blue glow behind the home page hero. That is this file.
  *   2. The islands, the X / LinkedIn / GitHub / Steam / Duolingo / Chess.com /
  *                    Nexus Mods feeds, each rebuilt to match that platform's own
  *                    visual language. Those live in _islands.css, which only the
@@ -23,35 +25,41 @@
 /* ============================================================ 1. SHELL ==== */
 /* ---------------------------------------------------------------- tokens -- */
 :root {
-  /* Apple's actual neutral ramp: pure white pages, #f5f5f7 for recessed
-     surfaces, #1d1d1f for ink (not #000, it reads softer at large sizes),
-     #6e6e73 for secondary. Borrowed because it is genuinely the best-tuned
-     light palette in wide use, not because it is Apple's. */
-  --bg: #fff;
-  --bg-soft: #f5f5f7;
-  --fg: #1d1d1f;
-  --muted: #6e6e73;
-  /* Apple's own tertiary grey is #86868b, which measures 3.65:1 on white and
-     therefore fails WCAG AA for body-sized text. Darkened to the lightest value
-     that clears 4.5:1 (4.59), because this token carries the metadata lines,
-     dates, counts, the tidbit strip, and those are exactly the small text the
-     rule exists for. */
-  --faint: #757579;
-  --line: rgba(0, 0, 0, 0.09);
-  --line-soft: rgba(0, 0, 0, 0.055);
+  /* Pure black pages, near-black raised surfaces, white ink. Secondary text is
+     white at 70%, the way the reference does it, rather than a grey that would
+     go muddy against the glow. */
+  --bg: #000;
+  --bg-soft: #0c0c0d;
+  --fg: #fff;
+  --muted: rgba(255, 255, 255, 0.7);
+  /* The small metadata text: dates, counts, credits. #8c8c8c on black is 6.6:1,
+     comfortably past AA at the sizes this token is used for. */
+  --faint: #8c8c8c;
+  --line: rgba(255, 255, 255, 0.16);
+  --line-soft: rgba(255, 255, 255, 0.09);
+  /* Apple's blue, the accent the light design had: focus rings, dots, hover
+     fills, with white text on it. --link is the same blue lifted for text on
+     black: #0071e3 measures 4.47:1 there, just short of AA for small text, so
+     links use Apple's own dark-mode link blue instead, which clears it. */
   --accent: #0071e3;
+  --accent-ink: #fff;
+  --link: #2997ff;
 
-  --card: #fff;
-  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-2: 0 1px 3px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.055);
-  --shadow-3: 0 2px 6px rgba(0, 0, 0, 0.06), 0 18px 44px rgba(0, 0, 0, 0.09);
+  --card: #0b0b0c;
+  --card-2: #141416;
+  /* Shadows barely register on black; what separates a card from the page is
+     its hairline, so these are kept for depth on hover rather than for
+     edges. */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-2: 0 1px 3px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-3: 0 2px 6px rgba(0, 0, 0, 0.55), 0 18px 44px rgba(0, 0, 0, 0.6);
 
   --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   --serif: ui-serif, "New York", Georgia, "Times New Roman", serif;
 
-  --page: 74rem;
+  --page: 82rem;
   --measure: 36rem;
   /* Section rhythm. Tightened hard: the page was reading as a stack of
      one-thing-at-a-time bands and the ask was to see more at once. */
@@ -59,20 +67,17 @@
   --r-sm: 10px;
   --r: 16px;
   --r-lg: 22px;
+  /* Buttons and the boxed labels are nearly square, which is most of what makes
+     them read as controls on an instrument rather than as pills on an app. */
+  --r-btn: 3px;
 }
 
-/* LIGHT ONLY, and deliberately so.
-   There used to be a prefers-color-scheme: dark block here that dimmed the
-   whole shell. It was meant as a courtesy and it read as a different website:
-   people whose OS flips to dark at sunset were getting a black page that had
-   nothing to do with the design. The brief was a light, white, Apple-ish site,
-   so that is the only thing this ships. `color-scheme: light` in base.html
-   tells the browser to stop trying to help, and form controls and scrollbars
-   stay light with it.
-
-   The exceptions are the brand islands: Steam, Chess.com and Nexus Mods are
-   dark because those three products are dark and always have been. Those are
-   quotations of somebody else's interface, not this site's theme. */
+/* DARK ONLY, and deliberately so.
+   The design is black: one theme, not a light theme with a dark mode bolted
+   on, so there is no prefers-color-scheme block. `color-scheme: dark` in
+   base.html tells the browser to draw its form controls and scrollbars dark
+   to match. The brand islands are dark too: Steam, Chess.com and Nexus Mods
+   always were, and the GitHub island uses GitHub's own dark theme. */
 
 /* ------------------------------------------------------------------ base -- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -119,26 +124,34 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ------------------------------------------------------------------- nav -- */
-/* Translucent + blurred, the way Apple's own bar behaves: content scrolls
-   under it and stays legible. backdrop-filter degrades to a solid tint
-   wherever it is unsupported, which is why the background colour is opaque
-   enough to stand on its own. */
+/* Near-opaque black and blurred: content scrolls under it and stays legible.
+   backdrop-filter degrades to the solid tint wherever it is unsupported. */
 .bar {
   position: sticky; top: 0; z-index: 50;
-  background: color-mix(in srgb, var(--bg) 78%, transparent);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(0, 0, 0, 0.82);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  backdrop-filter: saturate(160%) blur(18px);
   border-bottom: 1px solid var(--line-soft);
 }
 .bar-in {
   max-width: var(--page); margin: 0 auto; padding: 0 1.5rem;
-  height: 3rem; display: flex; align-items: center; gap: 1.25rem;
+  height: 4rem; display: flex; align-items: center; gap: 1.5rem;
 }
 .bar-home {
-  display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;
-  font-weight: 600; font-size: 0.9375rem; letter-spacing: -0.02em;
+  display: flex; align-items: center; gap: 0.625rem; flex-shrink: 0;
+  font-weight: 500; font-size: 1.0625rem; letter-spacing: -0.02em;
 }
-.bar-home img { width: 1.625rem; height: 1.625rem; border-radius: 50%; background: var(--bg-soft); }
+.bar-home img { width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--card-2); }
+/* The one solid button in the bar, white with black text, set in the same face
+   as the links rather than in the mono the page's other buttons use. */
+.bar-cta {
+  flex-shrink: 0; display: inline-flex; align-items: center;
+  padding: 0.5rem 0.9375rem; border-radius: var(--r-btn);
+  background: var(--fg); color: var(--bg);
+  font-size: 0.9375rem; font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.bar-cta:hover { background: var(--accent); color: var(--accent-ink); }
 /* The name is the anchor's whole point, but it is also the first thing worth
    dropping when ten nav items and a logo are fighting for a phone's width. */
 @media (max-width: 30rem) { .bar-home span { display: none; } }
@@ -148,8 +161,8 @@ a { color: inherit; text-decoration: none; }
    sideways on a phone. The overflow-x below is what should be scrolling, and
    it cannot until the item is allowed to shrink. */
 .bar-nav {
-  display: flex; gap: 1.125rem; margin-left: auto; min-width: 0;
-  font-size: 0.8125rem; color: var(--muted);
+  display: flex; gap: 1.375rem; margin-left: auto; min-width: 0;
+  font-size: 0.9375rem; color: rgba(255, 255, 255, 0.82);
   overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
 }
 .bar-nav::-webkit-scrollbar { display: none; }
@@ -160,11 +173,12 @@ a { color: inherit; text-decoration: none; }
    "is this element overflowing", so the breakpoint stands in for the answer.
 
    MEASURED, not guessed, and it has to be re-measured whenever a nav item is
-   added or removed: the ten items are 529px wide, and .bar-nav's scrollWidth
-   first exceeds its clientWidth at 692px = 43.25rem. The odd fraction is the
-   measurement, not a rounded guess, rounding up would switch the mask on
-   before there is anything to scroll. */
-@media (max-width: 43.25rem) {
+   added or removed or the bar's type changes: with five links at 15px and the
+   Résumé button beside them, .bar-nav's scrollWidth first exceeds its
+   clientWidth at 668px = 41.75rem (headless Chrome, stepping the viewport down
+   a pixel at a time). Rounding up would switch the mask on before there is
+   anything to scroll. */
+@media (max-width: 41.75rem) {
   .bar-nav {
     -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.25rem), transparent);
     mask-image: linear-gradient(to right, #000 calc(100% - 1.25rem), transparent);
@@ -174,31 +188,33 @@ a { color: inherit; text-decoration: none; }
 .bar-nav a:hover { color: var(--fg); }
 
 /* ------------------------------------------------------------------ hero -- */
-/* Centred, like the old parkerhunt.me: photo, name, one line, icons. Nothing
-   else. The rotating film-strip of facts that used to live here is gone, a
-   line of text that changes while you are reading it is a magic trick, not
-   information, and the facts are worth more as something you find further down
-   the page than as something that flickers past. See .bento.facts. */
-.hero { padding: clamp(2rem, 5vw, 3.25rem) 0 clamp(1.25rem, 3vw, 1.75rem); text-align: center; }
+/* Centred: photo, name, one line, icons. Nothing else. The home page overrides
+   this with .hero--home (text left, big photo right), in its own css_extra.
+   The rotating film-strip of facts that used to live here is gone, a line of
+   text that changes while you are reading it is a magic trick, not
+   information. */
+.hero { padding: clamp(2.75rem, 7vw, 5rem) 0 clamp(1.5rem, 3vw, 2.25rem); text-align: center; }
 .hero-in { display: flex; flex-direction: column; align-items: center; gap: 0; }
 
 .avatar {
   width: clamp(6rem, 13vw, 7.75rem); aspect-ratio: 1; flex-shrink: 0;
   border-radius: 50%; overflow: hidden; margin-bottom: 0.875rem;
-  background: var(--bg-soft);
-  box-shadow: var(--shadow-2), 0 0 0 1px var(--line-soft);
+  background: var(--card-2);
+  box-shadow: 0 0 0 1px var(--line), 0 0 0 6px rgba(255, 255, 255, 0.04);
 }
 .avatar img { width: 100%; height: 100%; object-fit: cover; }
 
 .hero-text { min-width: 0; max-width: 40rem; }
+/* Regular weight, very large, tightly tracked. The size does the work that
+   boldness would do in a smaller heading. */
 .hero h1 {
   margin: 0;
-  font-size: clamp(1.875rem, 4.6vw, 2.875rem);
-  line-height: 1.05; letter-spacing: -0.03em; font-weight: 600;
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  line-height: 1.02; letter-spacing: -0.035em; font-weight: 400;
 }
 .hero-lede {
-  margin: 0.5rem auto 0; max-width: 34rem;
-  font-size: clamp(0.9375rem, 1.7vw, 1.0625rem);
+  margin: 0.875rem auto 0; max-width: 36rem;
+  font-size: clamp(1rem, 1.8vw, 1.1875rem);
   color: var(--muted); text-wrap: balance;
 }
 
@@ -226,31 +242,42 @@ a { color: inherit; text-decoration: none; }
 .pill { display: inline-grid; place-items: center; padding: 0.5rem; color: var(--muted); transition: color 0.2s, transform 0.2s; }
 .pill:hover { color: var(--fg); transform: translateY(-1px); }
 .pill svg { width: 25px; height: 25px; }
-/* Sub-pages still want one labelled call to action, so that stays available. */
+/* Sub-pages still want one labelled call to action: the solid white button. */
 .pill--wide {
-  padding: 0.4375rem 0.875rem; border: 1px solid var(--accent); border-radius: 999px;
-  background: var(--accent); color: #fff; grid-auto-flow: column; gap: 0.4375rem;
-  font-size: 0.8125rem; font-weight: 500;
+  padding: 0.6875rem 1.25rem; border: 1px solid var(--fg); border-radius: var(--r-btn);
+  background: var(--fg); color: var(--bg); grid-auto-flow: column; gap: 0.5rem;
+  font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase;
 }
-.pill--wide:hover { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+.pill--wide:hover { background: transparent; color: var(--fg); transform: none; }
 .pill--wide svg { width: 0.9375rem; height: 0.9375rem; }
 
+/* ------------------------------------------------------------- buttons -- */
+/* Rectangular, uppercase, monospaced and letter-spaced. Two kinds only: an
+   outline and a solid white. On hover the outline fills and the solid one
+   turns blue. */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.75rem 1.375rem; border: 1px solid var(--fg); border-radius: var(--r-btn);
+  background: transparent; color: var(--fg);
+  font-family: var(--mono); font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase;
+  white-space: nowrap; transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn:hover { background: var(--fg); color: var(--bg); }
+.btn--solid { background: var(--fg); color: var(--bg); }
+.btn--solid:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
 /* --------------------------------------------------------------- section -- */
-section { padding: clamp(1.5rem, 2.8vw, 2.25rem) 0; scroll-margin-top: 4rem; }
+/* No alternating bands: every section sits on the same black, separated by
+   space and one hairline. */
+section { padding: clamp(1.75rem, 3.5vw, 2.75rem) 0; scroll-margin-top: 5rem; }
 section + section { border-top: 1px solid var(--line-soft); }
 
-/* Alternating bands are done with nth-of-type rather than a class on each
-   section, because most sections on the home page disappear when their data is
-   empty. A hand-placed class would leave two grey bands stacked into one the
-   moment a section between them vanished; counting what actually rendered
-   cannot get that wrong. */
-main > section:nth-of-type(even) { background: var(--bg-soft); }
-.band { background: var(--bg-soft); }
-
-.head { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.875rem; flex-wrap: wrap; }
-.head h2 { margin: 0; font-size: clamp(1.1875rem, 2.2vw, 1.4375rem); font-weight: 600; letter-spacing: -0.022em; }
-.head p { margin: 0; color: var(--muted); font-size: 0.875rem; flex: 1 1 12rem; }
-.more { margin-left: auto; font-size: 0.875rem; color: var(--accent); font-weight: 500; white-space: nowrap; }
+/* A section head on one line: the heading, its sentence, and the "more" link
+   pushed to the right. Wraps on a narrow screen. */
+.head { display: flex; align-items: baseline; gap: 0.5rem 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.head h2 { margin: 0; font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; }
+.head p { margin: 0; color: var(--muted); font-size: 0.9375rem; flex: 1 1 14rem; }
+.more { margin-left: auto; font-size: 0.875rem; font-weight: 500; color: var(--link); white-space: nowrap; }
 .more:hover { text-decoration: underline; }
 
 .kicker {
@@ -303,17 +330,20 @@ a.card:hover { box-shadow: var(--shadow-3); transform: translateY(-2px); border-
 .idea-tag { align-self: flex-start; margin-top: auto; font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); border: 1px solid var(--line-soft); border-radius: 999px; padding: 0.125rem 0.5rem; }
 
 /* ---------------------------------------------------------------- quotes -- */
-/* Serif here and nowhere else. A quotation is the one thing on the page that is
-   someone else's voice, so it gets a different one. */
+/* Set large in the page's own face, with the attribution in small mono
+   capitals underneath. */
 .quotes { columns: 2 20rem; column-gap: 1rem; }
 .quote {
   break-inside: avoid; margin: 0 0 1rem;
   background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r);
-  padding: 1.125rem 1.25rem; box-shadow: var(--shadow-1);
+  padding: 1.25rem 1.375rem;
 }
-.quote p { margin: 0; font-family: var(--serif); font-size: 1.0625rem; line-height: 1.55; letter-spacing: -0.008em; }
-.quote footer { margin-top: 0.625rem; font-size: 0.75rem; color: var(--faint); font-family: var(--mono); }
+.quote p { margin: 0; font-size: 1.125rem; line-height: 1.45; letter-spacing: -0.015em; }
+.quote footer { margin-top: 0.75rem; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); font-family: var(--mono); }
 .quote--mine { background: var(--bg-soft); border-style: dashed; }
+/* In a marquee row each card keeps its own height. Stretched to the tallest,
+   a one-line quote sat at the top of a box three times its size. */
+.mq-track .quote { align-self: flex-start; }
 
 /* ------------------------------------------------------------------ list -- */
 /* Shared by books, films, shows, bucket list, links: a hairline row that is
@@ -326,7 +356,7 @@ a.card:hover { box-shadow: var(--shadow-3); transform: translateY(-2px); border-
 .row-t { font-size: 0.9375rem; font-weight: 500; }
 .row-s { font-size: 0.8125rem; color: var(--muted); }
 .row-x { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); white-space: nowrap; }
-a.row:hover .row-t { color: var(--accent); }
+a.row:hover .row-t { color: var(--link); }
 
 .check { color: var(--faint); flex-shrink: 0; width: 1.125rem; height: 1.125rem; }
 .check--done { color: #34c759; }
@@ -382,7 +412,7 @@ a.row:hover .row-t { color: var(--accent); }
    down a column is the order it was written in. */
 .gamelist { columns: 3 13rem; column-gap: 1.75rem; list-style: none; margin: 0; padding: 0; font-size: 0.875rem; }
 .gamelist li { break-inside: avoid; padding: 0.28rem 0; display: flex; gap: 0.5rem; align-items: baseline; }
-.gamelist a:hover { color: var(--accent); }
+.gamelist a:hover { color: var(--link); }
 .gamelist .where { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.04em; color: var(--faint); white-space: nowrap; }
 /* The bullet is the platform: filled if it is on Steam and therefore linked,
    hollow if it only exists as a title. */
@@ -406,8 +436,8 @@ a.row:hover .row-t { color: var(--accent); }
 .distros li::after { content: "→"; color: var(--faint); font-size: 0.8125rem; padding: 0 0.25rem; }
 .distros li:last-child::after { content: none; }
 .distro--now { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--card)); }
-.distro--now .distro-t { color: var(--accent); font-weight: 600; }
-.distro-now { font-family: var(--mono); font-size: 0.5625rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.distro--now .distro-t { color: var(--link); font-weight: 600; }
+.distro-now { font-family: var(--mono); font-size: 0.5625rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--link); }
 /* The notes, kept off the chips so the chain stays a chain. */
 .distro-notes { margin: 1rem 0 0; padding: 0; list-style: none; columns: 2 17rem; column-gap: 1.75rem; font-size: 0.8125rem; color: var(--muted); }
 .distro-notes li { break-inside: avoid; padding: 0.1875rem 0; }
@@ -451,7 +481,7 @@ a.row:hover .row-t { color: var(--accent); }
 .prose { max-width: var(--measure); font-size: 1.0625rem; line-height: 1.65; color: var(--fg); }
 .prose p { margin: 0 0 1.125rem; }
 .prose p:last-child { margin-bottom: 0; }
-.prose a { color: var(--accent); }
+.prose a { color: var(--link); }
 .prose a:hover { text-decoration: underline; }
 .prose h2 { font-size: 1.375rem; margin: 2rem 0 0.75rem; letter-spacing: -0.02em; }
 .prose h3 { font-size: 1.0625rem; margin: 1.5rem 0 0.5rem; }
@@ -571,16 +601,24 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
    component, not an optional extra someone can forget to add. */
 .credit { margin: 0.5rem 0 0; font-size: 0.6875rem; color: var(--faint); }
 .credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+/* A long list of credits, folded into one line until somebody asks for it. */
+.credits { margin-top: 0.625rem; }
+.credits summary { cursor: pointer; width: max-content; font-size: 0.75rem; color: var(--faint); }
+.credits summary:hover { color: var(--fg); }
 
 /* ---------------------------------------------------------------- swatch -- */
 /* The distro discs. Same rules as .mark, white, ringed, logo in the project's
    own colour, just bigger, because these are the subject of their section
    rather than a decoration beside a word. The current one gets the ring in its
-   colour instead of hairline grey. */
+   colour instead of hairline grey.
+
+   STILL WHITE ON A BLACK PAGE, on purpose: Nobara's mark is a black wordmark
+   and would disappear on a dark tile, so all eight sit on white, like a row of
+   app icons. */
 .swatch {
   aspect-ratio: 1; display: grid; place-items: center;
   border-radius: 14px; background: #fff;
-  box-shadow: inset 0 0 0 1px var(--line);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
   color: var(--c, var(--fg));
   font-size: 1.0625rem; font-weight: 650; letter-spacing: 0.01em;
 }
@@ -720,20 +758,17 @@ a.novel-card:hover { border-color: var(--accent); transform: translateY(-1px); b
   border-radius: 4px; padding: 0.125rem 0.375rem;
 }
 .gcard-m s { color: var(--faint); }
-/* The kicker above a rail lines up with the page, not with the rail's own
-   inset padding. */
-p.wrap.kicker { margin-bottom: 0.4375rem; }
 
 /* ------------------------------------------------------------------ now -- */
 /* What is actually happening, at the top of the page where it belongs. */
 .now {
   display: grid; gap: 0.875rem 1.5rem; align-items: start;
   grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr));
-  background: var(--card); border: 1px solid var(--line-soft);
-  border-radius: var(--r); padding: 1rem 1.125rem; box-shadow: var(--shadow-1);
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--r); padding: 1.25rem 1.375rem;
 }
 .now-k { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--faint); display: flex; align-items: center; gap: 0.4375rem; }
-.now-t { margin: 0.375rem 0 0; font-size: 1.125rem; font-weight: 600; letter-spacing: -0.022em; line-height: 1.3; text-wrap: balance; }
+.now-t { margin: 0.5rem 0 0; font-size: 1.375rem; font-weight: 400; letter-spacing: -0.022em; line-height: 1.25; text-wrap: balance; }
 .now-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.3125rem; }
 .now-list li { font-size: 0.8125rem; color: var(--muted); display: flex; gap: 0.5rem; line-height: 1.4; }
 .now-list li::before { content: ""; width: 0.3125rem; height: 0.3125rem; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 0.45em; }
@@ -762,11 +797,12 @@ p.wrap.kicker { margin-bottom: 0.4375rem; }
    billing account on file, and forty-six iframes would put forty-six
    third-party requests on a page whose whole claim is that it has none. */
 .map-key { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem 0.875rem; margin: 0 0 0.75rem; font-size: 0.75rem; color: var(--muted); }
-.key { width: 0.5rem; height: 0.5rem; border-radius: 50%; display: inline-block; margin-right: -0.5rem; box-shadow: 0 0 0 1.5px #fff; }
-.key--place { background: #0a4f9e; }
-.key--ski { background: #6d3bd1; }
-.key--peak { background: #0a7c4a; }
-.pinlink { color: var(--accent); }
+/* Same three colours as the pins in the map file; see scripts/build-map.mjs. */
+.key { width: 0.5rem; height: 0.5rem; border-radius: 50%; display: inline-block; margin-right: -0.5rem; box-shadow: 0 0 0 1.5px var(--bg); }
+.key--place { background: #fce03d; }
+.key--ski { background: #ff6a2a; }
+.key--peak { background: #2fd27a; }
+.pinlink { color: var(--link); }
 .pinlink:hover { text-decoration: underline; }
 
 /* The X profile card. Live on every build, the account is protected, so the
@@ -782,7 +818,7 @@ p.wrap.kicker { margin-bottom: 0.4375rem; }
 .xc-counts b { color: var(--fg); font-variant-numeric: tabular-nums; }
 .xc-bio { margin: 0.75rem 0 0; font-size: 0.9375rem; }
 .xc-meta { margin: 0.375rem 0 0; font-size: 0.8125rem; color: var(--muted); }
-.xc-meta a { color: var(--accent); }
+.xc-meta a { color: var(--link); }
 @media (max-width: 30rem) { .xc-counts { margin-left: 0; width: 100%; } }
 
 /* ------------------------------------------------------------------ favs -- */

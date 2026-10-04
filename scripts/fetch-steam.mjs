@@ -3,23 +3,21 @@
  * Build site/data/steam.json, the data behind /games/.
  *
  * Reads the pinned appid list in site/data/steam-seed.json and enriches every
- * entry from Steam's PUBLIC store endpoints:
+ * entry from Steam's PUBLIC store endpoint:
  *
- *   store.steampowered.com/api/appdetails   name, price, discount, release date
- *   store.steampowered.com/appreviews/<id>  "Very Positive", 93%, review count
+ *   store.steampowered.com/api/appdetails   name, release date, genres, art
  *
- * Neither needs a key and neither needs the profile to be public, which matters
+ * It needs no key and does not need the profile to be public, which matters
  * because this profile is private; see the note at the top of the seed file.
- * The consequence is a split: the *list* of games is pinned, but every price,
- * discount and review score on the page is as fresh as the last deploy. A
- * wishlist whose prices are a year stale is worse than no wishlist.
+ * The consequence is a split: the *list* of games is pinned, but every name and
+ * header image on the page is as fresh as the last deploy.
  *
  * Usage:  node scripts/fetch-steam.mjs [seed] [out]
  *
  * FAILS SOFT, like scripts/fetch-github.mjs. Steam rate-limits the store API to
  * roughly 200 requests per five minutes per IP, and Cloudflare's builders share
  * addresses. A throttled build keeps the committed snapshot and exits 0; the
- * page then shows prices that are a deploy or two old, which nobody will ever
+ * page then shows names that are a deploy or two old, which nobody will ever
  * notice. Failing the deploy over it would be absurd.
  */
 
@@ -30,27 +28,13 @@ const SEED = resolve(process.argv[2] || "site/data/steam-seed.json");
 const OUT = resolve(process.argv[3] || "site/data/steam.json");
 const OWNED = resolve("site/data/steam-owned.json");
 
-/* Steam's own review-score buckets, in Steam's own blue/grey/red. The label
-   comes from the API; the colour does not, so it is mapped here. */
-const REVIEW_TONE = {
-  "Overwhelmingly Positive": "pos",
-  "Very Positive": "pos",
-  Positive: "pos",
-  "Mostly Positive": "pos",
-  Mixed: "mix",
-  "Mostly Negative": "neg",
-  Negative: "neg",
-  "Very Negative": "neg",
-  "Overwhelmingly Negative": "neg",
-};
-
 function bail(reason) {
   console.warn(`WARNING: Steam snapshot not refreshed (${reason}).`);
   if (existsSync(OUT)) {
     try {
       const d = JSON.parse(readFileSync(OUT, "utf8"));
       console.warn(
-        `         Keeping the committed snapshot (${d.library?.length ?? 0} owned, ${d.wishlist?.length ?? 0} wishlisted).`
+        `         Keeping the committed snapshot (${d.library?.length ?? 0} owned).`
       );
     } catch {
       console.warn("         Existing snapshot is unreadable.");
@@ -97,41 +81,11 @@ async function pool(items, limit, worker) {
 async function appDetails(appid) {
   const url =
     `https://store.steampowered.com/api/appdetails?appids=${appid}` +
-    `&cc=us&l=en&filters=basic,price_overview,release_date,genres`;
+    `&cc=us&l=en&filters=basic,release_date,genres`;
   const body = await getJSON(url);
   const entry = body?.[String(appid)];
   if (!entry?.success || !entry.data) throw new Error(`appdetails miss for ${appid}`);
   return entry.data;
-}
-
-async function appReviews(appid) {
-  // num_per_page=0 asks for the summary only, the review bodies are megabytes.
-  const url =
-    `https://store.steampowered.com/appreviews/${appid}` +
-    `?json=1&num_per_page=0&language=all&purchase_type=all`;
-  const body = await getJSON(url);
-  const q = body?.query_summary;
-  if (!q || !q.review_score_desc || !q.total_reviews) return null;
-  return {
-    label: q.review_score_desc,
-    tone: REVIEW_TONE[q.review_score_desc] || "mix",
-    pct: Math.round((q.total_positive / q.total_reviews) * 100),
-    count: q.total_reviews,
-  };
-}
-
-/* Steam prices come back as "$59.99" strings and, when discounted, an
-   initial_formatted that is sometimes an empty string instead of absent. */
-function priceOf(d) {
-  if (d.is_free) return { free: true, now: "Free", was: "", off: 0 };
-  const p = d.price_overview;
-  if (!p) return { free: false, now: "", was: "", off: 0 };
-  return {
-    free: false,
-    now: p.final_formatted || "",
-    was: p.discount_percent > 0 ? p.initial_formatted || "" : "",
-    off: p.discount_percent || 0,
-  };
 }
 
 /* THE LIBRARY, PREFERABLY NOT BY HAND.
@@ -163,9 +117,8 @@ if (existsSync(OWNED)) {
 }
 
 const libIds = libRows.map((g) => g.appid);
-const wishIds = seed.wishlist;
 const extraIds = seed.extra || [];
-const allIds = [...new Set([...libIds, ...wishIds, ...extraIds])];
+const allIds = [...new Set([...libIds, ...extraIds])];
 
 let details;
 try {
@@ -188,19 +141,6 @@ try {
 if (details.size < allIds.length * 0.6) {
   bail(`store API returned only ${details.size} of ${allIds.length} apps`);
 }
-
-/* Reviews only for the wishlist. The library rows show hours and achievements
-   the way Steam's own library does; nobody needs a review score on a game with
-   360 hours on it. Halves the request count. */
-const reviews = new Map(
-  (await pool(wishIds, 4, async (id) => {
-    try {
-      return [id, await appReviews(id)];
-    } catch {
-      return [id, null];
-    }
-  })).filter(([, r]) => r)
-);
 
 function common(appid) {
   const d = details.get(appid);
@@ -233,31 +173,20 @@ const library = libRows
   }))
   .sort((a, b) => b.minutes - a.minutes);
 
-const wishlist = wishIds
-  .filter((id) => details.has(id))
-  .map((id) => ({ ...common(id), price: priceOf(details.get(id)), review: reviews.get(id) || null }));
-
 /* The played-it list on /games/ looks names up here by appid, so it needs every
-   game in the file, not only the ones from `extra`, a game can be owned,
-   wishlisted and played-elsewhere all at once. Keyed by appid as a string
-   because Tera can only subscript a map with one. */
+   game in the file, not only the ones from `extra`, a game can be owned and
+   played-elsewhere at once. Keyed by appid as a string because Tera can only
+   subscript a map with one. */
 const by_appid = {};
 for (const id of allIds) {
   if (details.has(id)) by_appid[String(id)] = common(id);
 }
-
-/* Precomputed here rather than filtered in the template: Tera's `filter` keeps
-   any item whose attribute is merely non-null, so `off: 0` would survive it and
-   every full-price game would show up under "on sale". */
-const on_sale = wishlist.filter((g) => g.price.off > 0).sort((a, b) => b.price.off - a.price.off);
 
 const played = library.filter((g) => g.minutes > 0);
 const totals = {
   owned: library.length,
   played: played.length,
   hours: Math.round(played.reduce((n, g) => n + g.minutes, 0) / 60),
-  wishlisted: wishlist.length,
-  on_sale: wishlist.filter((g) => g.price.off > 0).length,
 };
 
 mkdirSync(dirname(OUT), { recursive: true });
@@ -270,8 +199,6 @@ writeFileSync(
       fetched: new Date().toISOString().slice(0, 10),
       totals,
       library,
-      wishlist,
-      on_sale,
       by_appid,
     },
     null,
@@ -281,5 +208,5 @@ writeFileSync(
 
 console.log(
   `Steam snapshot: ${totals.owned} owned (${totals.hours} h), ` +
-    `${totals.wishlisted} wishlisted (${totals.on_sale} on sale) -> ${OUT}`
+    `${Object.keys(by_appid).length} apps in all -> ${OUT}`
 );

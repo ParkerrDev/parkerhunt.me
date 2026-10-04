@@ -1,7 +1,7 @@
 # The part of /games/ that Steam does not know about.
 #
-# site/data/steam.json is generated (library, wishlist, prices, review scores,
-# capsule art). This file is the human half: which four are the favourites, and
+# site/data/steam.json is generated (library, names, release dates, capsule
+# art). This file is the human half: which four are the favourites, and
 # the full list of everything ever finished, including the games that were never
 # on Steam in the first place.
 #
@@ -13,7 +13,7 @@
 # The appids are strings, not numbers, because the template looks them up as
 # steam.by_appid[appid] and Tera will only subscript a map with a string.
 #
-# Adding an appid here that is neither owned nor wishlisted? Add it to the
+# Adding an appid here that is not owned? Add it to the
 # `extra` array in site/data/steam-seed.json too, or the lookup misses and the
 # row silently disappears.
 

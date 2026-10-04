@@ -7,7 +7,7 @@ embed, a widget or a client-side fetch. Each one is a JSON file in
 Zola into static HTML.
 
 The rule the whole design serves: **a visitor's browser never contacts a third
-party.** Not for the numbers, not for the prices, not even for the game art.
+party.** Not for the numbers, not even for the game art.
 That is why `/games/` can show 89 Steam capsules without a single request to a
 Steam CDN, and why none of these sections can be used to track anyone.
 
@@ -103,9 +103,9 @@ copy. Delete a snapshot and the section it feeds disappears rather than breaking
 ## Steam is the odd one, and it has a key-shaped fix
 
 The Steam profile is **private** (`privacyState=private` on the public profile
-XML), so `IPlayerService/GetOwnedGames`, `IWishlistService/GetWishlist` and the
+XML), so `IPlayerService/GetOwnedGames` and the
 community games XML all refuse *anyone else's* request. There is no public
-endpoint that will return this account's library, wishlist or playtime.
+endpoint that will return this account's library or playtime.
 
 There is a non-public one. From the Steamworks documentation for IPlayerService:
 
@@ -130,14 +130,13 @@ So it is split in two:
   minutes, and achievement counts. Refresh by opening the logged-in library page
   and updating `minutes`.
 - **Fetched live** from the public store API on every deploy: names, release
-  dates, genres, **prices, discounts and review scores**.
+  dates, genres and header art.
 
-A wishlist showing year-old prices would be worse than no wishlist, which is why
-the half that can be fresh, is. Set the profile to public and the seed file can
-be replaced by a live fetch.
+The site does not show a wishlist, so none is pinned and nothing is priced. Set
+the profile to public and the seed file can be replaced by a live fetch.
 
-`steam-seed.json` also has an `extra` array: appids that are neither owned nor
-wishlisted, but appear in the played-it list in `site/data/games.toml` because
+`steam-seed.json` also has an `extra` array: appids that are not owned, but
+appear in the played-it list in `site/data/games.toml` because
 they were played on a console or on an older account. They are there only so
 that list gets real names, real links and local art.
 

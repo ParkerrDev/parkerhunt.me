@@ -1,0 +1,53 @@
+{# One project, as a small card in a grid. Shared by /projects/ and the home
+   page so the two can never drift; the CSS is templates/_projects.css, pulled in
+   by both.
+
+   Top to bottom: what kind of thing it is (a small mono label), the mark and
+   the title, one line about it, where it lives,
+   and the card art in an inset panel at the bottom. The whole card is the link
+   to the live site; the title's link is stretched over it, so there is one real
+   anchor rather than a card-sized one wrapped around everything.
+
+   Everything except the title is optional and simply does not render when a
+   project lacks it. `kind` is plain front matter, written in capitals because
+   it is shown as written (so "iOS APP" keeps its lowercase i), and a wrong
+   label is a one-word fix in that project's .md. `h` is the heading level: 3
+   under the home page's "Selected work", 2 directly under /projects/' h1. #}
+{% macro card(project, i, h=3) %}
+{% set site = project.extra.website_url | default(value="") %}
+{% set host = site | replace(from="https://", to="") | replace(from="http://", to="") | trim_end_matches(pat="/") %}
+<article class="pc">
+    <div class="pc-body">
+        {% if project.extra.kind %}<span class="pc-kind">{{ project.extra.kind }}</span>{% endif %}
+
+        <h{{ h }} class="pc-title">
+            {% if project.extra.brand_image %}
+            <img class="pc-brand" src="{{ project.extra.brand_image }}" alt="" width="128" height="128" loading="lazy" decoding="async">
+            {% endif %}
+            <a class="pc-link" href="{% if site %}{{ site }}{% else %}{{ project.permalink }}{% endif %}"{% if site %} target="_blank" rel="noopener"{% endif %}>{{ project.title }}</a>
+        </h{{ h }}>
+
+        {% if project.extra.tagline %}<p class="pc-desc">{{ project.extra.tagline }}</p>
+        {% elif project.description %}<p class="pc-desc">{{ project.description }}</p>{% endif %}
+
+        {# The host says where the card goes; it is not a link of its own, the
+           whole card already is. The secondary links sit above the stretched
+           title link so they stay clickable, and only appear where they exist:
+           a public repo, a mirror, or a write-up long enough to open. #}
+        {% set read_more = project.word_count and project.word_count > 60 and not project.extra.hide_read_more %}
+        <p class="pc-more">
+            {% if host %}<span class="pc-host">{{ host }} ↗</span>{% endif %}
+            {% if project.extra.repo_url %}<a href="{{ project.extra.repo_url }}" target="_blank" rel="noopener">Source ↗</a>{% endif %}
+            {% if project.extra.mirror_url %}<a href="{{ project.extra.mirror_url }}" target="_blank" rel="noopener">Mirror ↗</a>{% endif %}
+            {% if read_more %}<a href="{{ project.permalink }}">Read more →</a>{% endif %}
+        </p>
+    </div>
+
+    {% if project.extra.card_image %}
+    <div class="pc-art">
+        <img src="{{ project.extra.card_image }}" alt="" width="900" height="338"
+             {% if i > 3 %}loading="lazy" {% endif %}decoding="async">
+    </div>
+    {% endif %}
+</article>
+{% endmacro card %}

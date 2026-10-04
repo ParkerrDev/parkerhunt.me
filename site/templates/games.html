@@ -4,12 +4,12 @@
 
 {% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{% endblock %}
 
-{# /games/, the whole library, the whole wishlist, and everything ever played.
-   The library and wishlist panels are Steam's own visual language (see the .stm
-   block in templates/_style.css); the favourites and the played list are the
-   site's, because a personal ranking is not a store listing.
+{# /games/, the whole library and everything ever played. The library panel is
+   Steam's own visual language (see the .stm block in templates/_islands.css);
+   the favourites and the played list are the site's, because a personal
+   ranking is not a store listing.
 
-   About 100 capsule images render on this page. Every one is a local 268px WebP
+   About 70 capsule images render on this page. Every one is a local 268px WebP
    written by scripts/fetch-steam-art.mjs, lazy-loaded, with its box reserved by
    aspect-ratio, so the page costs about 8 KB of HTML up front and pulls art in
    as you scroll. Nothing here resolves a Steam hostname. #}
@@ -30,8 +30,6 @@
             <li>{{ games.played | length }} played, ever</li>
             <li>{{ steam.totals.owned }} owned on Steam</li>
             <li>{{ steam.totals.hours | num_format }} hours logged</li>
-            <li>{{ steam.totals.wishlisted }} wishlisted</li>
-            <li>{{ steam.totals.on_sale }} of them on sale</li>
         </ul>
     </div>
 </header>
@@ -92,29 +90,9 @@
                 </p>
                 {% endif %}
             </div>
-            <p class="feed-foot">The profile is private, so playtime and achievements are pinned in <code>site/data/steam-seed.json</code>. Everything else on this page (names, art, release dates, prices, review scores) is fetched from Steam's public store API on every deploy.</p>
+            <p class="feed-foot">The profile is private, so playtime and achievements are pinned in <code>site/data/steam-seed.json</code>. Everything else on this page (names, art, release dates) is fetched from Steam's public store API on every deploy.</p>
         </div>
     </section>
-
-    {# --------------------------------------------------------- wishlist -- #}
-    {% if steam.wishlist | length > 0 %}
-    <section id="wishlist">
-        <div class="wrap">
-            <div class="head">
-                <h2>Wishlist</h2>
-                <p>{{ steam.totals.wishlisted }} games, in my own priority order. {{ steam.totals.on_sale }} are discounted as of {{ steam.fetched }}.</p>
-            </div>
-            {# .panel, not .feed: the library above it is unscrolled, and one
-               scroll pane next to one plain list reads as a bug. A long page is
-               the honest shape for a 59-item list. #}
-            <div class="panel stm">
-                {{ isle::steam_head(steam=steam, label=steam.totals.on_sale ~ " on sale") }}
-                {{ isle::steam_wish(games=steam.wishlist) }}
-            </div>
-            <p class="feed-foot">Prices in USD, and as fresh as the last deploy. Review scores are Steam's own buckets across all languages and purchase types.</p>
-        </div>
-    </section>
-    {% endif %}
 
     {# ----------------------------------------------------- played, ever -- #}
     {% if games.played | length > 0 %}

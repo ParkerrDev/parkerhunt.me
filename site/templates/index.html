@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
-{% import "_project-band.html" as pb %}
+{% import "_project-card.html" as pc %}
 {% import "islands.html" as isle %}
 
 {# ONE css_extra block, and it has to carry everything this page adds.
@@ -12,30 +12,27 @@
    full-width images, chips as a bulleted list, the lot. Anything new goes IN
    here, not next to it. #}
 {% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{{ load_data(path="templates/_projects.css", format="plain") | safe }}
-  /* The booking button. Home page only, so it rides here rather than in the
-     stylesheet that is inlined into all fifteen pages. */
-  /* justify-content: center to match .links directly above it, without it the
-     button sat hard left under a centred name, a centred lede and a centred row
-     of icons. */
-  .booking { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.875rem; }
-  .book {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-size: 0.9375rem; font-weight: 600; text-decoration: none;
-    color: #fff; background: var(--fg);
-    padding: 0.625rem 1.125rem; border-radius: 999px;
-    box-shadow: var(--shadow-1);
+  /* The home page's glow: one soft pool of the accent blue, lit from above the
+     name and fading out before the first section. Painted on body rather than
+     on the hero so it can spread past the hero's edges without an extra
+     element. */
+  body {
+    background:
+      radial-gradient(40rem 22rem at 50% 0, rgba(41, 151, 255, 0.18), transparent 70%),
+      radial-gradient(60rem 34rem at 50% 8rem, rgba(0, 113, 227, 0.22), transparent 72%),
+      var(--bg);
+    background-repeat: no-repeat;
   }
-  .book:hover { background: var(--accent); }
-  .book:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .book .bi { width: 1rem; height: 1rem; }
-  .book-x { font-size: 0.75rem; opacity: 0.7; }
-  /* The destination lives inside the button now, divided off rather than
-     floating beside it as a caption nobody associated with the button. */
-  .book-host {
-    font-family: var(--mono); font-size: 0.6875rem; opacity: 0.72;
-    padding-left: 0.5rem; margin-left: 0.125rem;
-    border-left: 1px solid rgba(255, 255, 255, 0.28);
-  }
+  .hero--home { padding: clamp(2.25rem, 5vw, 3.75rem) 0 clamp(1.25rem, 3vw, 2rem); }
+  .hero--home .avatar { width: 7rem; margin-bottom: 1.25rem; }
+  .hero--home h1 { font-size: clamp(2.5rem, 7vw, 4.75rem); letter-spacing: -0.04em; line-height: 1; }
+  .hero--home .hero-lede { margin-top: 1.125rem; max-width: 34rem; font-size: clamp(1.0625rem, 1.9vw, 1.25rem); color: rgba(255, 255, 255, 0.82); }
+  .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.875rem; margin-top: 1.75rem; }
+  .hero--home .links { margin-top: 1.25rem; }
+  .hero--home .pill svg { width: 22px; height: 22px; }
+  /* Selected work follows the "now" box closely: no hairline, and most of the
+     top padding gone, so the cards are on screen sooner. */
+  #work { border-top: 0; padding-top: 0.5rem; }
 {% endblock %}
 
 {% block title %}Parker Hunt{% endblock %}
@@ -61,7 +58,7 @@
    by a script in scripts/ that fails soft, so a third party being down or slow
    never fails a deploy, it just leaves the last snapshot in place. Nothing
    below contacts steampowered.com, chess.com, duolingo.com or nexusmods.com
-   when the page loads; the numbers, the prices and even the capsule art are all
+   when the page loads; the numbers and even the capsule art are all
    served from this origin. #}
 {% set steam = load_data(path="data/steam.json") %}
 {% set chess = load_data(path="data/chess.json") %}
@@ -103,61 +100,43 @@
    happens to the data before the template runs. #}
 {% set qd = load_data(path="data/quotes.json") %}
 
-<header class="hero">
+{% set projects = get_section(path="projects/_index.md") %}
+
+<header class="hero hero--home">
     <div class="wrap hero-in">
-        {# Centred, like the old parkerhunt.me: photo, name, one line, icons.
-           The rotating strip of facts that used to sit under the name is gone
-           and so are the fact pills, a stack of seven grey lozenges reading
-           "student", "Half Dome at 6" was a wall of text pretending to be a
-           design. Those facts are now tiles further down, where you find them
-           instead of being handed them. #}
+        {# Centred and in one column: photo, the name very large, one line, two
+           buttons, then the icons. The blue glow behind it is the page
+           background; see body in css_extra. #}
         <div class="avatar">
             <img src="/imgs/webp/avatar-288.webp"
                  srcset="/imgs/webp/avatar-288.webp 288w, /imgs/webp/avatar-576.webp 576w"
-                 sizes="(max-width: 40rem) 6rem, 7.75rem"
+                 sizes="7rem"
                  width="288" height="288" alt="Andrew Parker Hunt" fetchpriority="high" decoding="async">
         </div>
 
-        <div class="hero-text">
-            <h1>Andrew Parker Hunt</h1>
-            <p class="hero-lede">Student in Clovis, California. I focus on software development, computer science, and cybersecurity.</p>
+        <h1>Andrew Parker Hunt</h1>
+        <p class="hero-lede">Student in Clovis, California. I focus on software development, computer science, and cybersecurity.</p>
 
-            {# Icon-only. aria-label carries the name for anyone who cannot see
-               the mark, so nothing is lost by dropping the visible word. #}
-            <div class="links">
-                <a class="pill" href="/AndrewHuntResume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF)" title="Résumé">{{ ico::doc() }}</a>
-                <a class="pill" href="mailto:email@parkerhunt.me" aria-label="Email" title="Email">{{ ico::mail() }}</a>
-                <a class="pill" href="https://github.com/ParkerrDev" target="_blank" rel="me noopener" aria-label="GitHub" title="GitHub">{{ ico::github() }}</a>
-                <a class="pill" href="https://x.com/AndrewParkerH" target="_blank" rel="me noopener" aria-label="X" title="X">{{ ico::x() }}</a>
-                <a class="pill" href="https://www.linkedin.com/in/andrewparkerh/" target="_blank" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">{{ ico::linkedin() }}</a>
-                {% if false %}<a class="pill" href="{{ steam.profile.url }}" target="_blank" rel="me noopener" aria-label="Steam" title="Steam">{{ ico::steam() }}</a>{% endif %}
-                {% if false %}<a class="pill" href="{{ chess.url }}" target="_blank" rel="me noopener" aria-label="Chess.com" title="Chess.com">{{ ico::chesscom() }}</a>{% endif %}
-                {% if false %}<a class="pill" href="{{ nexus.url }}" target="_blank" rel="me noopener" aria-label="Nexus Mods" title="Nexus Mods">{{ ico::brand(icons=ico2.icons, slug="nexusmods") }}</a>{% endif %}
-            </div>
+        {# Still a link and not Cal's embed: that ships a script which injects an
+           iframe from cal.com, which would put a third party on the one page
+           that has none and hand over every visitor's IP whether or not they
+           ever booked. #}
+        <div class="hero-cta">
+            <a class="btn" href="#work">See my work</a>
+            {% if me.cal_url %}<a class="btn btn--solid" href="{{ me.cal_url }}" target="_blank" rel="noopener">{{ me.cal_label | default(value="Book an appointment") }}</a>{% endif %}
+        </div>
 
-            {# Not a pill. The row above is "here is where else I exist"; this is
-               the one thing on the page that asks the reader to do something, and
-               putting it in among eight identical icons was the fastest way to
-               make sure nobody did it.
-
-               Still a link and not Cal's embed, that ships a script which injects
-               an iframe from cal.com, which would put a third party on the one
-               page that has none and hand over every visitor's IP whether or not
-               they ever booked. #}
-            {% if me.cal_url %}
-            <div class="booking">
-                {# No mark on the button. Cal's Simple Icon is a WORDMARK, the
-                   letters "Cal.com" drawn as paths, and at the 16px a button
-                   affords it reads as a grey smudge rather than as a logo. The
-                   label says what the button does and the note says where it
-                   goes, which is what the mark was there to do. #}
-                <a class="book" href="{{ me.cal_url }}" target="_blank" rel="noopener">
-                    <span>{{ me.cal_label | default(value="Book an appointment") }}</span>
-                    <span class="book-host">cal.com</span>
-                    <span class="book-x" aria-hidden="true">↗</span>
-                </a>
-            </div>
-            {% endif %}
+        {# Icon-only. aria-label carries the name for anyone who cannot see the
+           mark, so nothing is lost by dropping the visible word. #}
+        <div class="links">
+            <a class="pill" href="/AndrewHuntResume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF)" title="Résumé">{{ ico::doc() }}</a>
+            <a class="pill" href="mailto:email@parkerhunt.me" aria-label="Email" title="Email">{{ ico::mail() }}</a>
+            <a class="pill" href="https://github.com/ParkerrDev" target="_blank" rel="me noopener" aria-label="GitHub" title="GitHub">{{ ico::github() }}</a>
+            <a class="pill" href="https://x.com/AndrewParkerH" target="_blank" rel="me noopener" aria-label="X" title="X">{{ ico::x() }}</a>
+            <a class="pill" href="https://www.linkedin.com/in/andrewparkerh/" target="_blank" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">{{ ico::linkedin() }}</a>
+            {% if false %}<a class="pill" href="{{ steam.profile.url }}" target="_blank" rel="me noopener" aria-label="Steam" title="Steam">{{ ico::steam() }}</a>{% endif %}
+            {% if false %}<a class="pill" href="{{ chess.url }}" target="_blank" rel="me noopener" aria-label="Chess.com" title="Chess.com">{{ ico::chesscom() }}</a>{% endif %}
+            {% if false %}<a class="pill" href="{{ nexus.url }}" target="_blank" rel="me noopener" aria-label="Nexus Mods" title="Nexus Mods">{{ ico::brand(icons=ico2.icons, slug="nexusmods") }}</a>{% endif %}
         </div>
     </div>
 </header>
@@ -193,16 +172,15 @@
                 <h2>Selected work</h2>
                 <a class="more" href="/projects/">All projects →</a>
             </div>
-        </div>
 
-        {# Bands, not tiles, the same macro /projects/ uses, so the two pages
-           cannot drift. Each carries its own accent and its own mark, both
-           derived rather than chosen: see scripts/project-accents.mjs and
-           scripts/fetch-project-brand.mjs. Outside .wrap on purpose, so a band's
-           tint runs the full width like the other full-bleed rows do. #}
-        <div class="projs projs--home">
-            {% set projects = get_section(path="projects/_index.md") %}
-            {% for project in projects.pages %}{{ pb::band(project=project, i=loop.index) }}{% endfor %}
+            {# Small cards in a grid, the same macro /projects/ uses, so the two
+               pages cannot drift. Each carries its own accent and its own mark,
+               both derived rather than chosen: see scripts/project-accents.mjs
+               and scripts/fetch-project-brand.mjs. A project with
+               `hide_on_home = true` in its front matter is on /projects/ only. #}
+            <div class="pcs">
+                {% for project in projects.pages %}{% if not project.extra.hide_on_home %}{{ pc::card(project=project, i=loop.index) }}{% endif %}{% endfor %}
+            </div>
         </div>
     </section>
 
@@ -376,17 +354,14 @@
     {% endif %}
 
     {# ------------------------------------------------------------ games -- #}
-    {# Two Steam panels side by side, both dark because Steam has never had a
-       light theme and a light one would not read as Steam. The right-hand panel
-       is live in a way the rest of the page is not: it is whatever happens to
-       be discounted on the wishlist at the moment of the last deploy, so it
-       changes on its own. #}
+    {# The Steam panel is dark because Steam has never had a light theme and a
+       light one would not read as Steam. #}
     {% if steam.library | length > 0 %}
     <section id="games">
         <div class="wrap">
             <div class="head">
                 <h2>Games</h2>
-                <p>{{ steam.totals.owned }} games, {{ steam.totals.hours | num_format }} hours, and a wishlist that is longer than the library.</p>
+                <p>{{ steam.totals.owned }} games on Steam and {{ steam.totals.hours | num_format }} hours between them.</p>
                 <a class="more" href="/games/">Everything I have played →</a>
             </div>
 
@@ -429,32 +404,19 @@
 
         </div>
 
-        {# Back to the two vertical panels. The horizontal shelf was worse in
-           both directions: it hid the achievement counts and the playtime bar
-           that made the library worth looking at, and a wishlist row without
-           its review score and price block is just a picture of a game. #}
+        {# A vertical panel rather than a horizontal shelf: a shelf hid the
+           achievement counts and the playtime bar that make the library worth
+           looking at. #}
         <div class="wrap">
-            <div class="duo">
-                <div>
-                    <div class="feed stm">
-                        {{ isle::steam_head(steam=steam, label="Most played") }}
-                        {{ isle::steam_stats(steam=steam) }}
-                        {{ isle::steam_played(games=steam.library | slice(end=steam.totals.played), top=steam.library | first | get(key="minutes")) }}
-                    </div>
-                </div>
-                {% if steam.on_sale | length > 0 %}
-                <div>
-                    <div class="feed stm">
-                        {{ isle::steam_head(steam=steam, label=steam.totals.on_sale ~ " on sale right now") }}
-                        {{ isle::steam_wish(games=steam.on_sale) }}
-                    </div>
-                </div>
-                {% endif %}
+            <div class="feed stm">
+                {{ isle::steam_head(steam=steam, label="Most played") }}
+                {{ isle::steam_stats(steam=steam) }}
+                {{ isle::steam_played(games=steam.library | slice(end=steam.totals.played), top=steam.library | first | get(key="minutes")) }}
             </div>
         </div>
 
         <div class="wrap">
-            <p class="feed-foot">Playtime is pinned by hand, the profile is private, so there is no public endpoint for it. Prices come from Steam's public store API and were checked {{ steam.fetched }}. <a href="/games/">The whole library and wishlist →</a></p>
+            <p class="feed-foot">Snapshot from Steam, {{ steam.fetched }}. <a href="/games/">The whole library →</a></p>
         </div>
     </section>
     {% endif %}
@@ -598,12 +560,17 @@
         </div>
 
         {% if been.count > 0 %}
-        <p class="wrap kicker" style="margin-top:1.25rem">{{ been.count }} places, {{ been.places_with_photo }} of them photographed</p>
-        {# A rail rather than a grid of thirty: the tiles are the point, not the
-           height of the section. Photographs are Commons, CC BY / CC BY-SA /
-           public domain, credited under the rail, those licences require it. #}
-        <div class="rail">
-            <div class="rail-track">
+        {# The kicker goes INSIDE .wrap, not on it. .kicker sets its own margin,
+           which overrides .wrap's auto margins, so a p.wrap.kicker sat flush
+           against the left edge of any screen wider than the page. #}
+        <div class="wrap"><p class="kicker" style="margin-top:1.25rem">{{ been.count }} places, {{ been.places_with_photo }} of them photographed</p></div>
+        {# Auto-scrolling, like the games and films. About four seconds a tile
+           keeps the captions readable as they pass. #}
+        {% set n_pl = been.places | length %}
+        <div class="marquee" style="--mq:{{ n_pl * 4 }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
                 {% for pl in been.places %}
                 <figure class="shot place{% if not pl.photo %} place--none{% endif %}">
                     {% if pl.photo %}
@@ -611,19 +578,23 @@
                     {% endif %}
                     <figcaption>
                         <span class="shot-t">{{ pl.name }}</span>
-                        <span class="shot-s" style="display:block">{{ pl.where }}{% if pl.map %} · <a class="pinlink" href="{{ pl.map }}" target="_blank" rel="noopener">Map</a>{% endif %}</span>
+                        <span class="shot-s" style="display:block">{{ pl.where }}{% if pl.map %} · <a class="pinlink" href="{{ pl.map }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>Map</a>{% endif %}</span>
                     </figcaption>
                 </figure>
                 {% endfor %}
+                </span>
+                {% endfor %}
             </div>
         </div>
+        {# The CC BY / CC BY-SA licences require the credits, not that they be a
+           paragraph on the page, so they fold into one line that opens on
+           click. The per-place notes that used to follow are off the page;
+           they are still in site/data/places.json. #}
         <div class="wrap">
-            <p class="credit">Photographs from Wikimedia Commons under CC BY, CC BY-SA or public domain, {% for pl in been.places %}{% if pl.photo and pl.photo.credit_required %}<a href="{{ pl.photo.source }}" target="_blank" rel="noopener">{{ pl.name }}</a> {{ pl.photo.author }}; {% endif %}{% endfor %}the rest are public domain.</p>
-            {% if been.places | filter(attribute="note") | length > 0 %}
-            <ul class="distro-notes" style="margin-top:0.5rem">
-                {% for pl in been.places %}{% if pl.note %}<li><b>{{ pl.name }}</b> &#8211; {{ pl.note }}</li>{% endif %}{% endfor %}
-            </ul>
-            {% endif %}
+            <details class="credits">
+                <summary>Photo credits</summary>
+                <p class="credit">Photographs from Wikimedia Commons under CC BY, CC BY-SA or public domain, {% for pl in been.places %}{% if pl.photo and pl.photo.credit_required %}<a href="{{ pl.photo.source }}" target="_blank" rel="noopener">{{ pl.name }}</a> {{ pl.photo.author | truncate(length=48) }}; {% endif %}{% endfor %}the rest are public domain.</p>
+            </details>
         </div>
         {% endif %}
     </section>
@@ -662,8 +633,11 @@
                 <p>{{ been.skiing | length }} resorts across {{ ski_states | length }} states. The Rockies mostly, and Tahoe when it snows.</p>
             </div>
         </div>
-        <div class="rail">
-            <div class="rail-track">
+        {% set n_ski = been.skiing | length %}
+        <div class="marquee" style="--mq:{{ n_ski * 4 }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
                 {% for r in been.skiing %}
                 <figure class="shot place{% if not r.photo %} place--none{% endif %}">
                     {% if r.photo %}
@@ -671,17 +645,22 @@
                     {% endif %}
                     <figcaption>
                         <span class="shot-t">{{ r.name }}</span>
-                        <span class="shot-s" style="display:block">{{ r.where }}{% if r.map %} · <a class="pinlink" href="{{ r.map }}" target="_blank" rel="noopener">Map</a>{% endif %}</span>
+                        <span class="shot-s" style="display:block">{{ r.where }}{% if r.map %} · <a class="pinlink" href="{{ r.map }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>Map</a>{% endif %}</span>
                     </figcaption>
                 </figure>
                 {% endfor %}
+                </span>
+                {% endfor %}
             </div>
         </div>
+        {# Credits folded away as above; the resort notes live on in
+           site/data/places.json. Author strings are cut short because one of
+           them is a whole licence statement pasted into the author field. #}
         <div class="wrap">
-            <ul class="distro-notes" style="margin-top:0.75rem">
-                {% for r in been.skiing %}{% if r.note %}<li><b>{{ r.name }}</b> &#8211; {{ r.note }}</li>{% endif %}{% endfor %}
-            </ul>
-            <p class="credit">Photographs from Wikimedia Commons, {% for r in been.skiing %}{% if r.photo and r.photo.credit_required %}<a href="{{ r.photo.source }}" target="_blank" rel="noopener">{{ r.name }}</a> {{ r.photo.author }}; {% endif %}{% endfor %}the rest public domain.</p>
+            <details class="credits">
+                <summary>Photo credits</summary>
+                <p class="credit">Photographs from Wikimedia Commons, {% for r in been.skiing %}{% if r.photo and r.photo.credit_required %}<a href="{{ r.photo.source }}" target="_blank" rel="noopener">{{ r.name }}</a> {{ r.photo.author | truncate(length=48) }}; {% endif %}{% endfor %}the rest public domain.</p>
+            </details>
         </div>
     </section>
     {% endif %}
@@ -817,7 +796,9 @@
     {# Order is randomised per build; see scripts/build-shuffle.mjs. Tera has
        no way to shuffle, so the shuffling happens to the data before the
        template sees it, and quotes.json is the generated result. Edit me.toml. #}
-    {% if qd.quotes | length > 0 %}
+    {# DISABLED for now, on request. The page at /quotes/ still answers; put the
+       guard back to `qd.quotes | length > 0` to bring the section back. #}
+    {% if false %}
     {% set per_row = qd.quotes | length / 2 | round(method="ceil") %}
     <section id="quotes">
         <div class="wrap">
@@ -850,7 +831,9 @@
     {% endif %}
 
     {# ---------------------------------------------------------- shelves -- #}
-    {% if me.books_read | length > 0 %}
+    {# DISABLED for now, on request. The page at /shelf/ still answers; put the
+       guard back to `me.books_read | length > 0` to bring the section back. #}
+    {% if false %}
     <section id="shelf">
         <div class="wrap">
             <div class="head">
@@ -859,10 +842,15 @@
                 <a class="more" href="/shelf/">Every book →</a>
             </div>
         </div>
-        {# Twelve, scrolling. The rest are on /shelf/. #}
-        <div class="rail">
-            <div class="rail-track">
-                {% for b in me.books_read | slice(end=12) %}
+        {# All of them, auto-scrolling like the films. A marquee needs one pass of
+           the row to be wider than the screen or a gap shows at the seam, and
+           twelve covers were not; all of them are. /shelf/ has them at full
+           size. #}
+        <div class="marquee" style="--mq:{{ ico::mq_secs(n=me.books_read | length) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
+                {% for b in me.books_read %}
                 <div class="chip chip--rail">
                     <span class="cover">
                         {%- if b.cover and media.covers[b.cover] %}
@@ -872,6 +860,8 @@
                     <span class="t-t">{{ b.title }}</span>
                     <span class="t-s">{{ b.author }}{% if b.year %} · {{ b.year }}{% endif %}</span>
                 </div>
+                {% endfor %}
+                </span>
                 {% endfor %}
             </div>
         </div>
