@@ -22,7 +22,7 @@
 
         <h{{ h }} class="pc-title">
             {% if project.extra.brand_image %}
-            <img class="pc-brand" src="{{ project.extra.brand_image }}" alt="" width="128" height="128" loading="lazy" decoding="async">
+            <img class="pc-brand{% if project.extra.brand_unboxed %} pc-brand--unboxed{% endif %}" src="{{ project.extra.brand_image }}" alt="" width="128" height="128" loading="lazy" decoding="async">
             {% endif %}
             <a class="pc-link" href="{% if site %}{{ site }}{% else %}{{ project.permalink }}{% endif %}"{% if site %} target="_blank" rel="noopener"{% endif %}>{{ project.title }}</a>
         </h{{ h }}>

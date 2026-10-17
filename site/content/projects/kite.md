@@ -7,6 +7,8 @@ weight = 1
 [extra]
 kind = "HARDWARE COMPANY"
 brand_manual = true
+brand_unboxed = true
+hero_logo = "/imgs/project-brand/kite-lockup.svg"
 card_image = "/imgs/project-cards/kite.svg"
 brand_image = "/imgs/project-brand/kite.svg"
 website_url = "https://kiteprinters.com"

@@ -47,6 +47,7 @@
   width: 1.5rem; height: 1.5rem; flex: 0 0 auto; border-radius: 22%;
   object-fit: cover; box-shadow: 0 0 0 1px var(--line);
 }
+.pc-brand--unboxed { border-radius: 0; box-shadow: none; object-fit: contain; }
 /* The stretched link: its ::after covers the whole card, so the card is
    clickable without an anchor wrapped around block content. */
 .pc-link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }

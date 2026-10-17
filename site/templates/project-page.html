@@ -3,11 +3,15 @@
 
 {% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
 
+{% block css_extra %}
+.project-logo { display: block; width: min(100%, 20rem); height: auto; margin-inline: auto; border: 0; border-radius: 0; box-shadow: none; }
+{% endblock %}
+
 {% block content %}
 <header class="hero">
     <div class="wrap">
         <a class="back" href="/projects/">{{ ico::back() }} Projects</a>
-        <h1>{{ page.title }}</h1>
+        <h1>{% if page.extra.hero_logo %}<img class="project-logo" src="{{ page.extra.hero_logo }}" alt="{{ page.title }}" width="358" height="100" decoding="async">{% else %}{{ page.title }}{% endif %}</h1>
         {% if page.description %}<p class="hero-lede">{{ page.description }}</p>{% endif %}
         {% if page.extra.website_url %}
         <div class="links">
