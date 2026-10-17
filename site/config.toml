@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://parkerhunt.me"
 title = "Parker Hunt"
-description = "Andrew Parker Hunt, student in Clovis, California, with an interest in software development, computer science, and cybersecurity."
+description = "Andrew Parker Hunt, cofounder of Kite. Building software, hardware, and a tabletop printer for circuit boards."
 author = "Andrew Parker Hunt"
 
 # Compile sass/main.scss (and its partials) to /main.css

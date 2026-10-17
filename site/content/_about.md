@@ -1,13 +1,16 @@
 +++
 title = "About"
-description = "Andrew Parker Hunt, student in Clovis, California. Software, computer science, security."
+description = "Andrew Parker Hunt, cofounder of Kite. Software, hardware, and circuit-board printing."
 template = "about.html"
 date = 2026-03-03
 +++
 
-My name is Andrew Parker Hunt. I am a student in Clovis, California, and I build
-software, mostly systems things, security things, and websites that are far
-smaller than they are supposed to be.
+My name is Andrew Parker Hunt. I’m a cofounder of [Kite](https://kiteprinters.com),
+where we’re developing a tabletop printer for circuit boards. I lead software
+and hardware development.
+
+I’m based in Clovis, California. I also build software, mostly systems things,
+security things, and websites that are far smaller than they are supposed to be.
 
 ## Away from a screen
 

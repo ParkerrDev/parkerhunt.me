@@ -95,12 +95,12 @@ favourite_films = []
 # actually happening this month, and change `updated` when you change `doing`.
 # A "now" that is a year old is worse than no now at all.
 [now]
-updated = "2026-08"
-line = "Building AppIt! and getting ready to start college."
+updated = "2026-10"
+line = "Building Kite, a tabletop printer for circuit boards."
 doing = [
-  "AppIt!",
-  "Getting ready to start college",
-  "Rebuilding this site from scratch, in public",
+  "Leading software and hardware development at Kite",
+  "Talking with electronics teams about their PCB prototyping needs",
+  "Continuing work on AppIt! and my other software projects",
 ]
 
 # NOT RENDERED ANY MORE. The Coffee orders, Orders, the vice, Settled, Assorted
