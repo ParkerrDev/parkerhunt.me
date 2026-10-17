@@ -1,0 +1,25 @@
+/* The Linux journey: unboxed marks, linked in reading order. */
+.distro-trail { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); list-style: none; padding: 0; margin: 2rem 0 0; }
+.distro-step { position: relative; min-width: 0; text-align: center; }
+.distro-step:not(:last-child)::after { content: ""; position: absolute; top: 1.95rem; left: calc(50% + 2.05rem); width: calc(100% - 4.1rem); height: 1px; background: var(--line); }
+.distro-step:not(:last-child)::before { content: ""; position: absolute; top: calc(1.95rem - 2.5px); right: calc(-50% + 2.05rem); width: 5px; height: 5px; border-top: 1px solid var(--muted); border-right: 1px solid var(--muted); transform: rotate(45deg); }
+.distro-mark { display: grid; place-items: center; width: 4rem; height: 4rem; margin: 0 auto 1rem; color: var(--distro-colour); }
+.distro-mark .bi, .distro-mark img { display: block; width: 3rem; height: 3rem; max-width: none; object-fit: contain; border: 0; border-radius: 0; box-shadow: none; }
+/* Nobara's official icon includes substantial transparent padding. */
+.distro-mark--nobara img { width: 4.8rem; height: 4.8rem; }
+.distro-copy { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; padding: 0 0.25rem; }
+.distro-status { color: var(--faint); font: 0.625rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.6; }
+.distro-name { font-size: 0.875rem; line-height: 1.35; color: var(--fg); }
+.distro-note { color: var(--muted); font-size: 0.75rem; line-height: 1.5; max-width: 10rem; }
+.distro-step--current .distro-status { color: var(--link); }
+.distro-step--current .distro-name { font-weight: 650; }
+@media (max-width: 46rem) {
+  .distro-trail { grid-template-columns: 1fr; gap: 1.25rem; margin-top: 1.5rem; }
+  .distro-step { display: grid; grid-template-columns: 4rem 1fr; gap: 1.25rem; min-height: 4.5rem; text-align: left; }
+  .distro-mark { margin: 0; }
+  .distro-copy { align-items: flex-start; justify-content: center; padding: 0; gap: 0.2rem; }
+  .distro-name { font-size: 1rem; }
+  .distro-note { max-width: none; font-size: 0.8125rem; }
+  .distro-step:not(:last-child)::after { top: 4rem; bottom: -1rem; left: 2rem; width: 1px; height: auto; }
+  .distro-step:not(:last-child)::before { top: auto; bottom: -1rem; left: calc(2rem - 2.5px); right: auto; transform: rotate(135deg); }
+}

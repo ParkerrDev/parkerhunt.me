@@ -1,0 +1,16 @@
+{
+  "logos": {
+    "nobara": {
+      "src": "/imgs/distros/nobara-76c71a12.png",
+      "source": "https://nobaraproject.org/img/nobara-icon.png"
+    },
+    "cachyos": {
+      "src": "/imgs/distros/cachyos-8a170323.svg",
+      "source": "https://cachyos.org/_astro/logo.DuMERIP6.svg"
+    },
+    "omarchy": {
+      "src": "/imgs/distros/omarchy-4d00403e.svg",
+      "source": "https://omarchy.org/brand/omarchy-logo.svg"
+    }
+  }
+}

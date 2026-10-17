@@ -44,7 +44,7 @@ tidbits = [
   "coffee every single day since thirteen",
   "favourite fruit: the cherry plum",
   "currently learning Mandarin",
-  "eight distros deep, currently CachyOS",
+  "nine distros deep, currently Omarchy",
   "shares the house with a lilac-crowned amazon parrot",
   "this site ships zero javascript",
 ]
@@ -258,7 +258,8 @@ current = false
 
 [[distro]]
 name = "Nobara"
-icon = "c:nobara"
+icon = ""
+logo = "nobara"
 mono = "No"
 colour = "#D9682D"
 note = "Fedora, but it plays games"
@@ -274,10 +275,20 @@ current = false
 
 [[distro]]
 name = "CachyOS"
-icon = "c:cachyos"
+icon = ""
+logo = "cachyos"
 mono = "Ca"
 colour = "#00A67D"
-note = "Arch, tuned, and where I stopped"
+note = "Arch, tuned"
+current = false
+
+[[distro]]
+name = "Omarchy"
+icon = ""
+logo = "omarchy"
+mono = "Om"
+colour = "#7AA2F7"
+note = "my current setup"
 current = true
 
 # ------------------------------------------------------------- my quotes --

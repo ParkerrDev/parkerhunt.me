@@ -11,7 +11,7 @@
    styles and the home page rendered the same markup completely unstyled,
    full-width images, chips as a bulleted list, the lot. Anything new goes IN
    here, not next to it. #}
-{% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{{ load_data(path="templates/_projects.css", format="plain") | safe }}
+{% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{{ load_data(path="templates/_projects.css", format="plain") | safe }}{{ load_data(path="templates/_distros.css", format="plain") | safe }}
   /* The home page's glow: one soft pool of the accent blue, lit from above the
      name and fading out before the first section. Painted on body rather than
      on the hero so it can spread past the hero's edges without an extra
@@ -88,6 +88,7 @@
 {# Full-colour logos from Wikimedia Commons, for the brands Simple Icons does
    not carry. Licences and credits are in the file; see scripts/fetch-logos.mjs. #}
 {% set logos = load_data(path="data/logos.json") %}
+{% set distro_logos = load_data(path="data/distro-logos.json") %}
 {# The businesses' own logos, taken from their own site icons. See
    scripts/fetch-brands.mjs, this is where Starbucks' siren and Chipotle's
    pepper come from, neither of which exists under a free licence anywhere. #}
@@ -702,28 +703,23 @@
         <div class="wrap">
             <div class="head">
                 <h2>Distro-hopping</h2>
-                <p>{{ me.distro | length }} of them, in order, starting at nine years old. It ends at an Arch derivative, as these things do.</p>
+                <p>{{ me.distro | length }} setups, in order, starting at nine years old. Now on Omarchy.</p>
             </div>
-            {# Coloured monograms, not logos. Reproducing eight trademarks from
-               memory would look worse and is not ours to do; the accent colour
-               plus the initial identifies each one just as fast. Colours live
-               in me.toml so any that look wrong are a one-line fix. #}
-            <ul class="bento bento--sm" style="list-style:none;margin:0;padding:0">
+            <ol class="distro-trail" aria-label="My Linux journey">
                 {% for d in me.distro %}
-                <li class="chip{% if d.current %} chip--now{% endif %}">
-                    <span class="swatch" style="--c:{{ d.colour }}" aria-hidden="true">{{ ico::anymark(icons=ico2.icons, logos=logos.logos, brands=brands.brands, name=d.icon, mono=d.mono) }}</span>
-                    <span class="t-t">{{ d.name }}</span>
-                    <span class="t-k" style="text-align:center">{% if d.current %}Now{% else %}{% if loop.index < 10 %}0{% endif %}{{ loop.index }}{% endif %}</span>
+                <li class="distro-step{% if d.current %} distro-step--current{% endif %}"{% if d.current %} aria-current="step"{% endif %}>
+                    <span class="distro-mark{% if d.logo %} distro-mark--{{ d.logo }}{% endif %}" style="--distro-colour:{{ d.colour }}" aria-hidden="true">
+                        {% if d.logo %}<img src="{{ distro_logos.logos[d.logo].src }}" alt="" width="64" height="64" loading="lazy" decoding="async">
+                        {% else %}{{ ico::mark(icons=ico2.icons, name=d.icon) }}{% endif %}
+                    </span>
+                    <span class="distro-copy">
+                        <span class="distro-status">{% if d.current %}Current{% else %}{% if loop.index < 10 %}0{% endif %}{{ loop.index }}{% endif %}</span>
+                        <span class="distro-name">{{ d.name }}</span>
+                        {% if d.note %}<span class="distro-note">{{ d.note }}</span>{% endif %}
+                    </span>
                 </li>
                 {% endfor %}
-            </ul>
-            {% set_global has_notes = false %}
-            {% for d in me.distro %}{% if d.note %}{% set_global has_notes = true %}{% endif %}{% endfor %}
-            {% if has_notes %}
-            <ul class="distro-notes">
-                {% for d in me.distro %}{% if d.note %}<li><b>{{ d.name }}</b> &#8211; {{ d.note }}</li>{% endif %}{% endfor %}
-            </ul>
-            {% endif %}
+            </ol>
         </div>
     </section>
     {% endif %}
