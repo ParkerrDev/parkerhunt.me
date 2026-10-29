@@ -12,17 +12,6 @@
    full-width images, chips as a bulleted list, the lot. Anything new goes IN
    here, not next to it. #}
 {% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{{ load_data(path="templates/_projects.css", format="plain") | safe }}{{ load_data(path="templates/_distros.css", format="plain") | safe }}
-  /* The home page's glow: one soft pool of the accent blue, lit from above the
-     name and fading out before the first section. Painted on body rather than
-     on the hero so it can spread past the hero's edges without an extra
-     element. */
-  body {
-    background:
-      radial-gradient(40rem 22rem at 50% 0, rgba(41, 151, 255, 0.18), transparent 70%),
-      radial-gradient(60rem 34rem at 50% 8rem, rgba(0, 113, 227, 0.22), transparent 72%),
-      var(--bg);
-    background-repeat: no-repeat;
-  }
   .hero--home { padding: clamp(2.25rem, 5vw, 3.75rem) 0 clamp(1.25rem, 3vw, 2rem); }
   .hero--home .avatar { width: 7rem; margin-bottom: 1.25rem; }
   .hero--home h1 { font-size: clamp(2.5rem, 7vw, 4.75rem); letter-spacing: -0.04em; line-height: 1; }
