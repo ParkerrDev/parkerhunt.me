@@ -11,8 +11,8 @@
  * is where most of the industrial, instrument-panel feel comes from.
  *
  * The site has two design languages on purpose:
- *   1. The shell, black, large regular-weight type, blue accent and a soft
- *      blue glow behind the home page hero. That is this file.
+ *   1. The shell, black, large regular-weight type and a blue accent. That
+ *      is this file.
  *   2. The islands, the X / LinkedIn / GitHub / Steam / Duolingo / Chess.com /
  *                    Nexus Mods feeds, each rebuilt to match that platform's own
  *                    visual language. Those live in _islands.css, which only the
@@ -27,7 +27,7 @@
 :root {
   /* Pure black pages, near-black raised surfaces, white ink. Secondary text is
      white at 70%, the way the reference does it, rather than a grey that would
-     go muddy against the glow. */
+     go muddy. */
   --bg: #000;
   --bg-soft: #0c0c0d;
   --fg: #fff;
