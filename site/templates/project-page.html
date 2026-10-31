@@ -13,9 +13,10 @@
         <a class="back" href="/projects/">{{ ico::back() }} Projects</a>
         <h1>{% if page.extra.hero_logo %}<img class="project-logo" src="{{ page.extra.hero_logo }}" alt="{{ page.title }}" width="358" height="100" decoding="async">{% else %}{{ page.title }}{% endif %}</h1>
         {% if page.description %}<p class="hero-lede">{{ page.description }}</p>{% endif %}
-        {% if page.extra.website_url %}
+        {% if page.extra.website_url or page.extra.repo_url %}
         <div class="links">
-            <a class="pill pill--wide" href="{{ page.extra.website_url }}" target="_blank" rel="noopener">Visit ↗</a>
+            {% if page.extra.website_url %}<a class="pill pill--wide" href="{{ page.extra.website_url }}" target="_blank" rel="noopener">Visit ↗</a>{% endif %}
+            {% if page.extra.repo_url %}<a class="pill pill--wide" href="{{ page.extra.repo_url }}" target="_blank" rel="noopener">Source ↗</a>{% endif %}
         </div>
         {% endif %}
     </div>

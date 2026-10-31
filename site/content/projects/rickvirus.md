@@ -3,7 +3,7 @@ title = "Rickvirus"
 description = ""
 date = 2026-03-01
 updated = 2026-04-04
-weight = 6
+weight = 8
 [extra]
 kind = "WEBSITE"
 card_image = "/imgs/project-cards/opt/rickvirus-05194bcf.webp"

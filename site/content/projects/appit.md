@@ -3,7 +3,7 @@ title = "AppIt!"
 description = "An iOS browser and app launcher that transforms websites into focused, native-feeling iOS applications with userscript customization support."
 date = 2026-03-02
 updated = 2026-04-04
-weight = 3
+weight = 5
 [extra]
 kind = "iOS APP"
 card_image = "/imgs/project-cards/opt/appit-3cb98b9e.webp"
