@@ -1,6 +1,33 @@
 {
   "user": "ParkerrDev",
   "fetched": "2026-08-06",
+  "colors": {
+    "C#": "#178600",
+    "C": "#555555",
+    "C++": "#f34b7d",
+    "CSS": "#663399",
+    "Go": "#00ADD8",
+    "HTML": "#e34c26",
+    "HolyC": "#ffefaf",
+    "Java": "#b07219",
+    "JavaScript": "#f1e05a",
+    "Kotlin": "#A97BFF",
+    "Lua": "#000080",
+    "Nix": "#7e7eff",
+    "Objective-C": "#438eff",
+    "PHP": "#4F5D95",
+    "Python": "#3572A5",
+    "Ruby": "#701516",
+    "Rust": "#dea584",
+    "SCSS": "#c6538c",
+    "ShaderLab": "#222c37",
+    "Shell": "#89e051",
+    "Svelte": "#ff3e00",
+    "Swift": "#F05138",
+    "TypeScript": "#3178c6",
+    "Vue": "#41b883",
+    "Zig": "#ec915c"
+  },
   "repos": [
     {
       "name": "parkerhunt.me",

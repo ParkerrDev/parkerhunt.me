@@ -57,29 +57,18 @@
                 <img src="/imgs/webp/memoji-circle.webp" width="26" height="26" alt="" decoding="async">
                 <span>Andrew Parker Hunt</span>
             </a>
-            {# The nav must not advertise what the page no longer has. Posts was
-               the worst of these: its section is disabled, so /#posts was an
-               anchor to nothing, a nav item that silently does nothing when
-               clicked. Chess, Novel, Ideas, Shelf and Quotes still have pages of
-               their own, but their home-page sections are off, so they come out
-               too rather than being the only way in to something otherwise
-               removed.
-
-               The pages themselves are untouched and still answer on their URLs.
-               Delete an `if false` here to put an item back. #}
+            {# The nav must not advertise what the page no longer has: every
+               link here goes to a section or a page that exists. Movies,
+               Skied and the other life sections moved to /life/ together.
+               The disabled pages (TV, Shelf, Chess, Novel, Ideas, Quotes) still
+               answer on their URLs; an `if false` item comes back as one edit. #}
             <nav class="bar-nav" aria-label="Sections">
                 <a href="/#work">Work</a>
                 <a href="/#code">Code</a>
-                {% if false %}<a href="/#posts">Posts</a>{% endif %}
+                {% if config.extra.blog %}<a href="/blog/">Blog</a>{% endif %}
                 <a href="/games/">Games</a>
-                {% if false %}<a href="/watching/">TV</a>{% endif %}
-                <a href="/movies/">Movies</a>
-                {% if false %}<a href="/shelf/">Shelf</a>{% endif %}
-                {% if false %}<a href="/chess/">Chess</a>{% endif %}
-                <a href="/#skied">Skied</a>
-                {% if false %}<a href="/novel/">Novel</a>{% endif %}
-                {% if false %}<a href="/ideas/">Ideas</a>{% endif %}
-                {% if false %}<a href="/quotes/">Quotes</a>{% endif %}
+                <a href="/life/">Life</a>
+                {% if false %}<a href="/watching/">TV</a><a href="/shelf/">Shelf</a><a href="/chess/">Chess</a><a href="/novel/">Novel</a><a href="/ideas/">Ideas</a><a href="/quotes/">Quotes</a>{% endif %}
             </nav>
             {# Out of the link row and into the one solid button: the résumé is
                the page most worth handing somebody. #}
@@ -90,15 +79,20 @@
 
     {% block content %}{% endblock %}
 
-    {# The one script on the site, and only on the pages that ask for it.
-       See the `filter` block: a catalogue page emits it, everything else does
-       not, so the home page and the blog still ship zero JavaScript.
+    {# Scripts, all inline, so none of them costs a request.
 
-       Progressive enhancement in the strict sense, the box is created BY the
-       script, so a reader without JavaScript never sees a search field that
-       cannot search. Filtering is done by toggling a class rather than by
-       removing nodes, so nothing reflows into a different grid and going back
-       to an empty query restores the original order exactly. #}
+       _drift.js runs the horizontal rows (pause on hover, drag, loop), on every
+       page, and does nothing on a page without one. Without JavaScript the
+       rows still move, on a CSS animation, and with reduced motion they are
+       plain sideways scrollers.
+
+       `scripts` is for a page's own: the home page's live GitHub cards.
+
+       `filter` is the catalogue pages' search box. Progressive enhancement in
+       the strict sense: the box is created BY the script, so a reader without
+       JavaScript never sees a search field that cannot search. #}
+    <script>{{ load_data(path="templates/_drift.js", format="plain") | safe }}</script>
+    {% block scripts %}{% endblock %}
     {% block filter %}{% endblock %}
 
     {% block footer %}
@@ -116,10 +110,10 @@
                     {%- endif %}
                 </nav>
             </div>
-            {# Stating the build is the flex. It is also true, and checkable. #}
-            {# Was "no javascript". The catalogue pages have a search filter and a
-               Random button now, so that claim is retired rather than quietly
-               left wrong. Everything else on the site still ships none. #}
+            {# Stating the build is the flex. It is also true, and checkable:
+               the scripts are inline, and the one call the home page makes
+               after it has painted (GitHub's API, for the Code row) sends no
+               cookies and no referrer. #}
             <div class="colophon">zola · no webfonts · no trackers · no analytics · one request to first paint</div>
         </div>
     </footer>

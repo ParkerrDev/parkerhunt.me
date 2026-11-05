@@ -1,20 +1,54 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
 
-{% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
+{# One post. A reading page: the title centred over a centred 40rem column of
+   19px type (see .prose in _style.css), in the blog's pink, then the other
+   posts as a row under it. It used to put a centred title over a column that
+   sat left of centre, with the back link floating between them, which is
+   what made it look off. #}
+
+{% block description %}{{ page.description | default(value=page.content | striptags | truncate(length=160)) }}{% endblock %}
+
+{% block css_extra %}
+  .post-hero { padding-bottom: clamp(2rem, 4vw, 3rem); }
+  .post-hero h1 { font-size: clamp(2.25rem, 6vw, 4rem); max-width: 48rem; margin: 0 auto; }
+  .post-meta { margin: 1.125rem 0 0; font-size: 0.9375rem; color: var(--faint); }
+  .post-end { display: flex; justify-content: center; margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+{% endblock %}
 
 {% block content %}
-<header class="hero">
-    <div class="wrap narrow">
-        <a class="back" href="/blog/">{{ ico::back() }} Writing</a>
-        <h1>{{ page.title }}</h1>
-        {% if page.date %}<p class="hero-lede">{{ page.date | date(format="%d %B %Y") }}{% if page.reading_time %} · {{ page.reading_time }} min read{% endif %}</p>{% endif %}
-    </div>
-</header>
+<main id="main" class="tone tone--pink">
+    <article>
+        <header class="hero post-hero">
+            <div class="wrap">
+                <a class="back" href="/blog/">{{ ico::back() }} Blog</a>
+                <h1>{{ page.title }}</h1>
+                <p class="post-meta">
+                    {%- if page.date %}<time datetime="{{ page.date }}">{{ page.date | date(format="%B %-d, %Y") }}</time>{% endif -%}
+                    {%- if page.reading_time %} · {{ page.reading_time }} min read{% endif -%}
+                </p>
+            </div>
+        </header>
+        <div class="wrap"><div class="prose">{{ page.content | safe }}</div></div>
+        <div class="wrap post-end"><a class="btn" href="/blog/">All posts ›</a></div>
+    </article>
 
-<main id="main">
+    {% set blog = get_section(path="blog/_index.md") %}
+    {% set others = [] %}
+    {% for p in blog.pages %}{% if p.permalink != page.permalink %}{% set_global others = others | concat(with=p) %}{% endif %}{% endfor %}
+    {% if others | length > 0 %}
     <section>
-        <div class="wrap narrow"><div class="prose">{{ page.content | safe }}</div></div>
+        <div class="wrap"><div class="head"><h2>More from the blog</h2></div></div>
+        <div class="marquee" style="--mq:{{ ico::mq_secs(n=others | length * 4) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for post in others %}{{ ico::post_card(post=post, quiet=pass == 2) }}{% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
     </section>
+    {% endif %}
 </main>
 {% endblock %}

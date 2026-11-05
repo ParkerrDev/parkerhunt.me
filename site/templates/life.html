@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+{% import "macros.html" as ico %}
+{% import "islands.html" as isle %}
+
+{# /life/: everything that is not work. These sections were the bottom
+   two-thirds of the home page until 2026-11-04, and moved here whole so the
+   home page could be about the work. Same rules as the home page: a centred
+   head in the section's own colour, then a full-width drift row. A section
+   with no data does not render. #}
+
+{% block css_extra %}{{ load_data(path="templates/_distros.css", format="plain") | safe }}
+  .map { max-width: 54rem; margin: 0 auto; }
+  .map-key { justify-content: center; margin: 1rem 0 0; }
+  .states { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; list-style: none; margin: 1.25rem auto 0; padding: 0; max-width: 52rem; }
+  .states li { padding: 0.3125rem 0.75rem; border-radius: 999px; background: var(--card); font-size: 0.875rem; }
+  .states b { color: var(--c); font-weight: 600; margin-right: 0.375rem; font-size: 0.75rem; letter-spacing: 0.04em; }
+  .peak { width: min(22rem, 82vw); flex: none; margin: 0; }
+  .peak .credit { text-align: center; }
+  .row-k { margin: 2rem 0 0.75rem; }
+  .distro-trail { margin-top: 0.5rem; }
+  .distro-step--current .distro-status { color: var(--c); }
+  .wrap > .credit, .wrap > .credits { text-align: center; }
+  .credits summary { margin: 0 auto; }
+{% endblock %}
+
+{% block content %}
+{% set me = load_data(path="data/me.toml") %}
+{% set media = load_data(path="data/media.json") %}
+{% set travel = load_data(path="data/travel-map.json") %}
+{% set been = load_data(path="data/been.json") %}
+{% set ico2 = load_data(path="data/icons.json") %}
+{% set distro_logos = load_data(path="data/distro-logos.json") %}
+{% set titles = load_data(path="data/titles.json") %}
+
+<header class="hero tone tone--teal">
+    <div class="wrap">
+        <h1>{{ page.title }}</h1>
+        {% if page.description %}<p class="hero-lede">{{ page.description }}</p>{% endif %}
+    </div>
+</header>
+
+<main id="main">
+
+    {# ----------------------------------------------------------- travel -- #}
+    {% if travel.count > 0 %}
+    <section id="travel" class="tone tone--blue">
+        <div class="wrap">
+            <div class="head">
+                <h2>Been there</h2>
+                <p>{{ travel.count }} states and {{ been.count }} places worth naming. Mostly the west, and mostly by car.</p>
+            </div>
+            {# An <img>, not inline SVG: the paths are 52 KB. As a file it caches
+               for a year under the /imgs/* rule in _headers. The pins are real
+               coordinates from Wikidata, dropped through the same Albers
+               projection as the outlines by scripts/build-map.mjs. #}
+            <img class="map" src="{{ travel.map }}" width="975" height="610"
+                 alt="Map of the United States with {{ travel.count }} states filled in ({{ travel.visited | map(attribute='name') | join(sep=', ') }}) and {{ travel.pins }} places pinned"
+                 loading="lazy" decoding="async">
+            <p class="map-key">
+                <span class="key key--place"></span>{{ travel.pins_by_kind.place }} places
+                <span class="key key--ski"></span>{{ travel.pins_by_kind.ski }} resorts
+                {%- if travel.pins_by_kind.peak %}<span class="key key--peak"></span>{{ travel.pins_by_kind.peak }} summits{% endif %}
+            </p>
+            <ul class="states" aria-label="States visited">
+                {% for st in travel.visited %}<li><b>{{ st.code }}</b>{{ st.name }}</li>{% endfor %}
+            </ul>
+        </div>
+
+        {% if been.count > 0 %}
+        <div class="wrap"><p class="kicker row-k">{{ been.count }} places, {{ been.places_with_photo }} of them photographed</p></div>
+        <div class="marquee" style="--mq:{{ been.places | length * 4 }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for pl in been.places %}
+                <figure class="shot place{% if not pl.photo %} place--none{% endif %}">
+                    {% if pl.photo %}<img src="{{ pl.photo.src }}" alt="{{ pl.name }}" width="280" height="187" loading="lazy" decoding="async">{% endif %}
+                    <figcaption>
+                        <span class="shot-t">{{ pl.name }}</span>
+                        <span class="shot-s" style="display:block">{{ pl.where }}{% if pl.map %} · <a class="pinlink" href="{{ pl.map }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>Map</a>{% endif %}</span>
+                    </figcaption>
+                </figure>
+                {% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+        {# CC BY / CC BY-SA require the credits, not that they be a paragraph,
+           so they fold into one line that opens on click. #}
+        <div class="wrap">
+            <p class="credit">Boundaries from the <a href="{{ travel.credit.source }}" target="_blank" rel="noopener">US Census via us-atlas</a> ({{ travel.credit.licence }}); coordinates from Wikidata, CC0.</p>
+            <details class="credits">
+                <summary>Photo credits</summary>
+                <p class="credit">Photographs from Wikimedia Commons under CC BY, CC BY-SA or public domain, {% for pl in been.places %}{% if pl.photo and pl.photo.credit_required %}<a href="{{ pl.photo.source }}" target="_blank" rel="noopener">{{ pl.name }}</a> {{ pl.photo.author | truncate(length=48) }}; {% endif %}{% endfor %}the rest are public domain.</p>
+            </details>
+        </div>
+        {% endif %}
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------------ skied -- #}
+    {% if been.skiing | length > 0 %}
+    {% set ski_states = been.skiing | map(attribute="where") | unique %}
+    <section id="skied" class="tone tone--sky">
+        <div class="wrap">
+            <div class="head">
+                <h2>Skied</h2>
+                <p>{{ been.skiing | length }} resorts across {{ ski_states | length }} states. The Rockies mostly, and Tahoe when it snows.</p>
+            </div>
+        </div>
+        <div class="marquee mq-rev" style="--mq:{{ been.skiing | length * 4 }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for r in been.skiing %}
+                <figure class="shot place{% if not r.photo %} place--none{% endif %}">
+                    {% if r.photo %}<img src="{{ r.photo.src }}" alt="{{ r.name }}" width="280" height="187" loading="lazy" decoding="async">{% endif %}
+                    <figcaption>
+                        <span class="shot-t">{{ r.name }}</span>
+                        <span class="shot-s" style="display:block">{{ r.where }}{% if r.map %} · <a class="pinlink" href="{{ r.map }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>Map</a>{% endif %}</span>
+                    </figcaption>
+                </figure>
+                {% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="wrap">
+            <details class="credits">
+                <summary>Photo credits</summary>
+                <p class="credit">Photographs from Wikimedia Commons, {% for r in been.skiing %}{% if r.photo and r.photo.credit_required %}<a href="{{ r.photo.source }}" target="_blank" rel="noopener">{{ r.name }}</a> {{ r.photo.author | truncate(length=48) }}; {% endif %}{% endfor %}the rest public domain.</p>
+            </details>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ---------------------------------------------------------- summits -- #}
+    {% if media.peaks | length > 0 %}
+    <section id="summits" class="tone tone--mint">
+        <div class="wrap">
+            <div class="head">
+                <h2>Summits</h2>
+                <p>Half Dome at six, El Capitan at eight, Mt. Whitney at thirteen, that one in a thunderstorm.</p>
+            </div>
+        </div>
+        <div class="marquee" style="--mq:{{ ico::mq_secs(n=media.peaks | length * 4) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for k in media.peaks %}
+                <div class="peak">
+                    <figure class="shot shot--wide">
+                        <img src="{{ k.art.sm }}" srcset="{{ k.art.sm }} 480w, {{ k.art.lg }} 960w" sizes="22rem"
+                             width="480" height="320" alt="{{ k.name }}, {{ k.where }}" loading="lazy" decoding="async">
+                        <figcaption>
+                            <span class="shot-t">{{ k.name }}</span>
+                            <span class="shot-s" style="display:block">{{ k.height }} · at {{ k.age }}{% if k.map %} · <a class="pinlink" href="{{ k.map }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>Map</a>{% endif %}</span>
+                        </figcaption>
+                    </figure>
+                    <p class="credit">{{ k.author }}, <a href="{{ k.source }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>{{ k.licence }}</a></p>
+                </div>
+                {% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ----------------------------------------------------------- bucket -- #}
+    {% if me.bucket | length > 0 %}
+    {% set_global bucket_done = 0 %}
+    {% for b in me.bucket %}{% if b.done %}{% set_global bucket_done = bucket_done + 1 %}{% endif %}{% endfor %}
+    <section id="bucket" class="tone tone--yellow">
+        <div class="wrap">
+            <div class="head">
+                <h2>Bucket list</h2>
+                <p>Struck through means done, {{ bucket_done }} of {{ me.bucket | length }}. The easy ones were the mountains.</p>
+            </div>
+        </div>
+        <div class="marquee" style="--mq:{{ ico::mq_secs(n=me.bucket | length * 3) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for b in me.bucket %}
+                <div class="tc{% if b.done %} row--done{% endif %}">
+                    <span class="t-k">{{ ico::check(done=b.done) }}</span>
+                    <span class="t-t">{{ b.text }}</span>
+                    {% if b.note %}<span class="t-s">{{ b.note }}</span>{% endif %}
+                </div>
+                {% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------------ linux -- #}
+    {% if me.distro | length > 0 %}
+    <section id="linux" class="tone tone--purple">
+        <div class="wrap">
+            <div class="head">
+                <h2>Distro-hopping</h2>
+                <p>{{ me.distro | length }} setups, in order, starting at nine years old. Now on Omarchy.</p>
+            </div>
+            <ol class="distro-trail" aria-label="My Linux journey">
+                {% for d in me.distro %}
+                <li class="distro-step{% if d.current %} distro-step--current{% endif %}"{% if d.current %} aria-current="step"{% endif %}>
+                    <span class="distro-mark{% if d.logo %} distro-mark--{{ d.logo }}{% endif %}" style="--distro-colour:{{ d.colour }}" aria-hidden="true">
+                        {% if d.logo %}<img src="{{ distro_logos.logos[d.logo].src }}" alt="" width="64" height="64" loading="lazy" decoding="async">
+                        {% else %}{{ ico::mark(icons=ico2.icons, name=d.icon) }}{% endif %}
+                    </span>
+                    <span class="distro-copy">
+                        <span class="distro-status">{% if d.current %}Current{% else %}{% if loop.index < 10 %}0{% endif %}{{ loop.index }}{% endif %}</span>
+                        <span class="distro-name">{{ d.name }}</span>
+                        {% if d.note %}<span class="distro-note">{{ d.note }}</span>{% endif %}
+                    </span>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ----------------------------------------------------------- movies -- #}
+    {# A sample, not the lot: all of them are on /movies/ with a search box.
+       Sixty is two comfortable rows, and the per-build shuffle makes it a
+       different sixty every time. #}
+    {% if titles.movies | length > 0 %}
+    {% set sample = titles.movies | slice(end=60) %}
+    {% set per = sample | length / 2 | round(method="ceil") %}
+    {% set_global fav_film_n = 0 %}
+    {% for m in titles.movies %}{% if m.title in me.favourite_films %}{% set_global fav_film_n = fav_film_n + 1 %}{% endif %}{% endfor %}
+    <section id="movies" class="tone tone--coral">
+        <div class="wrap">
+            <div class="head">
+                <h2>Movies</h2>
+                <p>Every film I have ever watched, {{ titles.movie_count }} of them. {{ sample | length }} at random below; the rest are one click away.</p>
+                <a class="more" href="/movies/">All of them ›</a>
+            </div>
+        </div>
+        {% if fav_film_n > 0 %}
+        <div class="wrap"><p class="kicker">Favourites</p></div>
+        <div class="marquee" style="--mq:{{ ico::mq_secs(n=fav_film_n * 2) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for m in titles.movies %}{% if m.title in me.favourite_films %}{{ isle::poster(w=m, size="sm") }}{% endif %}{% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="wrap"><p class="kicker row-k">Everything else</p></div>
+        {% endif %}
+        {% for row in [1, 2] %}
+        <div class="marquee{% if row == 2 %} mq-rev{% endif %}" style="--mq:{{ ico::mq_secs(n=per) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for m in sample | slice(start=(row - 1) * per, end=row * per) %}{{ isle::poster(w=m, size="sm") }}{% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        {% if titles.posters %}
+        <div class="wrap"><p class="credit" style="margin-top:0.75rem">{{ titles.posters.attribution }}</p></div>
+        {% endif %}
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------------- web ---- #}
+    {% if me.sites | length > 0 %}
+    <section id="web" class="tone tone--pink">
+        <div class="wrap">
+            <div class="head"><h2>Corners of the web</h2><p>Places worth keeping a bookmark for.</p></div>
+        </div>
+        <div class="marquee" style="--mq:{{ ico::mq_secs(n=me.sites | length * 3) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for s in me.sites %}
+                <a class="tc" href="{{ s.url }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>
+                    <span class="t-t">{{ s.name }} <span class="ext" aria-hidden="true">↗</span></span>
+                    {% if s.note %}<span class="t-s">{{ s.note }}</span>{% endif %}
+                </a>
+                {% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+</main>
+{% endblock %}

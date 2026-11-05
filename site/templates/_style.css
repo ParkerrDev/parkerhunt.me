@@ -6,78 +6,88 @@
  *
  * No webfonts, still. The type is the system UI face: SF Pro on Apple, Segoe
  * on Windows, Roboto on Android. It costs zero bytes and renders on the first
- * frame instead of swapping, which no downloaded font can do. The labels and
- * buttons are set in the system monospace, uppercase and letter-spaced, which
- * is where most of the industrial, instrument-panel feel comes from.
+ * frame instead of swapping, which no downloaded font can do.
  *
- * The site has two design languages on purpose:
- *   1. The shell, black, large regular-weight type and a blue accent. That
- *      is this file.
- *   2. The islands, the X / LinkedIn / GitHub / Steam / Duolingo / Chess.com /
- *                    Nexus Mods feeds, each rebuilt to match that platform's own
- *                    visual language. Those live in _islands.css, which only the
- *                    three templates that mount one bother to inline.
- * Keeping them in separate files means the brand colours never leak into the
- * shell, the shell's tokens never fight the brands, and a blog post does not
- * carry 13 KB of Steam blue it has no use for.
+ * THE DESIGN, in four rules:
+ *   1. True black, white type, no grey boxes. A raised surface is the page's
+ *      black with a little of its section's colour mixed in, never a grey.
+ *   2. Everything centred: every heading, every intro, every button. Rows of
+ *      cards run the full width of the window underneath.
+ *   3. One soft, bright colour per section (blue for work, green for code,
+ *      pink for the blog, orange for games, and so on). A section sets --c
+ *      and its heading, links and cards all take it from there.
+ *   4. Horizontal drift is the site's motif. Rows of cards move slowly and
+ *      forever, stop under the pointer, and can be dragged. See .marquee
+ *      below and templates/_drift.js.
+ *
+ * The brand islands (Steam, GitHub, Chess.com...) live in _islands.css, which
+ * only the templates that mount one inline.
  */
 
 /* ============================================================ 1. SHELL ==== */
 /* ---------------------------------------------------------------- tokens -- */
 :root {
-  /* Pure black pages, near-black raised surfaces, white ink. Secondary text is
-     white at 70%, the way the reference does it, rather than a grey that would
-     go muddy. */
   --bg: #000;
-  --bg-soft: #0c0c0d;
-  --fg: #fff;
-  --muted: rgba(255, 255, 255, 0.7);
-  /* The small metadata text: dates, counts, credits. #8c8c8c on black is 6.6:1,
-     comfortably past AA at the sizes this token is used for. */
-  --faint: #8c8c8c;
-  --line: rgba(255, 255, 255, 0.16);
-  --line-soft: rgba(255, 255, 255, 0.09);
-  /* Apple's blue, the accent the light design had: focus rings, dots, hover
-     fills, with white text on it. --link is the same blue lifted for text on
-     black: #0071e3 measures 4.47:1 there, just short of AA for small text, so
-     links use Apple's own dark-mode link blue instead, which clears it. */
-  --accent: #0071e3;
+  --fg: #f5f5f7;
+  --muted: rgba(245, 245, 247, 0.72);
+  /* Dates, counts and credits. Half-white on black is 7.4:1, well past AA. */
+  --faint: rgba(245, 245, 247, 0.5);
+
+  /* The section colour. Every .tone--* below replaces it; this is the blue a
+     page without one falls back to. */
+  --c: #6cb8ff;
+  /* The one saturated blue, for solid buttons and focus rings: Apple's. */
+  --accent: #0a84ff;
   --accent-ink: #fff;
-  --link: #2997ff;
 
-  --card: #0b0b0c;
-  --card-2: #141416;
-  /* Shadows barely register on black; what separates a card from the page is
-     its hairline, so these are kept for depth on hover rather than for
-     edges. */
-  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --shadow-2: 0 1px 3px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.45);
-  --shadow-3: 0 2px 6px rgba(0, 0, 0, 0.55), 0 18px 44px rgba(0, 0, 0, 0.6);
-
-  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   --serif: ui-serif, "New York", Georgia, "Times New Roman", serif;
 
-  --page: 82rem;
-  --measure: 36rem;
-  /* Section rhythm. Tightened hard: the page was reading as a stack of
-     one-thing-at-a-time bands and the ask was to see more at once. */
-  --gap: 0.5rem;
-  --r-sm: 10px;
-  --r: 16px;
-  --r-lg: 22px;
-  /* Buttons and the boxed labels are nearly square, which is most of what makes
-     them read as controls on an instrument rather than as pills on an app. */
-  --r-btn: 3px;
+  --page: 80rem;
+  --measure: 40rem;
+  --gap: 1rem;
+  --r-sm: 14px;
+  --r: 22px;
+  --r-lg: 28px;
+  --r-btn: 980px;
+
+  --shadow-1: none;
+  --shadow-2: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-3: 0 18px 44px rgba(0, 0, 0, 0.6);
 }
 
-/* DARK ONLY, and deliberately so.
-   The design is black: one theme, not a light theme with a dark mode bolted
-   on, so there is no prefers-color-scheme block. `color-scheme: dark` in
-   base.html tells the browser to draw its form controls and scrollbars dark
-   to match. The brand islands are dark too: Steam, Chess.com and Nexus Mods
-   always were, and the GitHub island uses GitHub's own dark theme. */
+/* Everything that is derived from --c is declared on every element that can
+   change --c, because a custom property is resolved where it is declared: one
+   set on :root alone would keep the root's blue in every section. */
+:root, .tone {
+  --link: var(--c);
+  /* Tinted black, not grey: about a seventh of the section colour. */
+  --card: color-mix(in oklab, var(--c) 15%, #000);
+  --card-2: color-mix(in oklab, var(--c) 23%, #000);
+  --bg-soft: color-mix(in oklab, var(--c) 7%, #000);
+  /* The few hairlines that remain are the section colour, faintly. */
+  --line: color-mix(in oklab, var(--c) 34%, transparent);
+  --line-soft: color-mix(in oklab, var(--c) 16%, transparent);
+}
+
+/* The palette. Light and bright rather than saturated, so a whole heading set
+   in one of them reads as colour rather than as a warning. */
+.tone--blue   { --c: #6cb8ff; }
+.tone--green  { --c: #5fe39a; }
+.tone--pink   { --c: #ff8ac6; }
+.tone--orange { --c: #ffad66; }
+.tone--yellow { --c: #ffd866; }
+.tone--teal   { --c: #5fe0d2; }
+.tone--sky    { --c: #8fdcff; }
+.tone--purple { --c: #b9a1ff; }
+.tone--coral  { --c: #ff8f85; }
+.tone--mint   { --c: #8ff0b8; }
+
+/* DARK ONLY, and deliberately so: one theme, not a light theme with a dark
+   mode bolted on. `color-scheme: dark` in base.html draws the browser's own
+   controls and scrollbars dark to match. */
 
 /* ------------------------------------------------------------------ base -- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -94,11 +104,14 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--sans);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   line-height: 1.5;
-  letter-spacing: -0.011em;
+  letter-spacing: -0.012em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Full-bleed rows are 100vw wide; this stops the scrollbar's width from
+     turning that into a sideways scroll. */
+  overflow-x: clip;
 }
 
 img, svg { max-width: 100%; display: block; }
@@ -124,194 +137,234 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ------------------------------------------------------------------- nav -- */
-/* Near-opaque black and blurred: content scrolls under it and stays legible.
+/* Apple's bar: short, translucent black, small type, the links in the middle.
    backdrop-filter degrades to the solid tint wherever it is unsupported. */
 .bar {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(0, 0, 0, 0.82);
-  -webkit-backdrop-filter: saturate(160%) blur(18px);
-  backdrop-filter: saturate(160%) blur(18px);
-  border-bottom: 1px solid var(--line-soft);
+  background: rgba(0, 0, 0, 0.72);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
 }
 .bar-in {
   max-width: var(--page); margin: 0 auto; padding: 0 1.5rem;
-  height: 4rem; display: flex; align-items: center; gap: 1.5rem;
+  height: 3.25rem; display: grid; align-items: center; gap: 1rem;
+  grid-template-columns: 1fr auto 1fr;
 }
 .bar-home {
-  display: flex; align-items: center; gap: 0.625rem; flex-shrink: 0;
-  font-weight: 500; font-size: 1.0625rem; letter-spacing: -0.02em;
+  display: flex; align-items: center; gap: 0.5rem; justify-self: start; min-width: 0;
+  font-weight: 600; font-size: 0.9375rem; letter-spacing: -0.015em;
 }
-.bar-home img { width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--card-2); }
-/* The one solid button in the bar, white with black text, set in the same face
-   as the links rather than in the mono the page's other buttons use. */
+.bar-home img { width: 1.625rem; height: 1.625rem; border-radius: 50%; }
+.bar-home span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .bar-cta {
-  flex-shrink: 0; display: inline-flex; align-items: center;
-  padding: 0.5rem 0.9375rem; border-radius: var(--r-btn);
-  background: var(--fg); color: var(--bg);
-  font-size: 0.9375rem; font-weight: 500;
-  transition: background 0.2s, color 0.2s;
+  justify-self: end; display: inline-flex; align-items: center;
+  padding: 0.375rem 0.875rem; border-radius: var(--r-btn);
+  background: var(--accent); color: var(--accent-ink);
+  font-size: 0.8125rem; font-weight: 500;
+  transition: background 0.2s;
 }
-.bar-cta:hover { background: var(--accent); color: var(--accent-ink); }
-/* The name is the anchor's whole point, but it is also the first thing worth
-   dropping when ten nav items and a logo are fighting for a phone's width. */
-@media (max-width: 30rem) { .bar-home span { display: none; } }
-/* min-width:0 is load-bearing. A flex item defaults to min-width:auto, which
-   refuses to shrink below its own content, so without this the nav's natural
-   width pushes .bar-in wider than the viewport and the whole page scrolls
-   sideways on a phone. The overflow-x below is what should be scrolling, and
-   it cannot until the item is allowed to shrink. */
+.bar-cta:hover { background: #3d9bff; }
+/* min-width:0 is load-bearing: a grid item defaults to min-width:auto, which
+   refuses to shrink below its content, and the nav would push the bar wider
+   than a phone. With it, the nav scrolls sideways inside its own column. */
 .bar-nav {
-  display: flex; gap: 1.375rem; margin-left: auto; min-width: 0;
-  font-size: 0.9375rem; color: rgba(255, 255, 255, 0.82);
+  display: flex; gap: 1.75rem; min-width: 0;
+  font-size: 0.8125rem; color: rgba(245, 245, 247, 0.8);
   overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
 }
 .bar-nav::-webkit-scrollbar { display: none; }
-
-/* The fade tells you the row scrolls, but only where it actually does. Applied
-   unconditionally it dims the last item on a desktop that has room to spare,
-   which looks like a rendering bug rather than an affordance. CSS cannot ask
-   "is this element overflowing", so the breakpoint stands in for the answer.
-
-   MEASURED, not guessed, and it has to be re-measured whenever a nav item is
-   added or removed or the bar's type changes: with five links at 15px and the
-   Résumé button beside them, .bar-nav's scrollWidth first exceeds its
-   clientWidth at 668px = 41.75rem (headless Chrome, stepping the viewport down
-   a pixel at a time). Rounding up would switch the mask on before there is
-   anything to scroll. */
-@media (max-width: 41.75rem) {
+.bar-nav a { white-space: nowrap; transition: color 0.2s; }
+.bar-nav a:hover { color: #fff; }
+/* On a phone the name goes first and the links take the middle. */
+@media (max-width: 40rem) {
+  .bar-in { grid-template-columns: auto 1fr auto; gap: 0.875rem; padding: 0 1rem; }
+  .bar-home span { display: none; }
   .bar-nav {
+    gap: 1.25rem;
     -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.25rem), transparent);
     mask-image: linear-gradient(to right, #000 calc(100% - 1.25rem), transparent);
   }
 }
-.bar-nav a { white-space: nowrap; transition: color 0.2s; }
-.bar-nav a:hover { color: var(--fg); }
 
 /* ------------------------------------------------------------------ hero -- */
-/* Centred: photo, name, one line, icons. Nothing else. The home page overrides
-   this with .hero--home (text left, big photo right), in its own css_extra.
-   The rotating film-strip of facts that used to live here is gone, a line of
-   text that changes while you are reading it is a magic trick, not
-   information. */
-.hero { padding: clamp(2.75rem, 7vw, 5rem) 0 clamp(1.5rem, 3vw, 2.25rem); text-align: center; }
-.hero-in { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.hero { padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(1.5rem, 3vw, 2.5rem); text-align: center; }
+.hero-in { display: flex; flex-direction: column; align-items: center; }
 
 .avatar {
-  width: clamp(6rem, 13vw, 7.75rem); aspect-ratio: 1; flex-shrink: 0;
-  border-radius: 50%; overflow: hidden; margin-bottom: 0.875rem;
-  background: var(--card-2);
-  box-shadow: 0 0 0 1px var(--line), 0 0 0 6px rgba(255, 255, 255, 0.04);
+  width: clamp(6rem, 13vw, 7.5rem); aspect-ratio: 1; flex-shrink: 0;
+  border-radius: 50%; overflow: hidden; margin: 0 auto 1.25rem;
 }
 .avatar img { width: 100%; height: 100%; object-fit: cover; }
 
 .hero-text { min-width: 0; max-width: 40rem; }
-/* Regular weight, very large, tightly tracked. The size does the work that
-   boldness would do in a smaller heading. */
+/* Semibold and very large, tightly tracked: Apple's display setting. */
 .hero h1 {
   margin: 0;
-  font-size: clamp(2.5rem, 6vw, 4.25rem);
-  line-height: 1.02; letter-spacing: -0.035em; font-weight: 400;
+  font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+  line-height: 1.04; letter-spacing: -0.04em; font-weight: 600;
+  text-wrap: balance;
 }
+/* A heading set in its section's colour, used by the sub-page heroes. */
+.hero.tone h1, h1.tinted { color: var(--c); }
 .hero-lede {
-  margin: 0.875rem auto 0; max-width: 36rem;
-  font-size: clamp(1rem, 1.8vw, 1.1875rem);
+  margin: 1rem auto 0; max-width: 36rem;
+  font-size: clamp(1.0625rem, 1.9vw, 1.3125rem); line-height: 1.45;
   color: var(--muted); text-wrap: balance;
 }
+.hero-lede a { color: var(--fg); text-decoration: underline; text-decoration-color: rgba(245, 245, 247, 0.35); text-underline-offset: 3px; }
+.hero-lede a:hover { text-decoration-color: currentColor; }
 
-/* The line of counts under a catalogue hero. THIS HAD NO RULE AT ALL, on any
-   page: /movies/, /watching/ and /shelf/ all emit `ul.facts` and all three were
-   rendering it as a default bulleted list, so the markers sat hard against the
-   left edge of the viewport while the centred text they belonged to sat in the
-   middle of the page. A row of separated items is what the markup always meant;
-   the separator is a middot drawn between items rather than a list marker, so
-   it never detaches from the text. */
+/* The line of counts under a catalogue hero, separated by middots drawn
+   between the items so a separator never detaches from its text. */
 .facts {
-  list-style: none; margin: 0; padding: 0;
+  list-style: none; margin: 1rem 0 0; padding: 0;
   display: flex; flex-wrap: wrap; justify-content: center;
   gap: 0.25rem 0.875rem;
-  font-family: var(--mono); font-size: 0.75rem; color: var(--faint);
+  font-size: 0.875rem; color: var(--faint);
 }
-.facts li + li::before { content: "·"; margin-right: 0.875rem; opacity: 0.55; }
+.facts li + li::before { content: "·"; margin-right: 0.875rem; opacity: 0.7; }
 
-/* Bare icons in a row, exactly as the old parkerhunt.me had them: 25px, half a
-   rem of padding, inheriting the text colour. No border, no fill, no circle,
-   the ring around each one was the thing that made this strip look like a
-   toolbar instead of a signature. aria-label carries the name, so dropping the
-   visible word costs a screen reader nothing. */
-.links { margin-top: 0.75rem; display: flex; flex-wrap: wrap; justify-content: center; }
+/* Bare icons in a row, inheriting the text colour. aria-label carries the
+   name, so dropping the visible word costs a screen reader nothing. */
+.links { margin-top: 1rem; display: flex; flex-wrap: wrap; justify-content: center; }
 .pill { display: inline-grid; place-items: center; padding: 0.5rem; color: var(--muted); transition: color 0.2s, transform 0.2s; }
 .pill:hover { color: var(--fg); transform: translateY(-1px); }
-.pill svg { width: 25px; height: 25px; }
-/* Sub-pages still want one labelled call to action: the solid white button. */
+.pill svg { width: 22px; height: 22px; }
 .pill--wide {
-  padding: 0.6875rem 1.25rem; border: 1px solid var(--fg); border-radius: var(--r-btn);
-  background: var(--fg); color: var(--bg); grid-auto-flow: column; gap: 0.5rem;
-  font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.625rem 1.25rem; border-radius: var(--r-btn);
+  background: var(--accent); color: var(--accent-ink); grid-auto-flow: column; gap: 0.5rem;
+  font-size: 0.9375rem; font-weight: 500;
 }
-.pill--wide:hover { background: transparent; color: var(--fg); transform: none; }
-.pill--wide svg { width: 0.9375rem; height: 0.9375rem; }
+.pill--wide:hover { background: #3d9bff; color: #fff; transform: none; }
+.pill--wide svg { width: 1rem; height: 1rem; }
 .links:has(> .pill--wide) { gap: 0.75rem; }
 
 /* ------------------------------------------------------------- buttons -- */
-/* Rectangular, uppercase, monospaced and letter-spaced. Two kinds only: an
-   outline and a solid white. On hover the outline fills and the solid one
-   turns blue. */
+/* Pills, in the page's own face. Two kinds: a solid blue, and an outline in
+   the section colour. */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-  padding: 0.75rem 1.375rem; border: 1px solid var(--fg); border-radius: var(--r-btn);
-  background: transparent; color: var(--fg);
-  font-family: var(--mono); font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.6875rem 1.375rem; border: 1px solid var(--link); border-radius: var(--r-btn);
+  background: transparent; color: var(--link);
+  font-size: 1rem; font-weight: 500; letter-spacing: -0.01em;
   white-space: nowrap; transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
-.btn:hover { background: var(--fg); color: var(--bg); }
-.btn--solid { background: var(--fg); color: var(--bg); }
-.btn--solid:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn:hover { background: var(--link); color: #000; }
+.btn--solid { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn--solid:hover { background: #3d9bff; border-color: #3d9bff; color: #fff; }
 
 /* --------------------------------------------------------------- section -- */
-/* No alternating bands: every section sits on the same black, separated by
-   space and one hairline. */
-section { padding: clamp(1.75rem, 3.5vw, 2.75rem) 0; scroll-margin-top: 5rem; }
-section + section { border-top: 1px solid var(--line-soft); }
+/* No bands and no hairlines: every section sits on the same black and space
+   alone separates them. */
+section { padding: clamp(2rem, 4.5vw, 3.5rem) 0; scroll-margin-top: 3.5rem; }
 
-/* A section head on one line: the heading, its sentence, and the "more" link
-   pushed to the right. Wraps on a narrow screen. */
-.head { display: flex; align-items: baseline; gap: 0.5rem 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
-.head h2 { margin: 0; font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; }
-.head p { margin: 0; color: var(--muted); font-size: 0.9375rem; flex: 1 1 14rem; }
-.more { margin-left: auto; font-size: 0.875rem; font-weight: 500; color: var(--link); white-space: nowrap; }
-.more:hover { text-decoration: underline; }
+/* The section head, centred: the name, large and in the section's colour, one
+   sentence under it, and the "more" link under that. Every page uses this. */
+.head {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 0.5rem; margin: 0 auto 1.75rem; max-width: 44rem;
+}
+.head h2 {
+  margin: 0; color: var(--c);
+  font-size: clamp(2rem, 4.4vw, 3rem); font-weight: 600;
+  letter-spacing: -0.035em; line-height: 1.05; text-wrap: balance;
+}
+.head p { margin: 0; color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.1875rem); line-height: 1.45; text-wrap: balance; }
+.more { font-size: 1rem; font-weight: 500; color: var(--link); white-space: nowrap; }
+.more:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .kicker {
-  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.13em;
-  text-transform: uppercase; color: var(--faint); margin: 0 0 0.5rem;
+  font-size: 0.875rem; font-weight: 600; letter-spacing: -0.005em;
+  color: var(--c); margin: 0 0 0.75rem; text-align: center;
 }
 
 /* ----------------------------------------------------------- generic card -- */
-.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr)); }
+.grid { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr)); }
 .grid--wide { grid-template-columns: repeat(auto-fill, minmax(min(21rem, 100%), 1fr)); }
 .grid--tight { grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr)); }
 
 .card {
   display: flex; flex-direction: column;
-  background: var(--card); border: 1px solid var(--line-soft);
-  border-radius: var(--r); overflow: hidden;
-  box-shadow: var(--shadow-1);
-  transition: box-shadow 0.24s, transform 0.24s, border-color 0.24s;
+  background: var(--card); border-radius: var(--r); overflow: hidden;
+  transition: background 0.24s, transform 0.24s;
 }
-a.card:hover { box-shadow: var(--shadow-3); transform: translateY(-2px); border-color: var(--line); }
+a.card:hover { background: var(--card-2); transform: translateY(-3px); }
 
-/* aspect-ratio reserves the box before the bytes land, so the grid never
-   reflows when art loads. Cheapest CLS fix there is. */
-.card-art { aspect-ratio: 900 / 338; background: var(--bg-soft); border-bottom: 1px solid var(--line-soft); }
+/* aspect-ratio reserves the box before the bytes land, so nothing reflows when
+   art loads. */
+.card-art { aspect-ratio: 900 / 338; background: var(--bg-soft); }
 .card-art img { width: 100%; height: 100%; object-fit: cover; }
-.card-body { padding: 1rem 1.125rem 1.125rem; display: flex; flex-direction: column; gap: 0.375rem; flex: 1; }
-.card-title { margin: 0; font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.014em; display: flex; align-items: baseline; gap: 0.375rem; }
+.card-body { padding: 1.125rem 1.25rem 1.25rem; display: flex; flex-direction: column; gap: 0.375rem; flex: 1; }
+.card-title { margin: 0; font-size: 1.125rem; font-weight: 600; letter-spacing: -0.018em; display: flex; align-items: baseline; gap: 0.375rem; }
 .card-title .ext { font-size: 0.75rem; color: var(--faint); }
 .card-desc {
-  margin: 0; font-size: 0.875rem; line-height: 1.5; color: var(--muted);
+  margin: 0; font-size: 0.9375rem; line-height: 1.5; color: var(--muted);
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;
 }
-.card-meta { margin-top: auto; padding-top: 0.625rem; font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); }
+.card-meta { margin-top: auto; padding-top: 0.625rem; font-size: 0.8125rem; color: var(--faint); }
+
+/* ------------------------------------------------------------ row cards -- */
+/* The cards that live in drift rows. Fixed widths, because 1fr means nothing
+   in a flex row wider than the screen, and the whole card is the link. */
+
+/* A repository. Filled in from GitHub's API in the visitor's browser by
+   templates/_github.js, from the build's snapshot until (or unless) that
+   answers. */
+.rc {
+  width: 19rem; flex: none; display: flex; flex-direction: column; gap: 0.5rem;
+  background: var(--card); border-radius: var(--r); padding: 1.25rem 1.375rem 1.125rem;
+  transition: background 0.24s, transform 0.24s;
+}
+.rc:hover { background: var(--card-2); transform: translateY(-3px); }
+.rc-top { display: flex; align-items: center; gap: 0.5rem; min-width: 0; }
+.rc-top svg { width: 1.125rem; height: 1.125rem; flex: none; color: var(--c); }
+.rc-name { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.018em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rc-desc {
+  margin: 0; font-size: 0.875rem; line-height: 1.45; color: var(--muted);
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;
+  min-height: calc(3 * 1.45em);
+}
+.rc-meta { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.875rem; font-size: 0.8125rem; color: var(--faint); }
+.rc-meta span { display: inline-flex; align-items: center; gap: 0.3125rem; }
+.rc-meta svg { width: 0.875rem; height: 0.875rem; }
+.rc-dot { width: 0.625rem; height: 0.625rem; border-radius: 50%; flex: none; background: var(--dot, var(--faint)); }
+
+/* A blog post. */
+.bc {
+  width: min(24rem, 82vw); flex: none; display: flex; flex-direction: column; gap: 0.625rem;
+  background: var(--card); border-radius: var(--r); padding: 1.5rem 1.625rem 1.375rem;
+  transition: background 0.24s, transform 0.24s;
+}
+.bc:hover { background: var(--card-2); transform: translateY(-3px); }
+.bc-date { font-size: 0.8125rem; font-weight: 600; color: var(--c); }
+.bc-t { margin: 0; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1.12; text-wrap: balance; }
+.bc-x {
+  margin: 0; font-size: 0.9375rem; line-height: 1.5; color: var(--muted);
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;
+}
+.bc-m { margin-top: auto; padding-top: 0.5rem; font-size: 0.875rem; color: var(--faint); display: flex; justify-content: space-between; gap: 1rem; }
+.bc-m b { color: var(--link); font-weight: 500; }
+
+/* A small text tile for a row: bucket list items, bookmarks. */
+.tc {
+  width: 15rem; flex: none; display: flex; flex-direction: column; gap: 0.25rem;
+  background: var(--card); border-radius: var(--r-sm); padding: 1rem 1.125rem;
+  transition: background 0.24s, transform 0.24s;
+}
+a.tc:hover { background: var(--card-2); transform: translateY(-2px); }
+.tc .t-t { font-size: 1rem; }
+.tc .t-s { font-size: 0.8125rem; }
+.tc .check { color: var(--c); }
+
+/* A closing call to the next page. */
+.cta-card {
+  display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center;
+  max-width: 44rem; margin: 0 auto; padding: clamp(2rem, 5vw, 3rem) 1.5rem;
+  background: var(--card); border-radius: var(--r-lg);
+}
+.cta-card h2 { margin: 0; font-size: clamp(1.75rem, 3.6vw, 2.5rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.08; color: var(--c); }
+.cta-card p { margin: 0; color: var(--muted); max-width: 32rem; text-wrap: balance; }
+.cta-card .btn { margin-top: 0.5rem; }
 
 /* =========================================================== 3. MODULES === */
 /* ----------------------------------------------------------------- ideas -- */
@@ -319,16 +372,16 @@ a.card:hover { box-shadow: var(--shadow-3); transform: translateY(-2px); border-
    is a running notebook, not a curated ten. */
 .ideas { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(19rem, 100%), 1fr)); }
 .idea {
-  background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r);
+  background: var(--card); border-radius: var(--r);
   padding: 1rem 1.125rem; box-shadow: var(--shadow-1);
   display: flex; flex-direction: column; gap: 0.375rem;
 }
-.idea-n { font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); }
+.idea-n { font-size: 0.6875rem; color: var(--faint); }
 .idea h3 { margin: 0; font-size: 0.9375rem; font-weight: 600; letter-spacing: -0.012em; }
 .idea p { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: var(--muted); }
 /* margin-top:auto pins the tag to the bottom of the card, so a row of cards of
    different text lengths still has its labels on one line. */
-.idea-tag { align-self: flex-start; margin-top: auto; font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); border: 1px solid var(--line-soft); border-radius: 999px; padding: 0.125rem 0.5rem; }
+.idea-tag { align-self: flex-start; margin-top: auto; font-size: 0.625rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); border: 1px solid var(--line-soft); border-radius: 999px; padding: 0.125rem 0.5rem; }
 
 /* ---------------------------------------------------------------- quotes -- */
 /* Set large in the page's own face, with the attribution in small mono
@@ -336,11 +389,11 @@ a.card:hover { box-shadow: var(--shadow-3); transform: translateY(-2px); border-
 .quotes { columns: 2 20rem; column-gap: 1rem; }
 .quote {
   break-inside: avoid; margin: 0 0 1rem;
-  background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r);
+  background: var(--card); border-radius: var(--r);
   padding: 1.25rem 1.375rem;
 }
 .quote p { margin: 0; font-size: 1.125rem; line-height: 1.45; letter-spacing: -0.015em; }
-.quote footer { margin-top: 0.75rem; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); font-family: var(--mono); }
+.quote footer { margin-top: 0.75rem; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); }
 .quote--mine { background: var(--bg-soft); border-style: dashed; }
 /* In a marquee row each card keeps its own height. Stretched to the tallest,
    a one-line quote sat at the top of a box three times its size. */
@@ -352,11 +405,11 @@ a.card:hover { box-shadow: var(--shadow-3); transform: translateY(-2px); border-
 .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-soft); }
 .rows li { border-bottom: 1px solid var(--line-soft); }
 .row { display: flex; align-items: baseline; gap: 0.875rem; padding: 0.75rem 0.25rem; }
-.row-n { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); min-width: 1.5rem; }
+.row-n { font-size: 0.75rem; color: var(--faint); min-width: 1.5rem; }
 .row-main { flex: 1; min-width: 0; }
 .row-t { font-size: 0.9375rem; font-weight: 500; }
 .row-s { font-size: 0.8125rem; color: var(--muted); }
-.row-x { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); white-space: nowrap; }
+.row-x { font-size: 0.75rem; color: var(--faint); white-space: nowrap; }
 a.row:hover .row-t { color: var(--link); }
 
 .check { color: var(--faint); flex-shrink: 0; width: 1.125rem; height: 1.125rem; }
@@ -366,11 +419,11 @@ a.row:hover .row-t { color: var(--link); }
 /* ----------------------------------------------------------------- tiles -- */
 .tiles { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr)); }
 .tile {
-  background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r);
+  background: var(--card); border-radius: var(--r);
   padding: 1.125rem 1.25rem; box-shadow: var(--shadow-1);
   display: flex; flex-direction: column; gap: 0.25rem;
 }
-.tile-k { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+.tile-k { font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
 .tile-v { font-size: 1.875rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
 .tile-s { font-size: 0.8125rem; color: var(--muted); }
 
@@ -378,7 +431,7 @@ a.row:hover .row-t { color: var(--link); }
 .langs { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.875rem; }
 .lang-top { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.875rem; margin-bottom: 0.3125rem; }
 .lang-top b { font-weight: 600; }
-.lang-top span { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); }
+.lang-top span { font-size: 0.75rem; color: var(--faint); }
 .bar-track { height: 6px; background: var(--line-soft); border-radius: 999px; overflow: hidden; }
 .bar-fill { height: 100%; background: var(--accent); border-radius: 999px; }
 
@@ -388,25 +441,25 @@ a.row:hover .row-t { color: var(--link); }
 .gcards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr)); }
 .gcard {
   display: flex; flex-direction: column;
-  background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r);
-  overflow: hidden; box-shadow: var(--shadow-1);
-  transition: box-shadow 0.24s, transform 0.24s;
+  background: var(--card); border-radius: var(--r);
+  overflow: hidden;
+  transition: background 0.24s, transform 0.24s;
 }
-.gcard:hover { box-shadow: var(--shadow-3); transform: translateY(-2px); }
+.gcard:hover { background: var(--card-2); transform: translateY(-3px); }
 .gcard-art { aspect-ratio: 460 / 215; background: var(--bg-soft); position: relative; }
 .gcard-art img { width: 100%; height: 100%; object-fit: cover; }
 /* The rank sits on the art rather than beside it, so four cards of different
    title lengths still line their numbers up. */
 .gcard-n {
   position: absolute; left: 0.5rem; bottom: 0.5rem;
-  font-family: var(--mono); font-size: 0.6875rem; font-weight: 600;
+  font-size: 0.6875rem; font-weight: 600;
   color: #fff; background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(6px);
   border-radius: 999px; padding: 0.1875rem 0.5rem;
 }
-.gcard-body { padding: 0.875rem 1rem 1rem; display: flex; flex-direction: column; gap: 0.3125rem; flex: 1; }
-.gcard-t { font-size: 0.9375rem; font-weight: 600; letter-spacing: -0.012em; }
-.gcard-d { margin: 0; font-size: 0.8125rem; line-height: 1.45; color: var(--muted); }
-.gcard-m { margin-top: auto; padding-top: 0.5rem; font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); }
+.gcard-body { padding: 1rem 1.125rem 1.125rem; display: flex; flex-direction: column; gap: 0.3125rem; flex: 1; }
+.gcard-t { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.012em; }
+.gcard-d { margin: 0; font-size: 0.875rem; line-height: 1.45; color: var(--muted); }
+.gcard-m { margin-top: auto; padding-top: 0.5rem; font-size: 0.6875rem; color: var(--faint); }
 
 /* The complete played list: 60-odd titles, so it is set as a column list and
    not as 60 more images. Columns rather than a grid because the reading order
@@ -414,7 +467,7 @@ a.row:hover .row-t { color: var(--link); }
 .gamelist { columns: 3 13rem; column-gap: 1.75rem; list-style: none; margin: 0; padding: 0; font-size: 0.875rem; }
 .gamelist li { break-inside: avoid; padding: 0.28rem 0; display: flex; gap: 0.5rem; align-items: baseline; }
 .gamelist a:hover { color: var(--link); }
-.gamelist .where { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.04em; color: var(--faint); white-space: nowrap; }
+.gamelist .where { font-size: 0.625rem; letter-spacing: 0.04em; color: var(--faint); white-space: nowrap; }
 /* The bullet is the platform: filled if it is on Steam and therefore linked,
    hollow if it only exists as a title. */
 .gamelist i { width: 0.3125rem; height: 0.3125rem; border-radius: 50%; flex-shrink: 0; background: var(--accent); transform: translateY(-0.15em); }
@@ -428,17 +481,17 @@ a.row:hover .row-t { color: var(--link); }
 .distros { display: flex; flex-wrap: wrap; gap: 0.5rem 0.25rem; list-style: none; margin: 0; padding: 0; align-items: stretch; }
 .distro {
   display: flex; align-items: center; gap: 0.5rem;
-  background: var(--card); border: 1px solid var(--line-soft); border-radius: 999px;
+  background: var(--card); border-radius: 999px;
   padding: 0.4375rem 0.875rem; box-shadow: var(--shadow-1);
 }
-.distro-n { font-family: var(--mono); font-size: 0.625rem; color: var(--faint); }
+.distro-n { font-size: 0.625rem; color: var(--faint); }
 .distro-t { font-size: 0.875rem; font-weight: 500; }
 .distros li { display: flex; align-items: center; }
 .distros li::after { content: "→"; color: var(--faint); font-size: 0.8125rem; padding: 0 0.25rem; }
 .distros li:last-child::after { content: none; }
 .distro--now { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--card)); }
 .distro--now .distro-t { color: var(--link); font-weight: 600; }
-.distro-now { font-family: var(--mono); font-size: 0.5625rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--link); }
+.distro-now { font-size: 0.5625rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--link); }
 /* The notes, kept off the chips so the chain stays a chain. */
 .distro-notes { margin: 1rem 0 0; padding: 0; list-style: none; columns: 2 17rem; column-gap: 1.75rem; font-size: 0.8125rem; color: var(--muted); }
 .distro-notes li { break-inside: avoid; padding: 0.1875rem 0; }
@@ -451,7 +504,7 @@ a.row:hover .row-t { color: var(--link); }
 .chapters a {
   width: 2.25rem; height: 2.25rem; display: grid; place-items: center;
   border: 1px solid var(--line); border-radius: 50%;
-  font-family: var(--mono); font-size: 0.8125rem; color: var(--muted);
+  font-size: 0.8125rem; color: var(--muted);
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 .chapters a:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
@@ -479,42 +532,55 @@ a.row:hover .row-t { color: var(--link); }
 }
 
 /* ----------------------------------------------------------------- prose -- */
-.prose { max-width: var(--measure); font-size: 1.0625rem; line-height: 1.65; color: var(--fg); }
-.prose p { margin: 0 0 1.125rem; }
+/* A reading column, centred under its centred title. 19px on a 40rem measure
+   at 1.7 leading is the size Apple's own long reads use on a desktop. */
+.prose {
+  max-width: var(--measure); margin: 0 auto;
+  font-size: clamp(1.0625rem, 1.5vw, 1.1875rem); line-height: 1.7; color: rgba(245, 245, 247, 0.9);
+  overflow-wrap: break-word;
+}
+.prose > :first-child { margin-top: 0; }
+.prose p { margin: 0 0 1.375em; }
 .prose p:last-child { margin-bottom: 0; }
-.prose a { color: var(--link); }
-.prose a:hover { text-decoration: underline; }
-.prose h2 { font-size: 1.375rem; margin: 2rem 0 0.75rem; letter-spacing: -0.02em; }
-.prose h3 { font-size: 1.0625rem; margin: 1.5rem 0 0.5rem; }
-.prose ul, .prose ol { padding-left: 1.25rem; margin: 0 0 1.125rem; }
-.prose li { margin-bottom: 0.375rem; }
-.prose img { border-radius: var(--r); margin: 1.25rem 0; }
-.prose blockquote { margin: 1.25rem 0; padding-left: 1rem; border-left: 3px solid var(--line); color: var(--muted); font-family: var(--serif); }
-.prose code { font-family: var(--mono); font-size: 0.875em; background: var(--bg-soft); padding: 0.1em 0.35em; border-radius: 5px; }
+.prose strong { color: var(--fg); font-weight: 600; }
+.prose a { color: var(--link); text-decoration: underline; text-decoration-color: color-mix(in oklab, var(--link) 45%, transparent); text-underline-offset: 3px; }
+.prose a:hover { text-decoration-color: currentColor; }
+.prose h2, .prose h3, .prose h4 { color: var(--fg); font-weight: 600; text-wrap: balance; }
+.prose h2 { font-size: 1.625em; line-height: 1.15; letter-spacing: -0.03em; margin: 2.25em 0 0.6em; }
+.prose h3 { font-size: 1.3em; line-height: 1.2; letter-spacing: -0.025em; margin: 2em 0 0.55em; }
+.prose h4 { font-size: 1.05em; margin: 1.75em 0 0.5em; }
+.prose ul, .prose ol { padding-left: 1.375em; margin: 0 0 1.375em; }
+.prose li { margin-bottom: 0.4em; padding-left: 0.25em; }
+.prose li::marker { color: var(--c); }
+.prose img { border-radius: var(--r); margin: 2em auto; }
+.prose hr { border: 0; height: 1px; background: var(--line-soft); margin: 2.5em 0; }
+.prose blockquote { margin: 1.75em 0; padding: 0.25em 0 0.25em 1.125em; border-left: 3px solid var(--c); color: var(--muted); }
+.prose code { font-family: var(--mono); font-size: 0.85em; background: var(--card); padding: 0.12em 0.4em; border-radius: 6px; }
+.prose pre { background: var(--card); border-radius: var(--r-sm); padding: 1rem 1.125rem; overflow-x: auto; font-size: 0.875rem; line-height: 1.55; }
+.prose pre code { background: none; padding: 0; }
 
-.back { display: inline-flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: var(--muted); margin-bottom: 1.25rem; }
-.back:hover { color: var(--fg); }
+/* The "back to" link, centred like everything else, in the section colour. */
+.back { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.9375rem; font-weight: 500; color: var(--link); margin-bottom: 1rem; }
+.back:hover { text-decoration: underline; text-underline-offset: 3px; }
 .back svg { width: 0.875rem; height: 0.875rem; }
 
 /* --------------------------------------------------------------- résumé --- */
 .resume-frame {
   width: 100%; height: min(82vh, 60rem);
-  border: 1px solid var(--line-soft); border-radius: var(--r);
+  border-radius: var(--r);
   background: var(--bg-soft); overflow: hidden;
 }
 
 /* ---------------------------------------------------------------- footer -- */
 /* `body > footer`, not `footer`: <figure class="quote"> uses a real <footer>
-   for the attribution, and an unscoped rule was giving every quote card a
-   border and three rems of dead space under the name. */
-body > footer { border-top: 1px solid var(--line-soft); padding: 2.25rem 0 3rem; font-size: 0.8125rem; color: var(--muted); }
-.foot-row { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: center; justify-content: space-between; }
-.foot-links { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+   for the attribution. Centred, like the rest of the page. */
+body > footer { padding: 3rem 0 3.5rem; font-size: 0.875rem; color: var(--muted); text-align: center; }
+.foot-row { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+.foot-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.375rem; align-items: center; }
 .foot-links a { display: inline-flex; align-items: center; gap: 0.375rem; transition: color 0.2s; }
 .foot-links a:hover { color: var(--fg); }
-.foot-links svg { width: 0.875rem; height: 0.875rem; }
-.colophon { margin-top: 0.875rem; font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); }
-
+.foot-links svg { width: 0.9375rem; height: 0.9375rem; }
+.colophon { margin-top: 1rem; font-size: 0.75rem; color: var(--faint); }
 
 /* =========================================================== 4. TILING ==== */
 /* The whole page is tiles now. It used to be a column of full-width rows,
@@ -536,45 +602,67 @@ body > footer { border-top: 1px solid var(--line-soft); padding: 2.25rem 0 3rem;
    a .row is one of these now. */
 .tile-s2 {
   display: flex; flex-direction: column; gap: 0.125rem; min-width: 0;
-  background: var(--card); border: 1px solid var(--line-soft);
+  background: var(--card);
   border-radius: var(--r-sm); padding: 0.6875rem 0.75rem;
   box-shadow: var(--shadow-1);
   transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
 }
 a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow-2); }
-.t-k { font-family: var(--mono); font-size: 0.5625rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+.t-k { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); }
 .t-t { font-size: 0.875rem; font-weight: 550; letter-spacing: -0.012em; line-height: 1.25; }
 .t-s { font-size: 0.75rem; color: var(--muted); line-height: 1.35; }
 .t-big { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
 
 /* ------------------------------------------------------------- marquee -- */
-/* Auto-scrolling rows, the way a wall of testimonials scrolls. Pure CSS: the
-   track holds the list twice and translates exactly -50%, so the second copy
-   is under the cursor at the instant the first one runs out and the seam is
-   invisible. No JS, no clone-on-scroll, no layout thrash.
+/* Drift rows, the site's motif. Each row is full width and moves slowly and
+   forever; it stops under the pointer, and can be dragged, swiped or scrolled
+   sideways with a trackpad.
 
-   It pauses on hover and on focus-within, so it cannot run away from someone
-   reading a card or tabbing through the links inside one. */
+   The markup holds the cards twice: .mq-track > span, then a second span with
+   .mq-dup. Without JavaScript the CSS animation below runs the track through
+   -50% and loops. With it, templates/_drift.js takes over (.mq-live): it
+   moves the track itself, adds as many copies as a wide window needs, and
+   stops a row that is too short to need moving at all (.mq-still), centred,
+   because three cards gliding past a screen that could show them all at once
+   is motion for its own sake. */
 .marquee {
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 3rem, #000 calc(100% - 3rem), transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 3rem, #000 calc(100% - 3rem), transparent);
+  /* Room for a card's hover lift, which overflow:hidden would otherwise cut. */
+  padding: 0.375rem 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4vw, #000 calc(100% - 4vw), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4vw, #000 calc(100% - 4vw), transparent);
 }
+.marquee + .marquee { margin-top: calc(var(--gap) - 0.75rem); }
 .mq-track {
   display: flex; gap: var(--gap); width: max-content;
   animation: mq var(--mq, 60s) linear infinite;
   will-change: transform;
 }
+.mq-track > span { display: flex; gap: var(--gap); flex: none; }
 .marquee:hover .mq-track, .marquee:focus-within .mq-track { animation-play-state: paused; }
 .mq-rev .mq-track { animation-direction: reverse; }
 @keyframes mq { to { transform: translate3d(-50%, 0, 0); } }
+
+/* Driven by the script. pan-y keeps a vertical swipe scrolling the page while
+   a sideways one drags the row. */
+.mq-live { touch-action: pan-y; cursor: grab; }
+.mq-live .mq-track { animation: none; }
+.mq-live.is-dragging { cursor: grabbing; }
+.mq-live.is-dragging .mq-track { pointer-events: none; }
+.mq-live img, .mq-live a { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; }
+.mq-still { cursor: auto; -webkit-mask-image: none; mask-image: none; }
+/* No wrapping here: the set keeps its one-line width, which is what the script
+   measures to decide when the row has to move again. */
+.mq-still .mq-track { width: auto; justify-content: center; transform: none !important; }
+.mq-still .mq-dup { display: none; }
+
 /* Reduced motion turns it into an ordinary scroller rather than a frozen one:
    the content is still all reachable, it just waits to be pushed. The second
-   copy is hidden so it is not read out twice. */
+   copy is hidden so it is not read out twice. The script stands aside. */
 @media (prefers-reduced-motion: reduce) {
   .marquee { overflow-x: auto; scrollbar-width: none; }
   .marquee::-webkit-scrollbar { display: none; }
-  .mq-track { animation: none; }
+  .mq-track { animation: none; padding: 0 1.5rem; }
   .mq-dup { display: none; }
 }
 
@@ -597,7 +685,7 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.78));
 }
 .shot-t { font-size: 0.9375rem; font-weight: 600; letter-spacing: -0.014em; }
-.shot-s { font-size: 0.6875rem; opacity: 0.85; font-family: var(--mono); }
+.shot-s { font-size: 0.75rem; opacity: 0.85; }
 /* Attribution. CC BY and CC BY-SA both require it, so it is part of the
    component, not an optional extra someone can forget to add. */
 .credit { margin: 0.5rem 0 0; font-size: 0.6875rem; color: var(--faint); }
@@ -636,7 +724,7 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
   padding: 0.875rem; display: flex; flex-direction: column; justify-content: flex-end;
   box-shadow: var(--shadow-1);
 }
-.poster-n { font-family: var(--mono); font-size: 0.625rem; opacity: 0.6; }
+.poster-n { font-size: 0.625rem; opacity: 0.6; }
 .poster-t { font-size: 1.0625rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-top: auto; text-wrap: balance; }
 /* Two sizes: the handful that are ranked get a real poster, the wall of
    everything gets a spine. Fixed widths on the small one because it lives
@@ -655,7 +743,7 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .poster-r {
   position: absolute; left: 0.375rem; bottom: 0.375rem;
   background: rgba(0, 0, 0, 0.72); color: #fff;
-  font-family: var(--mono); font-size: 0.625rem; font-weight: 600;
+  font-size: 0.625rem; font-weight: 600;
   border-radius: 5px; padding: 0.0625rem 0.3125rem;
 }
 .poster--slate { background: #17171a; color: #9a9aa2; }
@@ -669,7 +757,7 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .place--none .shot-s { color: var(--faint); opacity: 1; }
 .poster--sm .poster-t { font-size: 0.875rem; letter-spacing: -0.022em; }
 .poster--sm .poster-y { font-size: 0.5625rem; line-height: 1.3; }
-.poster-y { font-family: var(--mono); font-size: 0.625rem; opacity: 0.7; margin-top: 0.25rem; }
+.poster-y { font-size: 0.6875rem; opacity: 0.7; margin-top: 0.25rem; }
 
 /* Book covers. object-fit:contain, not cover, a jacket cropped to a square is
    a jacket with its title cut off. */
@@ -739,15 +827,15 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 /* One card, deliberately not a section full of them. */
 .novel-card {
   display: block; max-width: var(--measure);
-  background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r);
+  background: var(--card); border-radius: var(--r);
   padding: 1rem 1.125rem; box-shadow: var(--shadow-1);
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 a.novel-card:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow-2); }
-.novel-k { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--faint); }
+.novel-k { font-size: 0.625rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--faint); }
 .novel-t { display: block; margin-top: 0.1875rem; font-family: var(--serif); font-size: 1.5rem; letter-spacing: -0.02em; line-height: 1.15; }
 .novel-s { display: block; margin-top: 0.375rem; font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
-.novel-m { display: block; margin-top: 0.5rem; font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); }
+.novel-m { display: block; margin-top: 0.5rem; font-size: 0.6875rem; color: var(--faint); }
 
 /* ------------------------------------------------------------- game rail -- */
 /* A card sized for a horizontal track. Fixed width because 1fr means nothing
@@ -765,10 +853,10 @@ a.novel-card:hover { border-color: var(--accent); transform: translateY(-1px); b
 .now {
   display: grid; gap: 0.875rem 1.5rem; align-items: start;
   grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr));
-  background: var(--card); border: 1px solid var(--line);
+  background: var(--card);
   border-radius: var(--r); padding: 1.25rem 1.375rem;
 }
-.now-k { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--faint); display: flex; align-items: center; gap: 0.4375rem; }
+.now-k { font-size: 0.625rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--faint); display: flex; align-items: center; gap: 0.4375rem; }
 .now-t { margin: 0.5rem 0 0; font-size: 1.375rem; font-weight: 400; letter-spacing: -0.022em; line-height: 1.25; text-wrap: balance; }
 .now-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.3125rem; }
 .now-list li { font-size: 0.8125rem; color: var(--muted); display: flex; gap: 0.5rem; line-height: 1.4; }
@@ -800,9 +888,9 @@ a.novel-card:hover { border-color: var(--accent); transform: translateY(-1px); b
 .map-key { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem 0.875rem; margin: 0 0 0.75rem; font-size: 0.75rem; color: var(--muted); }
 /* Same three colours as the pins in the map file; see scripts/build-map.mjs. */
 .key { width: 0.5rem; height: 0.5rem; border-radius: 50%; display: inline-block; margin-right: -0.5rem; box-shadow: 0 0 0 1.5px var(--bg); }
-.key--place { background: #fce03d; }
-.key--ski { background: #ff6a2a; }
-.key--peak { background: #2fd27a; }
+.key--place { background: #fff0a6; }
+.key--ski { background: #ffc4a3; }
+.key--peak { background: #a8f5c9; }
 .pinlink { color: var(--link); }
 .pinlink:hover { text-decoration: underline; }
 
@@ -827,6 +915,6 @@ a.novel-card:hover { border-color: var(--accent); transform: translateY(-1px); b
    favourite that scrolls away before you can look at it is not being treated
    as a favourite. auto-fill with a hard cap so four favourites stay
    poster-sized instead of stretching to fill the row. */
-.fav-k { margin: 0 0 0.5rem; font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--faint); }
+.fav-k { margin: 0 0 0.5rem; font-size: 0.6875rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--faint); }
 .favs { display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 8.75rem)); gap: var(--gap); }
 @media (max-width: 30rem) { .favs { grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr)); } }

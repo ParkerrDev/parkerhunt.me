@@ -8,7 +8,7 @@
 /* Nobara's official icon includes substantial transparent padding. */
 .distro-mark--nobara img { width: 4.8rem; height: 4.8rem; }
 .distro-copy { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; padding: 0 0.25rem; }
-.distro-status { color: var(--faint); font: 0.625rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.6; }
+.distro-status { color: var(--faint); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.6; }
 .distro-name { font-size: 0.875rem; line-height: 1.35; color: var(--fg); }
 .distro-note { color: var(--muted); font-size: 0.75rem; line-height: 1.5; max-width: 10rem; }
 .distro-step--current .distro-status { color: var(--link); }

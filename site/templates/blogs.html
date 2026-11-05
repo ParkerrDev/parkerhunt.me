@@ -1,30 +1,35 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
 
+{# /blog/. The posts as one drift row, the same cards as the home page's Blog
+   row, newest first. With few enough posts to fit the window the row sits
+   still and centred; past that it drifts (see _drift.js). #}
+
 {% block content %}
-<header class="hero">
+{% set n = section.pages | length %}
+<header class="hero tone tone--pink">
     <div class="wrap">
-        <a class="back" href="/">{{ ico::back() }} Home</a>
         <h1>{{ section.title }}</h1>
-        {% if section.description %}<p class="hero-lede">{{ section.description }}</p>{% endif %}
+        <p class="hero-lede">{% if section.description %}{{ section.description }}{% else %}{{ n }} post{% if n != 1 %}s{% endif %}, newest first.{% endif %}</p>
     </div>
 </header>
 
 <main id="main">
-    <section>
-        <div class="wrap">
-            <div class="grid">
-                {% for post in section.pages %}
-                <a class="card" href="{{ post.permalink }}">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ post.title }}</h3>
-                        {% if post.description %}<p class="card-desc">{{ post.description }}</p>{% endif %}
-                        <div class="card-meta">{{ post.date | date(format="%d %B %Y") }}</div>
-                    </div>
-                </a>
+    <section class="tone tone--pink" style="padding-top:0.5rem">
+        <div class="marquee" style="--mq:{{ ico::mq_secs(n=n * 4) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for post in section.pages %}{{ ico::post_card(post=post, quiet=pass == 2) }}{% endfor %}
+                </span>
                 {% endfor %}
             </div>
         </div>
+        {%- if config.generate_feeds %}
+        <div class="wrap" style="text-align:center;margin-top:1.75rem">
+            <a class="more" href="{{ get_url(path=config.feed_filenames[0], trailing_slash=false) }}">Follow along with RSS ›</a>
+        </div>
+        {%- endif %}
     </section>
 </main>
 {% endblock %}

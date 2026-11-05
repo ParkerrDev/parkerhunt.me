@@ -15,7 +15,7 @@
 {% block content %}
 {% set titles = load_data(path="data/titles.json") %}
 
-<header class="hero">
+<header class="hero tone tone--coral">
     <div class="wrap">
         <a class="back" href="/">{{ ico::back() }} Home</a>
         <h1>{{ page.title }}</h1>
@@ -28,7 +28,7 @@
     </div>
 </header>
 
-<main id="main">
+<main id="main" class="tone tone--coral">
     <section style="padding-top:0">
         <div class="wrap">
             <div class="bento" data-findable="Search {{ titles.movie_count }} films…" data-random="Random film">

@@ -331,7 +331,7 @@ if (existsSync(MEDIA)) {
    where they are, so they are drawn as-is and the count says how many. */
 const TONE = { place: "#0071e3", ski: "#0071e3", peak: "#0071e3" };
 const dots = pins
-  .map((p) => `<circle class="pin pin--${p.kind}" cx="${p.x}" cy="${p.y}" r="4.5"><title>${p.name.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</title></circle>`)
+  .map((p) => `<circle class="pin pin--${p.kind}" cx="${p.x}" cy="${p.y}" r="4"><title>${p.name.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</title></circle>`)
   .join("");
 
 const body = states
@@ -339,16 +339,17 @@ const body = states
   .join("");
 
 /* Styles live inside the file because an <img>-referenced SVG cannot see the
-   page's stylesheet. Drawn for the black shell: unvisited states a step above
-   the page, visited ones in a muted version of the hero glow's blue, borders in the page colour,
-   and pins in yellow / orange / green, which is what .key--place, --ski and
-   --peak in _style.css use for the legend. */
+   page's stylesheet. Drawn for the black shell: unvisited states a blue-black
+   a step above the page, visited ones a bright blue, borders in the page
+   colour, and the pins in soft butter / peach / mint with a faint edge rather
+   than a heavy black ring, which is what .key--place, --ski and --peak in
+   _style.css use for the legend. */
 const svg =
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" ` +
   `aria-label="Map of the United States with ${want.size} states filled in and ${pins.length} places pinned">` +
   `<title>Where I have been</title>` +
-  `<style>path{stroke:#000;stroke-width:1;stroke-linejoin:round}.off{fill:#1c1c1f}.on{fill:#2a3b8f}` +
-  `.pin{stroke:#000;stroke-width:1.5}.pin--place{fill:#fce03d}.pin--ski{fill:#ff6a2a}.pin--peak{fill:#2fd27a}</style>` +
+  `<style>path{stroke:#000;stroke-width:1;stroke-linejoin:round}.off{fill:#121a2b}.on{fill:#3a86ff}` +
+  `.pin{stroke:rgba(0,0,0,.45);stroke-width:1}.pin--place{fill:#fff0a6}.pin--ski{fill:#ffc4a3}.pin--peak{fill:#a8f5c9}</style>` +
   body + dots +
   `</svg>\n`;
 

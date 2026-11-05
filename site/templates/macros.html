@@ -194,3 +194,17 @@
    ends: under 40s a short row flicks past before it can be read, over 95s a
    long one stops feeling like it is moving. #}
 {% macro mq_secs(n) %}{% set s = 30 + n * 12 / 10 %}{% if s < 40 %}40{% elif s > 95 %}95{% else %}{{ s | round }}{% endif %}{% endmacro mq_secs %}
+
+{# --- a blog post, as a card in a drift row --------------------------------- #}
+{# Used by the home page's Blog row, /blog/ and the "more posts" row under a
+   post. The excerpt is the post's description when it has one, otherwise the
+   start of the post itself. `quiet` is the row's hidden copy: its link stays
+   clickable but leaves the tab order. #}
+{% macro post_card(post, quiet=false) %}
+<a class="bc" href="{{ post.permalink }}"{% if quiet %} tabindex="-1"{% endif %}>
+    <span class="bc-date">{{ post.date | date(format="%B %-d, %Y") }}</span>
+    <h3 class="bc-t">{{ post.title }}</h3>
+    <p class="bc-x">{% if post.description %}{{ post.description }}{% else %}{{ post.content | striptags | truncate(length=200) }}{% endif %}</p>
+    <span class="bc-m"><span>{{ post.reading_time }} min read</span><b>Read ›</b></span>
+</a>
+{% endmacro post_card %}

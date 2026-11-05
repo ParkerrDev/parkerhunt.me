@@ -4,9 +4,11 @@
    other's CSS: it is pulled in through each template's css_extra block, so it
    ships on exactly those two pages and none of the others.
 
-   Small, plain dark cards in a grid, three across on a wide screen: a label,
-   the mark and title, one line, where it lives, and the card art in an inset
-   panel at the bottom. No colour washes; the art is the colour. */
+   Tinted black cards with no outline: a label in the section colour, the mark
+   and title, one line, where it lives, and the card art in an inset panel at
+   the bottom. In a grid on /projects/, in a drift row on the home page (.pc
+   inside .marquee gets a fixed width, since 1fr means nothing in a flex row
+   wider than the screen). */
 
 .pcs {
   display: grid; gap: 1rem;
@@ -16,13 +18,13 @@
 .pc {
   position: relative;
   display: flex; flex-direction: column;
-  padding: 0.75rem;
+  padding: 0.875rem;
   background: var(--card);
-  border: 1px solid var(--line-soft);
-  border-radius: var(--r);
-  transition: border-color 0.24s, transform 0.24s;
+  border-radius: var(--r-lg);
+  transition: background 0.24s, transform 0.24s;
 }
-.pc:hover { transform: translateY(-2px); border-color: var(--line); }
+.pc:hover { transform: translateY(-3px); background: var(--card-2); }
+.marquee .pc { width: min(23rem, 84vw); flex: none; }
 /* The ring belongs on the card, since the card is what the link stands for. */
 .pc:has(.pc-link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
 .pc-link:focus-visible { outline: 0; }
@@ -33,19 +35,19 @@
 /* Shown exactly as written in the front matter, which is in capitals already:
    text-transform would turn "iOS" into "IOS". */
 .pc-kind {
-  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.08em;
-  color: var(--faint);
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--c);
 }
 
 /* --- title ----------------------------------------------------------------- */
 .pc-title {
   margin: 0.75rem 0 0; display: flex; align-items: center; gap: 0.5625rem;
-  font-size: 1.375rem; font-weight: 400; letter-spacing: -0.025em; line-height: 1.15;
+  font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1.15;
 }
 /* The icon is the mark, at the proportions an iOS icon uses for its corners. */
 .pc-brand {
   width: 1.5rem; height: 1.5rem; flex: 0 0 auto; border-radius: 22%;
-  object-fit: cover; box-shadow: 0 0 0 1px var(--line);
+  object-fit: cover;
 }
 .pc-brand--unboxed { border-radius: 0; box-shadow: none; object-fit: contain; }
 /* The stretched link: its ::after covers the whole card, so the card is
@@ -61,23 +63,22 @@
 .pc-more {
   position: relative; z-index: 2; margin: 0.75rem 0 0;
   display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1rem;
-  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase;
+  font-size: 0.875rem; font-weight: 500;
 }
 .pc-more:empty { display: none; }
 /* The host is not a link of its own, so it lets clicks fall through to the
    card underneath. */
-.pc-host { color: var(--faint); pointer-events: none; text-transform: none; letter-spacing: 0.02em; }
-.pc-more a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
-.pc-more a:hover { color: var(--link); text-decoration-color: currentColor; }
+.pc-host { color: var(--faint); pointer-events: none; font-weight: 400; }
+.pc-more a { color: var(--link); }
+.pc-more a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* --- the art, in an inset panel -------------------------------------------- */
 /* margin-top:auto pins the panel to the bottom, so cards with less text still
    line their art up with their neighbours in the row. */
 .pc-art {
   margin-top: auto; aspect-ratio: 900 / 338; overflow: hidden;
-  border-radius: var(--r-sm);
+  border-radius: calc(var(--r-lg) - 0.875rem + 4px);
   background: #000;
-  border: 1px solid var(--line);
 }
 .pc-art img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1); }
 .pc:hover .pc-art img { transform: scale(1.03); }

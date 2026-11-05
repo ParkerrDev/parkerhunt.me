@@ -29,6 +29,9 @@ const OUT = resolve(process.argv[3] || "site/data/github.json");
 /* Linguist's own colours for the languages this account actually uses. Kept
    here rather than in the template so the JSON is self-describing and the Tera
    side stays a dumb renderer. Unknown languages fall through to grey. */
+// Also written into the snapshot as `colors`, so the live cards the home page
+// draws from the API in the browser (templates/_github.js) colour a language
+// the same way, including one no snapshot card has yet.
 const COLORS = {
   "C#": "#178600",
   C: "#555555",
@@ -126,6 +129,6 @@ if (repos.length === 0) bail("the API returned no public repositories");
 mkdirSync(dirname(OUT), { recursive: true });
 writeFileSync(
   OUT,
-  JSON.stringify({ user: USER, fetched: new Date().toISOString().slice(0, 10), repos }, null, 2) + "\n"
+  JSON.stringify({ user: USER, fetched: new Date().toISOString().slice(0, 10), colors: COLORS, repos }, null, 2) + "\n"
 );
 console.log(`GitHub snapshot: ${repos.length} public repos -> ${OUT}`);

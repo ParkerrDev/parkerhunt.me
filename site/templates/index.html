@@ -3,103 +3,45 @@
 {% import "_project-card.html" as pc %}
 {% import "islands.html" as isle %}
 
-{# ONE css_extra block, and it has to carry everything this page adds.
-
-   A template gets one block of a given name; a second definition is not merged,
-   it is ignored. The project cards were added here with their own css_extra
-   further down the file and this one silently won, so /projects/ had the card
-   styles and the home page rendered the same markup completely unstyled,
-   full-width images, chips as a bulleted list, the lot. Anything new goes IN
-   here, not next to it. #}
-{% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{{ load_data(path="templates/_projects.css", format="plain") | safe }}{{ load_data(path="templates/_distros.css", format="plain") | safe }}
-  .hero--home { padding: clamp(2.25rem, 5vw, 3.75rem) 0 clamp(1.25rem, 3vw, 2rem); }
-  .hero--home .avatar { width: 7rem; margin-bottom: 1.25rem; }
-  .hero--home h1 { font-size: clamp(2.5rem, 7vw, 4.75rem); letter-spacing: -0.04em; line-height: 1; }
-  .hero--home .hero-lede { margin-top: 1.125rem; max-width: 34rem; font-size: clamp(1.0625rem, 1.9vw, 1.25rem); color: rgba(255, 255, 255, 0.82); }
-  .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.875rem; margin-top: 1.75rem; }
+{# ONE css_extra block, and it has to carry everything this page adds: a
+   template gets one block of a given name, and a second definition is not
+   merged, it is ignored. Anything new goes IN here, not next to it. #}
+{% block css_extra %}{{ load_data(path="templates/_projects.css", format="plain") | safe }}
+  .hero--home { padding: clamp(3rem, 8vw, 6rem) 0 clamp(1.5rem, 4vw, 2.75rem); }
+  .hero--home .avatar { width: 7.5rem; margin-bottom: 1.5rem; }
+  .hero--home h1 { font-size: clamp(2.75rem, 8vw, 5.5rem); letter-spacing: -0.045em; line-height: 1; }
+  .hero--home .hero-lede { margin-top: 1.25rem; max-width: 36rem; color: var(--muted); }
+  .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2rem; }
   .hero--home .links { margin-top: 1.25rem; }
-  .hero--home .pill svg { width: 22px; height: 22px; }
-  /* Selected work follows the "now" box closely: no hairline, and most of the
-     top padding gone, so the cards are on screen sooner. */
-  #work { border-top: 0; padding-top: 0.5rem; }
+  .head .gh-status { display: inline-flex; align-items: center; gap: 0.4375rem; margin: 0; font-size: 0.875rem; color: var(--faint); }
+  .gh-status .pulse { width: 0.5rem; height: 0.5rem; }
+  .gcard--fav { width: min(17rem, 78vw); }
+  .cap { width: 12.5rem; aspect-ratio: 460 / 215; flex: none; border-radius: var(--r-sm); }
 {% endblock %}
 
 {% block title %}Parker Hunt{% endblock %}
 
 {% block content %}
-{# The home page is the site. Everything with enough substance to stand alone
-   gets a page of its own (/ideas, /quotes, /projects, /resume); everything else
-   lives here in full.
+{# The home page is the work: who I am, then four rows (selected work, code,
+   the blog, games) and a door to /life/, where everything else went. It was a
+   page of seventeen sections; the life ones moved out on 2026-11-04 because
+   it was too long to read as anything.
 
-   Every section below is wrapped in a length check on its data, so a section
-   with nothing in it does not render at all, no empty headings, no "coming
-   soon". Fill in site/data/me.toml and the sections appear. #}
+   Every row is a drift row (see .marquee in _style.css and _drift.js), and
+   every section has its own colour (.tone--*). A section with no data does
+   not render at all. #}
 {% set me = load_data(path="data/me.toml") %}
 {% set gh = load_data(path="data/github.json") %}
-{% set feeds = load_data(path="data/feeds.toml") %}
-{# The X PROFILE, live. Not the posts, the account is protected, so there is no
-   public timeline to read at any price; scripts/fetch-x.mjs spells out every
-   route that was tried and why each is closed. The posts below stay
-   hand-written in feeds.toml, and this card says so rather than leaving a gap
-   where a feed obviously should be. #}
-{% set xd = load_data(path="data/x.json") %}
-{# Four build-time snapshots of four real accounts. Every one of them is written
-   by a script in scripts/ that fails soft, so a third party being down or slow
-   never fails a deploy, it just leaves the last snapshot in place. Nothing
-   below contacts steampowered.com, chess.com, duolingo.com or nexusmods.com
-   when the page loads; the numbers and even the capsule art are all
-   served from this origin. #}
 {% set steam = load_data(path="data/steam.json") %}
-{% set chess = load_data(path="data/chess.json") %}
-{% set duo = load_data(path="data/duolingo.json") %}
-{% set nexus = load_data(path="data/nexus.json") %}
 {% set games = load_data(path="data/games.toml") %}
-{# Durations that would be wrong tomorrow if they were typed. See
-   scripts/build-stamps.mjs, the anchor date is stored, the elapsed years,
-   months and days are recomputed on every deploy. #}
-{% set stamps = load_data(path="data/stamps.json") %}
-{# Summit photographs (Wikimedia Commons, CC BY / CC BY-SA) and book jackets,
-   both downloaded and converted to WebP by scripts/fetch-media.mjs. The
-   credit line under the photographs is not decoration, those licences
-   require attribution. #}
-{% set media = load_data(path="data/media.json") %}
-{# The visited-states map. The SVG itself is a separate file: 44 KB of path
-   data would have doubled this page, so this only carries the legend. See
-   scripts/build-map.mjs. #}
-{% set travel = load_data(path="data/travel-map.json") %}
-{# Places, with photographs from Wikimedia Commons. Add one line to
-   site/data/places.json and re-run scripts/fetch-places.mjs. #}
-{% set been = load_data(path="data/been.json") %}
-{# Brand marks, inlined as paths. Nothing here fetches a logo at page load;
-   see scripts/fetch-icons.mjs, including the note on why using someone
-   else's logo to say "I use this" is fine and drawing an imitation is not. #}
-{% set ico2 = load_data(path="data/icons.json") %}
-{# Full-colour logos from Wikimedia Commons, for the brands Simple Icons does
-   not carry. Licences and credits are in the file; see scripts/fetch-logos.mjs. #}
-{% set logos = load_data(path="data/logos.json") %}
-{% set distro_logos = load_data(path="data/distro-logos.json") %}
-{# The businesses' own logos, taken from their own site icons. See
-   scripts/fetch-brands.mjs, this is where Starbucks' siren and Chipotle's
-   pepper come from, neither of which exists under a free licence anywhere. #}
-{% set brands = load_data(path="data/brands.json") %}
-{# The watch list, resolved against Wikidata: IMDb ids, years, genres, and a
-   free title logo where Commons has one. See scripts/fetch-titles.mjs. #}
-{% set titles = load_data(path="data/titles.json") %}
-{# Quotes, shuffled per build. GENERATED from me.toml by scripts/build-shuffle.mjs
- , edit me.toml, never quotes.json. Tera cannot randomise, so the randomising
-   happens to the data before the template runs. #}
-{% set qd = load_data(path="data/quotes.json") %}
-
 {% set projects = get_section(path="projects/_index.md") %}
 
 <header class="hero hero--home">
     <div class="wrap hero-in">
-        {# Centred and in one column: photo, the name very large, one line, two
-           buttons, then the icons. #}
         <div class="avatar">
             <img src="/imgs/webp/avatar-288.webp"
                  srcset="/imgs/webp/avatar-288.webp 288w, /imgs/webp/avatar-576.webp 576w"
-                 sizes="7rem"
+                 sizes="7.5rem"
                  width="288" height="288" alt="Andrew Parker Hunt" fetchpriority="high" decoding="async">
         </div>
 
@@ -107,116 +49,194 @@
         <p class="hero-lede">Cofounder of <a href="https://kiteprinters.com" target="_blank" rel="noopener">Kite</a>, where we’re developing a tabletop printer for circuit boards. I build software and hardware in Clovis, California.</p>
 
         {# Still a link and not Cal's embed: that ships a script which injects an
-           iframe from cal.com, which would put a third party on the one page
-           that has none and hand over every visitor's IP whether or not they
-           ever booked. #}
+           iframe from cal.com, which would hand over every visitor's IP
+           whether or not they ever booked. #}
         <div class="hero-cta">
-            <a class="btn" href="#work">See my work</a>
             {% if me.cal_url %}<a class="btn btn--solid" href="{{ me.cal_url }}" target="_blank" rel="noopener">{{ me.cal_label | default(value="Book an appointment") }}</a>{% endif %}
+            <a class="btn" href="#work">See my work</a>
         </div>
 
-        {# Icon-only. aria-label carries the name for anyone who cannot see the
-           mark, so nothing is lost by dropping the visible word. #}
         <div class="links">
             <a class="pill" href="/AndrewHuntResume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF)" title="Résumé">{{ ico::doc() }}</a>
             <a class="pill" href="mailto:email@parkerhunt.me" aria-label="Email" title="Email">{{ ico::mail() }}</a>
             <a class="pill" href="https://github.com/ParkerrDev" target="_blank" rel="me noopener" aria-label="GitHub" title="GitHub">{{ ico::github() }}</a>
             <a class="pill" href="https://x.com/AndrewParkerH" target="_blank" rel="me noopener" aria-label="X" title="X">{{ ico::x() }}</a>
             <a class="pill" href="https://www.linkedin.com/in/andrewparkerh/" target="_blank" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">{{ ico::linkedin() }}</a>
-            {% if false %}<a class="pill" href="{{ steam.profile.url }}" target="_blank" rel="me noopener" aria-label="Steam" title="Steam">{{ ico::steam() }}</a>{% endif %}
-            {% if false %}<a class="pill" href="{{ chess.url }}" target="_blank" rel="me noopener" aria-label="Chess.com" title="Chess.com">{{ ico::chesscom() }}</a>{% endif %}
-            {% if false %}<a class="pill" href="{{ nexus.url }}" target="_blank" rel="me noopener" aria-label="Nexus Mods" title="Nexus Mods">{{ ico::brand(icons=ico2.icons, slug="nexusmods") }}</a>{% endif %}
         </div>
     </div>
 </header>
 
 <main id="main">
 
-    {# -------------------------------------------------------------- now -- #}
-    {# What is actually happening this month, at the top where it belongs.
-       Edit [now] in site/data/me.toml, and move `updated` when you do, because
-       a "now" that is a year old is worse than no now at all. #}
-    {% if me.now.line %}
-    <section id="now" style="padding-top:0">
-        <div class="wrap">
-            <div class="now">
-                <div>
-                    <div class="now-k"><span class="pulse"></span> Now · {{ me.now.updated ~ "-01" | date(format="%B %Y") }}</div>
-                    <p class="now-t">{{ me.now.line }}</p>
-                </div>
-                {% if me.now.doing | length > 0 %}
-                <ul class="now-list">
-                    {% for d in me.now.doing %}<li>{{ d }}</li>{% endfor %}
-                </ul>
-                {% endif %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-
     {# ------------------------------------------------------------- work -- #}
-    <section id="work">
+    {# The same card macro /projects/ uses, so the two pages cannot drift. A
+       project with `hide_on_home = true` in its front matter is on /projects/
+       only. #}
+    {% set shown = [] %}
+    {% for project in projects.pages %}{% if not project.extra.hide_on_home %}{% set_global shown = shown | concat(with=project) %}{% endif %}{% endfor %}
+    {% if shown | length > 0 %}
+    <section id="work" class="tone tone--blue">
         <div class="wrap">
             <div class="head">
                 <h2>Selected work</h2>
-                <a class="more" href="/projects/">All projects →</a>
-            </div>
-
-            {# Small cards in a grid, the same macro /projects/ uses, so the two
-               pages cannot drift. Each carries its own accent and its own mark,
-               both derived rather than chosen: see scripts/project-accents.mjs
-               and scripts/fetch-project-brand.mjs. A project with
-               `hide_on_home = true` in its front matter is on /projects/ only. #}
-            <div class="pcs">
-                {% for project in projects.pages %}{% if not project.extra.hide_on_home %}{{ pc::card(project=project, i=loop.index) }}{% endif %}{% endfor %}
+                <a class="more" href="/projects/">All projects ›</a>
             </div>
         </div>
-    </section>
-
-    {# ------------------------------------------------------------- code -- #}
-    {# Rebuilt in GitHub's own visual language, its palette, its metrics, its
-       language dots, but rendered from a JSON snapshot taken at build time.
-       Nothing here talks to github.com when you load the page. #}
-    {% if gh.repos | length > 0 %}
-    <section id="code">
-        <div class="wrap">
-            <div class="head">
-                <h2>Code</h2>
-                <p>Public repositories, snapshotted at build time.</p>
-            </div>
-
-            {% if gh.repos | length > 0 %}
-            <div>
-                <div class="feed gh">
-                        <div class="gh-head">
-                            {{ ico::github() }} <b>{{ gh.user }}</b> / repositories
-                            <span class="gh-h-sub">{{ gh.repos | length }} public</span>
-                        </div>
-                        {% for r in gh.repos %}
-                        <a class="repo" href="{{ r.url }}" target="_blank" rel="noopener">
-                            <div class="repo-top">
-                                <span class="repo-name">{{ r.name }}</span>
-                                <span class="repo-vis">Public</span>
-                            </div>
-                            {% if r.description %}<p class="repo-desc">{{ r.description }}</p>{% endif %}
-                            <div class="repo-meta">
-                                {% if r.language %}<span><i class="lang-dot" style="background:{{ r.color }}"></i>{{ r.language }}</span>{% endif %}
-                                {% if r.stars > 0 %}<span>{{ ico::star() }}{{ r.stars }}</span>{% endif %}
-                                {% if r.forks > 0 %}<span>{{ ico::fork() }}{{ r.forks }}</span>{% endif %}
-                                {% if r.license %}<span>{{ r.license }}</span>{% endif %}
-                                <span>Updated {{ r.updated }}</span>
-                            </div>
-                        </a>
-                        {% endfor %}
-                    </div>
-                <p class="feed-foot"><a href="https://github.com/ParkerrDev?tab=repositories" target="_blank" rel="noopener">github.com/{{ gh.user }}</a> · snapshot {{ gh.fetched }}</p>
-            </div>
-            {% endif %}
+        <div class="marquee" style="--mq:{{ ico::mq_secs(n=shown | length * 3) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for project in shown %}{{ pc::card(project=project, i=loop.index) }}{% endfor %}
+                </span>
+                {% endfor %}
             </div>
         </div>
     </section>
     {% endif %}
 
+    {# ------------------------------------------------------------- code -- #}
+    {# Drawn from the build's snapshot (site/data/github.json), then redrawn
+       live from GitHub's API in the visitor's browser by _github.js. GitHub
+       refuses to be framed, so this is as close to embedding a repository as
+       a page can get. The snapshot is the fallback, and the whole row if the
+       API is slow, rate limited or blocked. #}
+    {% if gh.repos | length > 0 %}
+    <section id="code" class="tone tone--green">
+        <div class="wrap">
+            <div class="head">
+                <h2>Code</h2>
+                <p>My public repositories on GitHub.</p>
+                <p class="gh-status" data-gh-status>Snapshot from {{ gh.fetched | date(format="%B %-d, %Y") }}</p>
+                <a class="more" href="https://github.com/{{ gh.user }}?tab=repositories" target="_blank" rel="noopener">github.com/{{ gh.user }} ›</a>
+            </div>
+        </div>
+        <div class="marquee mq-rev" data-gh-user="{{ gh.user }}"{% if gh.colors %} data-gh-colors="{{ gh.colors | json_encode() }}"{% endif %} style="--mq:{{ ico::mq_secs(n=gh.repos | length * 2) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for r in gh.repos %}
+                <a class="rc" href="{{ r.url }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>
+                    <span class="rc-top">{{ ico::github() }}<span class="rc-name">{{ r.name }}</span></span>
+                    <p class="rc-desc">{{ r.description }}</p>
+                    <span class="rc-meta">
+                        {% if r.language %}<span><i class="rc-dot" data-lang="{{ r.language }}" style="--dot:{{ r.color }}"></i>{{ r.language }}</span>{% endif %}
+                        {% if r.stars > 0 %}<span>{{ ico::star() }}{{ r.stars }}</span>{% endif %}
+                        {% if r.forks > 0 %}<span>{{ ico::fork() }}{{ r.forks }}</span>{% endif %}
+                        {% if r.updated %}<span>Updated {{ r.updated | date(format="%b %-d, %Y") }}</span>{% endif %}
+                    </span>
+                </a>
+                {% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+        {# The icons the live cards are built with, so the script carries no
+           SVG of its own. #}
+        <template id="gh-icons"><span data-icon="github">{{ ico::github() }}</span><span data-icon="star">{{ ico::star() }}</span><span data-icon="fork">{{ ico::fork() }}</span></template>
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------------- blog -- #}
+    {# Gated on config.extra.blog rather than on the section itself: a drafted
+       section is not in Zola's library at all, so get_section() on it would
+       stop the build instead of skipping the block. #}
+    {% if config.extra.blog %}
+    {% set blog = get_section(path="blog/_index.md") %}
+    {% if blog.pages | length > 0 %}
+    <section id="blog" class="tone tone--pink">
+        <div class="wrap">
+            <div class="head">
+                <h2>Blog</h2>
+                <a class="more" href="/blog/">All posts ›</a>
+            </div>
+        </div>
+        <div class="marquee" style="--mq:{{ ico::mq_secs(n=blog.pages | length * 4) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for post in blog.pages %}{{ ico::post_card(post=post, quiet=pass == 2) }}{% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    {% endif %}
+
+    {# ------------------------------------------------------------ games -- #}
+    {# Two rows: the favourites, ranked and with a line each, and the library
+       drifting the other way under them. The full Steam panel, playtimes and
+       achievements, is on /games/. #}
+    {% if steam.library | length > 0 %}
+    <section id="games" class="tone tone--orange">
+        <div class="wrap">
+            <div class="head">
+                <h2>Games</h2>
+                <p>{{ steam.totals.owned }} games on Steam and {{ steam.totals.hours | num_format }} hours between them.</p>
+                <a class="more" href="/games/">Everything I’ve played ›</a>
+            </div>
+        </div>
+
+        {% if games.favourite | length > 0 %}
+        <div class="marquee" style="--mq:{{ ico::mq_secs(n=games.favourite | length * 3) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for f in games.favourite %}
+                {% set g = steam.by_appid[f.appid] %}
+                <a class="gcard gcard--fav" href="{{ g.url }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>
+                    <div class="gcard-art">
+                        <img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async">
+                        <span class="gcard-n">{{ loop.index }}</span>
+                    </div>
+                    <div class="gcard-body">
+                        <span class="gcard-t">{{ g.name }}</span>
+                        {% if f.note %}<p class="gcard-d">{{ f.note }}</p>{% endif %}
+                    </div>
+                </a>
+                {% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% set lib = steam.library | slice(end=24) %}
+        <div class="marquee mq-rev" style="--mq:{{ ico::mq_secs(n=lib | length) }}s">
+            <div class="mq-track">
+                {% for pass in [1, 2] %}
+                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                {% for g in lib %}
+                <a class="shot cap" href="{{ g.url }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>
+                    <img src="{{ g.art }}" alt="{{ g.name }}" width="268" height="125" loading="lazy" decoding="async">
+                </a>
+                {% endfor %}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ------------------------------------------------------------- life -- #}
+    <section id="life" class="tone tone--teal">
+        <div class="wrap">
+            <div class="cta-card">
+                <h2>Off the clock</h2>
+                <p>Where I’ve been, the mountains I’ve skied and climbed, my bucket list, the Linux distros I’ve hopped through, and every movie I’ve watched.</p>
+                <a class="btn" href="/life/">More about me ›</a>
+            </div>
+        </div>
+    </section>
+
+{# DISABLED SECTIONS, each asked to be taken down and kept rather than deleted
+   so it can come back. They need the data files the old page loaded (x.json,
+   feeds.toml, chess.json, duolingo.json, nexus.json, quotes.json, titles.json,
+   media.json, stamps.json, icons.json) and islands.html imported as `isle`.
+
+   Wrapped in `if false` rather than commented out, because these blocks contain
+   Tera comments of their own and Tera comments do not nest. #}
+{% if false %}
     {# ------------------------------------------------------------ posts -- #}
     {% if feeds.x.post | length > 0 or xd.profile %}
 {# DISABLED, asked to be taken down, kept rather than deleted so it can come
@@ -311,103 +331,6 @@
     </section>
 {% endif %}
 
-    {% endif %}
-
-    {# ---------------------------------------------------------- writing -- #}
-    {# Gated on config.extra.blog rather than on the section itself: a drafted
-       section is not in Zola's library at all, so get_section() on it would
-       stop the build instead of skipping the block. #}
-    {% if config.extra.blog %}
-    {% set blog = get_section(path="blog/_index.md") %}
-    {% if blog.pages | length > 0 %}
-    <section id="writing">
-        <div class="wrap">
-            <div class="head">
-                <h2>Writing</h2>
-                <a class="more" href="/blog/">All posts →</a>
-            </div>
-            <div class="grid">
-                {% for post in blog.pages | slice(end=6) %}
-                <a class="card" href="{{ post.permalink }}">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ post.title }}</h3>
-                        {% if post.description %}<p class="card-desc">{{ post.description }}</p>{% endif %}
-                        <div class="card-meta">{{ post.date | date(format="%d %B %Y") }}</div>
-                    </div>
-                </a>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-    {% endif %}
-
-    {# ------------------------------------------------------------ games -- #}
-    {# The Steam panel is dark because Steam has never had a light theme and a
-       light one would not read as Steam. #}
-    {% if steam.library | length > 0 %}
-    <section id="games">
-        <div class="wrap">
-            <div class="head">
-                <h2>Games</h2>
-                <p>{{ steam.totals.owned }} games on Steam and {{ steam.totals.hours | num_format }} hours between them.</p>
-                <a class="more" href="/games/">Everything I have played →</a>
-            </div>
-
-            {# The library, scrolling. Twenty capsules, printed twice so the
-               track can translate exactly -50% and loop with no seam. #}
-            {% set g_n = steam.library | slice(end=20) | length %}
-            <div class="marquee" style="--mq:{{ ico::mq_secs(n=g_n) }}s;margin-bottom:0.875rem">
-                <div class="mq-track">
-                    {% for pass in [1, 2] %}
-                    <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
-                    {% for g in steam.library | slice(end=20) %}
-                    <a class="shot" href="{{ g.url }}" target="_blank" rel="noopener" style="width:11.5rem;aspect-ratio:460/215;flex:none">
-                        <img src="{{ g.art }}" alt="{{ g.name }}" width="268" height="125" loading="lazy" decoding="async">
-                    </a>
-                    {% endfor %}
-                    </span>
-                    {% endfor %}
-                </div>
-            </div>
-
-            {% if games.favourite | length > 0 %}
-            <p class="kicker">Favourites</p>
-            <div class="gcards" style="margin-bottom:1.5rem">
-                {% for f in games.favourite %}
-                {% set g = steam.by_appid[f.appid] %}
-                <a class="gcard" href="{{ g.url }}" target="_blank" rel="noopener">
-                    <div class="gcard-art">
-                        <img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async">
-                        <span class="gcard-n">{{ loop.index }}</span>
-                    </div>
-                    <div class="gcard-body">
-                        <span class="gcard-t">{{ g.name }}</span>
-                        {% if f.note %}<p class="gcard-d">{{ f.note }}</p>{% endif %}
-                        <span class="gcard-m">{{ g.released }}</span>
-                    </div>
-                </a>
-                {% endfor %}
-            </div>
-            {% endif %}
-
-        </div>
-
-        {# A vertical panel rather than a horizontal shelf: a shelf hid the
-           achievement counts and the playtime bar that make the library worth
-           looking at. #}
-        <div class="wrap">
-            <div class="feed stm">
-                {{ isle::steam_head(steam=steam, label="Most played") }}
-                {{ isle::steam_stats(steam=steam) }}
-                {{ isle::steam_played(games=steam.library | slice(end=steam.totals.played), top=steam.library | first | get(key="minutes")) }}
-            </div>
-        </div>
-
-        <div class="wrap">
-            <p class="feed-foot">Snapshot from Steam, {{ steam.fetched }}. <a href="/games/">The whole library →</a></p>
-        </div>
-    </section>
     {% endif %}
 
     {# -------------------------------------------------------------- mods -- #}
@@ -506,211 +429,6 @@
     </section>
     {% endif %}
 {% endif %}
-
-
-    {# ----------------------------------------------------------- travel -- #}
-    {% if travel.count > 0 %}
-    <section id="travel">
-        <div class="wrap">
-            <div class="head">
-                <h2>Been there</h2>
-                <p>{{ travel.count }} states and {{ been.count }} places worth naming. Mostly the west, and mostly by car.</p>
-            </div>
-            <div class="map-row">
-                {# An <img>, not inline SVG: the paths are 52 KB and this page is
-                   40. As a file it caches for a year under the /imgs/* rule in
-                   _headers and costs the HTML nothing. The cost is that an
-                   <img> SVG is a static picture (no per-state hover) so the
-                   names are real text beside it, which a screen reader prefers
-                   to a tooltip anyway.
-
-                   The pins are real coordinates, not decoration: every place,
-                   resort and summit below carries a latitude and longitude
-                   pulled from Wikidata, and scripts/build-map.mjs drops them
-                   through the same Albers projection the state outlines are
-                   drawn in. See DATA.md. #}
-                <img class="map" src="{{ travel.map }}" width="975" height="610"
-                     alt="Map of the United States with {{ travel.count }} states filled in ({{ travel.visited | map(attribute='name') | join(sep=', ') }}) and {{ travel.pins }} places pinned"
-                     loading="lazy" decoding="async">
-                <div>
-                    <p class="map-key">
-                        <span class="key key--place"></span>{{ travel.pins_by_kind.place }} places
-                        <span class="key key--ski"></span>{{ travel.pins_by_kind.ski }} resorts
-                        {%- if travel.pins_by_kind.peak %}<span class="key key--peak"></span>{{ travel.pins_by_kind.peak }} summits{% endif %}
-                    </p>
-                    <div class="bento bento--sm">
-                        {% for st in travel.visited %}
-                        <div class="tile-s2"><span class="t-k">{{ st.code }}</span><span class="t-t">{{ st.name }}</span></div>
-                        {% endfor %}
-                    </div>
-                    <p class="credit">Boundaries from the <a href="{{ travel.credit.source }}" target="_blank" rel="noopener">US Census via us-atlas</a> ({{ travel.credit.licence }}); coordinates from Wikidata, CC0.</p>
-                </div>
-            </div>
-        </div>
-
-        {% if been.count > 0 %}
-        {# The kicker goes INSIDE .wrap, not on it. .kicker sets its own margin,
-           which overrides .wrap's auto margins, so a p.wrap.kicker sat flush
-           against the left edge of any screen wider than the page. #}
-        <div class="wrap"><p class="kicker" style="margin-top:1.25rem">{{ been.count }} places, {{ been.places_with_photo }} of them photographed</p></div>
-        {# Auto-scrolling, like the games and films. About four seconds a tile
-           keeps the captions readable as they pass. #}
-        {% set n_pl = been.places | length %}
-        <div class="marquee" style="--mq:{{ n_pl * 4 }}s">
-            <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
-                {% for pl in been.places %}
-                <figure class="shot place{% if not pl.photo %} place--none{% endif %}">
-                    {% if pl.photo %}
-                    <img src="{{ pl.photo.src }}" alt="{{ pl.name }}" width="280" height="187" loading="lazy" decoding="async">
-                    {% endif %}
-                    <figcaption>
-                        <span class="shot-t">{{ pl.name }}</span>
-                        <span class="shot-s" style="display:block">{{ pl.where }}{% if pl.map %} · <a class="pinlink" href="{{ pl.map }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>Map</a>{% endif %}</span>
-                    </figcaption>
-                </figure>
-                {% endfor %}
-                </span>
-                {% endfor %}
-            </div>
-        </div>
-        {# The CC BY / CC BY-SA licences require the credits, not that they be a
-           paragraph on the page, so they fold into one line that opens on
-           click. The per-place notes that used to follow are off the page;
-           they are still in site/data/places.json. #}
-        <div class="wrap">
-            <details class="credits">
-                <summary>Photo credits</summary>
-                <p class="credit">Photographs from Wikimedia Commons under CC BY, CC BY-SA or public domain, {% for pl in been.places %}{% if pl.photo and pl.photo.credit_required %}<a href="{{ pl.photo.source }}" target="_blank" rel="noopener">{{ pl.name }}</a> {{ pl.photo.author | truncate(length=48) }}; {% endif %}{% endfor %}the rest are public domain.</p>
-            </details>
-        </div>
-        {% endif %}
-    </section>
-    {% endif %}
-
-    {# ----------------------------------------------------------- bucket -- #}
-    {% if me.bucket | length > 0 %}
-    <section id="bucket">
-        <div class="wrap">
-            {% set_global bucket_done = 0 %}
-            {% for b in me.bucket %}{% if b.done %}{% set_global bucket_done = bucket_done + 1 %}{% endif %}{% endfor %}
-            <div class="head"><h2>Bucket list</h2><p>Struck through means done, {{ bucket_done }} of {{ me.bucket | length }}. The easy ones were the mountains.</p></div>
-            <div class="bento">
-                {% for b in me.bucket %}
-                <div class="tile-s2{% if b.done %} row--done{% endif %}">
-                    <span class="t-k">{{ ico::check(done=b.done) }}</span>
-                    <span class="t-t">{{ b.text }}</span>
-                    {% if b.note %}<span class="t-s">{{ b.note }}</span>{% endif %}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-
-    {# ------------------------------------------------------------ skied -- #}
-    {# Same pipeline as the places above, a ski resort is a place with a
-       photograph, but its own section, because a list of twelve resorts is a
-       different thing from a list of towns. #}
-    {% if been.skiing | length > 0 %}
-    <section id="skied">
-        <div class="wrap">
-            <div class="head">
-                <h2>Skied</h2>
-                {% set ski_states = been.skiing | map(attribute="where") | unique %}
-                <p>{{ been.skiing | length }} resorts across {{ ski_states | length }} states. The Rockies mostly, and Tahoe when it snows.</p>
-            </div>
-        </div>
-        {% set n_ski = been.skiing | length %}
-        <div class="marquee" style="--mq:{{ n_ski * 4 }}s">
-            <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
-                {% for r in been.skiing %}
-                <figure class="shot place{% if not r.photo %} place--none{% endif %}">
-                    {% if r.photo %}
-                    <img src="{{ r.photo.src }}" alt="{{ r.name }}" width="280" height="187" loading="lazy" decoding="async">
-                    {% endif %}
-                    <figcaption>
-                        <span class="shot-t">{{ r.name }}</span>
-                        <span class="shot-s" style="display:block">{{ r.where }}{% if r.map %} · <a class="pinlink" href="{{ r.map }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>Map</a>{% endif %}</span>
-                    </figcaption>
-                </figure>
-                {% endfor %}
-                </span>
-                {% endfor %}
-            </div>
-        </div>
-        {# Credits folded away as above; the resort notes live on in
-           site/data/places.json. Author strings are cut short because one of
-           them is a whole licence statement pasted into the author field. #}
-        <div class="wrap">
-            <details class="credits">
-                <summary>Photo credits</summary>
-                <p class="credit">Photographs from Wikimedia Commons, {% for r in been.skiing %}{% if r.photo and r.photo.credit_required %}<a href="{{ r.photo.source }}" target="_blank" rel="noopener">{{ r.name }}</a> {{ r.photo.author | truncate(length=48) }}; {% endif %}{% endfor %}the rest public domain.</p>
-            </details>
-        </div>
-    </section>
-    {% endif %}
-
-    {# ---------------------------------------------------------- summits -- #}
-    {# The three facts that used to be grey pills reading "Half Dome at 6" are
-       now the mountains themselves. Photographs from Wikimedia Commons; the
-       credit under each one is required by its licence, not optional. #}
-    {% if media.peaks | length > 0 %}
-    <section id="summits">
-        <div class="wrap">
-            <div class="head">
-                <h2>Summits</h2>
-                <p>Half Dome at six, El Capitan at eight, Mt. Whitney at thirteen, that one in a thunderstorm.</p>
-            </div>
-            <div class="bento bento--lg">
-                {% for k in media.peaks %}
-                <div>
-                    <figure class="shot shot--wide">
-                        <img src="{{ k.art.sm }}" srcset="{{ k.art.sm }} 480w, {{ k.art.lg }} 960w"
-                             sizes="(max-width: 46rem) 100vw, 23rem"
-                             width="480" height="320" alt="{{ k.name }}, {{ k.where }}" loading="lazy" decoding="async">
-                        <figcaption>
-                            <span class="shot-t">{{ k.name }}</span>
-                            <span class="shot-s" style="display:block">{{ k.height }} · at {{ k.age }}{% if k.map %} · <a class="pinlink" href="{{ k.map }}" target="_blank" rel="noopener">Map</a>{% endif %}</span>
-                        </figcaption>
-                    </figure>
-                    <p class="credit">{{ k.author }}, <a href="{{ k.source }}" target="_blank" rel="noopener">{{ k.licence }}</a></p>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-
-    {# ------------------------------------------------------------ linux -- #}
-    {% if me.distro | length > 0 %}
-    <section id="linux">
-        <div class="wrap">
-            <div class="head">
-                <h2>Distro-hopping</h2>
-                <p>{{ me.distro | length }} setups, in order, starting at nine years old. Now on Omarchy.</p>
-            </div>
-            <ol class="distro-trail" aria-label="My Linux journey">
-                {% for d in me.distro %}
-                <li class="distro-step{% if d.current %} distro-step--current{% endif %}"{% if d.current %} aria-current="step"{% endif %}>
-                    <span class="distro-mark{% if d.logo %} distro-mark--{{ d.logo }}{% endif %}" style="--distro-colour:{{ d.colour }}" aria-hidden="true">
-                        {% if d.logo %}<img src="{{ distro_logos.logos[d.logo].src }}" alt="" width="64" height="64" loading="lazy" decoding="async">
-                        {% else %}{{ ico::mark(icons=ico2.icons, name=d.icon) }}{% endif %}
-                    </span>
-                    <span class="distro-copy">
-                        <span class="distro-status">{% if d.current %}Current{% else %}{% if loop.index < 10 %}0{% endif %}{{ loop.index }}{% endif %}</span>
-                        <span class="distro-name">{{ d.name }}</span>
-                        {% if d.note %}<span class="distro-note">{{ d.note }}</span>{% endif %}
-                    </span>
-                </li>
-                {% endfor %}
-            </ol>
-        </div>
-    </section>
-    {% endif %}
 
     {# ------------------------------------------------------------ ideas -- #}
 {# DISABLED, asked to be taken down, kept rather than deleted so it can come
@@ -917,87 +635,9 @@
         </div>
     </section>
     {% endif %}
-
-    {# ----------------------------------------------------------- movies -- #}
-    {# Split out of Watching, because a film and a series are not the same
-       thing and a list mixing them reads as neither. Two rows, like everything
-       else, it was three, and three rows of ninety-two posters is a wall.
-       Shuffled per build, so which half you see is not always the same half. #}
-    {% if titles.movies | length > 0 %}
-    {# A SAMPLE, not the lot. All 333 are on /movies/ with a search box; putting
-       them all here put 668 poster cards in the HTML (the marquee prints each
-       row twice so the track can loop seamlessly), took the page from 36 KB to
-       46 KB, and made a row 21,000px long that had to move at 228 px/s to get
-       round in the time allowed, which is not a shelf, it is a blur.
-
-       Sixty is two comfortable rows. The per-build shuffle means it is a
-       different sixty every time, which is the good version of this: the home
-       page is a window on the list, and the list is one click away. #}
-    {% set sample = titles.movies | slice(end=60) %}
-    {% set per = sample | length / 2 | round(method="ceil") %}
-    <section id="movies">
-        <div class="wrap">
-            <div class="head">
-                <h2>Movies</h2>
-                <p>Every film I have ever watched, {{ titles.movie_count }} of them. {{ sample | length }} at random below; the rest are one click away.</p>
-                <a class="more" href="/movies/">All of them →</a>
-            </div>
-        </div>
-        {% for row in [1, 2] %}
-        <div class="marquee{% if row == 2 %} mq-rev{% endif %}" style="--mq:{{ ico::mq_secs(n=per) }}s{% if row == 2 %};margin-top:var(--gap){% endif %}">
-            <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
-                {% for m in sample | slice(start=(row - 1) * per, end=row * per) %}
-                {{ isle::poster(w=m, size="sm") }}
-                {% endfor %}
-                </span>
-                {% endfor %}
-            </div>
-        </div>
-        {% endfor %}
-        {% if titles.posters %}
-        <div class="wrap"><p class="credit" style="margin-top:0.75rem">{{ titles.posters.attribution }}</p></div>
-        {% endif %}
-    </section>
-    {% endif %}
-
-    {# -------------------------------------------------------- fav films -- #}
-    {# A grid, not a marquee: a favourite that scrolls away is not being treated
-       as a favourite. Membership is `favourite_films` in me.toml, matched on
-       exact title; see the note there. #}
-    {% set_global fav_film_n = 0 %}
-    {% for m in titles.movies %}{% if m.title in me.favourite_films %}{% set_global fav_film_n = fav_film_n + 1 %}{% endif %}{% endfor %}
-    {% if fav_film_n > 0 %}
-    <section id="fav-movies">
-        <div class="wrap">
-            <div class="head">
-                <h2>Favourite movies</h2>
-                <p>{{ fav_film_n }} of the {{ titles.movie_count }}. The ones I would sit through again.</p>
-            </div>
-            <div class="favs">
-                {% for m in titles.movies %}{% if m.title in me.favourite_films %}{{ isle::poster(w=m, size="sm") }}{% endif %}{% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-
-    {# ------------------------------------------------------------- web ---- #}
-    {% if me.sites | length > 0 %}
-    <section id="web">
-        <div class="wrap">
-            <div class="head"><h2>Corners of the web</h2><p>Places worth keeping a bookmark for.</p></div>
-            <div class="bento">
-                {% for s in me.sites %}
-                <a class="tile-s2" href="{{ s.url }}" target="_blank" rel="noopener">
-                    <span class="t-t">{{ s.name }} <span class="ext" aria-hidden="true">↗</span></span>
-                    {% if s.note %}<span class="t-s">{{ s.note }}</span>{% endif %}
-                </a>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
+{% endif %}
 
 </main>
 {% endblock %}
+
+{% block scripts %}<script>{{ load_data(path="templates/_github.js", format="plain") | safe }}</script>{% endblock %}
