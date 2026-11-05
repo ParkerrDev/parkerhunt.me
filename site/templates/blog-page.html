@@ -2,8 +2,8 @@
 {% import "macros.html" as ico %}
 
 {# One post. A reading page: the title centred over a centred 40rem column of
-   19px type (see .prose in _style.css), in the blog's pink, then the other
-   posts as a row under it. It used to put a centred title over a column that
+   18px type (see .prose in _style.css), then the other posts as a row
+   under it. It used to put a centred title over a column that
    sat left of centre, with the back link floating between them, which is
    what made it look off. #}
 
@@ -12,12 +12,12 @@
 {% block css_extra %}
   .post-hero { padding-bottom: clamp(2rem, 4vw, 3rem); }
   .post-hero h1 { font-size: clamp(2.25rem, 6vw, 4rem); max-width: 48rem; margin: 0 auto; }
-  .post-meta { margin: 1.125rem 0 0; font-size: 0.9375rem; color: var(--faint); }
+  .post-meta { margin: 1.125rem 0 0; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); }
   .post-end { display: flex; justify-content: center; margin-top: clamp(2.5rem, 5vw, 3.5rem); }
 {% endblock %}
 
 {% block content %}
-<main id="main" class="tone tone--pink">
+<main id="main">
     <article>
         <header class="hero post-hero">
             <div class="wrap">

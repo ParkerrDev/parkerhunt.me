@@ -7,7 +7,7 @@
 
 {% block content %}
 {% set n = section.pages | length %}
-<header class="hero tone tone--pink">
+<header class="hero">
     <div class="wrap">
         <h1>{{ section.title }}</h1>
         <p class="hero-lede">{% if section.description %}{{ section.description }}{% else %}{{ n }} post{% if n != 1 %}s{% endif %}, newest first.{% endif %}</p>
@@ -15,7 +15,7 @@
 </header>
 
 <main id="main">
-    <section class="tone tone--pink" style="padding-top:0.5rem">
+    <section style="padding-top:0.5rem">
         <div class="marquee" style="--mq:{{ ico::mq_secs(n=n * 4) }}s">
             <div class="mq-track">
                 {% for pass in [1, 2] %}

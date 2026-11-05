@@ -21,7 +21,7 @@
 {% set games = load_data(path="data/games.toml") %}
 {% set top = steam.library | first | get(key="minutes") %}
 
-<header class="hero tone tone--orange">
+<header class="hero">
     <div class="wrap">
         <a class="back" href="/">{{ ico::back() }} Home</a>
         <h1>{{ page.title }}</h1>
@@ -34,7 +34,7 @@
     </div>
 </header>
 
-<main id="main" class="tone tone--orange">
+<main id="main">
     {% if page.content %}
     <section>
         <div class="wrap"><div class="prose">{{ page.content | safe }}</div></div>

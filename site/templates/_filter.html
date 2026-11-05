@@ -27,21 +27,21 @@
   .find input {
     flex: 1 1 14rem; min-width: 0; max-width: 22rem;
     font: inherit; font-size: 0.9375rem; color: var(--fg);
-    background: var(--card); border: 1px solid transparent; border-radius: var(--r-btn);
-    padding: 0.625rem 1.125rem;
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--r-btn);
+    padding: 0.5625rem 0.875rem;
   }
   .find input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-color: transparent; }
-  .find output { font-size: 0.8125rem; color: var(--faint); }
+  .find output { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); }
   [data-find].is-hidden { display: none; }
   .find-none { margin: 0; color: var(--muted); font-size: 0.9375rem; }
 
   .find-pick {
     flex: 0 0 auto;
-    font: inherit; font-size: 0.9375rem; font-weight: 500;
-    color: var(--link); background: transparent; border: 1px solid var(--link); border-radius: var(--r-btn);
-    padding: 0.5625rem 1.125rem; cursor: pointer;
+    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--fg); background: transparent; border: 1px solid var(--fg); border-radius: var(--r-btn);
+    padding: 0.6875rem 1rem; cursor: pointer;
   }
-  .find-pick:hover { background: var(--link); color: #000; }
+  .find-pick:hover { background: var(--fg); color: var(--bg); }
   .find-pick:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
   /* THE RING STAYS UNTIL THE NEXT PRESS. The first version faded it out over

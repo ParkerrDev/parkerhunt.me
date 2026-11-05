@@ -7,13 +7,14 @@
    template gets one block of a given name, and a second definition is not
    merged, it is ignored. Anything new goes IN here, not next to it. #}
 {% block css_extra %}{{ load_data(path="templates/_projects.css", format="plain") | safe }}
-  .hero--home { padding: clamp(3rem, 8vw, 6rem) 0 clamp(1.5rem, 4vw, 2.75rem); }
-  .hero--home .avatar { width: 7.5rem; margin-bottom: 1.5rem; }
-  .hero--home h1 { font-size: clamp(2.75rem, 8vw, 5.5rem); letter-spacing: -0.045em; line-height: 1; }
-  .hero--home .hero-lede { margin-top: 1.25rem; max-width: 36rem; color: var(--muted); }
-  .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2rem; }
+  .hero--home { padding: clamp(2.75rem, 6vw, 4.5rem) 0 clamp(1.5rem, 3.5vw, 2.5rem); }
+  .hero--home .avatar { width: 7rem; margin-bottom: 1.25rem; }
+  .hero--home h1 { font-size: clamp(2.5rem, 7vw, 4.75rem); letter-spacing: -0.04em; line-height: 1; }
+  .hero--home .hero-lede { margin-top: 1.125rem; max-width: 34rem; font-size: clamp(1.0625rem, 1.9vw, 1.25rem); color: rgba(255, 255, 255, 0.82); }
+  .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.875rem; margin-top: 1.75rem; }
   .hero--home .links { margin-top: 1.25rem; }
-  .head .gh-status { display: inline-flex; align-items: center; gap: 0.4375rem; margin: 0; font-size: 0.875rem; color: var(--faint); }
+  .hero--home .pill svg { width: 22px; height: 22px; }
+  .head .gh-status { display: inline-flex; align-items: center; gap: 0.4375rem; margin: 0; font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); }
   .gh-status .pulse { width: 0.5rem; height: 0.5rem; }
   .gcard--fav { width: min(17rem, 78vw); }
   .cap { width: 12.5rem; aspect-ratio: 460 / 215; flex: none; border-radius: var(--r-sm); }
@@ -27,9 +28,8 @@
    page of seventeen sections; the life ones moved out on 2026-11-04 because
    it was too long to read as anything.
 
-   Every row is a drift row (see .marquee in _style.css and _drift.js), and
-   every section has its own colour (.tone--*). A section with no data does
-   not render at all. #}
+   Every row is a drift row (see .marquee in _style.css and _drift.js). A
+   section with no data does not render at all. #}
 {% set me = load_data(path="data/me.toml") %}
 {% set gh = load_data(path="data/github.json") %}
 {% set steam = load_data(path="data/steam.json") %}
@@ -75,7 +75,7 @@
     {% set shown = [] %}
     {% for project in projects.pages %}{% if not project.extra.hide_on_home %}{% set_global shown = shown | concat(with=project) %}{% endif %}{% endfor %}
     {% if shown | length > 0 %}
-    <section id="work" class="tone tone--blue">
+    <section id="work">
         <div class="wrap">
             <div class="head">
                 <h2>Selected work</h2>
@@ -101,7 +101,7 @@
        a page can get. The snapshot is the fallback, and the whole row if the
        API is slow, rate limited or blocked. #}
     {% if gh.repos | length > 0 %}
-    <section id="code" class="tone tone--green">
+    <section id="code">
         <div class="wrap">
             <div class="head">
                 <h2>Code</h2>
@@ -116,7 +116,7 @@
                 <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
                 {% for r in gh.repos %}
                 <a class="rc" href="{{ r.url }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>
-                    <span class="rc-top">{{ ico::github() }}<span class="rc-name">{{ r.name }}</span></span>
+                    <span class="rc-top">{{ ico::github() }}<span class="rc-name">{{ r.name }}</span><span class="rc-vis">Public</span></span>
                     <p class="rc-desc">{{ r.description }}</p>
                     <span class="rc-meta">
                         {% if r.language %}<span><i class="rc-dot" data-lang="{{ r.language }}" style="--dot:{{ r.color }}"></i>{{ r.language }}</span>{% endif %}
@@ -143,7 +143,7 @@
     {% if config.extra.blog %}
     {% set blog = get_section(path="blog/_index.md") %}
     {% if blog.pages | length > 0 %}
-    <section id="blog" class="tone tone--pink">
+    <section id="blog">
         <div class="wrap">
             <div class="head">
                 <h2>Blog</h2>
@@ -168,7 +168,7 @@
        drifting the other way under them. The full Steam panel, playtimes and
        achievements, is on /games/. #}
     {% if steam.library | length > 0 %}
-    <section id="games" class="tone tone--orange">
+    <section id="games">
         <div class="wrap">
             <div class="head">
                 <h2>Games</h2>
@@ -219,7 +219,7 @@
     {% endif %}
 
     {# ------------------------------------------------------------- life -- #}
-    <section id="life" class="tone tone--teal">
+    <section id="life">
         <div class="wrap">
             <div class="cta-card">
                 <h2>Off the clock</h2>

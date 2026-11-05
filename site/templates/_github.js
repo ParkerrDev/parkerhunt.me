@@ -73,7 +73,7 @@
     a.target = "_blank";
     a.rel = "noopener";
     const top = el("span", "rc-top");
-    top.append(icon("github"), el("span", "rc-name", r.name));
+    top.append(icon("github"), el("span", "rc-name", r.name), el("span", "rc-vis", "Public"));
     a.append(top, el("p", "rc-desc", r.description));
     const meta = el("span", "rc-meta");
     if (r.language) {
