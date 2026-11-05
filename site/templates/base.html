@@ -42,6 +42,12 @@
        css_extra is how a page opts into more CSS without a second request. Only
        the three templates that mount a brand island fill it in, with
        _islands.css; everything else ships the shell alone. #}
+    {# The two faces, asked for before the stylesheet that uses them is even
+       parsed, so they are usually in before first paint. Same origin, and
+       crossorigin anyway, because fonts are always fetched in CORS mode and a
+       preload without it is fetched twice. #}
+    <link rel="preload" href="/fonts/geist-19f9c925.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/martian-mono-f9c1655c.woff2" as="font" type="font/woff2" crossorigin>
     <style>{{ load_data(path="templates/_style.css", format="plain") | safe }}{% block css_extra %}{% endblock %}</style>
 </head>
 
@@ -114,7 +120,7 @@
                the scripts are inline, and the one call the home page makes
                after it has painted (GitHub's API, for the Code row) sends no
                cookies and no referrer. #}
-            <div class="colophon">zola · no webfonts · no trackers · no analytics · one request to first paint</div>
+            <div class="colophon">zola · geist and martian mono · no trackers · no analytics · one request to first paint</div>
         </div>
     </footer>
     {% endblock footer %}
