@@ -58,8 +58,8 @@
                 <span>Andrew Parker Hunt</span>
             </a>
             {# The nav must not advertise what the page no longer has: every
-               link here goes to a section or a page that exists. Movies,
-               Skied and the other life sections moved to /life/ together.
+               link here goes to a section or a page that exists. Life is the
+               first of the life sections on the home page, Been there.
                The disabled pages (TV, Shelf, Chess, Novel, Ideas, Quotes) still
                answer on their URLs; an `if false` item comes back as one edit. #}
             <nav class="bar-nav" aria-label="Sections">
@@ -67,7 +67,7 @@
                 <a href="/#code">Code</a>
                 {% if config.extra.blog %}<a href="/blog/">Blog</a>{% endif %}
                 <a href="/games/">Games</a>
-                <a href="/life/">Life</a>
+                <a href="/#travel">Life</a>
                 {% if false %}<a href="/watching/">TV</a><a href="/shelf/">Shelf</a><a href="/chess/">Chess</a><a href="/novel/">Novel</a><a href="/ideas/">Ideas</a><a href="/quotes/">Quotes</a>{% endif %}
             </nav>
             {# Out of the link row and into the one solid button: the résumé is
