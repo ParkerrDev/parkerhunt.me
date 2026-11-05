@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
 
-{% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
+{# An empty description in the front matter counts as none: default only
+   fills in a missing value, and an empty meta description fails SEO. #}
+{% block description %}{% if page.description %}{{ page.description }}{% else %}{{ config.description }}{% endif %}{% endblock %}
 
 {% block css_extra %}
 .project-logo { display: block; width: min(100%, 20rem); height: auto; margin-inline: auto; border: 0; border-radius: 0; box-shadow: none; }

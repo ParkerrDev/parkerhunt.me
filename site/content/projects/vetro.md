@@ -25,7 +25,7 @@ its edge, lights a rim that follows its own corners and frosts what is behind it
 It lies over your theme instead of replacing it, and `vetro off` gives you Omarchy
 back as it was.
 
-![The Omarchy desktop with Vetro on: the calendar panel, the bar and two windows in liquid glass over a nebula wallpaper](/imgs/project-shots/vetro-3e7e2c9d.webp)
+{{ img(src="/imgs/project-shots/vetro-3e7e2c9d.webp", alt="The Omarchy desktop with Vetro on: the calendar panel, the bar and two windows in liquid glass over a nebula wallpaper") }}
 
 ## What turns to glass
 

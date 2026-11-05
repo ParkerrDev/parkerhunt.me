@@ -217,20 +217,31 @@
    title set in type when it did not, which is most of the time, because key
    art is copyrighted and no free source for it exists at any size. The colour
    pair is hand-picked per show in site/data/watching.json. #}
-{% macro poster(w, size="sm") %}
+{% macro poster(w, size="sm", lead=0) %}
 {# A logo card ignores the hand-picked colour and uses a plate chosen from the
    logo's own ink, measured at fetch time, see isDark() in fetch-titles.mjs.
    Dark type gets a near-white plate, light type gets a near-black one. Without
    this, Better Call Saul's black wordmark sat on a black card and vanished. #}
 <a class="poster poster--{{ size }}{% if w.poster %} poster--art{% elif w.logo %} poster--logo poster--{% if w.logo.dark %}plate{% else %}slate{% endif %}{% endif %}"
-   style="--pb:{{ w.bg }};--pf:{{ w.fg }}"
+   {# The colour pair only shows on a typographic card, or on the rank of a
+      ranked one: a poster covers the card, so it is left off the ~900 that
+      are neither, about 30 incompressible bytes each on the films page. #}
+   {% if not w.poster or w.rank %}style="--pb:{{ w.bg }};--pf:{{ w.fg }}"{% endif %}
    {% if w.imdb_url %}href="{{ w.imdb_url }}" target="_blank" rel="noopener"{% endif %}>
     {% if w.rank %}<span class="poster-n">{% if w.rank < 10 %}0{% endif %}{{ w.rank }}</span>{% endif %}
     {% if w.poster %}
     {# The real poster, straight from TMDb's CDN. It is the only third-party
        request on this site, and it is TMDb's own condition for licensing the
        artwork; see scripts/fetch-posters.mjs. #}
-    <img class="poster-p" src="{{ w.poster.src }}" alt="{{ w.title }}" width="342" height="513" loading="lazy" decoding="async">
+    {# Fetched at the width it is shown at: TMDb keeps each poster at fixed
+       widths, so ico::tmdb lists them and the browser picks one. `lead` is
+       the poster's place among the first ones a page shows above the fold
+       (0 for every other): those load at once instead of lazily, and the
+       first two ask for high priority, since one of them is the largest
+       thing on the screen. #}
+    {% if size == "lg" %}{% set psz = "(min-width: 40rem) 11rem, calc(50vw - 1.5rem)" %}{% else %}{% set psz = "8.75rem" %}{% endif %}
+    {% if w.poster.small is defined %}{% set psm = w.poster.small %}{% else %}{% set psm = true %}{% endif %}
+    {{ ico::tmdb(src=w.poster.src, sizes=psz, alt=w.title, cls="poster-p", lazy=lead == 0, priority=lead > 0 and lead < 3, small=psm) }}
     {% if w.poster.rating %}<span class="poster-r">{{ w.poster.rating }}</span>{% endif %}
     {% elif w.logo %}
     <img class="poster-i" src="{{ w.logo.src }}" alt="{{ w.title }}" width="240" height="120" loading="lazy" decoding="async">

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% import "macros.html" as ico %}
+{% import "islands.html" as isle %}
+{% import "_film.html" as fm %}
+
+{# Films 49 onward, in the same order as /movies/. Two readers: the films
+   page's own script, which fetches this page and moves its grid across (see
+   data-more in _filter.html), and a reader without JavaScript, who gets here
+   from the link under the first 48. The first two load at once, as on
+   /movies/, for the reader who lands here; the films page's script makes
+   them lazy before it moves them across, since there they land far below
+   the fold. #}
+
+{% block filter %}{% include "_filter.html" %}{% endblock %}
+{% block style %}{{ ico::style(parts=["buttons", "tiling", "chips", "posters"]) }}{% endblock %}
+{% block css_extra %}{{ load_data(path="templates/_filter.css", format="plain") | safe }}{% endblock %}
+{% block hold %}{% include "_hold.html" %}{% endblock %}
+{% block head %}{{ ico::find_head() }}
+<link rel="preconnect" href="https://image.tmdb.org">{% endblock %}
+
+{% block content %}
+{% set titles = load_data(path="data/titles.json") %}
+{% set first = 48 %}
+{% set films = titles.movies | sort(attribute="title") | slice(start=first) %}
+
+<header class="hero">
+    <div class="wrap">
+        <a class="back" href="/movies/">{{ ico::back() }} Movies</a>
+        <h1>{{ page.title }}</h1>
+        <p class="hero-lede">Films {{ first + 1 }} to {{ titles.movies | length }}, in the same order. The first {{ first }} are on <a href="/movies/">the films page</a>.</p>
+    </div>
+</header>
+
+<main id="main">
+    <section style="padding-top:0">
+        <div class="wrap">
+            {% set find_n = films | length %}
+            {{ ico::findbox(label="Search these " ~ find_n ~ " films…", random="Random film") }}
+            <div class="bento bento--wall" data-findable="Search these {{ find_n }} films…" data-random="Random film">
+                {% for m in films %}{% if loop.index <= 2 %}{% set ld = loop.index %}{% else %}{% set ld = 0 %}{% endif %}{{ fm::film(m=m, lead=ld) }}{% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

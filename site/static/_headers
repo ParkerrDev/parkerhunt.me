@@ -16,6 +16,13 @@
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
+# The responsive widths Zola cuts from those images (resize_image in
+# templates/macros.html). The name is a hash of the source path and the cut,
+# not of the pixels, so the /imgs/ promise is what makes this one safe: an
+# image that changes gets a new file name, never new contents under the old one.
+/processed_images/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # main.css is NOT content-hashed, a long max-age here would strand visitors on
 # an old stylesheet after a deploy.
 /main.css

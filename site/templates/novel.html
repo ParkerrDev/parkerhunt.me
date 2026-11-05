@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
+{% block style %}{{ ico::style(parts=["novel"]) }}{% endblock %}
 
 {# /novel/, a reading page, so it is built like one rather than like the rest
    of the site: serif, a 34rem measure, and nothing in the margins to look at.

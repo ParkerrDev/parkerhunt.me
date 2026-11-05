@@ -1,0 +1,51 @@
+/* The catalogue search box. Shipped in the head, through css_extra, by the
+   pages that have one, because the box itself is in the markup (see
+   ico::findbox and _filter.html): its styles have to be in place before the
+   first paint, or the box would draw unstyled and then jump. */
+.find { margin: 0 0 1.25rem; display: flex; align-items: center; justify-content: center; gap: 0.625rem; flex-wrap: wrap; }
+.find input {
+  flex: 1 1 14rem; min-width: 0; max-width: 22rem;
+  font: inherit; font-size: 0.9375rem; color: var(--fg);
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r-btn);
+  padding: 0.5625rem 0.875rem;
+}
+.find input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-color: transparent; }
+.find output { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); }
+[data-find].is-hidden { display: none; }
+.find-none { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+
+.find-pick {
+  flex: 0 0 auto;
+  font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--fg); background: transparent; border: 1px solid var(--fg); border-radius: var(--r-btn);
+  padding: 0.6875rem 1rem; cursor: pointer;
+}
+.find-pick:hover { background: var(--fg); color: var(--bg); }
+.find-pick:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* THE RING STAYS UNTIL THE NEXT PRESS. The first version faded it out over
+   1.6s, which was invisible in practice: a smooth scroll across a grid of
+   675 films takes most of a second on its own, so by the time the card was
+   under the reader's eye the ring had already gone. A pick you cannot see is
+   not a pick. It now persists, and pulses twice on arrival to catch the eye
+   as the scroll settles. */
+[data-find].is-picked {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: var(--r-sm);
+  animation: findpick 0.85s ease-in-out 2;
+}
+/* Pulsing the WIDTH rather than the colour, so the ring is never faint at any
+   point in the cycle, it only ever gets bolder. */
+@keyframes findpick {
+  0%, 100% { outline-width: 3px; outline-offset: 4px; }
+  50%      { outline-width: 7px; outline-offset: 1px; }
+}
+@media (prefers-reduced-motion: reduce) { [data-find].is-picked { animation: none; } }
+
+/* And say it in the status line in the accent colour, so there are two
+   independent signals rather than one. */
+.find output.is-pick { color: var(--link); font-weight: 600; font-family: var(--sans); font-size: 0.875rem; }
+/* Under the first part of a split list: the way to the rest without
+   JavaScript, and a button with it. Gone once the rest is in. */
+.find-more { margin: 1.75rem 0 0; text-align: center; }

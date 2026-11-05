@@ -7,8 +7,9 @@
    sat left of centre, with the back link floating between them, which is
    what made it look off. #}
 
-{% block description %}{{ page.description | default(value=page.content | striptags | truncate(length=160)) }}{% endblock %}
+{% block description %}{% if page.description %}{{ page.description }}{% else %}{{ page.content | striptags | truncate(length=160) }}{% endif %}{% endblock %}
 
+{% block style %}{{ ico::style(parts=["buttons", "rows"]) }}{% endblock %}
 {% block css_extra %}
   .post-hero { padding-bottom: clamp(2rem, 4vw, 3rem); }
   .post-hero h1 { font-size: clamp(2.25rem, 6vw, 4rem); max-width: 48rem; margin: 0 auto; }
@@ -39,16 +40,16 @@
     {% if others | length > 0 %}
     <section>
         <div class="wrap"><div class="head"><h2>More from the blog</h2></div></div>
-        <div class="marquee" style="--mq:{{ ico::mq_secs(n=others | length * 4) }}s">
+        <div class="marquee">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
-                {% for post in others %}{{ ico::post_card(post=post, quiet=pass == 2) }}{% endfor %}
+                <span>
+                {% for post in others %}{{ ico::post_card(post=post, quiet=false) }}{% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
     </section>
     {% endif %}
 </main>
 {% endblock %}
+
+{% block drift %}{% include "_drift.html" %}{% endblock %}

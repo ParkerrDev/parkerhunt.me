@@ -25,7 +25,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Parker Hunt">
     <meta property="og:title" content="{{ page.title | default(value=section.title) | default(value=config.title) }}">
-    <meta property="og:description" content="{{ page.description | default(value=config.description) }}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ config.description }}{% endif %}">
     <meta property="og:url" content="{{ current_url | default(value=config.base_url) | safe }}">
     <meta property="og:image" content="{% block og_image %}{{ get_url(path='imgs/webp/avatar-576.webp') }}{% endblock %}">
     <meta name="twitter:card" content="summary">
@@ -36,19 +36,29 @@
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=config.feed_filenames[0], trailing_slash=false) }}">
     {%- endif %}
 
-    {# load_data rather than include: Zola only registers *.html as templates,
-       so the stylesheet is read as a data file and emitted verbatim.
+    {# The stylesheet is read as a data file (Zola only registers *.html as
+       templates) and emitted by ico::style, which leaves out the parts of it a
+       page does not use. `style` is where a page names its parts; the default
+       is the shell alone. See the PARTS note at the top of _style.css.
 
-       css_extra is how a page opts into more CSS without a second request. Only
-       the three templates that mount a brand island fill it in, with
-       _islands.css; everything else ships the shell alone. #}
+       css_extra is how a page adds a stylesheet of its own without a second
+       request: _islands.css on the pages that mount a brand island,
+       _filter.css on the catalogues, _projects.css where there are project
+       cards. It comes after _style.css. #}
     {# The two faces, asked for before the stylesheet that uses them is even
        parsed, so they are usually in before first paint. Same origin, and
        crossorigin anyway, because fonts are always fetched in CORS mode and a
        preload without it is fetched twice. #}
     <link rel="preload" href="/fonts/geist-19f9c925.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/martian-mono-f9c1655c.woff2" as="font" type="font/woff2" crossorigin>
-    <style>{{ load_data(path="templates/_style.css", format="plain") | safe }}{% block css_extra %}{% endblock %}</style>
+    <style>{% block style %}{{ ico::style(parts=["shell"]) }}{% endblock %}{% block css_extra %}{% endblock %}</style>
+    {# `hold` makes lazy images wait until the page has loaded. A page with
+       many of them near the top fills it in with _hold.html; it has to be in
+       the head, before the first image is parsed. The others do not carry a
+       script they would not need. #}
+    {% block hold %}{% endblock %}
+    {# Anything else a page needs in its head: a preconnect, a noscript rule. #}
+    {% block head %}{% endblock %}
 </head>
 
 <body>
@@ -60,7 +70,7 @@
             {# Mark first, then the full name. The mark is the same memoji the
                favicon uses, so the tab and the page agree. #}
             <a class="bar-home" href="/">
-                <img src="/imgs/webp/memoji-circle.webp" width="26" height="26" alt="" decoding="async">
+                {{ ico::pic(src="/imgs/webp/memoji-circle.webp", widths=[28, 49, 56, 84], sizes="1.75rem", w=28, h=28, lazy=false) }}
                 <span>Andrew Parker Hunt</span>
             </a>
             {# The nav must not advertise what the page no longer has: every
@@ -87,17 +97,19 @@
 
     {# Scripts, all inline, so none of them costs a request.
 
-       _drift.js runs the horizontal rows (pause on hover, drag, loop), on every
-       page, and does nothing on a page without one. Without JavaScript the
-       rows still move, on a CSS animation, and with reduced motion they are
-       plain sideways scrollers.
+       `drift` is the horizontal rows' script (pause on hover, drag, loop),
+       _drift.js. Only a page with rows fills it in, with _drift.html, so the
+       others do not carry 4 KB they would never run. It takes each row over
+       as it nears the screen. Without JavaScript, and with reduced motion,
+       the rows are plain sideways scrollers.
 
        `scripts` is for a page's own: the home page's live GitHub cards.
 
        `filter` is the catalogue pages' search box. Progressive enhancement in
-       the strict sense: the box is created BY the script, so a reader without
-       JavaScript never sees a search field that cannot search. #}
-    <script>{{ load_data(path="templates/_drift.js", format="plain") | safe }}</script>
+       the strict sense: the box is in the markup but hidden from a reader
+       without JavaScript (ico::find_head), who never sees a search field that
+       cannot search. #}
+    {% block drift %}{% endblock %}
     {% block scripts %}{% endblock %}
     {% block filter %}{% endblock %}
 

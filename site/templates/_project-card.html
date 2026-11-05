@@ -12,8 +12,14 @@
    project lacks it. `kind` is plain front matter, written in capitals because
    it is shown as written (so "iOS APP" keeps its lowercase i), and a wrong
    label is a one-word fix in that project's .md. `h` is the heading level: 3
-   under the home page's "Selected work", 2 directly under /projects/' h1. #}
-{% macro card(project, i, h=3) %}
+   under the home page's "Selected work", 2 directly under /projects/' h1.
+
+   The art is sized to the card: `sizes` is the card art's layout width, the
+   /projects/ grid's by default, and the home page passes the drift row's. The
+   first three cards' art loads at once and the first of all is fetched first
+   when `lead` is set, since on /projects/ it is the largest thing on screen. #}
+{% import "macros.html" as ico %}
+{% macro card(project, i, h=3, sizes="(min-width: 66rem) 24rem, (min-width: 45rem) calc(50vw - 3.25rem), calc(100vw - 4.625rem)", lead=false) %}
 {% set site = project.extra.website_url | default(value="") %}
 {% set host = site | replace(from="https://", to="") | replace(from="http://", to="") | trim_end_matches(pat="/") %}
 <article class="pc">
@@ -46,8 +52,7 @@
 
     {% if project.extra.card_image %}
     <div class="pc-art">
-        <img src="{{ project.extra.card_image }}" alt="" width="900" height="338"
-             {% if i > 3 %}loading="lazy" {% endif %}decoding="async">
+        {{ ico::pic(src=project.extra.card_image, widths=[360, 450, 560, 680], sizes=sizes, w=900, h=338, lazy=i > 3, priority=lead and i == 1) }}
     </div>
     {% endif %}
 </article>

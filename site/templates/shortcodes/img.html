@@ -1,0 +1,10 @@
+{#- An image in a page's text, for where a Markdown image falls short: that
+    has no width or height, so the text under it jumps down when it loads, and
+    it is one file at full size for every screen. This one carries the file's
+    own width and height and is offered at the widths a column of text shows
+    it at (ico::pic, a 40rem measure), and stays lazy like a Markdown image.
+
+        {{ img(src="/imgs/webp/example.webp", alt="What it shows") }}
+-#}
+{%- import "macros.html" as ico -%}
+{{ ico::pic(src=src, alt=alt, widths=[480, 720, 960, 1280], sizes="(min-width: 43rem) 40rem, calc(100vw - 3rem)") }}

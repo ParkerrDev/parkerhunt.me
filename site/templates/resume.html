@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
+{% block style %}{{ ico::style(parts=["resume"]) }}{% endblock %}
 
 {% block title %}Résumé · Parker Hunt{% endblock %}
 
@@ -24,8 +25,14 @@
         <div class="wrap">
             {# <object> rather than <iframe>: it degrades to its own children when
                the browser has no inline PDF viewer, which is most of mobile. The
-               fallback is the download pair above, restated. #}
-            <object class="resume-frame" data="/AndrewHuntResume.pdf" type="application/pdf">
+               fallback is the download pair above, restated.
+
+               #toolbar=0 because Chrome's viewer slides its toolbar in after
+               the PDF has drawn, which pushes the whole document down 56px:
+               that move was the page's entire layout-shift score. The Download
+               button above does what the toolbar's own button did.
+               aria-label because an <object> has no alt. #}
+            <object class="resume-frame" data="/AndrewHuntResume.pdf#toolbar=0&amp;view=FitH" type="application/pdf" aria-label="Andrew Parker Hunt's résumé (PDF)">
                 <div class="prose" style="padding:2rem">
                     <p>Your browser can’t display this PDF inline.</p>
                     <p><a href="/AndrewHuntResume.pdf" download>Download the PDF</a>.</p>

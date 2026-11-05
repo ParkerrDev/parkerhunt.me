@@ -2,6 +2,9 @@
 {% import "macros.html" as ico %}
 
 {% block filter %}{% include "_filter.html" %}{% endblock %}
+{% block style %}{{ ico::style(parts=["quotes"]) }}{% endblock %}
+{% block css_extra %}{{ load_data(path="templates/_filter.css", format="plain") | safe }}{% endblock %}
+{% block head %}{{ ico::find_head() }}{% endblock %}
 
 {% block content %}
 {% set me = load_data(path="data/me.toml") %}
@@ -37,6 +40,7 @@
     <section>
         <div class="wrap">
             <div class="head"><h2>Borrowed</h2></div>
+            {{ ico::findbox(label="Search " ~ qd.count ~ " quotes…", random="Random quote") }}
             <div class="quotes" data-findable="Search {{ qd.count }} quotes…" data-random="Random quote">
                 {% for q in qd.quotes %}
                 <figure class="quote" data-find="{{ q.text }} {{ q.who }}">

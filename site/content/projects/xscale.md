@@ -25,7 +25,7 @@ xscale fixes it where it breaks. X11 apps render at the highest monitor's scale 
 each window is shown at its logical size, like a HiDPI Wayland window: pixel for
 pixel on that monitor, cleanly downscaled on the others, never enlarged.
 
-![Side by side, the same X11 app on a laptop at scale 1.6: blurry on Hyprland as it ships, sharp and the size of the Wayland app with xscale](/imgs/project-shots/xscale-13291a78.webp)
+{{ img(src="/imgs/project-shots/xscale-13291a78.webp", alt="Side by side, the same X11 app on a laptop at scale 1.6: blurry on Hyprland as it ships, sharp and the size of the Wayland app with xscale") }}
 
 ## Three parts
 

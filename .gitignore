@@ -18,6 +18,11 @@ site/content/blog/.obsidian/*
 # Downloaded Zola binary
 site/zola
 
+# Zola's resize_image cache (the srcset widths). Rebuilt by every build, and
+# keyed on the source path, not its contents, so a stale copy here would
+# outlive an edited image.
+site/static/processed_images/
+
 # OS cruft
 .DS_Store
 

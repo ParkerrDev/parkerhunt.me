@@ -22,13 +22,13 @@ at six, [El Capitan](https://en.wikipedia.org/wiki/El_Capitan) at eight, and
 in the contiguous United States, at 14,505 ft, at thirteen. That last one was
 during a thunderstorm.
 
-![Me, mid-kick](/imgs/webp/🥋.webp)
+{{ img(src="/imgs/webp/🥋.webp", alt="Me, mid-kick") }}
 
 ## At a screen
 
 Linux and macOS, daily. Not Windows, unless the work insists.
 
-![My laptop](/imgs/webp/💻.webp)
+{{ img(src="/imgs/webp/💻.webp", alt="My laptop") }}
 
 I care a lot about software that is finished: things that do one job, start
 instantly, and can be explained end to end. This site is the argument: every

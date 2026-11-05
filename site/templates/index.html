@@ -6,6 +6,7 @@
 {# ONE css_extra block, and it has to carry everything this page adds: a
    template gets one block of a given name, and a second definition is not
    merged, it is ignored. Anything new goes IN here, not next to it. #}
+{% block style %}{{ ico::style(parts=["all"]) }}{% endblock %}
 {% block css_extra %}{{ load_data(path="templates/_projects.css", format="plain") | safe }}{{ load_data(path="templates/_distros.css", format="plain") | safe }}
   .hero--home { padding: clamp(2.75rem, 6vw, 4.5rem) 0 clamp(1.5rem, 3.5vw, 2.5rem); }
   .hero--home .avatar { width: 7rem; margin-bottom: 1.25rem; }
@@ -64,10 +65,7 @@
 <header class="hero hero--home">
     <div class="wrap hero-in">
         <div class="avatar">
-            <img src="/imgs/webp/avatar-288.webp"
-                 srcset="/imgs/webp/avatar-288.webp 288w, /imgs/webp/avatar-576.webp 576w"
-                 sizes="7.5rem"
-                 width="288" height="288" alt="Andrew Parker Hunt" fetchpriority="high" decoding="async">
+            {{ ico::pic(src="/imgs/webp/avatar-576.webp", widths=[112, 196, 224, 288, 336, 448], sizes="7rem", w=288, h=288, alt="Andrew Parker Hunt", lazy=false, priority=true) }}
         </div>
 
         <h1>Andrew Parker Hunt</h1>
@@ -129,13 +127,11 @@
                 <a class="more" href="/projects/">All projects ›</a>
             </div>
         </div>
-        <div class="marquee" style="--mq:{{ ico::mq_secs(n=shown | length * 3) }}s">
+        <div class="marquee">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
-                {% for project in shown %}{{ pc::card(project=project, i=loop.index) }}{% endfor %}
+                <span>
+                {% for project in shown %}{{ pc::card(project=project, i=loop.index, sizes="min(21.375rem, calc(84vw - 1.625rem))") }}{% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
     </section>
@@ -157,12 +153,11 @@
                 <a class="more" href="https://github.com/{{ gh.user }}?tab=repositories" target="_blank" rel="noopener">github.com/{{ gh.user }} ›</a>
             </div>
         </div>
-        <div class="marquee mq-rev" data-gh-user="{{ gh.user }}"{% if gh.colors %} data-gh-colors="{{ gh.colors | json_encode() }}"{% endif %} style="--mq:{{ ico::mq_secs(n=gh.repos | length * 2) }}s">
+        <div class="marquee mq-rev" data-gh-user="{{ gh.user }}"{% if gh.colors %} data-gh-colors="{{ gh.colors | json_encode() }}"{% endif %}>
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                <span>
                 {% for r in gh.repos %}
-                <a class="rc" href="{{ r.url }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>
+                <a class="rc" href="{{ r.url }}" target="_blank" rel="noopener">
                     <span class="rc-top">{{ ico::github() }}<span class="rc-name">{{ r.name }}</span><span class="rc-vis">Public</span></span>
                     <p class="rc-desc">{{ r.description }}</p>
                     <span class="rc-meta">
@@ -174,7 +169,6 @@
                 </a>
                 {% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
         {# The icons the live cards are built with, so the script carries no
@@ -197,13 +191,11 @@
                 <a class="more" href="/blog/">All posts ›</a>
             </div>
         </div>
-        <div class="marquee" style="--mq:{{ ico::mq_secs(n=blog.pages | length * 4) }}s">
+        <div class="marquee">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
-                {% for post in blog.pages %}{{ ico::post_card(post=post, quiet=pass == 2) }}{% endfor %}
+                <span>
+                {% for post in blog.pages %}{{ ico::post_card(post=post, quiet=false) }}{% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
     </section>
@@ -225,13 +217,12 @@
         </div>
 
         {% if games.favourite | length > 0 %}
-        <div class="marquee" style="--mq:{{ ico::mq_secs(n=games.favourite | length * 3) }}s">
+        <div class="marquee">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                <span>
                 {% for f in games.favourite %}
                 {% set g = steam.by_appid[f.appid] %}
-                <a class="gcard gcard--fav" href="{{ g.url }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>
+                <a class="gcard gcard--fav" href="{{ g.url }}" target="_blank" rel="noopener">
                     <div class="gcard-art">
                         <img src="{{ g.art }}" alt="" width="268" height="125" loading="lazy" decoding="async">
                         <span class="gcard-n">{{ loop.index }}</span>
@@ -243,23 +234,20 @@
                 </a>
                 {% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
         {% endif %}
 
         {% set lib = steam.library | slice(end=24) %}
-        <div class="marquee mq-rev" style="--mq:{{ ico::mq_secs(n=lib | length) }}s">
+        <div class="marquee mq-rev">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                <span>
                 {% for g in lib %}
-                <a class="shot cap" href="{{ g.url }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>
-                    <img src="{{ g.art }}" alt="{{ g.name }}" width="268" height="125" loading="lazy" decoding="async">
+                <a class="shot cap" href="{{ g.url }}" target="_blank" rel="noopener">
+                    {{ ico::pic(src=g.art, widths=[200, 240], sizes="12.5rem", w=268, h=125, alt=g.name) }}
                 </a>
                 {% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
     </section>
@@ -292,21 +280,19 @@
 
         {% if been.count > 0 %}
         <div class="wrap"><p class="kicker row-k">{{ been.count }} places, {{ been.places_with_photo }} of them photographed</p></div>
-        <div class="marquee" style="--mq:{{ been.places | length * 4 }}s">
+        <div class="marquee">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                <span>
                 {% for pl in been.places %}
                 <figure class="shot place{% if not pl.photo %} place--none{% endif %}">
-                    {% if pl.photo %}<img src="{{ pl.photo.src }}" alt="{{ pl.name }}" width="280" height="187" loading="lazy" decoding="async">{% endif %}
+                    {% if pl.photo %}{{ ico::pic(src=pl.photo.src, widths=[240, 320, 420, 480], sizes="15rem", w=280, h=187, alt=pl.name) }}{% endif %}
                     <figcaption>
                         <span class="shot-t">{{ pl.name }}</span>
-                        <span class="shot-s" style="display:block">{{ pl.where }}{% if pl.map %} · <a class="pinlink" href="{{ pl.map }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>Map</a>{% endif %}</span>
+                        <span class="shot-s" style="display:block">{{ pl.where }}{% if pl.map %} · <a class="pinlink" href="{{ pl.map }}" target="_blank" rel="noopener">Map</a>{% endif %}</span>
                     </figcaption>
                 </figure>
                 {% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
         {# CC BY / CC BY-SA require the credits, not that they be a paragraph,
@@ -332,21 +318,19 @@
                 <p>{{ been.skiing | length }} resorts across {{ ski_states | length }} states. The Rockies mostly, and Tahoe when it snows.</p>
             </div>
         </div>
-        <div class="marquee mq-rev" style="--mq:{{ been.skiing | length * 4 }}s">
+        <div class="marquee mq-rev">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                <span>
                 {% for r in been.skiing %}
                 <figure class="shot place{% if not r.photo %} place--none{% endif %}">
-                    {% if r.photo %}<img src="{{ r.photo.src }}" alt="{{ r.name }}" width="280" height="187" loading="lazy" decoding="async">{% endif %}
+                    {% if r.photo %}{{ ico::pic(src=r.photo.src, widths=[240, 320, 420, 480], sizes="15rem", w=280, h=187, alt=r.name) }}{% endif %}
                     <figcaption>
                         <span class="shot-t">{{ r.name }}</span>
-                        <span class="shot-s" style="display:block">{{ r.where }}{% if r.map %} · <a class="pinlink" href="{{ r.map }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>Map</a>{% endif %}</span>
+                        <span class="shot-s" style="display:block">{{ r.where }}{% if r.map %} · <a class="pinlink" href="{{ r.map }}" target="_blank" rel="noopener">Map</a>{% endif %}</span>
                     </figcaption>
                 </figure>
                 {% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
         <div class="wrap">
@@ -367,25 +351,22 @@
                 <p>Half Dome at six, El Capitan at eight, Mt. Whitney at thirteen, that one in a thunderstorm.</p>
             </div>
         </div>
-        <div class="marquee" style="--mq:{{ ico::mq_secs(n=media.peaks | length * 4) }}s">
+        <div class="marquee">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                <span>
                 {% for k in media.peaks %}
                 <div class="peak">
                     <figure class="shot shot--wide">
-                        <img src="{{ k.art.sm }}" srcset="{{ k.art.sm }} 480w, {{ k.art.lg }} 960w" sizes="22rem"
-                             width="480" height="320" alt="{{ k.name }}, {{ k.where }}" loading="lazy" decoding="async">
+                        {{ ico::pic(src=k.art.lg, widths=[360, 480, 620, 720], sizes="min(22rem, 82vw)", w=480, h=320, alt=k.name ~ ", " ~ k.where) }}
                         <figcaption>
                             <span class="shot-t">{{ k.name }}</span>
-                            <span class="shot-s" style="display:block">{{ k.height }} · at {{ k.age }}{% if k.map %} · <a class="pinlink" href="{{ k.map }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>Map</a>{% endif %}</span>
+                            <span class="shot-s" style="display:block">{{ k.height }} · at {{ k.age }}{% if k.map %} · <a class="pinlink" href="{{ k.map }}" target="_blank" rel="noopener">Map</a>{% endif %}</span>
                         </figcaption>
                     </figure>
-                    <p class="credit">{{ k.author }}, <a href="{{ k.source }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>{{ k.licence }}</a></p>
+                    <p class="credit">{{ k.author }}, <a href="{{ k.source }}" target="_blank" rel="noopener">{{ k.licence }}</a></p>
                 </div>
                 {% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
     </section>
@@ -402,10 +383,9 @@
                 <p>Struck through means done, {{ bucket_done }} of {{ me.bucket | length }}. The easy ones were the mountains.</p>
             </div>
         </div>
-        <div class="marquee" style="--mq:{{ ico::mq_secs(n=me.bucket | length * 3) }}s">
+        <div class="marquee">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                <span>
                 {% for b in me.bucket %}
                 <div class="tc{% if b.done %} row--done{% endif %}">
                     <span class="t-k">{{ ico::check(done=b.done) }}</span>
@@ -414,7 +394,6 @@
                 </div>
                 {% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
     </section>
@@ -432,7 +411,7 @@
                 {% for d in me.distro %}
                 <li class="distro-step{% if d.current %} distro-step--current{% endif %}"{% if d.current %} aria-current="step"{% endif %}>
                     <span class="distro-mark{% if d.logo %} distro-mark--{{ d.logo }}{% endif %}" style="--distro-colour:{{ d.colour }}" aria-hidden="true">
-                        {% if d.logo %}<img src="{{ distro_logos.logos[d.logo].src }}" alt="" width="64" height="64" loading="lazy" decoding="async">
+                        {% if d.logo %}{{ ico::pic(src=distro_logos.logos[d.logo].src, widths=[48, 84, 96], sizes="3rem", w=64, h=64) }}
                         {% else %}{{ ico::mark(icons=ico2.icons, name=d.icon) }}{% endif %}
                     </span>
                     <span class="distro-copy">
@@ -466,25 +445,21 @@
         </div>
         {% if fav_film_n > 0 %}
         <div class="wrap"><p class="kicker">Favourites</p></div>
-        <div class="marquee" style="--mq:{{ ico::mq_secs(n=fav_film_n * 2) }}s">
+        <div class="marquee">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                <span>
                 {% for m in titles.movies %}{% if m.title in me.favourite_films %}{{ isle::poster(w=m, size="sm") }}{% endif %}{% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
         <div class="wrap"><p class="kicker row-k">Everything else</p></div>
         {% endif %}
         {% for row in [1, 2] %}
-        <div class="marquee{% if row == 2 %} mq-rev{% endif %}" style="--mq:{{ ico::mq_secs(n=per) }}s">
+        <div class="marquee{% if row == 2 %} mq-rev{% endif %}">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                <span>
                 {% for m in sample | slice(start=(row - 1) * per, end=row * per) %}{{ isle::poster(w=m, size="sm") }}{% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
         {% endfor %}
@@ -500,18 +475,16 @@
         <div class="wrap">
             <div class="head"><h2>Corners of the web</h2><p>Places worth keeping a bookmark for.</p></div>
         </div>
-        <div class="marquee" style="--mq:{{ ico::mq_secs(n=me.sites | length * 3) }}s">
+        <div class="marquee">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
+                <span>
                 {% for s in me.sites %}
-                <a class="tc" href="{{ s.url }}" target="_blank" rel="noopener"{% if pass == 2 %} tabindex="-1"{% endif %}>
+                <a class="tc" href="{{ s.url }}" target="_blank" rel="noopener">
                     <span class="t-t">{{ s.name }} <span class="ext" aria-hidden="true">↗</span></span>
                     {% if s.note %}<span class="t-s">{{ s.note }}</span>{% endif %}
                 </a>
                 {% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
     </section>
@@ -802,10 +775,9 @@
            like it is stuck, and one that runs off both edges reads as endless.
            Two rows in opposite directions so the eye has somewhere to rest. #}
         {% for row in [1, 2] %}
-        <div class="marquee{% if row == 2 %} mq-rev{% endif %}" style="--mq:{{ ico::mq_secs(n=per_row) }}s{% if row == 2 %};margin-top:var(--gap){% endif %}">
+        <div class="marquee{% if row == 2 %} mq-rev{% endif %}"{% if row == 2 %} style="margin-top:var(--gap)"{% endif %}>
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
+                <span style="display:flex;gap:var(--gap)">
                 {% for q in qd.quotes | slice(start=(row - 1) * per_row, end=row * per_row) %}
                 <figure class="quote" style="width:22rem;flex:none;margin:0">
                     <p>{{ q.text }}</p>
@@ -813,7 +785,6 @@
                 </figure>
                 {% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
         {% endfor %}
@@ -836,10 +807,9 @@
            the row to be wider than the screen or a gap shows at the seam, and
            twelve covers were not; all of them are. /shelf/ has them at full
            size. #}
-        <div class="marquee" style="--mq:{{ ico::mq_secs(n=me.books_read | length) }}s">
+        <div class="marquee">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
+                <span style="display:flex;gap:var(--gap)">
                 {% for b in me.books_read %}
                 <div class="chip chip--rail">
                     <span class="cover">
@@ -852,7 +822,6 @@
                 </div>
                 {% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
     </section>
@@ -876,15 +845,13 @@
             </div>
         </div>
         {% for row in [1, 2] %}
-        <div class="marquee{% if row == 2 %} mq-rev{% endif %}" style="--mq:{{ ico::mq_secs(n=tv_per_row) }}s{% if row == 2 %};margin-top:var(--gap){% endif %}">
+        <div class="marquee{% if row == 2 %} mq-rev{% endif %}"{% if row == 2 %} style="margin-top:var(--gap)"{% endif %}>
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %} style="display:flex;gap:var(--gap)">
+                <span style="display:flex;gap:var(--gap)">
                 {% for w in titles.shows | slice(start=(row - 1) * tv_per_row, end=row * tv_per_row) %}
                 {{ isle::poster(w=w, size="sm") }}
                 {% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
         {% endfor %}
@@ -928,4 +895,7 @@
 </main>
 {% endblock %}
 
-{% block scripts %}<script>{{ load_data(path="templates/_github.js", format="plain") | safe }}</script>{% endblock %}
+{% block scripts %}{{ ico::script(path="templates/_github.js") }}{% endblock %}
+
+{% block drift %}{% include "_drift.html" %}{% endblock %}
+{% block hold %}{% include "_hold.html" %}{% endblock %}

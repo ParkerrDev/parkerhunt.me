@@ -2,6 +2,9 @@
 {% import "macros.html" as ico %}
 
 {% block filter %}{% include "_filter.html" %}{% endblock %}
+{% block style %}{{ ico::style(parts=["all"]) }}{% endblock %}
+{% block css_extra %}{{ load_data(path="templates/_filter.css", format="plain") | safe }}{% endblock %}
+{% block head %}{{ ico::find_head() }}{% endblock %}
 
 {% block content %}
 {% set ideas = load_data(path="data/ideas.toml") %}
@@ -22,6 +25,8 @@
     <section>
         <div class="wrap">
             {% if page.content %}<div class="prose" style="margin-bottom:2rem">{{ page.content | safe }}</div>{% endif %}
+            {% set find_n = ideas.idea | length %}
+            {{ ico::findbox(label="Search " ~ find_n ~ " ideas…", random="Random idea") }}
             <div class="ideas" data-findable="Search {{ ideas.idea | length }} ideas…" data-random="Random idea">
                 {% for i in ideas.idea %}
                 <article class="idea" data-find="{{ i.name }} {{ i.blurb | default(value="") }} {{ i.tag | default(value="") }}">
