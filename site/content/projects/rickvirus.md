@@ -6,8 +6,8 @@ updated = 2026-04-04
 weight = 8
 [extra]
 kind = "WEBSITE"
+brand_manual = true
 card_image = "/imgs/project-cards/opt/rickvirus-05194bcf.webp"
-brand_image = "/imgs/project-brand/rickvirus-e4933ec1.webp"
 website_url = "https://rickvir.us"
 accent = "#723b33"
 accent_ink = "#ffffff"

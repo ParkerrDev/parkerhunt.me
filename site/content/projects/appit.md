@@ -6,8 +6,9 @@ updated = 2026-04-04
 weight = 5
 [extra]
 kind = "iOS APP"
+brand_manual = true
 card_image = "/imgs/project-cards/opt/appit-3cb98b9e.webp"
-brand_image = "/imgs/project-brand/appit-7419d963.webp"
+brand_image = "/imgs/project-brand/appit-mark-d8da2f33.webp"
 website_url = "https://appitapp.app"
 hide_read_more = true
 accent = "#ccdc48"

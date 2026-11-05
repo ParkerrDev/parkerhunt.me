@@ -6,7 +6,7 @@ updated = 2026-04-04
 weight = 6
 [extra]
 kind = "WEBSITE"
-brand_image = "/imgs/project-brand/trion-supercars-c0f81ed0.webp"
+brand_image = "/imgs/project-brand/trion-supercars-mark-364230fa.webp"
 brand_manual = true
 card_image = "/imgs/project-cards/opt/trion-d326544a.webp"
 website_url = "https://noirt.netlify.app"

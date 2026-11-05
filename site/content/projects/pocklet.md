@@ -6,7 +6,7 @@ updated = 2026-04-04
 weight = 7
 [extra]
 kind = "WEB APP"
-brand_image = "/imgs/project-brand/pocklet-24b0b5b3.webp"
+brand_image = "/imgs/project-brand/pocklet-mark-804d7084.webp"
 brand_manual = true
 card_image = "/imgs/project-cards/opt/pocklet-2ca1d57c.webp"
 website_url = "https://pocklet.netlify.app"
