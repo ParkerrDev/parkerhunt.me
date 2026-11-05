@@ -45,12 +45,12 @@
   margin: 0.75rem 0 0; display: flex; align-items: center; gap: 0.5625rem;
   font-size: 1.375rem; font-weight: 400; letter-spacing: -0.025em; line-height: 1.15;
 }
-/* The icon is the mark, at the proportions an iOS icon uses for its corners. */
-.pc-brand {
-  width: 1.5rem; height: 1.5rem; flex: 0 0 auto; border-radius: 22%;
-  object-fit: cover; box-shadow: 0 0 0 1px var(--line);
-}
-.pc-brand--unboxed { border-radius: 0; box-shadow: none; object-fit: contain; }
+/* The mark on its own: no tile, no ring, no rounded corners, each at its own
+   proportions and all at one height, so a shield, a pocket and a V sit on the
+   title's line and the gap after each one is the same. The files are cut tight
+   to the mark and the img carries its real size, so nothing moves when a lazy
+   one loads. */
+.pc-brand { height: 1.5rem; width: auto; max-width: 2rem; flex: none; object-fit: contain; }
 /* The stretched link: its ::after covers the whole card, so the card is
    clickable without an anchor wrapped around block content. */
 .pc-link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }

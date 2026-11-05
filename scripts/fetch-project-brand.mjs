@@ -130,10 +130,19 @@ for (const f of readdirSync(DIR).filter((n) => n.endsWith(".md") && n !== "_inde
 
      TempleOS is flagged for a different reason: its logo is 128x152, and the
      square crop below takes the centre, which cut the top and bottom off its
-     own frame along with the sword's tip and pommel. Its mark is the same logo
-     fitted into the square instead of cropped to it.
+     own frame along with the sword's tip and pommel.
 
-     Delete brand_manual once a site serves an icon this can use unaltered. */
+     Since November 2026 the cards show each mark bare, at one height, with no
+     tile behind it, so every flagged project's mark is now cut out of its tile
+     by hand and kept at its own proportions: AppIt's tree and Vetro's V came
+     off their white app-icon squares (Vetro's is its symbolic SVG from the
+     vetro repo, filled white), and TempleOS's sword and scales off the cyan, by
+     snapping each pixel to TempleOS's 16-colour palette. Rickvirus is flagged
+     with no brand_image at all: its icon is a photo, which has no mark to lift,
+     and the card reads better with the title alone than with a framed photo.
+
+     Delete brand_manual once a site serves a bare mark this can use unaltered.
+     This script still writes square tiles, so keep it away from those six. */
   if (/brand_manual = true/.test(src)) {
     console.log(`  ${slug.padEnd(18)} hand-composed mark, left alone`);
     continue;
