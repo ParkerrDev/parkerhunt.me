@@ -30,16 +30,22 @@
   .distro-trail { margin-top: 0.5rem; }
   .wrap > .credit, .wrap > .credits { text-align: center; }
   .credits summary { margin: 0 auto; }
+  /* The now box, back at the top. It keeps its two columns and its left-set
+     text (a list reads badly centred) but sits on the page's centre line at
+     about the width of the map, and Selected work follows it closely: no
+     hairline, and most of the top padding gone. */
+  #now .now { max-width: 52rem; margin-inline: auto; }
+  #now + #work { border-top: 0; padding-top: 1rem; }
 {% endblock %}
 
 {% block title %}Parker Hunt{% endblock %}
 
 {% block content %}
-{# Everything on one page: who I am, the work (selected work, code, the blog,
-   games), then the rest of life (where I have been, skiing, summits, the
-   bucket list, distros, movies, bookmarks). The life sections spent
-   2026-11-04 on a /life/ page of their own and came back the next day: the
-   point is that it is all here.
+{# Everything on one page: who I am, what I am doing now, the work (selected
+   work, code, the blog, games), then the rest of life (where I have been,
+   skiing, summits, the bucket list, distros, movies, bookmarks). The life
+   sections spent 2026-11-04 on a /life/ page of their own and came back the
+   next day: the point is that it is all here.
 
    Every row is a drift row (see .marquee in _style.css and _drift.js). A
    section with no data does not render at all. #}
@@ -86,6 +92,28 @@
 </header>
 
 <main id="main">
+
+    {# -------------------------------------------------------------- now -- #}
+    {# What is actually happening this month, at the top where it belongs.
+       Edit [now] in site/data/me.toml, and move `updated` when you do, because
+       a "now" that is a year old is worse than no now at all. #}
+    {% if me.now.line %}
+    <section id="now" style="padding-top:0">
+        <div class="wrap">
+            <div class="now">
+                <div>
+                    <div class="now-k"><span class="pulse"></span> Now · {{ me.now.updated ~ "-01" | date(format="%B %Y") }}</div>
+                    <p class="now-t">{{ me.now.line }}</p>
+                </div>
+                {% if me.now.doing | length > 0 %}
+                <ul class="now-list">
+                    {% for d in me.now.doing %}<li>{{ d }}</li>{% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
 
     {# ------------------------------------------------------------- work -- #}
     {# The same card macro /projects/ uses, so the two pages cannot drift. A
