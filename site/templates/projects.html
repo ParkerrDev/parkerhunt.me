@@ -9,6 +9,7 @@
    simply omits what is missing. #}
 
 {% block css_extra %}{{ load_data(path="templates/_projects.css", format="plain") | safe }}{% endblock css_extra %}
+{% block hold %}{% include "_hold.html" %}{% endblock %}
 
 {% block content %}
 <header class="hero">
@@ -23,7 +24,7 @@
     <section>
         <div class="wrap">
             <div class="pcs">
-                {% for project in section.pages %}{{ pc::card(project=project, i=loop.index, h=2) }}{% endfor %}
+                {% for project in section.pages %}{{ pc::card(project=project, i=loop.index, h=2, lead=true) }}{% endfor %}
             </div>
         </div>
     </section>

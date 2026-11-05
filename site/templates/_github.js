@@ -14,6 +14,11 @@
    hour, so moving around the site does not spend them. Any failure, a
    timeout, a rate limit, a blocked request, leaves the snapshot showing.
 
+   Asked late, not at load: the call is made when the row comes within a
+   quarter screen of the viewport, or at the reader's first scroll, tap or key,
+   whichever is first. The snapshot already fills the row, so nothing waits on
+   it, and the first paint has no request in flight but its own.
+
    Text from the API is only ever set with textContent, never as HTML. */
 (() => {
   "use strict";
@@ -98,17 +103,7 @@
     const frag = document.createDocumentFragment();
     repos.slice(0, MAX_REPOS).forEach((r) => frag.append(card(r)));
     first.replaceChildren(frag);
-    // The copies, the CSS fallback's and the drift script's, are rebuilt from
-    // the new first set.
-    for (let i = track.children.length - 1; i >= 1; i -= 1) {
-      if (!row.classList.contains("mq-live")) {
-        const copy = first.cloneNode(true);
-        copy.classList.add("mq-dup");
-        copy.setAttribute("aria-hidden", "true");
-        copy.querySelectorAll("a").forEach((n) => n.setAttribute("tabindex", "-1"));
-        track.children[i].replaceWith(copy);
-      }
-    }
+    // The drift script rebuilds its copies from the new first set.
     row.dispatchEvent(new CustomEvent("mq:changed"));
     if (status) {
       status.replaceChildren(el("span", "pulse"), document.createTextNode(` Live from GitHub · ${repos.length} public repositories`));
@@ -135,22 +130,41 @@
   } catch (_) { cached = null; }
   if (cached) { render(cached); return; }
 
-  const ctl = "AbortController" in window ? new AbortController() : null;
-  const timer = ctl ? setTimeout(() => ctl.abort(), TIMEOUT) : 0;
-  fetch(`https://api.github.com/users/${user}/repos?per_page=100&sort=updated&type=owner`, {
-    headers: { Accept: "application/vnd.github+json" },
-    signal: ctl ? ctl.signal : undefined,
-    credentials: "omit",
-    referrerPolicy: "no-referrer",
-  })
-    .then((res) => (res.ok ? res.json() : null))
-    .then((raw) => {
-      if (!Array.isArray(raw)) return;
-      const repos = shape(raw);
-      if (repos.length === 0) return;
-      try { sessionStorage.setItem(KEY, JSON.stringify({ at: Date.now(), repos })); } catch (_) { /* storage off */ }
-      render(repos);
+  const load = () => {
+    const ctl = "AbortController" in window ? new AbortController() : null;
+    const timer = ctl ? setTimeout(() => ctl.abort(), TIMEOUT) : 0;
+    fetch(`https://api.github.com/users/${user}/repos?per_page=100&sort=updated&type=owner`, {
+      headers: { Accept: "application/vnd.github+json" },
+      signal: ctl ? ctl.signal : undefined,
+      credentials: "omit",
+      referrerPolicy: "no-referrer",
     })
-    .catch(() => { /* the snapshot stays */ })
-    .finally(() => clearTimeout(timer));
+      .then((res) => (res.ok ? res.json() : null))
+      .then((raw) => {
+        if (!Array.isArray(raw)) return;
+        const repos = shape(raw);
+        if (repos.length === 0) return;
+        try { sessionStorage.setItem(KEY, JSON.stringify({ at: Date.now(), repos })); } catch (_) { /* storage off */ }
+        render(repos);
+      })
+      .catch(() => { /* the snapshot stays */ })
+      .finally(() => clearTimeout(timer));
+  };
+
+  // Whichever comes first: the row nearing the viewport, or the reader doing
+  // anything at all. The call is made once, by whichever fires first.
+  const TRIGGERS = ["scroll", "pointerdown", "keydown", "touchstart"];
+  const io = "IntersectionObserver" in window
+    ? new IntersectionObserver((entries) => { if (entries.some((en) => en.isIntersecting)) ask(); }, { rootMargin: "25% 0px" })
+    : null;
+  let asked = false;
+  function ask() {
+    if (asked) return;
+    asked = true;
+    TRIGGERS.forEach((t) => window.removeEventListener(t, ask, true));
+    if (io) io.disconnect();
+    load();
+  }
+  TRIGGERS.forEach((t) => window.addEventListener(t, ask, { capture: true, passive: true }));
+  if (io) io.observe(row); else ask();
 })();

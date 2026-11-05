@@ -6,8 +6,13 @@
 
    Three deliberate choices:
 
-   1. The input is created by the script, not by the markup. A reader with
-      JavaScript off never sees a search field that cannot search.
+   1. The box is in the markup (ico::findbox, just before the list), so it is
+      on screen from the first paint and nothing below it moves when the
+      script arrives at the end of a long page. That move was the films
+      page's whole layout-shift score. A reader with JavaScript off still
+      never sees a search field that cannot search: ico::find_head hides
+      .find from inside a <noscript>. If a page has no box in its markup the
+      script builds one, as it always used to.
    2. Matching is done against a data-find attribute the template writes, so a
       film matches on its title, year and genre without anyone having to search
       the rendered HTML for stray words like "IMDb".
@@ -21,159 +26,14 @@
    the search rather than ignoring it, type "pixar", press Random, get a Pixar
    film. Every page that emits this block gets the button; the label comes from
    data-random on the findable element.
+
+   A list can be split across two pages (the films are: 48 on /movies/, the
+   rest on /movies/more/; movies.html says why). data-more on the findable
+   element names the second page. It is fetched once, on the first sign of a
+   reader (a scroll, a key, a tap, or the end of the list coming near), and
+   its list is moved in under this one. Search and Random wait for it, so
+   both always cover the whole list; if the fetch fails, the link under the
+   list still goes there.
 #}
-<style>
-  .find { margin: 0 0 1.25rem; display: flex; align-items: center; justify-content: center; gap: 0.625rem; flex-wrap: wrap; }
-  .find input {
-    flex: 1 1 14rem; min-width: 0; max-width: 22rem;
-    font: inherit; font-size: 0.9375rem; color: var(--fg);
-    background: var(--card); border: 1px solid var(--line); border-radius: var(--r-btn);
-    padding: 0.5625rem 0.875rem;
-  }
-  .find input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-color: transparent; }
-  .find output { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); }
-  [data-find].is-hidden { display: none; }
-  .find-none { margin: 0; color: var(--muted); font-size: 0.9375rem; }
-
-  .find-pick {
-    flex: 0 0 auto;
-    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--fg); background: transparent; border: 1px solid var(--fg); border-radius: var(--r-btn);
-    padding: 0.6875rem 1rem; cursor: pointer;
-  }
-  .find-pick:hover { background: var(--fg); color: var(--bg); }
-  .find-pick:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-  /* THE RING STAYS UNTIL THE NEXT PRESS. The first version faded it out over
-     1.6s, which was invisible in practice: a smooth scroll across a grid of
-     675 films takes most of a second on its own, so by the time the card was
-     under the reader's eye the ring had already gone. A pick you cannot see is
-     not a pick. It now persists, and pulses twice on arrival to catch the eye
-     as the scroll settles. */
-  [data-find].is-picked {
-    outline: 3px solid var(--accent);
-    outline-offset: 4px;
-    border-radius: var(--r-sm);
-    animation: findpick 0.85s ease-in-out 2;
-  }
-  /* Pulsing the WIDTH rather than the colour, so the ring is never faint at any
-     point in the cycle, it only ever gets bolder. */
-  @keyframes findpick {
-    0%, 100% { outline-width: 3px; outline-offset: 4px; }
-    50%      { outline-width: 7px; outline-offset: 1px; }
-  }
-  @media (prefers-reduced-motion: reduce) { [data-find].is-picked { animation: none; } }
-
-  /* And say it in the status line in the accent colour, so there are two
-     independent signals rather than one. */
-  .find output.is-pick { color: var(--link); font-weight: 600; font-family: var(--sans); font-size: 0.875rem; }
-</style>
-<script>
-(function () {
-  var scope = document.querySelector("[data-findable]");
-  if (!scope) return;
-  var items = scope.querySelectorAll("[data-find]");
-  if (items.length < 2) return;
-
-  var wrap = document.createElement("div");
-  wrap.className = "find";
-  var input = document.createElement("input");
-  input.type = "search";
-  input.placeholder = scope.dataset.findable || "Search";
-  input.setAttribute("aria-label", input.placeholder);
-  var count = document.createElement("output");
-  var dice = document.createElement("button");
-  dice.type = "button";
-  dice.className = "find-pick";
-  dice.textContent = scope.dataset.random || "Random";
-  var empty = document.createElement("p");
-  empty.className = "find-none";
-  empty.hidden = true;
-  wrap.appendChild(input);
-  wrap.appendChild(dice);
-  wrap.appendChild(count);
-  scope.parentNode.insertBefore(wrap, scope);
-  scope.parentNode.insertBefore(empty, scope.nextSibling);
-
-  var haystack = [];
-  for (var i = 0; i < items.length; i++) {
-    haystack.push((items[i].dataset.find || items[i].textContent).toLowerCase());
-  }
-
-  // The currently ringed card. Shared, because searching clears it and the
-  // Random button moves it.
-  var picked = null;
-
-  function run() {
-    var q = input.value.trim().toLowerCase();
-    var shown = 0;
-    for (var i = 0; i < items.length; i++) {
-      var hit = !q || haystack[i].indexOf(q) !== -1;
-      items[i].classList.toggle("is-hidden", !hit);
-      if (hit) shown++;
-    }
-    count.textContent = q ? shown + " of " + items.length : "";
-    count.classList.remove("is-pick");
-    empty.hidden = shown !== 0;
-    empty.textContent = shown === 0 ? 'Nothing matches "' + input.value.trim() + '".' : "";
-    // Typing is a new context, so drop the old ring rather than leaving it to
-    // reappear on a card the reader has stopped thinking about.
-    if (picked) { picked.classList.remove("is-picked"); picked = null; }
-  }
-
-  input.addEventListener("input", run);
-  // Escape clears, which is what a search box is expected to do.
-  input.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") { input.value = ""; run(); }
-  });
-
-  /* ---- Random ---------------------------------------------------------- */
-
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  function label(el) {
-    /* .t-t is the title span on a catalogue chip, h3 the heading on an idea.
-       Neither exists on a quote, and falling straight back to textContent is
-       wrong there: the markup is minified, so an idea's number, name and tag
-       run together as "44Old-school modelling agencybusiness". Prefer a single
-       titling element, then the first paragraph, then the whole text. */
-    var t = el.querySelector(".t-t, h3, h4") || el.querySelector("p") || el;
-    var s = t.textContent.replace(/\s+/g, " ").trim();
-    return s.length > 60 ? s.slice(0, 59) + "…" : s;
-  }
-
-  dice.addEventListener("click", function () {
-    var pool = [];
-    for (var i = 0; i < items.length; i++) {
-      if (!items[i].classList.contains("is-hidden")) pool.push(items[i]);
-    }
-    if (!pool.length) { count.textContent = "nothing to pick from"; return; }
-
-    var n = Math.floor(Math.random() * pool.length);
-    /* Never the same one twice running. With 674 films this would not matter;
-       with three left after a search it is the difference between a button
-       that works and one that looks broken. Stepping to the neighbour rather
-       than redrawing keeps this O(1) and, at a pool of two, alternates. */
-    if (pool.length > 1 && pool[n] === picked) n = (n + 1) % pool.length;
-    var choice = pool[n];
-
-    if (picked) picked.classList.remove("is-picked");
-    // Reflow between remove and add, or re-picking the same card after a
-    // search does not restart the pulse.
-    void choice.offsetWidth;
-    choice.classList.add("is-picked");
-    picked = choice;
-
-    choice.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" });
-    /* Focus the card's own link so the keyboard lands on it and Enter opens
-       the film, and so screen readers move with the ring rather than being
-       told about a card the focus is nowhere near. */
-    var link = choice.querySelector("a[href]"), target = link || choice;
-    if (!link) target.setAttribute("tabindex", "-1");
-    target.focus({ preventScroll: true });
-
-    count.textContent = label(choice);
-    count.classList.add("is-pick");
-  });
-})();
-</script>
+{%- import "macros.html" as ico -%}
+{{ ico::script(path="templates/_filter.js") }}

@@ -1,0 +1,17 @@
+{# One film on the films pages, /movies/ and /movies/more/. In a file of its
+   own because Tera looks up `self::` macros in the calling template, so a
+   macro in islands.html cannot call poster() from there. #}
+{% import "islands.html" as isle %}
+{# `alias` is searchable text that is deliberately NOT displayed. A film is
+   filed under its release title, and for the first entry in a series that
+   title often has no trace of the series in it: First Blood is a Rambo film,
+   Star Wars is A New Hope. Searching the franchise found the sequels and not
+   the original, which reads as the original being missing. See
+   site/data/watching.json. `lead` is passed through to poster(). #}
+{% macro film(m, lead=0) %}
+<div class="chip" data-find="{{ m.title }} {{ m.year }} {% if m.genres %}{{ m.genres | join(sep=" ") }}{% endif %}{% if m.alias %} {{ m.alias }}{% endif %}">
+    {{ isle::poster(w=m, size="lg", lead=lead) }}
+    <span class="t-t">{{ m.title }}</span>
+    <span class="t-s">{{ m.year }}{% if m.genres %} · {{ m.genres | first }}{% endif %}</span>
+</div>
+{% endmacro film %}

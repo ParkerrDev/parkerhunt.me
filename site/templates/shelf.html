@@ -6,6 +6,9 @@
    list, not a section. #}
 
 {% block filter %}{% include "_filter.html" %}{% endblock %}
+{% block style %}{{ ico::style(parts=["tiling", "chips", "covers"]) }}{% endblock %}
+{% block css_extra %}{{ load_data(path="templates/_filter.css", format="plain") | safe }}{% endblock %}
+{% block head %}{{ ico::find_head() }}{% endblock %}
 
 {% block content %}
 {% set me = load_data(path="data/me.toml") %}
@@ -26,12 +29,25 @@
 <main id="main">
     <section style="padding-top:0">
         <div class="wrap">
+            {% set find_n = me.books_read | length %}
+            {{ ico::findbox(label="Search " ~ find_n ~ " books…", random="Random book") }}
             <div class="bento bento--sm" data-findable="Search {{ me.books_read | length }} books…" data-random="Random book">
                 {% for b in me.books_read %}
                 <div class="chip" data-find="{{ b.title }} {{ b.author }}{% if b.year %} {{ b.year }}{% endif %}">
                     <span class="cover">
                         {%- if b.cover and media.covers[b.cover] %}
-                        <img src="{{ media.covers[b.cover] }}" width="200" height="300" alt="{{ b.title }}" loading="lazy" decoding="async">
+                        {#- The first row on a phone loads at once and first: one
+                            of them is the largest thing on screen, and a lazy
+                            image waits for layout. The covers are 400px files
+                            shown at 178px on a phone (two across) and 133px
+                            on a desktop, so they come in 200 and 320 too.
+                            Chrome takes the first width that covers the
+                            screen's density, and 320 is the one that does
+                            for 178px at 1.75x; 300 would fall through to 400.
+                            At quality 75: at 82 a 320px copy was hardly
+                            smaller than the 400px file. #}
+                        {%- if loop.index <= 2 %}{% set first_row = true %}{% else %}{% set first_row = false %}{% endif %}
+                        {{ ico::pic(src=media.covers[b.cover], widths=[200, 320], sizes="(min-width: 27rem) 8.5rem, calc(50vw - 1.75rem)", alt=b.title, w=200, h=300, q=75, lazy=not first_row, priority=first_row) }}
                         {%- endif %}
                     </span>
                     <span class="t-t">{{ b.title }}</span>

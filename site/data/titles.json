@@ -15061,6 +15061,7 @@
       ],
       "poster": {
         "src": "https://image.tmdb.org/t/p/w342/wqKVkOveZrK6zwfrptGLVPmnMpR.jpg",
+        "small": false,
         "tmdb_id": 18069,
         "rating": 7.1,
         "votes": 113,

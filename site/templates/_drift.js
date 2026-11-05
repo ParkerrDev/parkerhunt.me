@@ -1,20 +1,28 @@
-/* Drift rows. Inlined at the end of <body> by base.html, on every page, and a
-   no-op on a page without a .marquee.
+/* Drift rows. Inlined at the end of <body> by base.html, through the drift
+   block of each page that has rows (_drift.html), and a no-op on a page
+   without a .marquee.
 
    A row moves slowly and forever. It stops while the pointer is over it or a
    link inside it has focus, and it can be dragged with a mouse, swiped on a
    touch screen, or pushed sideways with a trackpad. Let go of a drag and it
    coasts to its usual speed again.
 
-   Markup (shared with the CSS fallback, which runs when this does not):
-     .marquee[.mq-rev] > .mq-track > span (the cards) + span.mq-dup (a copy)
+   Markup: .marquee[.mq-rev] > .mq-track > span (the cards), once. Without
+   this script a row is an ordinary sideways scroller, so the page ships each
+   set of cards one time and the copies a loop needs are made here.
 
    The loop: the track is moved left by `offset`, kept within one set's width,
    so when a whole set has gone by the offset wraps to zero and the copy behind
-   it is exactly where the first set was. A wide window can show more than two
-   sets' worth of track, so copies are added until the seam can never come into
-   view. A row whose set fits in the window without moving is not moved: it is
-   centred and still (.mq-still), and drifts again if the window narrows.
+   it is exactly where the first set was. Copies are added until the seam can
+   never come into view. A row whose set fits in the window is not moved: it is
+   centred and still (.mq-still), and drifts again if the window narrows. The
+   CSS centres a row that fits before this runs, so taking a row over moves
+   nothing on screen.
+
+   Lazy: nothing is measured, copied or listened to until a row comes within a
+   screen of the viewport, so a long page pays at load only for the rows near
+   the top. Measuring happens in observer callbacks, where layout is already
+   done, and every row's reads come before any row's writes.
 
    Reduced motion: the script does nothing and the CSS turns each row into an
    ordinary sideways scroller. */
@@ -48,48 +56,53 @@
     set.querySelectorAll("a, button, [tabindex]").forEach((el) => el.setAttribute("tabindex", "-1"));
   };
 
-  const measure = (s) => {
-    const sets = s.track.children;
-    const first = sets[0];
-    if (!first) return;
-    const gap = gapOf(s.track);
-    const setW = first.getBoundingClientRect().width;
-    const view = s.row.clientWidth;
-    s.span = setW + gap;
+  // Read: the set's width and the window's. No writes, so measuring every
+  // row in a batch costs one layout, not one per row.
+  const read = (s) => {
+    const first = s.track.children[0];
+    if (!first) return null;
+    return { setW: first.getBoundingClientRect().width, gap: gapOf(s.track), view: s.row.clientWidth };
+  };
+
+  // Write: still or moving, and enough copies that a whole window's width of
+  // track always follows the first set, whatever the offset.
+  const apply = (s, m) => {
+    if (!m) return;
+    s.span = m.setW + m.gap;
     // 48px of slack, the page gutter on both sides, so a still row never sits
     // flush against the window's edges.
-    const still = setW + 48 <= view || s.span <= 0;
+    const still = m.setW + 48 <= m.view || s.span <= 0;
     s.row.classList.toggle("mq-still", still);
     s.still = still;
     if (still) { s.track.style.transform = ""; return; }
-    // Enough copies that a whole window's width of track always follows the
-    // first set, whatever the offset.
-    const need = Math.min(MAX_COPIES, Math.max(2, Math.ceil(view / s.span) + 1));
+    const sets = s.track.children;
+    const need = Math.min(MAX_COPIES, Math.max(2, Math.ceil(m.view / s.span) + 1));
     for (let i = sets.length; i < need; i += 1) {
-      const copy = first.cloneNode(true);
+      const copy = sets[0].cloneNode(true);
       quiet(copy);
       s.track.appendChild(copy);
     }
     s.offset = ((s.offset % s.span) + s.span) % s.span;
   };
 
+  const measureAll = (list) => {
+    const ms = list.map(read);
+    list.forEach((s, i) => apply(s, ms[i]));
+  };
+
+  // Takes a row over: state and listeners. Measuring is the caller's, so a
+  // batch of rows can be read together first.
   const setup = (row) => {
     const track = row.querySelector(".mq-track");
-    if (!track || !track.children[0]) return;
+    if (!track || !track.children[0]) return null;
     const s = {
       row, track,
       dir: row.classList.contains("mq-rev") ? -1 : 1,
-      offset: 0, span: 0, still: true, seen: false,
+      offset: 0, span: 0, still: true, seen: true,
       hover: false, focus: false, wheelUntil: 0,
       press: null, dragging: false, vel: 0, suppressClick: false,
     };
     state.set(row, s);
-    // Reverse rows start partway through, so the two rows of a pair do not
-    // line their cards up.
-    row.classList.add("mq-live");
-    for (let i = 1; i < track.children.length; i += 1) quiet(track.children[i]);
-    measure(s);
-    if (s.dir < 0 && s.span > 0) s.offset = s.span * 0.37;
 
     row.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") s.hover = true; });
     row.addEventListener("pointerleave", () => { s.hover = false; });
@@ -150,32 +163,64 @@
     row.addEventListener("mq:changed", () => {
       const sets = Array.from(track.children);
       for (let i = sets.length - 1; i >= 1; i -= 1) sets[i].remove();
-      measure(s);
+      measureAll([s]);
+      if (ro && track.children[0]) ro.observe(track.children[0]);
+    });
+    return s;
+  };
+
+  // A row is resized (a narrower window, or new content) and is measured again.
+  const ro = "ResizeObserver" in window
+    ? new ResizeObserver((entries) => {
+        const hit = new Set();
+        entries.forEach((en) => {
+          const row = en.target.closest(".marquee");
+          const s = row && state.get(row);
+          if (s) hit.add(s);
+        });
+        measureAll(Array.from(hit));
+      })
+    : null;
+
+  // Which taken-over rows are on screen; set up with the observers below.
+  let vis = null;
+
+  // Taking a row over, the first time it nears the viewport.
+  const takeOver = (list) => {
+    const fresh = list.map(setup).filter(Boolean);
+    measureAll(fresh);
+    fresh.forEach((s) => {
+      // Reverse rows start partway through, so the two rows of a pair do not
+      // line their cards up.
+      if (s.dir < 0 && s.span > 0) s.offset = s.span * 0.37;
+      s.row.classList.add("mq-live");
+      if (ro) { ro.observe(s.row); ro.observe(s.track.children[0]); }
+      // Observed from now, so its first report is where the row is now. A row
+      // taken over a screen ahead is off screen and must not move yet.
+      if (vis) { s.seen = false; vis.observe(s.row); }
     });
   };
 
-  rows.forEach(setup);
-
-  // Only rows on screen are moved: a page of eight rows costs what the one or
-  // two in view cost.
-  const io = "IntersectionObserver" in window
-    ? new IntersectionObserver((entries) => {
-        entries.forEach((en) => { const s = state.get(en.target); if (s) s.seen = en.isIntersecting; });
-      }, { rootMargin: "100px 0px" })
-    : null;
-  state.forEach((s) => { if (io) io.observe(s.row); else s.seen = true; });
-
-  if ("ResizeObserver" in window) {
-    const ro = new ResizeObserver((entries) => {
+  // Two observers: a wide one that takes rows over a screen ahead of the
+  // viewport, and a narrow one that says which rows are on screen, since only
+  // those are moved. A page of twelve rows costs what the two in view cost.
+  if ("IntersectionObserver" in window) {
+    const near = new IntersectionObserver((entries) => {
+      const list = [];
       entries.forEach((en) => {
-        const row = en.target.closest(".marquee");
-        const s = row && state.get(row);
-        if (s) measure(s);
+        if (!en.isIntersecting || state.has(en.target)) return;
+        near.unobserve(en.target);
+        list.push(en.target);
       });
-    });
-    state.forEach((s) => { ro.observe(s.row); if (s.track.children[0]) ro.observe(s.track.children[0]); });
+      if (list.length) takeOver(list);
+    }, { rootMargin: "100% 0px" });
+    vis = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { const s = state.get(en.target); if (s) s.seen = en.isIntersecting; });
+    }, { rootMargin: "100px 0px" });
+    rows.forEach((row) => near.observe(row));
   } else {
-    window.addEventListener("resize", () => state.forEach(measure));
+    takeOver(rows);
+    window.addEventListener("resize", () => measureAll(Array.from(state.values())));
   }
 
   let last = 0;

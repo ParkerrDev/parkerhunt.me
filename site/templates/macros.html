@@ -180,31 +180,96 @@
 </span>
 {% endmacro banner %}
 
-{# --- marquee speed --------------------------------------------------------- #}
-{# One rule for every auto-scrolling row on the site: THE MORE IT CARRIES, THE
-   FASTER IT MOVES.
-
-   The durations used to be hand-typed per section (72s, 84s, 96s, 108s) and
-   were tuned to hold the pixels-per-second roughly constant, which meant a row
-   of 46 film posters crawled past at exactly the speed of a row of 7 quotes and
-   took nearly two minutes to show you what it had. Holding the DURATION roughly
-   constant instead is what makes a long row feel long-but-quick.
-
-   `n` is the number of items in one row, not in the section. Clamped at both
-   ends: under 40s a short row flicks past before it can be read, over 95s a
-   long one stops feeling like it is moving. #}
-{% macro mq_secs(n) %}{% set s = 30 + n * 12 / 10 %}{% if s < 40 %}40{% elif s > 95 %}95{% else %}{{ s | round }}{% endif %}{% endmacro mq_secs %}
-
 {# --- a blog post, as a card in a drift row --------------------------------- #}
 {# Used by the home page's Blog row, /blog/ and the "more posts" row under a
    post. The excerpt is the post's description when it has one, otherwise the
-   start of the post itself. `quiet` is the row's hidden copy: its link stays
-   clickable but leaves the tab order. #}
-{% macro post_card(post, quiet=false) %}
+   start of the post itself. `quiet` takes a card out of the tab order. `h` is
+   the title's heading level: 3 under a section's own h2, 2 on the blog
+   index, where the cards sit straight under the page's h1. #}
+{% macro post_card(post, quiet=false, h=3) %}
 <a class="bc" href="{{ post.permalink }}"{% if quiet %} tabindex="-1"{% endif %}>
     <span class="bc-date">{{ post.date | date(format="%B %-d, %Y") }}</span>
-    <h3 class="bc-t">{{ post.title }}</h3>
+    <h{{ h }} class="bc-t">{{ post.title }}</h{{ h }}>
     <p class="bc-x">{% if post.description %}{{ post.description }}{% else %}{{ post.content | striptags | truncate(length=200) }}{% endif %}</p>
     <span class="bc-m"><span>{{ post.reading_time }} min read</span><b>Read ›</b></span>
 </a>
 {% endmacro post_card %}
+
+{# A raster image at the sizes it is shown at, rather than one file for every
+   screen. `src` is a site path (/imgs/...). Each of `widths` narrower than the
+   file is made at build time by Zola (resize_image, WebP), and the file itself
+   is the largest candidate, so a sharp screen still gets every pixel there is.
+   Zola names each one by a hash of the source and the operation and keeps it
+   in static/processed_images/, so they are cached for a year like /imgs/*.
+
+   `sizes` is the width it is laid out at. A lazy image gets "auto" in front,
+   which lets the browser read the width off the layout; the given value is the
+   fallback for browsers without it. An SVG or anything that is not a local
+   file is passed through as it was. `w`/`h` are the attributes that hold the
+   box before the bytes land; they default to the file's own size. #}
+{% macro pic(src, widths, sizes, alt="", cls="", w=0, h=0, lazy=true, priority=false, q=82, style="") %}
+{%- set local = src is starting_with("/") and not src is ending_with(".svg") -%}
+{%- if local -%}{%- set path = src | trim_start_matches(pat="/") -%}{%- set meta = get_image_metadata(path=path, allow_missing=true) -%}{%- else -%}{%- set meta = false -%}{%- endif -%}
+{%- if meta -%}
+{%- set_global cand = [] -%}
+{%- for cw in widths -%}{%- if cw < meta.width -%}
+{%- set r = resize_image(path=path, width=cw, op="fit_width", format="webp", quality=q) -%}
+{%- set fname = r.url | split(pat="/") | last -%}
+{%- set_global cand = cand | concat(with="/processed_images/" ~ fname ~ " " ~ r.width ~ "w") -%}
+{%- endif -%}{%- endfor -%}
+{%- set_global cand = cand | concat(with=src ~ " " ~ meta.width ~ "w") -%}
+{%- set lead = cand | first -%}{%- set first = lead | split(pat=" ") | first -%}
+<img{% if cls %} class="{{ cls }}"{% endif %} src="{{ first }}" srcset="{{ cand | join(sep=', ') }}" sizes="{% if lazy %}auto, {% endif %}{{ sizes }}" width="{% if w %}{{ w }}{% else %}{{ meta.width }}{% endif %}" height="{% if h %}{{ h }}{% else %}{{ meta.height }}{% endif %}" alt="{{ alt }}"{% if style %} style="{{ style }}"{% endif %}{% if lazy %} loading="lazy"{% endif %}{% if priority %} fetchpriority="high"{% endif %} decoding="async">
+{%- else -%}
+<img{% if cls %} class="{{ cls }}"{% endif %} src="{{ src }}"{% if w %} width="{{ w }}" height="{{ h }}"{% endif %} alt="{{ alt }}"{% if style %} style="{{ style }}"{% endif %}{% if lazy %} loading="lazy"{% endif %}{% if priority %} fetchpriority="high"{% endif %} decoding="async">
+{%- endif -%}
+{% endmacro pic %}
+
+{# A TMDb poster at the size it is shown at. TMDb serves each poster at fixed
+   widths (/t/p/w154/, /w185/, /w342/, /w500/), so the srcset is the same path
+   with the width swapped. Two of them, not four: 185 covers a poster at about
+   11rem on a 1x screen and 342 covers it at 2x, and on the films page, with
+   818 posters, every extra candidate costs about 5 KB of compressed HTML.
+   small=false is for a poster whose w185 file is broken (bigger than its
+   w342; scripts/fetch-posters.mjs finds them): it gets w342 alone. #}
+{% macro tmdb(src, sizes, alt="", cls="", lazy=true, priority=false, small=true) %}
+{%- if small and src is containing("/t/p/w342/") -%}
+<img{% if cls %} class="{{ cls }}"{% endif %} src="{{ src | replace(from='/w342/', to='/w185/') }}" srcset="{% for tw in [185, 342] %}{{ src | replace(from='/w342/', to='/w' ~ tw ~ '/') }} {{ tw }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="{% if lazy %}auto, {% endif %}{{ sizes }}" alt="{{ alt }}" width="342" height="513"{% if lazy %} loading="lazy"{% endif %}{% if priority %} fetchpriority="high"{% endif %} decoding="async">
+{%- else -%}
+<img{% if cls %} class="{{ cls }}"{% endif %} src="{{ src }}" alt="{{ alt }}" width="342" height="513"{% if lazy %} loading="lazy"{% endif %}{% if priority %} fetchpriority="high"{% endif %} decoding="async">
+{%- endif -%}
+{% endmacro tmdb %}
+
+{# The catalogue search box, in the markup just before the list it searches
+   (data-findable). _filter.html wires it up; the reason it is markup and not
+   made by the script is in that file's header. `label` and `random` are the
+   same strings the list carries in data-findable and data-random. #}
+{% macro findbox(label, random) %}<div class="find"><input type="search" placeholder="{{ label }}" aria-label="{{ label }}"><button type="button" class="find-pick">{{ random }}</button><output></output></div>{% endmacro findbox %}
+
+{# Head half of the search box: its styles, and a rule that hides it without
+   JavaScript, since then it could not search. #}
+{% macro find_head() %}<noscript><style>.find{display:none}</style></noscript>{% endmacro find_head %}
+
+{# A script file, inline, without the comments that are on lines of their own
+   and without blank lines. load_data emits a file as it is and Zola's
+   minifier leaves JavaScript alone, so the comments that explain a script
+   would otherwise ship to every reader of the page: on the films page the
+   search script's were a kilobyte of compressed HTML. A comment after code on
+   the same line stays, since telling it from a // inside a string takes a
+   parser. The block-comment pattern matches one comment and no more: it
+   cannot run past a */ to reach a later one. #}
+{% macro script(path) %}<script>{{ load_data(path=path, format="plain") | regex_replace(pattern=`(?m)^[ \t]*(?:/\*[^*]*\*+(?:[^/*][^*]*\*+)*/|//[^\n]*)?[ \t]*\n`, rep="") | safe }}</script>{% endmacro script %}
+
+{# The site stylesheet with only the parts a page uses (see the PARTS note at
+   the top of _style.css). `parts` names them; "all" is every part. The file
+   is split at its markers and the pieces are emitted in order, so leaving a
+   part out never reorders what is left. A name that is not in the file stops
+   the build, rather than a page quietly losing its styles. #}
+{% macro style(parts) %}
+{%- set css = load_data(path="templates/_style.css", format="plain") -%}
+{%- for p in parts -%}{%- if p != "all" and not css is containing("/*@ " ~ p ~ " */") -%}{{ throw(message="_style.css has no part named " ~ p) }}{%- endif -%}{%- endfor -%}
+{%- for chunk in css | split(pat="/*@ ") -%}
+{%- set name = chunk | split(pat=" */") | first -%}
+{%- if loop.first -%}{{ chunk | safe }}{%- elif name == "shell" or name in parts or "all" in parts -%}/*@ {{ chunk | safe }}{%- endif -%}
+{%- endfor -%}
+{% endmacro style %}

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
+{% block style %}{{ ico::style(parts=["rows"]) }}{% endblock %}
 
 {# /blog/. The posts as one drift row, the same cards as the home page's Blog
    row, newest first. With few enough posts to fit the window the row sits
@@ -16,13 +17,11 @@
 
 <main id="main">
     <section style="padding-top:0.5rem">
-        <div class="marquee" style="--mq:{{ ico::mq_secs(n=n * 4) }}s">
+        <div class="marquee">
             <div class="mq-track">
-                {% for pass in [1, 2] %}
-                <span{% if pass == 2 %} class="mq-dup" aria-hidden="true"{% endif %}>
-                {% for post in section.pages %}{{ ico::post_card(post=post, quiet=pass == 2) }}{% endfor %}
+                <span>
+                {% for post in section.pages %}{{ ico::post_card(post=post, quiet=false, h=2) }}{% endfor %}
                 </span>
-                {% endfor %}
             </div>
         </div>
         {%- if config.generate_feeds %}
@@ -33,3 +32,5 @@
     </section>
 </main>
 {% endblock %}
+
+{% block drift %}{% include "_drift.html" %}{% endblock %}

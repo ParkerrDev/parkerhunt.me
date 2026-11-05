@@ -79,6 +79,20 @@ async function tmdb(path, params = {}) {
    the ~170 CSS px these render at. w500 doubles the bytes for nothing. */
 const BASE = "https://image.tmdb.org/t/p/w342";
 
+/* The pages also offer TMDb's w185 rendition, to 1x screens (ico::tmdb in
+   macros.html). TMDb's small renditions are occasionally broken: 8 Seconds'
+   w185 was a 500 KB file against 24 KB at w342. A poster whose w185 is not
+   the smaller file gets `small: false` and is only ever served at w342. */
+const SMALL = "https://image.tmdb.org/t/p/w185";
+async function size(url) {
+  const res = await fetch(url, { method: "HEAD", headers: UA, signal: AbortSignal.timeout(20000) }).catch(() => null);
+  return Number(res?.headers.get("content-length")) || 0;
+}
+async function smallIsSmaller(path) {
+  const small = await size(SMALL + path), full = await size(BASE + path);
+  return !(small && full && small >= full);
+}
+
 const data = JSON.parse(readFileSync(FILE, "utf8"));
 let found = 0, missed = [];
 
@@ -119,6 +133,7 @@ for (const { s, first } of queue) {
         votes: hit.vote_count || null,
         overview_len: (hit.overview || "").length,
       };
+      if (!(await smallIsSmaller(hit.poster_path))) s.poster.small = false;
       found++;
     } else {
       missed.push(s.title);

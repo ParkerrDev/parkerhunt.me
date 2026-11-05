@@ -2,6 +2,7 @@
 {% import "macros.html" as ico %}
 {% import "islands.html" as isle %}
 
+{% block style %}{{ ico::style(parts=["tiles"]) }}{% endblock %}
 {% block css_extra %}{{ load_data(path="templates/_islands.css", format="plain") | safe }}{% endblock %}
 
 {# /chess/, the full Chess.com record.

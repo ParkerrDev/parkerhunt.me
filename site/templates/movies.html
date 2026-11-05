@@ -1,12 +1,22 @@
 {% extends "base.html" %}
 {% import "macros.html" as ico %}
 {% import "islands.html" as isle %}
+{% import "_film.html" as fm %}
 
 {# Every film, at full height. The home page shows them in three marquee rows
    and points here. Same pipeline as the shows; see scripts/fetch-titles.mjs
    and scripts/fetch-posters.mjs; adding one is a line in watching.json. #}
 
 {% block filter %}{% include "_filter.html" %}{% endblock %}
+{% block style %}{{ ico::style(parts=["buttons", "tiling", "chips", "posters"]) }}{% endblock %}
+{% block css_extra %}{{ load_data(path="templates/_filter.css", format="plain") | safe }}{% endblock %}
+{% block hold %}{% include "_hold.html" %}{% endblock %}
+{% block head %}{{ ico::find_head() }}
+{# The posters come from TMDb's CDN: open that connection while the HTML is
+   still arriving, so the first ones above the fold are not waiting on it.
+   No crossorigin: an <img> asks without CORS, and a CORS preconnect is a
+   different connection it could not reuse. #}
+<link rel="preconnect" href="https://image.tmdb.org">{% endblock %}
 
 {# SORTED HERE, SHUFFLED ON THE HOME PAGE, and the two are not in conflict.
    The home page shows a sample and wants a different sample each build; this
@@ -31,21 +41,29 @@
 <main id="main">
     <section style="padding-top:0">
         <div class="wrap">
-            <div class="bento" data-findable="Search {{ titles.movie_count }} films…" data-random="Random film">
-                {% for m in titles.movies | sort(attribute="title") %}
-                {# `alias` is searchable text that is deliberately NOT displayed. A
-                   film is filed under its release title, and for the first entry in
-                   a series that title often has no trace of the series in it: First
-                   Blood is a Rambo film, Star Wars is A New Hope. Searching the
-                   franchise found the sequels and not the original, which reads as
-                   the original being missing. See site/data/watching.json. #}
-                <div class="chip" data-find="{{ m.title }} {{ m.year }} {% if m.genres %}{{ m.genres | join(sep=" ") }}{% endif %}{% if m.alias %} {{ m.alias }}{% endif %}">
-                    {{ isle::poster(w=m, size="lg") }}
-                    <span class="t-t">{{ m.title }}</span>
-                    <span class="t-s">{{ m.year }}{% if m.genres %} · {{ m.genres | first }}{% endif %}</span>
-                </div>
+            {# THE FIRST 48 HERE, THE REST ON /movies/more/. All 818 in one
+               response made the HTML 65 KB compressed, and a phone on a slow
+               link could not start the first poster until all of it had
+               arrived. 48 fills the first screens at any width. The other 770
+               follow the moment the reader does anything (a scroll, a key, a
+               tap, or the end of these coming near), and the search box and
+               Random wait for them, so both still cover every film; see the
+               data-more part of _filter.html. Without JavaScript the link
+               under the grid goes to the same page, which lists them. #}
+            {% set first = 48 %}
+            {% set rest = titles.movies | length - first %}
+            {{ ico::findbox(label="Search " ~ titles.movie_count ~ " films…", random="Random film") }}
+            <div class="bento bento--wall" data-findable="Search {{ titles.movie_count }} films…" data-random="Random film" data-more="/movies/more/">
+                {% set films = titles.movies | sort(attribute="title") %}
+                {% for m in films | slice(end=first) %}
+                {# Two load at once, both at high priority: the first row on a
+                   phone, and the start of it on a wide screen. Each one more
+                   competes with the first for a phone's bandwidth, so the
+                   rest are lazy and wait for these two (_hold.html). #}
+                {% if loop.index <= 2 %}{% set ld = loop.index %}{% else %}{% set ld = 0 %}{% endif %}{{ fm::film(m=m, lead=ld) }}
                 {% endfor %}
             </div>
+            {% if rest > 0 %}<p class="find-more"><a class="btn" href="/movies/more/" data-more-link>The other {{ rest }} films</a></p>{% endif %}
         </div>
     </section>
 

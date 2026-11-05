@@ -21,6 +21,16 @@
  * shell, the shell's tokens never fight the brands, and a blog post does not
  * carry 13 KB of Steam blue it has no use for.
  *
+ * PARTS. A page gets the shell and only the parts it uses: ico::style() in
+ * macros.html emits this file without the parts a page does not ask for, and a
+ * page names its parts in its `style` block (base.html). Each part starts at a
+ * marker comment, slash-star-at and its name, and runs to the next marker;
+ * "shell" goes to every page. The order on the page is this file's order,
+ * whatever parts are left out, so the cascade is the same everywhere. The home
+ * page takes them all. The films page took about 4 KB of compressed CSS it had
+ * no use for, which was the difference between its HTML arriving in one round
+ * trip on a phone or in two.
+ *
  * THE LAYOUT (2026-11-05), on top of that look:
  *   1. Everything centred: every heading, every intro, every button. Rows of
  *      cards run the full width of the window underneath.
@@ -114,6 +124,8 @@ body {
 
 img, svg { max-width: 100%; display: block; }
 img { height: auto; }
+/* An image _hold.html is holding back shows its box, not its alt text. */
+img[data-held-src] { visibility: hidden; }
 a { color: inherit; text-decoration: none; }
 
 .wrap { max-width: var(--page); margin: 0 auto; padding: 0 1.5rem; }
@@ -185,7 +197,12 @@ a { color: inherit; text-decoration: none; }
    right edge says they scroll. */
 @media (max-width: 40rem) {
   .bar-in { grid-template-columns: auto 1fr auto; gap: 0.875rem; padding: 0 1rem; }
-  .bar-home span { display: none; }
+  /* Hidden from sight, not from screen readers: the name is the link's only
+     text, so display:none would leave a link that says nothing. */
+  .bar-home span {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+  }
   .bar-nav {
     gap: 1.25rem;
     -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.25rem), transparent);
@@ -260,6 +277,7 @@ a { color: inherit; text-decoration: none; }
 .pill--wide svg { width: 0.9375rem; height: 0.9375rem; }
 .links:has(> .pill--wide) { gap: 0.75rem; }
 
+/*@ buttons */
 /* ------------------------------------------------------------- buttons -- */
 /* Rectangular, uppercase, monospaced and letter-spaced. Two kinds only: an
    outline and a solid white. On hover the outline fills and the solid one
@@ -275,6 +293,7 @@ a { color: inherit; text-decoration: none; }
 .btn--solid { background: var(--fg); color: var(--bg); }
 .btn--solid:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 
+/*@ shell */
 /* --------------------------------------------------------------- section -- */
 /* No alternating bands: every section sits on the same black, separated by
    space and one hairline. */
@@ -297,6 +316,7 @@ section + section { border-top: 1px solid var(--line-soft); }
   text-transform: uppercase; color: var(--faint); margin: 0 0 0.5rem; text-align: center;
 }
 
+/*@ home */
 /* ----------------------------------------------------------- generic card -- */
 .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr)); }
 .grid--wide { grid-template-columns: repeat(auto-fill, minmax(min(21rem, 100%), 1fr)); }
@@ -324,6 +344,7 @@ a.card:hover { box-shadow: var(--shadow-3); transform: translateY(-2px); border-
 }
 .card-meta { margin-top: auto; padding-top: 0.625rem; font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); }
 
+/*@ rows */
 /* ------------------------------------------------------------ row cards -- */
 /* The cards that live in drift rows. Fixed widths, because 1fr means nothing
    in a flex row wider than the screen, and the whole card is the link. */
@@ -396,6 +417,7 @@ a.tc:hover { border-color: var(--accent); transform: translateY(-1px); box-shado
 .cta-card .btn { margin-top: 0.625rem; }
 
 /* =========================================================== 3. MODULES === */
+/*@ ideas */
 /* ----------------------------------------------------------------- ideas -- */
 /* Numbered because the list is long and the number is the honest signal: this
    is a running notebook, not a curated ten. */
@@ -412,6 +434,7 @@ a.tc:hover { border-color: var(--accent); transform: translateY(-1px); box-shado
    different text lengths still has its labels on one line. */
 .idea-tag { align-self: flex-start; margin-top: auto; font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); border: 1px solid var(--line-soft); border-radius: 999px; padding: 0.125rem 0.5rem; }
 
+/*@ quotes */
 /* ---------------------------------------------------------------- quotes -- */
 /* Set large in the page's own face, with the attribution in small mono
    capitals underneath. */
@@ -428,6 +451,7 @@ a.tc:hover { border-color: var(--accent); transform: translateY(-1px); box-shado
    a one-line quote sat at the top of a box three times its size. */
 .mq-track .quote { align-self: flex-start; }
 
+/*@ home */
 /* ------------------------------------------------------------------ list -- */
 /* Shared by books, films, shows, bucket list, links: a hairline row that is
    basically free and reads as a well-set table of contents. */
@@ -445,6 +469,7 @@ a.row:hover .row-t { color: var(--link); }
 .check--done { color: #34c759; }
 .row--done .row-t { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line); }
 
+/*@ tiles */
 /* ----------------------------------------------------------------- tiles -- */
 .tiles { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr)); }
 .tile {
@@ -464,6 +489,7 @@ a.row:hover .row-t { color: var(--link); }
 .bar-track { height: 6px; background: var(--line-soft); border-radius: 999px; overflow: hidden; }
 .bar-fill { height: 100%; background: var(--accent); border-radius: 999px; }
 
+/*@ games */
 /* ------------------------------------------------------------------ games -- */
 /* The four favourites, with art. Deliberately not the Steam island: these are
    a personal ranking, not a library listing, so they use the site's own card. */
@@ -502,6 +528,7 @@ a.row:hover .row-t { color: var(--link); }
 .gamelist i { width: 0.3125rem; height: 0.3125rem; border-radius: 50%; flex-shrink: 0; background: var(--accent); transform: translateY(-0.15em); }
 .gamelist i.off { background: transparent; box-shadow: inset 0 0 0 1px var(--faint); }
 
+/*@ home */
 /* ---------------------------------------------------------------- distros -- */
 /* The distro-hopping progression as one chain. Numbered rather than dated
    because there are no dates, the order is the whole content. The arrow is a
@@ -526,6 +553,7 @@ a.row:hover .row-t { color: var(--link); }
 .distro-notes li { break-inside: avoid; padding: 0.1875rem 0; }
 .distro-notes b { color: var(--fg); font-weight: 500; }
 
+/*@ novel */
 /* ----------------------------------------------------------------- novel -- */
 /* A reading page. Serif, a narrow measure and 1.75 leading, because each
    chapter is one unbroken paragraph and that is what makes it readable. */
@@ -560,6 +588,7 @@ a.row:hover .row-t { color: var(--link); }
   .novel p { text-align: left; }
 }
 
+/*@ shell */
 /* ----------------------------------------------------------------- prose -- */
 /* A reading column, centred under its centred title. The title and the column
    share one centre line, which is what the post page was missing when it
@@ -573,8 +602,10 @@ a.row:hover .row-t { color: var(--link); }
 .prose p { margin: 0 0 1.25em; }
 .prose p:last-child { margin-bottom: 0; }
 .prose strong { color: var(--fg); font-weight: 600; }
-.prose a { color: var(--link); }
-.prose a:hover { text-decoration: underline; }
+/* Underlined, faintly, and fully on hover. Colour alone does not mark a link
+   inside a sentence for anyone who cannot tell the blue from the grey. */
+.prose a { color: var(--link); text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); text-underline-offset: 3px; }
+.prose a:hover { text-decoration-color: currentColor; }
 .prose h2, .prose h3, .prose h4 { color: var(--fg); text-wrap: balance; }
 .prose h2 { font-size: 1.5em; font-weight: 500; line-height: 1.2; letter-spacing: -0.025em; margin: 2.25em 0 0.6em; }
 .prose h3 { font-size: 1.2em; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; margin: 1.9em 0 0.5em; }
@@ -593,6 +624,7 @@ a.row:hover .row-t { color: var(--link); }
 .back:hover { color: var(--fg); }
 .back svg { width: 0.875rem; height: 0.875rem; }
 
+/*@ resume */
 /* --------------------------------------------------------------- résumé --- */
 .resume-frame {
   width: 100%; height: min(82vh, 60rem);
@@ -600,6 +632,7 @@ a.row:hover .row-t { color: var(--link); }
   background: var(--bg-soft); overflow: hidden;
 }
 
+/*@ shell */
 /* ---------------------------------------------------------------- footer -- */
 /* `body > footer`, not `footer`: <figure class="quote"> uses a real <footer>
    for the attribution, and an unscoped rule was giving every quote card a
@@ -614,6 +647,7 @@ body > footer { border-top: 1px solid var(--line-soft); padding: 2.25rem 0 3rem;
 .colophon { margin-top: 0.875rem; font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); }
 
 
+/*@ tiling */
 /* =========================================================== 4. TILING ==== */
 /* The whole page is tiles now. It used to be a column of full-width rows,
    book, then book, then book, each one a bar the width of the screen with three
@@ -645,60 +679,53 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .t-s { font-size: 0.75rem; color: var(--muted); line-height: 1.35; }
 .t-big { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
 
+/*@ rows */
 /* ------------------------------------------------------------- marquee -- */
 /* Drift rows, the site's motif. Each row is full width and moves slowly and
    forever; it stops under the pointer, and can be dragged, swiped or scrolled
    sideways with a trackpad.
 
-   The markup holds the cards twice: .mq-track > span, then a second span with
-   .mq-dup. Without JavaScript the CSS animation below runs the track through
-   -50% and loops. With it, templates/_drift.js takes over (.mq-live): it
-   moves the track itself, adds as many copies as a wide window needs, and
-   stops a row that is too short to need moving at all (.mq-still), centred,
-   because three cards gliding past a screen that could show them all at once
-   is motion for its own sake. */
+   The markup holds each set of cards once: .mq-track > span. As it arrives,
+   and for anyone without JavaScript, a row is an ordinary sideways scroller,
+   and a row that fits is centred (safe center: centred when it fits, start
+   aligned when it does not, so nothing is ever cut off on the left).
+   templates/_drift.js takes a row over (.mq-live) as it nears the viewport:
+   it moves the track itself, adds the copies a loop needs, and leaves a row
+   that fits still (.mq-still), because three cards gliding past a screen that
+   could show them all at once is motion for its own sake. The take-over moves
+   nothing on screen: the set sits where the scroller had it. */
 .marquee {
   --row-gap: 1rem;
-  overflow: hidden;
-  /* Room for a card's hover lift, which overflow:hidden would otherwise cut. */
+  overflow-x: auto; overflow-y: hidden;
+  scrollbar-width: none;
+  /* Room for a card's hover lift, which the overflow would otherwise cut. */
   padding: 0.375rem 0;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 4vw, #000 calc(100% - 4vw), transparent);
   mask-image: linear-gradient(90deg, transparent, #000 4vw, #000 calc(100% - 4vw), transparent);
 }
+.marquee::-webkit-scrollbar { display: none; }
 .marquee + .marquee { margin-top: 0.25rem; }
-.mq-track {
-  display: flex; gap: var(--row-gap); width: max-content;
-  animation: mq var(--mq, 60s) linear infinite;
-  will-change: transform;
-}
+.mq-track { display: flex; gap: var(--row-gap); justify-content: safe center; }
 .mq-track > span { display: flex; gap: var(--row-gap); flex: none; }
-.marquee:hover .mq-track, .marquee:focus-within .mq-track { animation-play-state: paused; }
-.mq-rev .mq-track { animation-direction: reverse; }
-@keyframes mq { to { transform: translate3d(-50%, 0, 0); } }
 
 /* Driven by the script. pan-y keeps a vertical swipe scrolling the page while
    a sideways one drags the row. */
-.mq-live { touch-action: pan-y; cursor: grab; }
-.mq-live .mq-track { animation: none; }
+.mq-live { overflow: hidden; touch-action: pan-y; cursor: grab; }
+.mq-live:not(.mq-still) .mq-track { justify-content: flex-start; will-change: transform; }
 .mq-live.is-dragging { cursor: grabbing; }
 .mq-live.is-dragging .mq-track { pointer-events: none; }
 .mq-live img, .mq-live a { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; }
 .mq-still { cursor: auto; -webkit-mask-image: none; mask-image: none; }
-/* No wrapping here: the set keeps its one-line width, which is what the script
-   measures to decide when the row has to move again. */
-.mq-still .mq-track { width: auto; justify-content: center; transform: none !important; }
+.mq-still .mq-track { transform: none !important; }
 .mq-still .mq-dup { display: none; }
 
-/* Reduced motion turns it into an ordinary scroller rather than a frozen one:
-   the content is still all reachable, it just waits to be pushed. The second
-   copy is hidden so it is not read out twice. The script stands aside. */
+/* Reduced motion keeps the scroller: the content is all reachable, it just
+   waits to be pushed. The script stands aside. */
 @media (prefers-reduced-motion: reduce) {
-  .marquee { overflow-x: auto; scrollbar-width: none; }
-  .marquee::-webkit-scrollbar { display: none; }
-  .mq-track { animation: none; padding: 0 1.5rem; }
-  .mq-dup { display: none; }
+  .mq-track { padding: 0 1.5rem; }
 }
 
+/*@ photos */
 /* --------------------------------------------------------------- photos -- */
 /* Picture tiles. aspect-ratio holds the box before the bytes land, and the
    caption sits on a gradient rather than a solid bar so the photograph is not
@@ -728,6 +755,7 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .credits summary { cursor: pointer; width: max-content; font-size: 0.75rem; color: var(--faint); }
 .credits summary:hover { color: var(--fg); }
 
+/*@ chips */
 /* ---------------------------------------------------------------- swatch -- */
 /* The distro discs. Same rules as .mark, white, ringed, logo in the project's
    own colour, just bigger, because these are the subject of their section
@@ -748,6 +776,15 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .chip { display: flex; flex-direction: column; gap: 0.375rem; min-width: 0; }
 .chip .t-t { text-align: center; }
 .chip--now .swatch { box-shadow: inset 0 0 0 2px var(--c); }
+/*@ posters */
+/* A wall of hundreds of cards (the films page). Past the first four, a card
+   that is not near the screen is not laid out or painted, and its lazy
+   poster is not fetched, until it comes within reach.
+   On a wide screen the rest of the first row is on screen and drawn at once
+   regardless. 21rem is about one card at phone width, a 2:3 poster on a
+   ~11rem column plus two lines; `auto` keeps each card's real height once it
+   has been drawn, so the page does not shrink back when you scroll away. */
+.bento--wall > .chip:nth-child(n + 5) { content-visibility: auto; contain-intrinsic-size: auto 21rem; }
 
 /* Typographic posters for the shows. Set in this site's own face rather than
    scanned off the real artwork, which belongs to the people who made it. */
@@ -782,6 +819,7 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .poster--slate { background: #17171a; color: #9a9aa2; }
 .poster-i { width: 100%; height: auto; max-height: 62%; object-fit: contain; margin: auto 0; }
 .chip--rail { width: 7.5rem; flex: none; scroll-snap-align: start; }
+/*@ home */
 /* Place tiles. Fixed width for the rail, and a caption that sits on a gradient
    rather than cropping the photograph with a solid bar. */
 .place { width: 15rem; flex: none; scroll-snap-align: start; aspect-ratio: 3 / 2; }
@@ -792,6 +830,7 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .poster--sm .poster-y { font-size: 0.5625rem; line-height: 1.3; }
 .poster-y { font-family: var(--mono); font-size: 0.625rem; opacity: 0.7; margin-top: 0.25rem; }
 
+/*@ covers */
 /* Book covers. object-fit:contain, not cover, a jacket cropped to a square is
    a jacket with its title cut off. */
 /* display:block is load-bearing, this is a <span>, and aspect-ratio is
@@ -799,6 +838,7 @@ a.tile-s2:hover { border-color: var(--accent); transform: translateY(-1px); box-
 .cover { display: block; aspect-ratio: 2 / 3; border-radius: 6px; overflow: hidden; background: var(--bg-soft); box-shadow: var(--shadow-2); }
 .cover img { width: 100%; height: 100%; object-fit: cover; }
 
+/*@ home */
 /* ----------------------------------------------------------------- marks -- */
 /* NOT CIRCLES. A disc is fine for a square glyph and wrong for everything else:
    a wordmark that has to fit inside one gets shrunk until it cannot be read,
@@ -899,6 +939,7 @@ a.novel-card:hover { border-color: var(--accent); transform: translateY(-1px); b
 @keyframes pulse { 70% { box-shadow: 0 0 0 0.4375rem rgba(48, 192, 95, 0); } 100% { box-shadow: 0 0 0 0 rgba(48, 192, 95, 0); } }
 @media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
 
+/*@ shell */
 /* --------------------------------------------------------------- a11y/UA -- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -914,6 +955,7 @@ a.novel-card:hover { border-color: var(--accent); transform: translateY(-1px); b
   section + section { border: 0; }
 }
 
+/*@ home */
 /* Map legend and the per-card link out to Google Maps. A link, deliberately,
    and not an embed: the Maps Embed API is free and unlimited but wants a
    billing account on file, and forty-six iframes would put forty-six
@@ -924,8 +966,8 @@ a.novel-card:hover { border-color: var(--accent); transform: translateY(-1px); b
 .key--place { background: #fff0a6; }
 .key--ski { background: #ffc4a3; }
 .key--peak { background: #a8f5c9; }
-.pinlink { color: var(--link); }
-.pinlink:hover { text-decoration: underline; }
+.pinlink { color: var(--link); text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); text-underline-offset: 3px; }
+.pinlink:hover { text-decoration-color: currentColor; }
 
 /* The X profile card. Live on every build, the account is protected, so the
    timeline is unreadable by anything, but the header is public. */

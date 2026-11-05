@@ -7,6 +7,14 @@
    site/data/watching.json and a re-run. #}
 
 {% block filter %}{% include "_filter.html" %}{% endblock %}
+{% block style %}{{ ico::style(parts=["all"]) }}{% endblock %}
+{% block css_extra %}{{ load_data(path="templates/_filter.css", format="plain") | safe }}{% endblock %}
+{% block head %}{{ ico::find_head() }}
+{# The posters come from TMDb's CDN: open that connection while the HTML is
+   still arriving, so the first ones above the fold are not waiting on it.
+   No crossorigin: an <img> asks without CORS, and a CORS preconnect is a
+   different connection it could not reuse. #}
+<link rel="preconnect" href="https://image.tmdb.org">{% endblock %}
 
 {# SORTED HERE, SHUFFLED ON THE HOME PAGE, and the two are not in conflict.
    The home page shows a sample and wants a different sample each build; this
@@ -42,12 +50,13 @@
 <main id="main">
     <section style="padding-top:0">
         <div class="wrap">
+            {{ ico::findbox(label="Search " ~ titles.count ~ " shows…", random="Random show") }}
             <div class="bento" data-findable="Search {{ titles.count }} shows…" data-random="Random show">
                 {% for w in titles.shows | sort(attribute="title") %}
                 {# `alias` is searchable text that is deliberately not displayed,
                    see the note in movies.html. #}
                 <div class="chip" data-find="{{ w.title }} {{ w.year }} {% if w.genres %}{{ w.genres | join(sep=" ") }}{% endif %}{% if w.alias %} {{ w.alias }}{% endif %}">
-                    {{ isle::poster(w=w, size="lg") }}
+                    {% if loop.index <= 12 %}{% set ld = loop.index %}{% else %}{% set ld = 0 %}{% endif %}{{ isle::poster(w=w, size="lg", lead=ld) }}
                     <span class="t-t">{{ w.title }}</span>
                     {% if w.genres %}<span class="t-s">{{ w.genres | join(sep=" · ") }}</span>{% endif %}
                     {% if w.note %}<span class="t-k">{{ w.note }}</span>{% endif %}
