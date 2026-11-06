@@ -18,6 +18,13 @@
    width, and a mark sized by its height alone came out 20px wide instead of
    15. _style.css hides it until it is back.
 
+   A lazy image marked data-wide-eager (ico::pic's wide_eager) is held only on
+   a phone. It is one that is on screen at load on a wide screen and under the
+   fold on a narrow one, like the second and third project cards, so on a wide
+   screen it is left to the browser, which starts it at the first layout. The
+   line is 45rem, the width from which the card art's `sizes` counts two
+   columns.
+
    In the head, so the observer is in place before the parser reaches the first
    image. Put back by attribute, not from a list, so the copies the drift rows
    make of a held card come back too. Without JavaScript none of this runs.

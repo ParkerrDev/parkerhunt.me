@@ -16,8 +16,13 @@
 
    The art is sized to the card: `sizes` is the card art's layout width, the
    /projects/ grid's by default, and the home page passes the drift row's. The
-   first three cards' art loads at once and the first of all is fetched first
-   when `lead` is set, since on /projects/ it is the largest thing on screen. #}
+   first card's art loads at once, and is fetched first when `lead` is set,
+   since on /projects/ it is the largest thing on screen. The second and third
+   are in the first row on a wide screen but under the fold on a phone, where
+   their 70 KB held back the first card's. So they are lazy and wide_eager:
+   on a phone _hold.js keeps them until the page has loaded, and on a wide
+   screen it leaves them to the browser, which starts them at the first
+   layout. #}
 {% import "macros.html" as ico %}
 {% macro card(project, i, h=3, sizes="(min-width: 66rem) 24rem, (min-width: 45rem) calc(50vw - 3.25rem), calc(100vw - 4.625rem)", lead=false) %}
 {% set site = project.extra.website_url | default(value="") %}
@@ -52,7 +57,7 @@
 
     {% if project.extra.card_image %}
     <div class="pc-art">
-        {{ ico::pic(src=project.extra.card_image, widths=[360, 450, 560, 680], sizes=sizes, w=900, h=338, lazy=i > 3, priority=lead and i == 1) }}
+        {{ ico::pic(src=project.extra.card_image, widths=[360, 450, 560, 680], sizes=sizes, w=900, h=338, lazy=i > 1, priority=lead and i == 1, wide_eager=i <= 3) }}
     </div>
     {% endif %}
 </article>
