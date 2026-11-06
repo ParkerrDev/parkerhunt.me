@@ -59,8 +59,24 @@
       if (src !== null) { img.setAttribute("src", src); img.removeAttribute("data-held-src"); }
     }
   }
-  // After the frame that paints the first images, not during it.
+  // Once the first paint is on screen, and two frames after load.
+  function painted(then) {
+    var PO = window.PerformanceObserver;
+    var fcp = "first-contentful-paint";
+    if (!PO || !PO.supportedEntryTypes || PO.supportedEntryTypes.indexOf("paint") < 0) return then();
+    if (performance.getEntriesByName(fcp).length) return then();
+    var seen = new PO(function (list) {
+      if (!list.getEntriesByName(fcp).length) return;
+      seen.disconnect();
+      then();
+    });
+    seen.observe({ type: "paint", buffered: true });
+  }
   addEventListener("load", function () {
-    requestAnimationFrame(function () { setTimeout(release, 0); });
+    painted(function () {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { setTimeout(release, 0); });
+      });
+    });
   });
 })();

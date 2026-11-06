@@ -12,6 +12,12 @@
    after the HTML if something is slow. They are still lazy then, so only the
    ones near the screen start.
 
+   "Painted" is the first contentful paint, as the browser reports it once it
+   is on screen, and then two frames more, for the eager images that land just
+   before load. The load event alone is not enough: a preloaded webfont can
+   hold the first paint back past it, and the images then started before
+   anything was on screen. A browser without paint timing goes by load.
+
    While it waits, an image with a width and height shows an empty SVG of
    that size instead, so its box has the shape it will have: an img whose src
    is taken away is drawn as a broken image, at the broken-image icon's
