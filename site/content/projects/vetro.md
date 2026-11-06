@@ -3,7 +3,7 @@ title = "Vetro"
 description = "Real liquid glass for Omarchy: the bar, the menu, the panels, the notifications, the lock screen and your windows. Your theme stays yours."
 date = 2026-10-24
 updated = 2026-10-28
-weight = 3
+weight = 4
 [extra]
 kind = "LINUX DESKTOP"
 brand_manual = true

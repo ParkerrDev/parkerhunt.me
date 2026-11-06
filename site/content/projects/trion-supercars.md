@@ -3,7 +3,7 @@ title = "Trion Supercars Website"
 description = "Designed in Figma, then built and deployed by hand: Alpine.js templating the page and three.js rendering the cars in a configurator."
 date = 2026-03-02
 updated = 2026-04-04
-weight = 6
+weight = 7
 [extra]
 kind = "WEBSITE"
 brand_image = "/imgs/project-brand/trion-supercars-mark-364230fa.webp"
