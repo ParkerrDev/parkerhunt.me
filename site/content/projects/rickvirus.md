@@ -3,7 +3,7 @@ title = "Rickvirus"
 description = ""
 date = 2026-03-01
 updated = 2026-04-04
-weight = 9
+weight = 11
 [extra]
 kind = "WEBSITE"
 brand_manual = true

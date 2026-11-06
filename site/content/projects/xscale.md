@@ -3,7 +3,7 @@ title = "xscale"
 description = "X11 apps on Hyprland, as sharp as Wayland apps and the same size, on every monitor: a protocol event, an Xwayland patch and a Hyprland patch."
 date = 2026-10-24
 updated = 2026-10-29
-weight = 5
+weight = 6
 [extra]
 kind = "DISPLAY SCALING"
 card_image = "/imgs/project-cards/opt/xscale-67e07abc.webp"
