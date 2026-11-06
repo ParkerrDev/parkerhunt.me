@@ -206,8 +206,10 @@
    which lets the browser read the width off the layout; the given value is the
    fallback for browsers without it. An SVG or anything that is not a local
    file is passed through as it was. `w`/`h` are the attributes that hold the
-   box before the bytes land; they default to the file's own size. #}
-{% macro pic(src, widths, sizes, alt="", cls="", w=0, h=0, lazy=true, priority=false, q=82, style="") %}
+   box before the bytes land; they default to the file's own size.
+   `wide_eager` marks a lazy image that _hold.js leaves alone on a wide
+   screen (see _hold.html). #}
+{% macro pic(src, widths, sizes, alt="", cls="", w=0, h=0, lazy=true, priority=false, q=82, style="", wide_eager=false) %}
 {%- set local = src is starting_with("/") and not src is ending_with(".svg") -%}
 {%- if local -%}{%- set path = src | trim_start_matches(pat="/") -%}{%- set meta = get_image_metadata(path=path, allow_missing=true) -%}{%- else -%}{%- set meta = false -%}{%- endif -%}
 {%- if meta -%}
@@ -219,9 +221,9 @@
 {%- endif -%}{%- endfor -%}
 {%- set_global cand = cand | concat(with=src ~ " " ~ meta.width ~ "w") -%}
 {%- set lead = cand | first -%}{%- set first = lead | split(pat=" ") | first -%}
-<img{% if cls %} class="{{ cls }}"{% endif %} src="{{ first }}" srcset="{{ cand | join(sep=', ') }}" sizes="{% if lazy %}auto, {% endif %}{{ sizes }}" width="{% if w %}{{ w }}{% else %}{{ meta.width }}{% endif %}" height="{% if h %}{{ h }}{% else %}{{ meta.height }}{% endif %}" alt="{{ alt }}"{% if style %} style="{{ style }}"{% endif %}{% if lazy %} loading="lazy"{% endif %}{% if priority %} fetchpriority="high"{% endif %} decoding="async">
+<img{% if cls %} class="{{ cls }}"{% endif %} src="{{ first }}" srcset="{{ cand | join(sep=', ') }}" sizes="{% if lazy %}auto, {% endif %}{{ sizes }}" width="{% if w %}{{ w }}{% else %}{{ meta.width }}{% endif %}" height="{% if h %}{{ h }}{% else %}{{ meta.height }}{% endif %}" alt="{{ alt }}"{% if style %} style="{{ style }}"{% endif %}{% if lazy %} loading="lazy"{% if wide_eager %} data-wide-eager{% endif %}{% endif %}{% if priority %} fetchpriority="high"{% endif %} decoding="async">
 {%- else -%}
-<img{% if cls %} class="{{ cls }}"{% endif %} src="{{ src }}"{% if w %} width="{{ w }}" height="{{ h }}"{% endif %} alt="{{ alt }}"{% if style %} style="{{ style }}"{% endif %}{% if lazy %} loading="lazy"{% endif %}{% if priority %} fetchpriority="high"{% endif %} decoding="async">
+<img{% if cls %} class="{{ cls }}"{% endif %} src="{{ src }}"{% if w %} width="{{ w }}" height="{{ h }}"{% endif %} alt="{{ alt }}"{% if style %} style="{{ style }}"{% endif %}{% if lazy %} loading="lazy"{% if wide_eager %} data-wide-eager{% endif %}{% endif %}{% if priority %} fetchpriority="high"{% endif %} decoding="async">
 {%- endif -%}
 {% endmacro pic %}
 

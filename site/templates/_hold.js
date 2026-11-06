@@ -2,8 +2,10 @@
 (function () {
   if (!("MutationObserver" in window)) return;
   var SEL = 'img[loading="lazy"]';
+  var wide = window.matchMedia && matchMedia("(min-width: 45rem)").matches;
 
   function hold(img) {
+    if (wide && img.hasAttribute("data-wide-eager")) return;
     // Once only: a drift row's copy of a held card already has the placeholder.
     if (img.hasAttribute("data-held-src") || img.hasAttribute("data-held-srcset")) return;
     var set = img.getAttribute("srcset");
