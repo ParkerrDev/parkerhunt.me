@@ -3,7 +3,17 @@ License, Version 1.1. Each is the Latin subset as Google Fonts serves it,
 renamed with the first eight hex digits of its SHA-256.
 
   geist-19f9c925.woff2         Geist, https://github.com/vercel/geist-font
-  martian-mono-f9c1655c.woff2  Martian Mono, https://github.com/evilmartians/mono
+  martian-mono-1a9a8bd3.woff2  Martian Mono, https://github.com/evilmartians/mono
+
+Martian Mono is modified: its width axis is fixed at 87.5, the one width
+the site uses, and every glyph and the weight axis are left as they were.
+With fontTools, from the file Google Fonts serves (mm.woff2):
+
+  fonttools ttLib.woff2 decompress -o mm.ttf mm.woff2
+  fonttools varLib.instancer mm.ttf wdth=87.5 -o mm-875.ttf
+  pyftsubset mm-875.ttf --unicodes='*' --layout-features='*' \
+    --name-IDs='*' --name-languages='*' --notdef-outline \
+    --flavor=woff2 --output-file=martian-mono.woff2
 
 ========================================================================
 Geist

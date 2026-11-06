@@ -46,16 +46,18 @@
 /* ----------------------------------------------------------------- fonts -- */
 /* swap: the fallback paints at once and the face replaces it when it lands,
    rather than holding the text invisible. Both files are variable fonts, so
-   one file is every weight. Martian Mono also has a width axis; the face is
-   pinned at 87.5%, narrower than its default, so an uppercase, letter-spaced
-   button label does not run as wide as a sentence. */
+   one file is every weight. Martian Mono is set at 87.5% of its width,
+   narrower than its default, so an uppercase, letter-spaced button label does
+   not run as wide as a sentence. The width is fixed in the file itself, which
+   took its width axis out and 15 KB off it (see static/fonts/LICENSE.txt);
+   the face still says 87.5% because that is what the file is. */
 @font-face {
   font-family: "Geist"; font-style: normal; font-weight: 100 900; font-display: swap;
   src: url("/fonts/geist-19f9c925.woff2") format("woff2");
 }
 @font-face {
   font-family: "Martian Mono"; font-style: normal; font-weight: 100 800; font-stretch: 87.5%; font-display: swap;
-  src: url("/fonts/martian-mono-f9c1655c.woff2") format("woff2");
+  src: url("/fonts/martian-mono-1a9a8bd3.woff2") format("woff2");
 }
 
 /* ---------------------------------------------------------------- tokens -- */
