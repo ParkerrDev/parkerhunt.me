@@ -27,7 +27,8 @@ taxonomies = []
 lazy_async_image = true
 
 [extra]
-# The blog is on. To take it down, set this to false AND put `draft = true`
-# back in content/blog/_index.md (see the note there): this hides the home
-# page's Blog row and the nav link, the draft removes the pages themselves.
-blog = true
+# The blog is off: content/blog/_index.md is drafted, so the posts and /blog/
+# leave the build, and this hides the home page's Blog row and the nav link.
+# To bring the blog back, set this true AND delete `draft = true` from
+# content/blog/_index.md (see the note there). Both, or the build stops.
+blog = false
